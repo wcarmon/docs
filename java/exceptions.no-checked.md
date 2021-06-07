@@ -129,17 +129,24 @@
     
 
 --------
-# Modern libraries
-
-
---------
 # Tools
+## Item-15: IDEs like Intellij, Eclipse and Netbeans all default to an anti-pattern
+
+- By default:
+```java
+try {
+    legacyMethod(); // throws Checked Exception
+
+} catch ( TheCheckedException ex ) { 
+	ex.printStackTrace(); // <--- this is the Error hiding anti-pattern
+}
+```
 
 
 --------
 # Code bloat
 
-## Item-1x: Java compiler forces you to choose among terrible options
+## Item-16: Java compiler forces you to choose among terrible options
 1. Compiler forces you to acknowledge
     - It doesn't force you to handle cleanly
     - It doesn't force you to handle runtime exceptions
@@ -179,6 +186,18 @@ try {
     - eg. What to do when [IOException](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/IOException.html) thrown while **closing** a Connection?
 1. Exceptions are propagated up to a Component that CAN handle it.
     - This means you're using options above until you get to the real handler
+
+
+--------
+# Modern libraries
+## Item-17
+
+## Item-18
+
+## Item-19
+
+## Item-20
+
 
     
 --------
