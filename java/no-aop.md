@@ -18,53 +18,55 @@
 ## Compile time weaving (static)
 1. Woven during compilation
 1. **Requires a special compiler**
-1. Compiler is slower (EVERY build is slower)
+1. Compiler is slower (**EVERY** build is slower)
 1. Compiler incompatible with java compiler improvements over time
 1. Compiler incompatible with [Kotlin](https://kotlinlang.org/) compiler
 1. Incompatibilities with modern tools like [GraalVM](https://www.graalvm.org/)
 
 
 ## Class-load time weaving (static)
-1. Woven during class loading
+1. Woven during class loading (at runtime)
 1. Slower runtime
 1. **Requires special [ClassLoader](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/ClassLoader.html)**
 1. Possible conflicts with other class loaders
 1. Impact of aspects only known at runtime
-  1. Increased complexity for reasoning about the code behavior from source
+    1. Increased complexity for reasoning about the code behavior from source
 
 
 ## Runtime weaving (Dynamic)
-1. Woven during execution
+1. Woven during execution (at runtime, after class loading)
 1. Impact of aspects only known at runtime
 
 ### Proxy based
 - Spring uses this
 
-### Runtime weaving
-
 
 --------
 # [Analogies](#Analogies)
 1. Adding AOP is like paying a loan off with a credit card
-  1. If you are considering AOP, you have technical debt (eg. it's hard to add transactions or logging)
-  1. AOP creates more debt (harder to reason about code, harder to maintain)
+    1. If you are considering AOP, you have technical debt (eg. it's hard to add transactions or logging)
+    1. AOP creates more debt (harder to reason about code, harder to maintain)
 1. AOP is a glitter bomb in a white stirt factory (your code)
-  1. If you own the factory, you don't want it there
-  1. If you own the glitter bomp, you're not as concerned
-  1. You'd rather contain & minimize the damage it can create
-  1. It can ruin the day for people that are unaware of its presence
-  1. You are forced to constantly think about it when making decisions
-  1. The kinds of mistakes it creates are very expensive to fix
-  1. Proper handling requires expertise and education for everyone involved
+    1. If you own the factory, you don't want it there
+    1. If you own the glitter bomp, you're not as concerned
+    1. You'd rather contain & minimize the damage it can create
+    1. It can ruin the day for people that are unaware of its presence
+    1. You are forced to constantly think about it when making decisions
+    1. The kinds of mistakes it creates are very expensive to fix
+    1. Proper handling requires expertise and education for everyone involved
 
 
 
 --------
 # [Disadvantages](#disadvantages)
 ##[Item-01](#item-01)
+
 ##[Item-02](#item-02)
+
 ##[Item-03](#item-03)
+
 ##[Item-04](#item-04)
+
 
 
 - no AOP books published in the last 8 years
