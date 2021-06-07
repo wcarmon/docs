@@ -1,5 +1,6 @@
 # Overview
 - Contains advice for scalable, low-maintenance development
+- Helpful for code reviews & softwarek architecture discussions
 
 
 # [License](./LICENSE)
