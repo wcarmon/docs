@@ -13,6 +13,13 @@
 # [Approaches](#approaches)
 
 ## Compile time (static)
+- Woven during compilation
+- **Requires a special compiler**
+- Compiler is slower (EVERY build is slower)
+- Compiler incompatible with java compiler improvements over time
+- Compiler incompatible with [Kotlin](https://kotlinlang.org/) compiler
+- Incompatibilities with modern tools like [GraalVM](https://www.graalvm.org/)
+
 
 ## Classload time (static)
 
