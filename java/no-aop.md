@@ -59,7 +59,7 @@
 
 --------
 # [Disadvantages](#disadvantages)
-## [Item-01: Unforeseen side effects](#item-01)
+## [Item-01: Unforeseen side effects](#item-01-unforeseen-side-effectsitem-01)
 1. Impact on 3rd party libraries
     1. Unpredictable behavior as you add/remove libraries
 1. Refactoring leads to unpredictable behavior
@@ -70,34 +70,33 @@
 1. Behavior depends on which aspects are on classpath
 
 
-## [Item-02: Comprehension overhead](#item-02)
+## [Item-02: Comprehension overhead](#item-02-comprehension-overheaditem-02)
 1. EVERY aspect must be considered when writing EVERY method
     1. Code is MUCH harder to reason about
 1. Cannot determine what code does by looking at it (obscured control flow)
     1. Breaks encapsulation
 
 
-## [Item-03: Security flaws](#item-03)
+## [Item-03: Security flaws]
 1. Attackers can rewrite & bypass your control flow
     1. Even worse for runtime weaving
 1. Any behavior can change (or be bypassed) by a new aspect on classpath
 1. Security Control flow & checks can be changed or bypassed by any aspect
 
 
-## [Item-04: Code reviews more complex](#item-04)
+## [Item-04: Code reviews more complex]
 1. Harder to reason about correctness
 1. Any behavior can change (or be bypassed)
 1. Control flow can be changed by any aspect
 
-
-## [Item-05: Harder to develop (IDE incompatibility)](#item-05)
+## [Item-05: Harder to develop, IDE incompatibility]
 1. If supported, IDEs generally require a plugin and much more memory to convey aspect info
 1. At best, it's a performance drag (less productive developers)
 1. EVERY aspect must be considered when writing EVERY method
     1. Code is MUCH harder to reason about
 
 
-## [Item-06: Harder to test](#item-06)
+## [Item-06: Harder to test]
 1. Requires more integration testing since unit tests can behave differently than at runtime
 1. Aspects can create scenarios that only happen at runtime
     1. eg. stack overflow, Out of memory, edge cases ...
@@ -116,6 +115,18 @@
 
 ## [Item-04](#item-04)
 ...
+
+## [Item-04](#item-04)
+...
+
+
+## [Item-04](#item-04)
+...
+
+
+## [Item-04](#item-04)
+...
+
 
 - no AOP books published in the last 8 years
 
