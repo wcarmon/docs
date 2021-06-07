@@ -34,17 +34,17 @@
 - [OCaml](https://ocaml.org/)
 
 ## Item-03: All other **JVM** languages rejected Checked Exceptions
-### Kotlin
+### [Kotlin](https://kotlinlang.org/)
 - The most popular non-java jvm language, backed by Google & Jetbrains
 - The preferred language for Android development
 
-### Scala
+### [Scala](https://www.scala-lang.org/)
 - The most popular functional language on jvm
 
-### Groovy
+### [Groovy](https://groovy-lang.org/)
 - The most popular jvm scripting language
 
-### Clojure
+### [Clojure](https://clojure.org/)
 - Another popular functional language for jvm
 
 
