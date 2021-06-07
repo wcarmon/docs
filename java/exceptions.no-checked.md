@@ -6,12 +6,12 @@
 - These older languages adopted other features, but not Checked Exceptions
 
 ### No Checked Exceptions in these popular languages:
-- C
+- [C](https://www.iso.org/standard/74528.html)
 - [C++](https://www.cplusplus.com/)
-- Python
-- Visual Basic
-- Perl
-- Assembly language
+- [Python](https://www.python.org/)
+- [Visual Basic](https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/visual-basic-language-reference)
+- [Perl](https://www.perl.org/)
+- [Assembly language]()
 
 ## Item-02: Languages created **after** Java rejected Checked Exceptions
 - These languages learned from the Checked Exception mistake
@@ -31,6 +31,7 @@
 - [F#](https://fsharp.org/) *(microsoft)*
 - [Dart](https://dart.dev/) *(Google)*
 - [Objective-C](https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/Introduction/Introduction.html#//apple_ref/doc/uid/TP40011210) *(Apple)*
+- [OCaml](https://ocaml.org/)
 
 ## Item-03: All other **JVM** languages rejected Checked Exceptions
 ### Kotlin
@@ -98,8 +99,8 @@
     
 
 ## Item-10: Checked Exceptions become part of your API, forever
-1. Once you adopt checked exceptions, you're stuck with them
-    1. Removing them can break client code that catches the checked exception
+1. Once you adopt Checked Exceptions, you're stuck with them
+    1. Removing them can break client code that catches the Checked Exception
 1. As a library author, inability to make (safe) changes is undesirable
 
 
@@ -111,11 +112,11 @@
 --------
 # Inconsistencies
 
-## Item-12: Even Sun/Oracle wrap some checked exceptions in RuntimeExceptions
+## Item-12: Even Sun/Oracle wrap some Checked Exceptions in RuntimeExceptions
 1. See java.net.URI::[create](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/net/URI.html#create(java.lang.String))
 
 
-## Item-13: Sun was inconsistent with usage of checked exceptions
+## Item-13: Sun was inconsistent with usage of Checked Exceptions
 1. See [their policy/guidance](https://docs.oracle.com/javase/tutorial/essential/exceptions/runtime.html)
    1. See Violation for [URISyntaxException](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/net/URISyntaxException.html) 
    1. See Violation for [CloneNotSupportedException](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/CloneNotSupportedException.html) 
@@ -149,7 +150,7 @@ try {
 ## Item-16: Java compiler forces you to choose among terrible options
 1. Compiler forces you to acknowledge
     - It doesn't force you to handle cleanly
-    - It doesn't force you to handle runtime exceptions
+    - It doesn't force you to handle RuntimeExceptions
 
 ### Option-1: Ignore
 1. This is the [Error Hiding anti-pattern](https://en.wikipedia.org/wiki/Error_hiding)
@@ -196,7 +197,7 @@ try {
 
 ## Item-19: Google Guava
 1. Has 7 [**unchecked** exceptions](https://javadoc.io/doc/com.google.guava/guava/latest/index.html)
-1. Has 2 checked exceptions, both extend IOException (to align with existing libs)
+1. Has 2 Checked Exceptions, both extend [IOException](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/IOException.html) (to align with existing libs)
     - [BaseEncoding.DecodingException](https://guava.dev/releases/19.0/api/docs/com/google/common/io/BaseEncoding.DecodingException.html)
     - [InsecureRecursiveDeleteException](https://guava.dev/releases/22.0/api/docs/com/google/common/io/InsecureRecursiveDeleteException.html)
 1. Has [Throwables](https://github.com/google/guava/wiki/ThrowablesExplained) utilities to fix Checked Exceptions
