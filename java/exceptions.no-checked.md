@@ -125,9 +125,9 @@
 1. See [Closeable](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/Closeable.html#close()) vs [AutoCloseable](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/AutoCloseable.html#close())
     1. Even worse, Compare how [InterruptedException](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/InterruptedException.html) and [IOException](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/IOException.html) are handled for both of these 
 
-## Item-14: Checked Exceptions force you to acknowledge some Exceptions and not others
+## Item-14: Checked Exceptions force you to acknowledge some Exceptions but not others
 1. Try-catch blocks are biased toward only catching Checked Exceptions
-    1. And ignoring possibly more important RuntimeExceptions
+    1. And ignoring (possibly) more important RuntimeExceptions
     
 
 --------
@@ -139,8 +139,9 @@
 try {
     legacyMethod(); // throws Checked Exception
 
-} catch ( TheCheckedException ex ) { 
+} catch ( SomeCheckedException ex ) { 
 	ex.printStackTrace(); // <--- this is the Error hiding anti-pattern
+                          // Notice the caller never has a chance to handle
 }
 ```
 
@@ -159,35 +160,39 @@ try {
 try {
     legacyMethod(); // throws Checked Exception
 
-} catch ( TheCheckedException ex ) { 
+} catch ( SomeCheckedException ex ) { 
 	// this is the error hiding anti-pattern
 }
 ```
 
 ### Option-2: Propagate
-1. Propagation spreads the problem to ALL of your callers
+1. Propagation spreads the problem to **ALL** of your callers
 1. Propagation forces you to change your method signatures in ways **unrelated** to your code
 
 
 ### Option-3: Wrap
 1. Wrapper code is worthless 
 1. Wrapper code hinders both comprehension & performance
-1. Wrapper code increases the indentation of your methods (which reduces comprehension & maintenance)
+1. Wrapper code increases the indentation of your methods
+    - reduces comprehension
+    - increases maintenance cost
 1. If you control both caller & caller, the simpler solution is to use RuntimeException in the callee
 ```java
 try {
     legacyMethod(); // throws Checked Exception
 
-    } catch ( SomeCheckedException ex ) { 
- 	throw new RuntimeException(ex); // wrap
+} catch ( SomeCheckedException ex ) { 
+ 	throw new RuntimeException(ex); // wraping
 }
 ```
 
 ### Option-4: Handle
-1. In practice, the caller is RARELY in a position to deal with the exception
+1. In practice, the caller is **RARELY** in a position to deal with the exception
     - eg. What to do when [IOException](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/IOException.html) thrown while **closing** a Connection?
 1. Exceptions are propagated up to a Component that CAN handle it.
-    - This means you're using options above until you get to the real handler
+    - This means you're using Options 1,2,3 above until you get to the real handler
+    - This pollutes your method signatures
+    - This forces all callers of those intermediate methods to do the same
 
 
 --------
@@ -212,4 +217,5 @@ try {
 --------
 # More info
 - https://phauer.com/2015/checked-exceptions-are-evil/
+- https://literatejava.com/exceptions/checked-exceptions-javas-biggest-mistake/  
 - [More debate on stack overflow](https://stackoverflow.com/questions/613954/the-case-against-checked-exceptions)
