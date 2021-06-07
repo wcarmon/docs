@@ -3,7 +3,7 @@
 - Why should I avoid AOP
 
 ------
-# Table if Contents
+# Table of Contents
 - [Definitions](#definitions)
 - [Approaches](#approaches)
    * [Compile time weaving (static)](#compile-time-weaving--static-)
@@ -37,10 +37,8 @@
    * [Request context propagation](#request-context-propagation)
 - [More info](#more-info)
 
-<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
-
-
+--------
 # Definitions
 - `Aspect`: Logical, cross-cutting concern
 - `Advice`: code to execute
