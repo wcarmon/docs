@@ -59,15 +59,63 @@
 
 --------
 # [Disadvantages](#disadvantages)
-##[Item-01](#item-01)
+## [Item-01: Unforeseen side effects](#item-01)
+1. Impact on 3rd party libraries
+    1. Unpredictable behavior as you add/remove libraries
+1. Refactoring leads to unpredictable behavior
+    1. Method renames
+    1. Package renames
+1. Can create [infinite loops](https://www.google.com/search?q=infinite+loops+java&oq=infinite+loops+java&aqs=chrome..69i57j0j0i10i22i30j0i22i30l7.1366j0j7&sourceid=chrome&ie=UTF-8) (aspects that affect side effects of other aspects)
+1. Can break [varargs](https://docs.oracle.com/javase/8/docs/technotes/guides/language/varargs.html) methods
+1. Behavior depends on which aspects are on classpath
 
-##[Item-02](#item-02)
 
-##[Item-03](#item-03)
+## [Item-02: Comprehension overhead](#item-02)
+1. EVERY aspect must be considered when writing EVERY method
+    1. Code is MUCH harder to reason about
+1. Cannot determine what code does by looking at it (obscured control flow)
+    1. Breaks encapsulation
 
-##[Item-04](#item-04)
+
+## [Item-03: Security flaws](#item-03)
+1. Attackers can rewrite & bypass your control flow
+    1. Even worse for runtime weaving
+1. Any behavior can change (or be bypassed) by a new aspect on classpath
+1. Security Control flow & checks can be changed or bypassed by any aspect
 
 
+## [Item-04: Code reviews more complex](#item-04)
+1. Harder to reason about correctness
+1. Any behavior can change (or be bypassed)
+1. Control flow can be changed by any aspect
+
+
+## [Item-05: Harder to develop (IDE incompatibility)](#item-05)
+1. If supported, IDEs generally require a plugin and much more memory to convey aspect info
+1. At best, it's a performance drag (less productive developers)
+1. EVERY aspect must be considered when writing EVERY method
+    1. Code is MUCH harder to reason about
+
+
+## [Item-06: Harder to test](#item-06)
+1. Requires more integration testing since unit tests can behave differently than at runtime
+1. Aspects can create scenarios that only happen at runtime
+    1. eg. stack overflow, Out of memory, edge cases ...
+1. By definition, every method must be regression tested when ...
+    1. an aspect changes
+    1. a class/method is renamed
+    1. a class/method is moved
+    1. the arguments of a method are renamed
+    1. the arguments of a method are reordered
+    1. a subclass is added
+    1. any class is added to any package
+
+
+## [Item-07](#item-07)
+1.
+
+## [Item-04](#item-04)
+...
 
 - no AOP books published in the last 8 years
 
