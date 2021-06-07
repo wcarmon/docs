@@ -3,6 +3,44 @@
 - Why should I avoid AOP
 
 
+- [Overview](#overview)
+- [Definitions](#definitions)
+- [Approaches](#approaches)
+   * [Compile time weaving (static)](#compile-time-weaving--static-)
+   * [Class-load time weaving (static)](#class-load-time-weaving--static-)
+   * [Runtime weaving (Dynamic)](#runtime-weaving--dynamic-)
+      + [Proxy based](#proxy-based)
+- [Analogies](#analogies)
+- [Disadvantages](#disadvantages)
+   * [Item-01: Unforeseen side effects](#item-01--unforeseen-side-effects)
+   * [Item-02: Comprehension overhead](#item-02--comprehension-overhead)
+   * [Item-03: Security flaws](#item-03--security-flaws)
+   * [Item-04: Code reviews more complex](#item-04--code-reviews-more-complex)
+   * [Item-05: Harder to develop, IDE incompatibility](#item-05--harder-to-develop--ide-incompatibility)
+   * [Item-06: Harder to test](#item-06--harder-to-test)
+   * [Item-07: Weaving requires extra tooling](#item-07--weaving-requires-extra-tooling)
+   * [Item-08: Runtime code bloat](#item-08--runtime-code-bloat)
+   * [Item-09: Runtime aspects create increase latency](#item-09--runtime-aspects-create-increase-latency)
+   * [Item-10: Fragile aspects create chaos/confusion](#item-10--fragile-aspects-create-chaos-confusion)
+   * [Item-11: Incompatible with debuggers](#item-11--incompatible-with-debuggers)
+   * [Item-12: Learning curve](#item-12--learning-curve)
+   * [Item-13: Multi-aspect interaction issues](#item-13--multi-aspect-interaction-issues)
+   * [Item-14: Incompatible with profilers](#item-14--incompatible-with-profilers)
+   * [Item-15: Incompatible with Static analysis tools](#item-15--incompatible-with-static-analysis-tools)
+   * [Item-16: Can create race conditions & deadlocks](#item-16--can-create-race-conditions---deadlocks)
+   * [Item-17: Success usage requires rigorous discipline from all team members](#item-17--success-usage-requires-rigorous-discipline-from-all-team-members)
+   * [Item-18: No modern books](#item-18--no-modern-books)
+- [Alternatives](#alternatives)
+   * [Refactor to design patterns](#refactor-to-design-patterns)
+   * [Structural Search and replace (SSR)](#structural-search-and-replace--ssr-)
+   * [Code generation](#code-generation)
+   * [Request context propagation](#request-context-propagation)
+- [More info](#more-info)
+
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+
+
+
 # Definitions
 - `Aspect`: Logical, cross-cutting concern
 - `Advice`: code to execute
