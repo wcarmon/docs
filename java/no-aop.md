@@ -58,8 +58,8 @@
 
 
 --------
-# [Disadvantages](#disadvantages)
-## [Item-01: Unforeseen side effects](#item-01-unforeseen-side-effectsitem-01)
+# Disadvantages
+## Item-01: Unforeseen side effects
 1. Impact on 3rd party libraries
     1. Unpredictable behavior as you add/remove libraries
 1. Refactoring leads to unpredictable behavior
@@ -70,26 +70,26 @@
 1. Behavior depends on which aspects are on classpath
 
 
-## [Item-02: Comprehension overhead](#item-02-comprehension-overheaditem-02)
+## Item-02: Comprehension overhead
 1. EVERY aspect must be considered when writing EVERY method
     1. Code is MUCH harder to reason about
 1. Cannot determine what code does by looking at it (obscured control flow)
     1. Breaks encapsulation
 
 
-## [Item-03: Security flaws]
+## Item-03: Security flaws
 1. Attackers can rewrite & bypass your control flow
     1. Even worse for runtime weaving
 1. Any behavior can change (or be bypassed) by a new aspect on classpath
 1. Security Control flow & checks can be changed or bypassed by any aspect
 
 
-## [Item-04: Code reviews more complex]
+## Item-04: Code reviews more complex
 1. Harder to reason about correctness
 1. Any behavior can change (or be bypassed)
 1. Control flow can be changed by any aspect
 
-## [Item-05: Harder to develop, IDE incompatibility]
+## Item-05: Harder to develop, IDE incompatibility
 1. If supported, IDEs generally require a plugin and much more memory to convey aspect info
 1. At best, it's a performance drag (less productive developers)
 1. EVERY aspect must be considered when writing EVERY method
