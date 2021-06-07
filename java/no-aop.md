@@ -19,9 +19,10 @@
 1. Woven during compilation
 1. **Requires a special compiler**
 1. Compiler is slower (**EVERY** build is slower)
-1. Compiler incompatible with java compiler improvements over time
+1. Compiler incompatible with Java compiler improvements over time
 1. Compiler incompatible with [Kotlin](https://kotlinlang.org/) compiler
 1. Incompatibilities with modern tools like [GraalVM](https://www.graalvm.org/)
+1. Compiler requires more memory
 
 
 ## Class-load time weaving (static)
@@ -89,6 +90,7 @@
 1. Any behavior can change (or be bypassed)
 1. Control flow can be changed by any aspect
 
+
 ## Item-05: Harder to develop, IDE incompatibility
 1. If supported, IDEs generally require a plugin and much more memory to convey aspect info
 1. At best, it's a performance drag (less productive developers)
@@ -110,20 +112,24 @@
     1. any class is added to any package
 
 
-## Item-07: Incompatible with debuggers
-1. AOP will add extra methods (with obscure names) to the call stack
-1. Control flow can jump unexpectedly based on runtime concerns (like variables in an aspect)
+## Item-07: Weaving requires extra tooling
+1. Compile-time weaving requires an extra Gradle/Maven plugin
+   1. Which increases build times and memory usage
+   1. Affects EVERY build
+   1. Those plugins are frequently out of date
+   1. These plugins can prevent you from using modern JVM, gradle/maven versions
+   1. May or may not work with non-oracle JDKs
+1. Runtime weaving requires special classloader or Proxies 
+   1. increased memory footprint
+   1. Possible conflicts with other classloaders
 
 
-## Item-08: Incompatible with profilers
-1.
+## Item-08: Runtime code bloat
+1. Runtime bytecode can far exceed the size of the source
+1. Runtime bytecode can spike from very small aspect changes
 
 
-## Item-09: Incompatible with Static analysis tools
-1.
-
-
-## Item-10: Runtime aspects create increase latency
+## Item-09: Runtime aspects create increase latency
 1. Generally implemented with proxies (more memory)
 1. Extra method invocations increase latency
 1. Extra method invocations can lead to stack overflows
@@ -131,14 +137,19 @@
 1. Can prevent inlining optimizations
 
 
-## Item-11: Runtime code bloat
-1. Runtime bytecode can far exceed the size of the source
-1. Runtime bytecode can spike from very small aspect changes
-
-
-## Item-12: Fragile aspects create chaos/confusion
+## Item-10: Fragile aspects create chaos/confusion
 1. Aspects based on method or package name break when you refactor
 1. The cause for behavior change is not obvious to the person refactoring
+
+
+## Item-11: Incompatible with debuggers
+1. AOP will add extra methods (with obscure names) to the call stack
+1. Control flow can jump unexpectedly based on runtime concerns (like variables in an aspect)
+
+
+## Item-12: Learning curve
+1. Obscure terminology (see above)
+1. Requires deep understanding of control flow (and knowledge of where to look for influencers)
 
 
 ## Item-13: Multi-aspect interaction issues
@@ -147,20 +158,25 @@
 1. Further increases complexity
 
 
-## Item-14: Learning curve
-1. Obscure terminology (see above)
-1. Requires deep understanding of control flow
+## Item-14: Incompatible with profilers
+1. Instrumenting profilers (bytecode manipulation) can conflict with AOP (bytecode manipulation)
+1. Creates unnecessary problems (making both the AOP and the profiler worse)
 
 
-## Item-15: Can create race conditions & deadlocks
-1. TODO
+## Item-15: Incompatible with Static analysis tools
+1. Static analysis tools assume standard control flow
+1. AOP creates both false positives & false negatives
 
 
-## Item-16: Success usage requires rigorous discipline from all team members
+## Item-16: Can create race conditions & deadlocks
+1. TODO: finish this section
+
+
+## Item-17: Success usage requires rigorous discipline from all team members
 1. One person's bad aspect can affect the whole team
 
 
-## Item-17: No modern books
+## Item-18: No modern books
 1. No books have been written on AOP in the last 5 years
    1. Compare to 2000-2009
 1. This suggests the pattern is abandonware   
