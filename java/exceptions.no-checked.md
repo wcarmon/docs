@@ -190,13 +190,20 @@ try {
 
 --------
 # Modern libraries
-## Item-17
+## Item-17: Spring framework has zero Checked Exceptions
 
-## Item-18
+## Item-18: SLF4j has zero Checked Exceptions
 
-## Item-19
+## Item-19: Google Guava
+1. Has 7 [**unchecked** exceptions](https://javadoc.io/doc/com.google.guava/guava/latest/index.html)
+1. Has 2 checked exceptions, both extend IOException (to align with existing libs)
+    - [BaseEncoding.DecodingException](https://guava.dev/releases/19.0/api/docs/com/google/common/io/BaseEncoding.DecodingException.html)
+    - [InsecureRecursiveDeleteException](https://guava.dev/releases/22.0/api/docs/com/google/common/io/InsecureRecursiveDeleteException.html)
+1. Has [Throwables](https://github.com/google/guava/wiki/ThrowablesExplained) utilities to fix Checked Exceptions
 
-## Item-20
+
+## Item-20: Apache Commons Lang
+1. lang3 has a utility to fix [Checked Exceptions](https://commons.apache.org/proper/commons-lang/apidocs/org/apache/commons/lang3/exception/ExceptionUtils.html)
 
 
     
