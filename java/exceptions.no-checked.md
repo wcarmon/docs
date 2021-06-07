@@ -87,6 +87,7 @@
 1. Only a problem for Checked Exceptions (since they must be imported)
 1. The import requirement creates a compile time reference
 1. Typically, you are forced to add a `<dependency>` so method signatures compile
+1. Also called "Higher coupling"
 
 
 --------
