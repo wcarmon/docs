@@ -1,36 +1,36 @@
 # Overview
-- Why I should avoid [Checked Exceptions](https://docs.oracle.com/javase/tutorial/essential/exceptions/runtime.html)
+- Why should I avoid [Checked Exceptions](https://docs.oracle.com/javase/tutorial/essential/exceptions/runtime.html)
 
 # Language facts
 ## Item-01: Languages created **before** Java never adopted Checked Exceptions
 - These older languages adopted other features, but not Checked Exceptions
 
-### No Checked Exceptions in these:
+### No Checked Exceptions in these popular languages:
 - C
-- C++
+- [C++](https://www.cplusplus.com/)
 - Python
 - Visual Basic
 - Perl
 - Assembly language
 
 ## Item-02: Languages created **after** Java rejected Checked Exceptions
-- These languages learned from this mistake
+- These languages learned from the Checked Exception mistake
 
-### No Checked Exceptions in these:
-- C# *(microsoft)*
-- Objective-C *(Apple)*
-- Swift *(Apple)*
-- Golang *(Google)*
-- Kotlin *(Jetbrains & Google)*
-- Javascript *(Mozilla)*
-- Typescript *(microsoft)*
-- Rust *(Mozilla)*
-- VB.net *(microsoft)*
-- PHP
-- Ruby
-- Groovy
-- F# *(microsoft)*
-- Dart *(Google)*
+### No Checked Exceptions in these popular languages:
+- [C#](https://docs.microsoft.com/en-us/dotnet/csharp/tour-of-csharp/) *(microsoft)*
+- [Swift](https://swift.org/) *(Apple)*
+- [Golang](https://golang.org/) *(Google)*
+- [Kotlin](https://kotlinlang.org/) *(Jetbrains & Google)*
+- [Javascript](https://www.javascript.com/) *(Mozilla)*
+- [Typescript](https://www.typescriptlang.org/) *(microsoft)*
+- [Rust](https://www.rust-lang.org/) *(Mozilla)*
+- [VB.net](https://docs.microsoft.com/en-us/dotnet/visual-basic/) *(microsoft)*
+- [PHP](https://www.php.net/manual/en/intro-whatis.php)
+- [Ruby](https://www.ruby-lang.org/en/)
+- [Groovy](https://groovy-lang.org/)
+- [F#](https://fsharp.org/) *(microsoft)*
+- [Dart](https://dart.dev/) *(Google)*
+- [Objective-C](https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/Introduction/Introduction.html#//apple_ref/doc/uid/TP40011210) *(Apple)*
 
 ## Item-03: All other **JVM** languages rejected Checked Exceptions
 ### Kotlin
@@ -47,8 +47,8 @@
 - Another popular functional language for jvm
 
 
-## Item-04: Java is the **only** language on the [TIOBE Index](https://www.tiobe.com/tiobe-index/) plagued with Checked Exceptions
-- exactly 1 out of the most used 20 programming languages has Checked Exceptions 
+## Item-04: Java is the **only** [TIOBE Index](https://www.tiobe.com/tiobe-index/) language plagued with Checked Exceptions
+- Exactly 1 out of the 20 most used programming languages has Checked Exceptions (java)
 - For backward compatibility, they cannot be removed from Java
 - Other JVM languages are free to avoid Checked Exceptions
 
@@ -104,6 +104,7 @@
 
 
 ## Item-11: Checked Exceptions make your library harder to use
+1. Engineers must select from the terrible options below TODO: link
 1. Engineers may opt for alternatives or fork & fix your lib
 
 
@@ -138,6 +139,48 @@
 --------
 # Code bloat
 
+## Item-1x: Java compiler forces you to choose among terrible options
+1. Compiler forces you to acknowledge
+    - It doesn't force you to handle cleanly
+    - It doesn't force you to handle runtime exceptions
+
+### Option-1: Ignore
+1. This is the [Error Hiding anti-pattern](https://en.wikipedia.org/wiki/Error_hiding)
+```java
+try {
+    legacyMethod(); // throws Checked Exception
+
+} catch ( TheCheckedException ex ) { 
+	// this is the error hiding anti-pattern
+}
+```
+
+### Option-2: Propagate
+1. Propagation spreads the problem to ALL of your callers
+1. Propagation forces you to change your method signatures in ways **unrelated** to your code
+
+
+### Option-3: Wrap
+1. Wrapper code is worthless 
+1. Wrapper code hinders both comprehension & performance
+1. Wrapper code increases the indentation of your methods (which reduces comprehension & maintenance)
+1. If you control both caller & caller, the simpler solution is to use RuntimeException in the callee
+```java
+try {
+    legacyMethod(); // throws Checked Exception
+
+    } catch ( SomeCheckedException ex ) { 
+ 	throw new RuntimeException(ex); // wrap
+}
+```
+
+### Option-4: Handle
+1. In practice, the caller is RARELY in a position to deal with the exception
+    - eg. What to do when [IOException](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/IOException.html) thrown while **closing** a Connection?
+1. Exceptions are propagated up to a Component that CAN handle it.
+    - This means you're using options above until you get to the real handler
+
+    
 --------
 # More info
 - https://phauer.com/2015/checked-exceptions-are-evil/
