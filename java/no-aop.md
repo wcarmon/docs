@@ -232,8 +232,7 @@
 
 
 ## Structural Search and replace (SSR)
-1. Intellij lets you restructure your java/kotlin code in bulk
-   1. https://www.jetbrains.com/help/idea/structural-search-and-replace.html
+1. Intellij lets you restructure your java/kotlin code in bulk ([SSR](https://www.jetbrains.com/help/idea/structural-search-and-replace.html))
 1. Avoids all the disadvantages listed above   
 
 
@@ -247,7 +246,7 @@
 1. (Only when considering aspects for propagation)
 1. For kotlin, replace with [CoroutineContext](https://kotlinlang.org/docs/coroutine-context-and-dispatchers.html)
 1. Replace with manual propagation (see [SSR](#structural-search-and-replace-ssr) & [Code generation](#code-generation) above)
-1. (For Java 18+) Replace with Project loom's "thread local"
+1. (For Java18+) Replace with [Project loom's](https://wiki.openjdk.java.net/display/loom/Main) "thread local"
 
 
 --------
