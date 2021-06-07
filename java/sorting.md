@@ -4,7 +4,19 @@
 
 --------
 # Table of Contents
-TODO
+- [Why?](#why-)
+    * [Item-01: Simplifies finding duplicates](#item-01--simplifies-finding-duplicates)
+    * [Item-02: Simplifies finding missing items](#item-02--simplifies-finding-missing-items)
+    * [Item-03: Simplifies finding elements](#item-03--simplifies-finding-elements)
+    * [Item-04: Simplifies code merges](#item-04--simplifies-code-merges)
+    * [Item-05: Simplifies Code reviews](#item-05--simplifies-code-reviews)
+- [How? - Automation!](#how----automation-)
+    * [Intellij IDEA](#intellij-idea)
+    * [VSCode](#vscode)
+    * [Vim](#vim)
+    * [Emacs](#emacs)
+    * [Sublime](#sublime)
+    
 
 --------
 # Why?
