@@ -3,7 +3,7 @@
 - Why should I avoid AOP
 
 
-# [Definitions](#definitions)
+# Definitions
 - `Aspect`: Logical, cross cutting concern
 - `Advice`: code to execute
 - `Join Point`: where advice can execute (method call, exception throw, field modification, ...)
@@ -13,7 +13,7 @@
 
 
 --------
-# [Approaches](#approaches)
+# Approaches
 
 ## Compile time weaving (static)
 1. Woven during compilation
@@ -42,7 +42,7 @@
 
 
 --------
-# [Analogies](#Analogies)
+# Analogies
 1. Adding AOP is like paying a loan off with a credit card
     1. If you are considering AOP, you have technical debt (eg. it's hard to add transactions or logging)
     1. AOP creates more debt (harder to reason about code, harder to maintain)
@@ -96,7 +96,7 @@
     1. Code is MUCH harder to reason about
 
 
-## [Item-06: Harder to test]
+## Item-06: Harder to test
 1. Requires more integration testing since unit tests can behave differently than at runtime
 1. Aspects can create scenarios that only happen at runtime
     1. eg. stack overflow, Out of memory, edge cases ...
@@ -110,35 +110,94 @@
     1. any class is added to any package
 
 
-## [Item-07](#item-07)
+## Item-07: Incompatible with debuggers
+1. AOP will add extra methods (with obscure names) to the call stack
+1. Control flow can jump unexpectedly based on runtime concerns (like variables in an aspect)
+
+
+## Item-08: Incompatible with profilers
 1.
 
-## [Item-04](#item-04)
-...
 
-## [Item-04](#item-04)
-...
+## Item-09: Incompatible with Static analysis tools
+1.
 
 
-## [Item-04](#item-04)
-...
+## Item-10: Runtime aspects create increase latency
+1. Generally implemented with proxies (more memory)
+1. Extra method invocations increase latency
+1. Extra method invocations can lead to stack overflows
+1. Runtime weaving takes time & memory at startup (Bad for cloud/container apps)
+1. Can prevent inlining optimizations
 
 
-## [Item-04](#item-04)
-...
+## Item-11: Runtime code bloat
+1. Runtime bytecode can far exceed the size of the source
+1. Runtime bytecode can spike from very small aspect changes
 
 
-- no AOP books published in the last 8 years
+## Item-12: Fragile aspects create chaos/confusion
+1. Aspects based on method or package name break when you refactor
+1. The cause for behavior change is not obvious to the person refactoring
+
+
+## Item-13: Multi-aspect interaction issues
+1. Aspects can affect other aspects
+1. Order of application matters
+1. Further increases complexity
+
+
+## Item-14: Learning curve
+1. Obscure terminology (see above)
+1. Requires deep understanding of control flow
+
+
+## Item-15: Can create race conditions & deadlocks
+1. TODO
+
+
+## Item-16: Success usage requires rigorous discipline from all team members
+1. One person's bad aspect can affect the whole team
+
+
+## Item-17: No modern books
+1. No books have been written on AOP in the last 5 years
+   1. Compare to 2000-2009
+1. This suggests the pattern is abandonware   
+1. This makes it harder for new developers to familiarize with AOP
+   1. perhaps this is good, since it decreases AOP adoption
+
+
 
 --------
-# Advantages
-TODO
+# Alternatives
+
+## Refactor to design patterns
+1. Most design patterns allow you to change one factor without changing another (separate concerns)
+1. We should use design patterns anyway
+1. Avoids all the disadvantages listed above
+
+
+## Structural Search and replace (SSR)
+1. Intellij lets you restructure your java/kotlin code in bulk
+   1. https://www.jetbrains.com/help/idea/structural-search-and-replace.html
+1. Avoids all the disadvantages listed above   
+
+
+## Code generation
+1. Generate the code that would have been repeated
+1. Maintenance is simpler than manually maintaining
+1. Avoids all the disadvantages listed above
+
+
+## Request context propagation
+1. (Only when considering aspects for propagation)
+1. For kotlin, replace with [CoroutineContext](https://kotlinlang.org/docs/coroutine-context-and-dispatchers.html)
+1. Replace with manual propagation (see [SSR](#structural-search-and-replace-ssr) & [Code generation](#code-generation) above)
+1. (For Java 18+) Replace with Project loom's "thread local"
 
 
 --------
-# [Alternatives](#alternatives)
-
-
 # More info
 - [From Stack overflow](https://stackoverflow.com/questions/15447397/spring-aop-whats-the-difference-between-joinpoint-and-pointcut)
 - [From Spring](https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#aop)
