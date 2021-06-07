@@ -2,6 +2,7 @@
 - What is Aspect Oriented programming (AOP)
 - Why should I avoid AOP
 
+
 ------
 # Table of Contents
 - [Definitions](#definitions)
