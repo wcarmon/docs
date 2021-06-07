@@ -1,15 +1,15 @@
 # Overview
-- What is Aspect Oriented programming is (AOP)
+- What is Aspect Oriented programming (AOP)
 - Why should I avoid AOP
 
 
 # Definitions
-- `Aspect`: Logical, cross cutting concern
+- `Aspect`: Logical, cross-cutting concern
 - `Advice`: code to execute
-- `Join Point`: where advice can execute (method call, exception throw, field modification, ...)
+- `Join Point`: where `Advice` can execute (eg. method call, thrown exception, field modification, ...)
   - For Spring, [always a method execution](https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#aop-introduction-defn)
-- `Pointcut`: where to apply `Advice`, a predicate/pattern to match advice with join points
-- `Weaving`: applying aspects to code (by mutating code)
+- `Pointcut`: where to apply `Advice`, a predicate/pattern to match `Advice` with a `Join Point`
+- `Weaving`: applying aspects to code (by mutating code or bytecode)
 
 
 --------
