@@ -8,7 +8,7 @@
     * [Item-01: Languages created **before** Java never adopted Checked Exceptions](#item-01-languages-created-before-java-never-adopted-checked-exceptions)
     * [Item-02: Languages created **after** Java rejected Checked Exceptions](#item-02-languages-created-after-java-rejected-checked-exceptions)
     * [Item-03: All other **JVM** languages rejected Checked Exceptions](#item-03-all-other-jvm-languages-rejected-checked-exceptions)
-    * [Item-04: Java is the **only** TIOBE Index language plagued with Checked Exceptions](#item-04-java-is-the-only-tiobe-indexhttpswwwtiobecomtiobe-index-language-plagued-with-checked-exceptions)
+    * [Item-04: Java is the **only** TIOBE Index language plagued with Checked Exceptions](#item-04-java-is-the-only-tiobe-index-language-plagued-with-checked-exceptions)
 - [Trending backwards](#trending-backwards)
     * [Item-05: Checked Exceptions are incompatible with Java 8+ functional interfaces](#item-05-checked-exceptions-are-incompatible-with-java-8-functional-interfaceshttptutorialsjenkovcomjava-functional-programmingfunctional-interfaceshtml)
     * [Item-06: Checked Exceptions are incompatible with Java 8+ Streams](#item-06-checked-exceptions-are-incompatible-with-java-8-streams)
@@ -81,7 +81,8 @@
 - Another popular functional language for jvm
 
 
-## Item-04: Java is the **only** [TIOBE Index](https://www.tiobe.com/tiobe-index/) language plagued with Checked Exceptions
+## Item-04: Java is the **only** TIOBE Index language plagued with Checked Exceptions
+- [TIOBE Index](https://www.tiobe.com/tiobe-index/) measures programming language popularity
 - Exactly 1 out of the 20 most used programming languages has Checked Exceptions (java)
 - For backward compatibility, they cannot be removed from Java
 - Other JVM languages are free to avoid Checked Exceptions
