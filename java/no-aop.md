@@ -3,7 +3,7 @@
 - Why should I avoid AOP
 
 
-------
+--------
 # Table of Contents
 - [Definitions](#definitions)
 - [Approaches](#approaches)
