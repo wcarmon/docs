@@ -6,14 +6,8 @@
 # Table of Contents
 - [Language facts](#language-facts)
     * [Item-01: Languages created **before** Java never adopted Checked Exceptions](#item-01--languages-created---before---java-never-adopted-checked-exceptions)
-        + [No Checked Exceptions in these popular languages:](#no-checked-exceptions-in-these-popular-languages-)
     * [Item-02: Languages created **after** Java rejected Checked Exceptions](#item-02--languages-created---after---java-rejected-checked-exceptions)
-        + [No Checked Exceptions in these popular languages:](#no-checked-exceptions-in-these-popular-languages--1)
     * [Item-03: All other **JVM** languages rejected Checked Exceptions](#item-03--all-other---jvm---languages-rejected-checked-exceptions)
-        + [[Kotlin](https://kotlinlang.org/)](#-kotlin--https---kotlinlangorg--)
-        + [[Scala](https://www.scala-lang.org/)](#-scala--https---wwwscala-langorg--)
-        + [[Groovy](https://groovy-lang.org/)](#-groovy--https---groovy-langorg--)
-        + [[Clojure](https://clojure.org/)](#-clojure--https---clojureorg--)
     * [Item-04: Java is the **only** [TIOBE Index](https://www.tiobe.com/tiobe-index/) language plagued with Checked Exceptions](#item-04--java-is-the---only----tiobe-index--https---wwwtiobecom-tiobe-index---language-plagued-with-checked-exceptions)
 - [Trending backwards](#trending-backwards)
     * [Item-05: Checked Exceptions are incompatible with Java 8+ functional interfaces](#item-05--checked-exceptions-are-incompatible-with-java-8--functional-interfaces)
@@ -33,10 +27,6 @@
     * [Item-15: IDEs like Intellij, Eclipse and Netbeans all default to an anti-pattern](#item-15--ides-like-intellij--eclipse-and-netbeans-all-default-to-an-anti-pattern)
 - [Code bloat](#code-bloat)
     * [Item-16: Java compiler forces you to choose among terrible options](#item-16--java-compiler-forces-you-to-choose-among-terrible-options)
-        + [Option-1: Ignore](#option-1--ignore)
-        + [Option-2: Propagate](#option-2--propagate)
-        + [Option-3: Wrap](#option-3--wrap)
-        + [Option-4: Handle](#option-4--handle)
 - [Modern libraries](#modern-libraries)
     * [Item-17: Spring framework has zero Checked Exceptions](#item-17--spring-framework-has-zero-checked-exceptions)
     * [Item-18: SLF4j has zero Checked Exceptions](#item-18--slf4j-has-zero-checked-exceptions)
@@ -49,34 +39,32 @@
 # Language facts
 ## Item-01: Languages created **before** Java never adopted Checked Exceptions
 - These older languages adopted other features, but not Checked Exceptions
-
-### No Checked Exceptions in these popular languages:
-- [C](https://www.iso.org/standard/74528.html)
-- [C++](https://www.cplusplus.com/)
-- [Python](https://www.python.org/)
-- [Visual Basic](https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/visual-basic-language-reference)
-- [Perl](https://www.perl.org/)
-- [Assembly language]()
+- No Checked Exceptions in these popular languages:
+    - [C](https://www.iso.org/standard/74528.html)
+    - [C++](https://www.cplusplus.com/)
+    - [Python](https://www.python.org/)
+    - [Visual Basic](https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/visual-basic-language-reference)
+    - [Perl](https://www.perl.org/)
+    - [Assembly language]()
 
 ## Item-02: Languages created **after** Java rejected Checked Exceptions
 - These languages learned from the Checked Exception mistake
-
-### No Checked Exceptions in these popular languages:
-- [C#](https://docs.microsoft.com/en-us/dotnet/csharp/tour-of-csharp/) *(microsoft)*
-- [Swift](https://swift.org/) *(Apple)*
-- [Golang](https://golang.org/) *(Google)*
-- [Kotlin](https://kotlinlang.org/) *(Jetbrains & Google)*
-- [Javascript](https://www.javascript.com/) *(Mozilla)*
-- [Typescript](https://www.typescriptlang.org/) *(microsoft)*
-- [Rust](https://www.rust-lang.org/) *(Mozilla)*
-- [VB.net](https://docs.microsoft.com/en-us/dotnet/visual-basic/) *(microsoft)*
-- [PHP](https://www.php.net/manual/en/intro-whatis.php)
-- [Ruby](https://www.ruby-lang.org/en/)
-- [Groovy](https://groovy-lang.org/)
-- [F#](https://fsharp.org/) *(microsoft)*
-- [Dart](https://dart.dev/) *(Google)*
-- [Objective-C](https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/Introduction/Introduction.html#//apple_ref/doc/uid/TP40011210) *(Apple)*
-- [OCaml](https://ocaml.org/)
+- No Checked Exceptions in these popular languages:
+    - [C#](https://docs.microsoft.com/en-us/dotnet/csharp/tour-of-csharp/) *(microsoft)*
+    - [Swift](https://swift.org/) *(Apple)*
+    - [Golang](https://golang.org/) *(Google)*
+    - [Kotlin](https://kotlinlang.org/) *(Jetbrains & Google)*
+    - [Javascript](https://www.javascript.com/) *(Mozilla)*
+    - [Typescript](https://www.typescriptlang.org/) *(microsoft)*
+    - [Rust](https://www.rust-lang.org/) *(Mozilla)*
+    - [VB.net](https://docs.microsoft.com/en-us/dotnet/visual-basic/) *(microsoft)*
+    - [PHP](https://www.php.net/manual/en/intro-whatis.php)
+    - [Ruby](https://www.ruby-lang.org/en/)
+    - [Groovy](https://groovy-lang.org/)
+    - [F#](https://fsharp.org/) *(microsoft)*
+    - [Dart](https://dart.dev/) *(Google)*
+    - [Objective-C](https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/Introduction/Introduction.html#//apple_ref/doc/uid/TP40011210) *(Apple)*
+    - [OCaml](https://ocaml.org/)
 
 ## Item-03: All other **JVM** languages rejected Checked Exceptions
 ### [Kotlin](https://kotlinlang.org/)
