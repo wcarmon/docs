@@ -72,14 +72,16 @@
     - Prevents you from using another [test runner](https://junit.org/junit4/javadoc/4.13/org/junit/runner/Runner.html)
 - Breaks abstraction (cannot make properties `private`)
 - Incompatible with [Preconditions](./preconditions.md)
+- Classes cannot be final
 
 
 --------
 # More info
+- https://stackify.com/dependency-injection/
 - [Spring docs on DI](https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#beans-factory-collaborators)
 - [Guice docs on DI](https://github.com/google/guice/wiki/Motivation) 
-- https://stackify.com/dependency-injection/
-- https://docs.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-5.0
+- [C# docs on DI](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-5.0)
 - [Golang docs on DI](https://github.com/google/wire)
 - [Rust docs on DI](https://docs.rs/inject/0.1.3/inject/)
 - [Angular docs on DI](https://angular.io/guide/dependency-injection)
+- [JEE docs on DI](https://docs.oracle.com/javaee/6/tutorial/doc/giwhl.html)
