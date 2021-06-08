@@ -1,24 +1,32 @@
 # Overview
-- What is Dependency Injection (DI)
-- Why we should use Constructor Injection 
+- What is Dependency Injection? (DI)
+- Why we should use Constructor Injection? 
     - (Not ~~Field injection~~ nor ~~Setter injection~~)
 
 
 --------
 # Table of Contents
-TODO
+- [Dependency Injection](#dependency-injection)
+- [Three Approaches](#three-approaches)
+  * [Constructor Injection](#constructor-injection)
+  * [~~Setter Injection~~](#setter-injection)
+    + [Problems](#problems)
+  * [~~Field Injection~~](#field-injection)
+    + [Problems](#problems)
+- [More info](#more-info)
 
 
 --------
 # Dependency Injection
-- A design pattern
-- Decouples a class from its dependencies
-- Separates `dependency retrieval` from `dependency usage`
+- A [Design pattern](https://en.wikipedia.org/wiki/Dependency_injection#:~:text=In%20software%20engineering%2C%20dependency%20injection,object%20is%20called%20a%20service.)
+- Decouples `dependency retrieval` from `dependency usage`
 - Simplifies managing large code bases
 - Simplifies testing
     - Particularly when combined with the [SOLID principles](https://www.digitalocean.com/community/conceptual_articles/s-o-l-i-d-the-first-five-principles-of-object-oriented-design)
 - Simplifies refactoring
 - Improves reuse
+- Allows developers to work more concurrently
+  - Bound by contracts, not implementations
 
 
 # Three Approaches
@@ -40,6 +48,7 @@ TODO
 
 
 ## ~~Setter Injection~~
+- A.K.A. "Interface injection"
 ### Problems
 - Hinders immutability (which hinders safe concurrency)
 - No guarantees of dependencies being set
