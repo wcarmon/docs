@@ -7,7 +7,7 @@
 - [Performance](#performance)
   * [Iteration, Traversal & Search](#iteration-traversal--search)
   * [Direct access to element](#direct-access-to-element)
-  * [Append](#appendhttpsdocsoraclecomenjavajavase11docsapijavabasejavautillisthtmladde)
+  * [Append](#append)
   * [Delete/Insert between elements](#deleteinsert-between-elements)
 - [Memory](#memory)
 - [More Info](#more-info)
