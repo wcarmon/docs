@@ -6,9 +6,9 @@
 # Table of Contents
 - [Performance](#performance)
   * [Iteration, Traversal & Search](#iteration-traversal--search)
-  * [Direct access to element](#direct-access-to-elementhttpsdocsoraclecomenjavajavase11docsapijavabasejavautillisthtmlgetint)
+  * [Direct access to element](#direct-access-to-element)
   * [Append](#appendhttpsdocsoraclecomenjavajavase11docsapijavabasejavautillisthtmladde)
-  * [Delete/Insert between elements](#deletehttpsdocsoraclecomenjavajavase11docsapijavabasejavautillisthtmlremoveintinserthttpsdocsoraclecomenjavajavase11docsapijavabasejavautillisthtmladdinte-between-elements)
+  * [Delete/Insert between elements](#deleteinsert-between-elements)
 - [Memory](#memory)
 - [More Info](#more-info)
 
