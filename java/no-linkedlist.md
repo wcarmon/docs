@@ -5,7 +5,7 @@
 --------
 # Table of Contents
 - [Performance](#performance)
-  * [Iteration & Search](#iteration--search)
+  * [Iteration & Search](#iteration-traversal--search)
   * [Direct access to element](#direct-access-to-element)
   * [Append](#append)
   * [Delete/Insert between elements](#deleteinsert-between-elements)
@@ -17,7 +17,7 @@
 # Performance
 - TL;DR; Use `ArrayList` unless you can **prove** that `LinkedList` is faster for your use case
 
-## Iteration & Search
+## Iteration, Traversal & Search
 - `ArrayList` faster because **sequential** memory access is faster than **random** access
   - CPUs are optimized for handling sequential memory ([Locality of reference](https://en.wikipedia.org/wiki/Locality_of_reference#:~:text=In%20computer%20science%2C%20locality%20of,a%20short%20period%20of%20time.&text=Temporal%20locality%20refers%20to%20the,a%20relatively%20small%20time%20duration.), [Mechanical sympathy](https://dzone.com/articles/mechanical-sympathy), etc.)
   - Java uses native [System array utils](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html#arraycopy(java.lang.Object,int,java.lang.Object,int,int)), which are extremely fast
@@ -27,7 +27,7 @@
 ## Direct access to element
 - `ArrayList` can jump to any index in constant time - `O(1)`
 - `LinkedList` must iterate to find elements (except first and last) - `O(n)`
-  - See above about [Iteration & search](#iteration--search)
+  - See above about [Iteration & search](#iteration-traversal--search)
   - Note this also makes things like [binary search](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Arrays.html#binarySearch(byte%5B%5D,byte)) slower
   
 ## Append
@@ -41,7 +41,7 @@
 - `LinkedList` can be faster here since `ArrayList` must shift elements
   - Since CPUs are optimized for array operations, benchmarks are required
   - [System::arrayCopy](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html#arraycopy(java.lang.Object,int,java.lang.Object,int,int)) is extremely fast
-- `LinkedList` can be slower here because it requires traversing to the insertion/deletion point
+- `LinkedList` can be slower here because it requires **traversing** to the insertion/deletion point
 
   
 --------
