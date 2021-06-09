@@ -18,10 +18,10 @@
 - TL;DR; Use `ArrayList` unless you can **prove** that `LinkedList` is faster for your use case
 
 ## Iteration & Search
-- `ArrayList` faster because sequential memory access is faster than random
-  - CPUs are optimized for dealing with sequential memory ([Locality of reference](https://en.wikipedia.org/wiki/Locality_of_reference#:~:text=In%20computer%20science%2C%20locality%20of,a%20short%20period%20of%20time.&text=Temporal%20locality%20refers%20to%20the,a%20relatively%20small%20time%20duration.), [Mechanical sympathy](https://dzone.com/articles/mechanical-sympathy))
+- `ArrayList` faster because **sequential** memory access is faster than **random** access
+  - CPUs are optimized for handling sequential memory ([Locality of reference](https://en.wikipedia.org/wiki/Locality_of_reference#:~:text=In%20computer%20science%2C%20locality%20of,a%20short%20period%20of%20time.&text=Temporal%20locality%20refers%20to%20the,a%20relatively%20small%20time%20duration.), [Mechanical sympathy](https://dzone.com/articles/mechanical-sympathy), etc.)
   - Java uses native [System array utils](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html#arraycopy(java.lang.Object,int,java.lang.Object,int,int)), which are extremely fast
-- `LinkedList` requires dereferencing each [LinkedList::Node](TODO) element to read
+- `LinkedList` requires dereferencing each [LinkedList::Node](https://hg.openjdk.java.net/jdk/jdk11/file/1ddf9a99e4ad/src/java.base/share/classes/java/util/LinkedList.java#l974) element to read
 
 
 ## Direct access to element
@@ -46,7 +46,7 @@
   
 --------
 # Memory
-- `LinkedList` wraps every element in [LinkedList::Node](TODO)
+- `LinkedList` wraps every element in [LinkedList::Node](https://hg.openjdk.java.net/jdk/jdk11/file/1ddf9a99e4ad/src/java.base/share/classes/java/util/LinkedList.java#l974)
     - Memory overhead
     - `Arraylist` uses direct references to the elements   
 - If you have GC pressure...
@@ -58,5 +58,6 @@
 
 --------
 # More Info
+- [The Author of LinkedList doesn't use it](https://twitter.com/joshbloch/status/583813919019573248)
 - https://www.techiedelight.com/arraylist-vs-linkedlist-java/
 - [Stack overflow](https://stackoverflow.com/questions/322715/when-to-use-linkedlist-over-arraylist-in-java?rq=1)
