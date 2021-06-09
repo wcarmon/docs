@@ -58,6 +58,6 @@
 
 --------
 # More Info
-- [The Author of LinkedList doesn't use it](https://twitter.com/joshbloch/status/583813919019573248)
+- [The author of LinkedList doesn't use it](https://twitter.com/joshbloch/status/583813919019573248)
 - https://www.techiedelight.com/arraylist-vs-linkedlist-java/
 - [Stack overflow](https://stackoverflow.com/questions/322715/when-to-use-linkedlist-over-arraylist-in-java?rq=1)
