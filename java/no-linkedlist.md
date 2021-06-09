@@ -15,26 +15,26 @@
 
 --------
 # Performance
-- TL;DR; Use `ArrayList` unless you can prove that `LinkedList` is faster for your use case
+- TL;DR; Use `ArrayList` unless you can **prove** that `LinkedList` is faster for your use case
 
 ## Iteration & Search
 - `ArrayList` faster because sequential memory access is faster than random
   - CPUs are optimized for dealing with sequential memory ([Locality of reference](https://en.wikipedia.org/wiki/Locality_of_reference#:~:text=In%20computer%20science%2C%20locality%20of,a%20short%20period%20of%20time.&text=Temporal%20locality%20refers%20to%20the,a%20relatively%20small%20time%20duration.), [Mechanical sympathy](https://dzone.com/articles/mechanical-sympathy))
-  - Java uses native System array utils which are extremely fast
+  - Java uses native [System array utils](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html#arraycopy(java.lang.Object,int,java.lang.Object,int,int)), which are extremely fast
 - `LinkedList` requires dereferencing each [LinkedList::Node](TODO) element to read
 
 
 ## Direct access to element
-- `ArrayList` can jump to any index in constant time
-- `LinkedList` must iterate to find elements (except first and last)
-  - See above about iteration & search
+- `ArrayList` can jump to any index in constant time - `O(1)`
+- `LinkedList` must iterate to find elements (except first and last) - `O(n)`
+  - See above about [Iteration & search](#iteration--search)
   - Note this also makes things like [binary search](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Arrays.html#binarySearch(byte%5B%5D,byte)) slower
   
 ## Append
-- `ArrayList` is only slower when resize is required
+- `ArrayList` is only slower when [resize]() is required
   - So start with enough capacity to avoid resize
-- `LinkedList` need to allocate `Node` for each element & update pointers
-  - So this is slower except for the resize case
+- `LinkedList` must allocate `Node` for each element & update pointers
+  - So this is slower than `ArrayList`, except for the resize case
 
 
 ## Delete/Insert between elements
@@ -48,13 +48,15 @@
 # Memory
 - `LinkedList` wraps every element in [LinkedList::Node](TODO)
     - Memory overhead
-    - `Arraylist` uses direct references to the elements
+    - `Arraylist` uses direct references to the elements   
 - If you have GC pressure...
   - `LinkedList` may be able to allocate where `ArrayList` cannot (because `LinkedList` memory is non-contiguous)
   - This is a narrow case (you are close to memory exhaustion and expect a large allocation to help)
+- `LinkedList` creates more GC pressure (since it requires more memory)
+  - This can make your app slower (more GC pauses)
 
 
 --------
 # More Info
 - https://www.techiedelight.com/arraylist-vs-linkedlist-java/
-- https://stackoverflow.com/questions/322715/when-to-use-linkedlist-over-arraylist-in-java?rq=1
+- [Stack overflow](https://stackoverflow.com/questions/322715/when-to-use-linkedlist-over-arraylist-in-java?rq=1)
