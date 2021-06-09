@@ -31,7 +31,7 @@
   - Note this also makes things like [binary search](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Arrays.html#binarySearch(byte%5B%5D,byte)) slower
   
 ## Append
-- `ArrayList` is only slower when [resize]() is required
+- `ArrayList` is only slower when [resize](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/ArrayList.html) is required
   - So start with enough capacity to avoid resize
 - `LinkedList` must allocate `Node` for each element & update pointers
   - So this is slower than `ArrayList`, except for the resize case
