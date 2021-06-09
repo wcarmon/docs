@@ -5,17 +5,17 @@
 --------
 # Table of Contents
 - [Performance](#performance)
-  * [Iteration & Search](#iteration-traversal--search)
-  * [Direct access to element](#direct-access-to-element)
-  * [Append](#append)
-  * [Delete/Insert between elements](#deleteinsert-between-elements)
+  * [Iteration, Traversal & Search](#iteration-traversal--search)
+  * [Direct access to element](#direct-access-to-elementhttpsdocsoraclecomenjavajavase11docsapijavabasejavautillisthtmlgetint)
+  * [Append](#appendhttpsdocsoraclecomenjavajavase11docsapijavabasejavautillisthtmladde)
+  * [Delete/Insert between elements](#deletehttpsdocsoraclecomenjavajavase11docsapijavabasejavautillisthtmlremoveintinserthttpsdocsoraclecomenjavajavase11docsapijavabasejavautillisthtmladdinte-between-elements)
 - [Memory](#memory)
 - [More Info](#more-info)
 
 
 --------
 # Performance
-- TL;DR; Use `ArrayList` unless you can **prove** that `LinkedList` is faster for your use case
+- TL;DR; Use [`ArrayList`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/ArrayList.html) unless you can **prove** that `LinkedList` is faster for your use case
 
 ## Iteration, Traversal & Search
 - `ArrayList` faster because **sequential** memory access is faster than **random** access
@@ -24,20 +24,21 @@
 - `LinkedList` requires dereferencing each [LinkedList::Node](https://hg.openjdk.java.net/jdk/jdk11/file/1ddf9a99e4ad/src/java.base/share/classes/java/util/LinkedList.java#l974) element to read
 
 
-## Direct access to element
-- `ArrayList` can jump to any index in constant time - `O(1)`
+## [Direct access to element](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/List.html#get(int))
+- `ArrayList` can jump to any element in constant time - `O(1)`
 - `LinkedList` must iterate to find elements (except first and last) - `O(n)`
-  - See above about [Iteration & search](#iteration-traversal--search)
+  - See above about [Iteration, Traversal & search](#iteration-traversal--search)
   - Note this also makes things like [binary search](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Arrays.html#binarySearch(byte%5B%5D,byte)) slower
   
-## Append
+
+## [Append](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/List.html#add(E))
 - `ArrayList` is only slower when [resize](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/ArrayList.html) is required
-  - So start with enough capacity to avoid resize
-- `LinkedList` must allocate `Node` for each element & update pointers
-  - So this is slower than `ArrayList`, except for the resize case
+  - Solution: start with enough capacity to avoid resize
+- `LinkedList` must allocate [`Node`](https://hg.openjdk.java.net/jdk/jdk11/file/1ddf9a99e4ad/src/java.base/share/classes/java/util/LinkedList.java#l974) for each element & update pointers
+  - So, `LinkedList::add` is slower than `ArrayList::add`, except for the resize case
 
 
-## Delete/Insert between elements
+## [Delete](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/List.html#remove(int))/[Insert](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/List.html#add(int,E)) between elements
 - `LinkedList` can be faster here since `ArrayList` must shift elements
   - Since CPUs are optimized for array operations, benchmarks are required
   - [System::arrayCopy](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html#arraycopy(java.lang.Object,int,java.lang.Object,int,int)) is extremely fast
