@@ -21,6 +21,7 @@ function sync_forked_branch() {
   # --------------------------------------
   # -- Fetch
   # --------------------------------------
+  echo;
   echo "|-- fetching branches ..."
   git fetch --all --no-tags --prune --jobs=2
 
@@ -33,6 +34,7 @@ function sync_forked_branch() {
   # --------------------------------------
   git branch --track "$LOCAL_BRANCH" "$SHARED_BRANCH" 2>/dev/null
 
+  echo;
   echo "|-- Checking out $LOCAL_BRANCH"
   git checkout --force "$LOCAL_BRANCH"
   if [ $? -ne 0 ]; then
@@ -61,5 +63,6 @@ function sync_forked_branch() {
     return 4
   fi
 
+  echo;
   echo "|-- Branch is in sync $LOCAL_BRANCH"
 }
