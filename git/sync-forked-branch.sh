@@ -7,15 +7,15 @@ function sync_forked_branch() {
   # --------------------------------------
   # -- Params
   # --------------------------------------
-  LOCAL LOCAL_BRANCH="$1"
-  LOCAL SRC_REMOTE_REPO_ALIAS="shared"
-  LOCAL DEST_REMOTE_REPO_ALIAS="mine"
+  local LOCAL_BRANCH="$1"
+  local SRC_REMOTE_REPO_ALIAS="shared"
+  local DEST_REMOTE_REPO_ALIAS="mine"
 
 
   # --------------------------------------
   # -- Derived
   # --------------------------------------
-  LOCAL SHARED_BRANCH="$SRC_REMOTE_REPO_ALIAS/$LOCAL_BRANCH"
+  local SHARED_BRANCH="$SRC_REMOTE_REPO_ALIAS/$LOCAL_BRANCH"
 
 
   # --------------------------------------
