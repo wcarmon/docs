@@ -48,7 +48,7 @@ function sync_forked_branch() {
     return 2
   fi
 
-  git merge "$SHARED_BRANCH" --strategy-option theirs
+  git merge "$SHARED_BRANCH" --strategy-option theirs --no-edit
   if [ $? -ne 0 ]; then
     echo "|-- Failed to merge from $SHARED_BRANCH"
     return 3
