@@ -5,26 +5,25 @@
 - Explains why *non*-container dev discourages innovation
 
 
-# [TL;DR](https://en.wikipedia.org/wiki/Wikipedia:Too_long;_didn%27t_read#:~:text=Too%20long%3B%20didn't%20read%20(abbreviated%20TL%3BDR,the%20time%20to%20digest%20it.):
-- Local Containerization makes **iterations** shorter
-   - When iterations are short ...
+# [TL;DR](https://www.dictionary.com/browse/tldr):
+- Local Containerization makes **iterations** shorter.  For short iterations ...
    - Engineers fix issues faster
    - Engineers evolve code faster
-   - Engineers experiment faster
    - Mistakes are discovered faster
-- Local Containerization gives Engineers **isolated** environments, which ...
-   - remove fear of mistakes (since local & easy to correct)
-   - remove bottlenecks of shared environments
-   - prevent conflicts with the work of peers
-   - prevent conflicts with upstream & downstream testing
-   - empower Engineers to control local data stores
+   - Engineers can experiment with improvements faster
+- Local Containerization gives Engineers **isolated** environments.  For isolated envs ...
+   - cata & artifact conflicts with peers are removed
+   - conflicts with upstream & downstream testing removed
+   - coordination bottlenecks of shared environments are removed
+   - mistakes are cheap and easy to correct
+   - Engineers can control **local** data stores
 
 
 # Table of contents
 - [Analogies](#analogies)
 - [Development steps without Containerization](#development-steps-without-containerization)
     * [Step-1: Write code locally](#step-1-write-code-locally)
-    * [Step-2: Local build](#step-2--local-build)
+    * [Step-2: Local build](#step-2-local-build)
     * [Step-3: git commit & push](#step-3-git-commit--push)
     * [Step-4: Create a pull request](#step-4-create-a-pull-request)
     * [Step-5: CI/CD](#step-5-cicd)
@@ -161,16 +160,16 @@
 ...
 
 In the best case...
-- Without containers, 20-builds costs more than 8-hours of "plumbing" time
+- Without containers, 20-builds costs more than 8-hours of "unproductive" time
 - With containers, we can iterate 30+ times every hour
 
 
 ## Worst case
 |Iteration|With Containerization| Without Containerization|
 |---| ---| ---|
-|1| 2-minutes| 75-minutes|
-|2| 1-minute| 75-minutes|
-|3| 1-minute| 75-minutes|
+|1| 14-minutes| 75-minutes|
+|2| 7-minutes| 75-minutes|
+|3| 7-minutes| 75-minutes|
 
 In the worst case...
 - Without containers, we can do at about 6-iterations each **day**
