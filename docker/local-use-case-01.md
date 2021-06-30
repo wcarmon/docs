@@ -2,7 +2,7 @@
 - Local Containerization - Use Case 01
   1. Make incremental changes
   1. Verify changes on "prod-like" environment
-- Explains why *non*-container dev discourages innovation
+- Explains why traditional dev discourages innovation (without local containers)
 
 
 # [TL;DR](https://www.dictionary.com/browse/tldr):
