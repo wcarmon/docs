@@ -21,6 +21,7 @@
 
 
 # Table of contents
+- [Analogies](#analogies)
 - [Development steps without Containerization](#development-steps-without-containerization)
     * [Step-1: Write code locally](#step-1-write-code-locally)
     * [Step-2: Local build](#step-2--local-build)
@@ -35,6 +36,17 @@
     * [Step-3: Run a local docker or kubernetes command](#step-3--run-a-local-docker-or-k8s-command)
     * [Step-4: Test your changes](#step-4-test-your-changes)
 - [Comparison](#comparison)
+
+
+--------
+# Analogies
+
+## Workspace Isolation
+- It would create problems if all engineers **shared** the same file system for code
+- It would create problems if all employees **shared** the same email inbox
+
+## Short Iterations
+- Imagine an interactive conversations over snail-mail vs text
 
 
 --------
@@ -148,19 +160,18 @@
 |3| 1-minute| 25-minutes|
 ...
 
+In the best case...
 - Without containers, 20-builds costs more than 8-hours of "plumbing" time
 - With containers, we can iterate 30+ times every hour
 
 
 ## Worst case
+|Iteration|With Containerization| Without Containerization|
+|---| ---| ---|
+|1| 2-minutes| 75-minutes|
+|2| 1-minute| 75-minutes|
+|3| 1-minute| 75-minutes|
 
-
---------
-# Parallel concepts
-
-## Isolation
-- It would be strange to require all engineers do development on the same code in the file system
-- It would be strange to have all employees share the same email inbox
-
-## Short Iterations
-- It would be strange to
+In the worst case...
+- Without containers, we can do at about 6-iterations each **day**
+- With containers, we can do 6-iterations each **hour**
