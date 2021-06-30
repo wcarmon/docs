@@ -68,7 +68,7 @@
 
 ## Step-3: git commit & push
 - Pre-commit verification checks take time
-- Hooks require a proper formatted message
+- Hooks require a properly formatted message
 - Cost: **2-minutes**
 
 
