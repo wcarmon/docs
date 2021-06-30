@@ -6,6 +6,7 @@
 
 
 # [TL;DR](https://www.dictionary.com/browse/tldr):
+- On average, local containers make developers between 8x and 24x more productive
 - Local Containerization makes **iterations** shorter.  For short iterations ...
    - Engineers fix issues faster
    - Engineers evolve code faster
@@ -30,9 +31,9 @@
     * [Step-6: Deploy to some shared env (eg. Dev/QA)](#step-6-deploy-to-some-shared-env-eg-devqa)
     * [Step-7: Test your changes](#step-7-test-your-changes)
 - [Development steps with Containerization](#development-steps-with-containerization)
-    * [Step-1: Write code locally](#step-1--write-code-locally-1)
-    * [Step-2: Local build](#step-2--local-build-1)
-    * [Step-3: Run a local docker or kubernetes command](#step-3--run-a-local-docker-or-k8s-command)
+    * [Step-1: Write code locally](#step-1-write-code-locally-1)
+    * [Step-2: Local build](#step-2-local-build-1)
+    * [Step-3: Run a local docker or kubernetes command](#step-3-run-a-local-docker-or-kubernetes-command)
     * [Step-4: Test your changes](#step-4-test-your-changes)
 - [Comparison](#comparison)
 
@@ -170,7 +171,8 @@ In the best case...
 |1| 14-minutes| 75-minutes|
 |2| 7-minutes| 75-minutes|
 |3| 7-minutes| 75-minutes|
+...
 
 In the worst case...
-- Without containers, we can do at about 6-iterations each **day**
+- Without containers, we can do about 6-iterations each **day**
 - With containers, we can do 6-iterations each **hour**
