@@ -1,7 +1,23 @@
 # Overview
-- Local Containerization Use Case 01
-- Make incremental changes, Verify changes on "prod-like" environment
-- Explains why non-containerizated dev discourages innovation
+- Local Containerization - Use Case 01
+  1. Make incremental changes
+  1. Verify changes on "prod-like" environment
+- Explains why *non*-container dev discourages innovation
+
+
+# [TL;DR](https://en.wikipedia.org/wiki/Wikipedia:Too_long;_didn%27t_read#:~:text=Too%20long%3B%20didn't%20read%20(abbreviated%20TL%3BDR,the%20time%20to%20digest%20it.):
+- Local Containerization makes **iterations** shorter
+   - When iterations are short ...
+   - Engineers fix issues faster
+   - Engineers evolve code faster
+   - Engineers experiment faster
+   - Mistakes are discovered faster
+- Local Containerization gives Engineers **isolated** environments, which ...
+   - remove fear of mistakes (since local & easy to correct)
+   - remove bottlenecks of shared environments
+   - prevent conflicts with the work of peers
+   - prevent conflicts with upstream & downstream testing
+   - empower Engineers to control local data stores
 
 
 # Table of contents
@@ -23,8 +39,8 @@
 
 --------
 # Development steps without Containerization
-- **One** iteration between **25-minutes** and **75-minutes** (or more in worst case)
-- Every iteration costs the same
+- **Each** iteration: costs between **25-minutes** and **75-minutes** (or more in worst case)
+- Each iteration costs the same
 
 
 ## Step-1: Write code locally
@@ -105,10 +121,11 @@
 - This spins up a complete "prod-like" local env
     - [Kafka](https://hub.docker.com/r/confluentinc/cp-kafka/), [RDBMS](https://hub.docker.com/_/postgres), [Cache](https://hub.docker.com/_/redis), [NGINX](https://hub.docker.com/_/nginx), [Tomcat](https://hub.docker.com/_/tomcat), [Couchbase](https://hub.docker.com/_/couchbase), [Apache](https://hub.docker.com/_/httpd), [hundreds of other popular tools](https://hub.docker.com/search?image_filter=official&type=image)
 - Can pre-hydrate data stores with **exact** data you need
-- Can either run specific components or combine multiple components into 1 config (via [Kubernetes](https://kubernetes.io/) or [docker-compose](https://docs.docker.com/compose/))
+- Can either run specific components or combine multiple components into one config (via [Kubernetes](https://kubernetes.io/) or [docker-compose](https://docs.docker.com/compose/))
 - Can run multiple instances without conflicts
     - Separate networks, ports, file systems, ...
 - Can pre-wire together connected tools
+- Can trash and rebuild broken/corrupt environment quickly
 - Completely isolated from other Engineers
 - [Intellij has docker features](https://www.jetbrains.com/help/idea/docker.html) and [Kubernetes features](https://www.jetbrains.com/help/idea/kubernetes.html#resource-config-files) to further streamline
 - Can *"Enter"* local containers to debug, verify logs, increase logging, check for internal errors, ...
@@ -126,9 +143,24 @@
 ## Best case
 |Iteration|With Containerization| Without Containerization|
 |---| ---| ---|
-|1| 2-minutes| |
-|2| 1-minute| |
-|3| 1-minute| |
+|1| 2-minutes| 25-minutes|
+|2| 1-minute| 25-minutes|
+|3| 1-minute| 25-minutes|
+...
+
+- Without containers, 20-builds costs more than 8-hours of "plumbing" time
+- With containers, we can iterate 30+ times every hour
 
 
 ## Worst case
+
+
+--------
+# Parallel concepts
+
+## Isolation
+- It would be strange to require all engineers do development on the same code in the file system
+- It would be strange to have all employees share the same email inbox
+
+## Short Iterations
+- It would be strange to
