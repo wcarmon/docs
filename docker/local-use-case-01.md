@@ -1,22 +1,23 @@
 # Overview
 - Local Containerization Use Case 01
 - Make incremental changes, Verify changes on "prod-like" environment
+- Explains why non-containerizated dev discourages innovation
 
 
 # Table of contents
 - [Development steps without Containerization](#development-steps-without-containerization)
     * [Step-1: Write code locally](#step-1-write-code-locally)
-    * [Step-2: Local build](#step-2--do-a-local-build)
+    * [Step-2: Local build](#step-2--local-build)
     * [Step-3: git commit & push](#step-3-git-commit--push)
-    * [Step-4: Create a pull request](#step-4--create-a-pull-request)
-    * [Step-5: Trigger CI/CD & Wait](#step-5--trigger-ci-cd---wait)
+    * [Step-4: Create a pull request](#step-4-create-a-pull-request)
+    * [Step-5: CI/CD](#step-5-cicd)
     * [Step-6: Deploy to some shared env (eg. Dev/QA)](#step-6--deploy-to-some-shared-env--eg-dev-qa-)
     * [Step-7: Test your changes](#step-7--test-your-changes)
 - [Development steps with Containerization](#development-steps-with-containerization)
     * [Step-1: Write code locally](#step-1--write-code-locally-1)
-    * [Step-2: Local build](#step-2--do-a-local-build-1)
+    * [Step-2: Local build](#step-2--local-build-1)
     * [Step-3: Run a local docker or kubernetes command](#step-3--run-a-local-docker-or-k8s-command)
-    * [Step-4: Test your changes](#step-4--test-your-changes)
+    * [Step-4: Test your changes](#step-4-test-your-changes)
 - [Comparison](#comparison)
 
 
@@ -52,9 +53,9 @@
 1. Delayed when network is slow
 
 
-## Step-5: Trigger CI/CD & Wait
-- If you're lucky, CI is auto-triggered when you push to an existing Pull Request
-- CI/CD infra is shared
+## Step-5: CI/CD
+- If you're lucky, [CI](https://en.wikipedia.org/wiki/Continuous_integration) is [auto-triggered](https://www.linkedin.com/pulse/automate-jenkins-build-job-srikant-pandey/?trk=related_artice_Automatically%20triggering%20a%20Jenkins%20Build%20on%20every%20Code%20Push%20Event_article-card_title) when you [push](https://git-scm.com/docs/git-push) to an existing [Pull Request](https://www.atlassian.com/git/tutorials/making-a-pull-request)
+- CI/CD infrastructure is shared
 - Cost: **15-30 minutes** (maybe more)
 
 ## Gotchas
@@ -64,27 +65,28 @@
 
 
 ## Step-6: Deploy to some shared env (eg. Dev/QA)
-- Cost: **4-30 minutes** (more if waiting for others)
+- Cost: **4-30 minutes** (*more if waiting for other Engineers*)
 
 ## Gotchas
-1. Shared env so may have to wait for others
-1. Have to coordinate deployments & changes with ALL other Engineers
-1. Might be unable to test until specific date (eg. breaking schema changes)
+1. Shared env, so may have to wait for others
+1. Must coordinate deployments & data store changes with **ALL** other Engineers
+1. Maybe unable to test until specific date (eg. breaking schema changes)
 1. The larger the team, the more Engineers are blocked by this
 1. Potential data conflicts when others mutate shared data stores (DB, Kafka, NFS, ...)
-1. No guarantees your code is running while testing (eg. accidental deploy, auto-deploy, ...)
+1. No guarantees your code is running while testing (eg. Another Engineer accidental deploy, auto-deploy triggered, ...)
 1. No control over settings (Environment specific & shared)
+1. Might require special permissions or Data Store Admin to make data store changes
 
 
 ## Step-7: Test your changes
 - This is the goal
-- If you made a mistake, you need to start over
+- If you made a mistake, must start over at Step-1 :-(
 
 
 --------
 # Development steps with Containerization
-- First iteration costs between **2-minutes** and **14-minutes**
-- Subsequent iterations cost between **1-minute** and **7-minutes**
+- First iteration: costs between **2-minutes** and **14-minutes**
+- Subsequent iterations: cost between **1-minute** and **7-minutes**
 
 ## Step-1: Write code locally
 (same as without containerization)
@@ -109,7 +111,7 @@
 - Can pre-wire together connected tools
 - Completely isolated from other Engineers
 - [Intellij has docker features](https://www.jetbrains.com/help/idea/docker.html) and [Kubernetes features](https://www.jetbrains.com/help/idea/kubernetes.html#resource-config-files) to further streamline
-
+- Can *"Enter"* local containers to debug, verify logs, increase logging, check for internal errors, ...
 - Cost: **1-7 minutes**
 
 
