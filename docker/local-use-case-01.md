@@ -35,7 +35,7 @@
     * [Step-2: Local build](#step-2-local-build-1)
     * [Step-3: Run a local docker or kubernetes command](#step-3-run-a-local-docker-or-kubernetes-command)
     * [Step-4: Test your changes](#step-4-test-your-changes)
-- [Comparison](#time-comparison)
+- [Time Comparison](#time-comparison)
 
 
 --------
