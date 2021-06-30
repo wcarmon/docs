@@ -9,13 +9,13 @@
 - On average, local containers make developers between 8x and 24x more productive
 - Local Containerization makes **iterations** shorter.  For short iterations ...
    - Engineers fix issues faster
-   - Engineers evolve code faster
    - Mistakes are discovered faster
+   - Engineers evolve code faster
    - Engineers can experiment with improvements faster
 - Local Containerization gives Engineers **isolated** environments.  For isolated envs ...
-   - cata & artifact conflicts with peers are removed
-   - conflicts with upstream & downstream testing removed
-   - coordination bottlenecks of shared environments are removed
+   - Data & Artifact conflicts with peers are removed
+   - conflicts with upstream & downstream testing are removed
+   - coordination bottlenecks are removed
    - mistakes are cheap and easy to correct
    - Engineers can control **local** data stores
 
