@@ -8,10 +8,8 @@
 # Changing Key-value pairs
 1. Use a [Map](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Map.html)
 
-
 # Single type (not pairs)
-| |Duplicates ok|No duplicates|
+| |Allow duplicates|No duplicates|
 |---|---|---|
-|Order matters|[List](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/List.html)|[SortedSet](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/SortedSet.html)|
-|Any order|c|[Set](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Set.html)|
-
+|Strict Order|[List](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/List.html)|[SortedSet](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/SortedSet.html)|
+|Any order|[MultiSet](https://github.com/google/guava/wiki/NewCollectionTypesExplained#Multiset) or [Bag](https://commons.apache.org/proper/commons-collections/apidocs/org/apache/commons/collections4/Bag.html)|[Set](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Set.html)|
