@@ -47,7 +47,7 @@
 1. Rely on [jvm defaults](https://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html) for properties (when sensible)
 
 ## Builder
-1. Use [Builder pattern](https://refactoring.guru/design-patterns/builder) (POJOs)
+10. Use [Builder pattern](https://refactoring.guru/design-patterns/builder) (POJOs)
     1. Generate with [InnerBuilder](https://plugins.jetbrains.com/plugin/7354-innerbuilder) plugin or [InnerBuilder continued plugin](https://plugins.jetbrains.com/plugin/15818-innerbuilder-continued) plugin
         1. (select the first 3 options)
             1. `Generate builder method for final fields`,
@@ -61,12 +61,12 @@
     1. **PLUGIN BUG**: In "copy" builder method, use direct field accessors instead of getters
 
 ## Constructor
-1. Ensure `builder` instance passed into constructor (no all-args-constructor)
+11. Ensure `builder` instance passed into constructor (no all-args-constructor)
 1. Do defensive copy on collections
 1. Add field validation to the constructor (after assignments)
 
 ## Bean
-1. Generate `hashcode()` & `equals(...)`
+14. Generate `hashcode()` & `equals(...)`
     1. So POJO is usable in Collections
     1. [Why?](https://www.baeldung.com/java-equals-hashcode-contracts), [Why?](https://www.geeksforgeeks.org/equals-hashcode-methods-java/), [Why?](https://howtodoinjava.com/java/basics/java-hashcode-equals-methods/)
     1. How? [via Intellij](https://www.jetbrains.com/help/idea/generate-equals-and-hashcode-wizard.html), [via core Java 8](https://docs.oracle.com/javase/8/docs/api/java/util/Objects.html#hashCode-java.lang.Object-), [via apache commons](https://commons.apache.org/proper/commons-lang/apidocs/org/apache/commons/lang3/builder/EqualsBuilder.html) (only for legacy code)
@@ -75,7 +75,7 @@
     1. [Let Intellij do it](https://www.jetbrains.com/help/idea/generating-code.html#generate-tostring)
 
 ## Setting Defaults
-1. Set default values in constructor, after assignments
+16. Set default values in constructor, after assignments
 1. For Strings, use [`org.apache.commons.lang3.StringUtils.defaultIfBlank(...)`](https://commons.apache.org/proper/commons-lang/apidocs/org/apache/commons/lang3/StringUtils.html)
 1. For Strings, prefer `""` over null String
 1. For non-string objects, use [`Optional.ofNullable(...).orElseGet(...)`](https://docs.oracle.com/javase/8/docs/api/java/util/Optional.html)
@@ -86,7 +86,7 @@
 
 ## Extras for supporting Jackson
 ### Class annotations
-1. [`@JsonIgnoreProperties({"\u0024schema", "\u0024id"})`](https://www.javadoc.io/doc/com.fasterxml.jackson.core/jackson-annotations/latest/com/fasterxml/jackson/annotation/JsonIgnoreProperties.html)
+21. [`@JsonIgnoreProperties({"\u0024schema", "\u0024id"})`](https://www.javadoc.io/doc/com.fasterxml.jackson.core/jackson-annotations/latest/com/fasterxml/jackson/annotation/JsonIgnoreProperties.html)
    1. Allows `$id` and `$schema` properties in json for deserializing
    1. [Learn more here](https://json-schema.org/)
 1. [`@JsonPropertyOrder(alphabetic = true)`](https://www.javadoc.io/doc/com.fasterxml.jackson.core/jackson-annotations/2.13.0/com/fasterxml/jackson/annotation/JsonPropertyOrder.html)
@@ -96,7 +96,7 @@
 1. On the **Builder** class, add annotation [`@JsonPOJOBuilder(withPrefix = "")`](https://javadoc.io/doc/com.fasterxml.jackson.core/jackson-databind/latest/com/fasterxml/jackson/databind/annotation/JsonPOJOBuilder.Value.html)
 
 ### Property annotations
-1. Copy any Jackson annotations from POJO properties (for serialization) to Builder properties (for deserialization)
+25. Copy any Jackson annotations from POJO properties (for serialization) to Builder properties (for deserialization)
 1. Use [`@JsonProperty`](https://javadoc.io/doc/com.fasterxml.jackson.core/jackson-annotations/latest/com/fasterxml/jackson/annotation/JsonProperty.html) only when the json property name is non-standard
 1. Use [`@JsonProperty`](https://javadoc.io/doc/com.fasterxml.jackson.core/jackson-annotations/latest/com/fasterxml/jackson/annotation/JsonProperty.html) sparingly since annotations must be applied to the builder properties
 
