@@ -6,7 +6,7 @@
 # Example
 ```java
 /**
- * TODO: add a brief description of purpose
+ * TODO: add a BRIEF description of purpose
  * TODO: if this POJO aligns with a DB table, mention that here
  */
 public final class Employee {

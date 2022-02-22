@@ -13,6 +13,7 @@
 
 
 # Big picture
+1. We want to group & encapsulate related fields into 1 class (aka, POJO).
 1. We want Immutability.  [Why?](../general/immutability.md).
 1. We want compatibility with Java Collections API ([Map](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Map.html), [Set](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Set.html), [List](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/List.html), ...).
 1. We want compatibility with [Jackson](https://github.com/FasterXML/jackson) (JSON serialization & deserialization).
@@ -27,7 +28,7 @@
 
 # POJO Checklist
 1. Select a good name for the POJO
-1. Add a brief class comment, short description of purpose
+1. Add a **brief** class comment, short description of purpose
 1. Mark the class `final`
     1. Composition over Inheritance: [why?](https://en.wikipedia.org/wiki/Composition_over_inheritance), [why?](https://stackoverflow.com/questions/49002/prefer-composition-over-inheritance), [why?](https://medium.com/geekculture/composition-over-inheritance-7faed1628595)
 
@@ -101,7 +102,7 @@
 1. On the **Builder** class, add annotation [`@JsonPOJOBuilder(withPrefix = "")`](https://javadoc.io/doc/com.fasterxml.jackson.core/jackson-databind/latest/com/fasterxml/jackson/databind/annotation/JsonPOJOBuilder.Value.html)
 
 ### Property annotations
-26. Copy any Jackson annotations from POJO properties (for serialization) to Builder properties (for deserialization)
+28. Copy any Jackson annotations from POJO properties (for serialization) to Builder properties (for deserialization)
 1. Use [`@JsonProperty`](https://javadoc.io/doc/com.fasterxml.jackson.core/jackson-annotations/latest/com/fasterxml/jackson/annotation/JsonProperty.html) only when the json property name is non-standard
 1. Use [`@JsonProperty`](https://javadoc.io/doc/com.fasterxml.jackson.core/jackson-annotations/latest/com/fasterxml/jackson/annotation/JsonProperty.html) sparingly since annotations must be applied to the builder properties
 
