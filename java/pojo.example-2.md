@@ -9,6 +9,8 @@
  * TODO: add a BRIEF description of purpose
  * TODO: if this POJO aligns with a DB table, mention that here
  */
+@JsonDeserialize(builder = Employee.Builder.class)
+@JsonPropertyOrder(alphabetic = true)
 public final class Employee {
 
   private final boolean active;
@@ -23,6 +25,7 @@ public final class Employee {
    */
   private final String name;
 
+  @JsonProperty("firstDayOnTheJob")
   private final LocalDate startDate;
 
   private Employee(Builder builder) {
@@ -59,11 +62,14 @@ public final class Employee {
     return builder;
   }
 
+  @JsonPOJOBuilder(withPrefix = "")
   public static final class Builder {
     // notice the object type allows defaulting active to true
     private Boolean active;
     private int age;
     private String name;
+
+    @JsonProperty("firstDayOnTheJob")
     private LocalDate startDate;
 
     private Builder() {
