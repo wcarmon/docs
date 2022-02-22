@@ -1,23 +1,23 @@
 # Overview
 1. How to build idiomatic POJOs on Java 8 thru 11
+1. Building an idiomatic POJO in Java 8-11 is **non-trivial** (before [Records](https://docs.oracle.com/en/java/javase/14/language/records.html))
 1. For [Lombok](https://projectlombok.org/) based POJOs, see [./pojos.lombok.java8-11.md](./pojos.lombok.java8-11.md)
     1. Lombok based pojos are simpler, but add a small penalty to the build process
 1. See also [JVM Immutability](jvm-immutability.md)
-1. Building idiomatic POJOs in java 8-11 is non-trivial (before [Records](https://docs.oracle.com/en/java/javase/14/language/records.html))
 
 
 # Before you start...
-1. For Intellij, Install either [InnerBuilder plugin](https://plugins.jetbrains.com/plugin/7354-innerbuilder) or [InnerBuilder continued plugin](https://plugins.jetbrains.com/plugin/15818-innerbuilder-continued)
-1. Both are equally sufficient although [`InnerBuilder continued`](https://plugins.jetbrains.com/plugin/15818-innerbuilder-continued) has more features.
-1. Restart after [installing one plugin](https://www.jetbrains.com/help/idea/managing-plugins.html)
+1. For Intellij, Install either [InnerBuilder](https://plugins.jetbrains.com/plugin/7354-innerbuilder) plugin or [InnerBuilder continued](https://plugins.jetbrains.com/plugin/15818-innerbuilder-continued) plugin.
+1. Both are equally sufficient although [InnerBuilder continued](https://plugins.jetbrains.com/plugin/15818-innerbuilder-continued) has more features.
+1. Restart after [installing one plugin](https://www.jetbrains.com/help/idea/managing-plugins.html).
 
 
 # Big picture
 1. We want Immutability.  [Why?](../general/immutability.md).
-1. We don't want to rely on argument positions (brittle/fragile coding anti-pattern).
-1. We want compatibility with [Jackson](https://github.com/FasterXML/jackson) (JSON serialization & deserialization).
 1. We want compatibility with Java Collections API ([Map](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Map.html), [Set](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Set.html), [List](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/List.html), ...).
+1. We want compatibility with [Jackson](https://github.com/FasterXML/jackson) (JSON serialization & deserialization).
 1. We want our POJOs to pretty-print when logged.
+1. We don't want to rely on argument positions (brittle/fragile coding anti-pattern).
 
 
 # Examples
@@ -31,8 +31,7 @@
     1. Composition over Inheritance: [why?](https://en.wikipedia.org/wiki/Composition_over_inheritance), [why?](https://stackoverflow.com/questions/49002/prefer-composition-over-inheritance), [why?](https://medium.com/geekculture/composition-over-inheritance-7faed1628595)
 
 ## Properties
-{:start="3"}
-1. Define the properties
+3. Define the properties
     1. Aggressively avoid [String](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html) properties.  [Why?](./strings.avoid.md)
     1. Use the [right collection](./collection.selecting.md)
 1. Mark **all** properties [`private final`](https://docs.oracle.com/javase/tutorial/essential/concurrency/imstrat.html)
