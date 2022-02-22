@@ -80,13 +80,13 @@
 1. Add [`@Jacksonized`](https://projectlombok.org/features/experimental/Jacksonized)
 
 ### Property annotations
-22. `@JsonProperty`
+24. `@JsonProperty`
     1. Use [`@JsonProperty`](https://javadoc.io/doc/com.fasterxml.jackson.core/jackson-annotations/latest/com/fasterxml/jackson/annotation/JsonProperty.html) only when the json property name is non-standard
     1. Use [`@JsonProperty`](https://javadoc.io/doc/com.fasterxml.jackson.core/jackson-annotations/latest/com/fasterxml/jackson/annotation/JsonProperty.html) sparingly since annotations must be applied to the builder properties
 
 
 ## Derived & Cached fields
-23. Add derived property to the class, but **NOT** as a constructor argument
+25. Add derived property to the class, but **NOT** as a constructor argument
     1. `@Builder` will ignore them (which is good)
     1. `@Value` will create a getter (which is good)
 1. Assign the derived/cached value in the constructor
