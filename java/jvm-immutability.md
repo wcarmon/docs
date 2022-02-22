@@ -4,8 +4,22 @@
 
 
 # Immutable POJO Checklist
-1. See [How to build core java based POJOs](./pojos.core.java8-11.md)
-1. See [How to build lombok based POJOs](./pojos.lombok.java8-11.md)
+## Java
+1. See How to build [Core Java based POJOs](./pojos.core.java8-11.md)
+1. See How to build [Lombok based POJOs](./pojos.lombok.java8-11.md)
+
+## [Kotlin](https://kotlinlang.org/)
+1. Use [`data class`](https://kotlinlang.org/docs/data-classes.html) with [`val`](https://kotlinlang.org/docs/basic-syntax.html#variables)
+
+
+# Non-POJO Checklist
+1. Use
+1. Mark **all** class `final`
+    1. Composition over Inheritance: [why?](https://en.wikipedia.org/wiki/Composition_over_inheritance), [why?](https://stackoverflow.com/questions/49002/prefer-composition-over-inheritance), [why?](https://medium.com/geekculture/composition-over-inheritance-7faed1628595)
+    1. **EXCEPTION**: Spring [`@Configuration`](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/Configuration.html) classes cannot be final
+
+## Kotlin
+1.
 
 
 # More resources

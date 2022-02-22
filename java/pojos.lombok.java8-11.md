@@ -4,3 +4,6 @@
 
 
 # Lombok based
+
+
+replace @Data with @Value
