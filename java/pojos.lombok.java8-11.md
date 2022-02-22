@@ -5,13 +5,13 @@
 
 # What is [Lombok](https://projectlombok.org/)?
 1. A tool to reduce java boilerplate
-1. An annotation processor (runs before every build)
+1. An [annotation processor](https://docs.oracle.com/javase/8/docs/api/javax/annotation/processing/Processor.html) (runs before every [`javac`](https://docs.oracle.com/en/java/javase/11/tools/javac.html))
 1. Intellij has [native support](https://projectlombok.org/setup/intellij) for Lombok since ver. [2020.3](https://www.jetbrains.com/idea/whatsnew/2020-3/)
     1. No plugin required
 
 
 # Big picture
-1. [See Core Java](./pojos.core.java8-11.md)
+1. [See Core Java](./pojos.core.java8-11.md#big-picture)
 
 
 # Examples
