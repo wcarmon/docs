@@ -1,8 +1,8 @@
 # Overview
 1. How to build idiomatic POJOs on Java 8 thru 11
 1. Building an idiomatic POJO in Java 8-11 is **non-trivial** (before [Records](https://docs.oracle.com/en/java/javase/14/language/records.html))
-1. For [Lombok](https://projectlombok.org/) based POJOs, see [./pojos.lombok.java8-11.md](./pojos.lombok.java8-11.md)
-    1. Lombok based pojos are simpler, but add a small penalty to the build process
+1. Lombok based pojos are simpler, but add a small penalty to the build process
+    1. For [Lombok](https://projectlombok.org/) based POJOs, see [./pojos.lombok.java8-11.md](./pojos.lombok.java8-11.md)
 1. See also [JVM Immutability](jvm-immutability.md)
 
 
@@ -27,11 +27,12 @@
 
 # POJO Checklist
 1. Select a good name for the POJO
+1. Add a brief class comment, short description of purpose
 1. Mark the class `final`
     1. Composition over Inheritance: [why?](https://en.wikipedia.org/wiki/Composition_over_inheritance), [why?](https://stackoverflow.com/questions/49002/prefer-composition-over-inheritance), [why?](https://medium.com/geekculture/composition-over-inheritance-7faed1628595)
 
 ## Properties
-3. Define the properties
+4. Define the properties
     1. Aggressively avoid [String](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html) properties.  [Why?](./strings.avoid.md)
     1. Use the [right collection](./collection.selecting.md)
 1. Mark **all** properties [`private final`](https://docs.oracle.com/javase/tutorial/essential/concurrency/imstrat.html)
@@ -47,7 +48,7 @@
 1. Rely on [jvm defaults](https://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html) for properties (when sensible)
 
 ## Builder
-10. Use [Builder pattern](https://refactoring.guru/design-patterns/builder) (POJOs)
+11. Use [Builder pattern](https://refactoring.guru/design-patterns/builder) (POJOs)
     1. Generate with [InnerBuilder](https://plugins.jetbrains.com/plugin/7354-innerbuilder) plugin or [InnerBuilder continued plugin](https://plugins.jetbrains.com/plugin/15818-innerbuilder-continued) plugin
         1. (select the first 3 options)
             1. `Generate builder method for final fields`,
@@ -61,12 +62,15 @@
     1. **PLUGIN BUG**: In "copy" builder method, use direct field accessors instead of getters
 
 ## Constructor
-11. Ensure `builder` instance passed into constructor (no all-args-constructor)
+12. Ensure `builder` instance passed into constructor (no all-args-constructor)
 1. Do defensive copy on collections
+    1. [`ImmutableList.copyOf`](https://guava.dev/releases/31.0-jre/api/docs/com/google/common/collect/ImmutableList.html#copyOf(java.lang.Iterable))
+    1. [`ImmutableSet.copyOf`](https://guava.dev/releases/31.0.1-jre/api/docs/com/google/common/collect/ImmutableSet.html#copyOf(java.util.Collection))
+    1. [`ImmutableMap.copyOf`](https://guava.dev/releases/31.0-jre/api/docs/com/google/common/collect/ImmutableMap.html#copyOf(java.util.Map))
 1. Add field validation to the constructor (after assignments)
 
 ## Bean
-14. Generate `hashcode()` & `equals(...)`
+15. Generate `hashcode()` & `equals(...)`
     1. So POJO is usable in Collections
     1. [Why?](https://www.baeldung.com/java-equals-hashcode-contracts), [Why?](https://www.geeksforgeeks.org/equals-hashcode-methods-java/), [Why?](https://howtodoinjava.com/java/basics/java-hashcode-equals-methods/)
     1. How? [via Intellij](https://www.jetbrains.com/help/idea/generate-equals-and-hashcode-wizard.html), [via core Java 8](https://docs.oracle.com/javase/8/docs/api/java/util/Objects.html#hashCode-java.lang.Object-), [via apache commons](https://commons.apache.org/proper/commons-lang/apidocs/org/apache/commons/lang3/builder/EqualsBuilder.html) (only for legacy code)
@@ -75,7 +79,7 @@
     1. [Let Intellij do it](https://www.jetbrains.com/help/idea/generating-code.html#generate-tostring)
 
 ## Setting Defaults
-16. Set default values in constructor, after assignments
+17. Set default values in constructor, after assignments
 1. For Strings, use [`org.apache.commons.lang3.StringUtils.defaultIfBlank(...)`](https://commons.apache.org/proper/commons-lang/apidocs/org/apache/commons/lang3/StringUtils.html)
 1. For Strings, prefer `""` over null String
 1. For non-string objects, use [`Optional.ofNullable(...).orElseGet(...)`](https://docs.oracle.com/javase/8/docs/api/java/util/Optional.html)
@@ -86,7 +90,7 @@
 
 ## Extras for supporting Jackson
 ### Class annotations
-21. [`@JsonIgnoreProperties({"\u0024schema", "\u0024id"})`](https://www.javadoc.io/doc/com.fasterxml.jackson.core/jackson-annotations/latest/com/fasterxml/jackson/annotation/JsonIgnoreProperties.html)
+22. [`@JsonIgnoreProperties({"\u0024schema", "\u0024id"})`](https://www.javadoc.io/doc/com.fasterxml.jackson.core/jackson-annotations/latest/com/fasterxml/jackson/annotation/JsonIgnoreProperties.html)
    1. Allows `$id` and `$schema` properties in json for deserializing
    1. [Learn more here](https://json-schema.org/)
 1. [`@JsonPropertyOrder(alphabetic = true)`](https://www.javadoc.io/doc/com.fasterxml.jackson.core/jackson-annotations/2.13.0/com/fasterxml/jackson/annotation/JsonPropertyOrder.html)
@@ -96,13 +100,13 @@
 1. On the **Builder** class, add annotation [`@JsonPOJOBuilder(withPrefix = "")`](https://javadoc.io/doc/com.fasterxml.jackson.core/jackson-databind/latest/com/fasterxml/jackson/databind/annotation/JsonPOJOBuilder.Value.html)
 
 ### Property annotations
-25. Copy any Jackson annotations from POJO properties (for serialization) to Builder properties (for deserialization)
+26. Copy any Jackson annotations from POJO properties (for serialization) to Builder properties (for deserialization)
 1. Use [`@JsonProperty`](https://javadoc.io/doc/com.fasterxml.jackson.core/jackson-annotations/latest/com/fasterxml/jackson/annotation/JsonProperty.html) only when the json property name is non-standard
 1. Use [`@JsonProperty`](https://javadoc.io/doc/com.fasterxml.jackson.core/jackson-annotations/latest/com/fasterxml/jackson/annotation/JsonProperty.html) sparingly since annotations must be applied to the builder properties
 
 
 ## Cached fields
-TODO
+TODO: more here
 
 
 ## Derived fields
