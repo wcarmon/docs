@@ -1,5 +1,6 @@
 # Overview
 1. Example of "idiomatic" Java 8-11 POJO
+1. See also, [detailed explanation](./pojos.core.java8-11.md)
 1. See also, [Jackson ready POJO example](./pojo.example-2.md)
 1. See also, [Lombok POJO examples](./pojos.lombok.java8-11.md)
 
