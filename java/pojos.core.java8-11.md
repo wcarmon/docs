@@ -67,7 +67,8 @@
     1. [`ImmutableList.copyOf`](https://guava.dev/releases/31.0-jre/api/docs/com/google/common/collect/ImmutableList.html#copyOf(java.lang.Iterable))
     1. [`ImmutableSet.copyOf`](https://guava.dev/releases/31.0.1-jre/api/docs/com/google/common/collect/ImmutableSet.html#copyOf(java.util.Collection))
     1. [`ImmutableMap.copyOf`](https://guava.dev/releases/31.0-jre/api/docs/com/google/common/collect/ImmutableMap.html#copyOf(java.util.Map))
-1. Add field validation to the constructor (after assignments)
+1. Add field validation/Preconditions to the constructor (after assignments)
+    1. eg. non-null checks, string patterns, number ranges, date ranges, ...
 
 ## Bean
 15. Generate `hashcode()` & `equals(...)`
