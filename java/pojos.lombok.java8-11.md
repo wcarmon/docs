@@ -73,20 +73,20 @@
 ## Extras for supporting Jackson
 ### Class annotations
 19. Add [`@JsonIgnoreProperties({"\u0024schema", "\u0024id"})`](https://www.javadoc.io/doc/com.fasterxml.jackson.core/jackson-annotations/latest/com/fasterxml/jackson/annotation/JsonIgnoreProperties.html)
-   1. Allows `$id` and `$schema` properties in json for deserializing
-   1. [Learn more here](https://json-schema.org/)
+    1. Allows `$id` and `$schema` properties in json for deserializing
+    1. [Learn more here](https://json-schema.org/)
 1. Add [`@JsonPropertyOrder(alphabetic = true)`](https://www.javadoc.io/doc/com.fasterxml.jackson.core/jackson-annotations/2.13.0/com/fasterxml/jackson/annotation/JsonPropertyOrder.html)
-   1. Provides predictable order for serialized json (simplifies testing, caching, etc)
+    1. Provides predictable order for serialized json (simplifies testing, caching, etc)
 1. Add [`@Jacksonized`](https://projectlombok.org/features/experimental/Jacksonized)
 
 ### Property annotations
-24. `@JsonProperty`
+22. `@JsonProperty`
     1. Use [`@JsonProperty`](https://javadoc.io/doc/com.fasterxml.jackson.core/jackson-annotations/latest/com/fasterxml/jackson/annotation/JsonProperty.html) only when the json property name is non-standard
     1. Use [`@JsonProperty`](https://javadoc.io/doc/com.fasterxml.jackson.core/jackson-annotations/latest/com/fasterxml/jackson/annotation/JsonProperty.html) sparingly since annotations must be applied to the builder properties
 
 
 ## Derived & Cached fields
-25. Add derived property to the class, but **NOT** as a constructor argument
+23. Add derived property to the class, but **NOT** as a constructor argument
     1. `@Builder` will ignore them (which is good)
     1. `@Value` will create a getter (which is good)
 1. Assign the derived/cached value in the constructor

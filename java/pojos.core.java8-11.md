@@ -95,22 +95,22 @@
 ## Extras for supporting Jackson
 ### Class annotations
 23. [`@JsonIgnoreProperties({"\u0024schema", "\u0024id"})`](https://www.javadoc.io/doc/com.fasterxml.jackson.core/jackson-annotations/latest/com/fasterxml/jackson/annotation/JsonIgnoreProperties.html)
-   1. Allows `$id` and `$schema` properties in json for deserializing
-   1. [Learn more here](https://json-schema.org/)
+    1. Allows `$id` and `$schema` properties in json for deserializing
+    1. [Learn more here](https://json-schema.org/)
 1. [`@JsonPropertyOrder(alphabetic = true)`](https://www.javadoc.io/doc/com.fasterxml.jackson.core/jackson-annotations/2.13.0/com/fasterxml/jackson/annotation/JsonPropertyOrder.html)
-   1. Provides predictable order for serialized json (simplifies testing, caching, etc)
+    1. Provides predictable order for serialized json (simplifies testing, caching, etc)
 1. [`@JsonDeserialize(builder = Foo.Builder.class)`](https://www.javadoc.io/doc/com.fasterxml.jackson.core/jackson-databind/latest/com/fasterxml/jackson/databind/JsonDeserializer.html) (*replace `Foo` with your POJO name*)
-   1. Allows Jackson Deserializer to find your Builder class
+    1. Allows Jackson Deserializer to find your Builder class
 1. On the **Builder** class, add annotation [`@JsonPOJOBuilder(withPrefix = "")`](https://javadoc.io/doc/com.fasterxml.jackson.core/jackson-databind/latest/com/fasterxml/jackson/databind/annotation/JsonPOJOBuilder.Value.html)
 
 ### Property annotations
-29. Copy any Jackson annotations from POJO properties (for serialization) to Builder properties (for deserialization)
+27. Copy any Jackson annotations from POJO properties (for serialization) to Builder properties (for deserialization)
 1. `@JsonProperty`
     1. Use [`@JsonProperty`](https://javadoc.io/doc/com.fasterxml.jackson.core/jackson-annotations/latest/com/fasterxml/jackson/annotation/JsonProperty.html) only when the json property name is non-standard
     1. Use [`@JsonProperty`](https://javadoc.io/doc/com.fasterxml.jackson.core/jackson-annotations/latest/com/fasterxml/jackson/annotation/JsonProperty.html) sparingly since annotations must be applied to the builder properties
 
 ## Derived & Cached fields
-31. Add derived/cached property to the class
+29. Add derived/cached property to the class
 1. Assign the derived/cached value in the constructor
 1. Ensure derived fields are **NOT** in the Builder
 1. Mark derived fields `transient`
