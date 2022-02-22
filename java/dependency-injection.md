@@ -33,7 +33,7 @@
 - TL;DR; Use constructor injection
 
 ## Constructor Injection
-- Promotes [Immutability](./immutability.md)
+- Promotes [Immutability](./jvm-immutability.md)
   - injected fields can be private and final
 - Dependency issues are detected at startup
 - [Spring docs on Constructor Injection](https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#beans-constructor-injection)
@@ -51,7 +51,7 @@
 ## ~~Setter Injection~~
 - A.K.A. "Interface injection"
 ### Problems
-- Hinders [Immutability](./immutability.md) (which hinders safe concurrency)
+- Hinders [Immutability](./jvm-immutability.md) (which hinders safe concurrency)
 - No guarantees of dependencies being set
     - Potential for incomplete objects
     - Setter might not be called
@@ -62,7 +62,7 @@
 
 ## ~~Field Injection~~
 ### Problems
-- Hinders [Immutability](./immutability.md) (which hinders safe concurrency)
+- Hinders [Immutability](./jvm-immutability.md) (which hinders safe concurrency)
 - Discouraged by [Spring](https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#beans-setter-injection)
     - Recent versions don't even mention support for field injection
 - Discouraged by Guice
