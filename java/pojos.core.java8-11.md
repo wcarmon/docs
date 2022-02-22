@@ -15,8 +15,8 @@
     1. Immutable after construction
     1. Composition, not inheritance
 1. We don't want to rely on argument positions (brittle/fragile coding anti-pattern)
-1. We want compatibility with Jackson (JSON serialization & deserialization)
-1. We want our POJOs to be compatible with java Collections (Map, Set, List, ...)
+1. We want compatibility with [Jackson](https://github.com/FasterXML/jackson) (JSON serialization & deserialization)
+1. We want our POJOs to be compatible with java Collections ([Map](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Map.html), [Set](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Set.html), [List](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/List.html), ...)
 1. We want our POJOs to print helpful info when logged
 
 
