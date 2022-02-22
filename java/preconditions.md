@@ -6,11 +6,15 @@
 # Table of contents
 
 
-
 # Benefits
 - Errors don't drift away from the source
 - Assumptions are documented and enforced
 - Reduces time to detect failures
+
+
+# Intellij - Live templates
+TODO: cbs
+TODO: rnn
 
 
 # More Info

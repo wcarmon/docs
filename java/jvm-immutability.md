@@ -12,14 +12,23 @@
 1. Use [`data class`](https://kotlinlang.org/docs/data-classes.html) with [`val`](https://kotlinlang.org/docs/basic-syntax.html#variables)
 
 
-# Non-POJO Checklist
-1. Use
+# Non-POJO Checklist (Services, Helpers, Components, DAOs, ...)
+1. Use [Constructor injection](./dependency-injection.md)
 1. Mark **all** class `final`
     1. Composition over Inheritance: [why?](https://en.wikipedia.org/wiki/Composition_over_inheritance), [why?](https://stackoverflow.com/questions/49002/prefer-composition-over-inheritance), [why?](https://medium.com/geekculture/composition-over-inheritance-7faed1628595)
     1. **EXCEPTION**: Spring [`@Configuration`](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/Configuration.html) classes cannot be final
+1. Mark **all** properties `private`
+    1. Minimize exposure
+    1. Use Getters to expose state
+    1. Use immutable collections or defensive copies when exposing collections
+1. Mark **all** properties `final`
+    1. **EXCEPTION**: `private`, internal-only state can be non-final
+1. Do validation (preconditions) in constructor
+    1. See [preconditions doc](./preconditions.md)
 
-## Kotlin
-1.
+
+# Utility class Checklist
+1. See [idioms](./classes.utility.md)
 
 
 # More resources

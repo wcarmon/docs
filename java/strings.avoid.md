@@ -1,0 +1,9 @@
+
+
+
+
+1. Use URI for Strings that look like urls
+1. Use java.time.Instant for Strings that look like dates
+1. Use Path for Strings ...
+1. Use X for Strings ...
+1. Use X for Strings ...
