@@ -11,7 +11,15 @@
 
 # Big picture
 1. We want Immutability.  [Why?](../general/immutability.md)
+    1. No setters
+    1. Immutable after construction
+    1. Composition, not inheritance
 1. We don't want to rely on argument positions (brittle/fragile coding anti-pattern)
-1. We want compatibility with Jackson
+1. We want compatibility with Jackson (JSON serialization & deserialization)
+1. We want our POJOs to be compatible with java Collections (Map, Set, List, ...)
+1. We want our POJOs to print helpful info when logged
 
 
+
+TODO: hashcode & equals
+TODO: toString
