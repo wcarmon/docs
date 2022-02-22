@@ -10,7 +10,7 @@
  * TODO: if this POJO aligns with a DB table, mention that here
  */
 @Value
-public class Foo {
+public class Employee {
 
   boolean active;
 
@@ -30,7 +30,7 @@ public class Foo {
     builderClassName = "Builder",
     builderMethodName = "newBuilder",
     toBuilder = true)
-  public Foo(
+  public Employee(
     boolean active,
     int age,
     String name,
