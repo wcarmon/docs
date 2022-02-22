@@ -34,10 +34,13 @@ public final class Employee {
     startDate = builder.startDate;
 
     // -- Validations
-    Preconditions.checkArgument(age <= 100, "age is too high: " + age);
-    Preconditions.checkArgument(age >= 16, "age is too low: " + age);
+    checkArgument(age <= 100, "age is too high: " + age);
+    checkArgument(age >= 16, "age is too low: " + age);
+
+    checkArgument(isNotBlank(name), "name is required");
 
     requireNonNull(startDate, "startDate is required and missing.");
+
     //TODO: other validations go here
   }
 

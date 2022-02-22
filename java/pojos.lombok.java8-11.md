@@ -1,7 +1,8 @@
 # Overview
 1. [See the core Java doc first](./pojos.core.java8-11.md)
-1. This doc contains simplifications when using [Lombok](https://projectlombok.org/)
-
+1. Contains simplifications when using [Lombok](https://projectlombok.org/)
+1. Building an idiomatic POJO in Java 8-11 is **non-trivial** (before [Records](https://docs.oracle.com/en/java/javase/14/language/records.html))
+    1. Even with Lombok, it's challenging
 
 # What is [Lombok](https://projectlombok.org/)?
 1. A tool to reduce java boilerplate
@@ -43,12 +44,15 @@
 1. Prefer [primitive](https://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html) properties (when sensible)
 1. Rely on [jvm defaults](https://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html) for properties (when sensible)
 1. [Auto-sort your properties](https://www.jetbrains.com/help/idea/rearrange-code.html#create-matching-rules)
-    1. This provides consistent behavior for all lombok annotations
+    1. Provides consistent behavior for all lombok annotations
+1. Add javadoc for **all** String properties: [Why?](./strings.avoid.md)
+
 
 ## Builder
-11. Use [Intellij](https://www.jetbrains.com/help/idea/generating-code.html#generate-constructors) or [delombok](https://projectlombok.org/features/delombok) action to generate an all-args constructor
+12. Use [Intellij](https://www.jetbrains.com/help/idea/generating-code.html#generate-constructors) or [delombok](https://projectlombok.org/features/delombok) to generate an all-args constructor
     1. **Verify**: constructor is `private`
     1. **Verify**: constructor has all the arguments (in predictable order)
+        1. This should be easy since intellij will complain if you omit a property
 
 ## Constructor
 TODO: more here
