@@ -64,10 +64,10 @@
 ## Constructor
 12. Ensure `builder` instance passed into constructor (no all-args-constructor)
 1. Do defensive copy on collections
-    1. [`ImmutableList.copyOf`](https://guava.dev/releases/31.0-jre/api/docs/com/google/common/collect/ImmutableList.html#copyOf(java.lang.Iterable))
-    1. [`ImmutableSet.copyOf`](https://guava.dev/releases/31.0.1-jre/api/docs/com/google/common/collect/ImmutableSet.html#copyOf(java.util.Collection))
-    1. [`ImmutableMap.copyOf`](https://guava.dev/releases/31.0-jre/api/docs/com/google/common/collect/ImmutableMap.html#copyOf(java.util.Map))
-1. Add field validation/Preconditions to the constructor (after assignments)
+    1. [`ImmutableList.copyOf(...)`](https://guava.dev/releases/31.0-jre/api/docs/com/google/common/collect/ImmutableList.html#copyOf(java.lang.Iterable))
+    1. [`ImmutableSet.copyOf(...)`](https://guava.dev/releases/31.0.1-jre/api/docs/com/google/common/collect/ImmutableSet.html#copyOf(java.util.Collection))
+    1. [`ImmutableMap.copyOf(...)`](https://guava.dev/releases/31.0-jre/api/docs/com/google/common/collect/ImmutableMap.html#copyOf(java.util.Map))
+1. Add field [validation (Preconditions)](./preconditions.md) to the constructor (after assignments)
     1. eg. non-null checks, string patterns, number ranges, date ranges, ...
 
 ## Bean
