@@ -15,8 +15,8 @@
 
 
 # Examples
-1. [Basic POJO](./pojo.example-3.md)
-1. [JSON compatible POJO](./pojo.example-4.md)
+1. [Basic Lombok POJO](./pojo.example-3.md)
+1. [Jackson compatible Lombok POJO](./pojo.example-4.md)
 
 
 # Lombok POJO Checklist
@@ -24,17 +24,18 @@
 1. Add a **brief** class comment, short description of purpose
 
 ## Class annotations
-3. Add [`@Builder(builderClassName = "Builder", builderMethodName = "newBuilder", toBuilder = true)`](https://projectlombok.org/features/Builder)
-1. Add [`@Value`](https://projectlombok.org/features/Value) annotation to class
-    1. Automatically generates `hashcode()` & `equals(...)` methods
-    1. Automatically generates `toString()` method
-    1. Automatically marks all fields `private final`
+3. Add [`@Builder(builderClassName = "Builder", builderMethodName = "newBuilder", toBuilder = true)`](https://projectlombok.org/features/Builder) to the class.
+    1. These two re-names align with other standard builders
+1. Add [`@Value`](https://projectlombok.org/features/Value) annotation to class.
+    1. Automatically generates [`hashcode()`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html#hashCode()) & [`equals(...)`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html#equals(java.lang.Object)) methods
+    1. Automatically generates [`toString()`](https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html#toString--) method
+    1. Automatically marks all fields [`private final`](https://docs.oracle.com/javase/tutorial/essential/concurrency/imstrat.html)
     1. Automatically generates Getters
 
 ## Properties
 6. Define the properties
     1. Aggressively avoid [String](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html) properties.  [Why?](./strings.avoid.md)
-    1. Use the [right collection](./collection.selecting.md)
+    1. Use the [correct collection](./collections.selecting.md)
 1. Use modern Java types for properties
     1. Modern core types are immutable
         1. eg. [java.time](https://docs.oracle.com/javase/8/docs/api/java/time/package-summary.html)

@@ -23,7 +23,7 @@
 
 # Examples
 1. [Basic POJO](./pojo.example-1.md)
-1. [JSON compatible POJO](./pojo.example-2.md)
+1. [Jackson compatible POJO](./pojo.example-2.md)
 
 
 # POJO Checklist
@@ -35,7 +35,7 @@
 ## Properties
 4. Define the properties
     1. Aggressively avoid [String](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html) properties.  [Why?](./strings.avoid.md)
-    1. Use the [right collection](./collection.selecting.md)
+    1. Use the [correct collection](./collections.selecting.md)
 1. Mark **all** properties [`private final`](https://docs.oracle.com/javase/tutorial/essential/concurrency/imstrat.html)
 1. [No Setters](https://docs.oracle.com/javase/tutorial/essential/concurrency/imstrat.html)
 1. Generate Getters
@@ -72,7 +72,7 @@
     1. eg. non-null checks, string patterns, number ranges, date ranges, ...
 
 ## Bean
-15. Generate `hashcode()` & `equals(...)`
+15. Generate [`hashcode()`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html#hashCode()) & [`equals(...)`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html#equals(java.lang.Object))
     1. So POJO is usable in Collections
     1. [Why?](https://www.baeldung.com/java-equals-hashcode-contracts), [Why?](https://www.geeksforgeeks.org/equals-hashcode-methods-java/), [Why?](https://howtodoinjava.com/java/basics/java-hashcode-equals-methods/)
     1. How? [via Intellij](https://www.jetbrains.com/help/idea/generate-equals-and-hashcode-wizard.html), [via core Java 8](https://docs.oracle.com/javase/8/docs/api/java/util/Objects.html#hashCode-java.lang.Object-), [via apache commons](https://commons.apache.org/proper/commons-lang/apidocs/org/apache/commons/lang3/builder/EqualsBuilder.html) (only for legacy code)
