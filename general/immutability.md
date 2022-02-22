@@ -1,30 +1,29 @@
 # Overview
-1. Why is immutability important
-1. Immutability isn't limited to one language
+1. Why is immutability important?
+1. Immutability isn't limited to one language/framework/library
 
 
 # Big picture
-1. Don't mutate, build another one with the changes
 1. "Save As" not "Save"
-1. Makes things easier to reason about
+1. Makes code easier to reason about
 
 
 # Benefits (Pros)
 1. Predictability
 1. Safety
-1. Immutable data is threadsafe, safe to share
-    1. Consumes less memory than defensive copies
-    1. Avoids race conditions
-    1. Avoids corruption by multi-thread related mutation
+1. Immutable data is [Threadsafe](https://en.wikipedia.org/wiki/ThreadSafe#:~:text=ThreadSafe%20is%20a%20source%20code,applications%20running%20in%20complex%20environments.), safe to share
+    1. Consumes less memory than [defensive copies](http://www.javapractices.com/topic/TopicAction.do?Id=15)
+    1. Avoids [race conditions](https://en.wikipedia.org/wiki/Race_condition) (all race conditions come from Shared **mutable** state)
+    1. Avoids corruption by multi-thread related **mutation**
 1. Simplifies multi-threaded & parallel code
 1. Better control over data
-1. Avoids unnecessary defensive copies
+1. Avoids unnecessary [defensive copies](http://www.javapractices.com/topic/TopicAction.do?Id=15)
 1. Simplifies undo/redo (update/rollback)
+1. Simplified caching
 1. Simplifies debugging
 1. Avoids reading data in an inconsistent state
 1. [Atomicity of failure](http://jtechies.blogspot.com/2012/07/item-64-strive-for-failure-atomicity.html)
 1. No hidden side-effects on data
-1. Simplified caching
 1. Avoids temporal coupling on methods
 1. Validation only required on construction
 1. Traceability & Audit trail
@@ -37,8 +36,8 @@
 
 # Tools build around the Immutability Concept
 1. [Git](https://git-scm.com/)
-1. [Blockchain](https://medium.com/fluree/immutability-and-the-enterprise-an-immense-value-proposition-98cd3bf900b1)
 1. [Kafka](https://kafka.apache.org/)
+1. [Blockchain](https://medium.com/fluree/immutability-and-the-enterprise-an-immense-value-proposition-98cd3bf900b1)
 
 
 --------
