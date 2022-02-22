@@ -12,6 +12,6 @@
 # Single type (not pairs)
 | |Duplicates ok|No duplicates|
 |---|---|---|
-|Order matters|a|[SortedSet](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/SortedSet.html)|
+|Order matters|[List](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/List.html)|[SortedSet](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/SortedSet.html)|
 |Any order|c|[Set](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Set.html)|
 
