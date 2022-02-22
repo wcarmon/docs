@@ -5,10 +5,10 @@
 
 # Example
 ```java
-@Builder(
-  builderClassName = "Builder",
-  builderMethodName = "newBuilder",
-  toBuilder = true)
+/**
+ * TODO: add a BRIEF description of purpose
+ * TODO: if this POJO aligns with a DB table, mention that here
+ */
 @Value
 public class Foo {
 
@@ -26,6 +26,10 @@ public class Foo {
 
   LocalDate startDate;
 
+  @lombok.Builder(
+    builderClassName = "Builder",
+    builderMethodName = "newBuilder",
+    toBuilder = true)
   public Foo(
     boolean active,
     int age,

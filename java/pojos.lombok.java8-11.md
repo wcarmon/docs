@@ -25,16 +25,14 @@
 1. Add a **brief** class comment, short description of purpose
 
 ## Class annotations
-3. Add [`@Builder(builderClassName = "Builder", builderMethodName = "newBuilder", toBuilder = true)`](https://projectlombok.org/features/Builder) to the class.
-    1. These two re-names align with other standard builders
-1. Add [`@Value`](https://projectlombok.org/features/Value) annotation to class.
+3. Add [`@Value`](https://projectlombok.org/features/Value) annotation to class.
     1. Automatically generates [`hashcode()`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html#hashCode()) & [`equals(...)`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html#equals(java.lang.Object)) methods
     1. Automatically generates [`toString()`](https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html#toString--) method
     1. Automatically marks all fields [`private final`](https://docs.oracle.com/javase/tutorial/essential/concurrency/imstrat.html)
     1. Automatically generates Getters
 
 ## Properties
-6. Define the properties
+4. Define the properties
     1. Aggressively avoid [String](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html) properties.  [Why?](./strings.avoid.md)
     1. Use the [correct collection](./collections.selecting.md)
 1. Use modern Java types for properties
@@ -47,31 +45,53 @@
     1. Provides consistent behavior for all lombok annotations
 1. Add javadoc for **all** String properties: [Why?](./strings.avoid.md)
 
-
 ## Builder
-12. Use [Intellij](https://www.jetbrains.com/help/idea/generating-code.html#generate-constructors) or [delombok](https://projectlombok.org/features/delombok) to generate an all-args constructor
+10. Use [Intellij](https://www.jetbrains.com/help/idea/generating-code.html#generate-constructors) or [delombok](https://projectlombok.org/features/delombok) to generate an all-args constructor
     1. **Verify**: constructor is `private`
     1. **Verify**: constructor has all the arguments (in predictable order)
         1. This should be easy since intellij will complain if you omit a property
+1. Add [`@lombok.Builder(builderClassName = "Builder", builderMethodName = "newBuilder", toBuilder = true)`](https://projectlombok.org/features/Builder) to the constructor.
+    1. These two re-names align with other standard builders
 
 ## Constructor
-TODO: more here
-
+12. Do defensive copy on collections
+    1. [`ImmutableList.copyOf(...)`](https://guava.dev/releases/31.0-jre/api/docs/com/google/common/collect/ImmutableList.html#copyOf(java.lang.Iterable))
+    1. [`ImmutableSet.copyOf(...)`](https://guava.dev/releases/31.0.1-jre/api/docs/com/google/common/collect/ImmutableSet.html#copyOf(java.util.Collection))
+    1. [`ImmutableMap.copyOf(...)`](https://guava.dev/releases/31.0-jre/api/docs/com/google/common/collect/ImmutableMap.html#copyOf(java.util.Map))
+1. Add field [validation (Preconditions)](./preconditions.md) to the constructor (after assignments)
+    1. eg. non-null checks, string patterns, number ranges, date ranges, ...
 
 ## Setting Defaults
-TODO: more here
-
+14. Set default values in constructor, after assignments
+1. For Strings, use [`org.apache.commons.lang3.StringUtils.defaultIfBlank(...)`](https://commons.apache.org/proper/commons-lang/apidocs/org/apache/commons/lang3/StringUtils.html)
+1. For Strings, prefer `""` over null String
+1. For non-string objects, use [`Optional.ofNullable(...).orElseGet(...)`](https://docs.oracle.com/javase/8/docs/api/java/util/Optional.html)
+    1. **Legacy code**: For non-string objects, use [`ObjectUtils.defaultIfNull(...)`](https://commons.apache.org/proper/commons-lang/apidocs/org/apache/commons/lang3/ObjectUtils.html)
+1. Default collections to empty (`List.of()`, `Set.of()`, `Map.of()`) instead of `null`
+    1. **Legacy code**: Default collections to empty ([`Collections.emptyList()`](https://docs.oracle.com/javase/8/docs/api/java/util/Collections.html#emptyList--), [`Collections.emptySet()`](https://docs.oracle.com/javase/8/docs/api/java/util/Collections.html#emptySet--), [`Collections.emptyMap()`](https://docs.oracle.com/javase/8/docs/api/java/util/Collections.html#emptyMap--)) instead of `null`
 
 ## Extras for supporting Jackson
-TODO: more here
+### Class annotations
+19. Add [`@JsonIgnoreProperties({"\u0024schema", "\u0024id"})`](https://www.javadoc.io/doc/com.fasterxml.jackson.core/jackson-annotations/latest/com/fasterxml/jackson/annotation/JsonIgnoreProperties.html)
+   1. Allows `$id` and `$schema` properties in json for deserializing
+   1. [Learn more here](https://json-schema.org/)
+1. Add [`@JsonPropertyOrder(alphabetic = true)`](https://www.javadoc.io/doc/com.fasterxml.jackson.core/jackson-annotations/2.13.0/com/fasterxml/jackson/annotation/JsonPropertyOrder.html)
+   1. Provides predictable order for serialized json (simplifies testing, caching, etc)
+1. Add [`@Jacksonized`](https://projectlombok.org/features/experimental/Jacksonized)
+
+### Property annotations
+22. `@JsonProperty`
+    1. Use [`@JsonProperty`](https://javadoc.io/doc/com.fasterxml.jackson.core/jackson-annotations/latest/com/fasterxml/jackson/annotation/JsonProperty.html) only when the json property name is non-standard
+    1. Use [`@JsonProperty`](https://javadoc.io/doc/com.fasterxml.jackson.core/jackson-annotations/latest/com/fasterxml/jackson/annotation/JsonProperty.html) sparingly since annotations must be applied to the builder properties
 
 
-## Cached fields
-TODO: more here
-
-
-## Derived fields
-TODO: more here
+## Derived & Cached fields
+23. Add derived property to the class, but **NOT** as a constructor argument
+    1. `@Builder` will ignore them (which is good)
+    1. `@Value` will create a getter (which is good)
+1. Assign the derived/cached value in the constructor
+1. Mark derived fields `transient`
+1. Use [`@java.beans.Transient`](https://docs.oracle.com/javase/8/docs/api/java/beans/Transient.html) on getters, so Jackson will ignore
 
 
 # Gotchas
@@ -80,18 +100,3 @@ TODO: more here
 1. **WARNING** Avoid [org.jetbrains.annotations.Nullable](https://www.jetbrains.com/help/idea/nullable-and-notnull-annotations.html) annotation since it's incompatible with [Jackson](https://github.com/FasterXML/jackson)
 1. **WARNING** Avoid `@Data` since it promotes mutability
 1. **WARNING** Avoid `lombok.@Builder.Default`: Incompatible with Jackson, Constructor validation, fights with core java
-
-
-
-
---------------------------
-## Builder
-### (**Not** recommended) if using lombok for builder
-1. Add [`@Jacksonized`](https://projectlombok.org/features/experimental/Jacksonized)
-
-
-
-1. Add [`@AllArgsConstructor(access = AccessLevel.PRIVATE)`](https://projectlombok.org/features/constructor)
-    1. Unfortunately `@Value` exposes the all args constructor
-    1. The annotation above fixes that by marking it private
-    1. AllArgsConstructor is an anti-pattern because it relies on property definition order (which is brittle)
