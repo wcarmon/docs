@@ -57,11 +57,19 @@ final String lastName;
  * eg. "00aaff"
  */
 final String hexColorCode;
+
+/**
+ * Minimum structure: [0-9-+ ]{12,16}
+ * Parser imposes more strict structure
+ * eg. "+1 201-404-5555"
+ */
+final String phoneNumber;
+
 ```
 
 
 # Replace String with ...
-1. [`boolean`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Boolean.html) for Strings like "Y" & "N" or "T" & "F"
+1. [`boolean`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Boolean.html) for Strings like `"Y"` & `"N"` or `"T"` & `"F"`
 1. [`Duration`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/Duration.html) or [`Period`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/Period.html) for Strings that look like time periods
 1. [`Instant`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/Instant.html) for Strings that look like dates
 1. [`long`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Long.html) or [`BigDecimal`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/math/BigDecimal.html) or [`double`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Double.html) for Strings that contain only numbers
@@ -90,5 +98,4 @@ final String hexColorCode;
 - TODO: ZONE_OFFSET
 - TODO: ZONED_DATE_TIME
 
-- TODO: EMAIL - https://commons.apache.org/proper/commons-email/apidocs/org/apache/commons/mail/Email.html
 - TODO: PHONE_NUMBER
