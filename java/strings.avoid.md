@@ -35,13 +35,16 @@
 final String fullZipCode;
 
 /**
+ * Unique ID within ABC company
  * [A-Z0-9]{6}
- * eg. "1WC233"
+ *
+ * eg. "1WC45Z"
  */
 final String employeeId;
 
 /**
  * As defined by RFC2822
+ *
  * eg. "foo@bar.com"
  *
  * <p>See https://datatracker.ietf.org/doc/html/rfc2822
@@ -49,7 +52,9 @@ final String employeeId;
 final String emailAddress;
 
 /**
+ * Family/Last name
  * [A-Za-z- ]{3,32}
+ *
  * eg. "Carmon"
  */
 @Nullable
@@ -58,13 +63,17 @@ final String lastName;
 /**
  * RGB hex value
  * [0-9a-f]{6}
+ *
  * eg. "00aaff"
+ *
+ * <p>See https://en.wikipedia.org/wiki/Web_colors
  */
 final String hexColorCode;
 
 /**
  * Minimum structure: [0-9-+ ]{12,16}
  * Parser imposes more strict structure
+ *
  * eg. "+1 201-404-5555"
  */
 final String phoneNumber;
