@@ -23,6 +23,7 @@ public final class Employee {
 
   /**
    * [a-zA-Z-]{2,64}
+   * eg. "Wil"
    */
   private final String name;
 

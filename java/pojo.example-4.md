@@ -22,6 +22,7 @@ public class Employee {
 
   /**
    * [a-zA-Z-]{2,64}
+   * eg. "Wil"
    */
   String name;
 
