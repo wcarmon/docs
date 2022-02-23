@@ -21,7 +21,7 @@
 1. [`TimeUnit`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/TimeUnit.html)
 
 
-## Apache commons
+## Apache Commons
 1. [`ArithmeticUtils`](https://commons.apache.org/proper/commons-math/javadocs/api-3.6.1/org/apache/commons/math3/util/ArithmeticUtils.html)
 1. [`BagUtils`](https://commons.apache.org/proper/commons-collections/javadocs/api-4.4/org/apache/commons/collections4/BagUtils.html)
 1. [`BeanUtils`](https://commons.apache.org/proper/commons-beanutils/javadocs/v1.9.4/apidocs/org/apache/commons/beanutils/BeanUtils.html)
@@ -103,6 +103,7 @@
 
 # **Item-0482**: Javadoc
 1. Add **brief** javadoc with summary of purpose
+1. Document who is responsible for closing resources (like [IO Streams](https://docs.oracle.com/javase/tutorial/essential/io/streams.html))
 
 # **Item-0483**: Final
 1. Mark the class `final`
@@ -131,18 +132,16 @@
 1. Use method signatures consistent with other popular utilities (Apache Commons, Guava, ...)
 1. Ensure methods are stateless
 1. Ensure methods are [threadsafe](https://en.wikipedia.org/wiki/Thread_safety)
+1. Three arguments max.  Accept a POJO if you need mor args.
+1. Never mutate method Arguments
 
+
+# **Item-0488**: Tests
+1. Add enough tests to exercise both positive and negative cases
 
 
 --------
-# TODO: Unfiled
-- 3 args max
-- Stateless
-- Tests required
-- Lenient in args
-- Strict on output
-- preconditions
+# TODO: Find a home for these
+- Lenient in args, Strict on output
 - Use modern types
-- Never mutate args
-- Document who is responsible for closing resources (like IO streams)
 - no hard coded dates, pass clock
