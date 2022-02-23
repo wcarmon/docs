@@ -65,28 +65,28 @@
 1. [`Graphs`](https://javadoc.io/static/com.google.guava/guava/31.0.1-jre/com/google/common/graph/Graphs.html)
 1. [`InetAddresses`](https://javadoc.io/static/com.google.guava/guava/31.0.1-jre/com/google/common/net/InetAddresses.html)
 1. [`Ints`](https://javadoc.io/static/com.google.guava/guava/31.0.1-jre/com/google/common/primitives/Ints.html)
-1. [`Iterables'](https://javadoc.io/static/com.google.guava/guava/31.0.1-jre/com/google/common/collect/Iterables.html)
-1. [`Iterators'](https://javadoc.io/static/com.google.guava/guava/31.0.1-jre/com/google/common/collect/Iterators.html)
+1. [`Iterables`](https://javadoc.io/static/com.google.guava/guava/31.0.1-jre/com/google/common/collect/Iterables.html)
+1. [`Iterators`](https://javadoc.io/static/com.google.guava/guava/31.0.1-jre/com/google/common/collect/Iterators.html)
 1. [`Lists`](https://javadoc.io/static/com.google.guava/guava/31.0.1-jre/com/google/common/collect/Lists.html)
 1. [`Longs`](https://javadoc.io/static/com.google.guava/guava/31.0.1-jre/com/google/common/primitives/Longs.html)
-1. [`Maps'](https://javadoc.io/static/com.google.guava/guava/31.0.1-jre/com/google/common/collect/Maps.html)
+1. [`Maps`](https://javadoc.io/static/com.google.guava/guava/31.0.1-jre/com/google/common/collect/Maps.html)
 1. [`MoreExecutors`](https://javadoc.io/static/com.google.guava/guava/31.0.1-jre/com/google/common/util/concurrent/MoreExecutors.html)
 1. [`MoreFiles`](https://javadoc.io/static/com.google.guava/guava/31.0.1-jre/com/google/common/io/MoreFiles.html)
-1. [`Multimaps'](https://javadoc.io/static/com.google.guava/guava/31.0.1-jre/com/google/common/collect/Multimaps.html)
-1. [`Multisets'](https://javadoc.io/static/com.google.guava/guava/31.0.1-jre/com/google/common/collect/Multisets.html)
-1. [`ObjectArrays'](https://javadoc.io/static/com.google.guava/guava/31.0.1-jre/com/google/common/collect/ObjectArrays.html)
+1. [`Multimaps`](https://javadoc.io/static/com.google.guava/guava/31.0.1-jre/com/google/common/collect/Multimaps.html)
+1. [`Multisets`](https://javadoc.io/static/com.google.guava/guava/31.0.1-jre/com/google/common/collect/Multisets.html)
+1. [`ObjectArrays`](https://javadoc.io/static/com.google.guava/guava/31.0.1-jre/com/google/common/collect/ObjectArrays.html)
 1. [`Preconditions`](https://javadoc.io/static/com.google.guava/guava/31.0.1-jre/com/google/common/base/Preconditions.html)
 1. [`Primitives`](https://javadoc.io/static/com.google.guava/guava/31.0.1-jre/com/google/common/primitives/Primitives.html)
-1. [`Queues'](https://javadoc.io/static/com.google.guava/guava/31.0.1-jre/com/google/common/collect/Queues.html)
+1. [`Queues`](https://javadoc.io/static/com.google.guava/guava/31.0.1-jre/com/google/common/collect/Queues.html)
 1. [`Runnables`](https://javadoc.io/static/com.google.guava/guava/31.0.1-jre/com/google/common/util/concurrent/Runnables.html)
-1. [`Sets'](https://javadoc.io/static/com.google.guava/guava/31.0.1-jre/com/google/common/collect/Sets.html)
+1. [`Sets`](https://javadoc.io/static/com.google.guava/guava/31.0.1-jre/com/google/common/collect/Sets.html)
 1. [`Stats`](https://javadoc.io/static/com.google.guava/guava/31.0.1-jre/com/google/common/math/Stats.html)
 1. [`Strings`](https://javadoc.io/static/com.google.guava/guava/31.0.1-jre/com/google/common/base/Strings.html)
-1. [`Tables'](https://javadoc.io/static/com.google.guava/guava/31.0.1-jre/com/google/common/collect/Tables.html)
+1. [`Tables`](https://javadoc.io/static/com.google.guava/guava/31.0.1-jre/com/google/common/collect/Tables.html)
 1. [`Uninterruptibles`](https://javadoc.io/static/com.google.guava/guava/31.0.1-jre/com/google/common/util/concurrent/Uninterruptibles.html)
 1. [`UrlEscapers`](https://javadoc.io/static/com.google.guava/guava/31.0.1-jre/com/google/common/net/UrlEscapers.html)
 
-## Spring (Prefer Apache Commons & Guava over spring utils)
+## Spring (Prefer Apache Commons & Guava over Spring utils)
 1. [`AnnotationUtils`](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/core/annotation/AnnotationUtils.html)
 1. [`Base64Utils`](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/util/Base64Utils.html)
 1. [`BeanUtils`](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/BeanUtils.html)
@@ -102,31 +102,30 @@
 
 
 
-# Class definition idioms
-## **Item-0482**: Javadoc
+# **Item-0482**: Javadoc
 1. Add **brief** javadoc with summary of purpose
 
-## **Item-0483**: Final
+# **Item-0483**: Final
 1. Mark the class `final`
 
-## **Item-0484**: Stateless
+# **Item-0484**: Stateless
 1. No properties on the utility class
     1. `static final` constants are acceptable
 
-## **Item-0485**: Naming
+# **Item-0485**: Naming
 1. Package name: ends with `.util;` (Eg. `com.abc.foo.util`)
 1. Class name: ends with `Utils` (eg. see Apache commons)
     1. Core java & Guava tend to name utils after a Type (eg. `Foos` contains methods to simplify using `Foo`)
     1. Apache and Spring tend to name utilities with the `Utils` suffix
     1. Avoid naming collisions by using the `Utils` suffix (and not reinventing the wheel)
 
-## **Item-0486**: Constructor
+# **Item-0486**: Constructor
 1. `private` constructor
 1. Exactly one constructor
 1. constructor accepts zero arguments
 
 
-## **Item-0487**: Methods
+# **Item-0487**: Methods
 1. **Length**: Less than 75-lines per method
 1. **Args**: Add [Preconditions](./preconditions.md) on method args (unless they are nullable)
 1. All methods must be `static`
