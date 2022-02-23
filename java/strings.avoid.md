@@ -4,7 +4,60 @@
 
 
 # Bad because
-1. Strings can represent anything
+1. `String` can represent anything (this is bad for code)
+1. `String` type provides zero information about structure
+1. `String` properties discard all the benefits of type safety
+1. `String` properties prevent JVM optimization
+1. `String` properties prevent refactoring
+1. `String` properties hinder code maintenance
+1. `String` properties hinder code comprehension
+
+
+# Making a `String` useful
+1. Always prefer a better type (examples below)
+1. Include Javadoc with structure assumptions
+    1. Document acceptable characters, including case (eg. use regex)
+    1. Document min & max length (eg. use regex)
+    1. Document nullability
+    1. Include an example
+1. **Enforce** structure assumptions using preconditions (eg. use [`Pattern`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/regex/Pattern.html))
+1. Use a clear variable name
+
+
+# Examples of Useful `String`s
+```java
+/**
+ * Full US Postal zip code:
+ * [0-9]{5}-[0-9]{4}
+ * eg. "08081-1234"
+ */
+final String zipCode;
+
+/**
+ * [A-Z0-9]{6}
+ * eg. "1WC233"
+ */
+final String employeeId;
+
+/**
+ * As defined by RFC2822
+ * eg. "foo@bar.com"
+ */
+final String emailAddress;
+
+/**
+ * [A-Za-z- ]{3,32}
+ * eg. "Carmon"
+ */
+@Nullable
+final String lastName;
+
+/**
+ * [0-9a-f]{6}
+ * eg. "00aaff"
+ */
+final String hexColorCode;
+```
 
 
 # Replace String with ...
@@ -37,5 +90,5 @@
 - TODO: ZONE_OFFSET
 - TODO: ZONED_DATE_TIME
 
-- TODO: EMAIL
+- TODO: EMAIL - https://commons.apache.org/proper/commons-email/apidocs/org/apache/commons/mail/Email.html
 - TODO: PHONE_NUMBER
