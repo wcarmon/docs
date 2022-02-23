@@ -16,9 +16,9 @@
 1. Stored procs violate ["Separation of concerns"](https://en.wikipedia.org/wiki/Separation_of_concerns) Principle (Business logic in persistence tier)
 1. Stored procs lock Business logic into 1 persistence store (vendor-lockin)
 1. Stored procs cannot be scaled independent of storage
-1. Stored procs cannot scale up or down based on usage (Elasticity), (compare with [Lambdas](https://aws.amazon.com/lambda/features/) or [Cloud functions](https://cloud.google.com/functions))
+1. Stored procs cannot scale up or down based on usage (Elasticity), (compare with [AWS Lambdas](https://aws.amazon.com/lambda/features/) or [Google Cloud functions](https://cloud.google.com/functions))
 1. Stored procs cannot be distributed across a computation cluster (eg. [AWS Lambdas](https://aws.amazon.com/lambda/features/) or [Google Cloud functions](https://cloud.google.com/functions))
-1. Stored procs cannot use multiple threads (Parallelism)
+1. Stored procs cannot use multiple threads ([Parallelism](https://en.wikipedia.org/wiki/Parallel_computing))
 1. Stored procs don't support [Non-blocking](https://en.wikipedia.org/wiki/Non-blocking_algorithm) coding nor [Async IO](https://en.wikipedia.org/wiki/Asynchronous_I/O)
 1. Stored procs don't support [A/B code deployments](https://www.testenvironmentmanagement.com/deployment-styles-bluegreen-canary-and-ab/)
 1. Stored procs don't support load balancing & [back pressure](https://medium.com/@jayphelps/backpressure-explained-the-flow-of-data-through-software-2350b3e77ce7)
