@@ -3,6 +3,10 @@
 1. How we can do better
 
 
+# Bad because
+1. Strings can represent anything
+
+
 # Replace String with ...
 1. [`boolean`] for Strings like "Y" & "N" or "T" & "F"
 1. [`Path`](https://docs.oracle.com/en/java/javase/12/docs/api/java.base/java/nio/file/Path.html) for Strings that looks like files/paths/directories
