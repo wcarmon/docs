@@ -1,19 +1,20 @@
 # Overview
 1. Why stored procedures are bad
-1. Why it's better to write logic in a programming language (eg. [Java](https://www.java.com/en/), [Python](https://www.python.org/), [Node](https://nodejs.org/en/), C/C++, [golang](https://go.dev/), [Kotlin](https://kotlinlang.org/), [Rust](https://www.rust-lang.org/), ...)
+1. Why it's better to write Business logic in a programming language (eg. [Java](https://www.java.com/en/), [Python](https://www.python.org/), [Node](https://nodejs.org/en/), C/C++, [golang](https://go.dev/), [Kotlin](https://kotlinlang.org/), [Rust](https://www.rust-lang.org/), ...)
 
 
 # Not Portable
-1. Stored procs only work in 1 type of database (Oracle Proc cannot run in [PostgreSQL](https://www.postgresql.org/) nor  [SQL server](https://www.microsoft.com/en-us/sql-server/sql-server-downloads) nor [DB2](https://www.ibm.com/docs/en/db2/11.5?topic=installing-db2-database-servers))
+1. Stored procs only work in 1 type of database
+    1. (Oracle Proc cannot run in [PostgreSQL](https://www.postgresql.org/) nor [SQL server](https://www.microsoft.com/en-us/sql-server/sql-server-downloads) nor [DB2](https://www.ibm.com/docs/en/db2/11.5?topic=installing-db2-database-servers))
     1. This is vendor lock-in
-1. Every database vendor has their own (often obscure) syntax
-    1. [PostgreSQL](https://www.postgresql.org/docs/13/sql-createprocedure.html), [MySQL](https://dev.mysql.com/doc/refman/8.0/en/create-procedure.html), [Oracle](https://docs.oracle.com/cd/B19306_01/server.102/b14200/statements_6009.htm), [DB2](https://www.ibm.com/docs/en/db2-for-zos/11?topic=statements-create-procedure-external), [SQLServer] (https://docs.microsoft.com/en-us/sql/relational-databases/stored-procedures/create-a-stored-procedure?view=sql-server-ver15)
+1. Every database vendor has their own syntax
+    1. [PostgreSQL](https://www.postgresql.org/docs/13/sql-createprocedure.html), [MySQL](https://dev.mysql.com/doc/refman/8.0/en/create-procedure.html), [Oracle](https://docs.oracle.com/cd/B19306_01/server.102/b14200/statements_6009.htm), [DB2](https://www.ibm.com/docs/en/db2-for-zos/11?topic=statements-create-procedure-external), [SQLServer](https://docs.microsoft.com/en-us/sql/relational-databases/stored-procedures/create-a-stored-procedure?view=sql-server-ver15)
 1. Stored procs are tech debt because some databases don't work in the cloud (eg. DB2)
 
 
 # Not Scalable
 1. Stored procs violate ["Separation of concerns"](https://en.wikipedia.org/wiki/Separation_of_concerns) Principle (Business logic in persistence tier)
-1. Stored procs lock business logic into 1 persistence store (vendor-lockin)
+1. Stored procs lock Business logic into 1 persistence store (vendor-lockin)
 1. Stored procs cannot be scaled independent of storage
 1. Stored procs cannot scale up or down based on usage (Elasticity), (compare with [Lambdas](https://aws.amazon.com/lambda/features/) or [Cloud functions](https://cloud.google.com/functions))
 1. Stored procs cannot be distributed across a computation cluster (eg. [AWS Lambdas](https://aws.amazon.com/lambda/features/) or [Google Cloud functions](https://cloud.google.com/functions))
