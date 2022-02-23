@@ -34,12 +34,12 @@ public class Employee {
     builderMethodName = "newBuilder",
     toBuilder = true)
   public Employee(
-    boolean active,
+    Boolean active,  // <-- non-primitive allows you to default the value
     int age,
     String name,
     LocalDate startDate) {
 
-    this.active = active;
+    this.active = Optional.ofNullable(active).orElse(true);
     this.age = age;
     this.name = name;
     this.startDate = startDate;
