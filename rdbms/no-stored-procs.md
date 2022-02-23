@@ -21,9 +21,11 @@
 1. Stored procs cannot use multiple threads ([Parallelism](https://en.wikipedia.org/wiki/Parallel_computing))
 1. Stored procs don't support [Non-blocking](https://en.wikipedia.org/wiki/Non-blocking_algorithm) coding nor [Async IO](https://en.wikipedia.org/wiki/Asynchronous_I/O)
 1. Stored procs don't support [A/B code deployments](https://www.testenvironmentmanagement.com/deployment-styles-bluegreen-canary-and-ab/)
-1. Stored procs don't support load balancing & [back pressure](https://medium.com/@jayphelps/backpressure-explained-the-flow-of-data-through-software-2350b3e77ce7)
-1. Stored procs don't support Message/Event-driven flows
 1. Stored procs don't support Concurrency patterns (eg. [Fork-join](https://en.wikipedia.org/wiki/Fork%E2%80%93join_model), [Circuit breakers](https://en.wikipedia.org/wiki/Circuit_breaker_design_pattern), [Retry & backoff](https://resilience4j.readme.io/docs/retry) ...)
+1. Stored procs don't support [back pressure](https://medium.com/@jayphelps/backpressure-explained-the-flow-of-data-through-software-2350b3e77ce7)
+1. Stored procs don't support [Message/Event-driven flows](https://developer.lightbend.com/docs/akka-platform-guide/concepts/message-driven-event-driven.html)
+1. Stored procs don't support [Load balancing](https://en.wikipedia.org/wiki/Load_balancing_(computing))
+    1. Most databases support Load balancing, but an overwhelmed proc & idle storage are treated as one unit
 
 
 # Not Reusable
