@@ -44,7 +44,7 @@
 # Not Debuggable
 1. Stored procs don't support [breakpoints](https://www.jetbrains.com/help/idea/using-breakpoints.html#manage-breakpoints)
 1. Stored procs don't support [stepping thru code](https://www.jetbrains.com/help/idea/stepping-through-the-program.html)
-1. Stored procs don't support static analysis tools (eg. [sonar](https://www.sonarqube.org/), [pmd](https://pmd.github.io/), [eslint](https://eslint.org/), ...)
+1. Stored procs don't support static analysis tools (eg. [sonar](https://www.sonarqube.org/), [pmd](https://pmd.github.io/), [eslint](https://eslint.org/), [flake8](https://flake8.pycqa.org/en/latest/), ...)
 
 
 # Not Observable
