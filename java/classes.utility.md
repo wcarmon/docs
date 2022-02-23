@@ -4,10 +4,22 @@
 
 # General Idioms
 ## **Item-0480**: Don't reinvent the wheel
-1. Verify Core Java, Apache Commons & Guava are missing what you're building
+1. Verify [Core Java](https://docs.oracle.com/en/java/javase/11/docs/api/), [Apache Commons](https://commons.apache.org/), [Guava](https://javadoc.io/doc/com.google.guava/guava/latest/index.html) & [Spring](https://docs.spring.io/spring-framework/docs/current/javadoc-api/) lack what you're building
 
 ## Core Java
-TODO: https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Arrays.html
+1. [`Arrays`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Arrays.html)
+1. [`Base64`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Base64.html)
+1. [`Collections`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Collections.html)
+1. [``]()
+1. [``]()
+1. [`Executors`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/Executors.html)
+1. [`Files`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/nio/file/Files.html)
+1. [`Files`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/nio/file/Files.html)
+1. [`FileSystems`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/nio/file/FileSystems.html)
+1. [`Objects`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Objects.html)
+1. [`Paths`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/nio/file/Paths.html)
+1. [`Spliterators`]()
+
 
 ## Apache commons
 1. [`ArithmeticUtils`](https://commons.apache.org/proper/commons-math/javadocs/api-3.6.1/org/apache/commons/math3/util/ArithmeticUtils.html)
@@ -40,7 +52,7 @@ TODO: https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Arr
 1. [`WordUtils`](https://commons.apache.org/proper/commons-text/apidocs/org/apache/commons/text/WordUtils.html)
 
 ## Guava
-TODO:
+1. [`Preconditions`]()
 
 
 # Class definition idioms
@@ -58,6 +70,7 @@ TODO:
 1. Package name: ends with `.util;` (Eg. `com.abc.foo.util`)
 1. Class name: ends with `Utils` (eg. see Apache commons)
     1. Core java & Guava tend to name utils after a Type (eg. `Foos` contains methods to simplify using `Foo`)
+    1. Apache and Spring tend to name utilities with the `Utils` suffix
     1. Avoid naming collisions by using the Utils suffix
 
 ## **Item-0486**: Constructor
