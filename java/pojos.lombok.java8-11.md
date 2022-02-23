@@ -63,6 +63,7 @@
 
 ## Setting Defaults
 14. Set default values in constructor, after assignments
+    1. Use non-primitive type in constructor argument to replace `null` with a default value
 1. For Strings, use [`org.apache.commons.lang3.StringUtils.defaultIfBlank(...)`](https://commons.apache.org/proper/commons-lang/apidocs/org/apache/commons/lang3/StringUtils.html)
 1. For Strings, prefer `""` over null String
 1. For non-string objects, use [`Optional.ofNullable(...).orElseGet(...)`](https://docs.oracle.com/javase/8/docs/api/java/util/Optional.html)
