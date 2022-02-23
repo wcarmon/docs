@@ -14,7 +14,7 @@
 
 
 # Making a `String` useful
-1. Always prefer a better type [(examples below)](TODO)
+1. Always prefer a better type [(examples below)](./strings.avoid.md#replace-string-with-)
 1. Include Javadoc with structure assumptions
     1. Document acceptable characters, including case (eg. use regex)
     1. Document min & max length (eg. use regex)
