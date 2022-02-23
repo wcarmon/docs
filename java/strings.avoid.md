@@ -20,18 +20,19 @@
     1. Document min & max length (eg. use regex)
     1. Document nullability
     1. Include an example
-1. **Enforce** structure assumptions using preconditions (eg. use [`Pattern`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/regex/Pattern.html))
+1. **Enforce** structure assumptions using preconditions (eg. use a [`Pattern`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/regex/Pattern.html))
 1. Use a clear variable name
+1. Add a link to any authoritative documentation that would help future readers/maintainers
 
 
-# Examples of Useful `String`s
+# Examples of Useful Strings
 ```java
 /**
  * Full US Postal zip code:
  * [0-9]{5}-[0-9]{4}
  * eg. "08081-1234"
  */
-final String zipCode;
+final String fullZipCode;
 
 /**
  * [A-Z0-9]{6}
@@ -42,6 +43,8 @@ final String employeeId;
 /**
  * As defined by RFC2822
  * eg. "foo@bar.com"
+ *
+ * <p>See https://datatracker.ietf.org/doc/html/rfc2822
  */
 final String emailAddress;
 
@@ -53,6 +56,7 @@ final String emailAddress;
 final String lastName;
 
 /**
+ * RGB hex value
  * [0-9a-f]{6}
  * eg. "00aaff"
  */
@@ -64,7 +68,6 @@ final String hexColorCode;
  * eg. "+1 201-404-5555"
  */
 final String phoneNumber;
-
 ```
 
 
@@ -75,7 +78,7 @@ final String phoneNumber;
 1. [`Instant`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/Instant.html) for Strings that look like dates
 1. [`LocalTime`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/LocalTime.html) for Strings that look like times
 1. [`long`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Long.html) or [`BigDecimal`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/math/BigDecimal.html) or [`double`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Double.html) for Strings that contain only numbers
-1. [`Map`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Map.html) for Strings that look like key-value pairs (eg. "a=5,b=9,...")
+1. [`Map`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Map.html) for Strings that look like key-value pairs (eg. `"a=5,b=9,..."`)
 1. [`MonthDay`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/MonthDay.html) for Strings with just month and day
 1. [`OffsetDateTime`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/OffsetDateTime.html) for Strings with date-time & timezone
 1. [`Path`](https://docs.oracle.com/en/java/javase/12/docs/api/java.base/java/nio/file/Path.html) for Strings that looks like files/paths/directories
