@@ -80,7 +80,7 @@
     1. Provides predictable order for serialized json (simplifies testing, caching, etc)
 
 ### Constructor annotations
-21. Add [`@Jacksonized`](https://projectlombok.org/features/experimental/Jacksonized) to constructor
+21. Add [`@Jacksonized`](https://projectlombok.org/features/experimental/Jacksonized) to `private` constructor
 
 ### Property annotations
 22. `@JsonProperty`
