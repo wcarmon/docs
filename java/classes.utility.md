@@ -130,14 +130,14 @@
 1. **Args**: Add [Preconditions](./preconditions.md) on method args (unless they are nullable)
 1. All methods must be `static`
 1. Use method signatures consistent with other popular utilities (Apache Commons, Guava, ...)
-1. Ensure methods are stateless
-1. Ensure methods are [threadsafe](https://en.wikipedia.org/wiki/Thread_safety)
+1. Ensure all methods are Stateless
+1. Ensure all methods are [threadsafe](https://en.wikipedia.org/wiki/Thread_safety)
 1. Three arguments max.  Accept a POJO if you need mor args.
 1. Never mutate method Arguments
 
 
 # **Item-0488**: Tests
-1. Add enough tests to exercise both positive and negative cases
+1. Add "enough" tests to exercise both positive and negative cases
 
 
 --------
