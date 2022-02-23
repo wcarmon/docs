@@ -63,7 +63,7 @@ final String lastName;
 
 /**
  * RGB hex value
- * [0-9a-f]{6}
+ * [0-9a-f]{6} or empty-string (never null)
  *
  * eg. "00aaff"
  *
