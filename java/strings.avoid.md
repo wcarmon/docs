@@ -3,8 +3,8 @@
 1. How we can do better
 
 
-# Strings make bad properties because ...
-1. `String` is ambiguous because it can represent anything
+# Strings make bad properties:
+1. `String` is ambiguous, because it can represent anything
 1. `String` type provides zero information about structure
 1. `String` properties discard all the benefits of type safety
 1. `String` properties prevent JVM optimization
