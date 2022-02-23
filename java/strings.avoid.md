@@ -30,6 +30,7 @@
 /**
  * Full US Postal zip code:
  * [0-9]{5}-[0-9]{4}
+ *
  * eg. "08081-1234"
  */
 final String fullZipCode;
