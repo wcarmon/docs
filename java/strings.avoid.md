@@ -3,7 +3,7 @@
 1. How we can do better
 
 
-# Strings are for properties because ...
+# Strings make bad properties because ...
 1. `String` is ambiguous because it can represent anything
 1. `String` type provides zero information about structure
 1. `String` properties discard all the benefits of type safety
@@ -83,14 +83,13 @@ final String phoneNumber;
 1. [`ZoneId`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/ZoneId.html) or [`ZoneOffset`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/ZoneOffset.html) for Strings that contain timezone info
 1. [Enum](https://docs.oracle.com/javase/tutorial/java/javaOO/enum.html) for bounded set of values
 1. [List or Set](./collections.selecting.md) for repeated values (eg. comma separated)
+1. `char` for Strings that only contain 1 character
 1. `int` for Strings that contain a year
 
 
 ----------
 # TODO: Find a home for these
 - TODO: BYTE_ARRAY
-- TODO: CHAR
 - TODO: MAP
 - TODO: WEEK_OF_YEAR
-
 - TODO: PHONE_NUMBER
