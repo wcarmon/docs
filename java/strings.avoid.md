@@ -9,8 +9,8 @@
 
 # Replace String with ...
 1. [`boolean`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Boolean.html) for Strings like "Y" & "N" or "T" & "F"
-1. [`java.time.Duration`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/Duration.html) or [`Period`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/Period.html) for Strings that look like time periods
-1. [`java.time.Instant`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/Instant.html) for Strings that look like dates
+1. [`Duration`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/Duration.html) or [`Period`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/Period.html) for Strings that look like time periods
+1. [`Instant`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/Instant.html) for Strings that look like dates
 1. [`long`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Long.html) or [`BigDecimal`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/math/BigDecimal.html) or [`double`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Double.html) for Strings that contain only numbers
 1. [`Path`](https://docs.oracle.com/en/java/javase/12/docs/api/java.base/java/nio/file/Path.html) for Strings that looks like files/paths/directories
 1. [`URI`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/net/URI.html) for Strings that look like urls
