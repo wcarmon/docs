@@ -2,8 +2,7 @@
 1. How to build a proper utility class in Java 8+
 
 
-# General Idioms
-## **Item-0480**: Don't reinvent the wheel
+# **Item-0480**: Don't reinvent the wheel
 1. You are probably reinventing the wheel :-)
 1. Verify [Core Java](https://docs.oracle.com/en/java/javase/11/docs/api/), [Apache Commons](https://commons.apache.org/), [Guava](https://javadoc.io/doc/com.google.guava/guava/latest/index.html) & [Spring](https://docs.spring.io/spring-framework/docs/current/javadoc-api/) lack what you're building
 
@@ -110,7 +109,7 @@
 
 # **Item-0484**: Stateless
 1. No properties on the utility class
-    1. `static final` constants are acceptable
+    1. `static final` constants are acceptable (top of file)
 
 # **Item-0485**: Naming
 1. Package name: ends with `.util;` (Eg. `com.abc.foo.util`)
