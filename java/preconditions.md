@@ -1,5 +1,5 @@
 # Overview
-- What are preconditions?
+- What are [Preconditions](https://github.com/google/guava/wiki/PreconditionsExplained)?
 - Why should we use them?
 
 
