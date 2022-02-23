@@ -78,7 +78,9 @@
     1. [Learn more here](https://json-schema.org/)
 1. Add [`@JsonPropertyOrder(alphabetic = true)`](https://www.javadoc.io/doc/com.fasterxml.jackson.core/jackson-annotations/2.13.0/com/fasterxml/jackson/annotation/JsonPropertyOrder.html)
     1. Provides predictable order for serialized json (simplifies testing, caching, etc)
-1. Add [`@Jacksonized`](https://projectlombok.org/features/experimental/Jacksonized)
+
+### Constructor annotations
+21. Add [`@Jacksonized`](https://projectlombok.org/features/experimental/Jacksonized) to constructor
 
 ### Property annotations
 22. `@JsonProperty`

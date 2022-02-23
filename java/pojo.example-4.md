@@ -9,7 +9,6 @@
  * TODO: add a BRIEF description of purpose
  * TODO: if this POJO aligns with a DB table, mention that here
  */
-@Jacksonized
 @Value
 public class Employee {
 
@@ -29,6 +28,7 @@ public class Employee {
   @JsonProperty("firstDayOnTheJob")
   LocalDate startDate;
 
+  @Jacksonized
   @lombok.Builder(
     builderClassName = "Builder",
     builderMethodName = "newBuilder",
