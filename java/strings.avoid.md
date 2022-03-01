@@ -6,6 +6,8 @@
 # Strings make bad properties:
 1. `String` is ambiguous, because it can represent anything
 1. `String` type provides zero information about structure
+1. `String` is not self documenting.  Future readers have no way of finding all possible values
+1. `String` is not self verifying.  The compiler & runtime don't have a way to enforce correct values
 1. `String` properties discard all the benefits of type safety
 1. `String` properties prevent JVM optimization
 1. `String` properties prevent refactoring
