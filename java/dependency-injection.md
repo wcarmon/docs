@@ -74,6 +74,27 @@
 - Incompatible with [Preconditions](./preconditions.md)
 - Classes cannot be final
 
+# Examples
+```java
+public final class FooService {
+
+    private final FooDao fooDao;            <--- NOTICE: this is final
+
+    public FooService(
+        FooDao fooDao) {                    <--- NOTICE: pass the dependency here
+
+        // Preconditions go here -->
+        Objects.requireNotNull(fooDao, "fooDao is required and null");
+
+        // Assignments go here -->
+        this.fooDao = fooDao;
+    }
+
+    // ... business logic where you use `this.fooDao`
+}
+```
+
+
 
 --------
 # More info
