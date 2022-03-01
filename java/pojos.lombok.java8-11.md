@@ -30,6 +30,7 @@
     1. Automatically generates [`toString()`](https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html#toString--) method
     1. Automatically marks all fields [`private final`](https://docs.oracle.com/javase/tutorial/essential/concurrency/imstrat.html)
     1. Automatically generates Getters
+    1. Automatically marks the class `final`
 
 ## Properties
 4. Define the properties
