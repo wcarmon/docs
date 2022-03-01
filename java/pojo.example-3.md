@@ -32,7 +32,7 @@ public class Employee {
     builderClassName = "Builder",
     builderMethodName = "newBuilder",
     toBuilder = true)
-  public Employee(
+  private Employee(
     Boolean active,  // <-- non-primitive allows you to default the value
     int age,
     String name,
