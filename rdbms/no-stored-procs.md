@@ -43,12 +43,12 @@
 # Not Reusable
 1. Stored procs don't allow computation in popular languages (eg. [Java](https://www.java.com/en/), [Python](https://www.python.org/), [Node](https://nodejs.org/en/), C/C++, [golang](https://go.dev/), [Kotlin](https://kotlinlang.org/), [Rust](https://www.rust-lang.org/), ...)
 1. Stored procs cannot use popular libraries
-    1. [awesome-java]()
-    1. [awesome-python]()
-    1. [awesome-node]()
-    1. [awesome-c]()
-    1. [awesome-golang]()
-    1. [awesome-rust]()
+    1. [awesome-java](https://github.com/akullpp/awesome-java)
+    1. [awesome-python](https://github.com/vinta/awesome-python)
+    1. [awesome-node](https://github.com/sindresorhus/awesome-nodejs)
+    1. [awesome-c](https://github.com/oz123/awesome-c)
+    1. [awesome-golang](https://github.com/avelino/awesome-go)
+    1. [awesome-rust](https://github.com/rust-unofficial/awesome-rust)
 
 
 # Not Testable
@@ -94,12 +94,13 @@
 
 
 -----------------------------
-# TODO: organize these
-1. cannot scale processing & data independently (hard coded)
+TODO: organize these:
+1. Cannot scale processing & data independently (hard coded)
    1. compare with KafkaStreams which run with the Consumer
-1. no code reviews
-1. no security scanning tools
-1. no streaming
-1. relatively immature logging features
-1. no granular lock support
-1. cannot use machine learning
+1. No code reviews
+1. No streaming
+1. No granular lock support
+1. No security scanning tools
+1. No machine learning
+1. Relatively immature logging features
+1. TODO: use sequential numbers so people can reference

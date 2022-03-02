@@ -37,6 +37,10 @@
     1. What are [live templates?](https://www.jetbrains.com/help/idea/using-live-templates.html)
 
 
+# Libraries
+1. [Finding good ones](./libraries.general.md)
+
+
 # POJOs
 1. [With lombok](./pojos.lombok.java8-11.md), [example](./pojo.example-3.md)
 1. [Without lombok](./pojos.core.java8-11.md), [example](./pojo.example-1.md)
