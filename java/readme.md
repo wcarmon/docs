@@ -38,7 +38,7 @@
 
 
 # Libraries
-1. [Finding good ones](./libraries.general.md)
+1. [Finding good ones](../general/libraries.md)
 
 
 # POJOs
