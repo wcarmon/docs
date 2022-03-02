@@ -1,20 +1,20 @@
 # Overview
-1. How to select the correct collection
+1. How to select the correct [Collection](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Collection.html)
 
 
 # Ask yourself
-1. Do I need thread-safety?
 1. Do I need kv pairs or just "multiple items"?
+1. Do I need thread-safety?
 1. Is order important?
 1. Should I allow duplicates?
 
 
 
-# Single type (not pairs)
+# Single Type (not pairs)
 | |Allow duplicates|No duplicates|
 |---|---|---|
-|**Strict order**|[List](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/List.html)|[SortedSet](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/SortedSet.html) or [LinkedHashSet](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/LinkedHashSet.html)|
-|**Any order**|[MultiSet](https://github.com/google/guava/wiki/NewCollectionTypesExplained#Multiset) or [Bag](https://commons.apache.org/proper/commons-collections/apidocs/org/apache/commons/collections4/Bag.html)|[Set](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Set.html)|
+|**Strict order**|[ArrayList](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/List.html), [ArrayBlockingQueue](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/ArrayBlockingQueue.html)|[SortedSet](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/SortedSet.html) or [LinkedHashSet](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/LinkedHashSet.html)|
+|**Any order**|[HashMultiSet](https://guava.dev/releases/31.0-jre/api/docs/com/google/common/collect/HashMultiset.html), [ConcurrentHashMultiSet](https://guava.dev/releases/31.0-jre/api/docs/com/google/common/collect/ConcurrentHashMultiset.html), [Bag](https://commons.apache.org/proper/commons-collections/apidocs/org/apache/commons/collections4/Bag.html)|[Set](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Set.html)|
 
 
 # Key-value pairs
