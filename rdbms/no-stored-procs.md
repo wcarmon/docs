@@ -67,14 +67,14 @@
 
 
 # Not Debuggable
-1. Stored procs don't support [breakpoints](https://www.jetbrains.com/help/idea/using-breakpoints.html#manage-breakpoints)
+29. Stored procs don't support [breakpoints](https://www.jetbrains.com/help/idea/using-breakpoints.html#manage-breakpoints)
 1. Stored procs don't support [stepping thru code](https://www.jetbrains.com/help/idea/stepping-through-the-program.html)
 1. Stored procs don't support static analysis tools (eg. [sonar](https://www.sonarqube.org/), [pmd](https://pmd.github.io/), [eslint](https://eslint.org/), [flake8](https://flake8.pycqa.org/en/latest/), ...)
 1. Stored procs don't support [Vulnerability scanning tools](https://www.coresecurity.com/blog/top-14-vulnerability-scanners-cybersecurity-professionals)
 
 
 # Not Observable
-1. Stored procs don't work with [OpenTelemetry](https://opentelemetry.io/) or [OpenTracing](https://opentracing.io/)
+33. Stored procs don't work with [OpenTelemetry](https://opentelemetry.io/) or [OpenTracing](https://opentracing.io/)
 1. Stored procs don't work with popular Logging tools (eg. [ElasticSearch](https://www.elastic.co/), [Splunk](https://www.splunk.com/), ...)
 1. Stored procs don't work with Cloud observability tools (eg, [AWS XRay](https://aws.amazon.com/xray/), [Google Cloud Trace](https://cloud.google.com/trace), ...)
 1. Stored procs don't provide insight into [hot spots](https://www.yourkit.com/docs/java/help/cpu_hot_spots.jsp)
