@@ -5,7 +5,7 @@
 # Single type (not pairs)
 | |Allow duplicates|No duplicates|
 |---|---|---|
-|**Strict order**|[List](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/List.html)|[SortedSet](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/SortedSet.html)|
+|**Strict order**|[List](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/List.html)|[SortedSet](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/SortedSet.html) or [LinkedHashSet](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/LinkedHashSet.html)|
 |**Any order**|[MultiSet](https://github.com/google/guava/wiki/NewCollectionTypesExplained#Multiset) or [Bag](https://commons.apache.org/proper/commons-collections/apidocs/org/apache/commons/collections4/Bag.html)|[Set](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Set.html)|
 
 
