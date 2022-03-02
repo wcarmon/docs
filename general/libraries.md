@@ -2,6 +2,15 @@
 1. Approach to libraries
 
 
+# Table of Contents
+- [Don't reinvent the wheel](#don-t-reinvent-the-wheel-)
+- [Library vs Framework](#library-vs-framework)
+  * [Library](#library)
+  * [Framework](#framework)
+- [Selecting a good library](#selecting-a-good-library)
+- [More resources](#more-resources)
+
+
 # Don't reinvent the wheel!
 1. There are hundreds of high-quality libraries for every [popular language](https://www.tiobe.com/tiobe-index/)
 1. Fight the urge to write from scratch

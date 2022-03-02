@@ -3,7 +3,6 @@
 - How to do it automatically?
 
 
---------
 # Table of Contents
 - [Why?](#why)
     * [Item-01: Simplifies finding duplicates](#item-01-simplifies-finding-duplicates)
