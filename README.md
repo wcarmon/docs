@@ -1,6 +1,7 @@
 # Overview
-- Contains advice for scalable, low-maintenance development
-- Helpful for code reviews & softwarek architecture discussions
+1. Contains advice for scalable, low-maintenance development
+1. Helpful for code reviews & software architecture discussions
+1. [Who am I?](https://www.linkedin.com/in/wcarmon)
 
 
 # [License](./LICENSE)

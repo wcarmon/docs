@@ -5,6 +5,7 @@
 # Local Docker use cases
 
 ## Use case 01: Rapid feedback
+1. [See here](/home/wcarmon/git-repos/docs/docker/local-use-case-01.md)
 
 
 # Server
