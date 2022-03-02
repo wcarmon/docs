@@ -34,6 +34,7 @@
 
 # Intellij
 1. [My Live templates](./intellij)
+    1. What are [live templates?](https://www.jetbrains.com/help/idea/using-live-templates.html)
 
 
 # POJOs

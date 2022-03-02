@@ -2,6 +2,14 @@
 1. How to select the correct collection
 
 
+# Ask yourself
+1. Do I need thread-safety?
+1. Do I need kv pairs or just "multiple items"?
+1. Is order important?
+1. Should I allow duplicates?
+
+
+
 # Single type (not pairs)
 | |Allow duplicates|No duplicates|
 |---|---|---|

@@ -5,14 +5,13 @@
 
 --------
 # Table of Contents
-- [Overview](#overview)
 - [Not Portable](#not-portable)
 - [Not Scalable](#not-scalable)
 - [Not Reusable](#not-reusable)
 - [Not Testable](#not-testable)
 - [Not Debuggable](#not-debuggable)
 - [Not Observable](#not-observable)
-- [Not Developer happiness](#not-developer-happiness)
+- [No Developer happiness](#no-developer-happiness)
 - [More resources](#more-resources)
 
 
@@ -76,7 +75,7 @@
 1. Stored procs don't provide insight into [hot spots](https://www.yourkit.com/docs/java/help/cpu_hot_spots.jsp)
 
 
-# Not Developer happiness
+# No Developer happiness
 1. Developers must share the common code runtime (cannot run in isolation for DB2, Oracle, ...)
     1. Some DBs support containers now, but still requires a prod-like setup and local container support
 1. Engineers cannot recreate issues locally without affecting other Engineers
