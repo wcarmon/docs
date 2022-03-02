@@ -12,6 +12,7 @@
 - [Not Debuggable](#not-debuggable)
 - [Not Observable](#not-observable)
 - [No Developer happiness](#no-developer-happiness)
+- [Other reasons](#other-reasons)
 - [More resources](#more-resources)
 
 
@@ -25,9 +26,9 @@
 
 
 # Not Scalable
-1. Stored procs violate ["Separation of concerns"](https://en.wikipedia.org/wiki/Separation_of_concerns) Principle (Business logic in persistence tier)
+4. Stored procs violate ["Separation of concerns"](https://en.wikipedia.org/wiki/Separation_of_concerns) Principle (Business logic in persistence tier)
 1. Stored procs lock Business logic into 1 persistence store (vendor-lockin)
-1. Stored procs cannot be scaled independent of storage
+1. Stored procs cannot be scaled independent of storage (hard coded processing & persistence scaling)
 1. Stored procs cannot scale up or down based on usage (Elasticity), (compare with [AWS Lambdas](https://aws.amazon.com/lambda/features/) or [Google Cloud functions](https://cloud.google.com/functions))
 1. Stored procs cannot be distributed across a computation cluster (eg. [AWS Lambdas](https://aws.amazon.com/lambda/features/) or [Google Cloud functions](https://cloud.google.com/functions))
 1. Stored procs cannot use multiple threads ([Parallelism](https://en.wikipedia.org/wiki/Parallel_computing))
@@ -38,6 +39,9 @@
 1. Stored procs don't support [Message/Event-driven flows](https://developer.lightbend.com/docs/akka-platform-guide/concepts/message-driven-event-driven.html)
 1. Stored procs don't support [Load balancing](https://en.wikipedia.org/wiki/Load_balancing_(computing))
     1. Most databases support Load balancing, but an overwhelmed proc & idle storage are treated as one unit
+1. Stored procs don't support granular locks (eg. lock intermediate calculations for these 2 rows)
+1. Stored procs don't support locks with timeouts
+1. Stored procs don't support Streaming (eg. process incrementally with parallel pipelines)
 
 
 # Not Reusable
@@ -66,11 +70,12 @@
 1. Stored procs don't support [breakpoints](https://www.jetbrains.com/help/idea/using-breakpoints.html#manage-breakpoints)
 1. Stored procs don't support [stepping thru code](https://www.jetbrains.com/help/idea/stepping-through-the-program.html)
 1. Stored procs don't support static analysis tools (eg. [sonar](https://www.sonarqube.org/), [pmd](https://pmd.github.io/), [eslint](https://eslint.org/), [flake8](https://flake8.pycqa.org/en/latest/), ...)
+1. Stored procs don't support [Vulnerability scanning tools](https://www.coresecurity.com/blog/top-14-vulnerability-scanners-cybersecurity-professionals)
 
 
 # Not Observable
 1. Stored procs don't work with [OpenTelemetry](https://opentelemetry.io/) or [OpenTracing](https://opentracing.io/)
-1. Stored procs don't work with Logging tools (eg. [ElasticSearch](https://www.elastic.co/), [Splunk](https://www.splunk.com/), ...)
+1. Stored procs don't work with popular Logging tools (eg. [ElasticSearch](https://www.elastic.co/), [Splunk](https://www.splunk.com/), ...)
 1. Stored procs don't work with Cloud observability tools (eg, [AWS XRay](https://aws.amazon.com/xray/), [Google Cloud Trace](https://cloud.google.com/trace), ...)
 1. Stored procs don't provide insight into [hot spots](https://www.yourkit.com/docs/java/help/cpu_hot_spots.jsp)
 
@@ -82,6 +87,10 @@
     1. Again, unless you have full container support
 
 
+# Other Reasons
+1. No Machine Learning support
+
+
 # More resources
 1. https://wiki.c2.com/?StoredProceduresAreEvil
 1. https://federico-razzoli.com/3-rgood-reasons-to-use-stored-procedures
@@ -89,18 +98,3 @@
 1. https://medium.com/swlh/i-said-goodbye-to-stored-procedures-539d56350486
 1. http://eichler.byethost11.com/misc/AntiSP.htm?i=1
 1. https://dusted.codes/drawbacks-of-stored-procedures
-
-
-
-
------------------------------
-TODO: organize these:
-1. Cannot scale processing & data independently (hard coded)
-   1. compare with KafkaStreams which run with the Consumer
-1. No code reviews
-1. No streaming
-1. No granular lock support
-1. No security scanning tools
-1. No machine learning
-1. Relatively immature logging features
-1. TODO: use sequential numbers so people can reference
