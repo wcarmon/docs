@@ -1,5 +1,5 @@
 # Overview
-1. Why stored procedures are bad
+1. ~40 reasons we should avoid stored procedures
 1. Why it's better to write Business logic in a programming language (eg. [Java](https://www.java.com/en/), [Python](https://www.python.org/), [Node](https://nodejs.org/en/), C/C++, [golang](https://go.dev/), [Kotlin](https://kotlinlang.org/), [Rust](https://www.rust-lang.org/), ...)
 
 
