@@ -33,7 +33,7 @@
 
 
 # Intellij
-## [My Live templates](./intellij)
+1. [My Live templates](./intellij)
 
 
 # POJOs

@@ -7,7 +7,7 @@
 
 --------
 # Table of Contents
-- [What is [Lombok](https://projectlombok.org/)?](#what-is--lombok--https---projectlombokorg---)
+- [What is Lombok?](#what-is-lombok)
 - [Big picture](#big-picture)
 - [Examples](#examples)
 - [Lombok POJO Checklist](#lombok-pojo-checklist)
