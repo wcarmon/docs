@@ -6,7 +6,7 @@
 1. There are hundreds of high-quality libraries for every [popular language](https://www.tiobe.com/tiobe-index/)
 1. Fight the urge to write from scratch
 1. Avoid [NIH](https://en.wikipedia.org/wiki/Not_invented_here) syndrome
-1. [Utilities](./classes.utility.md)
+1. [Utilities](../java/classes.utility.md)
 1. Awesome lists
     1. [akullpp (Java)](https://github.com/akullpp/awesome-java)
     1. [all awesomerepos](https://awesomerepos.io/)
@@ -15,31 +15,32 @@
 # Library vs Framework
 ## Library
 1. Your code calls a library (utility)
-1. Saves you time today (Written & maintained by someone else)
-1. Simpler than framework
+1. Saves you time (Written & maintained by someone else)
 1. Limited scope, focused, [modular](https://en.wikipedia.org/wiki/Modular_programming), minimal, [composable](https://en.wikipedia.org/wiki/Composability), flexible
-1. Implies clean [seams](https://biratkirat.medium.com/working-effectively-with-legacy-code-changing-software-part-1-chapter-4-b997b78fc0a2) (simplifies code evolution)
 1. Easily swapped out when your needs change
+1. Simpler than framework
+1. Implies clean [seams](https://biratkirat.medium.com/working-effectively-with-legacy-code-changing-software-part-1-chapter-4-b997b78fc0a2) (simplifies code evolution)
+
 
 ## Framework
 1. Frameworks call your code as part of some larger lifecycle
-1. Saves you time today (Written & maintained by others)
-1. [Give up control](https://martinfowler.com/bliki/InversionOfControl.html)
+1. Saves you time *today* (Written & maintained by others)
+1. Frameworks [take-over](https://martinfowler.com/bliki/InversionOfControl.html) (you relinquish control)
 1. Generally better for throw-away code (think [hackathons](https://en.wikipedia.org/wiki/Hackathon))
 1. Vendor lock-in
-1. More complex than library
+1. More complex than a library (often uses many libraries)
 1. Steeper learning curve than a library (the instant it doesn't meet your needs)
-1. Tend toward bloat over time
+1. Tends toward bloat over time
     1. They cannot remove features since people are still using them
 1. Upgrades are all-or-nothing
-1. Locked into strict version cycle
-1. Frameworks [take-over](https://martinfowler.com/bliki/InversionOfControl.html)
+    1. Cannot upgrade part of a framework
+    1. Locked into strict version cycle
 1. Frameworks are great until you need something the author didn't think of
 1. Some projects have both Framework and Library features (eg. [Spring](https://github.com/spring-projects/spring-framework))
 
 
 # Selecting a good library
-1. Choose a Library, not a Framework (see why above)
+1. Choose a Library over a Framework (99% of the time)
 1. License
     1. License must meet **your** legal requirements
     1. Common [Permissive](https://en.wikipedia.org/wiki/Permissive_software_license) licenses include: [MIT License](https://choosealicense.com/licenses/mit/), [Apache License](https://choosealicense.com/licenses/apache-2.0/), ...
@@ -86,3 +87,7 @@
 1. Performant
     1. [Benchmarks](https://en.wikipedia.org/wiki/Benchmark_(computing)) included
     1. Fast enough for your use case
+
+
+# More resources
+1. [stackoverflow.com :: framework-v-library](https://stackoverflow.com/questions/148747/what-is-the-difference-between-a-framework-and-a-library)
