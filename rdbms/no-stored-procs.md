@@ -45,7 +45,7 @@
 
 
 # Not Reusable
-1. Stored procs don't allow computation in popular languages (eg. [Java](https://www.java.com/en/), [Python](https://www.python.org/), [Node](https://nodejs.org/en/), C/C++, [golang](https://go.dev/), [Kotlin](https://kotlinlang.org/), [Rust](https://www.rust-lang.org/), ...)
+19. Stored procs don't allow computation in popular languages (eg. [Java](https://www.java.com/en/), [Python](https://www.python.org/), [Node](https://nodejs.org/en/), C/C++, [golang](https://go.dev/), [Kotlin](https://kotlinlang.org/), [Rust](https://www.rust-lang.org/), ...)
 1. Stored procs cannot use popular libraries
     1. [awesome-java](https://github.com/akullpp/awesome-java)
     1. [awesome-python](https://github.com/vinta/awesome-python)
@@ -56,7 +56,7 @@
 
 
 # Not Testable
-1. Stored procs are incompatible with [Unit testing](https://en.wikipedia.org/wiki/Unit_testing) and the [XUnit](https://xunit.net/) movement
+21. Stored procs are incompatible with [Unit testing](https://en.wikipedia.org/wiki/Unit_testing) and the [XUnit](https://xunit.net/) movement
 1. Stored procs don't support code coverage
 1. Stored procs cannot be tested in parallel (requires n-independent database instances)
 1. Stored procs cannot be tested as part of an automated build process (eg. [Gradle](https://gradle.org/), [Jenkins](https://www.jenkins.io/), [CircleCI](https://circleci.com/), TravisCI, ...)
@@ -88,7 +88,7 @@
 
 
 # Other Reasons
-1. No Machine Learning support
+1. No [Machine Learning](https://hackr.io/blog/best-machine-learning-libraries) support
 
 
 # More resources
