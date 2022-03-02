@@ -95,7 +95,6 @@ public final class FooService {
 ```
 
 
-
 --------
 # More info
 - https://stackify.com/dependency-injection/

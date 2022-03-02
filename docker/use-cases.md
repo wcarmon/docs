@@ -8,3 +8,5 @@
 
 
 # Server
+1. Application Isolation
+1. Resource Isolation

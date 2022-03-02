@@ -1,8 +1,28 @@
 # Overview
-1. [See the core Java doc first](./pojos.core.java8-11.md)
+1. For Core Java (no lombok), [See the core Java doc](./pojos.core.java8-11.md)
 1. Contains simplifications when using [Lombok](https://projectlombok.org/)
 1. Building an idiomatic POJO in Java 8-11 is **non-trivial** (before [Records](https://docs.oracle.com/en/java/javase/14/language/records.html))
-    1. Even with Lombok, it's challenging
+    1. Even with Lombok, it's non-trivial
+
+
+--------
+# Table of Contents
+- [What is [Lombok](https://projectlombok.org/)?](#what-is--lombok--https---projectlombokorg---)
+- [Big picture](#big-picture)
+- [Examples](#examples)
+- [Lombok POJO Checklist](#lombok-pojo-checklist)
+  * [Class annotations](#class-annotations)
+  * [Properties](#properties)
+  * [Builder](#builder)
+  * [Constructor](#constructor)
+  * [Setting Defaults](#setting-defaults)
+  * [Extras for supporting Jackson](#extras-for-supporting-jackson)
+    + [Class annotations](#class-annotations-1)
+    + [Constructor annotations](#constructor-annotations)
+    + [Property annotations](#property-annotations)
+  * [Derived & Cached fields](#derived---cached-fields)
+- [Gotchas](#gotchas)
+
 
 # What is [Lombok](https://projectlombok.org/)?
 1. A tool to reduce java boilerplate

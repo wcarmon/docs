@@ -6,6 +6,24 @@
 1. See also [JVM Immutability](jvm-immutability.md)
 
 
+--------
+# Table of Contents
+- [Before you start...](#before-you-start)
+- [Big picture](#big-picture)
+- [Examples](#examples)
+- [POJO Checklist](#pojo-checklist)
+  * [Properties](#properties)
+  * [Builder](#builder)
+  * [Constructor](#constructor)
+  * [Bean](#bean)
+  * [Setting Defaults](#setting-defaults)
+  * [Extras for supporting Jackson](#extras-for-supporting-jackson)
+    + [Class annotations](#class-annotations)
+    + [Property annotations](#property-annotations)
+  * [Derived & Cached fields](#derived---cached-fields)
+- [Gotchas](#gotchas)
+
+
 # Before you start...
 1. For Intellij, Install either [InnerBuilder](https://plugins.jetbrains.com/plugin/7354-innerbuilder) plugin or [InnerBuilder continued](https://plugins.jetbrains.com/plugin/15818-innerbuilder-continued) plugin.
 1. Both are equally sufficient although [InnerBuilder continued](https://plugins.jetbrains.com/plugin/15818-innerbuilder-continued) has more features.

@@ -1,9 +1,9 @@
 # Overview
-- Why flat is better than nested
+- Why **flat** is better than **nested**
 - How to resolve
 
 
-Others have covered this better than I will:
+Others have covered this better than I can:
 
 # More info
 - https://en.wikibooks.org/wiki/Computer_Programming/Coding_Style/Minimize_nesting

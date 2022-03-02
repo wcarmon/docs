@@ -1,0 +1,216 @@
+<templateSet group="wc">
+  <template name="cnn" value="com.google.common.base.Preconditions.checkNotNull( $END$ );" description="check not null" toReformat="true" toShortenFQNames="true" useStaticImport="true">
+    <context>
+      <option name="JAVA_STATEMENT" value="true" />
+    </context>
+  </template>
+  <template name="cbs" value="com.google.common.base.Preconditions.checkArgument(org.apache.commons.lang3.StringUtils.isNotBlank($VAR$), &quot;$VAR$ is required&quot; );" description="check blank string" toReformat="true" toShortenFQNames="true" useStaticImport="true">
+    <variable name="VAR" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="COMPLETION" value="false" />
+      <option name="JAVA_CODE" value="true" />
+      <option name="JAVA_COMMENT" value="false" />
+      <option name="JAVA_CONSUMER" value="false" />
+      <option name="JAVA_DECLARATION" value="false" />
+      <option name="JAVA_STRING" value="false" />
+    </context>
+  </template>
+  <template name="todo" value="throw new RuntimeException(&quot;TODO: implement me&quot;);" description="throw new RuntimeException(&quot;TODO: implement me&quot;)" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="COMPLETION" value="false" />
+      <option name="JAVA_CODE" value="true" />
+      <option name="JAVA_COMMENT" value="false" />
+      <option name="JAVA_CONSUMER" value="false" />
+      <option name="JAVA_DECLARATION" value="false" />
+      <option name="JAVA_STRING" value="false" />
+    </context>
+  </template>
+  <template name="rex" value="throw new RuntimeException(&quot;$END$&quot;, e);" description="throw new RuntimeException" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_STATEMENT" value="true" />
+    </context>
+  </template>
+  <template name="ca" value="com.google.common.base.Preconditions.checkArgument($END$, &quot;$MESSAGE$&quot;);" description="check argument" toReformat="true" toShortenFQNames="true" useStaticImport="true">
+    <variable name="MESSAGE" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_STATEMENT" value="true" />
+    </context>
+  </template>
+  <template name="cs" value="com.google.common.base.Preconditions.checkState( $END$, &quot;$MESSAGE$&quot; );" description="check state" toReformat="true" toShortenFQNames="true" useStaticImport="true">
+    <variable name="MESSAGE" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_STATEMENT" value="true" />
+    </context>
+  </template>
+  <template name="rnn" value="java.util.Objects.requireNonNull($VAR$, &quot;$VAR$ is required and missing.&quot;);" description="Objects.requireNotNull" toReformat="false" toShortenFQNames="true" useStaticImport="true">
+    <variable name="VAR" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="COMPLETION" value="false" />
+      <option name="JAVA_CODE" value="true" />
+      <option name="JAVA_COMMENT" value="false" />
+      <option name="JAVA_CONSUMER" value="false" />
+      <option name="JAVA_DECLARATION" value="false" />
+      <option name="JAVA_STRING" value="false" />
+    </context>
+  </template>
+  <template name="aaa" value="    // -- Arrange&#10;&#10;    // -- Act&#10;    subject.$END$&#10;&#10;    // -- Assert&#10;    " description="arrange-act-assert" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+      <option name="JAVA_COMMENT" value="false" />
+      <option name="JAVA_DECLARATION" value="false" />
+      <option name="JAVA_STRING" value="false" />
+      <option name="KOTLIN_EXPRESSION" value="true" />
+      <option name="KOTLIN_STATEMENT" value="true" />
+    </context>
+  </template>
+  <template name="fail-todo" value="org.junit.jupiter.api.Assertions.fail(&quot;TODO: implement this test&quot;);" description="" toReformat="false" toShortenFQNames="true" useStaticImport="true">
+    <context>
+      <option name="JAVA_EXPRESSION" value="true" />
+      <option name="JAVA_STATEMENT" value="true" />
+    </context>
+  </template>
+  <template name="enum-string-java7" value="public static $CLASS$ fromString(String candidate) {&#10;  com.google.common.base.Preconditions.checkArgument(isNotBlank(candidate), &quot;candidate is required&quot;);&#10;&#10;  for ($CLASS$ current : values()) {&#10;    if (current.name().equalsIgnoreCase(candidate)&#10;        || current.label.equalsIgnoreCase(candidate)) {&#10;      return current;&#10;    }&#10;  }&#10;&#10;  throw new RuntimeException(&quot;Cannot find $CLASS$ for '&quot; + candidate + &quot;'&quot;);&#10;}&#10;" description="enum with string property (legacy)" toReformat="false" toShortenFQNames="true" useStaticImport="true">
+    <variable name="CLASS" expression="className()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="COMPLETION" value="false" />
+      <option name="JAVA_CODE" value="true" />
+      <option name="JAVA_COMMENT" value="false" />
+      <option name="JAVA_CONSUMER" value="false" />
+      <option name="JAVA_STRING" value="false" />
+    </context>
+  </template>
+  <template name="enum-char" value="public static $CLASS$ fromChar(char candidate) {&#10;  com.google.common.base.Preconditions.checkArgument(Character.isLetter(candidate), &quot;candidate must be a letter&quot;);&#10;&#10;  for ($CLASS$ current : values()) {&#10;    if (current.label == candidate) {&#10;      return current;&#10;    }&#10;  }&#10;&#10;  throw new RuntimeException(&quot;Cannot find $CLASS$ for '&quot; + candidate + &quot;'&quot;);&#10;}&#10;" description="enum with char property" toReformat="false" toShortenFQNames="true" useStaticImport="true">
+    <variable name="CLASS" expression="className()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="log4j2" value="private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.LogManager.getLogger($className$.class);" description="" toReformat="false" toShortenFQNames="true">
+    <variable name="className" expression="className()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="COMPLETION" value="false" />
+      <option name="JAVA_CODE" value="true" />
+      <option name="JAVA_COMMENT" value="false" />
+      <option name="JAVA_STATEMENT" value="false" />
+      <option name="JAVA_STRING" value="false" />
+    </context>
+  </template>
+  <template name="tne" value="throw new Error(&quot;$END$ is required and missing&quot;);" description="throw new Error" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_SCRIPT" value="true" />
+    </context>
+  </template>
+  <template name="aiife" value="(async () =&gt; {&#10;  $END$&#10;})();&#10;" description="async IIFE" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="JSX_HTML" value="false" />
+      <option name="JS_CLASS" value="false" />
+    </context>
+  </template>
+  <template name="iife" value="(function () {&#10;    $END$&#10;})();" description="IIFE" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="JSX_HTML" value="false" />
+      <option name="JS_CLASS" value="false" />
+    </context>
+  </template>
+  <template name="todo-js" value="throw new Error(&quot;TODO: finish $END$&quot;);" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="JSX_HTML" value="false" />
+      <option name="JS_CLASS" value="false" />
+      <option name="TS_CLASS" value="false" />
+      <option name="TypeScript" value="true" />
+    </context>
+  </template>
+  <template name="log4j2-kt" value="private val LOG = org.apache.logging.log4j.LogManager.getLogger(&quot;$END$&quot;);" description="kotlin version" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="KOTLIN" value="true" />
+      <option name="KOTLIN_CLASS" value="false" />
+      <option name="KOTLIN_COMMENT" value="false" />
+      <option name="KOTLIN_OBJECT_DECLARATION" value="false" />
+      <option name="KOTLIN_STATEMENT" value="false" />
+    </context>
+  </template>
+  <template name="log4j2-kotlin" value="  companion object {&#10;    @JvmStatic&#10;    private val LOG = org.apache.logging.log4j.LogManager.getLogger($className$::class.java)&#10;  }" description="kotlin log4j2" toReformat="true" toShortenFQNames="true">
+    <variable name="className" expression="kotlinClassName()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="KOTLIN_CLASS" value="true" />
+      <option name="KOTLIN_OBJECT_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="enum-fromString" value="  companion object {&#10;&#10;    @JvmStatic&#10;    fun fromString(input: String): $CLASS$ {&#10;      val normalized = input.trim()&#10;&#10;      return values().firstOrNull {&#10;        normalized.equals(it.name, ignoreCase = true) ||&#10;            normalized.equals(it.toString(), ignoreCase = true)&#10;      }&#10;        ?: throw IllegalArgumentException(&quot;Failed to parse $CLASS$: input=$input&quot;)&#10;    }&#10;  }&#10;" description="kotlin enum lookup" toReformat="false" toShortenFQNames="true">
+    <variable name="CLASS" expression="kotlinClassName()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="KOTLIN" value="true" />
+      <option name="KOTLIN_COMMENT" value="false" />
+      <option name="KOTLIN_OBJECT_DECLARATION" value="false" />
+      <option name="KOTLIN_TOPLEVEL" value="false" />
+    </context>
+  </template>
+  <template name="require-trimmed" value="require($VAR$.trim() == $VAR$) {&#10;  &quot;$VAR$ must be trimmed: $$$VAR$&quot;&#10;}&#10;$END$" description="requires argument to be trimmed (kotlin)" toReformat="false" toShortenFQNames="true">
+    <variable name="VAR" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="KOTLIN" value="true" />
+      <option name="KOTLIN_CLASS" value="false" />
+      <option name="KOTLIN_COMMENT" value="false" />
+      <option name="KOTLIN_OBJECT_DECLARATION" value="false" />
+    </context>
+  </template>
+  <template name="trimmed" value="checkArgument(java.util.Objects.equals(org.apache.commons.lang3.StringUtils.trim($VAR$), $VAR$), &quot;$VAR$ must be trimmed: &quot; + $VAR$);&#10;$END$" description="require trimmed (java)" toReformat="false" toShortenFQNames="true">
+    <variable name="VAR" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="COMPLETION" value="false" />
+      <option name="JAVA_CODE" value="true" />
+      <option name="JAVA_COMMENT" value="false" />
+      <option name="JAVA_CONSUMER" value="false" />
+      <option name="JAVA_DECLARATION" value="false" />
+      <option name="JAVA_STRING" value="false" />
+    </context>
+  </template>
+  <template name="dn" value="org.apache.commons.lang3.ObjectUtils.defaultIfNull($VAR$, $END$)" description="Default if null" toReformat="false" toShortenFQNames="true">
+    <variable name="VAR" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="COMPLETION" value="false" />
+      <option name="JAVA_CODE" value="true" />
+      <option name="JAVA_COMMENT" value="false" />
+      <option name="JAVA_CONSUMER" value="false" />
+      <option name="JAVA_DECLARATION" value="false" />
+      <option name="JAVA_STRING" value="false" />
+    </context>
+  </template>
+  <template name="oon" value="java.util.Optional.ofNullable($VAR$).orElse($DEFAULT$)" description="Optional.ofNullable(x)" toReformat="true" toShortenFQNames="true">
+    <variable name="VAR" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="DEFAULT" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="COMPLETION" value="false" />
+      <option name="JAVA_CODE" value="true" />
+      <option name="JAVA_COMMENT" value="false" />
+      <option name="JAVA_CONSUMER" value="false" />
+      <option name="JAVA_DECLARATION" value="false" />
+      <option name="JAVA_STRING" value="false" />
+    </context>
+  </template>
+  <template name="onn" value="java.util.Optional.ofNullable($VAR$).orElse($DEFAULT$)" description="Optional.ofNullable(x)" toReformat="true" toShortenFQNames="true">
+    <variable name="VAR" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="DEFAULT" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="COMPLETION" value="false" />
+      <option name="JAVA_CODE" value="true" />
+      <option name="JAVA_COMMENT" value="false" />
+      <option name="JAVA_CONSUMER" value="false" />
+      <option name="JAVA_DECLARATION" value="false" />
+      <option name="JAVA_STRING" value="false" />
+    </context>
+  </template>
+  <template name="enum-string" value="public static $CLASS$ fromString(String candidate) {&#10;  com.google.common.base.Preconditions.checkArgument(isNotBlank(candidate), &quot;candidate is required&quot;);&#10;&#10;  String normalized = candidate.trim();&#10;  return java.util.Arrays.stream(values())&#10;    .filter(it -&gt;&#10;              org.apache.commons.lang3.StringUtils.equalsIgnoreCase(normalized, it.name())&#10;                || StringUtils.equalsIgnoreCase(normalized, it.label)&#10;                || StringUtils.equalsIgnoreCase(normalized, it.toString()))&#10;    .findFirst()&#10;    .orElseThrow(&#10;      () -&gt; new IllegalArgumentException(&quot;Failed to parse $CLASS$: candidate=&quot; + candidate));&#10;}&#10;" description="enum with string property (java8+)" toReformat="true" toShortenFQNames="true" useStaticImport="true">
+    <variable name="CLASS" expression="className()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="COMPLETION" value="false" />
+      <option name="JAVA_CODE" value="true" />
+      <option name="JAVA_COMMENT" value="false" />
+      <option name="JAVA_CONSUMER" value="false" />
+      <option name="JAVA_STRING" value="false" />
+    </context>
+  </template>
+</templateSet>
