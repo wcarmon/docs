@@ -3,7 +3,7 @@
 
 
 # Table of Contents
-- [Don't reinvent the wheel](#don-t-reinvent-the-wheel-)
+- [Don't reinvent the wheel](#don-t-reinvent-the-wheel)
 - [Library vs Framework](#library-vs-framework)
   * [Library](#library)
   * [Framework](#framework)
