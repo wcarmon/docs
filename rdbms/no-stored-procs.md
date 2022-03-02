@@ -81,14 +81,14 @@
 
 
 # No Developer happiness
-1. Developers must share the common code runtime (cannot run in isolation for DB2, Oracle, ...)
+37. Developers must share the common code runtime (cannot run in isolation for DB2, Oracle, ...)
     1. Some DBs support containers now, but still requires a prod-like setup and local container support
 1. Engineers cannot recreate issues locally without affecting other Engineers
     1. Again, unless you have full container support
 
 
 # Other Reasons
-1. No [Machine Learning](https://hackr.io/blog/best-machine-learning-libraries) support
+39. No [Machine Learning](https://hackr.io/blog/best-machine-learning-libraries) support
 
 
 # More resources
