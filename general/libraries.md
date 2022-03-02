@@ -35,12 +35,12 @@
 1. Upgrades are all-or-nothing
     1. Cannot upgrade part of a framework
     1. Locked into strict version cycle
-1. Frameworks are great until you need something the author didn't think of
+1. Frameworks can be great until you need something the authors didn't think of
 1. Some projects have both Framework and Library features (eg. [Spring](https://github.com/spring-projects/spring-framework))
 
 
 # Selecting a good library
-1. Choose a Library over a Framework (99% of the time)
+1. Choose a Library over a Framework (99.9% of the time)
 1. License
     1. License must meet **your** legal requirements
     1. Common [Permissive](https://en.wikipedia.org/wiki/Permissive_software_license) licenses include: [MIT License](https://choosealicense.com/licenses/mit/), [Apache License](https://choosealicense.com/licenses/apache-2.0/), ...
@@ -49,19 +49,19 @@
     1. Simplifies [debugging](https://en.wikipedia.org/wiki/Debugging) (when it's behaving unexpectedly)
     1. Simplifies [profiling](https://en.wikipedia.org/wiki/Profiling_(computer_programming)) (when it's too slow)
     1. Simplifies contributing (when you find bugs)
-1. Active
+1. Actively developed
     1. No [abandonware](https://en.wikipedia.org/wiki/Abandonware)
-    1. Recent [commit](https://www.atlassian.com/git/tutorials/saving-changes/git-commit)s (Unless it's "Feature complete")
+    1. Has [commit](https://www.atlassian.com/git/tutorials/saving-changes/git-commit)s from the last 3-months (Unless it is "Feature complete")
 1. Well Documented
-    1. Clear javadoc/kdoc/tsdoc in sources
-    1. Clear wiki or readme.md explaining how to use
+    1. Clear [javadoc](https://en.wikipedia.org/wiki/Javadoc)/[kdoc](https://kotlinlang.org/docs/kotlin-doc.html)/[jsdoc](https://jsdoc.app/)/[tsdoc](https://tsdoc.org/) in sources
+    1. Clear wiki or [readme.md](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax) explaining how to use
 1. Well Tested
     1. Tests must exercise all the functionality important to your use case
     1. Tests must exercise edge cases
     1. 50%+ coverage
-        1. (100% is a excessive, no one should test boilerplate)
+        1. 100% is a excessive, no one should test boilerplate, getters, setters, ...
 1. Compatible with your future
-    1. Library must be compatible with your future tools
+    1. Library must be compatible with your future **tools** & **platform**
 1. Clean source code
     1. "Well structured"
     1. Code is organized into packages/directories
@@ -81,7 +81,7 @@
 1. Observable
     1. Libraries should be compatible with your [logging, tracing & metrics](https://www.oreilly.com/library/view/distributed-systems-observability/9781492033431/ch04.html) tools
 1. Popular
-    1. Check star count on github
+    1. Check the star count on github
     1. Search for articles written about the library
     1. See [Linus's law](https://en.wikipedia.org/wiki/Linus%27s_law)
 1. Performant
