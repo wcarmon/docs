@@ -4,6 +4,7 @@
 
 
 # Table of contents
+- [Definition](#definition)
 - [Benefits](#benefits)
 - [Intellij - Live templates](#intellij---live-templates)
 - [More Info](#more-info)
