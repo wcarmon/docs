@@ -4,8 +4,12 @@
 
 
 # Table of contents
+- [Benefits](#benefits)
+- [Intellij - Live templates](#intellij---live-templates)
+- [More Info](#more-info)
 
 
+--------
 # Benefits
 1. Errors don't drift away from the root cause (reduces [MTTR](https://www.atlassian.com/incident-management/kpis/common-metrics))
 1. Assumptions are documented and enforced (reduces maintenance costs)

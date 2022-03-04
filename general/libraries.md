@@ -11,6 +11,7 @@
 - [More resources](#more-resources)
 
 
+--------
 # Don't reinvent the wheel!
 1. There are hundreds of high-quality libraries for every [popular language](https://www.tiobe.com/tiobe-index/)
 1. Fight the urge to write from scratch

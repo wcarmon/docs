@@ -3,7 +3,6 @@
 1. Why it's better to write Business logic in a programming language (eg. [Java](https://www.java.com/en/), [Python](https://www.python.org/), [Node](https://nodejs.org/en/), C/C++, [golang](https://go.dev/), [Kotlin](https://kotlinlang.org/), [Rust](https://www.rust-lang.org/), ...)
 
 
---------
 # Table of Contents
 - [Not Portable](#not-portable)
 - [Not Scalable](#not-scalable)
@@ -16,6 +15,7 @@
 - [More resources](#more-resources)
 
 
+--------
 # Not Portable
 1. Stored procs only work in 1 type of database
     1. (Oracle Proc cannot run in [PostgreSQL](https://www.postgresql.org/) nor [SQL server](https://www.microsoft.com/en-us/sql-server/sql-server-downloads) nor [DB2](https://www.ibm.com/docs/en/db2/11.5?topic=installing-db2-database-servers))

@@ -6,7 +6,6 @@
 1. See also [JVM Immutability](jvm-immutability.md)
 
 
---------
 # Table of Contents
 - [Before you start...](#before-you-start)
 - [Big picture](#big-picture)
@@ -24,6 +23,7 @@
 - [Gotchas](#gotchas)
 
 
+--------
 # Before you start...
 1. For Intellij, Install either [InnerBuilder](https://plugins.jetbrains.com/plugin/7354-innerbuilder) plugin or [InnerBuilder continued](https://plugins.jetbrains.com/plugin/15818-innerbuilder-continued) plugin.
 1. Both are equally sufficient although [InnerBuilder continued](https://plugins.jetbrains.com/plugin/15818-innerbuilder-continued) has more features.

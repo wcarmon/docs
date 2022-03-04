@@ -5,7 +5,6 @@
     1. Even with Lombok, it's non-trivial
 
 
---------
 # Table of Contents
 - [What is Lombok?](#what-is-lombok)
 - [Big picture](#big-picture)
@@ -24,6 +23,7 @@
 - [Gotchas](#gotchas)
 
 
+--------
 # What is [Lombok](https://projectlombok.org/)?
 1. A tool to reduce java boilerplate
 1. An [annotation processor](https://docs.oracle.com/javase/8/docs/api/javax/annotation/processing/Processor.html) (runs before every [`javac`](https://docs.oracle.com/en/java/javase/11/tools/javac.html))

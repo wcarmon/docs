@@ -4,7 +4,6 @@
     - (Not ~~Field injection~~ nor ~~Setter injection~~)
 
 
---------
 # Table of Contents
 - [Dependency Injection](#dependency-injection)
 - [Three Approaches](#three-approaches)

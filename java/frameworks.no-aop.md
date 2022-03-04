@@ -3,7 +3,6 @@
 - 18 reasons we should avoid AOP
 
 
---------
 # Table of Contents
 - [Definitions](#definitions)
 - [Approaches](#approaches)

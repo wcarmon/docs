@@ -2,7 +2,6 @@
 - Why to prefer [`ArrayList`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/ArrayList.html) over [`LinkedList`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/LinkedList.html)
 
 
---------
 # Table of Contents
 - [Performance](#performance)
   * [Iteration, Traversal & Search](#iteration-traversal--search)

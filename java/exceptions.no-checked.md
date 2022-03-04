@@ -2,7 +2,6 @@
 - 20 Reasons we should avoid [Checked Exceptions](https://docs.oracle.com/javase/tutorial/essential/exceptions/runtime.html)
 
 
---------
 # Table of Contents
 - [Language facts](#language-facts)
     * [Item-01: Languages created **before** Java never adopted Checked Exceptions](#item-01-languages-created-before-java-never-adopted-checked-exceptions)
