@@ -10,6 +10,14 @@
 
 
 --------
+# Definition
+1. Precondition == a Validation/check done before using a variable
+    1. eg. Before parsing a phone number, make sure it's not blank or `null`
+1. Real world examples:
+    1. eg. *"Before I look at this form, did you complete all the required items"*
+    1. eg. *"Before I issue this loan to you, let's check your credit"*
+
+
 # Benefits
 1. Errors don't drift away from the root cause (reduces [MTTR](https://www.atlassian.com/incident-management/kpis/common-metrics))
 1. Assumptions are documented and enforced (reduces maintenance costs)
