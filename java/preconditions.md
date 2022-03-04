@@ -52,5 +52,6 @@ java.util.Objects.requireNonNull($VAR$, "$VAR$ is required and missing.");
 
 # More Info
 1. [Guava docs](https://github.com/google/guava/wiki/PreconditionsExplained)
-1. [nice article about them](https://michaelbfullan.com/the-joys-of-guava-preconditions/)
+1. A [nice article about them](https://michaelbfullan.com/the-joys-of-guava-preconditions/)
 1. [baeldung](https://www.baeldung.com/guava-preconditions)
+1. [Javadoc for core java preconditions](https://docs.oracle.com/en/java/javase/12/docs/api/java.base/java/util/Objects.html#requireNonNull(T))
