@@ -3,7 +3,7 @@
 1. See also, [detailed explanation](./pojos.lombok.java8-11.md)
 1. See also, [core Java POJO examples](./pojos.core.java8-11.md)
 
-# Example
+# POJO Example
 ```java
 /**
  * TODO: add a BRIEF description of purpose
@@ -55,4 +55,20 @@ public class Employee {
     //TODO: other validations go here
   }
 }
+```
+
+# Usage Example
+```java
+    ObjectMapper objectMapper = ...
+
+    Employee wil = Employee.newBuilder()
+      .age(35)
+      .name("Wil C")
+      .startDate(LocalDate.of(2020, 01, 31))
+      .build();
+
+    // NOTE: wil.active is defaulted to true
+
+    System.out.println(
+      objectMapper.writeValueAsString(wil));
 ```

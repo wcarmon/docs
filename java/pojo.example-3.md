@@ -4,7 +4,7 @@
 1. See also, [Jackson ready lombok POJO example](./pojo.example-4.md)
 1. See also, [core Java POJO examples](./pojos.core.java8-11.md)
 
-# Example
+# POJO Example
 ```java
 /**
  * TODO: add a BRIEF description of purpose
@@ -54,5 +54,16 @@ public class Employee {
     //TODO: other validations go here
   }
 }
+```
+
+# Usage Example
+```java
+    Employee wil = Employee.newBuilder()
+      .age(35)
+      .name("Wil C")
+      .startDate(LocalDate.of(2020, 01, 31))
+      .build();
+
+    // NOTE: wil.active is defaulted to true
 ```
 
