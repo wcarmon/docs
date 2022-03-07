@@ -31,7 +31,7 @@ public class Employee {
   @Jacksonized
   @lombok.Builder(
     builderClassName = "Builder",
-    builderMethodName = "newBuilder",
+    //builderMethodName = "newBuilder", // <-- they have a bug here
     toBuilder = true)
   private Employee(
     Boolean active,  // <-- non-primitive allows you to default the value
