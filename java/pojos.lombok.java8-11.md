@@ -119,8 +119,16 @@
 
 
 # Gotchas
+1. Lombok [hacks the compiler](https://projectlombok.org/contributing/lombok-execution-path)
+    1. Sometimes the simplest solution is to use lombok, then [delombok](https://projectlombok.org/features/delombok)
 1. Lombok's builder assumes an all-args constructor instead of a `builder` instance
 1. **WARNING** Avoid [`lombok.@NonNull`](https://projectlombok.org/features/NonNull) on properties & builder (since builder should allow nullable)
 1. **WARNING** Avoid [org.jetbrains.annotations.Nullable](https://www.jetbrains.com/help/idea/nullable-and-notnull-annotations.html) annotation since it's incompatible with [Jackson](https://github.com/FasterXML/jackson)
 1. **WARNING** Avoid `@Data` since it promotes mutability
 1. **WARNING** Avoid `lombok.@Builder.Default`: Incompatible with Jackson, Constructor validation, fights with core java
+
+## Delombok Builder
+1. After [delomboking](https://projectlombok.org/features/delombok) a [`@Builder`](https://projectlombok.org/features/Builder)...
+1. Make the `Builder` class `final`: `public static final class Builder {`
+1. Make the `Builder` class `private`
+1. replace `toBuilder()` with `public static Builder newBuilder(Foo copy)`

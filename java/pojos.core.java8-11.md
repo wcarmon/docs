@@ -76,7 +76,7 @@
             1. `Generate static newBuilder() method`,
             1. `Generate builder copy constructor`
         1. (select the last option) `Use field names in setters`
-    1. **Verify**: constructor is `private`
+    1. **Verify**: constructor is `private`. eg. `private Builder() {}`
     1. **Verify**: it generated a builder class, eg. `public static final class Builder{...}`
     1. **Verify**: it generated the "copy constructor", eg. `public static Builder newBuilder(Foo copy) { ... }`
     1. Prefer nullable (Object) property types **on the builder** (so you can default them)
