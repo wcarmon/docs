@@ -65,7 +65,8 @@ public final class Employee {
     return builder;
   }
 
-  // NOTE: Notice the annotation below
+  // NOTE: Notice the annotations below
+  @JsonIgnoreProperties({"\u0024schema", "\u0024id"})
   @JsonPOJOBuilder(withPrefix = "")
   public static final class Builder {
     // notice the object type allows defaulting active to true
