@@ -28,7 +28,7 @@ TODO
 
 
 # Trade-offs
-1. Heap size vs. collection overhead (time)
+1. Heap size vs. collection [overhead](https://en.wikipedia.org/wiki/Overhead_(computing)) (time)
     1. Larger heaps take longer to cleanup
     1. G1 solves via incremental garbage collection
 1. Pause time ([Latency](https://en.wikipedia.org/wiki/Latency_(engineering))) vs. application [Throughput](https://en.wikipedia.org/wiki/Throughput#:~:text=In%20general%20terms%2C%20throughput%20is,delivery%20over%20a%20communication%20channel.)
@@ -46,6 +46,14 @@ TODO
 - **Con**: Longer pause time (proportional to heap size)
 - **Pro**: No write barrier, simpler implementation
 
+
+# Impact of Pauses
+- Threads executing bytecodes
+
+## Not affected
+1. JVM thread interpreting bytecodes
+1. OS threads running native code
+1. JVM code waiting on [Lock](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/locks/Lock.html)
 
 
 # More resources
