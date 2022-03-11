@@ -8,7 +8,16 @@
 TODO
 
 --------
-# Responsibilities
+# Goals
+1. Minimal pauses
+1. Fast object allocation
+1. Low overhead
+    1. Space overhead = memory footprint
+    1. Time overhead = CPU consumption, Pauses
+1. Scalable to large heaps (eg. G1)
+
+
+# Collector Responsibilities
 1. Automated object deallocation
     1. Prevent most memory leaks & dangling pointers
     1. Reclaim unused memory
@@ -18,5 +27,29 @@ TODO
 1. Object Finalization
 
 
+# Trade-offs
+1. Heap size vs. collection overhead (time)
+    1. Larger heaps take longer to cleanup
+    1. G1 solves via incremental garbage collection
+1. Pause time ([Latency](https://en.wikipedia.org/wiki/Latency_(engineering))) vs. application [Throughput](https://en.wikipedia.org/wiki/Throughput#:~:text=In%20general%20terms%2C%20throughput%20is,delivery%20over%20a%20communication%20channel.)
+    1. Trading between GC resources & application resources
+
+
+# Typical Collection Phases
+
+## Partial Collection (sub-regions of heap)
+- **Cons**: More memory claimed per unit-of-work
+- **Cons**: Must track references into collected area (Write barrier)
+- **Cons**: Must coordinate with JIT compiler (TODO: WHY??)
+
+## Full Collection (Entire heap)
+- **Con**: Longer pause time (proportional to heap size)
+- **Pro**: No write barrier, simpler implementation
+
+
+
 # More resources
-TODO
+1. [Official HotSpot tuning guide](https://docs.oracle.com/javase/9/gctuning/introduction-garbage-collection-tuning.htm#JSGCT-GUID-8A443184-7E07-4B71-9777-4F12947C8184)
+1. [Christine H. Flood's guide](https://blogs.oracle.com/javamagazine/post/understanding-garbage-collectors)
+1. [Azul C4 (pauseless)](https://www.azul.com/products/components/pgc/)
+1. [other JVMs](https://docs.oracle.com/cd/E15289_01/JRSDK/garbage_collect.htm)
