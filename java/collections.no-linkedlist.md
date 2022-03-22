@@ -9,6 +9,7 @@
   * [Append](#append)
   * [Delete/Insert between elements](#deleteinsert-between-elements)
 - [Memory](#memory)
+- [Counter arguments](#counter-arguments)
 - [More Info](#more-info)
 
 
@@ -44,7 +45,6 @@
 - `LinkedList` can be slower here because it requires **traversing** to the insertion/deletion point
 
   
---------
 # Memory
 - `LinkedList` wraps every element in [LinkedList::Node](https://hg.openjdk.java.net/jdk/jdk11/file/1ddf9a99e4ad/src/java.base/share/classes/java/util/LinkedList.java#l974)
     - Memory overhead
@@ -56,7 +56,6 @@
   - This can make your app slower (more GC pauses)
 
 
---------
 # Counter arguments
 1. [`LinkedList`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/LinkedList.html) is an efficient [`Queue`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Queue.html) implementation
 
