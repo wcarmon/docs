@@ -57,6 +57,11 @@
 
 
 --------
+# Counter arguments
+1. [`LinkedList`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/LinkedList.html) is an efficient [`Queue`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Queue.html) implementation
+
+
+--------
 # More Info
 - [The author of LinkedList doesn't use it](https://twitter.com/joshbloch/status/583813919019573248)
 - https://www.techiedelight.com/arraylist-vs-linkedlist-java/
