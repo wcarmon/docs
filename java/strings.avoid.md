@@ -1,5 +1,5 @@
 # Overview
-1. Why Strings are a problematic
+1. Why Strings are problematic
 1. How we can do better
 
 
