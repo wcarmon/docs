@@ -1,9 +1,9 @@
 # Overview
-1. Why Strings are problematic
-1. How we can do better
+1. Why Strings are problematic?
+1. How we can do better?
 
 
-# Strings make bad properties:
+# Strings make bad properties
 1. `String` is ambiguous, because it can represent anything
 1. `String` type provides zero information about structure
 1. `String` is not self documenting.  Future readers have no way of finding all possible values
