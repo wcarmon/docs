@@ -1,6 +1,6 @@
 # Overview
-- Why we should sort?
-- How to do it automatically?
+- Why should we sort?
+- How to sort automatically?
 
 
 # Table of Contents
