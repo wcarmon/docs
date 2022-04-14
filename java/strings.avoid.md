@@ -1,6 +1,6 @@
 # Overview
 1. Why Strings are problematic?
-1. How we can do better?
+1. How can we do better?
 
 
 # Strings make bad properties
