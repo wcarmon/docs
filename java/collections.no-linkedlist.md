@@ -58,7 +58,7 @@
 
 # Counter arguments
 1. [`LinkedList`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/LinkedList.html) is an efficient [`Queue`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Queue.html) implementation
-    1. Although [`ArrayDeque`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/ArrayDeque.html) is generally faster
+    1. ... although [`ArrayDeque`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/ArrayDeque.html) is generally faster
 
 
 --------
