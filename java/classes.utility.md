@@ -101,21 +101,22 @@
 
 
 # **Item-0482**: Javadoc
-1. Add **brief** javadoc with summary of purpose
+1. Add **brief** javadoc, with a summary of purpose
 1. Document who is responsible for closing resources (like [IO Streams](https://docs.oracle.com/javase/tutorial/essential/io/streams.html))
+    1. `Caller is responsible` or `callee is responsible`
 
 # **Item-0483**: Final
-1. Mark the class `final`
+1. Mark the utility class `final`
 
 # **Item-0484**: Stateless
-1. No properties on the utility class
-    1. `static final` constants are acceptable (top of file)
+1. No instance properties on the utility class
+    1. `static final` constants are acceptable (at top of file)
 
 # **Item-0485**: Naming
-1. Package name: ends with `.util;` (Eg. `com.abc.foo.util`)
-1. Class name: ends with `Utils` (eg. see Apache commons)
-    1. Core java & Guava tend to name utils after a Type (eg. `Foos` contains methods to simplify using `Foo`)
-    1. Apache and Spring tend to name utilities with the `Utils` suffix
+1. Package name: ends with `.util;` (Eg. `com.abc.util`)
+1. Class name: ends with `Utils` (eg. see Apache commons examples above)
+    1. Core Java & [Guava](https://github.com/google/guava) tend to name utils after a Type (eg. `Foos` contains methods to simplify using `Foo`)
+    1. [Apache Commons](https://commons.apache.org/) and [Spring](https://docs.spring.io/spring-framework/docs/current/reference/html) tend to name utilities with the `Utils` suffix
     1. Avoid naming collisions by using the `Utils` suffix (and not reinventing the wheel)
 
 # **Item-0486**: Constructor
