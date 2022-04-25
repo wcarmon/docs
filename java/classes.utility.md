@@ -12,7 +12,6 @@
 1. [`Collections`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Collections.html)
 1. [`Executors`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/Executors.html)
 1. [`Files`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/nio/file/Files.html)
-1. [`Files`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/nio/file/Files.html)
 1. [`FileSystems`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/nio/file/FileSystems.html)
 1. [`Math`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Math.html)
 1. [`Objects`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Objects.html)
