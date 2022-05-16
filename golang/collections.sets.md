@@ -51,6 +51,7 @@ if visited["a"] {
 
 
 # Iteration
+1. Iteration order is random
 ```go
 for value, found := range visited {
     if !found {

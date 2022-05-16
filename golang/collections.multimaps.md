@@ -1,5 +1,5 @@
 # Overview
-- How to use a Multimap/Bag DataStructure
+- How to use a Multimap Data Structure (A.K.A. Bag)
 
 
 # Creation
@@ -60,7 +60,7 @@ func RemoveFromBag[K comparable, V any](
 TODO
 
 
-# Contains check
+# Check for key
 TODO...
 
 

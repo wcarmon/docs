@@ -32,4 +32,4 @@ TODO
 
 
 # Multimap (Bag)
-- See [collections.multimaps.md](./collections.multimaps.md) doc
+- See [multimaps](./collections.multimaps.md) doc
