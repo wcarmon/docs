@@ -8,6 +8,7 @@
 1. **String**: read-only, slice of (arbitrary) bytes
 1. **Char/Character**: TODO
 
+
 # Key features of strings
 1. Go sources are always UTF-8
 1. Conversion between `[]byte` and `string` is cheap
@@ -26,9 +27,9 @@ for i, c := range "foo" {
 
 
 # Idioms
-1. Avoid bytes, use runes instead
-    1. They are safe for multi-byte chars
-TODO
+1. Avoid bytes for presentation, use runes instead
+    1. Runes are safe for multi-byte chars
+    1. `[]byte` and `string` are fine for serialization, storage, ...
 
 
 # Common operations
