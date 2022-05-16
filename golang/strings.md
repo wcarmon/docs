@@ -37,9 +37,9 @@ for i, c := range "foo" {
 |String::valueOf|`string(foo)`|
 |StringUtils.isBlank|[`strings.TrimSpace(s) == ""`](https://pkg.go.dev/strings#TrimSpace)|
 |StringUtils.isEmpty|[[`len(s) == 0`](https://pkg.go.dev/builtin#len)]|
-|StringUtils.join|`strings.Join(slice, sep )`|
-|StringUtils.repeat|`strings.Repeat(s, n)`|
-|StringUtils::containsAny|`strings.ContainsAny(haystack,needles)`|
+|StringUtils.join|[`strings.Join(slice, sep)`](https://pkg.go.dev/strings#Join)|
+|StringUtils.repeat|[`strings.Repeat(s, n)`](https://pkg.go.dev/strings#Repeat)|
+|StringUtils::containsAny|[`strings.ContainsAny(haystack,needles)`](https://pkg.go.dev/strings#ContainsAny)|
 
 
 TODO:
