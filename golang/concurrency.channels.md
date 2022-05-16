@@ -44,7 +44,7 @@ TODO
 
 # `select` block
 TODO
-
+TODO: https://www.golang-book.com/books/intro/10
 
 # Idioms
 TODO ...

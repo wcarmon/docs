@@ -1,5 +1,10 @@
 # Overview
-- TODO ...
+- Patterns for atomic statements
+
+
+- TODO: atomic increment
+- TODO: atomic compare-and-swap
+- TODO: Mutex
 
 TODO: sync.RWMutex
 
@@ -9,7 +14,8 @@ TODO: sync.RWMutex
 1. Keep private (do NOT expose)
 1. group with collection it protects (eg. map, slice, ...)
     1. See [variables](./variables.md) doc
-TODO ...
+- TODO ...
+
 
 
 # Other resources
