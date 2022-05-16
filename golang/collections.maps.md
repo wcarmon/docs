@@ -120,6 +120,11 @@ if _,exists := m[key]; !exists {
 ```
 
 
+# Idioms
+1. Only use [`sync.Map`](https://pkg.go.dev/sync#Map) when you can demonstrate high lock contention
+
+
 # Other resources
 1. [Official docs](https://go.dev/blog/maps)
 1. [gobyexample.com](https://gobyexample.com/maps)
+1. [Syncronized map](https://pkg.go.dev/sync#Map)
