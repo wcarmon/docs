@@ -12,12 +12,17 @@ for i, c := range "foo" {
 ```
 
 
+# Idioms
+1. Avoid bytes, use runes instead
+    1. They are safe for multi-byte chars
+TODO
+
+
 # Common operations
 |JVM method|Golang|
 |---|---|
-|String::charAt|TODO|
-|String::compareTo|`s1 < s2`|
-|String::compareTo|[`strings.Compare(...)`](https://pkg.go.dev/strings#Compare)|
+|String::charAt|`( []rune("abc") )[3] == 'd'`|
+|String::compareTo|`s1 < s2` or [`strings.Compare(...)`](https://pkg.go.dev/strings#Compare)|
 |String::contains|[`strings.Contains(haystack, needle)`](https://pkg.go.dev/strings#Contains)|
 |String::endsWith|[`strings.HasSuffix(s, sfx)`](https://pkg.go.dev/strings#HasSuffix)|
 |String::equalsIgnoreCase|[`strings.EqualsFold(s1, s2)`](https://pkg.go.dev/strings#EqualFold)|
