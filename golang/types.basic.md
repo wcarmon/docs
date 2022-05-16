@@ -4,6 +4,11 @@
 
 
 # Numeric types
+
+## Literals
+TODO
+
+## Ranges
 |Type|Range|
 | ---|--- |
 |`int8` | `-128` through `127`|
@@ -17,16 +22,21 @@
 |`int` | at least 32-bits, but not an alias for `int32`|
 |`uint` | ...|
 
-
 - TODO: maxValue
 - TODO: minValue
+
+## Formatting to string
+TODO
+
 
 # Complex
 TODO
 
 
 # Boolean
-TODO
+- `bool`
+   - not ~~`boolean`~~
+- Literal: `true` or `false`
 
 
 # Chars & Strings
