@@ -2,6 +2,20 @@
 - ...
 
 
+# Definitions
+1. [**Code point**](https://en.wikipedia.org/wiki/Code_point): same a rune, defined by [Unicode](https://en.wikipedia.org/wiki/Code_point)
+1. **Rune**: a Code point (see above)
+1. **String**: read-only, slice of (arbitrary) bytes
+1. **Char/Character**: TODO
+
+
+# Key features of strings
+1. Go sources are always UTF-8
+1. Conversion between `[]byte` and `string` is cheap
+1. Strings can contain unprintable chars (can contain any bytes)
+
+
+
 # Iteration
 ```go
 // i == current index
@@ -68,5 +82,9 @@ StringUtils.substringAfterLast	see below
 StringUtils.uncapitalize		see below
 
 
+TODO: raw strings
+TODO: multi-line strings
+
+
 # Other resources
-TODO
+1. [Official docs](https://go.dev/blog/strings)
