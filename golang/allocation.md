@@ -2,7 +2,7 @@
 - TODO ...
 
 
-TODO: make
+TODO: make - for slices
 TODO: new
 
 

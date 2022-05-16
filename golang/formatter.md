@@ -4,7 +4,7 @@
 
 
 # Formatting
-```bash
+```sh
 
 SRC_ROOT=$HOME/git-repos/go/common/pkg;
 gofmt -s -w $SRC_ROOT;

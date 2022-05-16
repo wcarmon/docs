@@ -1,7 +1,7 @@
 # Fork repo
 1. get repo url (ends with `.git`)
 1. Clone & Verify
-```bash
+```sh
 REPO_URL=...
 mkdir -p ~/root/git-repos;
 git clone $REPO_URL;
@@ -17,18 +17,18 @@ git remote add mine $URL_FOR_MY_FORK;
 ```
 
 # Push arbitrary branch
-```bash
+```sh
 git push origin HEAD feature/FOO-123 -u;
 ```
 
 # Amend a commit message
-```bash
+```sh
 git commit --amend;
 ```
 
 # Sync my fork
 See [./utils/sync-forked-branch.sh](./utils/sync-forked-branch.sh)
-```bash
+```sh
 cd ~/root/git-repos/the-project;
 source .../sync-forked-branch.sh;
 
@@ -45,7 +45,7 @@ git push mine --tags --quiet;
 ```
 
 ## Verify
-```bash
+```sh
 LOCAL_BRANCH=...;
 git diff --name-only shared/$LOCAL_BRANCH $LOCAL_BRANCH;
 git diff --name-only $LOCAL_BRANCH mine/$LOCAL_BRANCH;
@@ -53,7 +53,7 @@ git diff --name-only $LOCAL_BRANCH mine/$LOCAL_BRANCH;
 
 
 # Create new feature branch
-```bash
+```sh
 NEW_BRANCH_NAME=feature/foo-123;
 STARTING_BRANCH="current_release";
 
@@ -65,7 +65,7 @@ git push mine HEAD --set-upstream;
 ```
 
 # Merge `main` into local & push to "mine"
-```bash
+```sh
 LOCAL_FEATURE_BRANCH=feature/foo-123;
 SOURCE_BRANCH=shared/current_release;
 REMOTE_REPO_FOR_BRANCH=mine;  # or =shared
@@ -82,7 +82,7 @@ git push $REMOTE_REPO_FOR_BRANCH $LOCAL_FEATURE_BRANCH --set-upstream;
 ```
 
 # Delete branch
-```bash
+```sh
 BRANCH_TO_DELETE=feature/foo-123;
 
 git fetch --all;
@@ -96,7 +96,7 @@ git push mine --delete $BRANCH_TO_DELETE || true;
 
 
 # Stashing changes (temporarily shelve)
-```bash
+```sh
 # -- Save
 git stash;
 
@@ -109,7 +109,7 @@ git stash apply;  # keep in git-stash stack
 ```
 
 # Housekeeping
-```bash
+```sh
 git gc --prune;
 ```
 
@@ -127,7 +127,7 @@ git rev-list --ancestry-path OLD_TAG..NEW_TAG --format-short --author=[Ww]il
 ```
 
 # Diff patch
-```bash
+```sh
 git fetch --all;
 
 rm ../patchfile;
@@ -149,6 +149,6 @@ git duff --ignore-space-change OLD_TAG..NEW_TAG;
 
 
 # Follow a file
-```bash
+```sh
 git log --follow path/to/the/file.java
 ```

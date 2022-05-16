@@ -2,7 +2,7 @@
 - How to retrieve and use 3rd party libraries
 
 #
-```bash
+```sh
 go get
 ```
 

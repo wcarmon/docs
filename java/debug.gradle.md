@@ -4,7 +4,7 @@
 
 # Debugging gradle
 1. Run gradle via terminal
-```bash
+```sh
 ./gradlew compileJava \
 -Dorg.gradle.daemon.debug=false \
 -Dorg.gradle.debug.port=5005 \

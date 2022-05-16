@@ -1,6 +1,13 @@
 # Overview
-- ...
+- Key features & operations on structs
 
+# Structs
+1. [Pass-by-value](TODO) (functions you invoke get a copy)
+
+
+
+TODO: adding methods
+TODO: json
 
 # Idioms
 1. Getters & Setters are neither required nor idiomatic
