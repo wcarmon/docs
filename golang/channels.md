@@ -6,7 +6,8 @@
 1. Type-safe
 1. Pass-by-reference
 1. Thread-safe
-
+1. Optionally buffered
+    1. Only affects Senders (Not receivers)
 
 # Creation
 1. allocated with `make`
@@ -29,7 +30,7 @@ TODO
 
 
 # Receivers
-1. Always block until data available
+1. Always block until a message is available
 TODO: range
 
 
