@@ -17,7 +17,7 @@ go doc -all http | grep -i tls;
 
 # Browser based documentation
 - [`godoc`](https://pkg.go.dev/golang.org/x/tools/cmd/godoc)
-- Run local server
+- Example: run local server
 ```sh
 godoc -http=:6060 &
 ```

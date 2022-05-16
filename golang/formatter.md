@@ -1,5 +1,5 @@
 # Overview
-- ...
+- How to auto-format the `*.go` source files
 - Formatting is contentious but not consequential
 
 
@@ -12,7 +12,7 @@ gofmt -s -w $SRC_ROOT;
 ```
 
 # Goland
-TODO: finish this
+TODO: more here
 
 
 # Other resources
