@@ -1,9 +1,17 @@
 # Overview
-- TODO ...
+- Key features of Interfaces
 
+
+# Key features of interfaces
+1. Define required **behavior**
+1. Interface implementation is implicit
+    1. This is huge!  loose couping between packages/modules
+    1. Avoids unnecessary dependencies
+    1. Compiler checks for implementation
 
 TODO: embedding
 TODO: implicit implementation
+TODO: runtime checks for interfaces like Marshaler
 
 
 # Idioms

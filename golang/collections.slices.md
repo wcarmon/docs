@@ -48,6 +48,14 @@ s = append(s, 3)
 cap(s) // capacity is 4, doubles when it grows
 fmt.Println(s)  // [0 1 2 3]
 ```
+1. Appending another slice
+```go
+a := []int32{2, 3, 4}
+b := []int32{5, 6}
+
+a = append(a, b...)
+fmt.Println(a) // [2 3 4 5 6]
+```
 
 
 # Iteration

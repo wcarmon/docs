@@ -1,0 +1,38 @@
+# Overview
+- Key features of methods
+- See also [Functions](./functions.md) doc
+
+
+# Methods overview
+1. A [function](TODO) attached to a type
+1. Almost anything can have methods (attached functions)
+    1. structs (obvious), numbers, **functions**, channels
+    1. CANNOT attach to interfaces
+1. Method attached to a function allow decorating, proxying, ...
+
+# Intuition
+1. Think of it like passing the receiver as first arg
+```go
+type Car struct {
+}
+
+func (c Car) DoFoo(arg int) int {
+    // ...
+}
+
+car := Car{}
+_ = car.DoFoo(7)
+
+// equivalent to:  GenerateDoFoo(car, 7)
+```
+
+TODO: pointer receiver
+TODO: non-pointer receiver
+
+
+# Idioms
+TODO ...
+
+
+# Other resources
+1. TODO ...
