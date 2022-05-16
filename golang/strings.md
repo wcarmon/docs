@@ -17,17 +17,17 @@ for i, c := range "foo" {
 |---|---|
 |String::charAt|TODO|
 |String::compareTo|`s1 < s2`|
-|String::compareTo|TODO|
+|String::compareTo|[`strings.Compare(...)`](https://pkg.go.dev/strings#Compare)|
 |String::contains|[`strings.Contains(haystack, needle)`](https://pkg.go.dev/strings#Contains)|
 |String::endsWith|[`strings.HasSuffix(s, sfx)`](https://pkg.go.dev/strings#HasSuffix)|
 |String::equalsIgnoreCase|[`strings.EqualsFold(s1, s2)`](https://pkg.go.dev/strings#EqualFold)|
 |String::equals|`s1 == s2`|
-|String::format|`fmt.Sprintf(s, ... )`|
+|String::format|[`fmt.Sprintf(s, ...)`](https://pkg.go.dev/fmt#Sprintf)|
 |String::getBytes|`[]byte(s)`|
-|String::indexOf|`strings.Index(haystack, needle)`|
-|String::lastIndexOf|`strings.LastIndex(haystack, needle)`|
-|String::length|`len(s)`|
-|String::replaceAll|TODO|
+|String::indexOf|[`strings.Index(haystack, needle)`](https://pkg.go.dev/strings#Index)|
+|String::lastIndexOf|[`strings.LastIndex(haystack, needle)`](https://pkg.go.dev/strings#LastIndex)|
+|String::length|[`len(s)`](https://pkg.go.dev/builtin#len)|
+|String::replaceAll|[`strings.ReplaceAll(...)`](https://pkg.go.dev/strings#ReplaceAll)|
 |String::split|[`strings.Split(s, sep)`](https://pkg.go.dev/strings#Split)|
 |String::startsWith|[`strings.HasPrefix(s, pfx)`](https://pkg.go.dev/strings#HasPrefix)|
 |String::toCharArray|use range in loops, or `[]byte(s)`|
