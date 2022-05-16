@@ -4,40 +4,32 @@
 
 
 # Slices
-See [slices](./collections.slices.md) doc
+- See [slices](./collections.slices.md) doc
 
 
 # Maps
-See [maps](./collections.maps.md) doc
+- See [maps](./collections.maps.md) doc
 
 
 # Sets
+- See [sets](./collections.sets.md) doc
 
-## Creation
-```go
-TODO
-```
-
-## Iteration
-```go
-TODO
-```
 
 # Queues
-TODO
+TODO: See https://pkg.go.dev/container/list or use slice
+
 
 # Stacks
-TODO
+TODO: See https://pkg.go.dev/container/list or use slice
+
 
 # Heaps (Priority Queue)
 TODO
 
-# TreeMaps
-TODO
 
 # Strings
-See [Strings](./strings.md) doc
+- See [Strings](./strings.md) doc
 
 
-
-# Other resources
+# Multimap (Bag)
+- See [collections.multimaps.md](./collections.multimaps.md) doc

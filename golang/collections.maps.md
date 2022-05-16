@@ -83,6 +83,7 @@ if value, found := m["a"]; found {
 
 
 # Iteration
+1. iteration order is random
 ```go
 for key, value := range someMap {
   someMap[key] = value
@@ -122,6 +123,8 @@ if _,exists := m[key]; !exists {
 
 # Idioms
 1. Only use [`sync.Map`](https://pkg.go.dev/sync#Map) when you can demonstrate high lock contention
+1. If you need to mutate the map values properties (eg. struct values), Use pointer as value
+    1. eg. `map[string]*myStruct`
 
 
 # Other resources

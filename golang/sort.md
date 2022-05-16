@@ -5,6 +5,9 @@
 # Idioms
 TODO ...
 
+TODO: sorting a slice
+TODO: sorting a map for iteration
+
 
 # Other resources
 1. https://gobyexample.com/sorting
