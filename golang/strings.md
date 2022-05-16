@@ -18,27 +18,27 @@ for i, c := range "foo" {
 |String::charAt|TODO|
 |String::compareTo|`s1 < s2`|
 |String::compareTo|TODO|
-|String::contains|[`strings.Contains( haystack, needle)`](https://pkg.go.dev/strings#Contains)|
-|String::endsWith|[`strings.HasSuffix( s, sfx)`](https://pkg.go.dev/strings#HasSuffix)|
+|String::contains|[`strings.Contains(haystack, needle)`](https://pkg.go.dev/strings#Contains)|
+|String::endsWith|[`strings.HasSuffix(s, sfx)`](https://pkg.go.dev/strings#HasSuffix)|
 |String::equalsIgnoreCase|[`strings.EqualsFold(s1, s2)`](https://pkg.go.dev/strings#EqualFold)|
 |String::equals|`s1 == s2`|
 |String::format|`fmt.Sprintf(s, ... )`|
-|String::getBytes|`[]byte( s )`|
+|String::getBytes|`[]byte(s)`|
 |String::indexOf|`strings.Index(haystack, needle)`|
 |String::lastIndexOf|`strings.LastIndex(haystack, needle)`|
 |String::length|`len(s)`|
 |String::replaceAll|TODO|
-|String::split|`strings.Split(s, sep)`|
-|String::startsWith|`strings.HasPrefix(s, pfx)`|
+|String::split|[`strings.Split(s, sep)`](https://pkg.go.dev/strings#Split)|
+|String::startsWith|[`strings.HasPrefix(s, pfx)`](https://pkg.go.dev/strings#HasPrefix)|
 |String::toCharArray|use range in loops, or `[]byte(s)`|
-|String::toLowerCase|`strings.ToLower(s)`|
-|String::toUpperCase|`strings.ToUpper(s)`|
-|String::trim|`strings.TrimSpace(s)`|
+|String::toLowerCase|[`strings.ToLower(s)`](https://pkg.go.dev/strings#ToLower)|
+|String::toUpperCase|[`strings.ToUpper(s)`](https://pkg.go.dev/strings#ToUpper)|
+|String::trim|[`strings.TrimSpace(s)`](https://pkg.go.dev/strings#TrimSpace)|
 |String::valueOf|`string(foo)`|
-|StringUtils.isBlank|`len(strings.TrimSpace(s)) == 0`|
-|StringUtils.isEmpty|`len(s) == 0`|
-|StringUtils.join|`strings.Join( slice, sep )`|
-|StringUtils.repeat|`strings.Repeat( s, n)`|
+|StringUtils.isBlank|[`strings.TrimSpace(s) == ""`](https://pkg.go.dev/strings#TrimSpace)|
+|StringUtils.isEmpty|[[`len(s) == 0`](https://pkg.go.dev/builtin#len)]|
+|StringUtils.join|`strings.Join(slice, sep )`|
+|StringUtils.repeat|`strings.Repeat(s, n)`|
 |StringUtils::containsAny|`strings.ContainsAny(haystack,needles)`|
 
 
