@@ -45,7 +45,7 @@ for i, c := range "foo" {
 | [String::`getBytes`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#getBytes()) |`[]byte(s)`|
 | [String::`indexOf`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#indexOf(int)) | [`strings.Index(haystack, needle)`](https://pkg.go.dev/strings#Index) |
 | [String::`isBlank`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#isBlank()) |[`strings.TrimSpace(s) == ""`](https://pkg.go.dev/strings#TrimSpace) |
-| [String::`isEmpty`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#isEmpty()) | [`len(s) == 0`](https://pkg.go.dev/builtin#len)] |
+| [String::`isEmpty`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#isEmpty()) | [`len(s) == 0`](https://pkg.go.dev/builtin#len) |
 | [String::`lastIndexOf`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#lastIndexOf(int)) | [`strings.LastIndex(haystack, needle)`](https://pkg.go.dev/strings#LastIndex) |
 | [String::`length`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#length()) | [`len(s)`](https://pkg.go.dev/builtin#len) |
 | [String::`repeat`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#repeat(int)) | [`strings.Repeat(s, n)`](https://pkg.go.dev/strings#Repeat) |
@@ -62,32 +62,31 @@ for i, c := range "foo" {
 | StringUtils::join | [`strings.Join(slice, sep)`](https://pkg.go.dev/strings#Join) |
 
 
-TODO:
-StringUtils.abbreviate			see below
-StringUtils.appendIfMissing		...TODO: ??...
-StringUtils.capitalize			see below
-StringUtils.isAlpha			    ...TODO: ??...
-StringUtils.isNumeric			...TODO: ??...
-StringUtils.isAsciiPrintable	...TODO: ??...
-StringUtils.leftPad			    see below
-StringUtils.rightPad			see below
-StringUtils.prependIfMissing	...TODO: ??...
-StringUtils.remove/Delete		...TODO: ??...
-StringUtils.replace			    ...TODO: ??...
-StringUtils.substringLeft		...TODO: ??...
-StringUtils.substringRight		...TODO: ??...
-StringUtils.substringBefore		see below
-StringUtils.substringBeforeLast	see below
-StringUtils.substringAfter		see below
-StringUtils.substringAfterLast	see below
-StringUtils.uncapitalize		see below
+- TODO: StringUtils.abbreviate			see below
+- TODO: StringUtils.appendIfMissing		...TODO: ??...
+- TODO: StringUtils.capitalize			see below
+- TODO: StringUtils.isAlpha			    ...TODO: ??...
+- TODO: StringUtils.isNumeric			...TODO: ??...
+- TODO: StringUtils.isAsciiPrintable	...TODO: ??...
+- TODO: StringUtils.leftPad			    see below
+- TODO: StringUtils.rightPad			see below
+- TODO: StringUtils.prependIfMissing	...TODO: ??...
+- TODO: StringUtils.remove/Delete		...TODO: ??...
+- TODO: StringUtils.replace			    ...TODO: ??...
+- TODO: StringUtils.substringLeft		...TODO: ??...
+- TODO: StringUtils.substringRight		...TODO: ??...
+- TODO: StringUtils.substringBefore		see below
+- TODO: StringUtils.substringBeforeLast	see below
+- TODO: StringUtils.substringAfter		see below
+- TODO: StringUtils.substringAfterLast	see below
+- TODO: StringUtils.uncapitalize		see below
 
-
-TODO: raw strings
-TODO: builder - https://yourbasic.org/golang/build-append-concatenate-strings-efficiently/
-TODO: multi-line strings
-TODO: concatenation - https://yourbasic.org/golang/build-append-concatenate-strings-efficiently/
-TODO: strconv.Itoa
+--------
+- TODO: raw strings
+- TODO: builder - https://yourbasic.org/golang/build-append-concatenate-strings-efficiently/
+- TODO: multi-line strings
+- TODO: concatenation - https://yourbasic.org/golang/build-append-concatenate-strings-efficiently/
+- TODO: strconv.Itoa
 
 
 # Other resources
