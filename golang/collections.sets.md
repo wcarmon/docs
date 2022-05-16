@@ -1,17 +1,45 @@
 # Overview
 - Key features & common operations on sets
+- See [maps](./collections.maps.md) doc
 
 
-# Sets
-TODO
+# Key features
+1. Implement using `map[T]bool`
 
-## Creation
+
+# Creation
 ```go
 TODO
 ```
 
-## Iteration
+
+# Size
+```go
+theSize := len(myMap)
+```
+
+
+# Insertion/Update
+```go
 TODO
+```
+
+# Contains test
+```go
+TODO
+```
+
+
+# Iteration
+```go
+TODO
+```
+
+
+# Shallow copy
+```go
+TODO
+```
 
 
 # Idioms

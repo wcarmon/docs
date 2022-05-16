@@ -1,5 +1,6 @@
 # Overview
-- ...
+- Key features of variables & constants
+
 
 # Long declaration
 ```go
@@ -31,5 +32,16 @@ var (
 ```
 
 TODO: underscore (blank identifier)
+
+
+# Constants
+1. Created at compile time
+    1. Only number, character (rune), string or boolean
+    1. no function calls
+    1. can use some math operators (eg. `<<`)
+```go
+TODO
+```
+
 
 # Other resources

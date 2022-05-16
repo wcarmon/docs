@@ -2,10 +2,7 @@
 - TODO ...
 
 
-TODO: printf +%v
-TODO: fmt.Sprintf
-TODO: fmt.Fprintf
-
+TODO: itoa
 
 # Idioms
 TODO ...
