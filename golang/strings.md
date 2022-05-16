@@ -18,9 +18,9 @@ for i, c := range "foo" {
 |String::charAt|TODO|
 |String::compareTo|`s1 < s2`|
 |String::compareTo|TODO|
-|String::contains|`strings.Contains( haystack, needle )`|
-|String::endsWith|`strings.HasSuffix( s, sfx )`|
-|String::equalsIgnoreCase|`strings.ToLower(s1) == strings.ToLower(s2)`|
+|String::contains|[`strings.Contains( haystack, needle)`](https://pkg.go.dev/strings#Contains)|
+|String::endsWith|[`strings.HasSuffix( s, sfx)`](https://pkg.go.dev/strings#HasSuffix)|
+|String::equalsIgnoreCase|[`strings.EqualsFold(s1, s2)`](https://pkg.go.dev/strings#EqualFold)|
 |String::equals|`s1 == s2`|
 |String::format|`fmt.Sprintf(s, ... )`|
 |String::getBytes|`[]byte( s )`|
