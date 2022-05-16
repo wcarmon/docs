@@ -2,12 +2,6 @@
 - TODO ...
 
 
-# Example
-```go
-os.Getenv("HOME")
-```
-
-
 # Idioms
 TODO ...
 

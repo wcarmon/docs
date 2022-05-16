@@ -9,6 +9,8 @@
 TODO: adding methods
 TODO: := copy/assign?
 TODO: json
+TODO: Embedding
+
 
 # Idioms
 1. Getters & Setters are neither required nor idiomatic
@@ -17,3 +19,4 @@ TODO: json
 1. Method which converts to string is `String()` not `ToString()`
 
 # Other resources
+1. https://gobyexample.com/embedding
