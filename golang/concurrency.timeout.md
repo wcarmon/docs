@@ -10,28 +10,28 @@
 ```go
 func main() {
 
-	timeout := 5 * time.Second
+    timeout := 5 * time.Second
 
-	done := make(chan struct{}, 1)
+    done := make(chan struct{}, 1)
 
-	go doExpensiveTask(done)
+    go doExpensiveTask(done)
 
-	// -- Wait for first of ...
-	select {
-	case _ = <-done:
-		// -- wait for task to finish
-		fmt.Printf("Finished task\n")
+    // -- Wait for first of ...
+    select {
+    case _ = <-done:
+        // -- wait for task to finish
+        fmt.Printf("Finished task\n")
 
-	case <-time.After(timeout):
-		// -- wait for timer
-		fmt.Printf("Timeout\n")
-	}
+    case <-time.After(timeout):
+        // -- wait for timer
+        fmt.Printf("Timeout\n")
+    }
 }
 
 func doExpensiveTask(done chan<- bool) {
-	defer func() { done <- true }()
+    defer func() { done <- true }()
 
-	time.Sleep(3 * time.Second)
+    time.Sleep(3 * time.Second)
 }
 ```
 
