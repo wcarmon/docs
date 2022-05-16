@@ -37,7 +37,7 @@ func doExpensiveTask(done chan<- bool) {
 
 
 # Other resources
-1. https://gobyexample.com/timeouts
-1. https://golangr.com/timeout/
-1. https://golangbyexample.com/select-statement-with-timeout-go/
+1. [gobyexample](https://gobyexample.com/timeouts)
+1. [golangr](https://golangr.com/timeout)
+1. [golangbyexample](https://golangbyexample.com/select-statement-with-timeout-go)
 1. https://faun.pub/implmenting-timeout-in-golang-ee2bc4aa6ae4
