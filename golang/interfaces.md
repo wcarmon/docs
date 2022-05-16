@@ -8,6 +8,7 @@
     1. This is huge!  loose couping between packages/modules
     1. Avoids unnecessary dependencies
     1. Compiler checks for implementation
+1. Only interfaces can be embedded into interfaces (Union)
 
 TODO: embedding
 TODO: implicit implementation

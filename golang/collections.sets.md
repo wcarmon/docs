@@ -24,7 +24,7 @@ theSize := len(myMap)
 TODO
 ```
 
-# Contains test
+# Contains check
 ```go
 TODO
 ```
