@@ -26,8 +26,8 @@ func AddToBag[K comparable, V any](
 	value V) {
 
 	if entry, found := bag[key]; found {
-        entry.count++
-        return
+            entry.count++
+            return
 	}
 
 	bag[key] = &bagEntry[V]{
