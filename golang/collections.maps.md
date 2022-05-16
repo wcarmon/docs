@@ -21,6 +21,9 @@ var map0 = map[string]int{
   "olivia": 42,
 }
 ```
+1. Via `make`
+```go
+```
 1. Separate declaration and init
 ```go
 TODO

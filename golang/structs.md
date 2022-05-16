@@ -7,6 +7,7 @@
 
 
 TODO: adding methods
+TODO: := copy/assign?
 TODO: json
 
 # Idioms

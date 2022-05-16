@@ -1,8 +1,13 @@
 # Overview
 - TODO ...
 
+# make function
+1. Creates slices, maps, channels
+1. returns initialized T
 
-TODO: make - for slices
+# new
+1.
+
 TODO: new
 
 

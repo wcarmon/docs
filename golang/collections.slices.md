@@ -11,8 +11,20 @@
 1. [How slices work](https://go.dev/blog/slices-intro)
 
 # Creation
+1. Via literal
 ```go
-s := make([]string, 3)
+s0 := []string{"a", "b", "c"}
+```
+1. Via `make`
+```go
+
+// capacity is 3
+// contains 3 items with zero value (empty string)
+s1 := make([]string, 3)
+
+// capacity is 10
+// contains 3 items with zero value (empty string)
+s2 := make([]string, 3, 10)
 ```
 
 # Size
@@ -35,14 +47,19 @@ for index, value := range mySlice {
 
 # Shallow copy
 ```go
-TODO
+src := []string{"a", "b"}
+
+dest := make([]string, len(src))
+copy(dest, src)
 ```
+
 
 # ~~Arrays~~
 1. Fixed size, length is part of the type
 1. Rarely used in practice (Use slice instead)
 1. [Official Tour guide](https://go.dev/tour/moretypes/6)
 1. [go by example](https://gobyexample.com/arrays) doc
+1. Primary use case is as a building block for slices
 
 
 # Other resources
