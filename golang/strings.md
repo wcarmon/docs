@@ -8,7 +8,6 @@
 1. **String**: read-only, slice of (arbitrary) bytes
 1. **Char/Character**: TODO
 
-
 # Key features of strings
 1. Go sources are always UTF-8
 1. Conversion between `[]byte` and `string` is cheap
