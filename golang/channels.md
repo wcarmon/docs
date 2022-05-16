@@ -1,5 +1,5 @@
 # Overview
-- TODO ...
+- Key features & usage idioms for a channel
 
 
 # Key features of Channels

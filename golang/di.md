@@ -1,9 +1,11 @@
 # Overview
-- TODO ...
+- Idioms for [Dependency Injection](https://en.wikipedia.org/wiki/Dependency_injection) design pattern
 
+
+- TODO: wire
 
 # Idioms
-TODO ...
+- TODO ...
 
 
 # Other resources
