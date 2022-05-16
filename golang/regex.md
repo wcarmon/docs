@@ -1,5 +1,10 @@
 # Overview
-- TODO ...
+- Common idioms for regular expressions
+
+
+- TODO: create
+- TODO: find matches
+- TODO: test for match
 
 
 # Idioms

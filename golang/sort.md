@@ -1,12 +1,12 @@
 # Overview
-- TODO ...
+- Idioms for sorting collections
 
 
 # Idioms
 TODO ...
 
-TODO: sorting a slice
-TODO: sorting a map for iteration
+- TODO: sorting a slice
+- TODO: sorting a map for iteration
 
 
 # Other resources
