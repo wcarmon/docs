@@ -3,7 +3,6 @@
 
 
 # Representation
-1. Zero value is TODO
 TODO
 
 

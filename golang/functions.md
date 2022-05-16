@@ -3,10 +3,10 @@
 - See also [Methods](./methods.md) doc
 
 
-# functions overview
-1. Executable code block
+# Key features of functions
+1. An executable code block
 1. Multiple return types
-TODO
+1. Pass-by-reference  <-- TODO verify
 
 TODO: (higher order) accepting function as arg
 TODO: (higher order) return a function
@@ -14,6 +14,7 @@ TODO: defer
 TODO: named result param
 TODO: init function (per file)
 TODO: varargs
+TODO: it's ok to return address of local var in constructor
 
 
 # Idioms

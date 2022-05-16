@@ -3,8 +3,9 @@
 
 
 # Key features of Channels
-1. Pass by ?
-1. Thread-safe?
+1. Type-safe
+1. Pass-by-reference
+1. Thread-safe
 
 
 # Creation

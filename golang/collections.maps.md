@@ -125,6 +125,7 @@ if _,exists := m[key]; !exists {
 1. Only use [`sync.Map`](https://pkg.go.dev/sync#Map) when you can demonstrate high lock contention
 1. If you need to mutate the map values properties (eg. struct values), Use pointer as value
     1. eg. `map[string]*myStruct`
+1. If your value is complicated, use a [type alias](TODO)
 
 
 # Other resources
