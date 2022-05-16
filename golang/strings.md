@@ -35,31 +35,31 @@ for i, c := range "foo" {
 # Common operations
 |JVM method|Golang|
 |---|---|
-|[String::`charAt`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#charAt(int))|`( []rune("abc") )[3] == 'd'`|
-|[String::`compareTo`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#compareTo(java.lang.String))|`s1 < s2` or [`strings.Compare(...)`](https://pkg.go.dev/strings#Compare)|
-|[String::`contains`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#contains(java.lang.CharSequence))|[`strings.Contains(haystack, needle)`](https://pkg.go.dev/strings#Contains)|
-|[String::`endsWith`](TODO)|[`strings.HasSuffix(s, sfx)`](https://pkg.go.dev/strings#HasSuffix)|
-|[String::`equals`](TODO)|`s1 == s2`|
-|[String::`equalsIgnoreCase`](TODO)|[`strings.EqualsFold(s1, s2)`](https://pkg.go.dev/strings#EqualFold)|
-|[String::`format`](TODO)|[`fmt.Sprintf(s, ...)`](https://pkg.go.dev/fmt#Sprintf)|
-|[String::`getBytes`](TODO)|`[]byte(s)`|
-|[String::`indexOf`](TODO)|[`strings.Index(haystack, needle)`](https://pkg.go.dev/strings#Index)|
-|[String::`isEmpty`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#isEmpty())|[[`len(s) == 0`](https://pkg.go.dev/builtin#len)]|
-|[String::`lastIndexOf`](TODO)|[`strings.LastIndex(haystack, needle)`](https://pkg.go.dev/strings#LastIndex)|
-|[String::`length`](TODO)|[`len(s)`](https://pkg.go.dev/builtin#len)|
-|[String::`repeat`](TODO)|[`strings.Repeat(s, n)`](https://pkg.go.dev/strings#Repeat)|
-|[String::`replaceAll`](TODO)|[`strings.ReplaceAll(...)`](https://pkg.go.dev/strings#ReplaceAll)|
-|[String::`split`](TODO)|[`strings.Split(s, sep)`](https://pkg.go.dev/strings#Split)|
-|[String::`startsWith`](TODO)|[`strings.HasPrefix(s, pfx)`](https://pkg.go.dev/strings#HasPrefix)|
-|[String::`substring`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#substring(int,int))|`"abcde"[2:4] == "cd"`|
-|[String::`toCharArray`](TODO)|Use range in loops, or `[]rune(s)`|
-|[String::`toLowerCase`](TODO)|[`strings.ToLower(s)`](https://pkg.go.dev/strings#ToLower)|
-|[String::`toUpperCase`](TODO)|[`strings.ToUpper(s)`](https://pkg.go.dev/strings#ToUpper)|
-|[String::`trim`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#trim())|[`strings.TrimSpace(s)`](https://pkg.go.dev/strings#TrimSpace)|
-|[String::isBlank]()|[`strings.TrimSpace(s) == ""`](https://pkg.go.dev/strings#TrimSpace)|
-|String::valueOf|`string(foo)`|
-|StringUtils::join|[`strings.Join(slice, sep)`](https://pkg.go.dev/strings#Join)|
-|StringUtils::containsAny|[`strings.ContainsAny(haystack,needles)`](https://pkg.go.dev/strings#ContainsAny)|
+| [String::`charAt`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#charAt(int)) |`( []rune("abc") )[3] == 'd'`|
+| [String::`compareTo`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#compareTo(java.lang.String)) |`s1 < s2` or [`strings.Compare(...)`](https://pkg.go.dev/strings#Compare) |
+| [String::`contains`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#contains(java.lang.CharSequence)) |[`strings.Contains(haystack, needle)`](https://pkg.go.dev/strings#Contains) |
+| [String::`endsWith`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#endsWith(java.lang.String)) | [`strings.HasSuffix(s, sfx)`](https://pkg.go.dev/strings#HasSuffix) |
+| [String::`equals`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#equals(java.lang.Object)) |`s1 == s2`|
+| [String::`equalsIgnoreCase`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#equalsIgnoreCase(java.lang.String)) | [`strings.EqualsFold(s1, s2)`](https://pkg.go.dev/strings#EqualFold) |
+| [String::`format`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#format(java.lang.String,java.lang.Object...)) | [`fmt.Sprintf(s, ...)`](https://pkg.go.dev/fmt#Sprintf) |
+| [String::`getBytes`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#getBytes()) |`[]byte(s)`|
+| [String::`indexOf`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#indexOf(int)) | [`strings.Index(haystack, needle)`](https://pkg.go.dev/strings#Index) |
+| [String::`isBlank`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#isBlank()) |[`strings.TrimSpace(s) == ""`](https://pkg.go.dev/strings#TrimSpace) |
+| [String::`isEmpty`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#isEmpty()) | [`len(s) == 0`](https://pkg.go.dev/builtin#len)] |
+| [String::`lastIndexOf`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#lastIndexOf(int)) | [`strings.LastIndex(haystack, needle)`](https://pkg.go.dev/strings#LastIndex) |
+| [String::`length`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#length()) | [`len(s)`](https://pkg.go.dev/builtin#len) |
+| [String::`repeat`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#repeat(int)) | [`strings.Repeat(s, n)`](https://pkg.go.dev/strings#Repeat) |
+| [String::`replaceAll`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#replaceAll(java.lang.String,java.lang.String)) | [`strings.ReplaceAll(...)`](https://pkg.go.dev/strings#ReplaceAll) |
+| [String::`split`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#split(java.lang.String)) | [`strings.Split(s, sep)`](https://pkg.go.dev/strings#Split) |
+| [String::`startsWith`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#startsWith(java.lang.String)) | [`strings.HasPrefix(s, pfx)`](https://pkg.go.dev/strings#HasPrefix) |
+| [String::`substring`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#substring(int,int)) |`"abcde"[2:4] == "cd"`|
+| [String::`toCharArray`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#toCharArray()) |Use range in loops, or `[]rune(s)`|
+| [String::`toLowerCase`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#toLowerCase()) | [`strings.ToLower(s)`](https://pkg.go.dev/strings#ToLower) |
+| [String::`toUpperCase`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#toUpperCase()) | [`strings.ToUpper(s)`](https://pkg.go.dev/strings#ToUpper) |
+| [String::`trim`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#trim()) |[`strings.TrimSpace(s)`](https://pkg.go.dev/strings#TrimSpace) |
+| String::valueOf|`string(foo)`|
+| StringUtils::containsAny | [`strings.ContainsAny(haystack,needles)`](https://pkg.go.dev/strings#ContainsAny) |
+| StringUtils::join | [`strings.Join(slice, sep)`](https://pkg.go.dev/strings#Join) |
 
 
 TODO:
@@ -84,7 +84,10 @@ StringUtils.uncapitalize		see below
 
 
 TODO: raw strings
+TODO: builder - https://yourbasic.org/golang/build-append-concatenate-strings-efficiently/
 TODO: multi-line strings
+TODO: concatenation - https://yourbasic.org/golang/build-append-concatenate-strings-efficiently/
+TODO: strconv.Itoa
 
 
 # Other resources
