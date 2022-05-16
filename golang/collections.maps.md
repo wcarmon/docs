@@ -64,7 +64,7 @@ m := map[string]int{
 }
 
 fmt.Println(m["a"]) // 7
-fmt.Println(m["c"]) // 0  (zero value), not robust :-(
+fmt.Println(m["c"]) // 0  zero value, not robust :-(
 
 // -- Better pattern:
 value, ok := m["c"]
@@ -74,7 +74,7 @@ if ok {  // ok == map-contains-c
 ```
 
 
-# Contains check
+# Check for key
 ```go
 if value, found := m["a"]; found {
     fmt.Println(value)
@@ -114,7 +114,7 @@ for k, v := range src {
 
 # Put-if-absent
 ```go
-// use a lock if concurrent
+// Use a sync.Mutex when concurrent
 if _,exists := m[key]; !exists {
     m[key] = "foo"
 }
@@ -123,9 +123,9 @@ if _,exists := m[key]; !exists {
 
 # Idioms
 1. Only use [`sync.Map`](https://pkg.go.dev/sync#Map) when you can demonstrate high lock contention
-1. If you need to mutate the map values properties (eg. struct values), Use pointer as value
+1. If you must **mutate** the map *value* (structs values), use pointer
     1. eg. `map[string]*myStruct`
-1. If your value is complicated, use a [type alias](TODO)
+1. If your *value* is complicated, use a [type alias](TODO)
 
 
 # Other resources

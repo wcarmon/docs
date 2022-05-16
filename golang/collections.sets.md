@@ -39,7 +39,7 @@ delete(theSet, "foo")
 ```
 
 
-# Contains check
+# Check for value
 ```go
 visited["a"] = true
 //...
