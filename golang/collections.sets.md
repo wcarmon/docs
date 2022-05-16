@@ -3,47 +3,79 @@
 - See [maps](./collections.maps.md) doc
 
 
-# Key features
+# Key features of Sets
 1. Implement using `map[T]bool`
 
 
 # Creation
 ```go
-TODO
+visited := make(map[string]bool)
+
+visited["a"] = true
+visited["b"] = true
+
+if visited["a"] {
+    fmt.Print("yep")
+}
 ```
 
 
 # Size
 ```go
-theSize := len(myMap)
+theSize := len(theSet)
 ```
 
 
 # Insertion/Update
 ```go
-TODO
+visited := make(map[string]bool)
+
+visited["a"] = true
 ```
+
+# Removal
+```go
+delete(theSet, "foo")
+```
+
 
 # Contains check
 ```go
-TODO
+visited["a"] = true
+//...
+
+if visited["a"] {
+    fmt.Print("yep")
+}
 ```
 
 
 # Iteration
 ```go
-TODO
+for value, found := range visited {
+    if !found {
+        continue
+    }
+
+    fmt.Println(value)
+}
 ```
 
 
 # Shallow copy
 ```go
-TODO
+srcSet := make(map[string]bool)
+//...
+
+destSet := make(map[string]bool, len(srcSet))
+for value, contains := range srcSet {
+    if !contains {
+        continue
+    }
+
+    destSet[value] = true
+}
 ```
-
-
-# Idioms
-TODO ...
 
 
 # Other resources
