@@ -7,7 +7,7 @@
 - Example
 ```go
 /*
- ... mostly as package comments ...
+ ... this syntax is mostly for package comments ...
 */
 
 // a line comment
