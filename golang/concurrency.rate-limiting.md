@@ -27,21 +27,21 @@ func main() {
 }
 
 func simulateSlowTask(
-	taskId int,
-	semaphoreChan chan bool) {
+    taskId int,
+    semaphoreChan chan bool) {
 
-	// -- Wait for permit
-	_ = <-semaphoreChan
+    // -- Wait for permit
+    _ = <-semaphoreChan
 
-	// -- Return permit when finished
-	defer func() {
-		semaphoreChan <- true
-	}()
+    // -- Return permit when finished
+    defer func() {
+        semaphoreChan <- true
+    }()
 
-	// -- Do the slow task
-	fmt.Printf("BEGIN: %v\n", taskId)
-	time.Sleep(6 * time.Second)
-	fmt.Printf("END: %v\n", taskId)
+    // -- Do the slow task
+    fmt.Printf("BEGIN: %v\n", taskId)
+    time.Sleep(6 * time.Second) // simulate slow task
+    fmt.Printf("END: %v\n", taskId)
 }
 ```
 
