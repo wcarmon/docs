@@ -1,8 +1,8 @@
 # Overview
-- TODO ...
+- Summary of allocation mechanisms
 
 
-# make function
+# `make` function
 1. Creates [slices](./collections.slices.md), [maps](./collections.maps.md), [channels](./channels.md)
 1. returns initialized T
 1. assignment creates a **new** variable which points to the same storage location
@@ -11,7 +11,7 @@
 1. [Official docs](https://pkg.go.dev/builtin#make)
 
 
-# new
+# `new` function
 1. Allocates memory on heap (like [`calloc`](https://en.cppreference.com/w/c/memory/calloc) in c)
 1. Does NOT initialize memory
 1. [Official docs](https://pkg.go.dev/builtin#new)
