@@ -57,9 +57,9 @@ for i, c := range "foo" {
 | [String::`toLowerCase`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#toLowerCase()) | [`strings.ToLower(s)`](https://pkg.go.dev/strings#ToLower) |
 | [String::`toUpperCase`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#toUpperCase()) | [`strings.ToUpper(s)`](https://pkg.go.dev/strings#ToUpper) |
 | [String::`trim`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#trim()) |[`strings.TrimSpace(s)`](https://pkg.go.dev/strings#TrimSpace) |
-| String::valueOf|`string(foo)`|
-| StringUtils::containsAny | [`strings.ContainsAny(haystack,needles)`](https://pkg.go.dev/strings#ContainsAny) |
-| StringUtils::join | [`strings.Join(slice, sep)`](https://pkg.go.dev/strings#Join) |
+| [String::`valueOf`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#valueOf(java.lang.Object)) |`string(foo)`|
+| [StringUtils::`join`](https://commons.apache.org/proper/commons-lang/apidocs/org/apache/commons/lang3/StringUtils.html#join-java.lang.Iterable-java.lang.String-) | [`strings.Join(slice, sep)`](https://pkg.go.dev/strings#Join) |
+| [StringUtils::containsAny](https://commons.apache.org/proper/commons-lang/apidocs/org/apache/commons/lang3/StringUtils.html#containsAny-java.lang.CharSequence-char...-) | [`strings.ContainsAny(haystack,needles)`](https://pkg.go.dev/strings#ContainsAny) |
 
 
 - TODO: StringUtils.abbreviate			see below
