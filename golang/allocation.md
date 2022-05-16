@@ -14,8 +14,6 @@
 1. Does NOT initialize memory
 
 
-TODO: new
-
 
 # Idioms
 TODO ...

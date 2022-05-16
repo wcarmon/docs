@@ -1,5 +1,5 @@
 # Overview
-- TODO ...
+- How to use a Multimap/Bag DataStructure
 
 
 # Creation
@@ -9,7 +9,7 @@ type bagEntry[T any] struct {
 	value T
 }
 
-// key: string
+// key:   string
 // value: int
 bag := make(map[string]*bagEntry[int])
 ```
@@ -27,7 +27,7 @@ func AddToBag[K comparable, V any](
 
 	if entry, found := bag[key]; found {
         entry.count++
-		return
+        return
 	}
 
 	bag[key] = &bagEntry[V]{
