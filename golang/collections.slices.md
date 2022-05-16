@@ -33,9 +33,9 @@ theSize := len(mySlice)
 ```
 
 # Append
-1. Resizes when it runs out of capacity
+1. Auto resizes when out of capacity
 ```go
-// length==1, capacity 3
+// length == 1, capacity 3
 s := make([]int32, 1, 2)
 fmt.Println(s)  // [0]
 
@@ -56,6 +56,7 @@ b := []int32{5, 6}
 a = append(a, b...)
 fmt.Println(a) // [2 3 4 5 6]
 ```
+1. Other [useful slice tricks](https://ueokande.github.io/go-slice-tricks/)
 
 
 # Iteration
@@ -66,23 +67,24 @@ for index, value := range mySlice {
 ```
 
 
-# Slicing (to efficiently retrieve sub-slice)
-1. Slicing is both common and efficient
-1. Get first n
+# Slicing
+1. Retrieve sub-slice
+1. [Slicing is both common and efficient](https://go.dev/blog/slices-intro)
+1. Get first `n`
 ```go
 fmt.Println(s[:n]) // [0, 1, ...], first n-items, size=n
 
-// Eg.
+// Example:
 s := []int{0, 1, 2, 3, 4, 5}
 fmt.Println(s[:2]) // [0, 1], first 2 items, size=2
 ```
-1. Get last n
+1. Get last `n`
 ```go
 fmt.Println(s[n:]) // size = len(s) - n
 
-// Eg.
+// Example:
 s := []int{0, 1, 2, 3, 4, 5}
-fmt.Println(s[2:]) // [2 3 4 5], size == len(s) - n == 4
+fmt.Println(s[2:]) // [2 3 4 5], size == 4 == len(s) - n
 ```
 1. Get middle
 ```go
@@ -102,17 +104,17 @@ copy(dest, src)
 
 # ~~Arrays~~
 1. Fixed size
-1. length is part of the type
+1. Length is part of the type
     1. eg. `[3]string` and `[4]string` are different types
-1. Rarely used in practice (Use slice instead)
-1. [Official Tour guide](https://go.dev/tour/moretypes/6)
-1. [go by example](https://gobyexample.com/arrays) doc
+1. Rarely useful in practice (Use slice instead)
 1. Primary use case is as a building block for slices
+1. Sometimes used for multi-dimensional matrices
+1. [go by example](https://gobyexample.com/arrays) doc
 1. Pass-by-value
-1. Sometimes used for matrices
 
 
 # Other resources
-- [Really useful slice tricks](https://ueokande.github.io/go-slice-tricks/)
-- https://go.dev/tour/moretypes/7
-- https://gobyexample.com/slices
+1. [Really useful slice tricks](https://ueokande.github.io/go-slice-tricks/)
+1. https://go.dev/tour/moretypes/7
+1. https://gobyexample.com/slices
+1. https://codeburst.io/a-comprehensive-guide-to-slices-in-golang-bacebfe46669
