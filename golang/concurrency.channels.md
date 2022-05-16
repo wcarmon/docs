@@ -10,7 +10,7 @@
     1. Only affects Senders (Not receivers)
 
 # Creation
-1. allocated with `make`
+1. allocated with [`make`](./allocation.md)
 ```go
 TODO
 ```
@@ -22,15 +22,32 @@ TODO
 # Two-way
 TODO
 
+
 # Receive only channel
-TODO
+1. Example
+```go
+func myReceiver(source <-chan bool) {
+	current := <-source
+	fmt.Println("I read this: %v", current)
+}
+```
+TODO: more here
+
 
 # Send only channel
-TODO
+1. Writing to closed channel causes `panic`
+1. Example
+```go
+func mySender(sink chan<- bool) {
+    sink <- true
+}
+```
+TODO: more here
 
 
 # Receivers
 1. Always block until a message is available
+1. Reading from closed channel yields zero value
 TODO: range
 
 
@@ -46,12 +63,14 @@ TODO
 TODO
 TODO: https://www.golang-book.com/books/intro/10
 
+
 # Idioms
-TODO ...
+1. Use one-way channels as function args
 
 
 - TODO: nil channel
 - TODO: closed channel
+- TODO: closing a channel
 
 
 # Other resources
