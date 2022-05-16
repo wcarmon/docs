@@ -1,5 +1,5 @@
 # Overview
-- Example of rate limiting (Bounded parallelism)
+- Example of rate-limiting (Bounded parallelism) pattern
 
 
 # Example
@@ -44,6 +44,7 @@ func simulateSlowTask(
     fmt.Printf("END: %v\n", taskId)
 }
 ```
+
 
 # Other resources
 1. https://pkg.go.dev/time#Sleep
