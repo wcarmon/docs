@@ -18,43 +18,27 @@ if err := file.Chmod(0755); err != nil {
 ```
 
 # Loops (iteration)
-1. like a `while`
+1. Like a [`while`](https://docs.oracle.com/javase/tutorial/java/nutsandbolts/while.html)
 ```go
 for shouldContinue {
   // ...
 }
 ```
-1. run until break
+1. Run until explicit exit
 ```go
 for {
     // ...
     // break or return
 }
 ```
-1. fixed iterations
+1. Fixed iterations
 ```go
 for i := 0; i < 10; i++ {
   // ...
 }
 ```
-1. Map iteration
-```go
-for key, value := range someMap {
-  someMap[key] = value
-}
-```
-1. Slice iteration
-```go
-TODO
-```
-1. unused variable
-```go
-for _, value := range mySlice {
-    // index is unused
-
-    total += value
-}
-```
+1. Map iteration: See [maps](./collections.maps.md) doc
+1. Slice iteration: See [slices](./collections.slices.md) doc
 
 # Switch
 1. No automatic fall thru
@@ -68,16 +52,16 @@ case isYellow && isAlive:
 }
 ```
 
-TODO: switch on enum
-TODO: switch on character
-TODO: switch on number
-TODO: switch on string
-TODO: type switch
-TODO: switch: multiple cases (comma separated)
+- TODO: switch on enum
+- TODO: switch on character
+- TODO: switch on number
+- TODO: switch on string
+- TODO: type switch
+- TODO: switch: multiple cases (comma separated)
 
 
 # Idioms
-1. Rarely use `else`, use multiple returns instead
+1. Rarely use `else`, use multiple `return`s instead
 
 
 # Other resources
