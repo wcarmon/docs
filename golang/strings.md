@@ -6,7 +6,7 @@
 # Definitions
 1. [**Code point**](https://en.wikipedia.org/wiki/Code_point): same a rune, defined by [Unicode](https://en.wikipedia.org/wiki/Code_point)
 1. **Rune**: a Code point (see above)
-1. **String**: read-only, slice of (arbitrary) bytes
+1. **String**: read-only (immutable), slice of (arbitrary) bytes
 1. **Char/Character**: TODO
 
 
@@ -15,6 +15,11 @@
 1. Conversion between `[]byte` and `string` is cheap
 1. Strings can contain unprintable chars (can contain any bytes)
 1. Zero value is empty string: `""`
+
+
+# Literals
+- TODO: raw strings
+- TODO: multi-line strings - Backquote: raw strings, multi-line, not-interpreted, cannot contain backquote
 
 
 # Iteration
@@ -83,9 +88,7 @@ for i, c := range "foo" {
 - TODO: StringUtils.uncapitalize		see below
 
 --------
-- TODO: raw strings
 - TODO: builder - https://yourbasic.org/golang/build-append-concatenate-strings-efficiently/
-- TODO: multi-line strings
 - TODO: concatenation - https://yourbasic.org/golang/build-append-concatenate-strings-efficiently/
 - TODO: strconv.Itoa
 

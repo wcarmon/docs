@@ -5,7 +5,12 @@
 
 
 # Literals
-TODO
+```go
+n := -7
+n := 3e4		// 30,000
+n := 0xFF		// 255
+```
+
 
 # Ranges
 |Type|Range|
@@ -22,19 +27,31 @@ TODO
 |`uint` | TODO ...|
 
 - TODO: floating
-- TODO: maxValue
-- TODO: minValue
 
 ## Complex numbers
-TODO
+- TODO: more here
+- `complex128`
+- `complex64`
+
 
 
 # Common operations
 
 ## max & min of numbers
+TODO
+
 
 ## Formatting to string
 TODO
+
+
+## Absolute value
+TODO
+
+
+## Rounding
+TODO
+
 
 # Other resources
 - [Predefined constants](https://pkg.go.dev/math#pkg-constants)

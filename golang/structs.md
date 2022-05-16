@@ -4,7 +4,7 @@
 # Structs
 1. [Pass-by-value](TODO)
     1. functions you invoke receive a copy of the struct
-
+1. No inheritance ;-)
 
 
 - TODO: adding methods - methods.md
