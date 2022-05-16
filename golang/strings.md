@@ -11,4 +11,12 @@ for i, c := range "foo" {
 }
 ```
 
+
+# Common operations
+|JVM method|Golang|
+|---|---|
+|::charAt|TODO|
+|::compareTo|TODO|
+
+
 # Other resources
