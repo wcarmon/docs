@@ -1,0 +1,12 @@
+# Overview
+
+
+# Naming
+1. Package name should be short
+1. single-word
+1. lower case
+1. no mixedCaps, no under_scores
+1. Prefer a helpful comment to a long package name
+
+
+# Other resources

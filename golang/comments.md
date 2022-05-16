@@ -1,0 +1,18 @@
+# Overview
+- ...
+
+
+# Idioms
+- Every package should have a package comment
+- Example
+```go
+/*
+ ... mostly as package comments ...
+*/
+
+// a line comment
+```
+
+
+# Other resources
+- https://go.dev/doc/effective_go
