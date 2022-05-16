@@ -13,7 +13,7 @@
 1. Go sources are always UTF-8
 1. Conversion between `[]byte` and `string` is cheap
 1. Strings can contain unprintable chars (can contain any bytes)
-
+1. Zero value is empty string: `""`
 
 
 # Iteration
@@ -49,10 +49,11 @@ for i, c := range "foo" {
 |String::replaceAll|[`strings.ReplaceAll(...)`](https://pkg.go.dev/strings#ReplaceAll)|
 |String::split|[`strings.Split(s, sep)`](https://pkg.go.dev/strings#Split)|
 |String::startsWith|[`strings.HasPrefix(s, pfx)`](https://pkg.go.dev/strings#HasPrefix)|
-|String::toCharArray|use range in loops, or `[]byte(s)`|
+|String::toCharArray|Use range in loops, or `[]rune(s)`|
 |String::toLowerCase|[`strings.ToLower(s)`](https://pkg.go.dev/strings#ToLower)|
 |String::toUpperCase|[`strings.ToUpper(s)`](https://pkg.go.dev/strings#ToUpper)|
-|String::trim|[`strings.TrimSpace(s)`](https://pkg.go.dev/strings#TrimSpace)|
+|[String::trim](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#trim())|[`strings.TrimSpace(s)`](https://pkg.go.dev/strings#TrimSpace)|
+|[String::substring](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#substring(int,int))|`"abcde"[2:4] == "cd"`|
 |String::valueOf|`string(foo)`|
 |StringUtils.isBlank|[`strings.TrimSpace(s) == ""`](https://pkg.go.dev/strings#TrimSpace)|
 |StringUtils.isEmpty|[[`len(s) == 0`](https://pkg.go.dev/builtin#len)]|
@@ -88,3 +89,4 @@ TODO: multi-line strings
 
 # Other resources
 1. [Official docs](https://go.dev/blog/strings)
+1. [yourbasic](https://yourbasic.org/golang/string-functions-reference-cheat-sheet)
