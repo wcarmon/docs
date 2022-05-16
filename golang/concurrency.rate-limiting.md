@@ -5,25 +5,25 @@
 # Example
 ```go
 func main() {
-	maxParallel := 3
+    maxParallel := 3
 
-	semaphoreChan := make(chan bool, maxParallel)
-	defer func() {
-	    close(semaphoreChan)
+    semaphoreChan := make(chan bool, maxParallel)
+    defer func() {
+        close(semaphoreChan)
     }()
 
-	// -- Create n permits
-	for i := 0; i < maxParallel; i++ {
-		semaphoreChan <- true
-	}
+    // -- Create n permits
+    for i := 0; i < maxParallel; i++ {
+        semaphoreChan <- true
+    }
 
-	// -- Spawn tasks
-	for taskId := 0; taskId < 999; taskId++ {
-		go simulateSlowTask(taskId, semaphoreChan)
-	}
+    // -- Spawn tasks
+    for taskId := 0; taskId < 999; taskId++ {
+        go simulateSlowTask(taskId, semaphoreChan)
+    }
 
     // -- Wait for all the tasks to complete
-	time.Sleep(3 * time.Minute)
+    time.Sleep(3 * time.Minute)
 }
 
 func simulateSlowTask(
