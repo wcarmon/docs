@@ -47,5 +47,6 @@ func simulateSlowTask(
 
 
 # Other resources
-1. https://pkg.go.dev/time#Sleep
+1. [time.Sleep](https://pkg.go.dev/time#Sleep)
 1. [channels](./concurrency.channels.md) doc
+1. https://yourbasic.org/golang/wait-for-goroutines-waitgroup/
