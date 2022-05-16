@@ -1,17 +1,17 @@
 # Overview
-- TODO ...
+- How to read & write [json](https://www.json.org/json-en.html)
 
 
 # Unmarshal (Parsing, Deserializing)
-TODO:
+- TODO:
 
 
 # Marshal (Writing, Serializing)
-TODO:
+- TODO:
 
 
 # Idioms
-TODO ...
+- TODO ...
 
 
 # Other resources

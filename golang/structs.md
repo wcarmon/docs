@@ -2,14 +2,15 @@
 - Key features & operations on structs
 
 # Structs
-1. [Pass-by-value](TODO) (functions you invoke get a copy)
+1. [Pass-by-value](TODO)
+    1. functions you invoke receive a copy of the struct
 
 
 
-TODO: adding methods
-TODO: := copy/assign?
-TODO: json
-TODO: Embedding
+- TODO: adding methods - methods.md
+- TODO: := copy/assign?
+- TODO: json
+- TODO: Embedding
 
 
 # Idioms

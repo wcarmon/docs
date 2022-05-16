@@ -1,5 +1,6 @@
 # Overview
-- ...
+- Overview of Strings, Runes, Code-points
+- Common methods and JVM equivalents
 
 
 # Definitions

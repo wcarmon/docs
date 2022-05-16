@@ -42,7 +42,7 @@ TODO: range
 TODO
 
 
-# select block
+# `select` block
 TODO
 
 
@@ -50,8 +50,8 @@ TODO
 TODO ...
 
 
-TODO: nil channel
-TODO: closed channel
+- TODO: nil channel
+- TODO: closed channel
 
 
 # Other resources

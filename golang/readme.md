@@ -1,10 +1,7 @@
 # Overview
-- TODO ...
+- Enough [Golang](https://go.dev/) to solve most problems
+- Links to resources that explain things better than I do :-)
 
 
-# Idioms
-TODO ...
-
-
-# Other resources
-1. TODO ...
+# Contents
+- TODO: build table of contents here

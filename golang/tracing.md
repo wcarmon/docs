@@ -1,5 +1,5 @@
 # Overview
-- TODO ...
+- How to use [OpenTracing](https://opentracing.io/) with golang
 
 
 # Idioms
