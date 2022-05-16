@@ -2,6 +2,10 @@
 - Key features of variables & constants
 
 
+# Basic types
+- See also [types](./types.basic.md) doc
+
+
 # Long declaration
 ```go
 var ...
