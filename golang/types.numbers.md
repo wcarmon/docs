@@ -16,6 +16,7 @@ n := 0xFF		// 255
 
 
 # Ranges
+1. See [Language spec](https://go.dev/ref/spec#Numeric_types)
 |Type|Range|
 | ---|--- |
 |`int8` | `-128` through `127` (`math.MaxInt8`) |

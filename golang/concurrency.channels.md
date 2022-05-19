@@ -74,4 +74,4 @@ TODO: https://www.golang-book.com/books/intro/10
 
 
 # Other resources
-1. TODO ...
+1. [Language spec](https://go.dev/ref/spec#Channel_types)
