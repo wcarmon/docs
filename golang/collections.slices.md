@@ -104,9 +104,11 @@ copy(dest, src)
 
 # Printing
 ```go
-colors := make(...)
+colors := make([]string, 0)
 fmt.Printf("Colors: %#v\n", colors)
 ```
+
+
 
 
 # ~~Arrays~~

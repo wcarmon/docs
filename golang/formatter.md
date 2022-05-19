@@ -3,16 +3,16 @@
 - Formatting is contentious but not consequential
 
 
-# Formatting
+# Formatting - Recursively
 ```sh
 
-SRC_ROOT=$HOME/git-repos/go/common/pkg;
+SRC_ROOT=$HOME/git-repos/go;
 gofmt -s -w $SRC_ROOT;
-# TODO: improve this
 ```
 
+
 # Goland
-TODO: more here
+- [Official docs](https://www.jetbrains.com/help/go/reformat-and-rearrange-code.html#reformat_code)
 
 
 # Other resources
