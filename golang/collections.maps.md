@@ -121,6 +121,13 @@ if _,exists := m[key]; !exists {
 ```
 
 
+# Printing
+```go
+m := make(...)
+fmt.Printf("Data: %#v\n", m)
+```
+
+
 # Idioms
 1. Only use [`sync.Map`](https://pkg.go.dev/sync#Map) when you can demonstrate high lock contention
 1. If you must **mutate** the map *value* (structs values), use pointer
