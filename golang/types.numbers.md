@@ -5,9 +5,12 @@
 
 
 # Literals
+1. See [Official docs](https://go.dev/ref/spec#Integer_literals)
+1. Examples
 ```go
 n := -7
 n := 3e4		// 30,000
+n := 30_000		// 30,000
 n := 0xFF		// 255
 ```
 
@@ -28,7 +31,8 @@ n := 0xFF		// 255
 
 - TODO: floating
 
-## Complex numbers
+## Complex/Imaginary numbers
+1. See [Official docs](https://go.dev/ref/spec#Imaginary_literals)
 - TODO: more here
 - `complex128`
 - `complex64`
@@ -58,4 +62,4 @@ TODO
 
 
 # Other resources
-- [Predefined constants](https://pkg.go.dev/math#pkg-constants)
+1. [Predefined constants](https://pkg.go.dev/math#pkg-constants)

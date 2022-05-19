@@ -96,3 +96,5 @@ for i, c := range "foo" {
 # Other resources
 1. [Official docs](https://go.dev/blog/strings)
 1. [yourbasic](https://yourbasic.org/golang/string-functions-reference-cheat-sheet)
+1. [Language Spec for Rune literal](https://go.dev/ref/spec#Rune_literals)
+1. [Language Spec for String literal](https://go.dev/ref/spec#String_literals)
