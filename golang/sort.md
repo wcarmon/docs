@@ -49,16 +49,23 @@ func main() {
 
 
 # Maps
+1. Example
+```go
 TODO: copy keys into slice, sort the slice, lookup via keys
+```
+1. Note that [`fmt.Print*`](https://pkg.go.dev/fmt) prints maps with keys sorted
 
 
 # Sets
+1. Example
+```go
 TODO: copy into slice, sort the slice
-
+```
 
 # Other resources
 1. https://gobyexample.com/sorting
 1. https://gobyexample.com/sorting-by-functions
-1. https://yourbasic.org/golang/how-to-sort-in-go/
+1. [reversing](https://pkg.go.dev/sort#Reverse)
 1. [sort.Slice](https://pkg.go.dev/sort#Slice)
 1. [sort.SliceStable](https://pkg.go.dev/sort#SliceStable)
+1. https://yourbasic.org/golang/how-to-sort-in-go/
