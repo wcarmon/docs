@@ -5,6 +5,8 @@
 1. [Pass-by-value](TODO)
     1. functions you invoke receive a copy of the struct
 1. No inheritance ;-)
+1. Fields are ordered in memory (in declaration order)
+    1. Field order affects things like [Stringer](https://pkg.go.dev/golang.org/x/tools/cmd/stringer)
 
 
 - TODO: adding methods - methods.md

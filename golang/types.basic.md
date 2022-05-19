@@ -37,7 +37,7 @@ type T2 T1
 1. Same fields
 1. Does NOT get/inherit methods
 1. See [Language Spec](https://go.dev/ref/spec#Type_declarations)
-
+K
 
 # Idioms
 - TODO ...
