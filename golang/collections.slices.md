@@ -103,6 +103,10 @@ copy(dest, src)
 ```
 
 
+# Sorting
+- See [sorting](./sort.md) doc
+
+
 # Printing
 ```go
 colors := make([]string, 0)

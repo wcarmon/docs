@@ -79,5 +79,9 @@ for value, contains := range srcSet {
 ```
 
 
+# Sorting
+- See [sorting](./sort.md) doc
+
+
 # Other resources
-1. TODO ...
+1. TODO

@@ -7,6 +7,10 @@
 1. An executable code block
 1. Multiple return types
 1. Pass-by-reference  <-- TODO verify
+1. No [overloading](https://www.w3schools.com/java/java_methods_overloading.asp)
+    1. Same as C, javascript, typescript, Python, ...
+    1. Different from Java, C++, ...
+
 
 TODO: (higher order) accepting function as arg
 TODO: (higher order) return a function
