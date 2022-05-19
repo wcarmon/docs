@@ -102,6 +102,13 @@ copy(dest, src)
 ```
 
 
+# Printing
+```go
+colors := make(...)
+fmt.Printf("Colors: %#v\n", colors)
+```
+
+
 # ~~Arrays~~
 1. Fixed size
 1. Length is part of the type
