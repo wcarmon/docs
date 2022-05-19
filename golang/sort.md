@@ -49,18 +49,11 @@ func main() {
 
 
 # Maps
-TODO
+TODO: copy keys into slice, sort the slice, lookup via keys
 
 
 # Sets
-TODO
-
-
-# Idioms
-TODO ...
-
-- TODO: sorting a slice
-- TODO: sorting a map for iteration
+TODO: copy into slice, sort the slice
 
 
 # Other resources
