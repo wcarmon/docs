@@ -92,6 +92,7 @@ fmt.Println(s[2:]) // [2 3 4 5], size == 4 == len(s) - n
 s := []int{0, 1, 2, 3, 4, 5}
 fmt.Println(s[2:4]) // [2,3], closed-open range
 ```
+1. See [Language spec](https://go.dev/ref/spec#Slice_expressions)
 
 
 # Shallow copy

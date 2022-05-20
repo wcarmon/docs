@@ -9,6 +9,10 @@
     1. structs (obvious), numbers, **functions**, channels
     1. CANNOT attach to interfaces
 1. Method attached to a function allow decorating, proxying, ...
+1. [Every type has a (possibly empty) method set associated](https://go.dev/ref/spec#Method_sets)
+
+
+- TODO: mention "receiver"
 
 # Intuition
 1. Think of it like passing the receiver as first arg

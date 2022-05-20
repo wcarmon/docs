@@ -7,6 +7,7 @@
 1. An executable code block
 1. Multiple return types
 1. Pass-by-reference  <-- TODO verify
+    1. See [Language spec](https://go.dev/ref/spec#Method_values)
 1. No [overloading](https://www.w3schools.com/java/java_methods_overloading.asp)
     1. Same as C, javascript, typescript, Python, ...
     1. Different from Java, C++, ...
@@ -14,7 +15,7 @@
 
 TODO: (higher order) accepting function as arg
 TODO: (higher order) return a function
-TODO: defer
+TODO: defer - https://go.dev/ref/spec#Defer_statements
 TODO: named result param
 TODO: init function (per file)
 TODO: varargs

@@ -3,7 +3,12 @@
 - `iota` (not `itoa`)
 
 
-TODO: iota
+# iota
+1. [iota](https://go.dev/ref/spec#Iota) is a constant
+    1. only works inside a constant declaration
+1. Starts at `0`
+
+TODO: iota usage examlpes
 
 # Idioms
 TODO ...
