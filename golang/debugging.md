@@ -10,6 +10,10 @@
 - TODO: reflect.TypeOf(...)
 
 
+# Goland
+1. Set breakponts before running the binary
+
+
 # Idioms
 TODO ...
 

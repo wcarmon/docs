@@ -4,9 +4,40 @@
 
 - TODO: atomic increment
 - TODO: atomic compare-and-swap
-- TODO: Mutex
 
-TODO: sync.RWMutex
+
+# sync.Mutex
+1. Example
+```go
+type SafeWidget struct {
+	mu             sync.Mutex // private lock
+	stateToProtect []string
+}
+
+// Return a defensive copy
+func (w SafeWidget) StateToProtect() []string {
+	shallowCopy := make([]string, len(w.stateToProtect))
+	copy(shallowCopy, w.stateToProtect)
+
+	return shallowCopy
+}
+
+func (w *SafeWidget) AppendToState(v string) {
+	w.mu.Lock()
+	defer w.mu.Unlock()
+
+	w.stateToProtect = append(w.stateToProtect, v)
+}
+```
+
+
+# sync.RWMutex
+1. Performance optimization over `sync.Mutex`
+1. Allows multiple readers
+1. Example
+```go
+// TODO
+```
 
 
 # Idioms

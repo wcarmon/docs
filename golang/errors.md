@@ -35,7 +35,7 @@ func doWhatever() error {
 
 # Idioms
 1. Add context variables to errors to simplify debugging
-1. Errors should identify there origin (eg. prefix with package name)
+1. Errors should identify there origin (eg. prefix with package name, then colon)
 1. Most functions/methods should return `error` as final value
     1. This helps avoid the [Silent failure anti-pattern](https://en.wikipedia.org/wiki/Error_hiding)
 1. Avoid using `_` (blank identifier) for ignoring errors
@@ -49,11 +49,11 @@ func doWhatever() error {
 1. [os.PathError](https://pkg.go.dev/os#PathError)
 
 
+- TODO: https://pkg.go.dev/gopkg.in/errgo.v2@v2.1.0/errors
 - TODO: errors.Is - obsoletes comparing error with ==
 - TODO: errors.As - obsoletes type assertion on error
-- TODO: fmt.Errorf with %w
+- TODO: fmt.Errorf with %w  <--- pattern for wrapping, fails when you prefix package :-(
 - TODO: structured logging
-- TODO: wrapping
 
 
 # Other resources
