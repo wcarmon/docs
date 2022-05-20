@@ -6,6 +6,12 @@
 1. Add enough context to solve problems
 1. Only configure logging in the last mile (eg. main method)
     1. eg. `zerolog.SetGlobalLevel(zerolog.DebugLevel)`
+1. Use Error/Warn logging generously since this helps resolve issues
+1. Use Info/Debug logging sparingly, replace with tests
+    1. Less spam in the code
+    1. Code executes faster
+    1. Tests should cover cases where this logging would be useful
+
 
 # Best: [zerolog](https://github.com/rs/zerolog)
 1. Simple
