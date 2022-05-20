@@ -21,13 +21,18 @@ func teardown() {
 }
 ```
 
+
+# Failures
+
+- TODO: use t.Errorf() + t.Fail() instead of t.Fatalf since it breaks some parallel things and goland output printing
+
+
 - TODO: explain t.log
 - TODO: explain _test package suffix
 - TODO: explain subtests
 - TODO: explain table driven tests (show examples from sdk sources)
 - TODO: explain t.Parallel
 - TODO: explain t.Errorf
-- TODO: explain t.Fatalf
 - TODO: testdata dir (not fixtures)  <-- examples from official
 - TODO: got & want  (not expected & actual)  <-- examples from official
 
