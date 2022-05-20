@@ -5,6 +5,7 @@
 
 # Custom error
 1. Not always required, keep it simple
+1. Prefer structured logging over custom errors
 1. If you make a custom error, include helpful properties
 1. Example
 ```go
@@ -34,12 +35,18 @@ func doWhatever() error {
 
 
 # Idioms
-1. Add context variables to errors to simplify debugging
-1. Errors should identify there origin (eg. prefix with package name, then colon)
+1. Use a [structured logger]() instead of wrapping errors
+    1. See [Logging](./logging.md) doc
+    1. Pass errors up to caller
+    1. Use Structured logger to add context
+    1. Add context variables to Structured logger to simplify debugging
+    1. Structured logger simplifies interaction with OpenTracing/OpenTelemetry tools
+1. When using `errors.New` or `fmt.Errorf` prefix with package name, then colon
+    1. Alternative: use structured logger to capture caller info
 1. Most functions/methods should return `error` as final value
-    1. This helps avoid the [Silent failure anti-pattern](https://en.wikipedia.org/wiki/Error_hiding)
+    1. Helps avoid the [Silent failure anti-pattern](https://en.wikipedia.org/wiki/Error_hiding)
 1. Avoid using `_` (blank identifier) for ignoring errors
-    1. This helps avoid the [Silent failure anti-pattern](https://en.wikipedia.org/wiki/Error_hiding)
+    1. Helps avoid the [Silent failure anti-pattern](https://en.wikipedia.org/wiki/Error_hiding)
 1. [errors are just values](https://go.dev/blog/errors-are-values)
 1. Almost any type can implement [error](https://pkg.go.dev/errors)
 1. Minimize usage of `panic`
@@ -53,7 +60,6 @@ func doWhatever() error {
 - TODO: errors.Is - obsoletes comparing error with ==
 - TODO: errors.As - obsoletes type assertion on error
 - TODO: fmt.Errorf with %w  <--- pattern for wrapping, fails when you prefix package :-(
-- TODO: structured logging
 
 
 # Other resources
