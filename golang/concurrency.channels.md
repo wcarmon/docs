@@ -71,6 +71,7 @@ TODO: https://www.golang-book.com/books/intro/10
 - TODO: nil channel
 - TODO: closed channel
 - TODO: closing a channel
+- TODO: channel with empty struct
 
 
 # Other resources

@@ -25,6 +25,13 @@ var z struct{}
 - TODO: Embedding
 
 
+# Anonymous structs
+1. For ephemeral structures for one-time use
+1. Infrequently useful in prod systems
+1. local to a function/method
+    1. Cannot be top level declaration since requires `:=`
+
+
 # Idioms
 1. Getters & Setters are neither required nor idiomatic
 1. If you have getters, use `Owner`, not ~~`GetOwner`~~
