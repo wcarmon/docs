@@ -115,6 +115,18 @@ fmt.Printf("Colors: %#v\n", colors)
 ```
 
 
+# Casting
+```go
+type z string
+before := []string{"a", "b", "c"}
+
+after := make([]z, 0, len(before))
+for _, v := range before {
+    after = append(after, z(v))
+}
+```
+
+
 # ~~Arrays~~
 1. Fixed size
 1. Length is part of the type
