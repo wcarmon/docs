@@ -9,6 +9,16 @@
     1. Field order affects things like [Stringer](https://pkg.go.dev/golang.org/x/tools/cmd/stringer)
 
 
+# Empty Struct
+1. Example
+```go
+type Z struct{}
+var z struct{}
+```
+1. Has size/width of 0 bits (for comparison, `bool` uses 1 bit)
+1. slice of empty struct consumes only memory for slice header
+
+
 - TODO: adding methods - methods.md
 - TODO: := copy/assign?
 - TODO: json

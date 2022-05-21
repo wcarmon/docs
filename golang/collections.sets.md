@@ -5,6 +5,9 @@
 
 # Key features of Sets
 1. Implement using `map[T]bool`
+1. Alternative: `map[T]struct{}` (empty struct as value)
+    1. Set operations are a little more verbose, but consume less memory
+    1. See [struct](./structs.md) doc
 
 
 # Creation

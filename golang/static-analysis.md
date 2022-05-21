@@ -11,6 +11,11 @@ go install honnef.co/go/tools/cmd/staticcheck@latest;
 ```sh
 $(go env GOPATH)/bin/staticcheck -version;
 ```
+1. Optional: Configure
+```sh
+cd $PROJ_ROOT;
+touch staticcheck.conf;
+```
 1. Run
 ```sh
 cd $PROJ_ROOT;
