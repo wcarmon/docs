@@ -13,6 +13,24 @@
 ```
 
 
+# Clear cache
+```sh
+cd $PROJ_ROOT;
+rm -vf ./go.mod;
+rm -vf ./go.sum;
+go clean -modcache;
+
+go mod init wcarmon.com/arrangement;
+go mod tidy;
+```
+
+
+# Replacing repo with fork
+```sh
+go mod edit -replace github.com/dave/dst=github.com/hawkinsw/dst@generics
+```
+
+
 # Deprecated
 1. [replace](https://go.dev/ref/mod#go-mod-file-replace) directives should be replaced with [workspaces](./workspaces.md)
 
