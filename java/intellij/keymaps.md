@@ -14,6 +14,34 @@
 1. `%APPDATA%\JetBrains\<product><version>\keymaps`
 
 
+# Linux/windows keyboard on mac machine
+## Must remap keys
+|Button|Default Behavior|Desired behavior|
+|---|---|---|
+|`ALT`|`option` (⌥)|`command` (⌘)|
+|`CTRL`|`control` (⌃)|`option` (⌥)|
+|`Backspace`|`delete` (⌫)|TODO|
+|`Delete`|`delete` (Fn + ⌫)|TODO|
+|`Insert`|*nothing*|TODO|
+|`windows`|`command` (⌘)|TODO|
+
+## Same (roughly)
+1. `enter` button -> `return` (⏎)
+1. `esc` button
+1. `shift` button (⇧)
+1. `tab` button
+
+
+# Remapping MacOS keys
+1. Settings > Keyboard > Modifier Keys > (Select the windows keyboard)
+    1. Control key (⌃):
+    1. Option key (⌥):
+    1. Command key (⌘):
+1. More help:
+    1. https://9to5mac.com/2016/03/17/how-to-remap-windows-keyboard-buttons-match-mac-layout/
+    1. https://www.lifewire.com/what-are-windows-keyboard-equivalents-to-mac-2260203
+
+
 # My most common Shortcuts
 |Category|Feature|Linux/win Shortcut|MacOS Shortcut|
 |---|---|---|---|
@@ -67,35 +95,6 @@
 |Run|Debug ...|`ALT+SHIFT+F9`|⌃ ⌥ D|
 |Run|Run ...|`ALT+SHIFT+F10`|TODO|
 |Run|Toggle line breakpoint|`CTRL+F8`|⌘ F8|
-
-
-# Linux/windows keyboard on mac machine
-## Must remap keys
-|Button|Default Behavior|Desired behavior|
-|---|---|---|
-|`ALT`|`option` (⌥)|`command` (⌘)|
-|`CTRL`|`control` (⌃)|`option` (⌥)|
-|`Backspace`|`delete` (⌫)|TODO|
-|`Delete`|`delete` (Fn + ⌫)|TODO|
-|`Insert`|*nothing*|TODO|
-|`windows`|`command` (⌘)|TODO|
-
-## Same (roughly)
-1. `enter` button -> `return` (⏎)
-1. `esc` button
-1. `shift` button (⇧)
-1. `tab` button
-
-
-# Remapping MacOS keys
-1. Settings > Keyboard > Modifier Keys > (Select the windows keyboard)
-    1. Control key (⌃):
-    1. Option key (⌥):
-    1. Command key (⌘):
-1. More help:
-    1. https://9to5mac.com/2016/03/17/how-to-remap-windows-keyboard-buttons-match-mac-layout/
-    1. https://www.lifewire.com/what-are-windows-keyboard-equivalents-to-mac-2260203
-
 
 
 # Other resources
