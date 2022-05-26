@@ -18,11 +18,11 @@
 |Category|Feature|Linux/win Shortcut|MacOS Shortcut|
 |---|---|---|---|
 |Edit|Basic code completion, Variable name completion, Second basic completion|`CTRL+Space`|TODO|
-|Edit|Change case|`CTRL+SHIFT+U`|`⇧ ⌘ U`|
-|Edit|Column select|`ALT+SHIFT+Insert`|`⇧ ⌘ 8`|
-|Edit|Comment or uncomment the current line|`CTRL+/`, `CTRL+SHIFT+/`|`⌘ /`|
-|Edit|Complete statement, Finish lookup with smart enter|`CTRL+SHIFT+Enter`|`⌃ Space`|
-|Edit|Delete line|`CTRL+Y`|`⌘ ⌫`|
+|Edit|Change case|`CTRL+SHIFT+U`|⇧ ⌘ U|
+|Edit|Column select|`ALT+SHIFT+Insert`|⇧ ⌘ 8|
+|Edit|Comment or uncomment the current line|`CTRL+/`, `CTRL+SHIFT+/`|⌘ /|
+|Edit|Complete statement, Finish lookup with smart enter|`CTRL+SHIFT+Enter`|⌃ Space|
+|Edit|Delete line|`CTRL+Y`|⌘ ⌫|
 |Edit|Duplicate line|`CTRL+D`|⌘ D|
 |Edit|Editor delete line|`CTRL+Y`|TODO|
 |Edit|Move statement up/down|`CTRL+SHIFT+Up`, `CTRL+SHIFT+Down`|TODO|
@@ -71,12 +71,14 @@
 
 # Linux/windows keyboard on mac machine
 ## Must remap keys
-1. `ALT` button -> `option` (⌥)
-1. `CTRL` button -> `control` (⌃)
-1. `Backspace` button -> `delete` (⌫)
-1. `Delete` button button -> `delete`
-1. `Insert` button -> *nothing*
-1. `windows` button -> `command` (⌘)
+|Button|Behavior|
+|---|---|
+|`ALT`|`option` (⌥)|
+|`CTRL`|`control` (⌃)|
+|`Backspace`|`delete` (⌫)|
+|`Delete`|`delete`|
+|`Insert`|*nothing*|
+|`windows`|`command` (⌘)|
 
 ## Same (roughly)
 1. `enter` button -> `return` (⏎)
