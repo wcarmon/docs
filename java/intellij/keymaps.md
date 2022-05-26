@@ -16,7 +16,7 @@
 ## windows
 1. `%APPDATA%\JetBrains\<product><version>\keymaps`
 
-# Examples of <product><version>
+# Examples of product+version
 1. `CLion2021.3`
 1. `DataGrip2022.1`
 1. `GoLand2022.1`
@@ -27,7 +27,7 @@
 
 
 # My most common shortcuts
-|Category|Feature|Linux/win/XWin shortcut|MacOS keymap shortcut|
+|Category|Feature|Linux, win, XWin shortcut|MacOS keymap shortcut|
 |---|---|---|---|
 |Edit|Basic code completion, Variable name completion, Second basic completion|`CTRL+Space`|TODO|
 |Edit|Change case|`CTRL+SHIFT+U`|⇧ ⌘ U|
@@ -77,7 +77,7 @@
 1. For MacOS, use a Keymap based [XWin](https://plugins.jetbrains.com/plugin/13094-xwin-keymap)
 1. Might need to enable the [XWin](https://plugins.jetbrains.com/plugin/13094-xwin-keymap) plugin on macOS
 
-|Category|Feature|Linux/win/XWin shortcut|MacOS keymap shortcut|
+|Category|Feature|Linux, win, XWin shortcut|MacOS keymap shortcut|
 |---|---|---|---|
 |Edit|Column select|`ALT+SHIFT+Insert`|⇧ ⌘ 8|
 |Files|Generate, New Directory|`ALT+Insert`|⌘ N|
