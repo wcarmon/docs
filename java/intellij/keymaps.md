@@ -38,6 +38,7 @@
 |Git|commit|`CTRL+K`|TODO|
 |Git|push|`CTRL+SHIFT+K`|TODO|
 |Navigate|AceJump - Activate / Cycle AceJump Mode|`CTRL+;`, `CTRL+'`|TODO|
+|Navigate|Database Tool window|`ALT+D`|TODO|
 |Navigate|File structure popup|`CTRL+F12`|TODO|
 |Navigate|Find usages|`ALT+F7`|TODO|
 |Navigate|Go to action|`CTRL+SHIFT+A`|TODO|
@@ -46,8 +47,10 @@
 |Navigate|Go to symbol|`ALT+CTRL+SHIFT+N`|TODO|
 |Navigate|Jump to next error|`F2`|TODO|
 |Navigate|Move caret to next word|`CTRL+Right`|TODO|
+|Navigate|Project view|`ALT+1`|TODO|
 |Navigate|Recent files popup|`CTRL+E`|TODO|
 |Navigate|Search Everywhere|`SHIFT+SHIFT`|TODO|
+|Navigate|Settings|`Ctrl+Alt+S`|TODO|
 |Navigate|Split and Move Right|`ALT+S`|TODO|
 |Refactor|Extract constant|`ALT+CTRL+C`|TODO|
 |Refactor|Extract method|`ALT+CTRL+M`|TODO|
