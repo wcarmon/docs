@@ -71,14 +71,14 @@
 
 # Linux/windows keyboard on mac machine
 ## Must remap keys
-|Button|Behavior|
-|---|---|
-|`ALT`|`option` (⌥)|
-|`CTRL`|`control` (⌃)|
-|`Backspace`|`delete` (⌫)|
-|`Delete`|`delete` (extended keyboard)|
-|`Insert`|*nothing*|
-|`windows`|`command` (⌘)|
+|Button|Default Behavior|Desired behavior|
+|---|---|---|
+|`ALT`|`option` (⌥)|`command` (⌘)|
+|`CTRL`|`control` (⌃)|`option` (⌥)|
+|`Backspace`|`delete` (⌫)|TODO|
+|`Delete`|`delete` (Fn + ⌫)|TODO|
+|`Insert`|*nothing*|TODO|
+|`windows`|`command` (⌘)|TODO|
 
 ## Same (roughly)
 1. `enter` button -> `return` (⏎)
@@ -88,7 +88,14 @@
 
 
 # Remapping MacOS keys
-1. https://9to5mac.com/2016/03/17/how-to-remap-windows-keyboard-buttons-match-mac-layout/
+1. Settings > Keyboard > Modifier Keys > (Select the windows keyboard)
+    1. Control key (⌃):
+    1. Option key (⌥):
+    1. Command key (⌘):
+1. More help:
+    1. https://9to5mac.com/2016/03/17/how-to-remap-windows-keyboard-buttons-match-mac-layout/
+    1. https://www.lifewire.com/what-are-windows-keyboard-equivalents-to-mac-2260203
+
 
 
 # Other resources
