@@ -10,10 +10,10 @@
 
 |Button|Default Behavior|Desired behavior|
 |---|---|---|
-|`ALT`|`option` (⌥)|`command` (⌘)|
-|`CTRL`|`control` (⌃)|`option` (⌥)|
-|`windows`|`command` (⌘)|`control` (⌃)|
-|`Insert`|*nothing*|TODO|
+|`ALT`|`option` (⌥) button|`command` (⌘)|
+|`CTRL`|`control` (⌃) button|`option` (⌥)|
+|`windows`|`command` (⌘) button|`control` (⌃)|
+|`Insert`|Help button|TODO|
 
 ## Keys which are (roughly) the same
 1. `enter` button -> `return` (⏎)
