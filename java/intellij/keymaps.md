@@ -78,19 +78,19 @@
 
 
 ## Shortcuts to manually map (not part of XWin keymap)
-1. For MacOS, use a Keymap based [XWin](https://plugins.jetbrains.com/plugin/13094-xwin-keymap)
+1. For MacOS, use a keymap based [XWin](https://plugins.jetbrains.com/plugin/13094-xwin-keymap)
 1. Might need to enable the [XWin](https://plugins.jetbrains.com/plugin/13094-xwin-keymap) plugin on macOS
 
 |Category|Feature|Linux, win, XWin shortcut|MacOS keymap shortcut|
 |---|---|---|---|
 |Edit|Column select|`ALT+SHIFT+Insert`|⇧ ⌘ 8|
-|Edit|Inline|Ctrl+Alt+N|⌥ ⌘ N|
+|Edit|Inline|`CTRL+ALT+N`|⌥ ⌘ N|
 |Files|Generate, New Directory|`ALT+Insert`|⌘ N|
 |Navigate|AceJump - Activate / Cycle AceJump Mode|`CTRL+;`, `CTRL+'`|--|
 |Navigate|Database Tool window|`ALT+D`|--|
 |Navigate|Diff|`CTRL+D`|⌘ D|
 |Navigate|Move caret to next word|`CTRL+Right`|⌥ →|
-|Navigate|Settings|`Ctrl+Alt+S`|⌘ ,|
+|Navigate|Settings|`CTRL+ALT+S`|⌘ ,|
 |Navigate|Split and Move Right|`ALT+S`|--|
 |Run|Toggle line breakpoint|`CTRL+F8`|⌘ F8|
 
