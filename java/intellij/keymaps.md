@@ -20,10 +20,10 @@
 |---|---|---|
 |`ALT`|`option` (⌥)|`command` (⌘)|
 |`CTRL`|`control` (⌃)|`option` (⌥)|
+|`windows`|`command` (⌘)|`control` (⌃)|
 |`Backspace`|`delete` (⌫)|TODO|
 |`Delete`|`delete` (Fn + ⌫)|TODO|
 |`Insert`|*nothing*|TODO|
-|`windows`|`command` (⌘)|TODO|
 
 ## Same (roughly)
 1. `enter` button -> `return` (⏎)
@@ -33,7 +33,7 @@
 
 
 # Remapping MacOS keys
-1. Settings > Keyboard > Modifier Keys > (Select the windows keyboard)
+1. System Preferences > Keyboard > Modifier Keys > (Select the windows keyboard)
     1. Control key (⌃):
     1. Option key (⌥):
     1. Command key (⌘):
