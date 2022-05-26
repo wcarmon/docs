@@ -47,9 +47,9 @@
 |Navigate|Go to symbol|`ALT+CTRL+SHIFT+N`|TODO|
 |Navigate|Jump to next error|`F2`|TODO|
 |Navigate|Move caret to next word|`CTRL+Right`|TODO|
-|Navigate|Project view|`ALT+1`|TODO|
+|Navigate|Project view|`ALT+1`|⌘ 1|
 |Navigate|Recent files popup|`CTRL+E`|TODO|
-|Navigate|Search Everywhere|`SHIFT+SHIFT`|TODO|
+|Navigate|Search Everywhere|`SHIFT+SHIFT`|(same)|
 |Navigate|Settings|`Ctrl+Alt+S`|TODO|
 |Navigate|Split and Move Right|`ALT+S`|TODO|
 |Refactor|Extract constant|`ALT+CTRL+C`|TODO|
@@ -57,3 +57,22 @@
 |Refactor|Extract variable|`ALT+CTRL+V`|TODO|
 |Refactor|Introduce Variable|`ALT+CTRL+V`|TODO|
 |Refactor|Rename|`SHIFT+F6`|TODO|
+
+
+# Linux/windows keyboard on mac machine
+## Must remap
+1. `ALT` button -> `option` (⌥)
+1. `CTRL` button -> `control` (⌃)
+1. `Backspace` button -> `delete`
+1. `Delete` button button -> `delete`
+1. `Insert` button -> nothing
+1. `windows` button -> `command` (⌘)
+
+## Same (roughly)
+1. `enter` button -> `return`
+1. `esc` button
+1. `shift` button (⇧)
+1. `tab` button
+
+
+# Remapping mac keys
