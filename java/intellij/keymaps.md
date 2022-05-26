@@ -52,7 +52,6 @@
 |Git|push|`CTRL+SHIFT+K`|⇧ ⌘ K|
 |Navigate|AceJump - Activate / Cycle AceJump Mode|`CTRL+;`, `CTRL+'`|--|
 |Navigate|Diff|`CTRL+D`|⌘ D|
-|Navigate|Diff|`CTRL+D`|⌘ D|
 |Navigate|File structure popup|`CTRL+F12`|⌘ F12|
 |Navigate|Find (in current file)|`CTRL+F`|⌘ F|
 |Navigate|Find in files|`CTRL+SHIFT+F`|⇧ ⌘ F|
@@ -71,6 +70,7 @@
 |Navigate|Replace (in current file)|`CTRL+R`|⌘ R|
 |Navigate|Replace in files|`CTRL+SHIFT+R`|⇧ ⌘ R|
 |Navigate|Search Everywhere|`SHIFT+SHIFT`|(same)|
+|Navigate|Select Multiple files|`CTRL+Click`|`Windows+Click`|
 |Refactor|Extract constant|`ALT+CTRL+C`|⌥ ⌘ C|
 |Refactor|Extract method|`ALT+CTRL+M`|⌥ ⌘ M|
 |Refactor|Introduce/Extract variable|`ALT+CTRL+V`|⌥ ⌘ V|
@@ -86,15 +86,14 @@
 |Category|Feature|Linux, win, XWin shortcut|MacOS keymap shortcut|Add mapping|
 |---|---|---|---|---|
 |Edit|Column select|`ALT+SHIFT+Insert`|⇧ ⌘ 8|**⌥ ⇧ Help**|
-|Files|Generate, New Directory|`ALT+Insert`|⌘ N|TODO|
-|Navigate|AceJump - Activate / Cycle AceJump Mode|`CTRL+;`, `CTRL+'`|--|TODO|
+|Files|Generate, New Directory|`ALT+Insert`|⌘ N|**TODO**|
+|Navigate|AceJump - Activate / Cycle AceJump Mode|`CTRL+;`, `CTRL+'`|--|**TODO**|
 |Navigate|Database Tool window|`ALT+D`|--|**⌥ D**|
-|Navigate|Move caret to next word|`CTRL+Right`|⌥ →|TODO|
-|Navigate|Settings/Preferences|`CTRL+ALT+S`|⌘ ,|TODO|
-|Navigate|Split and Move Right|`ALT+S`|--|TODO|
-|Run|Toggle line breakpoint|`CTRL+F8`|⌘ F8|TODO|
+|Navigate|Move caret to next/previous word|`CTRL+Right` / `CTRL+Left` |`⌥ →` / `⌥ ←`|**TODO**|
+|Navigate|Settings/Preferences|`CTRL+ALT+S`|⌘ ,|**TODO**|
+|Navigate|Split and Move Right|`ALT+S`|--|**TODO**|
+|Run|Toggle line breakpoint|`CTRL+F8`|⌘ F8|**TODO**|
 
-- TODO: selecting two files in project view (windows click)
 - TODO: fold/expand
 
 
