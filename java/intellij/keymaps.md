@@ -42,7 +42,7 @@
 |Edit|Quick fixes, Global method name completion|`ALT+Enter`|TODO|
 |Edit|Redo|`CTRL+SHIFT+Z`|⇧ ⌘ Z|
 |Edit|Reformat|`ALT+CTRL+L`|⌥ ⌘ L|
-|Edit|Sort lines|`ALT+SHIFT+L`|TODO|
+|Edit|Sort lines|`ALT+SHIFT+L`|-|
 |Edit|Syntax aware selection|`CTRL+W`, `CTRL+SHIFT+W`|TODO|
 |Edit|Type-matching completion|`CTRL+SHIFT+Space`|TODO|
 |Edit|Undo|`CTRL+Z`|⌘ Z|
@@ -54,20 +54,19 @@
 |Navigate|Find usages|`ALT+F7`|⌥ F7|
 |Navigate|Go to action|`CTRL+SHIFT+A`|TODO|
 |Navigate|Go to declaration|`CTRL+B`|⇧ ⌘ B|
-|Navigate|Go to file|`CTRL+SHIFT+N`|TODO|
+|Navigate|Go to File|`CTRL+SHIFT+N`|TODO|
 |Navigate|Go to Line|`CTRL+G`|TODO|
 |Navigate|Go to symbol|`ALT+CTRL+SHIFT+N`|⌥ ⌘ O|
-|Navigate|Jump to next error|`F2`|TODO|
+|Navigate|Jump to next error|`F2`|(same)|
 |Navigate|Last edit location|`CTRL+SHIFT+Backspace`|⇧ ⌘ ⌫|
 |Navigate|Move caret to next method (member)|`ALT+Down`|⌃ ⇧ ↓|
 |Navigate|Param Info|`CTRL+P`|⌘ P|
 |Navigate|Project view|`ALT+1`|⌘ 1|
 |Navigate|Recent files popup|`CTRL+E`|⌘ E|
 |Navigate|Search Everywhere|`SHIFT+SHIFT`|(same)|
-|Refactor|Extract constant|`ALT+CTRL+C`|TODO|
+|Refactor|Extract constant|`ALT+CTRL+C`|⌥ ⌘ C|
 |Refactor|Extract method|`ALT+CTRL+M`|⌥ ⌘ M|
-|Refactor|Extract variable|`ALT+CTRL+V`|TODO|
-|Refactor|Introduce Variable|`ALT+CTRL+V`|TODO|
+|Refactor|Introduce/Extract variable|`ALT+CTRL+V`|⌥ ⌘ V|
 |Refactor|Rename|`SHIFT+F6`|⇧ F6|
 |Run|Debug ...|`ALT+SHIFT+F9`|⌃ ⌥ D|
 |Run|Run ...|`ALT+SHIFT+F10`|TODO|
@@ -80,6 +79,7 @@
 |Category|Feature|Linux, win, XWin shortcut|MacOS keymap shortcut|
 |---|---|---|---|
 |Edit|Column select|`ALT+SHIFT+Insert`|⇧ ⌘ 8|
+|Edit|Inline|Ctrl+Alt+N|⌥ ⌘ N|
 |Files|Generate, New Directory|`ALT+Insert`|⌘ N|
 |Navigate|AceJump - Activate / Cycle AceJump Mode|`CTRL+;`, `CTRL+'`|TODO|
 |Navigate|Database Tool window|`ALT+D`|TODO|
