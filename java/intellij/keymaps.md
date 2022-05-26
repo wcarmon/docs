@@ -27,6 +27,8 @@
 
 
 # My most common shortcuts
+1. These work out-of-the-box when using [XWin](https://plugins.jetbrains.com/plugin/13094-xwin-keymap) based keymap
+
 |Category|Feature|Linux, win, XWin shortcut|MacOS keymap shortcut|
 |---|---|---|---|
 |Edit|Basic code completion, Variable name completion, Second basic completion|`CTRL+Space`|TODO|
@@ -71,6 +73,7 @@
 |Navigate|Replace in files|`CTRL+SHIFT+R`|⇧ ⌘ R|
 |Navigate|Search Everywhere|`SHIFT+SHIFT`|(same)|
 |Navigate|Select Multiple files|`CTRL+Click`|`Windows+Click`|
+|Navigate|Select next/previous Tab|`ALT+Left` `ALT+Right`|TODO|
 |Refactor|Extract constant|`ALT+CTRL+C`|⌥ ⌘ C|
 |Refactor|Extract method|`ALT+CTRL+M`|⌥ ⌘ M|
 |Refactor|Introduce/Extract variable|`ALT+CTRL+V`|⌥ ⌘ V|
@@ -94,11 +97,21 @@
 - TODO: collapse/expand
 
 ## Manual shortcuts with OS conflict
+1. `System Preferences` > `Keyboard` > `Shortcuts` >
+    1. `Mission Control` > Disable `Move left a space`
+    1. `Mission Control` > Disable `Move right a space`
+    1. `Keyboard` > Disable `Move focus to status menus`
+    1. `Services` > Disable `Open man Page in Terminal`
+    1. `Services` > Disable `Open man Page Index in Terminal`
+    1. `Services` > Disable `Show Map`
+    1. `Services` > Disable `Add to Reading List`
+    1. `Services` > Disable `Open URL`
+
 |Category|Feature|Linux, win, XWin shortcut|MacOS keymap shortcut|Add mapping (on MacOS)|
 |---|---|---|---|---|
-|Navigate|Move caret to next/previous word|`CTRL+Right` / `CTRL+Left` |`⌥ →` / `⌥ ←`|**`TODO`**|
+|Navigate|Move caret to next/previous word|`CTRL+Right` / `CTRL+Left` |`⌥ →` / `⌥ ←`|Works once conflict removed|
 |Navigate|Settings/Preferences|`CTRL+ALT+S`|`⌘ ,`|**`TODO`**|
-|Run|Toggle line breakpoint|`CTRL+F8`|`⌘ F8`|**`TODO`**|
+|Run|Toggle line breakpoint|`CTRL+F8`|`⌘ F8`|Works once conflict removed|
 
 
 # Other resources
