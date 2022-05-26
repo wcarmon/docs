@@ -24,10 +24,6 @@
 |Edit|Complete statement, Finish lookup with smart enter|`CTRL+SHIFT+Enter`|TODO|
 |Edit|Duplicate line|`CTRL+D`|TODO|
 |Edit|Editor delete line|`CTRL+Y`|TODO|
-|Edit|Extract constant|`ALT+CTRL+C`|TODO|
-|Edit|Extract method|`ALT+CTRL+M`|TODO|
-|Edit|Extract variable|`ALT+CTRL+V`|TODO|
-|Edit|Introduce Variable|`ALT+CTRL+V`|TODO|
 |Edit|Move statement up/down|`CTRL+SHIFT+Up`, `CTRL+SHIFT+Down`|TODO|
 |Edit|Optimize Imports|`ALT+CTRL+O`|TODO|
 |Edit|Override or implement a method|`CTRL+O`|TODO|
@@ -53,4 +49,8 @@
 |Navigate|Recent files popup|`CTRL+E`|TODO|
 |Navigate|Search Everywhere|`SHIFT+SHIFT`|TODO|
 |Navigate|Split and Move Right|`ALT+S`|TODO|
+|Refactor|Extract constant|`ALT+CTRL+C`|TODO|
+|Refactor|Extract method|`ALT+CTRL+M`|TODO|
+|Refactor|Extract variable|`ALT+CTRL+V`|TODO|
+|Refactor|Introduce Variable|`ALT+CTRL+V`|TODO|
 |Refactor|Rename|`SHIFT+F6`|TODO|
