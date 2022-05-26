@@ -17,47 +17,19 @@
 1. `%APPDATA%\JetBrains\<product><version>\keymaps`
 
 
-# Linux/windows keyboard on mac machine
-## Must remap keys
-1. Must match physical order relative to space bar
-|Button|Default Behavior|Desired behavior|
-|---|---|---|
-|`ALT`|`option` (⌥)|`command` (⌘)|
-|`CTRL`|`control` (⌃)|`option` (⌥)|
-|`windows`|`command` (⌘)|`control` (⌃)|
-|`Insert`|*nothing*|TODO|
-
-## Same (roughly)
-1. `enter` button -> `return` (⏎)
-1. `esc` button
-1. `shift` button (⇧)
-1. `tab` button
-1. `Backspace` -> `delete` (⌫)
-1. `Delete` -> `delete` (Fn + ⌫)
-
-
-# Remapping MacOS keys
-1. System Preferences > Keyboard > Modifier Keys... (lower right)
-1. Select the "windows" keyboard
-    1. Control (⌃) Key: `⌥ Option`
-    1. Option (⌥) Key: `⌘ Command`
-    1. Command (⌘) Key: `⌃ Control`
-1. More help:
-    1. https://9to5mac.com/2016/03/17/how-to-remap-windows-keyboard-buttons-match-mac-layout/
-    1. https://www.lifewire.com/what-are-windows-keyboard-equivalents-to-mac-2260203
-
 
 # My most common Shortcuts
+1. For MacOS, Use a Keymap based [XWin](https://plugins.jetbrains.com/plugin/13094-xwin-keymap)
+1. Might need to enable the [XWin](https://plugins.jetbrains.com/plugin/13094-xwin-keymap) plugin on macOS
+
 |Category|Feature|Linux/win Shortcut|MacOS Shortcut|
 |---|---|---|---|
 |Edit|Basic code completion, Variable name completion, Second basic completion|`CTRL+Space`|TODO|
 |Edit|Change case|`CTRL+SHIFT+U`|⇧ ⌘ U|
-|Edit|Column select|`ALT+SHIFT+Insert`|⇧ ⌘ 8|
 |Edit|Comment or uncomment the current line|`CTRL+/`, `CTRL+SHIFT+/`|⌘ /|
 |Edit|Complete statement, Finish lookup with smart enter|`CTRL+SHIFT+Enter`|⌃ Space|
 |Edit|Delete line|`CTRL+Y`|⌘ ⌫|
 |Edit|Duplicate line|`CTRL+D`|⌘ D|
-|Edit|Editor delete line|`CTRL+Y`|TODO|
 |Edit|Move statement up/down|`CTRL+SHIFT+Up`, `CTRL+SHIFT+Down`|TODO|
 |Edit|Optimize Imports|`ALT+CTRL+O`|TODO|
 |Edit|Override or implement a method|`CTRL+O`|TODO|
@@ -69,12 +41,10 @@
 |Edit|Syntax aware selection|`CTRL+W`, `CTRL+SHIFT+W`|TODO|
 |Edit|Type-matching completion|`CTRL+SHIFT+Space`|TODO|
 |Edit|Undo|`CTRL+Z`|⌘ Z|
-|Files|Generate, New Directory|`ALT+Insert`|⌘ N|
 |Git|add|`ALT+CTRL+A`|TODO|
 |Git|commit|`CTRL+K`|⌘ K|
 |Git|push|`CTRL+SHIFT+K`|⇧ ⌘ K|
 |Navigate|AceJump - Activate / Cycle AceJump Mode|`CTRL+;`, `CTRL+'`|TODO|
-|Navigate|Database Tool window|`ALT+D`|TODO|
 |Navigate|File structure popup|`CTRL+F12`|⌘ F12|
 |Navigate|Find usages|`ALT+F7`|⌥ F7|
 |Navigate|Go to action|`CTRL+SHIFT+A`|TODO|
@@ -85,13 +55,10 @@
 |Navigate|Jump to next error|`F2`|TODO|
 |Navigate|Last edit location|`CTRL+SHIFT+Backspace`|⇧ ⌘ ⌫|
 |Navigate|Move caret to next method (member)|`ALT+Down`|⌃ ⇧ ↓|
-|Navigate|Move caret to next word|`CTRL+Right`|⌥ →|
 |Navigate|Param Info|`CTRL+P`|⌘ P|
 |Navigate|Project view|`ALT+1`|⌘ 1|
 |Navigate|Recent files popup|`CTRL+E`|⌘ E|
 |Navigate|Search Everywhere|`SHIFT+SHIFT`|(same)|
-|Navigate|Settings|`Ctrl+Alt+S`|⌘ ,|
-|Navigate|Split and Move Right|`ALT+S`|TODO|
 |Refactor|Extract constant|`ALT+CTRL+C`|TODO|
 |Refactor|Extract method|`ALT+CTRL+M`|⌥ ⌘ M|
 |Refactor|Extract variable|`ALT+CTRL+V`|TODO|
@@ -99,6 +66,22 @@
 |Refactor|Rename|`SHIFT+F6`|⇧ F6|
 |Run|Debug ...|`ALT+SHIFT+F9`|⌃ ⌥ D|
 |Run|Run ...|`ALT+SHIFT+F10`|TODO|
+
+
+## Shortcuts to manually map (not part of XWin keymap)
+|Category|Feature|Linux/win Shortcut|MacOS Shortcut|
+|---|---|---|---|
+|Edit|Column select|`ALT+SHIFT+Insert`|⇧ ⌘ 8|
+|Files|Generate, New Directory|`ALT+Insert`|⌘ N|
+|Navigate|AceJump - Activate / Cycle AceJump Mode|`CTRL+;`, `CTRL+'`|TODO|
+|Navigate|Database Tool window|`ALT+D`|TODO|
+|Navigate|Find (in current file)|`CTRL+F`|TODO|
+|Navigate|Find in files|`CTRL+SHIFT+F`|TODO|
+|Navigate|Move caret to next word|`CTRL+Right`|⌥ →|
+|Navigate|Replace (in current file)|`CTRL+R`|TODO|
+|Navigate|Replace in files|`CTRL+SHIFT+R`|TODO|
+|Navigate|Settings|`Ctrl+Alt+S`|⌘ ,|
+|Navigate|Split and Move Right|`ALT+S`|TODO|
 |Run|Toggle line breakpoint|`CTRL+F8`|⌘ F8|
 
 
