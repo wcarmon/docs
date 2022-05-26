@@ -14,15 +14,15 @@
 1. `%APPDATA%\JetBrains\<product><version>\keymaps`
 
 
-# My most common shortcuts
-|Category|Feature|Linux/win shortcut|MacOS Shortcut|
+# My most common Shortcuts
+|Category|Feature|Linux/win Shortcut|MacOS Shortcut|
 |---|---|---|---|
 |Edit|Basic code completion, Variable name completion, Second basic completion|`CTRL+Space`|TODO|
-|Edit|Change case|`CTRL+SHIFT+U`|⇧ ⌘ U|
-|Edit|Column select|`ALT+SHIFT+Insert`|⇧ ⌘ 8|
-|Edit|Comment or uncomment the current line|`CTRL+/`, `CTRL+SHIFT+/`|⌘ /|
-|Edit|Complete statement, Finish lookup with smart enter|`CTRL+SHIFT+Enter`|⌃ Space|
-|Edit|Delete line|`CTRL+Y`|⌘ ⌫|
+|Edit|Change case|`CTRL+SHIFT+U`|`⇧ ⌘ U`|
+|Edit|Column select|`ALT+SHIFT+Insert`|`⇧ ⌘ 8`|
+|Edit|Comment or uncomment the current line|`CTRL+/`, `CTRL+SHIFT+/`|`⌘ /`|
+|Edit|Complete statement, Finish lookup with smart enter|`CTRL+SHIFT+Enter`|`⌃ Space`|
+|Edit|Delete line|`CTRL+Y`|`⌘ ⌫`|
 |Edit|Duplicate line|`CTRL+D`|⌘ D|
 |Edit|Editor delete line|`CTRL+Y`|TODO|
 |Edit|Move statement up/down|`CTRL+SHIFT+Up`, `CTRL+SHIFT+Down`|TODO|
