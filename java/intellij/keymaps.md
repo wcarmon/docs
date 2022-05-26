@@ -1,4 +1,7 @@
 # Overview
+1. Getting consistent behavior across linux/mac/windows keyboards
+    1. muscle memory reuse
+
 
 # Keymap files
 1. [User keymap files](https://www.jetbrains.com/help/idea/configuring-keyboard-and-mouse-shortcuts.html#custom_keymap_location)
@@ -16,13 +19,12 @@
 
 # Linux/windows keyboard on mac machine
 ## Must remap keys
+1. Must match physical order relative to space bar
 |Button|Default Behavior|Desired behavior|
 |---|---|---|
 |`ALT`|`option` (⌥)|`command` (⌘)|
 |`CTRL`|`control` (⌃)|`option` (⌥)|
 |`windows`|`command` (⌘)|`control` (⌃)|
-|`Backspace`|`delete` (⌫)|TODO|
-|`Delete`|`delete` (Fn + ⌫)|TODO|
 |`Insert`|*nothing*|TODO|
 
 ## Same (roughly)
@@ -30,13 +32,16 @@
 1. `esc` button
 1. `shift` button (⇧)
 1. `tab` button
+1. `Backspace` -> `delete` (⌫)
+1. `Delete` -> `delete` (Fn + ⌫)
 
 
 # Remapping MacOS keys
-1. System Preferences > Keyboard > Modifier Keys > (Select the windows keyboard)
-    1. Control key (⌃):
-    1. Option key (⌥):
-    1. Command key (⌘):
+1. System Preferences > Keyboard > Modifier Keys... (lower right)
+1. Select the "windows" keyboard
+    1. Control (⌃) Key: `⌥ Option`
+    1. Option (⌥) Key: `⌘ Command`
+    1. Command (⌘) Key: `⌃ Control`
 1. More help:
     1. https://9to5mac.com/2016/03/17/how-to-remap-windows-keyboard-buttons-match-mac-layout/
     1. https://www.lifewire.com/what-are-windows-keyboard-equivalents-to-mac-2260203
