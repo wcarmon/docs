@@ -15,7 +15,7 @@
 
 
 ## Bundled
-1. Diagrams
+1. [Diagrams](TODO)
 1. [Git](https://plugins.jetbrains.com/plugin/13173-git)
 1. [Go Template](https://www.jetbrains.com/help/go/integration-with-go-templates.html)
 1. [gRPC](https://plugins.jetbrains.com/plugin/16889-grpc)
@@ -23,7 +23,8 @@
 1. [IntelliLang](https://plugins.jetbrains.com/plugin/13374-intellilang)
 1. [Protocol buffers](https://plugins.jetbrains.com/plugin/8277-protobuf-support)
 1. [Shell script](https://plugins.jetbrains.com/plugin/13122-shell-script)
-1. Yaml
+1. [XWin Keymap](https://plugins.jetbrains.com/plugin/13094-xwin-keymap) - if you switch between mac/linux/windows frequently
+1. [Yaml](https://plugins.jetbrains.com/plugin/13126-yaml)
 
 
 # Other resources

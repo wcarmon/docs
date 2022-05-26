@@ -19,7 +19,6 @@
 1. [gRPC](https://plugins.jetbrains.com/plugin/16889-grpc)
 1. [HTML Tools](TODO)
 1. [HTTP Client](https://www.jetbrains.com/help/go/http-client-in-product-code-editor.html)
-1. [HTTP Client](TODO)
 1. [IntelliLang](https://plugins.jetbrains.com/plugin/13374-intellilang)
 1. [Java Stream Debugger](TODO)
 1. [Javascript and Typescript](TODO)
@@ -32,3 +31,6 @@
 1. [Protocol buffers](https://plugins.jetbrains.com/plugin/8277-protobuf-support)
 1. [Shell script](https://plugins.jetbrains.com/plugin/13122-shell-script)
 1. [Spy.js](TODO)
+1. [XWin Keymap](https://plugins.jetbrains.com/plugin/13094-xwin-keymap) - if you switch between mac/linux/windows frequently
+1. [Yaml](https://plugins.jetbrains.com/plugin/13126-yaml)
+
