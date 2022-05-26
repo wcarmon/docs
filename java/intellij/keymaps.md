@@ -83,18 +83,18 @@
 1. For MacOS, use a keymap based [XWin](https://plugins.jetbrains.com/plugin/13094-xwin-keymap)
 1. Might need to enable the [XWin](https://plugins.jetbrains.com/plugin/13094-xwin-keymap) plugin on macOS
 
-|Category|Feature|Linux, win, XWin shortcut|MacOS keymap shortcut|Add mapping|
+|Category|Feature|Linux, win, XWin shortcut|MacOS keymap shortcut|Add mapping (on MacOS)|
 |---|---|---|---|---|
-|Edit|Column select|`ALT+SHIFT+Insert`|⇧ ⌘ 8|**⌥ ⇧ Help**|
+|Edit|Column select|`ALT+SHIFT+Insert`|⇧ ⌘ 8|**`⌥ ⇧ Help`**|
 |Files|Generate, New Directory|`ALT+Insert`|⌘ N|**TODO**|
-|Navigate|AceJump - Activate / Cycle AceJump Mode|`CTRL+;`, `CTRL+'`|--|**TODO**|
+|Navigate|AceJump: Activate / Cycle AceJump Mode|`CTRL+;`, `CTRL+'`|--|**`⌃ ;` `⌃ '`**|
 |Navigate|Database Tool window|`ALT+D`|--|**⌥ D**|
 |Navigate|Move caret to next/previous word|`CTRL+Right` / `CTRL+Left` |`⌥ →` / `⌥ ←`|**TODO**|
 |Navigate|Settings/Preferences|`CTRL+ALT+S`|⌘ ,|**TODO**|
 |Navigate|Split and Move Right|`ALT+S`|--|**TODO**|
 |Run|Toggle line breakpoint|`CTRL+F8`|⌘ F8|**TODO**|
 
-- TODO: fold/expand
+- TODO: collapse/expand
 
 
 # Other resources
