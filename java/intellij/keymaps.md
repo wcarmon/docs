@@ -29,18 +29,18 @@
 |Edit|Override or implement a method|`CTRL+O`|TODO|
 |Edit|Postfix completion|`CTRL+J`|TODO|
 |Edit|Quick fixes, Global method name completion|`ALT+Enter`|TODO|
-|Edit|Reformat|`ALT+CTRL+L`|TODO|
+|Edit|Reformat|`ALT+CTRL+L`|⌥ ⌘ L|
 |Edit|Sort lines|`ALT+SHIFT+L`|TODO|
 |Edit|Syntax aware selection|`CTRL+W`, `CTRL+SHIFT+W`|TODO|
 |Edit|Type-matching completion|`CTRL+SHIFT+Space`|TODO|
-|Files|Generate, New Directory|`ALT+Insert`|TODO|
+|Files|Generate, New Directory|`ALT+Insert`|⌘ N|
 |Git|add|`ALT+CTRL+A`|TODO|
 |Git|commit|`CTRL+K`|TODO|
 |Git|push|`CTRL+SHIFT+K`|TODO|
 |Navigate|AceJump - Activate / Cycle AceJump Mode|`CTRL+;`, `CTRL+'`|TODO|
 |Navigate|Database Tool window|`ALT+D`|TODO|
 |Navigate|File structure popup|`CTRL+F12`|TODO|
-|Navigate|Find usages|`ALT+F7`|TODO|
+|Navigate|Find usages|`ALT+F7`|⌥ F7|
 |Navigate|Go to action|`CTRL+SHIFT+A`|TODO|
 |Navigate|Go to declaration|`CTRL+B`|TODO|
 |Navigate|Go to file|`CTRL+SHIFT+N`|TODO|
@@ -48,15 +48,18 @@
 |Navigate|Jump to next error|`F2`|TODO|
 |Navigate|Move caret to next word|`CTRL+Right`|TODO|
 |Navigate|Project view|`ALT+1`|⌘ 1|
-|Navigate|Recent files popup|`CTRL+E`|TODO|
+|Navigate|Recent files popup|`CTRL+E`|⌘ E|
 |Navigate|Search Everywhere|`SHIFT+SHIFT`|(same)|
-|Navigate|Settings|`Ctrl+Alt+S`|TODO|
+|Navigate|Settings|`Ctrl+Alt+S`|⌘ ,|
 |Navigate|Split and Move Right|`ALT+S`|TODO|
 |Refactor|Extract constant|`ALT+CTRL+C`|TODO|
 |Refactor|Extract method|`ALT+CTRL+M`|TODO|
 |Refactor|Extract variable|`ALT+CTRL+V`|TODO|
 |Refactor|Introduce Variable|`ALT+CTRL+V`|TODO|
 |Refactor|Rename|`SHIFT+F6`|TODO|
+|Run|Debug ...|`ALT+SHIFT+F9`|⌃ ⌥ D|
+|Run|Run ...|`ALT+SHIFT+F10`|TODO|
+|Run|Toggle breakpoint|TODO|TODO|
 
 
 # Linux/windows keyboard on mac machine
