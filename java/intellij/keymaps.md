@@ -110,7 +110,7 @@
 |Category|Feature|Linux, win, XWin shortcut|MacOS keymap shortcut|Add mapping (on MacOS)|
 |---|---|---|---|---|
 |Navigate|Move caret to next/previous word|`CTRL+Right` / `CTRL+Left` |`⌥ →` / `⌥ ←`|Works once conflict removed|
-|Navigate|Settings/Preferences|`CTRL+ALT+S`|`⌘ ,`|**`TODO`**|
+|Navigate|Settings/Preferences|`CTRL+ALT+S`|`⌘ ,`|**`TODO: conflict: ⌃ ⌥ S`**|
 |Run|Toggle line breakpoint|`CTRL+F8`|`⌘ F8`|Works once conflict removed|
 
 
