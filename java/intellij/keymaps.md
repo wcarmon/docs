@@ -1,9 +1,9 @@
 # Overview
-1. Getting consistent behavior across linux/mac/windows keyboards
+1. Getting consistent behavior across linux/mac/windows keyboards (for JetBrains products)
     1. muscle memory reuse
 
 
-# Keymap files
+# JetBrains Keymap files
 1. [User keymap files](https://www.jetbrains.com/help/idea/configuring-keyboard-and-mouse-shortcuts.html#custom_keymap_location)
 
 ## Linux
@@ -17,12 +17,8 @@
 1. `%APPDATA%\JetBrains\<product><version>\keymaps`
 
 
-
-# My most common Shortcuts
-1. For MacOS, Use a Keymap based [XWin](https://plugins.jetbrains.com/plugin/13094-xwin-keymap)
-1. Might need to enable the [XWin](https://plugins.jetbrains.com/plugin/13094-xwin-keymap) plugin on macOS
-
-|Category|Feature|Linux/win Shortcut|MacOS Shortcut|
+# My most common shortcuts
+|Category|Feature|Linux/win/XWin shortcut|MacOS keymap shortcut|
 |---|---|---|---|
 |Edit|Basic code completion, Variable name completion, Second basic completion|`CTRL+Space`|TODO|
 |Edit|Change case|`CTRL+SHIFT+U`|⇧ ⌘ U|
@@ -69,7 +65,10 @@
 
 
 ## Shortcuts to manually map (not part of XWin keymap)
-|Category|Feature|Linux/win Shortcut|MacOS Shortcut|
+1. For MacOS, use a Keymap based [XWin](https://plugins.jetbrains.com/plugin/13094-xwin-keymap)
+1. Might need to enable the [XWin](https://plugins.jetbrains.com/plugin/13094-xwin-keymap) plugin on macOS
+
+|Category|Feature|Linux/win/XWin shortcut|MacOS keymap shortcut|
 |---|---|---|---|
 |Edit|Column select|`ALT+SHIFT+Insert`|⇧ ⌘ 8|
 |Files|Generate, New Directory|`ALT+Insert`|⌘ N|
