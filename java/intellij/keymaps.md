@@ -35,6 +35,7 @@
 |Edit|Complete statement, Finish lookup with smart enter|`CTRL+SHIFT+Enter`|⌃ Space|
 |Edit|Delete line|`CTRL+Y`|⌘ ⌫|
 |Edit|Duplicate line|`CTRL+D`|⌘ D|
+|Edit|Inline|`CTRL+ALT+N`|⌥ ⌘ N|
 |Edit|Move statement up/down|`CTRL+SHIFT+Up`, `CTRL+SHIFT+Down`|⇧ ⌘ ↓|
 |Edit|Optimize Imports|`ALT+CTRL+O`|TODO|
 |Edit|Override or implement a method|`CTRL+O`|TODO|
@@ -50,6 +51,7 @@
 |Git|commit|`CTRL+K`|⌘ K|
 |Git|push|`CTRL+SHIFT+K`|⇧ ⌘ K|
 |Navigate|AceJump - Activate / Cycle AceJump Mode|`CTRL+;`, `CTRL+'`|--|
+|Navigate|Diff|`CTRL+D`|⌘ D|
 |Navigate|Diff|`CTRL+D`|⌘ D|
 |Navigate|File structure popup|`CTRL+F12`|⌘ F12|
 |Navigate|Find (in current file)|`CTRL+F`|⌘ F|
@@ -81,18 +83,18 @@
 1. For MacOS, use a keymap based [XWin](https://plugins.jetbrains.com/plugin/13094-xwin-keymap)
 1. Might need to enable the [XWin](https://plugins.jetbrains.com/plugin/13094-xwin-keymap) plugin on macOS
 
-|Category|Feature|Linux, win, XWin shortcut|MacOS keymap shortcut|
+|Category|Feature|Linux, win, XWin shortcut|MacOS keymap shortcut|Add mapping|
 |---|---|---|---|
-|Edit|Column select|`ALT+SHIFT+Insert`|⇧ ⌘ 8|
-|Edit|Inline|`CTRL+ALT+N`|⌥ ⌘ N|
-|Files|Generate, New Directory|`ALT+Insert`|⌘ N|
-|Navigate|AceJump - Activate / Cycle AceJump Mode|`CTRL+;`, `CTRL+'`|--|
-|Navigate|Database Tool window|`ALT+D`|--|
-|Navigate|Diff|`CTRL+D`|⌘ D|
-|Navigate|Move caret to next word|`CTRL+Right`|⌥ →|
-|Navigate|Settings|`CTRL+ALT+S`|⌘ ,|
-|Navigate|Split and Move Right|`ALT+S`|--|
-|Run|Toggle line breakpoint|`CTRL+F8`|⌘ F8|
+|Edit|Column select|`ALT+SHIFT+Insert`|⇧ ⌘ 8|**⌥ ⇧ Help**|
+|Files|Generate, New Directory|`ALT+Insert`|⌘ N|TODO|
+|Navigate|AceJump - Activate / Cycle AceJump Mode|`CTRL+;`, `CTRL+'`|--|TODO|
+|Navigate|Database Tool window|`ALT+D`|--|**⌥ D**|
+|Navigate|Move caret to next word|`CTRL+Right`|⌥ →|TODO|
+|Navigate|Settings/Preferences|`CTRL+ALT+S`|⌘ ,|TODO|
+|Navigate|Split and Move Right|`ALT+S`|--|TODO|
+|Run|Toggle line breakpoint|`CTRL+F8`|⌘ F8|TODO|
+- TODO: selecting two files in project view (windows click)
+- TODO: fold/expand
 
 
 # Other resources
