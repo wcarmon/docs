@@ -45,13 +45,14 @@
 |Navigate|File structure popup|`CTRL+F12`|⌘ F12|
 |Navigate|Find usages|`ALT+F7`|⌥ F7|
 |Navigate|Go to action|`CTRL+SHIFT+A`|TODO|
-|Navigate|Go to Line|`CTRL+G`|TODO|
-|Navigate|Last edit location|`CTRL+SHIFT+Backspace`|⇧ ⌘ ⌫|
-|Navigate|Go to declaration|`CTRL+B`|TODO|
+|Navigate|Go to declaration|`CTRL+B`|⇧ ⌘ B|
 |Navigate|Go to file|`CTRL+SHIFT+N`|TODO|
+|Navigate|Go to Line|`CTRL+G`|TODO|
 |Navigate|Go to symbol|`ALT+CTRL+SHIFT+N`|⌥ ⌘ O|
 |Navigate|Jump to next error|`F2`|TODO|
-|Navigate|Move caret to next word|`CTRL+Right`|TODO|
+|Navigate|Last edit location|`CTRL+SHIFT+Backspace`|⇧ ⌘ ⌫|
+|Navigate|Move caret to next method (member)|`ALT+Down`|⌃ ⇧ ↓|
+|Navigate|Move caret to next word|`CTRL+Right`|⌥ →|
 |Navigate|Param Info|`CTRL+P`|⌘ P|
 |Navigate|Project view|`ALT+1`|⌘ 1|
 |Navigate|Recent files popup|`CTRL+E`|⌘ E|
@@ -59,13 +60,13 @@
 |Navigate|Settings|`Ctrl+Alt+S`|⌘ ,|
 |Navigate|Split and Move Right|`ALT+S`|TODO|
 |Refactor|Extract constant|`ALT+CTRL+C`|TODO|
-|Refactor|Extract method|`ALT+CTRL+M`|TODO|
+|Refactor|Extract method|`ALT+CTRL+M`|⌥ ⌘ M|
 |Refactor|Extract variable|`ALT+CTRL+V`|TODO|
 |Refactor|Introduce Variable|`ALT+CTRL+V`|TODO|
-|Refactor|Rename|`SHIFT+F6`|TODO|
+|Refactor|Rename|`SHIFT+F6`|⇧ F6|
 |Run|Debug ...|`ALT+SHIFT+F9`|⌃ ⌥ D|
 |Run|Run ...|`ALT+SHIFT+F10`|TODO|
-|Run|Toggle breakpoint|TODO|TODO|
+|Run|Toggle line breakpoint|`CTRL+F8`|⌘ F8|
 
 
 # Linux/windows keyboard on mac machine
@@ -85,6 +86,7 @@
 
 
 # Remapping mac keys
+TODO
 
 
 # Other resources
