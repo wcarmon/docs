@@ -8,13 +8,22 @@
 
 ## Linux
 1. `$HOME/.config/JetBrains/<product><version>/keymaps`
-1. eg. `$HOME/.config/JetBrains/IntelliJIdea2022.1/keymaps`
+    1. eg. `$HOME/.config/JetBrains/IntelliJIdea2022.1/keymaps`
 
 ## Mac
 1. `~/Library/Application Support/JetBrains/<product><version>/keymaps`
 
 ## windows
 1. `%APPDATA%\JetBrains\<product><version>\keymaps`
+
+# Examples of <product><version>
+1. `CLion2021.3`
+1. `DataGrip2022.1`
+1. `GoLand2022.1`
+1. `IntelliJIdea2021.3`
+1. `IntelliJIdea2022.1`
+1. `PyCharm2021.3`
+1. `PyCharm2022.1`
 
 
 # My most common shortcuts
