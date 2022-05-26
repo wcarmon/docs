@@ -84,7 +84,7 @@
 1. Might need to enable the [XWin](https://plugins.jetbrains.com/plugin/13094-xwin-keymap) plugin on macOS
 
 |Category|Feature|Linux, win, XWin shortcut|MacOS keymap shortcut|Add mapping|
-|---|---|---|---|
+|---|---|---|---|---|
 |Edit|Column select|`ALT+SHIFT+Insert`|⇧ ⌘ 8|**⌥ ⇧ Help**|
 |Files|Generate, New Directory|`ALT+Insert`|⌘ N|TODO|
 |Navigate|AceJump - Activate / Cycle AceJump Mode|`CTRL+;`, `CTRL+'`|--|TODO|
@@ -93,6 +93,7 @@
 |Navigate|Settings/Preferences|`CTRL+ALT+S`|⌘ ,|TODO|
 |Navigate|Split and Move Right|`ALT+S`|--|TODO|
 |Run|Toggle line breakpoint|`CTRL+F8`|⌘ F8|TODO|
+
 - TODO: selecting two files in project view (windows click)
 - TODO: fold/expand
 
