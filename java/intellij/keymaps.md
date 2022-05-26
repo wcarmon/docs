@@ -98,9 +98,9 @@
 
 ## Manual shortcuts with OS conflict
 1. `System Preferences` > `Keyboard` > `Shortcuts` >
-    1. `Mission Control` > Disable `Move left a space`
-    1. `Mission Control` > Disable `Move right a space`
-    1. `Keyboard` > Disable `Move focus to status menus`
+    1. `Mission Control` > Disable `Move left a space`  (conflicts with `Move caret to previous word`)
+    1. `Mission Control` > Disable `Move right a space` (conflicts with `Move caret to next word`)
+    1. `Keyboard` > Disable `Move focus to status menus` (conflicts with `Toggle line breakpoint`)
     1. `Services` > Disable `Open man Page in Terminal`
     1. `Services` > Disable `Open man Page Index in Terminal`
     1. `Services` > Disable `Show Map`
