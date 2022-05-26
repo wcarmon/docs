@@ -76,7 +76,7 @@
 |`ALT`|`option` (⌥)|
 |`CTRL`|`control` (⌃)|
 |`Backspace`|`delete` (⌫)|
-|`Delete`|`delete`|
+|`Delete`|`delete` (extended keyboard)|
 |`Insert`|*nothing*|
 |`windows`|`command` (⌘)|
 
@@ -87,8 +87,8 @@
 1. `tab` button
 
 
-# Remapping mac keys
-TODO
+# Remapping MacOS keys
+1. https://9to5mac.com/2016/03/17/how-to-remap-windows-keyboard-buttons-match-mac-layout/
 
 
 # Other resources
