@@ -14,11 +14,11 @@ func main() {
 
     done := make(chan struct{}, 1)
 
-    go doExpensiveTask(done)
+    go doSlowTask(done)
 
     // -- Wait for first of ...
     select {
-    case _ = <-done:
+    case <-done:
         // -- wait for task to finish
         fmt.Println("Finished task")
 
@@ -28,8 +28,8 @@ func main() {
     }
 }
 
-func doExpensiveTask(done chan<- bool) {
-    defer func() { done <- true }()
+func doSlowTask(done chan<- struct{}) {
+    defer func() { done <-struct{} }()
 
     time.Sleep(3 * time.Second)
 }
