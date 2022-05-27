@@ -7,14 +7,14 @@
 func main() {
     maxParallel := 3
 
-    semaphoreChan := make(chan bool, maxParallel)
+    semaphoreChan := make(chan struct{}, maxParallel)
     defer func() {
         close(semaphoreChan)
     }()
 
     // -- Create n permits
     for i := 0; i < maxParallel; i++ {
-        semaphoreChan <- true
+        semaphoreChan <- struct{}
     }
 
     // -- Spawn tasks
@@ -23,19 +23,20 @@ func main() {
     }
 
     // -- Wait for all the tasks to complete
+    // In practice, use WaitGroup or done chan
     time.Sleep(3 * time.Minute)
 }
 
 func simulateSlowTask(
     taskId int,
-    semaphoreChan chan bool) {
+    semaphoreChan chan struct{}) {
 
     // -- Wait for permit
-    _ = <-semaphoreChan
+    <-semaphoreChan
 
     // -- Return permit when finished
     defer func() {
-        semaphoreChan <- true
+        semaphoreChan <- struct{}
     }()
 
     // -- Do the slow task
