@@ -6,6 +6,9 @@
 # Idioms
 1. Add [Postfix templates](https://www.jetbrains.com/help/go/settings-postfix-completion.html) for anything you regularly type by accident
     1. Eg. all the methods in [strings](./strings.md) doc (they would be methods in java, but are in [`strings`](https://pkg.go.dev/strings) package for go)
+    1. Linux: `$HOME/.config/JetBrains/GoLand<version>/options/postfixTemplates.xml`
+    1. Mac: `~/Library/Application Support/JetBrains/GoLand<version>/options/postfixTemplates.xml`
+    1. windows: `%APPDATA%\JetBrains\GoLand<version>\options\postfixTemplates.xml`
 
 
 # My Favorite plugins
