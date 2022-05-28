@@ -21,8 +21,11 @@ var z struct{}
 
 - TODO: adding methods - methods.md
 - TODO: := copy/assign?
-- TODO: json
 - TODO: Embedding
+
+
+# JSON
+1. See [json](./json.md) doc
 
 
 # Anonymous structs
@@ -37,6 +40,8 @@ var z struct{}
 1. If you have getters, use `Owner`, not ~~`GetOwner`~~
 1. If you have setters, use `SetOwner`
 1. Method which converts to string is `String()` not `ToString()`
+    1. Generate String() using [Stringer](./stringer.md)
+
 
 # Other resources
 1. https://gobyexample.com/embedding
