@@ -17,7 +17,7 @@
     1. See [rdbms](./rdbms.md) doc
 
 
-# TODO: organize these
+# TODO: organize
 - TODO: handling for unrecognized properties (extras)
 - TODO: handling for missing properties
 - TODO: handling for $id and $schema

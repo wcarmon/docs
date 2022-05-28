@@ -17,3 +17,5 @@ TODO: `//go:generate stringer -type=Foo` at top of file
 # Other resources
 1. https://pkg.go.dev/golang.org/x/tools/cmd/stringer
 1. https://pkg.go.dev/fmt#Stringer
+1. https://musse.dev/stringer-golang/
+1. https://arjunmahishi.medium.com/golang-stringer-ad01db65e306
