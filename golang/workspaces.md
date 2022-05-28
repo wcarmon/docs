@@ -1,6 +1,7 @@
 # Overview
-1. TODO ...
-1. Requires go 1.18+
+1. How workspaces work
+1. Requires go [1.18](https://go.dev/blog/go1.18)+
+1. See [modules](./modules.md) doc first
 
 
 # Concepts
@@ -9,7 +10,8 @@
 
 
 # Creating
-TODO ...
+1. Create the module(s) first
+1. TODO
 
 
 # Other resources

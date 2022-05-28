@@ -93,6 +93,12 @@ for i, c := range "foo" {
 - TODO: strconv.Itoa
 
 
+# CaseFormat
+1. Changing among `lowerCamel, UpperCamel, lower-kebab, lower_snake, UPPER_SNAKE, ...
+1. github.com/iancoleman/strcase
+1. github.com/bitly/nsq/internal/stringy
+
+
 # Other resources
 1. [Official docs](https://go.dev/blog/strings)
 1. [Official Language spec](https://go.dev/ref/spec#String_types)

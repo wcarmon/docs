@@ -33,6 +33,7 @@ func teardown() {
 - TODO: explain table driven tests (show examples from sdk sources)
 - TODO: explain t.Parallel
 - TODO: explain t.Errorf
+- TODO: using reflect.DeepEqual to compare structs - https://pkg.go.dev/reflect#DeepEqual
 - TODO: testdata dir (not fixtures)  <-- examples from official
 - TODO: got & want  (not expected & actual)  <-- examples from official
 

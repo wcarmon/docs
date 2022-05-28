@@ -1,6 +1,6 @@
 # Overview
-1. How modules
-1. See also [workspaces](./workspaces.md) doc
+1. How modules work
+1. See also [workspaces](./workspaces.md) doc after
 
 
 # Purpose
@@ -20,7 +20,7 @@ rm -vf ./go.mod;
 rm -vf ./go.sum;
 go clean -modcache;
 
-go mod init wcarmon.com/arrangement;
+go mod init wcarmon.com/codegen;
 go mod tidy;
 ```
 

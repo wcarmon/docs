@@ -39,3 +39,4 @@
 # Other Resources
 1. https://9to5mac.com/2016/03/17/how-to-remap-windows-keyboard-buttons-match-mac-layout/
 1. https://www.lifewire.com/what-are-windows-keyboard-equivalents-to-mac-2260203
+1. https://defkey.com/what-means
