@@ -10,11 +10,13 @@
 
 
 # Enum Definition Example
+1. Zero value is `UnknownFoo`
+1. Suffix `Unknown` with distinct type to void collision with other enums in the package
 ```go
 type GameDirection uint8
 
 const (
-	Unknown = GameDirection(iota)  // the zero value
+	UnknownDirection = GameDirection(iota)
 	Up
 	Down
 	Left
