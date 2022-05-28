@@ -41,6 +41,7 @@ func (d GameDirection) IsHorizontal() bool {
 ## Using a [Map](./collections.maps.md)
 1. Pro: simpler to maintain than `switch` approach
 1. Pro: simpler reverse lookups
+1. Pro: (sligtly) less code
 1. Con: Indirect lookups
 ```go
 var directionLabels = map[GameDirection]string{
@@ -130,6 +131,8 @@ TODO: do I need this?
 1. Start with `Unknown` (as zero value)
     1. Helps detect unset value
     1. Helps integrate with [gRPC](https://grpc.io/) and [Protocol Buffers](https://developers.google.com/protocol-buffers)
+
+- TODO: catching missing branches in enum switch
 
 
 # Other resources
