@@ -115,7 +115,7 @@ for k, v := range src {
 # Put-if-absent
 ```go
 // Use a sync.Mutex when concurrent
-if _,exists := m[key]; !exists {
+if _, exists := m[key]; !exists {
     m[key] = "foo"
 }
 ```
