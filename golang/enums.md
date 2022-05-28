@@ -10,7 +10,7 @@
 
 
 # Enum Definition Example
-1. Zero value is `UnknownFoo`
+1. [Zero value](https://dave.cheney.net/2013/01/19/what-is-the-zero-value-and-why-is-it-useful) is `UnknownFoo`
 1. Suffix `Unknown` with distinct type to void collision with other enums in the package
 ```go
 type GameDirection uint8
