@@ -14,7 +14,7 @@
 type GameDirection uint8
 
 const (
-	Unknown = GameDirection(iota)
+	Unknown = GameDirection(iota)  // the zero value
 	Up
 	Down
 	Left
@@ -26,18 +26,11 @@ func (d GameDirection) IsHorizontal() bool {
 	switch d {
 	case Left, Right:
 		return true
-    default:
-        return false
+
+	default:
+		return false
 	}
 }
-```
-
-
-# Lookup Function Examples
-```go
-//TODO: lookup by string
-//TODO: lookup by number
-//TODO: iteration
 ```
 
 
@@ -84,6 +77,13 @@ func (d GameDirection) String() string {
 ```
 
 
+# Lookup Function Examples
+```go
+//TODO: lookup by string
+//TODO: lookup by number
+```
+
+
 # Iteration Example
 ```go
 TODO: do I need this?
@@ -101,6 +101,7 @@ TODO: do I need this?
 
 # Other resources
 1. [Official docs](https://go.dev/ref/spec#Iota)
+1. https://threedots.tech/post/safer-enums-in-go/
 1. https://dlintw.github.io/gobyexample/public/constants-and-iota.html
 1. https://yourbasic.org/golang/iota/
 1. https://golangbyexample.com/iota-in-golang/
