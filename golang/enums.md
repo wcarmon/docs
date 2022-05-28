@@ -28,7 +28,7 @@ func (d GameDirection) IsHorizontal() bool {
 		return true
 
 	default:
-	    //NOTE: Unknown case is here
+		//NOTE: Unknown case is here
 		return false
 	}
 }
@@ -123,7 +123,7 @@ TODO: do I need this?
 
 # Idioms
 1. Prefer unsigned numeric type
-1. Declare a new type (not an alias)
+1. Declare a new type (not an [alias](https://go.dev/ref/spec#Type_declarations))
     1. Compiler distinguishes from other enums
 1. Start with `Unknown` (as zero value)
     1. Helps detect unset value
