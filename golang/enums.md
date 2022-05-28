@@ -1,12 +1,12 @@
 # Overview
 - How enums work
-- `iota` (not `itoa`)
+- [`iota`](https://go.dev/ref/spec#Iota) (not [`itoa`](https://pkg.go.dev/strconv#Itoa))
 
 
 # iota
 1. [iota](https://go.dev/ref/spec#Iota) is a constant
     1. only works inside a constant declaration
-1. Starts at `0`
+1. Starts at `0` (not ~~`1`~~)
 
 
 # Definition Example
