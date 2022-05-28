@@ -23,6 +23,10 @@ var z struct{}
 - TODO: := copy/assign?
 - TODO: Embedding
 
+# Equality
+1. TODO: ==
+1. TODO: reflect.DeepEquals
+
 
 # JSON
 1. See [json](./json.md) doc
