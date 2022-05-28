@@ -41,7 +41,7 @@ for i, c := range "foo" {
 # Common operations
 |JVM method|Golang|
 |---|---|
-| [String::`charAt`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#charAt(int)) |`( []rune("abc") )[3] == 'd'`|
+| [String::`charAt`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#charAt(int)) | `"abc"[i: i+1]` or `( []rune("abc") )[3] == 'd'`|
 | [String::`compareTo`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#compareTo(java.lang.String)) |`s1 < s2` or [`strings.Compare(...)`](https://pkg.go.dev/strings#Compare) |
 | [String::`contains`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#contains(java.lang.CharSequence)) |[`strings.Contains(haystack, needle)`](https://pkg.go.dev/strings#Contains) |
 | [String::`endsWith`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#endsWith(java.lang.String)) | [`strings.HasSuffix(s, sfx)`](https://pkg.go.dev/strings#HasSuffix) |
