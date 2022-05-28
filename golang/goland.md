@@ -15,7 +15,7 @@
 1. [Lines Sorter](https://plugins.jetbrains.com/plugin/5919-lines-sorter)
 
 
-## Bundled
+## Bundled plugins
 1. [Diagrams](TODO)
 1. [Git](https://plugins.jetbrains.com/plugin/13173-git)
 1. [Go Template](https://www.jetbrains.com/help/go/integration-with-go-templates.html)
@@ -26,6 +26,19 @@
 1. [Shell script](https://plugins.jetbrains.com/plugin/13122-shell-script)
 1. [XWin Keymap](https://plugins.jetbrains.com/plugin/13094-xwin-keymap) - if you switch between mac/linux/windows frequently
 1. [Yaml](https://plugins.jetbrains.com/plugin/13126-yaml)
+
+
+# IDE Config files
+## Linux
+1. `$HOME/.config/JetBrains/GoLand<version>/`
+    1. eg. `$HOME/.config/JetBrains/GoLand2022.1/`
+
+## Mac
+1. `~/Library/Application Support/JetBrains/GoLand<version>/`
+
+## windows
+1. `%APPDATA%\JetBrains\GoLand<version>\`
+
 
 
 # Other resources
