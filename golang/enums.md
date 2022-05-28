@@ -28,6 +28,7 @@ func (d GameDirection) IsHorizontal() bool {
 		return true
 
 	default:
+	    //NOTE: Unknown case is here
 		return false
 	}
 }
@@ -35,28 +36,10 @@ func (d GameDirection) IsHorizontal() bool {
 
 
 # String/Labels Example
-## Using a Switch
-1. Faster than `map` approach, but harder to maintain
-```go
-// signature matches fmt.Stringer interface
-func (d GameDirection) String() string {
-	switch d {
-	case Down:
-		return "Down"
-	case Left:
-		return "Left"
-	case Right:
-		return "Right"
-	case Up:
-		return "Up"
-	default:
-		return "N/A"
-	}
-}
-```
-
 ## Using a [Map](./collections.maps.md)
-1. Indirect lookups, but simpler to maintain than `switch` approach
+1. Pro: simpler to maintain than `switch` approach
+1. Pro: simpler reverse lookups
+1. Con: Indirect lookups
 ```go
 var directionLabels = map[GameDirection]string{
 	Down:  "Down",
@@ -77,10 +60,58 @@ func (d GameDirection) String() string {
 ```
 
 
+## Using a Switch
+1. Pro: Faster than `map` approach
+1. Con: harder to maintain
+1. Con: harder to do reverse lookups
+```go
+// signature matches fmt.Stringer interface
+func (d GameDirection) String() string {
+	switch d {
+	case Down:
+		return "Down"
+	case Left:
+		return "Left"
+	case Right:
+		return "Right"
+	case Up:
+		return "Up"
+	default:
+		return "N/A"
+	}
+}
+```
+
+
 # Lookup Function Examples
 ```go
-//TODO: lookup by string
-//TODO: lookup by number
+func FromLabel(label string) GameDirection {
+	candidate := strings.TrimSpace(label)
+
+	for key, lbl := range directionLabels {
+		if strings.EqualFold(lbl, candidate) {
+			return key
+		}
+	}
+
+	return Unknown
+}
+
+func FromValue(value uint8) GameDirection {
+	switch GameDirection(value) {
+	case Down:
+		return Down
+	case Left:
+		return Left
+	case Right:
+		return Right
+	case Up:
+		return Up
+
+	default:
+		return Unknown
+	}
+}
 ```
 
 
