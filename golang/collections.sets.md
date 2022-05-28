@@ -83,7 +83,7 @@ for value, contains := range srcSet {
 
 
 # Sorting
-- See [sorting](./sort.md) doc
+- See [sorting](./sorting.md) doc
 
 
 # Other resources

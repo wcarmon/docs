@@ -105,7 +105,7 @@ copy(dest, src)
 
 
 # Sorting
-- See [sorting](./sort.md) doc
+- See [sorting](./sorting.md) doc
 
 
 # Printing
