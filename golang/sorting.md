@@ -6,10 +6,10 @@
 1. For builtin types:
 ```go
     // -- sort ints
-	myInts := []int{3, 5, 2}
-	sort.Ints(myInts)
+    myInts := []int{3, 5, 2}
+    sort.Ints(myInts)
 
-	fmt.Printf("%v", myInts) // [2 3 5]
+    fmt.Printf("%v", myInts) // [2 3 5]
 
     // -- sort floats
     myFloats := []float64{3.3, 5.5, 2.1}
@@ -18,10 +18,10 @@
     fmt.Printf("%v", myFloats) // [2.1 3.3 5.5]
 
     // -- sort strings
-	s := []string{"c", "a", "b"}
-	sort.Strings(s)
+    s := []string{"c", "a", "b"}
+    sort.Strings(s)
 
-	fmt.Printf("%v", s) // [a b c]
+    fmt.Printf("%v", s) // [a b c]
 ```
 1. For custom types
 ```go
