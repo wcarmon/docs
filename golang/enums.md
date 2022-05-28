@@ -5,29 +5,30 @@
 
 # iota
 1. [iota](https://go.dev/ref/spec#Iota) is a constant
-    1. only works inside a constant declaration
-1. Starts at `0` (not ~~`1`~~)
+    1. only works inside a [`const` declaration](https://go.dev/ref/spec#Constant_declarations)
+1. Starts at `0` (not `1`)
 
 
-# Definition Example
+# Enum Definition Example
 ```go
 type GameDirection uint8
 
 const (
-	Up = GameDirection(iota)
+	Unknown = GameDirection(iota)
+	Up
 	Down
 	Left
 	Right
 )
 
-// Helper method
+// Helper method example
 func (d GameDirection) IsHorizontal() bool {
 	switch d {
 	case Left, Right:
 		return true
+    default:
+        return false
 	}
-
-	return false
 }
 ```
 
@@ -41,7 +42,7 @@ func (d GameDirection) IsHorizontal() bool {
 
 
 # String/Labels Example
-## With Switch
+## Using a Switch
 1. Faster than `map` approach, but harder to maintain
 ```go
 // signature matches fmt.Stringer interface
@@ -50,7 +51,7 @@ func (d GameDirection) String() string {
 	case Down:
 		return "Down"
 	case Left:
-		return "oLeft"
+		return "Left"
 	case Right:
 		return "Right"
 	case Up:
@@ -61,8 +62,8 @@ func (d GameDirection) String() string {
 }
 ```
 
-## With Map
-1. Indirect lookups but simpler to maintain than `switch` approach
+## Using a [Map](./collections.maps.md)
+1. Indirect lookups, but simpler to maintain than `switch` approach
 ```go
 var directionLabels = map[GameDirection]string{
 	Down:  "Down",
@@ -93,6 +94,9 @@ TODO: do I need this?
 1. Prefer unsigned numeric type
 1. Declare a new type (not an alias)
     1. Compiler distinguishes from other enums
+1. Start with `Unknown` (as zero value)
+    1. Helps detect unset value
+    1. Helps integrate with [gRPC](https://grpc.io/) and [Protocol Buffers](https://developers.google.com/protocol-buffers)
 
 
 # Other resources
