@@ -83,6 +83,9 @@ TODO
 1. January == 1
 
 
+# Sleep
+1. See [Duration](./duration.md) doc
+
 # Idioms
 1. Avoid `time.Since` because it hard codes `time.Now()` (better to inject a time provider)
 1. Avoid `time.Until` because it hard codes `time.Now()` (better to inject a time provider)

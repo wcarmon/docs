@@ -52,6 +52,14 @@ fmt.Printf("dur: %v", dur.String())
 1. https://pkg.go.dev/time#Duration.String
 
 
+# Sleep
+```go
+time.Sleep(100 * time.Millisecond)
+time.Sleep(20 * time.Second)
+time.Sleep(5 * time.Minute)
+```
+
+
 # Round
 1. TODO: more here
 1. [Official doc](https://pkg.go.dev/time#Duration.Round)
