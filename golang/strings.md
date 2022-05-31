@@ -18,7 +18,7 @@
 
 
 # Literals
-- TODO: raw strings
+- TODO: raw strings - https://go.dev/ref/spec#String_literals
 - TODO: multi-line strings - Backquote: raw strings, multi-line, not-interpreted, cannot contain backquote
 
 
