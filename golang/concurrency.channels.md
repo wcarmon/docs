@@ -76,3 +76,7 @@ TODO: https://www.golang-book.com/books/intro/10
 
 # Other resources
 1. [Language spec](https://go.dev/ref/spec#Channel_types)
+1. [go101](https://go101.org/article/channel.html)
+1. [gobyexample](https://gobyexample.com/channels)
+1. [Official tour](https://go.dev/tour/concurrency/2)
+

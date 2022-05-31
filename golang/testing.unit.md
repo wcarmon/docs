@@ -42,4 +42,7 @@ func teardown() {
 
 
 # Other resources
-1. TODO ...
+1. [Official testing package](https://pkg.go.dev/testing)
+1. https://go.dev/doc/tutorial/add-a-test
+1. [testify lib](https://github.com/stretchr/testify)
+1. [digitalocean](https://www.digitalocean.com/community/tutorials/how-to-write-unit-tests-in-go-using-go-test-and-the-testing-package)

@@ -53,6 +53,7 @@ fmt.Printf("dur: %v", dur.String())
 
 
 # Sleep
+1. Probably better to wait for [channel]() or a [`WaitGroup`](https://pkg.go.dev/sync#WaitGroup.Wait)
 ```go
 time.Sleep(100 * time.Millisecond)
 time.Sleep(20 * time.Second)

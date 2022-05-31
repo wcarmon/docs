@@ -22,4 +22,8 @@ TODO ...
 
 
 # Other resources
-1. TODO ...
+1. https://go101.org/optimizations/0.3-memory-allocations.html
+1. [make](https://pkg.go.dev/builtin#make)
+1. [new](https://pkg.go.dev/builtin#new)
+1. [Effective Go > make](https://go.dev/doc/effective_go#allocation_make)
+1. [Effective Go > new](https://go.dev/doc/effective_go#allocation_new)
