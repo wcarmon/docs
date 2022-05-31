@@ -1,5 +1,7 @@
 # Overview
-- Using dates, times, zones, durations & periods
+- Using dates, times, zones
+- See [durations & periods](./duration.md) doc
+- [JVM equivalent](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Instant.html)
 
 
 # Representation
@@ -8,12 +10,21 @@ TODO
 
 
 # Formatting (to string)
+1. To standard [rfc3339](https://datatracker.ietf.org/doc/html/rfc3339)
 ```go
 t.Format(time.RFC3339)
 ```
+1. To other formats, use the [reference time of January 2, 15:04:05, 2006, in time zone seven hours west of GMT](https://pkg.go.dev/time#pkg-constants)
+```go
+t.Format("3:04PM")
+t.Format("2006-01-02T15:04:05Z07:00") // rfc3339
+t.Format("Mon Jan _2 15:04:05 MST 2006")
+```
+1. [Official doc](https://pkg.go.dev/time#Time.Format)
 
 
 # Parsing (from string)
+1. From standard [rfc3339](https://datatracker.ietf.org/doc/html/rfc3339)
 ```go
 s := "2022-11-45T22:36:19+00:00"
 t, err := time.Parse(time.RFC3339, s)
@@ -21,10 +32,27 @@ if err != nil {
     return err
 }
 ```
+1. TODO: other formats (magic string)
+1. [Official doc](https://pkg.go.dev/time#Parse)
 
 
 # Current Time
-TODO:
+1. Better to inject a clock (`func ()`)
+```go
+type Clock func() time.Time
+...
+c := func() time.Time {
+    return time.Now()
+}
+```
+
+
+# Equality & Comparison
+1. Use [t0.Equal(t1)](https://pkg.go.dev/time#Time.Equal) because it compares the instant
+    1. (normalizes to same timezone before comparing)
+1. Don't use `==` because it compares location
+```go
+```
 
 
 # Parts of year
@@ -40,7 +68,7 @@ TODO
 
 
 # Add/Subtract Durations/Periods
-TODO
+- See [duration](./duration.md) doc
 
 
 # Java/JVM interop
@@ -51,8 +79,22 @@ TODO
 TODO
 
 
+# Months
+1. January == 1
+
+
 # Idioms
-TODO ...
+1. Avoid `time.Since` because it hard codes `time.Now()` (better to inject a time provider)
+1. Avoid `time.Until` because it hard codes `time.Now()` (better to inject a time provider)
+
+
+- TODO: time.Before & time.After
+- TODO: time.AddDate
+- TODO: time.Round & Truncate
+- TODO: time.Sleep
+- TODO: time.In
+- TODO: time.UTC
+- TODO: time.After (chan)
 
 
 
