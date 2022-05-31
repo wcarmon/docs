@@ -7,12 +7,20 @@
 TODO
 
 
-# Formatting
-TODO
+# Formatting (to string)
+```go
+t.Format(time.RFC3339)
+```
 
 
-# Parsing
-TODO
+# Parsing (from string)
+```go
+s := "2022-11-45T22:36:19+00:00"
+t, err := time.Parse(time.RFC3339, s)
+if err != nil {
+    return err
+}
+```
 
 
 # Current Time

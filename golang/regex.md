@@ -13,6 +13,8 @@
 # Create regex
 1. [`Compile`](https://pkg.go.dev/regexp#Compile) builds optimized regex struct
 1. Use a [raw string](https://go.dev/ref/spec#String_literals) to avoid issues with backslashes
+    1. back slashes have no "special" meaning in a raw string, so no extra escapes are required
+1. Example
 ```go
 r, err := regexp.Compile(`[a-z]`)
 if err != nil {
@@ -23,9 +25,8 @@ if err != nil {
 ```
 
 ## Golang Regex Syntax
-1. https://pkg.go.dev/regexp/syntax
-1. https://www.sibis.dev/regex-in-golang
-1. https://github.com/google/re2/wiki/Syntax
+1. [RE2 syntax](https://github.com/google/re2/wiki/Syntax)
+    1. More info: [here](https://pkg.go.dev/regexp/syntax) and [here](https://www.sibis.dev/regex-in-golang)
 
 
 # Golang Regex API
