@@ -8,6 +8,16 @@
 ```go
 const defaultConfigFilename = "app.config.yaml"
 
+
+// Determines where to search for config file
+// Only used when no explicit config file passed
+//
+// Syntax allows
+// - absolute path
+// - path relative to working dir
+// - path prefixed with $HOME
+// - path with env variable (handled via os.ExpandEnv)
+//
 // TODO: replace foo with your app name
 var configSearchDirs = []string{
 	"/etc/foo",
