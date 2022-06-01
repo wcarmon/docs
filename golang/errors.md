@@ -60,6 +60,8 @@ func doWhatever() error {
 - TODO: errors.Is - obsoletes comparing error with ==
 - TODO: errors.As - obsoletes type assertion on error
 - TODO: fmt.Errorf with %w  <--- pattern for wrapping, fails when you prefix package :-(
+- TODO: only use `os.Exit` in main function
+- TODO: only use `log.Fatalf` in main function
 
 
 # Other resources

@@ -46,3 +46,4 @@ func teardown() {
 1. https://go.dev/doc/tutorial/add-a-test
 1. [testify lib](https://github.com/stretchr/testify)
 1. [digitalocean](https://www.digitalocean.com/community/tutorials/how-to-write-unit-tests-in-go-using-go-test-and-the-testing-package)
+1. https://blog.alexellis.io/golang-writing-unit-tests/

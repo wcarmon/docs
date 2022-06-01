@@ -9,6 +9,10 @@
     1. Linux: `$HOME/.config/JetBrains/GoLand<version>/options/postfixTemplates.xml`
     1. Mac: `~/Library/Application Support/JetBrains/GoLand<version>/options/postfixTemplates.xml`
     1. windows: `%APPDATA%\JetBrains\GoLand<version>\options\postfixTemplates.xml`
+1. Add LiveTemplates for code snippets you use more than once
+    1. Linux: `$HOME/.config/JetBrains/GoLand<version>/jba_config/templates/<your-group-name>.xml`
+    1. Mac: `~/Library/Application Support/JetBrains/GoLand<version>/jba_config/templates/<your-group-name>.xml`
+    1. windows: `%APPDATA%\JetBrains\GoLand<version>\jba_config\templates\<your-group-name>.xml`
 
 
 # My Favorite plugins

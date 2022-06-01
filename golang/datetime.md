@@ -91,12 +91,12 @@ TODO
 1. Avoid `time.Until` because it hard codes `time.Now()` (better to inject a time provider)
 
 
-- TODO: time.Before & time.After
-- TODO: time.AddDate
-- TODO: time.Round & Truncate
-- TODO: time.Sleep
-- TODO: time.In
-- TODO: time.UTC
+- TODO: t.Before & t.After
+- TODO: t.AddDate
+- TODO: t.Round & t.Truncate
+- TODO: t.Sleep
+- TODO: t.In
+- TODO: t.UTC
 - TODO: time.After (chan)
 
 
