@@ -51,5 +51,9 @@
 - See [jetbrains-shortcuts](../macos/jetbrains-shortcuts.md) doc
 
 
+# Other optional settings/preferences
+1. Disable smart quotes
+
+
 # Other resources
 1. TODO ...
