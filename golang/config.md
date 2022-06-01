@@ -39,7 +39,6 @@ func (c *appConfig) Load(osArgs []string) error {
 	v := viper.New()
 
 	// -- Set paths for config file
-	v.SetConfigType("yaml")
 	err := setPathConfigForViper(
 		v,
 		osArgs,
@@ -48,6 +47,8 @@ func (c *appConfig) Load(osArgs []string) error {
 	if err != nil {
 		return err
 	}
+
+	v.SetConfigType("yaml")
 
 	// -- If you want to accept env vars
 	// v.AutomaticEnv()
