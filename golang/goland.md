@@ -23,7 +23,7 @@
 
 
 ## Bundled plugins
-1. [Diagrams](TODO)
+1. [Diagrams](https://www.jetbrains.com/help/go/diagrams.html)
 1. [Git](https://plugins.jetbrains.com/plugin/13173-git)
 1. [Go Template](https://www.jetbrains.com/help/go/integration-with-go-templates.html)
 1. [gRPC](https://plugins.jetbrains.com/plugin/16889-grpc)
@@ -46,6 +46,9 @@
 ## windows
 1. `%APPDATA%\JetBrains\GoLand<version>\`
 
+
+# Keymap: Jetbrains shortcuts
+- See [jetbrains-shortcuts](../macos/jetbrains-shortcuts.md) doc
 
 
 # Other resources

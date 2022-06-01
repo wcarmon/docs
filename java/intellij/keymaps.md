@@ -25,6 +25,7 @@
 1. `PyCharm2021.3`
 1. `PyCharm2022.1`
 
+
 # Jetbrains shortcuts
 - See [jetbrains-shortcuts](../../macos/jetbrains-shortcuts.md) doc
 
