@@ -98,7 +98,47 @@ touch ~/Library/KeyBindings/DefaultKeyBinding.dict
 ```
 1. Add this & save
 ```
-{ "~a" = (); "~b" = (); "~c" = (); "~d" = (); "~e" = (); "~f" = (); "~g" = (); "~h" = (); "~i" = (); "~j" = (); "~k" = (); "~l" = (); "~m" = (); "~n" = (); "~o" = (); "~p" = (); "~q" = (); "~r" = (); "~s" = (); "~t" = (); "~u" = (); "~v" = (); "~w" = (); "~x" = (); "~y" = (); "~z" = (); }
+/*
+^ : Ctrl
+$ : Shift
+~ : Option (Alt)
+@ : Command (Apple)
+# : Numeric Keypad
+*/
+
+{
+    "@\UF702"  = "moveWordBackward:";                            /* Cmd  + LeftArrow */
+    "@\U007F"  = "deleteWordBackward:";                          /* Cmd  + Backspace */
+    "@\UF703"  = "moveWordForward:";                             /* Cmd  + RightArrow */
+    "@\UF728"  = "deleteWordForward:";                           /* Cmd  + Delete */
+
+    "~a" = ();
+    "~b" = ();
+    "~c" = ();
+    "~d" = ();
+    "~e" = ();
+    "~f" = ();
+    "~g" = ();
+    "~h" = ();
+    "~i" = ();
+    "~j" = ();
+    "~k" = ();
+    "~l" = ();
+    "~m" = ();
+    "~n" = ();
+    "~o" = ();
+    "~p" = ();
+    "~q" = ();
+    "~r" = ();
+    "~s" = ();
+    "~t" = ();
+    "~u" = ();
+    "~v" = ();
+    "~w" = ();
+    "~x" = ();
+    "~y" = ();
+    "~z" = ();
+}
 ```
 
 
