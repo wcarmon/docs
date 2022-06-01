@@ -92,18 +92,18 @@
 
 # Quick checklist to verify shortcuts
 ## Triads
-1. CTRL+ALT+SHIFT+N (go to symbol)
+1. `CTRL+ALT+SHIFT+N` (go to symbol)
 
 ## Pairs
-1. ALT+SHIFT+L (sort lines)
-1. CTRL+ALT+L (reformat)
-1. CTRL+SHIFT+A (go to action)
+1. `ALT+SHIFT+L` (sort lines)
+1. `CTRL+ALT+L` (reformat)
+1. `CTRL+SHIFT+A` (go to action)
 
 ## Single
-1. ALT+1 (project view)
-1. CTRL+J (live templates)
-1. SHIFT+F6 (rename)
-1. SHIFT+SHIFT (Search anywhere)
+1. `ALT+1` (project view)
+1. `CTRL+J` (live templates)
+1. `SHIFT+F6` (rename)
+1. `SHIFT+SHIFT` (Search anywhere)
 
 
 # Other resources
