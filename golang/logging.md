@@ -28,6 +28,10 @@
     1. keys and values have to be paired carefully (error prone)
 
 
+# Mapping levels
+```go
+```
+
 # Other resources
 1. https://pkg.go.dev/github.com/rs/zerolog
 1. https://github.com/rs/zerolog
