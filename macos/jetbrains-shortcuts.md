@@ -93,6 +93,7 @@
 # Option symbol conflicts
 1. Create/open your key bindings file
 ```sh
+mkdir ~/Library/KeyBindings;
 touch ~/Library/KeyBindings/DefaultKeyBinding.dict
 ```
 1. Add this & save
