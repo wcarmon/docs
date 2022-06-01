@@ -23,6 +23,7 @@ var configSearchDirs = []string{
 	"/etc/foo",
 	"$HOME/.foo",
 	".",
+	"..",
 }
 
 type appConfig struct {
@@ -103,3 +104,7 @@ func setPathConfigForViper(
 
 
 # Other resources
+1. https://github.com/spf13/viper
+1. https://blog.logrocket.com/handling-go-configuration-viper/
+1. https://medium.com/@jomzsg/the-easy-way-to-handle-configuration-file-in-golang-using-viper-6b3c88d2ee79
+1. https://dev.to/techschoolguru/load-config-from-file-environment-variables-in-golang-with-viper-2j2d
