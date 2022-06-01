@@ -90,6 +90,18 @@
 |Run|Toggle line breakpoint|`CTRL+F8`|`⌘ F8`|Works once conflict removed|
 
 
+# Option symbol conflicts
+1. Create/open your key bindings file
+```sh
+touch ~/Library/KeyBindings/DefaultKeyBinding.dict
+```
+1. Add this & save
+```
+{ "~a" = (); "~b" = (); "~c" = (); "~d" = (); "~e" = (); "~f" = (); "~g" = (); "~h" = (); "~i" = (); "~j" = (); "~k" = (); "~l" = (); "~m" = (); "~n" = (); "~o" = (); "~p" = (); "~q" = (); "~r" = (); "~s" = (); "~t" = (); "~u" = (); "~v" = (); "~w" = (); "~x" = (); "~y" = (); "~z" = (); }
+```
+
+
+
 # Quick checklist to verify shortcuts
 ## Triads
 1. `CTRL+ALT+SHIFT+N` (go to symbol)
