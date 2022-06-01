@@ -15,17 +15,17 @@
 |Edit|Duplicate line|`CTRL+D`|⌘ D|
 |Edit|Inline|`CTRL+ALT+N`|⌥ ⌘ N|
 |Edit|Move statement up/down|`CTRL+SHIFT+Up`, `CTRL+SHIFT+Down`|⇧ ⌘ ↓|
-|Edit|Optimize Imports|`ALT+CTRL+O`|TODO|
+|Edit|Optimize Imports|`CTRL+ALT+O`|TODO|
 |Edit|Override or implement a method|`CTRL+O`|TODO|
-|Edit|Postfix completion|`CTRL+J`|TODO|
+|Edit|Postfix completion, live templates|`CTRL+J`|TODO|
 |Edit|Quick fixes, Global method name completion|`ALT+Enter`|TODO|
 |Edit|Redo|`CTRL+SHIFT+Z`|⇧ ⌘ Z|
-|Edit|Reformat|`ALT+CTRL+L`|⌥ ⌘ L|
+|Edit|Reformat|`CTRL+ALT+L`|⌥ ⌘ L|
 |Edit|Sort lines|`ALT+SHIFT+L`|-|
 |Edit|Syntax aware selection|`CTRL+W`, `CTRL+SHIFT+W`|TODO|
 |Edit|Type-matching completion|`CTRL+SHIFT+Space`|⌃ ⇧ Space|
 |Edit|Undo|`CTRL+Z`|⌘ Z|
-|Git|add|`ALT+CTRL+A`|TODO|
+|Git|add|`CTRL+ALT+A`|TODO|
 |Git|commit|`CTRL+K`|⌘ K|
 |Git|push|`CTRL+SHIFT+K`|⇧ ⌘ K|
 |Navigate|AceJump - Activate / Cycle AceJump Mode|`CTRL+;`, `CTRL+'`|--|
@@ -38,7 +38,7 @@
 |Navigate|Go to declaration|`CTRL+B`|⇧ ⌘ B|
 |Navigate|Go to File|`CTRL+SHIFT+N`|⇧ ⌘ O|
 |Navigate|Go to Line|`CTRL+G`|⌘ L|
-|Navigate|Go to symbol|`ALT+CTRL+SHIFT+N`|⌥ ⌘ O|
+|Navigate|Go to symbol|`CTRL+ALT+SHIFT+N`|⌥ ⌘ O|
 |Navigate|Jump to next error|`F2`|(same)|
 |Navigate|Last edit location|`CTRL+SHIFT+Backspace`|⇧ ⌘ ⌫|
 |Navigate|Move caret to next method (member)|`ALT+Down`|⌃ ⇧ ↓|
@@ -50,9 +50,9 @@
 |Navigate|Search Everywhere|`SHIFT+SHIFT`|(same)|
 |Navigate|Select Multiple files|`CTRL+Click`|`Windows+Click`|
 |Navigate|Select next/previous Tab|`ALT+Left` `ALT+Right`|TODO|
-|Refactor|Extract constant|`ALT+CTRL+C`|⌥ ⌘ C|
-|Refactor|Extract method|`ALT+CTRL+M`|⌥ ⌘ M|
-|Refactor|Introduce/Extract variable|`ALT+CTRL+V`|⌥ ⌘ V|
+|Refactor|Extract constant|`CTRL+ALT+C`|⌥ ⌘ C|
+|Refactor|Extract method|`CTRL+ALT+M`|⌥ ⌘ M|
+|Refactor|Introduce/Extract variable|`CTRL+ALT+V`|⌥ ⌘ V|
 |Refactor|Rename|`SHIFT+F6`|⇧ F6|
 |Run|Debug ...|`ALT+SHIFT+F9`|⌃ ⌥ D|
 |Run|Run ...|`ALT+SHIFT+F10`|⌃ ⌥ R|
@@ -88,6 +88,22 @@
 |Navigate|Move caret to next/previous word|`CTRL+Right` / `CTRL+Left` |`⌥ →` / `⌥ ←`|Works once conflict removed|
 |Navigate|Settings/Preferences|`CTRL+ALT+S`|`⌘ ,`|**TODO: conflict: `⌃ ⌥ S` or `Control+Option+S`**|
 |Run|Toggle line breakpoint|`CTRL+F8`|`⌘ F8`|Works once conflict removed|
+
+
+# Quick checklist to verify shortcuts
+## Triads
+1. CTRL+ALT+SHIFT+N (go to symbol)
+
+## Pairs
+1. ALT+SHIFT+L (sort lines)
+1. CTRL+ALT+L (reformat)
+1. CTRL+SHIFT+A (go to action)
+
+## Single
+1. ALT+1 (project view)
+1. CTRL+J (live templates)
+1. SHIFT+F6 (rename)
+1. SHIFT+SHIFT (Search anywhere)
 
 
 # Other resources
