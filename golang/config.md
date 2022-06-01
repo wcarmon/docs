@@ -38,7 +38,7 @@ type appConfig struct {
 func (c *appConfig) Load(osArgs []string) error {
 	v := viper.New()
 
-	// -- Set paths
+	// -- Set paths for config file
 	v.SetConfigType("yaml")
 	err := setPathConfigForViper(
 		v,
