@@ -1,5 +1,5 @@
 # Overview
-1. Making Jetbrains shortcuts more like linux/windows (IDEA, Goland, WebStorm, ...)
+1. Making Jetbrains shortcuts more like Linux/windows (IDEA, Goland, WebStorm, ...)
 
 
 # My most common shortcuts

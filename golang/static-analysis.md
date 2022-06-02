@@ -27,6 +27,10 @@ staticcheck ./...
 - TODO: container
 
 
+# gopls
+- TODO: https://github.com/golang/tools/tree/master/gopls
+
+
 # go vet
 ```sh
 cd $PROJ_ROOT;
