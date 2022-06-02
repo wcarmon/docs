@@ -53,7 +53,7 @@ readonly DEFAULT_WIN_KEYBOARD_RIGHT_ALT=0x7000000e6;
 readonly DEFAULT_WIN_KEYBOARD_RIGHT_CTRL=0x7000000e4;
 readonly DEFAULT_WIN_KEYBOARD_RIGHT_SHIFT=0x7000000e5;
 ```
-1. Get keyboard `Product id`
+2. Get keyboard `Product id`
     1. Apple icon > `About This Mac` > `System Report` button > `Hardware` > `USB` > ...
     1. or `hidutil --list | grep -i microso` (or some unique string to identify your keyboad)
 ```sh
@@ -94,6 +94,13 @@ hidutil property \
 --matching "{\"ProductID\":$PRODUCT_ID_FOR_WIN_KEYBOARD}" \
 --get "UserKeyMapping";
 ```
+1. `ALT+CTRL+?`: TODO
+1. `ALT+SHIFT+?`: TODO
+1. `ALT+Tab`: switch window
+1. `CTRL+Right`: jump to next word
+1. `CTRL+SHIFT+Right`: highlight next word
+1. `SHIFT+Right`: highlight next char
+
 
 ### Undo/Reset
 ```sh
