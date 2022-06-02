@@ -43,27 +43,31 @@
 PRODUCT_ID=0x07a5;
 
 readonly KEYBOARD_LEFT_ALT=0x7000000e2;
+readonly KEYBOARD_META=0x7000000e3; # aka Left windows key, aka Left GUI key
+readonly KEYBOARD_RIGHT_ALT=0x7000000e6;
+
+
 KEYBOARD_LEFT_CTRL=0x7000000e0;    # TODO: verify
-KEYBOARD_RIGHT_ALT=0x7000000e6;    # TODO: verify
 KEYBOARD_RIGHT_CTRL=0x7000000e4;   # TODO: verify
-KEYBOARD_META=0x7000000__;
+KEYBOARD_END=?
+
 
 # KEYBOARD_LEFT_ALT -> ?
 # KEYBOARD_LEFT_CTRL -> ?
 # KEYBOARD_RIGHT_ALT -> ?
 # KEYBOARD_RIGHT_CTRL -> ?
-#
+# END -> ?
 
 hidutil property \
 --matching "{\"ProductID\":$PRODUCT_ID}" \
---set '{"UserKeyMapping":
+--set "{\"UserKeyMapping\":
   [
     {
-      "HIDKeyboardModifierMappingSrc":$KEYBOARD_LEFT_ALT,
-      "HIDKeyboardModifierMappingDst":0x700000067
+      \"HIDKeyboardModifierMappingSrc\":$KEYBOARD_LEFT_ALT,
+      \"HIDKeyboardModifierMappingDst\":0x700000067
     }
   ]
-}'
+}"
 ```
 
 ### Verify
