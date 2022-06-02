@@ -27,14 +27,7 @@
 # Remapping MacOS keys
 1. Most cross platform apps have OS specific key maps (eg. Chrome, IDEA, Outlook, ...)
 
-## Steps
-1. System Preferences > Keyboard > Modifier Keys... (lower right)
-1. Select the "windows" keyboard
-    1. Control (⌃) Key: `⌘ Command`
-    1. Option (⌥) Key: `⌃ Control`
-    1. Command (⌘) Key: `⌥ Option`
-
-## Via command line
+## Steps: Via command line
 1. Get relevant [keycodes](https://www.freebsddiary.org/APC/usb_hid_usages.php)
 1. Get keyboard `Product id`
     1. Apple icon > `About This Mac` > `System Report` button > `Hardware` > `USB` > ...
@@ -57,6 +50,7 @@ readonly DEFAULT_WIN_KEYBOARD_BACKSPACE=0x70000002a;
 readonly DEFAULT_WIN_KEYBOARD_DELETE=0x70000004c;
 readonly DEFAULT_WIN_KEYBOARD_END=0x70000004d;
 readonly DEFAULT_WIN_KEYBOARD_HOME=0x70000004a;
+readonly DEFAULT_WIN_KEYBOARD_INSERT=0x700000049;
 readonly DEFAULT_WIN_KEYBOARD_LEFT_ALT=0x7000000e2;
 readonly DEFAULT_WIN_KEYBOARD_LEFT_CTRL=0x7000000e0;
 readonly DEFAULT_WIN_KEYBOARD_LEFT_SHIFT=0x7000000e1;
@@ -65,21 +59,30 @@ readonly DEFAULT_WIN_KEYBOARD_RIGHT_ALT=0x7000000e6;
 readonly DEFAULT_WIN_KEYBOARD_RIGHT_CTRL=0x7000000e4;
 readonly DEFAULT_WIN_KEYBOARD_RIGHT_SHIFT=0x7000000e5;
 
-
-# TODO: mappings
-# KEYBOARD_LEFT_ALT -> ?
-# KEYBOARD_LEFT_CTRL -> ?
-# KEYBOARD_RIGHT_ALT -> ?
-# KEYBOARD_RIGHT_CTRL -> ?
-# END -> ?
-
+# -- remap just one keyboard
 hidutil property \
 --matching "{\"ProductID\":$PRODUCT_ID}" \
 --set "{\"UserKeyMapping\":
   [
     {
-      \"HIDKeyboardModifierMappingSrc\":$KEYBOARD_LEFT_ALT,
-      \"HIDKeyboardModifierMappingDst\":0x700000067
+      \"HIDKeyboardModifierMappingSrc\":$DEFAULT_WIN_KEYBOARD_LEFT_ALT,
+      \"HIDKeyboardModifierMappingDst\":$DEFAULT_MAC_KEYBOARD_LEFT_COMMAND
+    },
+    {
+      \"HIDKeyboardModifierMappingSrc\":$DEFAULT_WIN_KEYBOARD_RIGHT_ALT,
+      \"HIDKeyboardModifierMappingDst\":$DEFAULT_MAC_KEYBOARD_RIGHT_COMMAND
+    },
+    {
+      \"HIDKeyboardModifierMappingSrc\":$DEFAULT_WIN_KEYBOARD_LEFT_CTRL,
+      \"HIDKeyboardModifierMappingDst\":$DEFAULT_MAC_KEYBOARD_LEFT_OPTION
+    },
+    {
+      \"HIDKeyboardModifierMappingSrc\":$DEFAULT_WIN_KEYBOARD_RIGHT_CTRL,
+      \"HIDKeyboardModifierMappingDst\":$DEFAULT_MAC_KEYBOARD_RIGHT_OPTION
+    },
+    {
+      \"HIDKeyboardModifierMappingSrc\":$DEFAULT_WIN_KEYBOARD_META,
+      \"HIDKeyboardModifierMappingDst\":$DEFAULT_MAC_KEYBOARD_CONTROL
     }
   ]
 }"
@@ -99,11 +102,18 @@ hidutil property \
 --matching "{\"ProductID\":$PRODUCT_ID}" \
 --set '{"UserKeyMapping":[]}';
 
-
 # -- Reset all keyboards
 hidutil property --set '{"UserKeyMapping":[]}';
 ```
 - *or just restart*
+
+
+## Steps: Via GUI
+1. System Preferences > Keyboard > Modifier Keys... (lower right)
+1. Select the "windows" keyboard
+    1. Control (⌃) Key: `⌘ Command`
+    1. Option (⌥) Key: `⌃ Control`
+    1. Command (⌘) Key: `⌥ Option`
 
 
 # Other Resources
