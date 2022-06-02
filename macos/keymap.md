@@ -25,7 +25,6 @@
 
 
 # Remapping MacOS keys
-1. Remapping at OS level can make things more confusing
 1. Most cross platform apps have OS specific key maps (eg. Chrome, IDEA, Outlook, ...)
 
 ## Steps
@@ -35,8 +34,49 @@
     1. Option (⌥) Key: `⌃ Control`
     1. Command (⌘) Key: `⌥ Option`
 
+## Via command line
+1. Get keyboard product id
+    1. Apple icon > About This Mac > `System Report` button > Hardware > USB > ...
+```sh
+PRODUCT_ID=0x07a5;
+hidutil property --matching '{"ProductID":0x123}' --set '{"UserKeyMapping":
+ [{"HIDKeyboardModifierMappingSrc":0x700000054,
+   "HIDKeyboardModifierMappingDst":0x700000067
+ }]
+}'
+```
+
 
 # Other Resources
 1. https://9to5mac.com/2016/03/17/how-to-remap-windows-keyboard-buttons-match-mac-layout/
 1. https://www.lifewire.com/what-are-windows-keyboard-equivalents-to-mac-2260203
 1. https://defkey.com/what-means
+1. https://hidutil-generator.netlify.app/
+1. https://www.manpagez.com/man/1/hidutil/
+1. https://www.nanoant.com/mac/macos-function-key-remapping-with-hidutil
+1. https://developer.apple.com/library/archive/technotes/tn2450/_index.html
+1. https://rakhesh.com/mac/using-hidutil-to-map-macos-keyboard-keys/
+
+
+--------
+# TODO: organize
+- hidutil
+- UserKeyMapping
+- HIDKeyboardModifierMappingSrc
+- `hidutil dump services`
+- `~/Library/LaunchAgents/local.hidutilKeyMapping.plist`
+- `hidutil property --get "UserKeyMapping"`
+- `hidutil dump services`
+- https://hidutil-generator.netlify.app/
+- https://developer.apple.com/library/archive/technotes/tn2450/_index.html#//apple_ref/doc/uid/DTS40017618-CH1-KEY_TABLE_USAGES
+- per device
+```
+hidutil property --matching '{"ProductID":0x123}' --set '{"UserKeyMapping":
+ [{"HIDKeyboardModifierMappingSrc":0x700000054,
+   "HIDKeyboardModifierMappingDst":0x700000067
+ }]
+}'
+```
+- Usb keyboard device id:
+- `launchctl load`
+- https://www.nanoant.com/mac/macos-function-key-remapping-with-hidutil
