@@ -29,13 +29,7 @@
 
 ## Steps: Via command line
 1. Get relevant [keycodes](https://www.freebsddiary.org/APC/usb_hid_usages.php)
-1. Get keyboard `Product id`
-    1. Apple icon > `About This Mac` > `System Report` button > `Hardware` > `USB` > ...
-    1. or `hidutil --list | grep -i microso` (or some unique string to identify your keyboad)
-```sh
-PRODUCT_ID=0x07a5;
-
-# See https://www.freebsddiary.org/APC/usb_hid_usages.php
+```
 readonly DEFAULT_MAC_KEYBOARD_CONTROL=0x7000000e0;
 readonly DEFAULT_MAC_KEYBOARD_DELETE=0x70000002a;
 readonly DEFAULT_MAC_KEYBOARD_LEFT_COMMAND=0x7000000e3;
@@ -58,10 +52,16 @@ readonly DEFAULT_WIN_KEYBOARD_META=0x7000000e3; # aka Left windows key, aka Left
 readonly DEFAULT_WIN_KEYBOARD_RIGHT_ALT=0x7000000e6;
 readonly DEFAULT_WIN_KEYBOARD_RIGHT_CTRL=0x7000000e4;
 readonly DEFAULT_WIN_KEYBOARD_RIGHT_SHIFT=0x7000000e5;
+```
+1. Get keyboard `Product id`
+    1. Apple icon > `About This Mac` > `System Report` button > `Hardware` > `USB` > ...
+    1. or `hidutil --list | grep -i microso` (or some unique string to identify your keyboad)
+```sh
+PRODUCT_ID_FOR_WIN_KEYBOARD=0x07a5;
 
 # -- remap just one keyboard
 hidutil property \
---matching "{\"ProductID\":$PRODUCT_ID}" \
+--matching "{\"ProductID\":$PRODUCT_ID_FOR_WIN_KEYBOARD}" \
 --set "{\"UserKeyMapping\":
   [
     {
@@ -91,7 +91,7 @@ hidutil property \
 ### Verify
 ```sh
 hidutil property \
---matching "{\"ProductID\":$PRODUCT_ID}" \
+--matching "{\"ProductID\":$PRODUCT_ID_FOR_WIN_KEYBOARD}" \
 --get "UserKeyMapping";
 ```
 
@@ -99,7 +99,7 @@ hidutil property \
 ```sh
 # -- Reset just one keyboard
 hidutil property \
---matching "{\"ProductID\":$PRODUCT_ID}" \
+--matching "{\"ProductID\":$PRODUCT_ID_FOR_WIN_KEYBOARD}" \
 --set '{"UserKeyMapping":[]}';
 
 # -- Reset all keyboards
