@@ -42,13 +42,16 @@
 ```sh
 PRODUCT_ID=0x07a5;
 
-readonly LEFT_ALT=0x7000000e2;
-readonly LEFT_CTRL=0x7000000e0;
-readonly RIGHT_ALT=0x7000000e6;
-readonly RIGHT_CTRL=0x7000000e4;
+readonly KEYBOARD_LEFT_ALT=0x7000000e2;
+KEYBOARD_LEFT_CTRL=0x7000000e0;    # TODO: verify
+KEYBOARD_RIGHT_ALT=0x7000000e6;    # TODO: verify
+KEYBOARD_RIGHT_CTRL=0x7000000e4;   # TODO: verify
+KEYBOARD_META=0x7000000__;
 
-# LEFT_ALT ->
-# RIGHT_ALT ->
+# KEYBOARD_LEFT_ALT -> ?
+# KEYBOARD_LEFT_CTRL -> ?
+# KEYBOARD_RIGHT_ALT -> ?
+# KEYBOARD_RIGHT_CTRL -> ?
 #
 
 hidutil property \
@@ -56,7 +59,7 @@ hidutil property \
 --set '{"UserKeyMapping":
   [
     {
-      "HIDKeyboardModifierMappingSrc":0x700000054,
+      "HIDKeyboardModifierMappingSrc":$KEYBOARD_LEFT_ALT,
       "HIDKeyboardModifierMappingDst":0x700000067
     }
   ]
