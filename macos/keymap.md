@@ -140,23 +140,5 @@ hidutil property --set '{"UserKeyMapping":[]}';
 
 --------
 # TODO: organize
-- hidutil
-- UserKeyMapping
-- HIDKeyboardModifierMappingSrc
-- `hidutil dump services`
 - `~/Library/LaunchAgents/local.hidutilKeyMapping.plist`
-- `hidutil property --get "UserKeyMapping"`
-- `hidutil dump services`
-- https://hidutil-generator.netlify.app/
-- https://developer.apple.com/library/archive/technotes/tn2450/_index.html#//apple_ref/doc/uid/DTS40017618-CH1-KEY_TABLE_USAGES
-- per device
-```
-hidutil property --matching '{"ProductID":0x123}' --set '{"UserKeyMapping":
- [{"HIDKeyboardModifierMappingSrc":0x700000054,
-   "HIDKeyboardModifierMappingDst":0x700000067
- }]
-}'
-```
-- Usb keyboard device id:
 - `launchctl load`
-- https://www.nanoant.com/mac/macos-function-key-remapping-with-hidutil
