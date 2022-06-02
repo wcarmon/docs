@@ -62,14 +62,21 @@ hidutil property \
   ]
 }'
 ```
-1. Verify:
+
+### Verify
 ```sh
 hidutil property \
---get "UserKeyMapping" \
---matching "{\"ProductID\":$PRODUCT_ID}";
+--matching "{\"ProductID\":$PRODUCT_ID}" \
+--get "UserKeyMapping";
 ```
-1. Undo/Reset: `hidutil property --set '{"UserKeyMapping":[]}'`
-    1. or just restart
+
+### Undo/Reset
+```sh
+hidutil property \
+--matching "{\"ProductID\":$PRODUCT_ID}" \
+--set '{"UserKeyMapping":[]}';
+```
+- *or just restart*
 
 
 # Other Resources
