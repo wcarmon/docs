@@ -35,16 +35,39 @@
     1. Command (⌘) Key: `⌥ Option`
 
 ## Via command line
+1. Get relevant [keycodes](https://www.freebsddiary.org/APC/usb_hid_usages.php)
 1. Get keyboard product id
     1. Apple icon > About This Mac > `System Report` button > Hardware > USB > ...
+    1. or `hidutil --list | grep micros` (or some unique string to identify your keyboad)
 ```sh
 PRODUCT_ID=0x07a5;
-hidutil property --matching '{"ProductID":0x123}' --set '{"UserKeyMapping":
- [{"HIDKeyboardModifierMappingSrc":0x700000054,
-   "HIDKeyboardModifierMappingDst":0x700000067
- }]
+
+readonly LEFT_ALT=0x7000000e2;
+readonly LEFT_CTRL=0x7000000e0;
+readonly RIGHT_ALT=0x7000000e6;
+readonly RIGHT_CTRL=0x7000000e4;
+
+# LEFT_ALT ->
+# RIGHT_ALT ->
+#
+0x7000000e7 <--> 0x7000000e6
+
+# TODO: if `--matching` fails, try `--filter`
+
+hidutil property \
+--matching "{\"ProductID\":$PRODUCT_ID}" \
+--set '{"UserKeyMapping":
+  [
+    {
+      "HIDKeyboardModifierMappingSrc":0x700000054,
+      "HIDKeyboardModifierMappingDst":0x700000067
+    }
+  ]
 }'
 ```
+1. Verify: `hidutil property --get "UserKeyMapping"`
+1. Undo/Reset: `hidutil property --set '{"UserKeyMapping":[]}'`
+    1. or just restart
 
 
 # Other Resources
@@ -54,6 +77,7 @@ hidutil property --matching '{"ProductID":0x123}' --set '{"UserKeyMapping":
 1. https://hidutil-generator.netlify.app/
 1. https://www.manpagez.com/man/1/hidutil/
 1. https://www.nanoant.com/mac/macos-function-key-remapping-with-hidutil
+1. https://www.freebsddiary.org/APC/usb_hid_usages.php
 1. https://developer.apple.com/library/archive/technotes/tn2450/_index.html
 1. https://rakhesh.com/mac/using-hidutil-to-map-macos-keyboard-keys/
 
