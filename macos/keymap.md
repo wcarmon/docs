@@ -8,14 +8,14 @@
 ## Keys worth remapping
 1. Matching physical order relative to space bar
 
-|Button|Default Behavior|Desired behavior|
+|Button|Default Behavior|Desired behavior (based on location)|
 |---|---|---|
 |`ALT`|`option` (⌥) button|`command` (⌘)|
 |`CTRL`|`control` (⌃) button|`option` (⌥)|
 |`windows`|`command` (⌘) button|`control` (⌃)|
 |`Insert`|Help button|TODO|
 
-## Keys which are (roughly) the same
+## Keys which are (roughly) the same location and functionality
 1. `enter` button -> `return` (⏎)
 1. `esc` button
 1. `shift` button (⇧)
@@ -39,6 +39,7 @@ readonly DEFAULT_MAC_KEYBOARD_RIGHT_COMMAND=0x7000000e7;
 readonly DEFAULT_MAC_KEYBOARD_RIGHT_OPTION=0x7000000e6;
 readonly DEFAULT_MAC_KEYBOARD_RIGHT_SHIFT=0x7000000e5;
 #readonly DEFAULT_MAC_KEYBOARD_FN=TODO;
+# DEFAULT_MAC_KEYBOARD_INSERT=?? 62?
 
 readonly DEFAULT_WIN_KEYBOARD_BACKSPACE=0x70000002a;
 readonly DEFAULT_WIN_KEYBOARD_DELETE=0x70000004c;
@@ -99,6 +100,8 @@ hidutil property \
 1. `ALT+Tab`: switch window
 1. `CTRL+Right`: jump to next word
 1. `CTRL+SHIFT+Right`: highlight next word
+1. `CTRL+SHIFT+Z`: redo
+1. `CTRL+Z`: undo
 1. `SHIFT+Right`: highlight next char
 
 
@@ -112,7 +115,7 @@ hidutil property \
 # -- Reset all keyboards
 hidutil property --set '{"UserKeyMapping":[]}';
 ```
-- *or just restart*
+- *or just restart the machine*
 
 
 ## Steps: Via GUI
