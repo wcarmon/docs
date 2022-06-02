@@ -42,15 +42,16 @@
 ```sh
 PRODUCT_ID=0x07a5;
 
-readonly KEYBOARD_LEFT_ALT=0x7000000e2;
-readonly KEYBOARD_META=0x7000000e3; # aka Left windows key, aka Left GUI key
-readonly KEYBOARD_RIGHT_ALT=0x7000000e6;
+# See https://www.freebsddiary.org/APC/usb_hid_usages.php
+readonly WIN_KEYBOARD_HOME=0x70000004a; # TODO: verify this line
+readonly WIN_KEYBOARD_END=0x70000004d;
+readonly WIN_KEYBOARD_LEFT_CTRL=0x7000000e0;
+readonly WIN_KEYBOARD_LEFT_ALT=0x7000000e2;
+readonly WIN_KEYBOARD_META=0x7000000e3; # aka Left windows key, aka Left GUI key
+readonly WIN_KEYBOARD_RIGHT_CTRL=0x7000000e4;
+readonly WIN_KEYBOARD_RIGHT_ALT=0x7000000e6;
 
-
-KEYBOARD_LEFT_CTRL=0x7000000e0;    # TODO: verify
-KEYBOARD_RIGHT_CTRL=0x7000000e4;   # TODO: verify
-KEYBOARD_END=?
-
+MAC_KEYBOARD_CONTROL=;
 
 # KEYBOARD_LEFT_ALT -> ?
 # KEYBOARD_LEFT_CTRL -> ?
@@ -79,8 +80,13 @@ hidutil property \
 
 ### Undo/Reset
 ```sh
+# Reset just one keyboard
 hidutil property \
 --matching "{\"ProductID\":$PRODUCT_ID}" \
+--set '{"UserKeyMapping":[]}';
+
+# Reset all keyboards
+hidutil property \
 --set '{"UserKeyMapping":[]}';
 ```
 - *or just restart*
