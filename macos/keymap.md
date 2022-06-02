@@ -43,7 +43,7 @@
 PRODUCT_ID=0x07a5;
 
 # See https://www.freebsddiary.org/APC/usb_hid_usages.php
-readonly WIN_KEYBOARD_HOME=0x70000004a; # TODO: verify this line
+readonly WIN_KEYBOARD_HOME=0x70000004a;
 readonly WIN_KEYBOARD_END=0x70000004d;
 readonly WIN_KEYBOARD_LEFT_CTRL=0x7000000e0;
 readonly WIN_KEYBOARD_LEFT_ALT=0x7000000e2;
@@ -80,14 +80,14 @@ hidutil property \
 
 ### Undo/Reset
 ```sh
-# Reset just one keyboard
+# -- Reset just one keyboard
 hidutil property \
 --matching "{\"ProductID\":$PRODUCT_ID}" \
 --set '{"UserKeyMapping":[]}';
 
-# Reset all keyboards
-hidutil property \
---set '{"UserKeyMapping":[]}';
+
+# -- Reset all keyboards
+hidutil property --set '{"UserKeyMapping":[]}';
 ```
 - *or just restart*
 
