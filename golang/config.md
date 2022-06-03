@@ -3,8 +3,8 @@
 
 
 # Parse Examples
-1. [Simple](./config.simple.md)
-1. [Feature rich](./config.complex.md)
+1. [Simple Example](./config.simple.md)
+1. [Feature rich Example](./config.complex.md)
 
 
 # Other resources
