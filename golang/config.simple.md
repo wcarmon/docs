@@ -17,10 +17,10 @@ type appConfig struct {
 	// debug, info, warn, error
 	LogLevel   string
 
-	InputPath  string `json:"inputPath"`
-	OutputPath string `json:"outputPath"`
+	InputPath  string
+	OutputPath string
 
-	// TODO: Aligned with yaml config file structure
+	// TODO: Align with yaml config file structure
 }
 
 
@@ -59,13 +59,19 @@ func BuildConfig(osArgs []string) (*appConfig, error) {
 	return &c, err
 }
 
-
 func validateConfig(cfg *appConfig) error {
-	// TODO: do any validation here
+	if strings.TrimSpace(cfg.InputPath) == "" {
+		return errors.New("inputPath is required")
+	}
+
+	if strings.TrimSpace(cfg.OutputPath) == "" {
+		return errors.New("outputPath is required")
+	}
+
+	// TODO: do other validation here
 
 	return nil
 }
-
 
 // Pass os.Args
 func setPathConfigForViper(v *viper.Viper, osArgs []string) error {

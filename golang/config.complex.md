@@ -8,7 +8,12 @@
 1. Handles explicit config file or can search for config file
 1. Configurable search paths
 ```go
-import "github.com/spf13/viper"
+import (
+	"errors"
+	"github.com/spf13/viper"
+	"path/filepath"
+)
+
 
 const defaultConfigFilename = "app.config.yaml"
 
@@ -38,13 +43,12 @@ type appConfig struct {
 	InputPath  string
 	OutputPath string
 
-	// TODO: other config properties here
-	// Keep this aligned with the config file structure
+	// TODO: Align with yaml config file structure
 }
 
 // Load reads from config file, env vars, ...
 // Pass os.Args
-func (c *appConfig) Load(osArgs []string) error {
+func BuildConfig(osArgs []string) (*appConfig, error) {
 	v := viper.New()
 
 	// -- Set paths for config file
@@ -54,7 +58,7 @@ func (c *appConfig) Load(osArgs []string) error {
 		defaultConfigFilename,
 		configSearchDirs)
 	if err != nil {
-		return err
+		return nil, err
 	}
 
 	v.SetConfigType("yaml")
@@ -67,10 +71,11 @@ func (c *appConfig) Load(osArgs []string) error {
 	// -- Parse config
 	err = v.ReadInConfig()
 	if err != nil {
-		return err
+		return nil, err
 	}
 
-	// -- Store into this struct
+	// -- Store into config struct
+	var c appConfig
 	err = v.Unmarshal(&c)
 	if err != nil {
 		return nil, err
@@ -82,7 +87,7 @@ func (c *appConfig) Load(osArgs []string) error {
 		return nil, err
 	}
 
-	return err
+	return &c, err
 }
 
 
@@ -95,7 +100,7 @@ func validateConfig(cfg *appConfig) error {
 		return errors.New("outputPath is required")
 	}
 
-	// TODO: do any other validation here
+	// TODO: do other validation here
 
 	return nil
 }
@@ -132,5 +137,26 @@ func setPathConfigForViper(
 	}
 
 	return nil
+}
+```
+
+# Main func
+1. Put this into `main.go` for each command
+```go
+func main() {
+
+    // TODO: setup zerolog here
+
+	cfg, err := BuildConfig(os.Args)
+	if err != nil {
+		log.Error().
+			Err(err).
+			Str("cfg", fmt.Sprintf("%#v", cfg)).
+			Msg("Failed to parse config")
+		os.Exit(1)
+	}
+
+    // TODO: use cfg here
+
 }
 ```
