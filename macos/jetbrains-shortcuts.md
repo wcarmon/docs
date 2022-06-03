@@ -16,7 +16,7 @@
 1. Try copying [my keymap xml file](./wc-win-keyboard-on-macos-keymap.xml) into the dir above
     1. Assuming you remapped the modifiers as described in [keymap](./keymap.md) doc
     1. `"alt"` in `<keyboard-shortcut>` means `CTRL` key
-    1. `"ctrl"` in `<keyboard-shortcut>` means **TODO** key
+    1. `"control"` in `<keyboard-shortcut>` means **TODO** key
     1. `"enter"` in `<keyboard-shortcut>` means `ENTER` or `return` key
     1. `"equals"` in `<keyboard-shortcut>` means` =` key
     1. `"help"` in `<keyboard-shortcut>` means `Insert` key
