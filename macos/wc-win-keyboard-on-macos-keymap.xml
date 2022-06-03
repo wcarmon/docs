@@ -21,6 +21,12 @@
     <action id="ChangesView.Rename">
         <keyboard-shortcut first-keystroke="f2"/>
     </action>
+    <action id="ChooseDebugConfiguration">
+        <keyboard-shortcut first-keystroke="shift meta f9"/>
+    </action>
+    <action id="ChooseRunConfiguration">
+        <keyboard-shortcut first-keystroke="shift meta f10"/>
+    </action>
     <action id="CodeCompletion">
         <keyboard-shortcut first-keystroke="alt space"/>
     </action>
@@ -54,6 +60,12 @@
     <action id="EditorToggleColumnMode">
         <keyboard-shortcut first-keystroke="shift meta help"/>
     </action>
+    <action id="Find">
+        <keyboard-shortcut first-keystroke="alt f"/>
+    </action>
+    <action id="FindInPath">
+        <keyboard-shortcut first-keystroke="shift alt f"/>
+    </action>
     <action id="FindUsages">
         <keyboard-shortcut first-keystroke="meta f7"/>
     </action>
@@ -70,9 +82,32 @@
     <action id="GotoSymbol">
         <keyboard-shortcut first-keystroke="shift meta alt n"/>
     </action>
+    <action id="HippieBackwardCompletion">
+        <!-- TODO: pick something -->
+        <keyboard-shortcut first-keystroke=""/>
+    </action>
+    <action id="HippieCompletion">
+        <!-- TODO: pick something -->
+        <keyboard-shortcut first-keystroke=""/>
+    </action>
     <action id="Images.Editor.ToggleGrid"/>
+    <action id="Inline">
+        <keyboard-shortcut first-keystroke="meta alt n"/>
+    </action>
     <action id="InsertLiveTemplate">
         <keyboard-shortcut first-keystroke="alt j"/>
+    </action>
+    <action id="MoveLineDown">
+        <keyboard-shortcut first-keystroke="shift meta down"/>
+    </action>
+    <action id="MoveLineUp">
+        <keyboard-shortcut first-keystroke="shift meta up"/>
+    </action>
+    <action id="MoveStatementDown">
+        <keyboard-shortcut first-keystroke="shift alt down"/>
+    </action>
+    <action id="MoveStatementUp">
+        <keyboard-shortcut first-keystroke="shift alt up"/>
     </action>
     <action id="MoveTabRight">
         <keyboard-shortcut first-keystroke="meta s"/>
@@ -86,6 +121,16 @@
     <action id="ReformatCode">
         <keyboard-shortcut first-keystroke="meta alt l"/>
     </action>
+    <action id="Replace">
+        <keyboard-shortcut first-keystroke="alt r"/>
+    </action>
+    <action id="ReplaceInPath">
+        <keyboard-shortcut first-keystroke="shift alt r"/>
+    </action>
+    <action id="RerunTests">
+        <!-- TODO: pick -->
+        <keyboard-shortcut first-keystroke=""/>
+    </action>
     <action id="SelectNextOccurrence">
         <keyboard-shortcut first-keystroke=""/>
     </action>
@@ -96,6 +141,10 @@
     <action id="ShowSettings">
         <keyboard-shortcut first-keystroke="meta alt s"/>
         <!-- TODO: resolve conflict -->
+    </action>
+    <action id="SplitChooser">
+        <!-- TODO: pick something -->
+        <keyboard-shortcut first-keystroke=""/>
     </action>
     <action id="Synchronize">
         <keyboard-shortcut first-keystroke="meta alt y"/>
