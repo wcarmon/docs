@@ -55,16 +55,16 @@
         <keyboard-shortcut first-keystroke="shift meta help"/>
     </action>
     <action id="FindUsages">
-        <keyboard-shortcut first-keystroke=""/>
+        <keyboard-shortcut first-keystroke="meta f7"/>
     </action>
     <action id="Generate">
-        <keyboard-shortcut first-keystroke=""/>
+        <keyboard-shortcut first-keystroke="meta help"/>
     </action>
     <action id="Git.Rename.Local.Branch">
-        <keyboard-shortcut first-keystroke=""/>
+        <keyboard-shortcut first-keystroke="f2"/>
     </action>
     <action id="Git.Reword.Commit">
-        <keyboard-shortcut first-keystroke=""/>
+        <keyboard-shortcut first-keystroke="f2"/>
     </action>
     <action id="GoShareInPlaygroundAction"/>
     <action id="GotoSymbol">
@@ -75,7 +75,13 @@
         <keyboard-shortcut first-keystroke="alt j"/>
     </action>
     <action id="MoveTabRight">
-        <keyboard-shortcut first-keystroke=""/>
+        <keyboard-shortcut first-keystroke="meta s"/>
+    </action>
+    <action id="NextTab">
+        <keyboard-shortcut first-keystroke="meta right"/>
+    </action>
+    <action id="PreviousTab">
+        <keyboard-shortcut first-keystroke="meta left"/>
     </action>
     <action id="ReformatCode">
         <keyboard-shortcut first-keystroke="meta alt l"/>
@@ -85,13 +91,14 @@
     </action>
     <action id="ShelveChanges.UnshelveWithDialog"/>
     <action id="ShelvedChanges.Rename">
-        <keyboard-shortcut first-keystroke=""/>
+        <keyboard-shortcut first-keystroke="f2"/>
     </action>
     <action id="ShowSettings">
-        <keyboard-shortcut first-keystroke=""/>
+        <keyboard-shortcut first-keystroke="meta alt s"/>
+        <!-- TODO: resolve conflict -->
     </action>
     <action id="Synchronize">
-        <keyboard-shortcut first-keystroke=""/>
+        <keyboard-shortcut first-keystroke="meta alt y"/>
     </action>
     <action id="linessorter.sort">
         <keyboard-shortcut first-keystroke="shift meta l"/>
