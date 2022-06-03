@@ -29,13 +29,13 @@
 |Category|Feature|Linux, win, XWin shortcut|MacOS keymap shortcut|Action Id|
 |---|---|---|---|---|
 |Edit|Basic code completion, Variable name completion, Second basic completion|`CTRL+Space`|TODO| `TODO` |
-|Edit|Change case|`CTRL+SHIFT+U`|⇧ ⌘ U| `TODO` |
-|Edit|Comment or uncomment the current line|`CTRL+/`, `CTRL+SHIFT+/`|⌘ /| `TODO` |
+|Edit|Change case|`CTRL+SHIFT+U`|⇧ ⌘ U| `EditorToggleCase` |
+|Edit|Comment or uncomment the current line|`CTRL+/`, `CTRL+SHIFT+/`|⌘ /| `CommentByLineComment`, `CommentByBlockComment` |
 |Edit|Complete statement, Finish lookup with smart enter|`CTRL+SHIFT+Enter`|⌃ Space| `TODO` |
-|Edit|Delete line|`CTRL+Y`|⌘ ⌫| `TODO` |
+|Edit|Delete line|`CTRL+Y`|⌘ ⌫| `EditorDeleteLine` |
 |Edit|Duplicate line|`CTRL+D`|⌘ D| `TODO` |
-|Edit|Inline|`CTRL+ALT+N`|⌥ ⌘ N| `TODO` |
-|Edit|Move statement up/down|`CTRL+SHIFT+Up`, `CTRL+SHIFT+Down`|⇧ ⌘ ↓| `TODO` |
+|Edit|Inline|`CTRL+ALT+N`|⌥ ⌘ N| `Inline` |
+|Edit|Move statement up/down|`CTRL+SHIFT+Up`, `CTRL+SHIFT+Down`|⇧ ⌘ ↓| `MoveStatementUp`, `MoveStatementDown` |
 |Edit|Optimize Imports|`CTRL+ALT+O`|TODO| `TODO` |
 |Edit|Override or implement a method|`CTRL+O`|TODO| `TODO` |
 |Edit|Postfix completion, live templates|`CTRL+J`|TODO| `TODO` |
