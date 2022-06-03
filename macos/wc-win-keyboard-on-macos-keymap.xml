@@ -114,6 +114,7 @@
     <action id="EditorUnSelectWord">
         <keyboard-shortcut first-keystroke="shift alt w"/>
     </action>
+    <action id="EvaluateExpression"/>
     <action id="ExpandAllRegions">
         <keyboard-shortcut first-keystroke="shift alt equals"/>
     </action>
@@ -123,6 +124,7 @@
     <action id="ExpandRegionRecursively">
         <keyboard-shortcut first-keystroke="shift meta equals"/>
     </action>
+    <action id="ExportToTextFile"/>
     <action id="ExtractMethod">
         <keyboard-shortcut first-keystroke="meta alt m"/>
     </action>
@@ -290,10 +292,12 @@
     <action id="ToggleLineBreakpoint">
         <keyboard-shortcut first-keystroke="alt f8"/>
     </action>
+    <action id="Vcs.Log.ShowAllAffected"/>
     <action id="Vcs.Push">
         <keyboard-shortcut first-keystroke="shift alt k"/>
     </action>
-    <action id="XDebugger.MoveWatchDown" />
+    <action id="VcsHistory.ShowAllAffected"/>
+    <action id="XDebugger.MoveWatchDown"/>
     <action id="linessorter.sort">
         <keyboard-shortcut first-keystroke="shift meta l"/>
     </action>
