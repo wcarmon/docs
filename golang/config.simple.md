@@ -24,13 +24,13 @@ type appConfig struct {
 
 // Load reads from config file, env vars, ...
 // Pass os.Args
-func (c *appConfig) Load(osArgs []string) error {
+func BuildConfig(osArgs []string) (*appConfig, error) {
 	v := viper.New()
 
 	// -- Set paths for config file
 	err := setPathConfigForViper(v, osArgs)
 	if err != nil {
-		return err
+		return nil, err
 	}
 
 	v.SetConfigType("yaml")
@@ -38,10 +38,11 @@ func (c *appConfig) Load(osArgs []string) error {
 	// -- Parse config
 	err = v.ReadInConfig()
 	if err != nil {
-		return err
+		return nil, err
 	}
 
-	// -- Store into this struct
+	// -- Store into config struct
+	var c appConfig
 	err = v.Unmarshal(&c)
 	if err != nil {
 		return nil, err
@@ -53,7 +54,7 @@ func (c *appConfig) Load(osArgs []string) error {
 		return nil, err
 	}
 
-	return err
+	return &c, err
 }
 
 
@@ -82,4 +83,9 @@ func setPathConfigForViper(v *viper.Viper, osArgs []string) error {
 	v.AddConfigPath(filepath.Dir(cfgPath))
 	return nil
 }
+```
+
+# Main method
+```go
+
 ```

@@ -29,6 +29,8 @@
     1. https://github.com/golang/go/issues/30301
 
 
+- TODO: empty tag with />
+
 # Other resources
 1. https://gobyexample.com/xml
 1. https://pkg.go.dev/encoding/xml

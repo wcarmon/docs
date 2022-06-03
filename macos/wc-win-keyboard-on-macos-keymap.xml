@@ -174,9 +174,9 @@
         <keyboard-shortcut first-keystroke="shift alt a"/>
     </action>
     <action id="GotoDeclaration">
+        <keyboard-shortcut first-keystroke="alt b"/>
         <mouse-shortcut keystroke="control button1"/>
         <mouse-shortcut keystroke="button2"/>
-        <keyboard-shortcut first-keystroke="alt b"/>
     </action>
     <action id="GotoFile">
         <keyboard-shortcut first-keystroke="shift alt n"/>
@@ -288,8 +288,8 @@
         <keyboard-shortcut first-keystroke="shift meta alt l"/>
     </action>
     <action id="ShowSettings">
-        <keyboard-shortcut first-keystroke="meta alt s"/>
         <!-- TODO: resolve conflict -->
+        <keyboard-shortcut first-keystroke="meta alt s"/>
     </action>
     <action id="SmartTypeCompletion">
         <keyboard-shortcut first-keystroke="shift alt space"/>
