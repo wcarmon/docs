@@ -47,6 +47,10 @@
 1. `%APPDATA%\JetBrains\GoLand<version>\`
 
 
+# Show compilation errors
+- [`ALT+6` for Problems view](https://www.jetbrains.com/help/go/problems-tool-window.html)
+
+
 # Keymap: Jetbrains shortcuts
 - See [jetbrains-shortcuts](../macos/jetbrains-shortcuts.md) doc
 
