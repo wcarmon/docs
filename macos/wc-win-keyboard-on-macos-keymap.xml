@@ -75,6 +75,18 @@
     <action id="EditorDuplicate">
         <keyboard-shortcut first-keystroke="alt d"/>
     </action>
+    <action id="EditorNextWord">
+        <keyboard-shortcut first-keystroke="alt right"/>
+    </action>
+    <action id="EditorNextWordWithSelection">
+        <keyboard-shortcut first-keystroke="shift alt right"/>
+    </action>
+    <action id="EditorPrevious">
+        <keyboard-shortcut first-keystroke="alt left"/>
+    </action>
+    <action id="EditorPreviousWordWithSelection">
+        <keyboard-shortcut first-keystroke="shift alt left"/>
+    </action>
     <action id="EditorSelectWord">
         <keyboard-shortcut first-keystroke="alt w"/>
     </action>
