@@ -157,6 +157,9 @@
     <action id="ProblemsView.QuickFixes">
         <keyboard-shortcut first-keystroke="meta enter"/>
     </action>
+    <action id="RecentFiles">
+        <keyboard-shortcut first-keystroke="alt e"/>
+    </action>
     <action id="ReformatCode">
         <keyboard-shortcut first-keystroke="meta alt l"/>
     </action>
@@ -176,6 +179,10 @@
     <action id="ShelveChanges.UnshelveWithDialog"/>
     <action id="ShelvedChanges.Rename">
         <keyboard-shortcut first-keystroke="f2"/>
+    </action>
+    <action id="ShowIntentionActions">
+        <keyboard-shortcut first-keystroke="meta enter"/>
+        <!-- TODO: resolve conflict -->
     </action>
     <action id="ShowSettings">
         <keyboard-shortcut first-keystroke="meta alt s"/>
