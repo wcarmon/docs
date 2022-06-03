@@ -198,6 +198,9 @@
     <action id="OverrideMethods">
         <keyboard-shortcut first-keystroke="alt o"/>
     </action>
+    <action id="ParameterInfo">
+        <keyboard-shortcut first-keystroke="alt p"/>
+    </action>
     <action id="PreviousTab">
         <keyboard-shortcut first-keystroke="meta left"/>
     </action>
@@ -240,6 +243,9 @@
     </action>
     <action id="Synchronize">
         <keyboard-shortcut first-keystroke="meta alt y"/>
+    </action>
+    <action id="ToggleLineBreakpoint">
+        <keyboard-shortcut first-keystroke="alt f8"/>
     </action>
     <action id="Vcs.Push">
         <keyboard-shortcut first-keystroke="shift alt k"/>
