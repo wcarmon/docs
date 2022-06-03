@@ -250,6 +250,10 @@
     <action id="ProblemsView.QuickFixes">
         <keyboard-shortcut first-keystroke="meta enter"/>
     </action>
+    <action id="QuickChangeScheme">
+        <!-- TODO: is this tilda? -->
+        <keyboard-shortcut first-keystroke="alt grave"/>
+    </action>
     <action id="RecentFiles">
         <keyboard-shortcut first-keystroke="alt e"/>
     </action>
