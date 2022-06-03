@@ -112,10 +112,10 @@
 1. `SHIFT+SHIFT` (Search anywhere)
 
 
-# Jetbrains user defined keymap files
-- Linux: `$HOME/.config/JetBrains/IntelliJIdea<version>/keymaps`
-- MacOS: `~/Library/Application Support/JetBrains/IntelliJIdea<version>/keymaps`
-- win: `%APPDATA%\JetBrains\IntelliJIdea<version>\keymaps`
+# Jetbrains user-defined keymap files
+- Linux: `$HOME/.config/JetBrains/IntelliJIdea<version>/keymaps/*.xml`
+- MacOS: `~/Library/Application Support/JetBrains/IntelliJIdea<version>/keymaps/*.xml`
+- win: `%APPDATA%\JetBrains\IntelliJIdea<version>\keymaps\*.xml`
 
 
 # Other resources
