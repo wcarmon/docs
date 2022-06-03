@@ -101,21 +101,23 @@
 1. `CTRL+ALT+SHIFT+N` (go to symbol)
 
 ## Pairs
-1. `ALT+SHIFT+L` (sort lines)
-1. `CTRL+ALT+L` (reformat)
+1. `ALT+SHIFT+L` (Edit > Sort lines)
+1. `CTRL+ALT+L` (Code > Reformat Code)
 1. `CTRL+SHIFT+A` (go to action)
 
 ## Single
-1. `ALT+1` (project view)
-1. `CTRL+J` (live templates)
-1. `SHIFT+F6` (rename)
+1. `ALT+1` (Tool Window > Project)
+1. `CTRL+J` (Insert Live Template...)
+1. `SHIFT+F6` (Refactor > Rename...)
 1. `SHIFT+SHIFT` (Search anywhere)
 
 
 # Jetbrains user-defined keymap files
 - Linux: `$HOME/.config/JetBrains/IntelliJIdea<version>/keymaps/*.xml`
-- MacOS: `~/Library/Application Support/JetBrains/IntelliJIdea<version>/keymaps/*.xml`
+- MacOS: `~/Library/Application Support/JetBrains/IntelliJIdea<version>/jba_config/mac.keymaps/*.xml`
+    1. **NOT** `~/Library/Application Support/JetBrains/IntelliJIdea<version>/keymaps/*.xml`
 - win: `%APPDATA%\JetBrains\IntelliJIdea<version>\keymaps\*.xml`
+- (You can replace `IntelliJIdea` with other products like `GoLand`, `IdeaIC`, `PyCharm`, or `DataGrip`)
 
 
 # Other resources
