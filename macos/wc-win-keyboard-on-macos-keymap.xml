@@ -11,6 +11,9 @@
     <action id="$SelectAll">
         <keyboard-shortcut first-keystroke="alt a"/>
     </action>
+    <action id="$Undo">
+        <keyboard-shortcut first-keystroke="alt z"/>
+    </action>
     <action id="AceAction">
         <keyboard-shortcut first-keystroke="alt quote"/>
         <keyboard-shortcut first-keystroke="alt semicolon"/>
@@ -21,8 +24,14 @@
     <action id="ActivateProjectToolWindow">
         <keyboard-shortcut first-keystroke="meta 1"/>
     </action>
+    <action id="ChangesView.AddUnversioned">
+        <keyboard-shortcut first-keystroke="meta alt a"/>
+    </action>
     <action id="ChangesView.Rename">
         <keyboard-shortcut first-keystroke="f2"/>
+    </action>
+    <action id="CheckinProject">
+        <keyboard-shortcut first-keystroke="alt k"/>
     </action>
     <action id="ChooseDebugConfiguration">
         <keyboard-shortcut first-keystroke="shift meta f9"/>
@@ -75,7 +84,7 @@
     <action id="EditorToggleColumnMode">
         <keyboard-shortcut first-keystroke="shift meta help"/>
     </action>
-    <action id="EditorUnselectWord">
+    <action id="EditorUnSelectWord">
         <keyboard-shortcut first-keystroke="shift alt w"/>
     </action>
     <action id="Find">
@@ -175,6 +184,9 @@
     </action>
     <action id="Synchronize">
         <keyboard-shortcut first-keystroke="meta alt y"/>
+    </action>
+    <action id="Vcs.Push">
+        <keyboard-shortcut first-keystroke="shift alt k"/>
     </action>
     <action id="linessorter.sort">
         <keyboard-shortcut first-keystroke="shift meta l"/>
