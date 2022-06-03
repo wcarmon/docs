@@ -1,1 +1,80 @@
-<keymap version>
+<keymap version="1" name="wc-win-keyboard-macos" parent="Default for XWin">
+    <action id="AceAction">
+        <keyboard-shortcut first-keystroke=""/>
+    </action>
+
+    <action id="ActivateDatabaseToolWindow">
+        <keyboard-shortcut first-keystroke=""/>
+    </action>
+
+    <action id="ActivateProjectToolWindow">
+        <keyboard-shortcut first-keystroke=""/>
+    </action>
+
+    <action id="ChangesView.Rename">
+        <keyboard-shortcut first-keystroke=""/>
+    </action>
+
+    <action id="EditorToggleColumnMode">
+        <keyboard-shortcut first-keystroke=""/>
+    </action>
+
+    <action id="FindUsages">
+        <keyboard-shortcut first-keystroke=""/>
+    </action>
+
+    <action id="Generate">
+        <keyboard-shortcut first-keystroke=""/>
+    </action>
+
+    <action id="Git.Rename.Local.Branch">
+        <keyboard-shortcut first-keystroke=""/>
+    </action>
+
+    <action id="Git.Reword.Commit">
+        <keyboard-shortcut first-keystroke=""/>
+    </action>
+
+    <action id="GoShareInPlaygroundAction"/>
+
+    <action id="GotoSymbol">
+        <keyboard-shortcut first-keystroke="shift meta alt n"/>
+    </action>
+
+    <action id="Images.Editor.ToggleGrid"/>
+
+    <action id="InsertLiveTemplate">
+        <keyboard-shortcut first-keystroke="alt j"/>
+    </action>
+
+    <action id="MoveTabRight">
+        <keyboard-shortcut first-keystroke=""/>
+    </action>
+
+    <action id="ReformatCode">
+        <keyboard-shortcut first-keystroke="meta alt l"/>
+    </action>
+
+    <action id="SelectNextOccurance">
+        <keyboard-shortcut first-keystroke=""/>
+    </action>
+
+    <action id="ShelveChanges.UnshelveWithDialog"/>
+
+    <action id="ShelveChanges.Rename">
+        <keyboard-shortcut first-keystroke=""/>
+    </action>
+
+    <action id="ShowSettings">
+        <keyboard-shortcut first-keystroke=""/>
+    </action>
+
+    <action id="Synchronize">
+        <keyboard-shortcut first-keystroke=""/>
+    </action>
+
+    <action id="linessorter.sort">
+        <keyboard-shortcut first-keystroke=""/>
+    </action>
+
+</keymap>

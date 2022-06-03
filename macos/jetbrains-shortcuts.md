@@ -5,70 +5,70 @@
 # My most common shortcuts
 1. These work out-of-the-box when using [XWin](https://plugins.jetbrains.com/plugin/13094-xwin-keymap) based keymap
 
-|Category|Feature|Linux, win, XWin shortcut|MacOS keymap shortcut|
-|---|---|---|---|
-|Edit|Basic code completion, Variable name completion, Second basic completion|`CTRL+Space`|TODO|
-|Edit|Change case|`CTRL+SHIFT+U`|⇧ ⌘ U|
-|Edit|Comment or uncomment the current line|`CTRL+/`, `CTRL+SHIFT+/`|⌘ /|
-|Edit|Complete statement, Finish lookup with smart enter|`CTRL+SHIFT+Enter`|⌃ Space|
-|Edit|Delete line|`CTRL+Y`|⌘ ⌫|
-|Edit|Duplicate line|`CTRL+D`|⌘ D|
-|Edit|Inline|`CTRL+ALT+N`|⌥ ⌘ N|
-|Edit|Move statement up/down|`CTRL+SHIFT+Up`, `CTRL+SHIFT+Down`|⇧ ⌘ ↓|
-|Edit|Optimize Imports|`CTRL+ALT+O`|TODO|
-|Edit|Override or implement a method|`CTRL+O`|TODO|
-|Edit|Postfix completion, live templates|`CTRL+J`|TODO|
-|Edit|Quick fixes, Global method name completion|`ALT+Enter`|TODO|
-|Edit|Redo|`CTRL+SHIFT+Z`|⇧ ⌘ Z|
-|Edit|Reformat|`CTRL+ALT+L`|⌥ ⌘ L|
-|Edit|Sort lines|`ALT+SHIFT+L`|-|
-|Edit|Syntax aware selection|`CTRL+W`, `CTRL+SHIFT+W`|TODO|
-|Edit|Type-matching completion|`CTRL+SHIFT+Space`|⌃ ⇧ Space|
-|Edit|Undo|`CTRL+Z`|⌘ Z|
-|Git|add|`CTRL+ALT+A`|TODO|
-|Git|commit|`CTRL+K`|⌘ K|
-|Git|push|`CTRL+SHIFT+K`|⇧ ⌘ K|
-|Navigate|AceJump - Activate / Cycle AceJump Mode|`CTRL+;`, `CTRL+'`|--|
-|Navigate|Diff|`CTRL+D`|⌘ D|
-|Navigate|File structure popup|`CTRL+F12`|⌘ F12|
-|Navigate|Find (in current file)|`CTRL+F`|⌘ F|
-|Navigate|Find in files|`CTRL+SHIFT+F`|⇧ ⌘ F|
-|Navigate|Find usages|`ALT+F7`|⌥ F7|
-|Navigate|Go to action|`CTRL+SHIFT+A`|⇧ ⌘ A|
-|Navigate|Go to declaration|`CTRL+B`|⇧ ⌘ B|
-|Navigate|Go to File|`CTRL+SHIFT+N`|⇧ ⌘ O|
-|Navigate|Go to Line|`CTRL+G`|⌘ L|
-|Navigate|Go to symbol|`CTRL+ALT+SHIFT+N`|⌥ ⌘ O|
-|Navigate|Jump to next error|`F2`|(same)|
-|Navigate|Last edit location|`CTRL+SHIFT+Backspace`|⇧ ⌘ ⌫|
-|Navigate|Move caret to next method (member)|`ALT+Down`|⌃ ⇧ ↓|
-|Navigate|Param Info|`CTRL+P`|⌘ P|
-|Navigate|Project view|`ALT+1`|⌘ 1|
-|Navigate|Recent files popup|`CTRL+E`|⌘ E|
-|Navigate|Replace (in current file)|`CTRL+R`|⌘ R|
-|Navigate|Replace in files|`CTRL+SHIFT+R`|⇧ ⌘ R|
-|Navigate|Search Everywhere|`SHIFT+SHIFT`|(same)|
-|Navigate|Select Multiple files|`CTRL+Click`|`Windows+Click`|
-|Navigate|Select next/previous Tab|`ALT+Left` `ALT+Right`|TODO|
-|Refactor|Extract constant|`CTRL+ALT+C`|⌥ ⌘ C|
-|Refactor|Extract method|`CTRL+ALT+M`|⌥ ⌘ M|
-|Refactor|Introduce/Extract variable|`CTRL+ALT+V`|⌥ ⌘ V|
-|Refactor|Rename|`SHIFT+F6`|⇧ F6|
-|Run|Debug ...|`ALT+SHIFT+F9`|⌃ ⌥ D|
-|Run|Run ...|`ALT+SHIFT+F10`|⌃ ⌥ R|
+|Category|Feature|Linux, win, XWin shortcut|MacOS keymap shortcut|Action Id|
+|---|---|---|---|---|
+|Edit|Basic code completion, Variable name completion, Second basic completion|`CTRL+Space`|TODO| `TODO` |
+|Edit|Change case|`CTRL+SHIFT+U`|⇧ ⌘ U| `TODO` |
+|Edit|Comment or uncomment the current line|`CTRL+/`, `CTRL+SHIFT+/`|⌘ /| `TODO` |
+|Edit|Complete statement, Finish lookup with smart enter|`CTRL+SHIFT+Enter`|⌃ Space| `TODO` |
+|Edit|Delete line|`CTRL+Y`|⌘ ⌫| `TODO` |
+|Edit|Duplicate line|`CTRL+D`|⌘ D| `TODO` |
+|Edit|Inline|`CTRL+ALT+N`|⌥ ⌘ N| `TODO` |
+|Edit|Move statement up/down|`CTRL+SHIFT+Up`, `CTRL+SHIFT+Down`|⇧ ⌘ ↓| `TODO` |
+|Edit|Optimize Imports|`CTRL+ALT+O`|TODO| `TODO` |
+|Edit|Override or implement a method|`CTRL+O`|TODO| `TODO` |
+|Edit|Postfix completion, live templates|`CTRL+J`|TODO| `TODO` |
+|Edit|Quick fixes, Global method name completion|`ALT+Enter`|TODO| `TODO` |
+|Edit|Redo|`CTRL+SHIFT+Z`|⇧ ⌘ Z| `TODO` |
+|Edit|Reformat|`CTRL+ALT+L`|⌥ ⌘ L| `TODO` |
+|Edit|Sort lines|`ALT+SHIFT+L`|-| `TODO` |
+|Edit|Syntax aware selection|`CTRL+W`, `CTRL+SHIFT+W`|TODO| `TODO` |
+|Edit|Type-matching completion|`CTRL+SHIFT+Space`|⌃ ⇧ Space| `TODO` |
+|Edit|Undo|`CTRL+Z`|⌘ Z| `TODO` |
+|Git|add|`CTRL+ALT+A`|TODO| `TODO` |
+|Git|commit|`CTRL+K`|⌘ K| `TODO` |
+|Git|push|`CTRL+SHIFT+K`|⇧ ⌘ K| `TODO` |
+|Navigate|AceJump - Activate / Cycle AceJump Mode|`CTRL+;`, `CTRL+'`|--| `TODO` |
+|Navigate|Diff|`CTRL+D`|⌘ D| `TODO` |
+|Navigate|File structure popup|`CTRL+F12`|⌘ F12| `TODO` |
+|Navigate|Find (in current file)|`CTRL+F`|⌘ F| `TODO` |
+|Navigate|Find in files|`CTRL+SHIFT+F`|⇧ ⌘ F| `TODO` |
+|Navigate|Find usages|`ALT+F7`|⌥ F7| `TODO` |
+|Navigate|Go to action|`CTRL+SHIFT+A`|⇧ ⌘ A| `TODO` |
+|Navigate|Go to declaration|`CTRL+B`|⇧ ⌘ B| `TODO` |
+|Navigate|Go to File|`CTRL+SHIFT+N`|⇧ ⌘ O| `TODO` |
+|Navigate|Go to Line|`CTRL+G`|⌘ L| `TODO` |
+|Navigate|Go to symbol|`CTRL+ALT+SHIFT+N`|⌥ ⌘ O| `TODO` |
+|Navigate|Jump to next error|`F2`|(same)| `TODO` |
+|Navigate|Last edit location|`CTRL+SHIFT+Backspace`|⇧ ⌘ ⌫| `TODO` |
+|Navigate|Move caret to next method (member)|`ALT+Down`|⌃ ⇧ ↓| `TODO` |
+|Navigate|Param Info|`CTRL+P`|⌘ P| `TODO` |
+|Navigate|Project view|`ALT+1`|⌘ 1| `TODO` |
+|Navigate|Recent files popup|`CTRL+E`|⌘ E| `TODO` |
+|Navigate|Replace (in current file)|`CTRL+R`|⌘ R| `TODO` |
+|Navigate|Replace in files|`CTRL+SHIFT+R`|⇧ ⌘ R| `TODO` |
+|Navigate|Search Everywhere|`SHIFT+SHIFT`|(same)| `TODO` |
+|Navigate|Select Multiple files|`CTRL+Click`|`Windows+Click`| `TODO` |
+|Navigate|Select next/previous Tab|`ALT+Left` `ALT+Right`|TODO| `TODO` |
+|Refactor|Extract constant|`CTRL+ALT+C`|⌥ ⌘ C| `TODO` |
+|Refactor|Extract method|`CTRL+ALT+M`|⌥ ⌘ M| `TODO` |
+|Refactor|Introduce/Extract variable|`CTRL+ALT+V`|⌥ ⌘ V| `TODO` |
+|Refactor|Rename|`SHIFT+F6`|⇧ F6| `TODO` |
+|Run|Debug ...|`ALT+SHIFT+F9`|⌃ ⌥ D| `TODO` |
+|Run|Run ...|`ALT+SHIFT+F10`|⌃ ⌥ R| `TODO` |
 
 
 ## Shortcuts to manually map (not part of XWin keymap)
 1. For MacOS, use a keymap based [XWin](https://plugins.jetbrains.com/plugin/13094-xwin-keymap)
 1. Might need to enable the [XWin](https://plugins.jetbrains.com/plugin/13094-xwin-keymap) plugin on macOS
 
-|Category|Feature|Linux, win, XWin shortcut|MacOS keymap shortcut|Add mapping (on MacOS)|
-|---|---|---|---|---|
-|Edit|Column select|`ALT+SHIFT+Insert`|`⇧ ⌘ 8`|**`⌥ ⇧ Help`**|
-|Files|Generate..., New Directory|`ALT+Insert`|`⌘ N`|**`⌥ Help`**|
-|Navigate|AceJump: Activate / Cycle AceJump Mode|`CTRL+;`, `CTRL+'`|--|**`⌃ ;` `⌃ '`**|
-|Navigate|Database Tool window|`ALT+D`|--|**`⌥ D`**|
-|Navigate|Split and Move Right|`ALT+S`|--|**`⌥ S`**|
+|Category|Feature|Linux, win, XWin shortcut|MacOS keymap shortcut|Add mapping (on MacOS)|Action ID|
+|---|---|---|---|---|---|
+|Edit|Column select|`ALT+SHIFT+Insert`|`⇧ ⌘ 8`|**`⌥ ⇧ Help`**| `TODO` |
+|Files|Generate..., New Directory|`ALT+Insert`|`⌘ N`|**`⌥ Help`**| `TODO` |
+|Navigate|AceJump: Activate / Cycle AceJump Mode|`CTRL+;`, `CTRL+'`|--|**`⌃ ;` `⌃ '`**| `TODO` |
+|Navigate|Database Tool window|`ALT+D`|--|**`⌥ D`**| `ActivateDatabaseToolWindow` |
+|Navigate|Split and Move Right|`ALT+S`|--|**`⌥ S`**| `TODO` |
 
 - TODO: collapse/expand
 
