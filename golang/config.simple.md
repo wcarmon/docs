@@ -4,6 +4,7 @@
 
 
 # Simple Example
+1. Put this into `config.go` for each command (eg. `/foo/cmd/mycmd1/config.go`)
 ```go
 import (
 	"errors"
@@ -42,9 +43,26 @@ func (c *appConfig) Load(osArgs []string) error {
 
 	// -- Store into this struct
 	err = v.Unmarshal(&c)
+	if err != nil {
+		return nil, err
+	}
+
+	// -- Validation
+	err = validateConfig(&c)
+	if err != nil {
+		return nil, err
+	}
 
 	return err
 }
+
+
+func validateConfig(cfg *appConfig) error {
+	// TODO: do any validation here
+
+	return nil
+}
+
 
 // Pass os.Args
 func setPathConfigForViper(v *viper.Viper, osArgs []string) error {

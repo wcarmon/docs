@@ -4,6 +4,7 @@
 
 
 # Complex Example
+1. Put this into `config.go` for each command (eg. `/foo/cmd/mycmd1/config.go`)
 1. Handles explicit config file or can search for config file
 1. Configurable search paths
 ```go
@@ -32,7 +33,10 @@ var configSearchDirs = []string{
 type appConfig struct {
 
 	// debug, info, warn, error
-	LogLevel string
+	LogLevel   string
+
+	InputPath  string
+	OutputPath string
 
 	// TODO: other config properties here
 	// Keep this aligned with the config file structure
@@ -68,9 +72,34 @@ func (c *appConfig) Load(osArgs []string) error {
 
 	// -- Store into this struct
 	err = v.Unmarshal(&c)
+	if err != nil {
+		return nil, err
+	}
+
+	// -- Validation
+	err = validateConfig(&c)
+	if err != nil {
+		return nil, err
+	}
 
 	return err
 }
+
+
+func validateConfig(cfg *appConfig) error {
+	if strings.TrimSpace(cfg.InputPath) == "" {
+		return errors.New("inputPath is required")
+	}
+
+	if strings.TrimSpace(cfg.OutputPath) == "" {
+		return errors.New("outputPath is required")
+	}
+
+	// TODO: do any other validation here
+
+	return nil
+}
+
 
 // Pass os.Args
 func setPathConfigForViper(
