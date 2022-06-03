@@ -63,6 +63,9 @@
     <action id="Editor SelectAll">
         <keyboard-shortcut first-keystroke="alt a"/>
     </action>
+    <action id="Editor Undo">
+        <keyboard-shortcut first-keystroke="alt z"/>
+    </action>
     <action id="EditorChooseLookupItemCompleteStatement">
         <keyboard-shortcut first-keystroke="shift alt enter"/>
     </action>
