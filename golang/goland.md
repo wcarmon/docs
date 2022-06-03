@@ -51,6 +51,10 @@
 - [`ALT+6` for Problems view](https://www.jetbrains.com/help/go/problems-tool-window.html)
 
 
+# Running & Debugging
+1. See [running](./running.md) and [debugging](./debugging.md) docs
+
+
 # Keymap: Jetbrains shortcuts
 - See [jetbrains-shortcuts](../macos/jetbrains-shortcuts.md) doc
 

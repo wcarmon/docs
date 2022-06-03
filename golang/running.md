@@ -7,7 +7,7 @@
 
 
 # Goland
-- TODO: ...
+- Run the main package not the main.go file
 
 
 # Other resources
