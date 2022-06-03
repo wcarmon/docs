@@ -115,6 +115,17 @@
     <action id="GotoAction">
         <keyboard-shortcut first-keystroke="shift alt a"/>
     </action>
+    <action id="GotoDeclaration">
+        <mouse-shortcut keystroke="control button1"/>
+        <mouse-shortcut keystroke="button2"/>
+        <keyboard-shortcut first-keystroke="alt b"/>
+    </action>
+    <action id="GotoFile">
+        <keyboard-shortcut first-keystroke="shift alt n"/>
+    </action>
+    <action id="GotoLine">
+        <keyboard-shortcut first-keystroke="alt g"/>
+    </action>
     <action id="GotoSymbol">
         <keyboard-shortcut first-keystroke="shift meta alt n"/>
     </action>
