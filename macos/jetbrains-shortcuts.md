@@ -16,7 +16,7 @@
 1. Try copying [my keymap xml file](./wc-win-keyboard-on-macos-keymap.xml) into the dir above
     1. Assuming you remapped the modifiers as described in [keymap](./keymap.md) doc
     1. `"alt"` in `<keyboard-shortcut>` means `CTRL` key
-    1. `"ctrl"` in `<keyboard-shortcut>` means `TODO` key
+    1. `"ctrl"` in `<keyboard-shortcut>` means **TODO** key
     1. `"help"` in `<keyboard-shortcut>` means `Insert` key
     1. `"meta"` in `<keyboard-shortcut>` means `ALT` key
     1. `"shift"` in `<keyboard-shortcut>` means `SHIFT` key
@@ -64,7 +64,7 @@
 |Navigate|Last edit location|`CTRL+SHIFT+Backspace`|⇧ ⌘ ⌫| `TODO` |
 |Navigate|Move caret to next method (member)|`ALT+Down`|⌃ ⇧ ↓| `TODO` |
 |Navigate|Param Info|`CTRL+P`|⌘ P| `TODO` |
-|Navigate|Project view|`ALT+1`|⌘ 1| `TODO` |
+|Navigate|Project view|`ALT+1`|⌘ 1| `ActivateProjectToolWindow` |
 |Navigate|Recent files popup|`CTRL+E`|⌘ E| `TODO` |
 |Navigate|Replace (in current file)|`CTRL+R`|⌘ R| `TODO` |
 |Navigate|Replace in files|`CTRL+SHIFT+R`|⇧ ⌘ R| `TODO` |

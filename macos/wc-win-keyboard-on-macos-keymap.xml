@@ -4,10 +4,10 @@
         <keyboard-shortcut first-keystroke="alt quote"/>
     </action>
     <action id="ActivateDatabaseToolWindow">
-        <keyboard-shortcut first-keystroke=""/>
+        <keyboard-shortcut first-keystroke="meta d"/>
     </action>
     <action id="ActivateProjectToolWindow">
-        <keyboard-shortcut first-keystroke=""/>
+        <keyboard-shortcut first-keystroke="meta 1"/>
     </action>
     <action id="ChangesView.Rename">
         <keyboard-shortcut first-keystroke=""/>
