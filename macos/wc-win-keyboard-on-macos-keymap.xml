@@ -18,9 +18,6 @@
     <action id="ActivateProjectToolWindow">
         <keyboard-shortcut first-keystroke="meta 1"/>
     </action>
-    <action id="CompareTwoFiles">
-        <keyboard-shortcut first-keystroke="alt d"/>
-    </action>
     <action id="ChangesView.Rename">
         <keyboard-shortcut first-keystroke="f2"/>
     </action>
@@ -33,6 +30,9 @@
     <action id="CommentByLineComment">
         <keyboard-shortcut first-keystroke="alt slash"/>
     </action>
+    <action id="CompareTwoFiles">
+        <keyboard-shortcut first-keystroke="alt d"/>
+    </action>
     <action id="Editor Copy">
         <keyboard-shortcut first-keystroke="alt c"/>
     </action>
@@ -42,6 +42,9 @@
     <action id="Editor SelectAll">
         <keyboard-shortcut first-keystroke="alt a"/>
     </action>
+    <action id="EditorChooseLookupItemCompleteStatement">
+        <keyboard-shortcut first-keystroke="shift alt enter"/>
+    </action>
     <action id="EditorDeleteLine">
         <keyboard-shortcut first-keystroke="alt y"/>
     </action>
@@ -49,7 +52,7 @@
         <keyboard-shortcut first-keystroke="shift alt u"/>
     </action>
     <action id="EditorToggleColumnMode">
-        <keyboard-shortcut first-keystroke=""/>
+        <keyboard-shortcut first-keystroke="shift meta help"/>
     </action>
     <action id="FindUsages">
         <keyboard-shortcut first-keystroke=""/>
