@@ -35,6 +35,7 @@
 |Edit|Delete line|`CTRL+Y`|⌘ ⌫| `EditorDeleteLine` |
 |Edit|Duplicate line|`CTRL+D`|⌘ D| `TODO` |
 |Edit|Inline|`CTRL+ALT+N`|⌥ ⌘ N| `Inline` |
+|Edit|Move line up/down|`ALT+SHIFT+Up`, `ALT+SHIFT+Down`|TODO ↓| `MoveLineUp`, `MoveLineDown` |
 |Edit|Move statement up/down|`CTRL+SHIFT+Up`, `CTRL+SHIFT+Down`|⇧ ⌘ ↓| `MoveStatementUp`, `MoveStatementDown` |
 |Edit|Optimize Imports|`CTRL+ALT+O`|TODO| `TODO` |
 |Edit|Override or implement a method|`CTRL+O`|TODO| `TODO` |
