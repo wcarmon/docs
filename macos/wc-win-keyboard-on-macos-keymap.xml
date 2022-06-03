@@ -126,6 +126,10 @@
     <action id="ExtractMethod">
         <keyboard-shortcut first-keystroke="meta alt m"/>
     </action>
+    <action id="FileChooser.NewFolder">
+        <keyboard-shortcut first-keystroke="alt n"/>
+        <keyboard-shortcut first-keystroke="meta help"/>
+    </action>
     <action id="FileStructurePopup">
         <keyboard-shortcut first-keystroke="alt f12"/>
     </action>
@@ -270,6 +274,9 @@
         <keyboard-shortcut first-keystroke="meta alt s"/>
         <!-- TODO: resolve conflict -->
     </action>
+    <action id="SmartTypeCompletion">
+        <keyboard-shortcut first-keystroke="shift alt space"/>
+    </action>
     <action id="SplitChooser">
         <!-- TODO: pick something -->
         <keyboard-shortcut first-keystroke=""/>
@@ -286,6 +293,7 @@
     <action id="Vcs.Push">
         <keyboard-shortcut first-keystroke="shift alt k"/>
     </action>
+    <action id="XDebugger.MoveWatchDown" />
     <action id="linessorter.sort">
         <keyboard-shortcut first-keystroke="shift meta l"/>
     </action>
