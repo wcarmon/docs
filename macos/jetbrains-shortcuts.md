@@ -15,11 +15,11 @@
 # Alignment with Linux/win
 1. Try copying [my keymap xml file](./wc-win-keyboard-on-macos-keymap.xml) into the dir above
     1. Assuming you remapped the modifiers as described in [keymap](./keymap.md) doc
-    1. `"alt"` in xml means `CTRL` key
-    1. `"ctrl"` in xml means `TODO` key
-    1. `"help"` in xml means `Insert` key
-    1. `"meta"` in xml means `ALT` key
-    1. `"shift"` in xml means `SHIFT` key
+    1. `"alt"` in `<keyboard-shortcut>` means `CTRL` key
+    1. `"ctrl"` in `<keyboard-shortcut>` means `TODO` key
+    1. `"help"` in `<keyboard-shortcut>` means `Insert` key
+    1. `"meta"` in `<keyboard-shortcut>` means `ALT` key
+    1. `"shift"` in `<keyboard-shortcut>` means `SHIFT` key
 
 
 # My most common shortcuts
