@@ -144,6 +144,12 @@
     <action id="InsertLiveTemplate">
         <keyboard-shortcut first-keystroke="alt j"/>
     </action>
+    <action id="MethodDown">
+        <keyboard-shortcut first-keystroke="meta down"/>
+    </action>
+    <action id="MethodUp">
+        <keyboard-shortcut first-keystroke="meta up"/>
+    </action>
     <action id="MoveLineDown">
         <keyboard-shortcut first-keystroke="shift meta down"/>
     </action>
