@@ -1,12 +1,17 @@
 <!--
-TODO: sort these by action.id  <== see my go program
-TODO: delete where action.id already in ~/git-repos/docs/macos/wc-win-keyboard-on-macos-keymap.xml
+GOAL: pull the useful pieces of this file into ./wc-win-keyboard-on-macos-keymap.xml
 
-TODO: 1: alt -> meta
-TODO: 2: control -> alt
+TODO: sort these by action.id  <== see my go program (or see *.sorted.xml)
 
-NOTE: meta (never used in original)
-NOTE: shift -> shift
+TODO: delete/ignore <action> where action.id already in ./wc-win-keyboard-on-macos-keymap.xml
+
+TODO: consider doing a merge of <action> in memory from the two files, then writing output sorted
+
+TODO: 1: replace "alt" with "meta"
+TODO: 2: then replace "control" with "alt"
+
+NOTE: "meta" is never used in original keymap
+NOTE: "shift" maps to itself
 -->
 <keymap version="1" name="merge-these" parent="Default for XWin">
     <action id="$Copy">
