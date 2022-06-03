@@ -15,10 +15,12 @@ import (
 type appConfig struct {
 
 	// debug, info, warn, error
-	LogLevel string
+	LogLevel   string
 
-	// TODO: other config properties here
-	// Keep this aligned with the config file structure
+	InputPath  string `json:"inputPath"`
+	OutputPath string `json:"outputPath"`
+
+	// TODO: Aligned with yaml config file structure
 }
 
 
@@ -85,7 +87,22 @@ func setPathConfigForViper(v *viper.Viper, osArgs []string) error {
 }
 ```
 
-# Main method
+# Main func
 ```go
+func main() {
 
+    // TODO: setup zerolog here
+
+	cfg, err := BuildConfig(os.Args)
+	if err != nil {
+		log.Error().
+			Err(err).
+			Str("cfg", fmt.Sprintf("%#v", cfg)).
+			Msg("Failed to parse config")
+		os.Exit(1)
+	}
+
+    // TODO: use cfg here
+
+}
 ```
