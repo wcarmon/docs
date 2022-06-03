@@ -182,7 +182,6 @@
     </action>
     <action id="ShowIntentionActions">
         <keyboard-shortcut first-keystroke="meta enter"/>
-        <!-- TODO: resolve conflict -->
     </action>
     <action id="ShowSettings">
         <keyboard-shortcut first-keystroke="meta alt s"/>
