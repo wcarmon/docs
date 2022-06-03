@@ -42,6 +42,15 @@
     <action id="CodeCompletion">
         <keyboard-shortcut first-keystroke="alt space"/>
     </action>
+    <action id="CollapseAllRegions">
+        <keyboard-shortcut first-keystroke="shift alt minus"/>
+    </action>
+    <action id="CollapseBlock">
+        <keyboard-shortcut first-keystroke="shift alt period"/>
+    </action>
+    <action id="CollapseSelection">
+        <keyboard-shortcut first-keystroke="alt period"/>
+    </action>
     <action id="CommentByBlockComment">
         <keyboard-shortcut first-keystroke="shift alt slash"/>
     </action>
@@ -67,6 +76,9 @@
         <keyboard-shortcut first-keystroke="alt z"/>
     </action>
     <action id="EditorChooseLookupItemCompleteStatement">
+        <keyboard-shortcut first-keystroke="shift alt enter"/>
+    </action>
+    <action id="EditorCompleteStatement">
         <keyboard-shortcut first-keystroke="shift alt enter"/>
     </action>
     <action id="EditorDeleteLine">
@@ -101,6 +113,15 @@
     </action>
     <action id="EditorUnSelectWord">
         <keyboard-shortcut first-keystroke="shift alt w"/>
+    </action>
+    <action id="ExpandAllRegions">
+        <keyboard-shortcut first-keystroke="shift alt equals"/>
+    </action>
+    <action id="ExpandRegion">
+        <keyboard-shortcut first-keystroke="alt equals"/>
+    </action>
+    <action id="ExpandRegionRecursively">
+        <keyboard-shortcut first-keystroke="shift meta equals"/>
     </action>
     <action id="ExtractMethod">
         <keyboard-shortcut first-keystroke="meta alt m"/>
@@ -145,12 +166,10 @@
         <keyboard-shortcut first-keystroke="shift meta alt n"/>
     </action>
     <action id="HippieBackwardCompletion">
-        <!-- TODO: pick something -->
-        <keyboard-shortcut first-keystroke=""/>
+        <keyboard-shortcut first-keystroke="shift meta slash"/>
     </action>
     <action id="HippieCompletion">
-        <!-- TODO: pick something -->
-        <keyboard-shortcut first-keystroke=""/>
+        <keyboard-shortcut first-keystroke="meta slash"/>
     </action>
     <action id="Images.Editor.ToggleGrid"/>
     <action id="Inline">
@@ -218,6 +237,9 @@
     <action id="RecentFiles">
         <keyboard-shortcut first-keystroke="alt e"/>
     </action>
+    <action id="Refactorings.QuickListPopupAction">
+        <keyboard-shortcut first-keystroke="shift meta alt t"/>
+    </action>
     <action id="ReformatCode">
         <keyboard-shortcut first-keystroke="meta alt l"/>
     </action>
@@ -241,6 +263,9 @@
     <action id="ShowIntentionActions">
         <keyboard-shortcut first-keystroke="meta enter"/>
     </action>
+    <action id="ShowReformatFileDialog">
+        <keyboard-shortcut first-keystroke="shift meta alt l"/>
+    </action>
     <action id="ShowSettings">
         <keyboard-shortcut first-keystroke="meta alt s"/>
         <!-- TODO: resolve conflict -->
@@ -248,6 +273,9 @@
     <action id="SplitChooser">
         <!-- TODO: pick something -->
         <keyboard-shortcut first-keystroke=""/>
+    </action>
+    <action id="SurroundWith">
+        <keyboard-shortcut first-keystroke="meta alt t"/>
     </action>
     <action id="Synchronize">
         <keyboard-shortcut first-keystroke="meta alt y"/>

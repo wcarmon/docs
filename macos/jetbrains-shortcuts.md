@@ -18,11 +18,14 @@
     1. `"alt"` in `<keyboard-shortcut>` means `CTRL` key
     1. `"ctrl"` in `<keyboard-shortcut>` means **TODO** key
     1. `"enter"` in `<keyboard-shortcut>` means `ENTER` or `return` key
+    1. `"equals"` in `<keyboard-shortcut>` means` =` key
     1. `"help"` in `<keyboard-shortcut>` means `Insert` key
     1. `"left"` in `<keyboard-shortcut>` means Left arrow key
     1. `"meta"` in `<keyboard-shortcut>` means `ALT` key
+    1. `"period"` in `<keyboard-shortcut>` means dot/period key
     1. `"right"` in `<keyboard-shortcut>` means Right arrow key
     1. `"shift"` in `<keyboard-shortcut>` means `SHIFT` key
+1. Order: `shift meta alt <letters-numbers>`
 
 
 # My most common shortcuts
