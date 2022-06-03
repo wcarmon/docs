@@ -88,6 +88,7 @@ func setPathConfigForViper(v *viper.Viper, osArgs []string) error {
 ```
 
 # Main func
+1. Put this into `main.go` for each command
 ```go
 func main() {
 
