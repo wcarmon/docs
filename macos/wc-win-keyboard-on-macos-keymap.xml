@@ -1,4 +1,10 @@
 <keymap version="1" name="wc-win-keyboard-macos" parent="Default for XWin">
+    <action id="$Copy">
+        <keyboard-shortcut first-keystroke="alt c"/>
+    </action>
+    <action id="$Paste">
+        <keyboard-shortcut first-keystroke="alt v"/>
+    </action>
     <action id="$SelectAll">
         <keyboard-shortcut first-keystroke="alt a"/>
     </action>
