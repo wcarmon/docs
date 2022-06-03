@@ -43,6 +43,9 @@
     <action id="ChooseRunConfiguration">
         <keyboard-shortcut first-keystroke="shift meta f10"/>
     </action>
+    <action id="CloseContent">
+        <keyboard-shortcut first-keystroke="alt f4"/>
+    </action>
     <action id="CodeCompletion">
         <keyboard-shortcut first-keystroke="alt space"/>
     </action>
