@@ -60,6 +60,15 @@
     <action id="CompareTwoFiles">
         <keyboard-shortcut first-keystroke="alt d"/>
     </action>
+    <action id="Diff.ApplyLeftSide">
+        <keyboard-shortcut first-keystroke="meta alt r"/>
+    </action>
+    <action id="Diff.ApplyRightSide">
+        <keyboard-shortcut first-keystroke="meta alt a"/>
+    </action>
+    <action id="Diff.NextChange"/>
+    <action id="Diff.PrevChange"/>
+    <action id="Diff.ShowDiff"/>
     <action id="Editor Copy">
         <keyboard-shortcut first-keystroke="alt c"/>
     </action>
