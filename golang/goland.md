@@ -63,5 +63,9 @@
 1. Disable smart quotes
 
 
+# onCommit "hook"
+- TODO: gofmt on commit
+
+
 # Other resources
 1. TODO ...

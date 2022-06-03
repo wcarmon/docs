@@ -1,13 +1,25 @@
 <!--
-TODO: sort these by action.id
+TODO: sort these by action.id  <== see my go program
 TODO: delete where action.id already in ~/git-repos/docs/macos/wc-win-keyboard-on-macos-keymap.xml
-TODO: alt -> meta
-TODO: control -> alt
-TODO: meta (never used) -> --
-TODO: shift -> shift
-TODO: if order matters, normalize it
+
+TODO: 1: alt -> meta
+TODO: 2: control -> alt
+
+NOTE: meta (never used in original)
+NOTE: shift -> shift
 -->
 <keymap version="1" name="merge-these" parent="Default for XWin">
+    <action id="$Copy">
+        <keyboard-shortcut first-keystroke="control C"/>
+        <keyboard-shortcut first-keystroke="control INSERT"/>
+    </action>
+    <action id="$Cut">
+        <keyboard-shortcut first-keystroke="control X"/>
+        <keyboard-shortcut first-keystroke="shift DELETE"/>
+    </action>
+    <action id="$Delete">
+        <keyboard-shortcut first-keystroke="DELETE"/>
+    </action>
     <action id="ShowNavBar">
         <keyboard-shortcut first-keystroke="alt HOME"/>
     </action>
@@ -452,10 +464,6 @@ TODO: if order matters, normalize it
     <action id="Compile">
         <keyboard-shortcut first-keystroke="control shift F9"/>
     </action>
-    <action id="$Cut">
-        <keyboard-shortcut first-keystroke="control X"/>
-        <keyboard-shortcut first-keystroke="shift DELETE"/>
-    </action>
     <action id="ExtractMethod">
         <keyboard-shortcut first-keystroke="control alt M"/>
     </action>
@@ -470,10 +478,6 @@ TODO: if order matters, normalize it
     </action>
     <action id="EditorPageUp">
         <keyboard-shortcut first-keystroke="PAGE_UP"/>
-    </action>
-    <action id="$Copy">
-        <keyboard-shortcut first-keystroke="control C"/>
-        <keyboard-shortcut first-keystroke="control INSERT"/>
     </action>
     <action id="CopyPaths">
         <keyboard-shortcut first-keystroke="control shift C"/>
@@ -874,9 +878,6 @@ TODO: if order matters, normalize it
     </action>
     <action id="SaveAll">
         <keyboard-shortcut first-keystroke="control S"/>
-    </action>
-    <action id="$Delete">
-        <keyboard-shortcut first-keystroke="DELETE"/>
     </action>
     <action id="RestoreDefaultLayout">
         <keyboard-shortcut first-keystroke="shift F12"/>
