@@ -2,8 +2,23 @@
 1. Making Jetbrains shortcuts more like Linux/windows (IDEA, Goland, WebStorm, ...)
 
 
+# Jetbrains user-defined keymap files
+- Linux: `$HOME/.config/JetBrains/IntelliJIdea<version>/jba_config/keymaps/*.xml`
+    1. or `$HOME/.config/JetBrains/IntelliJIdea<version>/keymaps/*.xml`
+- MacOS: `~/Library/Application Support/JetBrains/IntelliJIdea<version>/jba_config/mac.keymaps/*.xml`
+    1. **NOT** `~/Library/Application Support/JetBrains/IntelliJIdea<version>/keymaps/*.xml`
+- win: `%APPDATA%\JetBrains\IntelliJIdea<version>\keymaps\*.xml`
+- (You can replace `IntelliJIdea` with other products like `GoLand`, `IdeaIC`, `PyCharm`, or `DataGrip`)
+
+
+# Alignment with Linux/win
+1. Try copying [my keymap xml file](./wc-win-keyboard-on-macos-keymap.xml) into the dir above
+
+
+
 # My most common shortcuts
-1. These work out-of-the-box when using [XWin](https://plugins.jetbrains.com/plugin/13094-xwin-keymap) based keymap
+1. These work out-of-the-box on native keyboard when using [XWin](https://plugins.jetbrains.com/plugin/13094-xwin-keymap) based keymap
+1. These might still be awkward on an external (linux/win) keyboard
 
 |Category|Feature|Linux, win, XWin shortcut|MacOS keymap shortcut|Action Id|
 |---|---|---|---|---|
@@ -112,13 +127,6 @@
 1. `SHIFT+SHIFT` (Search anywhere)
 
 
-# Jetbrains user-defined keymap files
-- Linux: `$HOME/.config/JetBrains/IntelliJIdea<version>/jba_config/keymaps/*.xml`
-    1. or `$HOME/.config/JetBrains/IntelliJIdea<version>/keymaps/*.xml`
-- MacOS: `~/Library/Application Support/JetBrains/IntelliJIdea<version>/jba_config/mac.keymaps/*.xml`
-    1. **NOT** `~/Library/Application Support/JetBrains/IntelliJIdea<version>/keymaps/*.xml`
-- win: `%APPDATA%\JetBrains\IntelliJIdea<version>\keymaps\*.xml`
-- (You can replace `IntelliJIdea` with other products like `GoLand`, `IdeaIC`, `PyCharm`, or `DataGrip`)
 
 
 # Other resources
