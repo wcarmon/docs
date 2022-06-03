@@ -91,56 +91,9 @@
 
 
 # Option symbol conflicts
-1. Create/open your key bindings file
-```sh
-mkdir ~/Library/KeyBindings;
-touch ~/Library/KeyBindings/DefaultKeyBinding.dict
-```
-1. Add this & save
-```
-/*
-^ : Ctrl
-$ : Shift
-~ : Option (Alt)
-@ : Command (Apple)
-# : Numeric Keypad
-*/
-
-{
-    "@\UF702"  = "moveWordBackward:";                            /* Cmd  + LeftArrow */
-    "@\U007F"  = "deleteWordBackward:";                          /* Cmd  + Backspace */
-    "@\UF703"  = "moveWordForward:";                             /* Cmd  + RightArrow */
-    "@\UF728"  = "deleteWordForward:";                           /* Cmd  + Delete */
-
-    "~a" = ();
-    "~b" = ();
-    "~c" = ();
-    "~d" = ();
-    "~e" = ();
-    "~f" = ();
-    "~g" = ();
-    "~h" = ();
-    "~i" = ();
-    "~j" = ();
-    "~k" = ();
-    "~l" = ();
-    "~m" = ();
-    "~n" = ();
-    "~o" = ();
-    "~p" = ();
-    "~q" = ();
-    "~r" = ();
-    "~s" = ();
-    "~t" = ();
-    "~u" = ();
-    "~v" = ();
-    "~w" = ();
-    "~x" = ();
-    "~y" = ();
-    "~z" = ();
-}
-```
-
+1. If you *lack* an explicit mapping, by default, `Option`+<letter> will print greek letters
+    1. [jetbrains yourtrack issue](https://youtrack.jetbrains.com/issue/JBR-3409/Some-shortcuts-with-opt-key-cannot-trigger#focus=Comments-27-6081024.0-0)
+1. Add [explicit key mappings](https://www.jetbrains.com/help/idea/configuring-keyboard-and-mouse-shortcuts.html)
 
 
 # Quick checklist to verify shortcuts
@@ -157,6 +110,12 @@ $ : Shift
 1. `CTRL+J` (live templates)
 1. `SHIFT+F6` (rename)
 1. `SHIFT+SHIFT` (Search anywhere)
+
+
+# Jetbrains user defined keymap files
+- Linux: `$HOME/.config/JetBrains/IntelliJIdea<version>/keymaps`
+- MacOS: `~/Library/Application Support/JetBrains/IntelliJIdea<version>/keymaps`
+- win: `%APPDATA%\JetBrains\IntelliJIdea<version>\keymaps`
 
 
 # Other resources
