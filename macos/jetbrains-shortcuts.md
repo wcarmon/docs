@@ -1,5 +1,6 @@
 # Overview
 1. Making Jetbrains shortcuts more like Linux/windows (IDEA, Goland, WebStorm, ...)
+1. See [keymap](./keymap.md) doc first
 
 
 # Jetbrains user-defined keymap files
@@ -13,7 +14,12 @@
 
 # Alignment with Linux/win
 1. Try copying [my keymap xml file](./wc-win-keyboard-on-macos-keymap.xml) into the dir above
-
+    1. Assuming you remapped the modifiers as described in [keymap](./keymap.md) doc
+    1. `"alt"` in xml means `CTRL` key
+    1. `"ctrl"` in xml means `TODO` key
+    1. `"help"` in xml means `Insert` key
+    1. `"meta"` in xml means `ALT` key
+    1. `"shift"` in xml means `SHIFT` key
 
 
 # My most common shortcuts
@@ -43,7 +49,7 @@
 |Git|add|`CTRL+ALT+A`|TODO| `TODO` |
 |Git|commit|`CTRL+K`|⌘ K| `TODO` |
 |Git|push|`CTRL+SHIFT+K`|⇧ ⌘ K| `TODO` |
-|Navigate|AceJump - Activate / Cycle AceJump Mode|`CTRL+;`, `CTRL+'`|--| `TODO` |
+|Navigate|AceJump - Activate / Cycle AceJump Mode|`CTRL+;`, `CTRL+'`|--| `AceAction` |
 |Navigate|Diff|`CTRL+D`|⌘ D| `TODO` |
 |Navigate|File structure popup|`CTRL+F12`|⌘ F12| `TODO` |
 |Navigate|Find (in current file)|`CTRL+F`|⌘ F| `TODO` |

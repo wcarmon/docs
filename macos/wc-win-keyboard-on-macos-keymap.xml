@@ -1,6 +1,7 @@
 <keymap version="1" name="wc-win-keyboard-macos" parent="Default for XWin">
     <action id="AceAction">
-        <keyboard-shortcut first-keystroke=""/>
+        <keyboard-shortcut first-keystroke="alt semicolon"/>
+        <keyboard-shortcut first-keystroke="alt quote"/>
     </action>
     <action id="ActivateDatabaseToolWindow">
         <keyboard-shortcut first-keystroke=""/>
@@ -40,7 +41,7 @@
     <action id="ReformatCode">
         <keyboard-shortcut first-keystroke="meta alt l"/>
     </action>
-    <action id="SelectNextOccurence">
+    <action id="SelectNextOccurrence">
         <keyboard-shortcut first-keystroke=""/>
     </action>
     <action id="ShelveChanges.UnshelveWithDialog"/>
