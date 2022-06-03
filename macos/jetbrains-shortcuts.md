@@ -65,7 +65,7 @@
 |Navigate|Go to Line|`CTRL+G`|⌘ L| `TODO` |
 |Navigate|Go to symbol|`CTRL+ALT+SHIFT+N`|⌥ ⌘ O| `TODO` |
 |Navigate|Jump to next error|`F2`|(same)| `TODO` |
-|Navigate|Last edit location|`CTRL+SHIFT+Backspace`|⇧ ⌘ ⌫| `TODO` |
+|Navigate|Last edit location|`CTRL+SHIFT+Backspace`|⇧ ⌘ ⌫| `JumpToLastChange` |
 |Navigate|Move caret to next/previous method (member)|`ALT+Down`, `ALT+Up`|⌃ ⇧ ↓| `MethodDown`, `MethodUp` |
 |Navigate|Param Info|`CTRL+P`|⌘ P| `TODO` |
 |Navigate|Project view|`ALT+1`|⌘ 1| `ActivateProjectToolWindow` |

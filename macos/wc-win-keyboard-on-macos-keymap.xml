@@ -102,6 +102,9 @@
     <action id="EditorUnSelectWord">
         <keyboard-shortcut first-keystroke="shift alt w"/>
     </action>
+    <action id="ExtractMethod">
+        <keyboard-shortcut first-keystroke="meta alt m"/>
+    </action>
     <action id="FileStructurePopup">
         <keyboard-shortcut first-keystroke="alt f12"/>
     </action>
@@ -155,6 +158,15 @@
     </action>
     <action id="InsertLiveTemplate">
         <keyboard-shortcut first-keystroke="alt j"/>
+    </action>
+    <action id="IntroduceConstant">
+        <keyboard-shortcut first-keystroke="meta alt c"/>
+    </action>
+    <action id="IntroduceVariable">
+        <keyboard-shortcut first-keystroke="meta alt v"/>
+    </action>
+    <action id="JumpToLastChange">
+        <keyboard-shortcut first-keystroke="shift alt back_space"/>
     </action>
     <action id="MethodDown">
         <keyboard-shortcut first-keystroke="meta down"/>
