@@ -24,6 +24,10 @@
     <action id="ActivateProjectToolWindow">
         <keyboard-shortcut first-keystroke="meta 1"/>
     </action>
+    <action id="ActivateTerminalToolWindow">
+        <keyboard-shortcut first-keystroke="meta f12"/>
+    </action>
+    <action id="AddToFavoritesPopup"/>
     <action id="ChangesView.AddUnversioned">
         <keyboard-shortcut first-keystroke="meta alt a"/>
     </action>
@@ -223,10 +227,10 @@
     <action id="MoveTabRight">
         <keyboard-shortcut first-keystroke="meta s"/>
     </action>
-    <action id="NextEditorTab">
-        <!-- TODO: more here -->
-        <keyboard-shortcut first-keystroke=""/>
+    <action id="NewElement">
+        <keyboard-shortcut first-keystroke="meta help"/>
     </action>
+    <action id="NextEditorTab"/>
     <action id="NextTab">
         <keyboard-shortcut first-keystroke="meta right"/>
     </action>
@@ -239,10 +243,7 @@
     <action id="ParameterInfo">
         <keyboard-shortcut first-keystroke="alt p"/>
     </action>
-    <action id="PreviousEditorTab">
-        <!-- TODO: more here -->
-        <keyboard-shortcut first-keystroke=""/>
-    </action>
+    <action id="PreviousEditorTab"/>
     <action id="PreviousTab">
         <keyboard-shortcut first-keystroke="meta left"/>
     </action>
@@ -264,10 +265,7 @@
     <action id="ReplaceInPath">
         <keyboard-shortcut first-keystroke="shift alt r"/>
     </action>
-    <action id="RerunTests">
-        <!-- TODO: pick -->
-        <keyboard-shortcut first-keystroke=""/>
-    </action>
+    <action id="RerunTests"/>
     <action id="SelectNextOccurrence">
         <keyboard-shortcut first-keystroke=""/>
     </action>
@@ -288,10 +286,7 @@
     <action id="SmartTypeCompletion">
         <keyboard-shortcut first-keystroke="shift alt space"/>
     </action>
-    <action id="SplitChooser">
-        <!-- TODO: pick something -->
-        <keyboard-shortcut first-keystroke=""/>
-    </action>
+    <action id="SplitChooser"/>
     <action id="SurroundWith">
         <keyboard-shortcut first-keystroke="meta alt t"/>
     </action>
