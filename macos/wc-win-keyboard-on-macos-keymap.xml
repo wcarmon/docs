@@ -63,11 +63,20 @@
     <action id="EditorDuplicate">
         <keyboard-shortcut first-keystroke="alt d"/>
     </action>
+    <action id="EditorSelectWord">
+        <keyboard-shortcut first-keystroke="alt w"/>
+    </action>
+    <action id="EditorSortLines">
+        <keyboard-shortcut first-keystroke="shift meta l"/>
+    </action>
     <action id="EditorToggleCase">
         <keyboard-shortcut first-keystroke="shift alt u"/>
     </action>
     <action id="EditorToggleColumnMode">
         <keyboard-shortcut first-keystroke="shift meta help"/>
+    </action>
+    <action id="EditorUnselectWord">
+        <keyboard-shortcut first-keystroke="shift alt w"/>
     </action>
     <action id="Find">
         <keyboard-shortcut first-keystroke="alt f"/>

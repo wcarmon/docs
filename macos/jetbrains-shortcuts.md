@@ -47,7 +47,7 @@
 |Edit|Redo|`CTRL+SHIFT+Z`|⇧ ⌘ Z| `TODO` |
 |Edit|Reformat|`CTRL+ALT+L`|⌥ ⌘ L| `TODO` |
 |Edit|Sort lines|`ALT+SHIFT+L`|-| `TODO` |
-|Edit|Syntax aware selection|`CTRL+W`, `CTRL+SHIFT+W`|TODO| `TODO` |
+|Edit|Syntax aware selection (Extend, Shrink)|`CTRL+W`, `CTRL+SHIFT+W`|TODO| `TODO` |
 |Edit|Type-matching completion|`CTRL+SHIFT+Space`|⌃ ⇧ Space| `TODO` |
 |Edit|Undo|`CTRL+Z`|⌘ Z| `TODO` |
 |Git|add|`CTRL+ALT+A`|TODO| `TODO` |
