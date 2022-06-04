@@ -19,7 +19,7 @@
     1. `"back_space"` in `<keyboard-shortcut>` means **TODO**
     1. `"close_bracket"` in `<keyboard-shortcut>` means **TODO**
     1. `"comma"` in `<keyboard-shortcut>` means **TODO**
-    1. `"control"` in `<keyboard-shortcut>` means **TODO**
+    1. `"control"` and `"ctrl"` in `<keyboard-shortcut>` both mean **todo**
     1. `"enter"` in `<keyboard-shortcut>` means `ENTER` or `return` key
     1. `"equals"` in `<keyboard-shortcut>` means` =` key
     1. `"help"` in `<keyboard-shortcut>` means `Insert` key
