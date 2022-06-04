@@ -9,6 +9,8 @@ TODO: consider doing a merge of <action> in memory from the two files, then writ
 
 TODO: 1: replace "alt" with "meta"
 TODO: 2: then replace "control" with "alt"
+TODO: 3: replace "insert" with "help"
+TODO: 4: lower case the first keystroke
 
 NOTE: "meta" is never used in original keymap
 NOTE: "shift" maps to itself

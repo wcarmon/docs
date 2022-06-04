@@ -16,16 +16,21 @@
 1. Try copying [my keymap xml file](./wc-win-keyboard-on-macos-keymap.xml) into the dir above
     1. Assuming you remapped the modifiers as described in [keymap](./keymap.md) doc
     1. `"alt"` in `<keyboard-shortcut>` means `CTRL` key
-    1. `"control"` in `<keyboard-shortcut>` means **TODO** key
+    1. `"back_space"` in `<keyboard-shortcut>` means **TODO**
+    1. `"close_bracket"` in `<keyboard-shortcut>` means **TODO**
+    1. `"comma"` in `<keyboard-shortcut>` means **TODO**
+    1. `"control"` in `<keyboard-shortcut>` means **TODO**
     1. `"enter"` in `<keyboard-shortcut>` means `ENTER` or `return` key
     1. `"equals"` in `<keyboard-shortcut>` means` =` key
     1. `"help"` in `<keyboard-shortcut>` means `Insert` key
     1. `"left"` in `<keyboard-shortcut>` means Left arrow key
     1. `"meta"` in `<keyboard-shortcut>` means `ALT` key
+    1. `"open_bracket"` in `<keyboard-shortcut>` means **TODO**
     1. `"period"` in `<keyboard-shortcut>` means dot/period key
     1. `"right"` in `<keyboard-shortcut>` means Right arrow key
     1. `"shift"` in `<keyboard-shortcut>` means `SHIFT` key
-1. Order: `shift meta alt <letters-numbers>`
+1. ~~Order: `shift meta alt <letters-numbers>`~~ Order doesn't matter
+1. Case doesn't matter
 
 
 # My most common shortcuts
