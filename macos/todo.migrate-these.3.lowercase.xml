@@ -25,6 +25,19 @@ TODO: consider doing a merge of <action> in memory from the two files, then writ
     <action id="$Undo">
         <keyboard-shortcut first-keystroke="alt z"/>
     </action>
+    <action id="AceAction">
+        <keyboard-shortcut first-keystroke="alt quote"/>
+        <keyboard-shortcut first-keystroke="alt semicolon"/>
+    </action>
+    <action id="ActivateBookmarksToolWindow">
+        <keyboard-shortcut first-keystroke="meta 2"/>
+    </action>
+    <action id="ActivateCommitToolWindow">
+        <keyboard-shortcut first-keystroke="meta 0"/>
+    </action>
+    <action id="ActivateDatabaseToolWindow">
+        <keyboard-shortcut first-keystroke="meta d"/>
+    </action>
     <action id="ActivateDebugToolWindow">
         <keyboard-shortcut first-keystroke="meta 5"/>
     </action>
@@ -263,7 +276,7 @@ TODO: consider doing a merge of <action> in memory from the two files, then writ
         <mouse-shortcut keystroke="shift meta button1"/>
     </action>
     <action id="EditorAddRectangularSelectionOnMouseDrag">
-        <mouse-shortcut keystroke="ctrl meta shift button1"/>
+        <mouse-shortcut keystroke="alt meta shift button1"/>
     </action>
     <action id="EditorBackSpace">
         <keyboard-shortcut first-keystroke="back_space"/>
@@ -654,6 +667,36 @@ TODO: consider doing a merge of <action> in memory from the two files, then writ
     <action id="GotoAction">
         <keyboard-shortcut first-keystroke="shift alt a"/>
     </action>
+    <action id="GotoBookmark0">
+        <keyboard-shortcut first-keystroke="alt 0"/>
+    </action>
+    <action id="GotoBookmark1">
+        <keyboard-shortcut first-keystroke="alt 1"/>
+    </action>
+    <action id="GotoBookmark2">
+        <keyboard-shortcut first-keystroke="alt 2"/>
+    </action>
+    <action id="GotoBookmark3">
+        <keyboard-shortcut first-keystroke="alt 3"/>
+    </action>
+    <action id="GotoBookmark4">
+        <keyboard-shortcut first-keystroke="alt 4"/>
+    </action>
+    <action id="GotoBookmark5">
+        <keyboard-shortcut first-keystroke="alt 5"/>
+    </action>
+    <action id="GotoBookmark6">
+        <keyboard-shortcut first-keystroke="alt 6"/>
+    </action>
+    <action id="GotoBookmark7">
+        <keyboard-shortcut first-keystroke="alt 7"/>
+    </action>
+    <action id="GotoBookmark8">
+        <keyboard-shortcut first-keystroke="alt 8"/>
+    </action>
+    <action id="GotoBookmark9">
+        <keyboard-shortcut first-keystroke="alt 9"/>
+    </action>
     <action id="GotoChangedFile"/>
     <action id="GotoClass">
         <keyboard-shortcut first-keystroke="alt n"/>
@@ -663,14 +706,14 @@ TODO: consider doing a merge of <action> in memory from the two files, then writ
     </action>
     <action id="GotoDeclaration">
         <keyboard-shortcut first-keystroke="alt b"/>
-        <mouse-shortcut keystroke="ctrl button1"/>
+        <mouse-shortcut keystroke="alt button1"/>
     </action>
     <action id="GotoFile">
         <keyboard-shortcut first-keystroke="shift alt n"/>
     </action>
     <action id="GotoImplementation">
         <keyboard-shortcut first-keystroke="meta alt b"/>
-        <mouse-shortcut keystroke="ctrl meta button1"/>
+        <mouse-shortcut keystroke="alt meta button1"/>
     </action>
     <action id="GotoLine">
         <keyboard-shortcut first-keystroke="alt g"/>
@@ -688,14 +731,14 @@ TODO: consider doing a merge of <action> in memory from the two files, then writ
         <keyboard-shortcut first-keystroke="alt u"/>
     </action>
     <action id="GotoSymbol">
-        <keyboard-shortcut first-keystroke="shift alt meta n"/>
+        <keyboard-shortcut first-keystroke="shift meta alt n"/>
     </action>
     <action id="GotoTest">
         <keyboard-shortcut first-keystroke="shift alt t"/>
     </action>
     <action id="GotoTypeDeclaration">
         <keyboard-shortcut first-keystroke="shift alt b"/>
-        <mouse-shortcut keystroke="ctrl shift button1"/>
+        <mouse-shortcut keystroke="alt shift button1"/>
     </action>
     <action id="HideActiveWindow">
         <keyboard-shortcut first-keystroke="shift escape"/>
@@ -747,7 +790,7 @@ TODO: consider doing a merge of <action> in memory from the two files, then writ
         <keyboard-shortcut first-keystroke="meta back_slash"/>
     </action>
     <action id="MaintenanceAction">
-        <keyboard-shortcut first-keystroke="ctrl meta shift slash"/>
+        <keyboard-shortcut first-keystroke="alt meta shift slash"/>
     </action>
     <action id="MaximizeToolWindow">
         <keyboard-shortcut first-keystroke="shift alt quote"/>
@@ -788,6 +831,9 @@ TODO: consider doing a merge of <action> in memory from the two files, then writ
     <action id="MoveStatementUp">
         <keyboard-shortcut first-keystroke="shift alt up"/>
     </action>
+    <action id="MoveTabRight">
+        <keyboard-shortcut first-keystroke="meta s"/>
+    </action>
     <action id="NewElement">
         <keyboard-shortcut first-keystroke="meta help"/>
     </action>
@@ -799,6 +845,12 @@ TODO: consider doing a merge of <action> in memory from the two files, then writ
     </action>
     <action id="NextDiff">
         <keyboard-shortcut first-keystroke="f7"/>
+    </action>
+    <action id="NextEditorTab">
+        <keyboard-shortcut first-keystroke="meta shift right"/>
+    </action>
+    <action id="NextOccurence">
+        <keyboard-shortcut first-keystroke="meta alt down"/>
     </action>
     <action id="NextParameter">
         <keyboard-shortcut first-keystroke="tab"/>
@@ -823,11 +875,16 @@ TODO: consider doing a merge of <action> in memory from the two files, then writ
     <action id="OverrideMethods">
         <keyboard-shortcut first-keystroke="alt o"/>
     </action>
+
     <action id="ParameterInfo">
         <keyboard-shortcut first-keystroke="alt p"/>
     </action>
+    <action id="PasteMultiple">
+        <keyboard-shortcut first-keystroke="alt shift v"/>
+        <keyboard-shortcut first-keystroke="alt shift help"/>
+    </action>
     <action id="PopupHector">
-        <keyboard-shortcut first-keystroke="ctrl meta shift h"/>
+        <keyboard-shortcut first-keystroke="alt meta shift h"/>
     </action>
     <action id="PrevParameter">
         <keyboard-shortcut first-keystroke="shift tab"/>
@@ -844,14 +901,102 @@ TODO: consider doing a merge of <action> in memory from the two files, then writ
     <action id="PreviousProjectWindow">
         <keyboard-shortcut first-keystroke="meta alt open_bracket"/>
     </action>
+    <action id="PreviousTab">
+        <keyboard-shortcut first-keystroke="meta left"/>
+    </action>
+    <action id="PreviousTemplateVariable">
+        <keyboard-shortcut first-keystroke="shift tab"/>
+    </action>
+    <action id="ProblemsView.QuickFixes">
+        <keyboard-shortcut first-keystroke="meta enter"/>
+    </action>
+
+    <action id="QuickActionPopup">
+        <keyboard-shortcut first-keystroke="alt meta enter"/>
+    </action>
+    <action id="QuickChangeScheme">
+        <keyboard-shortcut first-keystroke="alt grave"/>
+        <keyboard-shortcut first-keystroke="alt back_quote"/>
+    </action>
+    <action id="QuickEvaluateExpression">
+        <keyboard-shortcut first-keystroke="alt meta f8"/>
+        <mouse-shortcut keystroke="meta button1"/>
+    </action>
+    <action id="QuickEvaluateExpression">
+        <keyboard-shortcut first-keystroke="alt meta 8"/>
+        <mouse-shortcut keystroke="alt shift meta button1"/>
+    </action>
+    <action id="QuickImplementations">
+        <keyboard-shortcut first-keystroke="alt shift i"/>
+    </action>
+    <action id="QuickJavaDoc">
+        <keyboard-shortcut first-keystroke="alt q"/>
+        <mouse-shortcut keystroke="meta button2"/>
+    </action>
+
     <action id="RecentChangedFiles"/>
+    <action id="RecentFiles">
+        <keyboard-shortcut first-keystroke="alt e"/>
+    </action>
+    <action id="RecentLocations">
+        <keyboard-shortcut first-keystroke="alt shift e"/>
+    </action>
     <action id="Refactorings.QuickListPopupAction">
-        <keyboard-shortcut first-keystroke="meta alt shift t"/>
+        <keyboard-shortcut first-keystroke="shift meta alt t"/>
+    </action>
+    <action id="ReformatCode">
+        <keyboard-shortcut first-keystroke="meta alt l"/>
+    </action>
+    <action id="Refresh">
+        <keyboard-shortcut first-keystroke="alt f5"/>
+    </action>
+    <action id="RenameElement">
+        <keyboard-shortcut first-keystroke="shift f6"/>
+    </action>
+    <action id="Resume">
+        <keyboard-shortcut first-keystroke="f9"/>
+    </action>
+    <action id="Replace">
+        <keyboard-shortcut first-keystroke="alt r"/>
+    </action>
+    <action id="ReplaceInPath">
+        <keyboard-shortcut first-keystroke="shift alt r"/>
+    </action>
+    <action id="Rerun">
+        <keyboard-shortcut first-keystroke="alt f5"/>
+    </action>
+    <action id="RerunTests">
+        <keyboard-shortcut first-keystroke="shift meta r"/>
+    </action>
+    <action id="ResizeToolWindowDown">
+        <keyboard-shortcut first-keystroke="alt meta shift down"/>
+    </action>
+    <action id="ResizeToolWindowLeft">
+        <keyboard-shortcut first-keystroke="alt meta shift left"/>
+    </action>
+    <action id="ResizeToolWindowRight">
+        <keyboard-shortcut first-keystroke="alt meta shift right"/>
+    </action>
+    <action id="ResizeToolWindowUp">
+        <keyboard-shortcut first-keystroke="alt meta shift up"/>
+    </action>
+    <action id="RestoreDefaultLayout">
+        <keyboard-shortcut first-keystroke="shift f12"/>
+    </action>
+    <action id="Resume">
+        <keyboard-shortcut first-keystroke="f9"/>
+    </action>
+    <action id="Run">
+        <keyboard-shortcut first-keystroke="shift f10"/>
+    </action>
+    <action id="RunClass">
+        <keyboard-shortcut first-keystroke="alt shift f10"/>
+    </action>
+    <action id="RunInspection">
+        <keyboard-shortcut first-keystroke="alt shift meta i"/>
     </action>
     <action id="RunToCursor">
         <keyboard-shortcut first-keystroke="meta f9"/>
-    </action>
-    <action id="RunToCursor">
         <keyboard-shortcut first-keystroke="shift meta 9"/>
     </action>
     <action id="SafeDelete">
@@ -922,8 +1067,6 @@ TODO: consider doing a merge of <action> in memory from the two files, then writ
     </action>
     <action id="ShowFilePath">
         <keyboard-shortcut first-keystroke="meta alt f12"/>
-    </action>
-    <action id="ShowFilePath">
         <keyboard-shortcut first-keystroke="meta alt shift 2"/>
     </action>
     <action id="ShowFilterPopup">
@@ -937,6 +1080,15 @@ TODO: consider doing a merge of <action> in memory from the two files, then writ
     </action>
     <action id="ShowPopupMenu">
         <keyboard-shortcut first-keystroke="context_menu"/>
+    </action>
+    <action id="ShowProjectStructureSettings">
+        <keyboard-shortcut first-keystroke="alt meta shift s"/>
+    </action>
+    <action id="ShowReformatFileDialog">
+        <keyboard-shortcut first-keystroke="shift meta alt l"/>
+    </action>
+    <action id="ShowSearchHistory">
+        <keyboard-shortcut first-keystroke="meta down"/>
     </action>
     <action id="ShowSettings">
         <keyboard-shortcut first-keystroke="meta alt s"/>
@@ -952,12 +1104,19 @@ TODO: consider doing a merge of <action> in memory from the two files, then writ
     </action>
     <action id="ShowUsages">
         <keyboard-shortcut first-keystroke="meta alt 7"/>
-    </action>
-    <action id="ShowUsages">
         <keyboard-shortcut first-keystroke="meta alt f7"/>
     </action>
+    <action id="SmartStepInto">
+        <keyboard-shortcut first-keystroke="shift f7"/>
+    </action>
+    <action id="SmartTypeCompletion">
+        <keyboard-shortcut first-keystroke="shift alt space"/>
+    </action>
+    <action id="SplitChooser">
+        <keyboard-shortcut first-keystroke="meta shift enter"/>
+    </action>
     <action id="SplitChooser.Duplicate">
-        <keyboard-shortcut first-keystroke="ctrl enter"/>
+        <keyboard-shortcut first-keystroke="alt enter"/>
     </action>
     <action id="SplitChooser.NextWindow">
         <keyboard-shortcut first-keystroke="tab"/>
@@ -988,6 +1147,12 @@ TODO: consider doing a merge of <action> in memory from the two files, then writ
     </action>
     <action id="StructuralSearchPlugin.StructuralReplaceAction"/>
     <action id="StructuralSearchPlugin.StructuralSearchAction"/>
+    <action id="SurroundWith">
+        <keyboard-shortcut first-keystroke="meta alt t"/>
+    </action>
+    <action id="SurroundWithLiveTemplate">
+        <keyboard-shortcut first-keystroke="alt meta j"/>
+    </action>
     <action id="SwitchCoverage">
         <keyboard-shortcut first-keystroke="meta alt 6"/>
     </action>
@@ -998,8 +1163,8 @@ TODO: consider doing a merge of <action> in memory from the two files, then writ
         <keyboard-shortcut first-keystroke="f10"/>
     </action>
     <action id="Switcher">
-        <keyboard-shortcut first-keystroke="ctrl tab"/>
-        <keyboard-shortcut first-keystroke="ctrl shift tab"/>
+        <keyboard-shortcut first-keystroke="alt tab"/>
+        <keyboard-shortcut first-keystroke="alt shift tab"/>
     </action>
     <action id="SwitcherIterateItems">
         <keyboard-shortcut first-keystroke="alt e"/>
@@ -1022,6 +1187,42 @@ TODO: consider doing a merge of <action> in memory from the two files, then writ
     <action id="TodoViewGroupByShowPackages">
         <keyboard-shortcut first-keystroke="meta alt p"/>
     </action>
+    <action id="ToggleBookmark">
+        <keyboard-shortcut first-keystroke="f11"/>
+    </action>
+    <action id="ToggleBookmark0">
+        <keyboard-shortcut first-keystroke="alt shift 0"/>
+    </action>
+    <action id="ToggleBookmark1">
+        <keyboard-shortcut first-keystroke="alt shift 1"/>
+    </action>
+    <action id="ToggleBookmark2">
+        <keyboard-shortcut first-keystroke="alt shift 2"/>
+    </action>
+    <action id="ToggleBookmark3">
+        <keyboard-shortcut first-keystroke="alt shift 3"/>
+    </action>
+    <action id="ToggleBookmark4">
+        <keyboard-shortcut first-keystroke="alt shift 4"/>
+    </action>
+    <action id="ToggleBookmark5">
+        <keyboard-shortcut first-keystroke="alt shift 5"/>
+    </action>
+    <action id="ToggleBookmark6">
+        <keyboard-shortcut first-keystroke="alt shift 6"/>
+    </action>
+    <action id="ToggleBookmark7">
+        <keyboard-shortcut first-keystroke="alt shift 7"/>
+    </action>
+    <action id="ToggleBookmark8">
+        <keyboard-shortcut first-keystroke="alt shift 8"/>
+    </action>
+    <action id="ToggleBookmark9">
+        <keyboard-shortcut first-keystroke="alt shift 9"/>
+    </action>
+    <action id="ToggleBookmarkWithMnemonic">
+        <keyboard-shortcut first-keystroke="alt f11"/>
+    </action>
     <action id="ToggleFindInSelection">
         <keyboard-shortcut first-keystroke="meta alt e"/>
     </action>
@@ -1035,6 +1236,15 @@ TODO: consider doing a merge of <action> in memory from the two files, then writ
     </action>
     <action id="ToggleTemporaryLineBreakpoint">
         <keyboard-shortcut first-keystroke="shift alt meta f8"/>
+    </action>
+    <action id="TypeHierarchy">
+        <keyboard-shortcut first-keystroke="alt h"/>
+    </action>
+    <action id="UnselectPreviousOccurrence">
+        <keyboard-shortcut first-keystroke="meta shift j"/>
+    </action>
+    <action id="Unwrap">
+        <keyboard-shortcut first-keystroke="alt shift delete"/>
     </action>
     <action id="UsageGrouping.Directory">
         <keyboard-shortcut first-keystroke="meta alt p"/>
@@ -1051,6 +1261,15 @@ TODO: consider doing a merge of <action> in memory from the two files, then writ
     <action id="UsageGrouping.Module">
         <keyboard-shortcut first-keystroke="meta alt m"/>
     </action>
+    <action id="UsageFiltering.Imports">
+        <keyboard-shortcut first-keystroke="alt i"/>
+    </action>
+    <action id="UsageFiltering.ReadAccess">
+        <keyboard-shortcut first-keystroke="alt r"/>
+    </action>
+    <action id="UsageFiltering.WriteAccess">
+        <keyboard-shortcut first-keystroke="alt w"/>
+    </action>
     <action id="UsageGrouping.UsageType">
         <keyboard-shortcut first-keystroke="meta alt t"/>
     </action>
@@ -1058,6 +1277,32 @@ TODO: consider doing a merge of <action> in memory from the two files, then writ
         <keyboard-shortcut first-keystroke="help"/>
     </action>
     <action id="ValidateXml"/>
+    <action id="Vcs.MoveChangedLinesToChangelist">
+        <keyboard-shortcut first-keystroke="meta shift m"/>
+    </action>
+    <action id="Vcs.QuickListPopupAction">
+        <keyboard-shortcut first-keystroke="meta back_quote"/>
+    </action>
+    <action id="Vcs.RollbackChangedLines">
+        <keyboard-shortcut first-keystroke="alt meta z"/>
+    </action>
+    <action id="Vcs.ShowMessageHistory">
+        <keyboard-shortcut first-keystroke="alt m"/>
+    </action>
+    <action id="Vcs.ToggleAmendCommitMode">
+        <keyboard-shortcut first-keystroke="meta m"/>
+    </action>
+    <action id="Vcs.Log.ShowAllAffected"/>
+    <action id="Vcs.Push">
+        <keyboard-shortcut first-keystroke="shift alt k"/>
+    </action>
+    <action id="VcsHistory.ShowAllAffected"/>
+    <action id="ViewBreakpoints">
+        <keyboard-shortcut first-keystroke="alt shift f8"/>
+    </action>
+    <action id="ViewSource">
+        <keyboard-shortcut first-keystroke="alt enter"/>
+    </action>
     <action id="VcsHistory.ShowAllAffected">
         <keyboard-shortcut first-keystroke="shift meta a"/>
     </action>
@@ -1066,5 +1311,26 @@ TODO: consider doing a merge of <action> in memory from the two files, then writ
     </action>
     <action id="VcsShowPrevChangeMarker">
         <keyboard-shortcut first-keystroke="shift alt meta up"/>
+    </action>
+    <action id="XDebugger.AttachToProcess">
+        <keyboard-shortcut first-keystroke="alt meta f5"/>
+    </action>
+    <action id="XDebugger.AttachToProcess">
+        <keyboard-shortcut first-keystroke="alt meta 5"/>
+    </action>
+    <action id="XDebugger.JumpToTypeSource">
+        <keyboard-shortcut first-keystroke="shift f4"/>
+    </action>
+    <action id="XDebugger.NewWatch">
+        <keyboard-shortcut first-keystroke="help"/>
+    </action>
+    <action id="XDebugger.SetValue">
+        <keyboard-shortcut first-keystroke="f2"/>
+    </action>
+    <action id="de.netnexus.CamelCasePlugin.ToggleCamelCase">
+        <keyboard-shortcut first-keystroke="shift meta u"/>
+    </action>
+    <action id="linessorter.sort">
+        <keyboard-shortcut first-keystroke="shift meta l"/>
     </action>
 </keymap>

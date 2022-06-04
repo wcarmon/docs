@@ -9,10 +9,11 @@ TODO: consider doing a merge of <action> in memory from the two files, then writ
 
 TODO: 1: replace "alt" with "meta"
 TODO: 2: then replace "control" with "alt"
-TODO: 3: replace "insert" with "help"
-TODO: 4: lower case the first keystroke
-TODO: 5: flip order on some combinations
-TODO: 6: doing a diff is now trivial
+TODO: 3: then replace "ctrl" with "alt"
+TODO: 4: replace "insert" with "help"
+TODO: 5: lower case the first keystroke
+TODO: 6: flip order on some combinations
+TODO: 7: doing a diff is now trivial
 
 NOTE: "meta" is never used in original keymap
 NOTE: "shift" maps to itself
