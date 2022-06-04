@@ -88,6 +88,18 @@ TODO: consider doing a merge of <action> in memory from the two files, then writ
     <action id="BraceOrQuoteOut">
         <keyboard-shortcut first-keystroke="tab"/>
     </action>
+    <action id="CallHierarchy">
+        <keyboard-shortcut first-keystroke="alt meta h"/>
+    </action>
+    <action id="ChangeSignature">
+        <keyboard-shortcut first-keystroke="alt f6"/>
+    </action>
+    <action id="ChangeTypeSignature">
+        <keyboard-shortcut first-keystroke="alt shift f6"/>
+    </action>
+    <action id="ChangesView.AddUnversioned">
+        <keyboard-shortcut first-keystroke="meta alt a"/>
+    </action>
     <action id="ChangesView.GroupBy.Directory">
         <keyboard-shortcut first-keystroke="meta alt p"/>
     </action>
@@ -130,6 +142,9 @@ TODO: consider doing a merge of <action> in memory from the two files, then writ
     </action>
     <action id="CodeCompletion">
         <keyboard-shortcut first-keystroke="alt space"/>
+    </action>
+    <action id="CodeInspection.OnEditor">
+        <keyboard-shortcut first-keystroke="meta shift i"/>
     </action>
     <action id="CollapseAll">
         <keyboard-shortcut first-keystroke="alt subtract"/>
@@ -303,6 +318,9 @@ TODO: consider doing a merge of <action> in memory from the two files, then writ
     <action id="EditorCodeBlockStartWithSelection">
         <keyboard-shortcut first-keystroke="shift alt open_bracket"/>
     </action>
+    <action id="EditorChooseLookupItemCompleteStatement">
+        <keyboard-shortcut first-keystroke="shift alt enter"/>
+    </action>
     <action id="EditorCompleteStatement">
         <keyboard-shortcut first-keystroke="shift alt enter"/>
     </action>
@@ -412,6 +430,9 @@ TODO: consider doing a merge of <action> in memory from the two files, then writ
     <action id="EditorPageUpWithSelection">
         <keyboard-shortcut first-keystroke="shift page_up"/>
     </action>
+    <action id="EditorPasteSimple">
+        <keyboard-shortcut first-keystroke="alt meta shift v"/>
+    </action>
     <action id="EditorPasteFromX11">
         <mouse-shortcut keystroke="button2"/>
     </action>
@@ -440,7 +461,7 @@ TODO: consider doing a merge of <action> in memory from the two files, then writ
         <keyboard-shortcut first-keystroke="alt w"/>
     </action>
     <action id="EditorShowGutterIconTooltip">
-        <keyboard-shortcut first-keystroke="shift meta 6" second-keystroke="T"/>
+        <keyboard-shortcut first-keystroke="shift meta 6" second-keystroke="t"/>
     </action>
     <action id="EditorSortLines">
         <keyboard-shortcut first-keystroke="shift meta l"/>
@@ -664,6 +685,7 @@ TODO: consider doing a merge of <action> in memory from the two files, then writ
         <keyboard-shortcut first-keystroke="f2"/>
         <keyboard-shortcut first-keystroke="shift f6"/>
     </action>
+    <action id="GoShareInPlaygroundAction"/>
     <action id="GotoAction">
         <keyboard-shortcut first-keystroke="shift alt a"/>
     </action>
@@ -759,6 +781,7 @@ TODO: consider doing a merge of <action> in memory from the two files, then writ
     <action id="Images.EditExternally">
         <keyboard-shortcut first-keystroke="meta alt 4"/>
     </action>
+    <action id="Images.Editor.ToggleGrid"/>
     <action id="ImplementMethods">
         <keyboard-shortcut first-keystroke="alt i"/>
     </action>
@@ -933,7 +956,6 @@ TODO: consider doing a merge of <action> in memory from the two files, then writ
         <keyboard-shortcut first-keystroke="alt q"/>
         <mouse-shortcut keystroke="meta button2"/>
     </action>
-
     <action id="RecentChangedFiles"/>
     <action id="RecentFiles">
         <keyboard-shortcut first-keystroke="alt e"/>
@@ -1004,6 +1026,9 @@ TODO: consider doing a merge of <action> in memory from the two files, then writ
     </action>
     <action id="SaveAll">
         <keyboard-shortcut first-keystroke="alt s"/>
+    </action>
+    <action id="SearchEverywhere.CompleteCommand">
+        <keyboard-shortcut first-keystroke="tab"/>
     </action>
     <action id="SearchEverywhere.NavigateToNextGroup">
         <keyboard-shortcut first-keystroke="page_down"/>
@@ -1089,6 +1114,9 @@ TODO: consider doing a merge of <action> in memory from the two files, then writ
     </action>
     <action id="ShowSearchHistory">
         <keyboard-shortcut first-keystroke="meta down"/>
+    </action>
+    <action id="ShowProjectStructureSettings">
+        <keyboard-shortcut first-keystroke="alt meta shift s"/>
     </action>
     <action id="ShowSettings">
         <keyboard-shortcut first-keystroke="meta alt s"/>
@@ -1321,6 +1349,7 @@ TODO: consider doing a merge of <action> in memory from the two files, then writ
     <action id="XDebugger.JumpToTypeSource">
         <keyboard-shortcut first-keystroke="shift f4"/>
     </action>
+    <action id="XDebugger.MoveWatchDown"/>
     <action id="XDebugger.NewWatch">
         <keyboard-shortcut first-keystroke="help"/>
     </action>
