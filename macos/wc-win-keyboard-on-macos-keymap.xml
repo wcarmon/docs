@@ -212,6 +212,12 @@
     <action id="EditSource">
         <keyboard-shortcut first-keystroke="f4"/>
     </action>
+    <action id="EditSourceInNewWindow">
+        <keyboard-shortcut first-keystroke="shift f4"/>
+    </action>
+    <action id="EditorAddCaretPerSelectedLine">
+        <keyboard-shortcut first-keystroke="shift meta g"/>
+    </action>
     <action id="Editor Copy">
         <keyboard-shortcut first-keystroke="alt c"/>
     </action>
@@ -238,6 +244,12 @@
     </action>
     <action id="EditorCompleteStatement">
         <keyboard-shortcut first-keystroke="shift alt enter"/>
+    </action>
+    <action id="EditorContextInfo">
+        <keyboard-shortcut first-keystroke="meta q"/>
+    </action>
+    <action id="EditorDecreaseFontSizeGlobal">
+        <keyboard-shortcut first-keystroke="shift meta comma"/>
     </action>
     <action id="EditorDeleteLine">
         <keyboard-shortcut first-keystroke="alt y"/>
@@ -277,6 +289,42 @@
     </action>
     <action id="EditorLeft">
         <keyboard-shortcut first-keystroke="left"/>
+    </action>
+    <action id="EditorLeftWithSelection">
+        <keyboard-shortcut first-keystroke="shift left"/>
+    </action>
+    <action id="EditorLineEnd">
+        <keyboard-shortcut first-keystroke="end"/>
+    </action>
+    <action id="EditorLineEndWithSelection">
+        <keyboard-shortcut first-keystroke="shift end"/>
+    </action>
+    <action id="EditorLineStart">
+        <keyboard-shortcut first-keystroke="home"/>
+    </action>
+    <action id="EditorLineStartWithSelection">
+        <keyboard-shortcut first-keystroke="shift home"/>
+    </action>
+    <action id="EditorLookupDown">
+        <keyboard-shortcut first-keystroke="alt down"/>
+    </action>
+    <action id="EditorLookupUp">
+        <keyboard-shortcut first-keystroke="alt up"/>
+    </action>
+    <action id="EditorMatchBrace">
+        <keyboard-shortcut first-keystroke="shift alt m"/>
+    </action>
+    <action id="EditorMoveToPageBottom">
+        <keyboard-shortcut first-keystroke="alt page_down"/>
+    </action>
+    <action id="EditorMoveToPageBottomWithSelection">
+        <keyboard-shortcut first-keystroke="shift alt page_down"/>
+    </action>
+    <action id="EditorMoveToPageTop">
+        <keyboard-shortcut first-keystroke="alt page_up"/>
+    </action>
+    <action id="EditorMoveToPageTopWithSelection">
+        <keyboard-shortcut first-keystroke="shift alt page_up"/>
     </action>
     <action id="EditorNextWord">
         <keyboard-shortcut first-keystroke="alt right"/>
@@ -326,8 +374,29 @@
     <action id="EditorSortLines">
         <keyboard-shortcut first-keystroke="shift meta l"/>
     </action>
+    <action id="EditorSplitLine">
+        <keyboard-shortcut first-keystroke="alt enter"/>
+    </action>
+    <action id="EditorStartNewLine">
+        <keyboard-shortcut first-keystroke="shift enter"/>
+    </action>
+    <action id="EditorStartNewLineBefore">
+        <keyboard-shortcut first-keystroke="meta alt enter"/>
+    </action>
     <action id="EditorTab">
         <keyboard-shortcut first-keystroke="tab"/>
+    </action>
+    <action id="EditorTextEnd">
+        <keyboard-shortcut first-keystroke="alt end"/>
+    </action>
+    <action id="EditorTextEndWithSelection">
+        <keyboard-shortcut first-keystroke="shift alt end"/>
+    </action>
+    <action id="EditorTextStart">
+        <keyboard-shortcut first-keystroke="alt home"/>
+    </action>
+    <action id="EditorTextStartWithSelection">
+        <keyboard-shortcut first-keystroke="shift alt home"/>
     </action>
     <action id="EditorToggleCase">
         <keyboard-shortcut first-keystroke="shift alt u"/>
@@ -341,6 +410,15 @@
     <action id="EditorUnSelectWord">
         <keyboard-shortcut first-keystroke="shift alt w"/>
     </action>
+    <action id="EditorUnindentSelection">
+        <keyboard-shortcut first-keystroke="shift tab"/>
+    </action>
+    <action id="EditorUp">
+        <keyboard-shortcut first-keystroke="up"/>
+    </action>
+    <action id="EditorUpWithSelection">
+        <keyboard-shortcut first-keystroke="shift up"/>
+    </action>
     <action id="EvaluateExpression"/>
     <action id="ExpandAll">
         <keyboard-shortcut first-keystroke="alt add"/>
@@ -350,6 +428,29 @@
         <keyboard-shortcut first-keystroke="shift alt add"/>
         <keyboard-shortcut first-keystroke="shift alt equals"/>
     </action>
+    <action id="ExpandAllToLevel1">
+        <keyboard-shortcut first-keystroke="shift alt multiply" second-keystroke="1"/>
+        <keyboard-shortcut first-keystroke="shift alt multiply" second-keystroke="NUMPAD1"/>
+    </action>
+    <action id="ExpandAllToLevel2">
+        <keyboard-shortcut first-keystroke="shift alt multiply" second-keystroke="2"/>
+        <keyboard-shortcut first-keystroke="shift alt multiply" second-keystroke="NUMPAD2"/>
+    </action>
+    <action id="ExpandAllToLevel3">
+        <keyboard-shortcut first-keystroke="shift alt multiply" second-keystroke="3"/>
+        <keyboard-shortcut first-keystroke="shift alt multiply" second-keystroke="NUMPAD3"/>
+    </action>
+    <action id="ExpandAllToLevel4">
+        <keyboard-shortcut first-keystroke="shift alt multiply" second-keystroke="4"/>
+        <keyboard-shortcut first-keystroke="shift alt multiply" second-keystroke="NUMPAD4"/>
+    </action>
+    <action id="ExpandAllToLevel5">
+        <keyboard-shortcut first-keystroke="shift alt multiply" second-keystroke="5"/>
+        <keyboard-shortcut first-keystroke="shift alt multiply" second-keystroke="NUMPAD5"/>
+    </action>
+    <action id="ExpandLiveTemplateByTab">
+        <keyboard-shortcut first-keystroke="tab"/>
+    </action>
     <action id="ExpandRegion">
         <keyboard-shortcut first-keystroke="alt add"/>
         <keyboard-shortcut first-keystroke="alt equals"/>
@@ -357,7 +458,26 @@
     <action id="ExpandRegionRecursively">
         <keyboard-shortcut first-keystroke="shift meta equals"/>
     </action>
-    <action id="ExportToTextFile"/>
+    <action id="ExpandToLevel1">
+        <keyboard-shortcut first-keystroke="alt multiply" second-keystroke="1"/>
+        <keyboard-shortcut first-keystroke="alt multiply" second-keystroke="NUMPAD1"/>
+    </action>
+    <action id="ExpandToLevel2">
+        <keyboard-shortcut first-keystroke="alt multiply" second-keystroke="2"/>
+        <keyboard-shortcut first-keystroke="alt multiply" second-keystroke="NUMPAD2"/>
+    </action>
+    <action id="ExpandToLevel3">
+        <keyboard-shortcut first-keystroke="alt multiply" second-keystroke="3"/>
+        <keyboard-shortcut first-keystroke="alt multiply" second-keystroke="NUMPAD3"/>
+    </action>
+    <action id="ExpandToLevel4">
+        <keyboard-shortcut first-keystroke="alt multiply" second-keystroke="4"/>
+        <keyboard-shortcut first-keystroke="alt multiply" second-keystroke="NUMPAD4"/>
+    </action>
+    <action id="ExpandToLevel5">
+        <keyboard-shortcut first-keystroke="alt multiply" second-keystroke="5"/>
+        <keyboard-shortcut first-keystroke="alt multiply" second-keystroke="NUMPAD5"/>
+    </action>
     <action id="ExpandTreeNode">
         <keyboard-shortcut first-keystroke="add"/>
     </action>
@@ -373,12 +493,39 @@
     <action id="ExtractMethod">
         <keyboard-shortcut first-keystroke="meta alt m"/>
     </action>
+    <action id="FileChooser.GotoDesktop">
+        <keyboard-shortcut first-keystroke="alt d"/>
+    </action>
+    <action id="FileChooser.GotoHome">
+        <keyboard-shortcut first-keystroke="alt 1"/>
+    </action>
+    <action id="FileChooser.GotoModule">
+        <keyboard-shortcut first-keystroke="alt 3"/>
+    </action>
+    <action id="FileChooser.GotoProject">
+        <keyboard-shortcut first-keystroke="alt 2"/>
+    </action>
     <action id="FileChooser.NewFolder">
         <keyboard-shortcut first-keystroke="alt n"/>
         <keyboard-shortcut first-keystroke="meta help"/>
     </action>
+    <action id="FileChooser.TogglePathBar">
+        <keyboard-shortcut first-keystroke="alt p"/>
+    </action>
+    <action id="FileChooserList.LevelUp">
+        <keyboard-shortcut first-keystroke="back_space"/>
+    </action>
+    <action id="FileChooserList.Root">
+        <keyboard-shortcut first-keystroke="alt back_slash"/>
+    </action>
+    <action id="FileChooserList.Root">
+        <keyboard-shortcut first-keystroke="alt slash"/>
+    </action>
     <action id="FileStructurePopup">
         <keyboard-shortcut first-keystroke="alt f12"/>
+    </action>
+    <action id="FindPrevWordAtCaret">
+        <keyboard-shortcut first-keystroke="shift alt f3"/>
     </action>
     <action id="Find">
         <keyboard-shortcut first-keystroke="alt f"/>
@@ -388,6 +535,10 @@
     </action>
     <action id="FindNext">
         <keyboard-shortcut first-keystroke="f3"/>
+    </action>
+    <action id="FindPrevious">
+        <keyboard-shortcut first-keystroke="shift f3"/>
+        <keyboard-shortcut first-keystroke="shift alt l"/>
     </action>
     <action id="FindUsages">
         <keyboard-shortcut first-keystroke="meta f7"/>
