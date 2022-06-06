@@ -32,7 +32,7 @@
     1. `"comma"` in `<keyboard-shortcut>` means **TODO**
     1. `"control"` and `"ctrl"` in `<keyboard-shortcut>` both mean **todo**
     1. `"enter"` in `<keyboard-shortcut>` means `ENTER` or `return` key
-    1. `"equals"` in `<keyboard-shortcut>` means` =` key
+    1. `"equals"` in `<keyboard-shortcut>` means `=` key
     1. `"help"` in `<keyboard-shortcut>` means `Insert` key
     1. `"left"` in `<keyboard-shortcut>` means Left arrow key
     1. `"meta"` in `<keyboard-shortcut>` means `ALT` key
@@ -140,7 +140,7 @@
 1. Add [explicit key mappings](https://www.jetbrains.com/help/idea/configuring-keyboard-and-mouse-shortcuts.html)
 
 
-# Quick checklist to verify shortcuts
+# Quick checklist to verify keyboard shortcuts
 ## Triads
 1. `CTRL+ALT+SHIFT+N` (go to symbol)
 
