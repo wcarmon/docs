@@ -29,13 +29,13 @@ ln -s ~/Library ~/lib;
 1. Alternative: Use: `command` + `shift` + dot
 
 
-# Open file/dir dialog
+# Open file dialog
 
 ## Show hidden directories (like ~/Library)
-1. `command` + `shift` + dot (⌘ ⇧ .)
+1. `command` + `shift` + dot == `⌘ ⇧ .`
 
 ## Paste url into open dialog
-- `command` + `shift` + `g` (⌘ ⇧ g)
+- `command` + `shift` + `g` == `⌘ ⇧ g`
 
 
 # Other Resources
