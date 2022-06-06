@@ -1,17 +1,18 @@
 # Overview
-- TODO
+- Keyboard shortcuts for slack
+
 
 # Quick checklist to verify keyboard shortcuts
-1.
-
-
-- TODO: ctrl + alt + shift
-- TODO: ctrl + alt
-- TODO: ctrl + shift
-- TODO: alt + shift
-- TODO: alt
-- TODO: ctrl
-- TODO: shift
-
+|Shortcut|Behavior|
+|---|---|
+|`ALT` + `+`|increase font size|
+|`ALT` + `-`|decrease font size|
+|`ALT` + `/`|show shorcuts|
+|`ALT` + `CTRL` + `f`|Toggle full screen|
+|`ALT` + `CTRL` + `SHIFT` + c|Format selection as code block|
+|`ALT` + `n`|new message|
+|`ALT` + `SHIFT` + `k`|All DMs|
+|`ALT` + `SHIFT` + `t`|All Threads|
+|`SHIFT` + enter|Start new line|
 
 # Other resources

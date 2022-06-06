@@ -1,8 +1,11 @@
 # Overview
 - TODO
 
+
 # Quick checklist to verify keyboard shortcuts
-1.
+|Shortcut|Behavior|
+|---|---|
+|`CTRL` + ``|...|
 
 - TODO: ctrl + alt + shift
 - TODO: ctrl + alt
