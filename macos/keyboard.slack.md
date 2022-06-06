@@ -1,5 +1,5 @@
 # Overview
-- Keyboard shortcuts for slack
+- Configuring Keyboard shortcuts for slack
 
 
 # Quick checklist to verify keyboard shortcuts

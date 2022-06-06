@@ -1,5 +1,5 @@
 # Overview
-- TODO
+- Configuring keyboard for chrome
 
 
 # Keyboard shortcuts
