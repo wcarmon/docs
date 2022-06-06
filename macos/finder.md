@@ -18,5 +18,15 @@ cupsctl WebInterface=yes;
 killall Dock; killall Finder;
 ```
 
+
+# Exposing ~/Library
+1. Most apps try to hide `~/Library` (eg. Open File dialog)
+1. Create a symlink so you always have access:
+```sh
+ln -s ~/Library ~/lib;
+```
+1. You can also use: `Command+Shift+dot`
+
+
 # Other resources
 
