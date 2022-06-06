@@ -8,7 +8,7 @@
 ## Keys worth remapping
 1. Matching physical order relative to space bar
 
-|Button|Default Behavior|Desired behavior (based on location)|
+|windows Keyboard Button|Default Behavior|Desired behavior (based on location)|
 |---|---|---|
 |`ALT`|`option` (⌥) button|`command` (⌘)|
 |`CTRL`|`control` (⌃) button|`option` (⌥)|
