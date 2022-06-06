@@ -11,6 +11,17 @@
 - win: `%APPDATA%\JetBrains\IntelliJIdea<version>\keymaps\*.xml`
 - (You can replace `IntelliJIdea` with other products like `GoLand`, `IdeaIC`, `PyCharm`, or `DataGrip`)
 
+## Load your custom keymap
+1. Open Goland/IDEA/Pycharm
+1. Disable synchronization
+    1. copying of existing cloud settings to the IDE
+1. Move keymap xml to ~/Library/Application Support/JetBrains/GoLand<version>/keymaps/*.xml
+1. Restart GoLand
+1. Enable synchronization
+    **Keep and Sync Local Settings**
+1. Settings/Preferences > Keymaps
+1. Select your keymap
+
 
 # Alignment with Linux/win
 1. Try copying [my keymap xml file](./wc-win-keyboard-on-macos-keymap.xml) into the dir above
