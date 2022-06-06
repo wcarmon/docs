@@ -12,6 +12,7 @@
 defaults write com.google.Chrome NSUserKeyEquivalents {};
 defaults write com.google.Chrome NSUserKeyEquivalents -dict-add "Close Tag" "^w";
 defaults write com.google.Chrome NSUserKeyEquivalents -dict-add "New Tab" "^t";
+# TODO more here
 ```
 
 ## Verify
