@@ -9,4 +9,4 @@
 # Other resources
 1. TODO
 
-TODO: flags
+- TODO: deactivate

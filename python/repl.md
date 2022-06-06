@@ -1,10 +1,10 @@
 # Overview
-- TODO ...
+1. TODO
 
 
 # Idioms
-TODO ...
+1. TODO ...
 
 
 # Other resources
-1. TODO ...
+1. TODO
