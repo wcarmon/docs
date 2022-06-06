@@ -2,7 +2,7 @@
 - Configuring Keyboard shortcuts for slack
 
 
-# Quick checklist to verify keyboard shortcuts
+# Checklist to verify keyboard shortcuts
 |Shortcut|Behavior|
 |---|---|
 |`ALT` + `+`|increase font size|
