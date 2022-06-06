@@ -15,17 +15,18 @@ defaults write com.apple.finder QuitMenuItem true;
 defaults write -g ApplePressAndHoldEnabled -bool false;
 chflags nohidden ~/library/;
 cupsctl WebInterface=yes;
-killall Dock; killall Finder;
+killall Dock;
+killall Finder;
 ```
 
 
 # Exposing `~/Library` directory
-1. Most apps try to hide `~/Library` (eg. Open File dialog)
-1. Create a symlink so you always have access:
+1. Most apps try to hide `~/Library`
+1. Create a symlink so can always access:
 ```sh
 ln -s ~/Library ~/lib;
 ```
-1. You can also use: `Command+Shift+dot`
+1. Alternative: Use: `command` + `shift` + dot
 
 
 # Open file/dir dialog
