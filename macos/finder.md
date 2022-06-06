@@ -19,7 +19,7 @@ killall Dock; killall Finder;
 ```
 
 
-# Exposing ~/Library
+# Exposing `~/Library` directory
 1. Most apps try to hide `~/Library` (eg. Open File dialog)
 1. Create a symlink so you always have access:
 ```sh
@@ -28,5 +28,14 @@ ln -s ~/Library ~/lib;
 1. You can also use: `Command+Shift+dot`
 
 
-# alt resources
+# Open file/dir dialog
+
+## Show hidden directories (like ~/Library)
+1. `command` + `shift` + dot (⌘ ⇧ .)
+
+## Paste url into open dialog
+- `command` + `shift` + `g` (⌘ ⇧ g)
+
+
+# Other Resources
 
