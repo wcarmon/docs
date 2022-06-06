@@ -28,5 +28,5 @@ ln -s ~/Library ~/lib;
 1. You can also use: `Command+Shift+dot`
 
 
-# Other resources
+# alt resources
 

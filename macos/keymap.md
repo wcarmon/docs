@@ -88,6 +88,7 @@ hidutil property \
   ]
 }"
 ```
+- TODO: Home, Insert, Delete
 
 ### Verify
 ```sh
@@ -142,3 +143,4 @@ hidutil property --set '{"UserKeyMapping":[]}';
 # TODO: organize
 - `~/Library/LaunchAgents/local.hidutilKeyMapping.plist`
 - `launchctl load`
+- IOHIDKeyboardFilter
