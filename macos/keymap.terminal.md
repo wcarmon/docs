@@ -1,5 +1,15 @@
 # Overview
-- TODO
+- Configuring win keyboard for terminals on MacOS
+
+
+# Changing Keyboard shortcuts via hidutil
+1. Open terminal
+1. Define the key constants in [keymap.os](./keymap.os.md) doc
+1. Remap keyboard:
+```sh
+PRODUCT_ID_FOR_WIN_KEYBOARD=0x07a5;
+
+```
 
 
 # Checklist to verify keyboard shortcuts

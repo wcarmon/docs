@@ -1,10 +1,10 @@
 # Overview
-- Configuring keyboard for chrome
+- Configuring win keyboard for chrome on MacOS
 
 
-# Changing Keyboard shortcuts from keyboard
+# Changing Keyboard shortcuts via hidutil
 1. Open terminal
-1. define the key constants in [keymap.os](./keymap.os.md) doc
+1. Define the key constants in [keymap.os](./keymap.os.md) doc
 1. Remap keyboard:
 ```sh
 PRODUCT_ID_FOR_WIN_KEYBOARD=0x07a5;
@@ -41,8 +41,8 @@ hidutil property \
 ```
 
 
-# Changing Keyboard shortcuts from Chrome
-1. MacOS manages app shortcuts via [System Preferences](TODO) app
+# Changing Keyboard shortcuts from Chrome (not recommended)
+1. MacOS manages app shortcuts via System Preferences app
 1. `System Preferences` > `Keyboard` > `Shortcuts` tab > `App Shortcuts` > `All Applications` > `+` button > `Google Chrome`
     1. `New Tab`: `^T`
     1. etc (see below)
