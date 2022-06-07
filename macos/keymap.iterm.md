@@ -1,5 +1,5 @@
 # Overview
-- Configuring win keyboard for terminals on MacOS
+- Configuring win keyboard for built-in terminal app on MacOS
 
 
 # Changing Keyboard shortcuts via hidutil
@@ -9,25 +9,36 @@
 ```sh
 PRODUCT_ID_FOR_WIN_KEYBOARD=0x07a5;
 
+# TODO: more here
 ```
+
+
+# Changing Keyboard shortcuts from iterm2
+1. TODO
 
 
 # Checklist to verify keyboard shortcuts
 |Shortcut|Behavior|
 |---|---|
-|`ALT` + `b`|Move cursor **back** 1 word|
-|`ALT` + `f`|Move cursor **forward** 1 word|
+|`ALT` + `b`|Move cursor **back** 1 word (TODO: fails in iterm2)|
+|`ALT` + `f`|Move cursor **forward** 1 word (TODO: fails in iterm2)|
 |`CTRL` + `a`|Move cursor to **start** of line|
 |`CTRL` + `e`|Move cursor to **end** of line|
-|`CTRL` + `k`|clear from cursor to end|
+|`CTRL` + `k`|Clear from cursor to end|
 |`CTRL` + `l`|Clear terminal|
 |`CTRL` + `left`|Move cursor to previous word|
 |`CTRL` + `r`|command history|
 |`CTRL` + `right`|Move cursor to next word|
+|`CTRL` + `SHIFT` + v|paste|
 |`CTRL` + `u`|clear from cursor to start|
 |`CTRL` + `z`|Move process to background|
 |`end`|Move cursor to end of line|
 |`home`|Move cursor to start of line|
+|`SHIFT` + Insert|paste|
+|TODO|copy|
+
+
+- TODO: global hotkey like guake (F12)
 
 
 # Other resources
