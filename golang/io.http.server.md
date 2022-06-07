@@ -105,6 +105,7 @@ func main () {
     - Actively maintained
     - Modular
     - No external deps
+    - Subrouter support
     - Supports named url params
     - Used in production
     - Well documented
