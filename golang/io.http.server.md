@@ -33,6 +33,10 @@ func main() {
 		Handler: http.HandlerFunc(myHandler),
 	}
 
+	log.Info().
+		Str("addr", svr.Addr).
+		Msg("Server listening")
+
 	log.Fatal().
 		// -- This line blocks goroutine while server runs
 		Err(svr.ListenAndServe()).
@@ -55,6 +59,10 @@ func main() {
 		// -- Adapter converts your func to a http.Handler
 		Handler: http.HandlerFunc(fn),
 	}
+
+	log.Info().
+		Str("addr", svr.Addr).
+		Msg("Server listening")
 
 	log.Fatal().
 	    // -- This line blocks goroutine while server runs
@@ -79,6 +87,10 @@ func main () {
 		Addr:    ":8080",
 		Handler: &foo,
 	}
+
+	log.Info().
+		Str("addr", svr.Addr).
+		Msg("Server listening")
 
 	log.Fatal().
 	    Err(svr.ListenAndServe()).

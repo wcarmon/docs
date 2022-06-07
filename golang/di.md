@@ -13,6 +13,9 @@ go install github.com/google/wire/cmd/wire@latest;
 
 
 - TODO: running
+- TODO: it generates `wire_gen.go`
+    - TODO: should we commit?
+
 
 # Idioms
 1. TODO ...

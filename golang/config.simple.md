@@ -37,6 +37,9 @@ func NewConfig(osArgs OSArgs) (*appConfig, error) {
 	// -- Set paths for config file
 	err := setPathConfigForViper(v, osArgs)
 	if err != nil {
+	    log.Error().
+	        Err(err).
+	        Msg("Failed to init viper")
 		return nil, err
 	}
 
@@ -45,6 +48,9 @@ func NewConfig(osArgs OSArgs) (*appConfig, error) {
 	// -- Parse config
 	err = v.ReadInConfig()
 	if err != nil {
+	    log.Error().
+	        Err(err).
+	        Msg("Failed to read config using viper")
 		return nil, err
 	}
 
@@ -52,6 +58,9 @@ func NewConfig(osArgs OSArgs) (*appConfig, error) {
 	var c appConfig
 	err = v.Unmarshal(&c)
 	if err != nil {
+	    log.Error().
+	        Err(err).
+	        Msg("Failed to unmarshal config")
 		return nil, err
 	}
 
@@ -62,6 +71,10 @@ func NewConfig(osArgs OSArgs) (*appConfig, error) {
 	// -- Validation
 	err = c.Validate()
 	if err != nil {
+		log.Error().
+			Err(err).
+			Str("config", fmt.Sprintf("%#v", c))
+			Msg("Config is invalid")
 		return nil, err
 	}
 
