@@ -60,11 +60,23 @@ func BuildObjects() (*appObjects, error) {
     // just to appease the compiler
     return &appObjects{}, nil
 }
-
-// Assuming you have factory functions (Provider) like:
+```
+- Assuming you have factory functions (Provider) like:
+```
 func NewFoo(b *Bar) (*Foo, error) { ... }
 
 func NewBar() (*Bar, error) { ... }
+```
+
+# in main func
+```go
+func main() {
+
+    appCtx, err := BuildObjects()
+    //check for error
+
+    // Use appCtx.config
+}
 ```
 
 
