@@ -4,7 +4,10 @@
 
 
 # Server
-- TODO
+1. https://gobyexample.com/http-servers
+1. https://yourbasic.org/golang/http-server-example/
+1. https://go.dev/doc/articles/wiki/
+
 
 # Router/Mux
 1. Maps a uri (or pattern) to your function
@@ -50,3 +53,7 @@
 1. https://www.alexedwards.net/blog/which-go-router-should-i-use
 1. https://github.com/gorilla/mux
 1. https://benhoyt.com/writings/go-routing/
+1. https://gobyexample.com/http-servers
+1. https://www.digitalocean.com/community/tutorials/how-to-make-an-http-server-in-go
+1. https://go.dev/doc/articles/wiki/
+1. https://gowebexamples.com/http-server/
