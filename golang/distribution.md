@@ -3,7 +3,7 @@
 
 
 # Idioms
-TODO ...
+1. TODO ...
 
 
 # Other resources
