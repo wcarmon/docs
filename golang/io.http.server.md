@@ -26,7 +26,7 @@ func myHandler(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	svr := &http.Server{
-	    // -- See net.Dial for Addr syntax
+		// -- See net.Dial for Addr syntax
 		Addr:    ":8080",
 
 		// -- Adapter converts your func to a http.Handler
@@ -34,7 +34,7 @@ func main() {
 	}
 
 	log.Fatal().
-	    // -- This line blocks goroutine while server runs
+		// -- This line blocks goroutine while server runs
 		Err(svr.ListenAndServe()).
 		Msg("Server terminated")
 }
