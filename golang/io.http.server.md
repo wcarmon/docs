@@ -57,7 +57,7 @@ func main() {
 	}
 
 	log.Fatal().
-		// -- This line blocks goroutine while server runs
+	    // -- This line blocks goroutine while server runs
 	    Err(svr.ListenAndServe()).
 	    Msg("Server terminated")
 }
@@ -112,7 +112,7 @@ func main () {
 
 ## Gorilla
 1. https://github.com/gorilla/mux
-1. Why? A lot of the same benefits of Chi
+1. Why? Similar to [Chi](https://github.com/go-chi/chi)
 
 
 ## core http.ServeMux
