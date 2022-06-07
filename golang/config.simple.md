@@ -24,9 +24,14 @@ type appConfig struct {
 }
 
 
+// os.Args
+// Helps simplify dependency injection
+type OSArgs []string
+
+
 // Load reads from config file, env vars, ...
 // Pass os.Args
-func BuildConfig(osArgs []string) (*appConfig, error) {
+func BuildConfig(osArgs OSArgs) (*appConfig, error) {
 	v := viper.New()
 
 	// -- Set paths for config file
