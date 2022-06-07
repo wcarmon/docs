@@ -51,7 +51,7 @@ func BuildConfig(osArgs []string) (*appConfig, error) {
 	}
 
 	// -- Validation
-	err = c.ValidateConfig()
+	err = c.Validate()
 	if err != nil {
 		return nil, err
 	}
@@ -59,7 +59,7 @@ func BuildConfig(osArgs []string) (*appConfig, error) {
 	return &c, err
 }
 
-func (cfg *appConfig) ValidateConfig() error {
+func (cfg *appConfig) Validate() error {
 	if strings.TrimSpace(cfg.InputPath) == "" {
 		return errors.New("inputPath is required")
 	}
