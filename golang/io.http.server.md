@@ -9,9 +9,88 @@
 1. https://go.dev/doc/articles/wiki/
 
 
+# [http.Handler](https://pkg.go.dev/net/http#Handler) and [http.HandlerFunc](https://pkg.go.dev/net/http#HandlerFunc)
+1. Signature: `func (w http.ResponseWriter, r *http.Request)`
+1. [http.Handler](https://pkg.go.dev/net/http#Handler) is the interface for handling HTTP requests
+1. [http.HandlerFunc](https://pkg.go.dev/net/http#HandlerFunc) converts any func with the signature above to a [http.Handler](https://pkg.go.dev/net/http#Handler)
+1. *Almost* any type can have a "serve" method
+    1. Examples in [Effective Go doc](https://go.dev/doc/effective_go#interface_methods)
+    1. See [`http.Handler`](https://pkg.go.dev/net/http#Handler) interface
+
+
+## Example: Named func
+```go
+func myHandler(w http.ResponseWriter, r *http.Request) {
+	io.WriteString(w, "Hi\n")
+}
+
+func main() {
+	svr := &http.Server{
+	    // -- See net.Dial for Addr syntax
+		Addr:    ":8080",
+
+		// -- Adapter converts your func to a http.Handler
+		Handler: http.HandlerFunc(myHandler),
+	}
+
+	log.Fatal().
+	    // -- This line blocks goroutine while server runs
+		Err(svr.ListenAndServe()).
+		Msg("Server terminated")
+}
+```
+
+## Example: Anonymous func
+```go
+func main() {
+    ...
+	fn := func(w http.ResponseWriter, r *http.Request) {
+		io.WriteString(w, "Hi\n")
+	}
+
+	svr := &http.Server{
+	    // -- See net.Dial for Addr syntax
+		Addr:    ":8080",
+
+		// -- Adapter converts your func to a http.Handler
+		Handler: http.HandlerFunc(fn),
+	}
+
+	log.Fatal().
+	    // -- This line blocks goroutine while server runs
+	    Err(svr.ListenAndServe()).
+	    Msg("Server terminated")
+}
+```
+
+## Example: method on a type
+```go
+type Foo int32
+
+// -- Implements http.Handler
+func (n *Foo) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintf(w, "Value is: %v\n", *n)
+}
+
+func main () {
+	foo := Foo(34)
+
+	svr := &http.Server{
+		Addr:    ":8080",
+		Handler: &foo,
+	}
+
+	log.Fatal().
+	    Err(svr.ListenAndServe()).
+	    Msg("Server terminated")
+}
+```
+
+
 # Router/Mux
 1. A Router/Mux maps a uri (or pattern) to your function
-
+1. All libs below accept standard [`http.Handler`](https://pkg.go.dev/net/http#Handler)
+1. Avoid `http.HandleFunc` and `http.Handle` functions (unless using DefaultServeMux)
 
 ## Chi
 1. https://github.com/go-chi/chi
@@ -49,6 +128,11 @@
 1. TODO: others
 
 
+# TODO/Organize
+- ListenAndServe always returns non-nil error
+- swagger/openapi
+
+
 # Other resources
 1. https://www.alexedwards.net/blog/which-go-router-should-i-use
 1. https://github.com/gorilla/mux
@@ -59,3 +143,4 @@
 1. https://gowebexamples.com/http-server/
 1. https://drstearns.github.io/tutorials/gomiddleware/
 1. https://www.alexedwards.net/blog/making-and-using-middleware
+1. https://go.dev/doc/effective_go#interface_methods

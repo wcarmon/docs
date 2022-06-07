@@ -9,6 +9,8 @@
     1. Avoids unnecessary dependencies
     1. Compiler checks for implementation
 1. Only interfaces can be embedded into interfaces (Union)
+1. Pass by reference (behaves like a pointer)  <-- TODO: verify & demonstrate
+
 
 TODO: embedding
 TODO: implicit implementation

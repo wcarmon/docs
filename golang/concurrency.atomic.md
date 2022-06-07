@@ -10,7 +10,7 @@
 1. Example
 ```go
 type SafeWidget struct {
-	mu             sync.Mutex // private lock
+	mu             sync.Mutex // guards stateToProtect
 	stateToProtect []string
 }
 
