@@ -11,9 +11,9 @@
 
 # [http.Handler](https://pkg.go.dev/net/http#Handler) and [http.HandlerFunc](https://pkg.go.dev/net/http#HandlerFunc)
 1. Signature: `func (w http.ResponseWriter, r *http.Request)`
-1. [http.Handler](https://pkg.go.dev/net/http#Handler) is the interface for handling HTTP requests
-1. [http.HandlerFunc](https://pkg.go.dev/net/http#HandlerFunc) converts any func with the signature above to a [http.Handler](https://pkg.go.dev/net/http#Handler)
-1. *Almost* any type can have a "serve" method
+1. [`http.Handler`](https://pkg.go.dev/net/http#Handler) is the interface for handling HTTP requests
+1. [`http.HandlerFunc`](https://pkg.go.dev/net/http#HandlerFunc) converts any func with the signature above to a [`http.Handler`](https://pkg.go.dev/net/http#Handler)
+1. *Almost* any type can have a `ServeHTTP` method
     1. Examples in [Effective Go doc](https://go.dev/doc/effective_go#interface_methods)
     1. See [`http.Handler`](https://pkg.go.dev/net/http#Handler) interface
 
@@ -129,8 +129,9 @@ func main () {
 
 
 # TODO/Organize
-- ListenAndServe always returns non-nil error
-- swagger/openapi
+- TODO: ListenAndServe always returns non-nil error
+- TODO: swagger/openapi
+- TODO: context
 
 
 # Other resources
