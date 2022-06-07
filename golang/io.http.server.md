@@ -10,25 +10,25 @@
 
 
 # Router/Mux
-1. Maps a uri (or pattern) to your function
+1. A Router/Mux maps a uri (or pattern) to your function
 
 
 ## Chi
 1. https://github.com/go-chi/chi
 1. Why?
-    - small
+    - Small
     - Has tests
     - Has benchmarks
-    - aligned with core-go http api (http.Handler, http.HandlerFunc, ...)
+    - Aligned with core-go http api (http.Handler, http.HandlerFunc, ...)
     - [context support](https://pkg.go.dev/context)
     - [go.mod](https://go.dev/ref/mod#go-mod-file)
-    - no external deps
-    - named url params
-    - modular
     - [Middleware support](TODO)
-    - Well documented
     - Actively maintained
+    - Modular
+    - No external deps
+    - Supports named url params
     - Used in production
+    - Well documented
 
 
 ## Gorilla
@@ -57,3 +57,5 @@
 1. https://www.digitalocean.com/community/tutorials/how-to-make-an-http-server-in-go
 1. https://go.dev/doc/articles/wiki/
 1. https://gowebexamples.com/http-server/
+1. https://drstearns.github.io/tutorials/gomiddleware/
+1. https://www.alexedwards.net/blog/making-and-using-middleware
