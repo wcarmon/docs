@@ -16,8 +16,11 @@
 1. Disable synchronization
     1. Check `Copy actual/last settings from account to this IDE`
     1. Click `Disable Settings Sync` button
-1. Move keymap xml to `~/Library/Application Support/JetBrains/GoLand<version>/keymaps/*.xml`
-1. Restart GoLand
+1. Move keymap xml to ...
+    1. `~/Library/Application Support/JetBrains/GoLand<version>/keymaps/*.xml`
+    1. `~/Library/Application Support/JetBrains/IntellijIdea<version>/jba_config/mac.keymaps/*.xml`
+    1. TODO: pycharm
+1. Restart GoLand (or IDEA or PyCharm)
 1. Enable Sync ...
     1. Click **`Keep and Sync Local Settings`**
 1. Settings/Preferences > Keymaps
