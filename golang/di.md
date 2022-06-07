@@ -120,9 +120,9 @@ wire.Build(
 ```
 
 ## Need: any type, Have: Factory func (Provider)
-- Use `wire.?`
+- Pass Provider directly to `wire.Build(...)`
 ```go
-func NewTomato() (*Tomato, error)
+func NewTomato() (*Tomato, error) { ... }
 
 func NewTaco(t Tomato) (*taco, error) { ... }
 ```
@@ -133,12 +133,12 @@ wire.Build(
     NewTomato)
 ```
 
-
-- TODO: running wire on package with wire.go
-
-
-# Idioms
-1. commit `wire_gen.go`
+# Generate (Running wire)
+```sh
+DIR_CONTAINING_WIRE_DOT_GO=/path/to/cmd/run-server;
+wire $DIR_CONTAINING_WIRE_DOT_GO;
+```
+1. commit generated `wire_gen.go`
 
 
 # Other resources
