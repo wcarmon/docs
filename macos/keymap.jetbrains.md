@@ -18,11 +18,12 @@
     1. Click `Disable Settings Sync` button
 1. Move keymap xml to ...
     1. `~/Library/Application Support/JetBrains/GoLand<version>/keymaps/*.xml`
-    1. `~/Library/Application Support/JetBrains/IntellijIdea<version>/jba_config/mac.keymaps/*.xml`
+    1. `~/Library/Application Support/JetBrains/IntellijIdea<version>/keymaps/*.xml`
     1. TODO: pycharm
 1. Restart GoLand (or IDEA or PyCharm)
 1. Enable Sync ...
     1. Click **`Keep and Sync Local Settings`**
+    1. This will automatically write files to `~/Library/Application Support/JetBrains/<product><version>/jba_config/...`
 1. Settings/Preferences > Keymaps
 1. Select your keymap
 
