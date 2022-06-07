@@ -33,8 +33,9 @@ hidutil property \
 }"
 ```
 
+
 ## Reset/Undo
-- See [keymap.os](./keymap.os.md) doc
+- See [keymap.os](./keymap.os.md#resetundo) doc
 
 
 # Changing Keyboard shortcuts from Chrome (not recommended)
