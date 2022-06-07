@@ -56,7 +56,7 @@ readonly DEFAULT_WIN_KEYBOARD_RIGHT_SHIFT=0x7000000e5;
 ```
 2. Get keyboard `Product id`
     1. Apple icon > `About This Mac` > `System Report` button > `Hardware` > `USB` > ...
-    1. or `hidutil --list | grep -i microso` (or some unique string to identify your keyboad)
+    1. or `hidutil list | grep -i microso` (or some unique string to identify your keyboad)
 ```sh
 PRODUCT_ID_FOR_WIN_KEYBOARD=0x07a5;
 
