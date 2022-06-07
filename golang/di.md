@@ -8,9 +8,11 @@ go install github.com/google/wire/cmd/wire@latest;
 ```
 1. Ensure `$GOPATH/bin` is on your `$PATH`
     1. eg. `$HOME/go/bin/wire`
+1. Alternative: symlink to ~/bin
+    1. `ln -vs $HOME/go/bin/wire $HOME/bin`
 
 
-- TODO: wire
+- TODO: running
 
 # Idioms
 1. TODO ...
