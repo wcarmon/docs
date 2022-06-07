@@ -14,11 +14,12 @@
 ## Load your custom keymap
 1. Open Goland/IDEA/Pycharm
 1. Disable synchronization
-    1. copying of existing cloud settings to the IDE
-1. Move keymap xml to ~/Library/Application Support/JetBrains/GoLand<version>/keymaps/*.xml
+    1. Check `Copy actual/last settings from account to this IDE`
+    1. Click `Disable Settings Sync` button
+1. Move keymap xml to `~/Library/Application Support/JetBrains/GoLand<version>/keymaps/*.xml`
 1. Restart GoLand
-1. Enable synchronization
-    **Keep and Sync Local Settings**
+1. Enable Sync ...
+    1. Click **`Keep and Sync Local Settings`**
 1. Settings/Preferences > Keymaps
 1. Select your keymap
 
@@ -26,7 +27,7 @@
 # Alignment with Linux/win
 1. Try copying [my keymap xml file](./wc-win-keyboard-on-macos-keymap.xml) into the dir above
     1. Assuming you remapped the modifiers as described in [keymap](./keymap.md) doc
-    1. `"alt"` in `<keyboard-shortcut>` means `CTRL` key
+    1. `"alt"` in `<keyboard-shortcut>` means **TODO**
     1. `"back_space"` in `<keyboard-shortcut>` means **TODO**
     1. `"close_bracket"` in `<keyboard-shortcut>` means **TODO**
     1. `"comma"` in `<keyboard-shortcut>` means **TODO**
@@ -35,7 +36,7 @@
     1. `"equals"` in `<keyboard-shortcut>` means `=` key
     1. `"help"` in `<keyboard-shortcut>` means `Insert` key
     1. `"left"` in `<keyboard-shortcut>` means Left arrow key
-    1. `"meta"` in `<keyboard-shortcut>` means `ALT` key
+    1. `"meta"` in `<keyboard-shortcut>` means **TODO**
     1. `"open_bracket"` in `<keyboard-shortcut>` means **TODO**
     1. `"period"` in `<keyboard-shortcut>` means dot/period key
     1. `"right"` in `<keyboard-shortcut>` means Right arrow key
