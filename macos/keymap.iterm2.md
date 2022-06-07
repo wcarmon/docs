@@ -32,12 +32,9 @@
 |`CTRL` + `right`|Move cursor to next word| Send escape sequence | `f`|
 |`CTRL` + `u`|Clear from cursor to start|Send Hex Code|`0x15`|
 |`CTRL` + `z`|Move process to background|Send Hex Code|`0x1a`|
+|`SHIFT` + Insert|Paste|TODO|TODO|
 |TODO|Undo|Send Hex Code|`0x1f`|
 
-
-# TODO (low priority)
-|`SHIFT` + Insert|Paste|
-|TODO|copy|
 
 # Global hotkey
 1. `Preferences`... > `Profiles` > `Default` (or Profile name) > `Keys` > `General`
