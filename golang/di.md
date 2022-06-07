@@ -14,7 +14,7 @@ go install github.com/google/wire/cmd/wire@latest;
 
 # [Wire](https://github.com/google/wire) overview
 1. [**Compile time**](https://en.wikipedia.org/wiki/Compile_time) dependency injection (Not runtime)
-1. Can inject into factory function args
+1. Can inject into factory function args (Provider)
     1. Pass the factory function into `wire.Build(...)`
 1. Can inject into struct properties
     1. Pass `wire.Struct(new(Foo), "*")` into `wire.Build(...)`
@@ -60,7 +60,7 @@ func BuildObjects() (*appObjects, error) {
     return &appObjects{}, nil
 }
 
-// Assuming you have factory functions like:
+// Assuming you have factory functions (Provider) like:
 func NewFoo(b *Bar) (*Foo, error) { ... }
 
 func NewBar() (*Bar, error) { ... }
@@ -104,7 +104,7 @@ wire.Build(
     ...)
 ```
 
-## Need: `type`, Have: instance
+## Need: any type, Have: instance
 - Use `wire.Value`
 ```go
 var co Cotija
@@ -119,7 +119,7 @@ wire.Build(
 )
 ```
 
-## Need: `type`, Have: Factory func
+## Need: any type, Have: Factory func (Provider)
 - Use `wire.?`
 ```go
 func NewTomato() (*Tomato, error)
