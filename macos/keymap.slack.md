@@ -37,12 +37,12 @@ hidutil property \
 # Checklist to verify keyboard shortcuts
 |win Keyboard Shortcut|Action|
 |---|---|
-|`ALT` + `+`|increase font size|
-|`ALT` + `-`|decrease font size|
-|`ALT` + `/`|show shortcuts|
+|`ALT` + `+`|Increase font size|
+|`ALT` + `-`|Decrease font size|
+|`ALT` + `/`|Show shortcuts|
 |`ALT` + `CTRL` + `f`|Toggle full screen|
 |`ALT` + `CTRL` + `SHIFT` + c|Format selection as code block|
-|`ALT` + `n`|new message|
+|`ALT` + `n`|New message|
 |`ALT` + `SHIFT` + `k`|All DMs|
 |`ALT` + `SHIFT` + `t`|All Threads|
 |`CTRL` + `left`|Move cursor to previous word|
@@ -53,3 +53,5 @@ hidutil property \
 
 
 # Other resources
+1. https://slack.com/help/articles/201374536-Slack-keyboard-shortcuts
+1. https://www.howtogeek.com/670384/every-slack-keyboard-shortcut-and-how-to-use-them/
