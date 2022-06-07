@@ -69,6 +69,7 @@ func NewBar() (*Bar, error) { ... }
 
 # Patterns
 ## Need: interface, Have: implementation instance
+- Use `wire.InterfaceValue(new(TheInterface), impl)`
 - Given:
 ```go
 type Cheese interface
@@ -86,7 +87,7 @@ wire.Build(
 ```
 
 ## Need: interface, Have: implementing type
-1. `wire.Bind(new(TheInterface), new(*TheImplType))`
+- Use `wire.Bind(new(TheInterface), new(*TheImplType))`
 ```go
 type Cheese interface
 
@@ -95,7 +96,7 @@ type Cheddar struct {}
 
 func NewTaco(c *Cheese) (*taco, error) { ... }
 ```
-1. In `wire.go`
+- In `wire.go`
 ```
 wire.Build(
     NewTaco,
@@ -104,12 +105,13 @@ wire.Build(
 ```
 
 ## Need: `type`, Have: instance
+- Use `wire.Value`
 ```go
 var co Cotija
 
 func NewTaco(c Cotija) (*taco, error) { ... }
 ```
-1. In `wire.go`
+- In `wire.go`
 ```
 wire.Build(
     NewTaco,
