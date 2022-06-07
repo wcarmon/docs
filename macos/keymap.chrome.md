@@ -1,5 +1,5 @@
 # Overview
-- Configuring win keyboard for chrome on MacOS
+- Configuring win keyboard shortcuts for chrome on MacOS
 
 
 # Changing Keyboard shortcuts via hidutil
@@ -28,6 +28,23 @@ hidutil property \
     {
       \"HIDKeyboardModifierMappingSrc\":$DEFAULT_MAC_KEYBOARD_RIGHT_COMMAND,
       \"HIDKeyboardModifierMappingDst\":$DEFAULT_WIN_KEYBOARD_RIGHT_CTRL
+    },
+
+    {
+      \"HIDKeyboardModifierMappingSrc\":$DEFAULT_WIN_KEYBOARD_LEFT_ALT,
+      \"HIDKeyboardModifierMappingDst\":$DEFAULT_MAC_KEYBOARD_LEFT_OPTION
+    },
+    {
+      \"HIDKeyboardModifierMappingSrc\":$DEFAULT_WIN_KEYBOARD_RIGHT_ALT,
+      \"HIDKeyboardModifierMappingDst\":$DEFAULT_MAC_KEYBOARD_RIGHT_OPTION
+    },
+    {
+      \"HIDKeyboardModifierMappingSrc\":$DEFAULT_MAC_KEYBOARD_LEFT_OPTION,
+      \"HIDKeyboardModifierMappingDst\":$DEFAULT_WIN_KEYBOARD_LEFT_ALT
+    },
+    {
+      \"HIDKeyboardModifierMappingSrc\":$DEFAULT_MAC_KEYBOARD_RIGHT_OPTION,
+      \"HIDKeyboardModifierMappingDst\":$DEFAULT_WIN_KEYBOARD_RIGHT_ALT
     }
   ]
 }"
@@ -61,6 +78,7 @@ defaults read com.google.Chrome | grep -A 10 NSUserKey;
 |---|---|
 |`CTRL` + `+`|Zoom in|
 |`CTRL` + `-`|Zoom out|
+|`CTRL` + `f`|Find|
 |`CTRL` + `l`|Select Address bar|
 |`CTRL` + `SHIFT` + `i`|Open developer tools|
 |`CTRL` + `t`|Open new tab|

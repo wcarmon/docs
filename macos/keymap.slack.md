@@ -1,5 +1,5 @@
 # Overview
-- Configuring Keyboard shortcuts for [slack](https://slack.com/)
+- Configuring win keyboard shortcuts for [slack](https://slack.com/) on MacOS
 
 
 # Changing Keyboard shortcuts via hidutil
