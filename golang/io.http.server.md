@@ -43,13 +43,13 @@ func main() {
 ## Example: Anonymous func
 ```go
 func main() {
-    ...
+
 	fn := func(w http.ResponseWriter, r *http.Request) {
 		io.WriteString(w, "Hi\n")
 	}
 
 	svr := &http.Server{
-	    // -- See net.Dial for Addr syntax
+		// -- See net.Dial for Addr syntax
 		Addr:    ":8080",
 
 		// -- Adapter converts your func to a http.Handler
@@ -57,7 +57,7 @@ func main() {
 	}
 
 	log.Fatal().
-	    // -- This line blocks goroutine while server runs
+		// -- This line blocks goroutine while server runs
 	    Err(svr.ListenAndServe()).
 	    Msg("Server terminated")
 }
