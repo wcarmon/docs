@@ -81,6 +81,10 @@ func BuildConfig(osArgs []string) (*appConfig, error) {
 		return nil, err
 	}
 
+    // -- Set defaults
+    // alternatively: https://github.com/spf13/viper#establishing-defaults
+    c.setDefaults()
+
 	// -- Validation
 	err = c.Validate()
 	if err != nil {
@@ -136,6 +140,14 @@ func setPathConfigForViper(
 	}
 
 	return nil
+}
+
+func (c *appConfig) setDefaults() {
+	if strings.TrimSpace(c.LogLevel) == "" {
+		c.LogLevel = "debug"
+	}
+
+    //TODO: set other defaults here (when field is blank/nil)
 }
 ```
 
