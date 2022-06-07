@@ -100,7 +100,7 @@ func NewTaco(c *Cheese) (*taco, error) { ... }
 ```
 wire.Build(
     NewTaco,
-    wire.Bind(new(Taco), new(*Cheddar)),
+    wire.Bind(new(Cheese), new(*Cheddar)),
     ...)
 ```
 
@@ -117,6 +117,20 @@ wire.Build(
     NewTaco,
     wire.Value(co),
 )
+```
+
+## Need: `type`, Have: Factory func
+- Use `wire.?`
+```go
+func NewTomato() (*Tomato, error)
+
+func NewTaco(t Tomato) (*taco, error) { ... }
+```
+- In `wire.go`
+```
+wire.Build(
+    NewTaco,
+    NewTomato)
 ```
 
 
