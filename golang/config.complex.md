@@ -90,7 +90,7 @@ func BuildConfig(osArgs []string) (*appConfig, error) {
 	return &c, err
 }
 
-func (cfg *appConfig) Validate() error {
+func (cfg appConfig) Validate() error {
 	if strings.TrimSpace(cfg.InputPath) == "" {
 		return errors.New("inputPath is required")
 	}
