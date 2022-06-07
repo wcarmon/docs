@@ -13,12 +13,12 @@ PRODUCT_ID_FOR_WIN_KEYBOARD=0x07a5;
 ```
 
 
-# Changing Keyboard shortcuts from iterm2
+# Changing Keyboard shortcuts from iterm
 1. TODO
 
 
 # Checklist to verify keyboard shortcuts
-|Shortcut|Behavior|
+|win Keyboard Shortcut|Action|
 |---|---|
 |`ALT` + `b`|Move cursor **back** 1 word (TODO: fails in iterm2)|
 |`ALT` + `f`|Move cursor **forward** 1 word (TODO: fails in iterm2)|
@@ -29,12 +29,12 @@ PRODUCT_ID_FOR_WIN_KEYBOARD=0x07a5;
 |`CTRL` + `left`|Move cursor to previous word|
 |`CTRL` + `r`|command history|
 |`CTRL` + `right`|Move cursor to next word|
-|`CTRL` + `SHIFT` + v|paste|
+|`CTRL` + `SHIFT` + v|Paste|
 |`CTRL` + `u`|clear from cursor to start|
 |`CTRL` + `z`|Move process to background|
 |`end`|Move cursor to end of line|
 |`home`|Move cursor to start of line|
-|`SHIFT` + Insert|paste|
+|`SHIFT` + Insert|Paste|
 |TODO|copy|
 
 

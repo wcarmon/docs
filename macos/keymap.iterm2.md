@@ -7,5 +7,9 @@
 1. Select **Terminal app compatibility** or **Natural Text Editing**
 
 
+# Checklist to verify keyboard shortcuts
+1. See [iterm](./keymap.iterm.md) doc
+
+
 # Other resources
 1. https://apple.stackexchange.com/questions/154292/iterm-going-one-word-backwards-and-forwards

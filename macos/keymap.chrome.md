@@ -34,11 +34,7 @@ hidutil property \
 ```
 
 ## Reset/Undo
-```sh
-hidutil property \
---matching "{\"ProductID\":$PRODUCT_ID_FOR_WIN_KEYBOARD}" \
---set '{"UserKeyMapping":[]}';
-```
+- See [keymap.os](./keymap.os.md) doc
 
 
 # Changing Keyboard shortcuts from Chrome (not recommended)
@@ -59,16 +55,16 @@ defaults write com.google.Chrome NSUserKeyEquivalents -dict-add "New Tab" "^t";
 defaults read com.google.Chrome | grep -A 10 NSUserKey;
 ```
 
-# Quick checklist to verify keyboard shortcuts
-|win Keyboard Shortcut|Behavior|
+# Checklist to verify keyboard shortcuts
+|win Keyboard Shortcut|Action|
 |---|---|
-|`CTRL` + `+`|zoom in|
-|`CTRL` + `-`|zoom out|
-|`CTRL` + `l`|address bar|
-|`CTRL` + `SHIFT` + `i`|open developer tools|
-|`CTRL` + `t`|new tab|
-|`CTRL` + `w`|close current tab|
-|`SHIFT` + `space`|move up screen|
+|`CTRL` + `+`|Zoom in|
+|`CTRL` + `-`|Zoom out|
+|`CTRL` + `l`|Select Address bar|
+|`CTRL` + `SHIFT` + `i`|Open developer tools|
+|`CTRL` + `t`|Open new tab|
+|`CTRL` + `w`|Close current tab|
+|`SHIFT` + `space`|Move up screen|
 
 
 # Other resources

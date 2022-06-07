@@ -1,9 +1,41 @@
 # Overview
-- Configuring Keyboard shortcuts for slack
+- Configuring Keyboard shortcuts for [slack](https://slack.com/)
+
+
+# Changing Keyboard shortcuts via hidutil
+1. Open terminal
+1. Define the key constants in [keymap.os](./keymap.os.md) doc
+1. Remap keyboard:
+```sh
+PRODUCT_ID_FOR_WIN_KEYBOARD=0x07a5;
+
+hidutil property \
+--matching "{\"ProductID\":$PRODUCT_ID_FOR_WIN_KEYBOARD}" \
+--set "{\"UserKeyMapping\":
+  [
+    {
+      \"HIDKeyboardModifierMappingSrc\":$DEFAULT_WIN_KEYBOARD_LEFT_CTRL,
+      \"HIDKeyboardModifierMappingDst\":$DEFAULT_MAC_KEYBOARD_LEFT_COMMAND
+    },
+    {
+      \"HIDKeyboardModifierMappingSrc\":$DEFAULT_WIN_KEYBOARD_RIGHT_CTRL,
+      \"HIDKeyboardModifierMappingDst\":$DEFAULT_MAC_KEYBOARD_RIGHT_COMMAND
+    },
+    {
+      \"HIDKeyboardModifierMappingSrc\":$DEFAULT_MAC_KEYBOARD_LEFT_COMMAND,
+      \"HIDKeyboardModifierMappingDst\":$DEFAULT_WIN_KEYBOARD_LEFT_CTRL
+    },
+    {
+      \"HIDKeyboardModifierMappingSrc\":$DEFAULT_MAC_KEYBOARD_RIGHT_COMMAND,
+      \"HIDKeyboardModifierMappingDst\":$DEFAULT_WIN_KEYBOARD_RIGHT_CTRL
+    }
+  ]
+}"
+```
 
 
 # Checklist to verify keyboard shortcuts
-|Shortcut|Behavior|
+|win Keyboard Shortcut|Action|
 |---|---|
 |`ALT` + `+`|increase font size|
 |`ALT` + `-`|decrease font size|
