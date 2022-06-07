@@ -29,21 +29,21 @@ go install github.com/google/wire/cmd/wire@latest;
 # `wire.go` file
 1. Each command might require their own object graph
     1. eg. `my-project/cmd/run-foo/wire.go`
-1. The first two lines are important!
-    1. they avoid duplicate declarations
-    1. yes, the blank line **after** the comment is important
-    1. This file will be ignored by the build process (only used by `wire`)
+1. The first two lines are important!!
+    1. These lines avoid duplicate declarations.
+    1. *yes*, the blank line **after** the comment is important.
+    1. This `wire.go` file is ignored by the `go build` (only used by `wire`)
 ```go
 // go:build wireinject
 
-type appBeans struct {
+type appObjects struct {
     config *appConfig
     server *http.Server
 
-    //NOTE: add field for any fields needed directly from main func
+    //NOTE: add field for other fields needed directly from main func
 }
 
-func BuildObjects() (*appBeans, error) {
+func BuildObjects() (*appObjects, error) {
     wire.Build(
         NewFoo,
         NewBar,
@@ -53,10 +53,10 @@ func BuildObjects() (*appBeans, error) {
         wire.Value(FancyStr("cheese")),
 
         // Allows access to any interesting objects
-        wire.Struct(new(appBeans), "*"),
+        wire.Struct(new(appObjects), "*"),
     )
 
-    return &appBeans{}, nil
+    return &appObjects{}, nil
 }
 
 // Assuming you have factory functions like:
