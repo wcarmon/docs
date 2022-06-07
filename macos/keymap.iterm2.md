@@ -10,20 +10,21 @@
 
 
 # Checklist to verify keyboard shortcuts
+
+## These work out of the box
 |win Keyboard Shortcut|Action|
 |---|---|
 |`end`|Move cursor to end of line|
 |`home`|Move cursor to start of line|
 |`CTRL` + `SHIFT` + v|Paste|
 
-
-# Need to fix
-|win Keyboard Shortcut|Action|
-|---|---|
-|`ALT` + `b`|Move cursor **back** 1 word|  <--- option b
-|`ALT` + `f`|Move cursor **forward** 1 word| <--- option f
-|`CTRL` + `left`|Move cursor to previous word|  <--- option left
-|`CTRL` + `right`|Move cursor to next word|  <--- option right
+## Add mapping for these
+|win Keyboard Shortcut|Behavior|iterm action|Send|
+|---|---|---|---|
+|`ALT` + `b`|Move cursor **back** 1 word| Send escape sequence | `b`|
+|`ALT` + `f`|Move cursor **forward** 1 word| Send escape sequence | `f`|
+|`CTRL` + `left`|Move cursor to previous word| Send escape sequence | `b`|
+|`CTRL` + `right`|Move cursor to next word| Send escape sequence | `f`|
 
 |`CTRL` + `a`|Move cursor to **start** of line| <--- control a
 |`CTRL` + `e`|Move cursor to **end** of line|  <--- control e
