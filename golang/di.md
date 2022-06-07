@@ -12,7 +12,8 @@ go install github.com/google/wire/cmd/wire@latest;
     1. `ln -sv $HOME/go/bin/wire $HOME/bin;`
 
 
-# Wire overview
+# [Wire](https://github.com/google/wire) overview
+1. [**Compile time**](https://en.wikipedia.org/wiki/Compile_time) dependency injection (Not runtime)
 1. Can inject into factory function args
     1. Pass the factory function into `wire.Build(...)`
 1. Can inject into struct properties
@@ -25,7 +26,7 @@ go install github.com/google/wire/cmd/wire@latest;
     1. In [Angular](https://angular.io/), you would use a [Decorator](https://angular.io/guide/dependency-injection-in-action#qualify-dependency-lookup-with-parameter-decorators) instead.
 
 
-# wire.go
+# `wire.go` file
 1. Each command might require their own object graph
     1. eg. `my-project/cmd/run-foo/wire.go`
 1. The first two lines are important!
