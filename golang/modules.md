@@ -34,6 +34,10 @@ go mod edit -replace github.com/dave/dst=github.com/hawkinsw/dst@generics
 1. commit `go.sum` and `go.mod` files
 
 
+# Goland
+1. Goland will auto-import new dependencies only after you setup a module
+
+
 # Deprecated
 1. [replace](https://go.dev/ref/mod#go-mod-file-replace) directives should be replaced with [workspaces](./workspaces.md)
 
