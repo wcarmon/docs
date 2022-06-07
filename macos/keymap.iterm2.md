@@ -1,6 +1,7 @@
 # Overview
 - Configuring win keyboard for iter2 app on MacOS
 
+
 # Make it behave more like linux terminal
 1. `Preferences`... > `Profiles` > (Profile name) > `Keys` > `Key Mappings`
 1. Press `Presets...` dropdown button
