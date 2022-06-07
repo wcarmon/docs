@@ -54,7 +54,7 @@ type OSArgs []string
 
 // Load reads from config file, env vars, ...
 // Pass os.Args
-func BuildConfig(osArgs OSArgs) (*appConfig, error) {
+func NewConfig(osArgs OSArgs) (*appConfig, error) {
 	v := viper.New()
 
 	// -- Set paths for config file
@@ -164,7 +164,7 @@ func main() {
 
     // TODO: setup zerolog here
 
-	cfg, err := BuildConfig(os.Args)
+	cfg, err := NewConfig(os.Args)
 	if err != nil {
 		log.Error().
 			Err(err).
