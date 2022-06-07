@@ -28,6 +28,23 @@ hidutil property \
     {
       \"HIDKeyboardModifierMappingSrc\":$DEFAULT_MAC_KEYBOARD_RIGHT_COMMAND,
       \"HIDKeyboardModifierMappingDst\":$DEFAULT_WIN_KEYBOARD_RIGHT_CTRL
+    },
+
+    {
+      \"HIDKeyboardModifierMappingSrc\":$DEFAULT_WIN_KEYBOARD_LEFT_ALT,
+      \"HIDKeyboardModifierMappingDst\":$DEFAULT_MAC_KEYBOARD_LEFT_OPTION
+    },
+    {
+      \"HIDKeyboardModifierMappingSrc\":$DEFAULT_WIN_KEYBOARD_RIGHT_ALT,
+      \"HIDKeyboardModifierMappingDst\":$DEFAULT_MAC_KEYBOARD_RIGHT_OPTION
+    },
+    {
+      \"HIDKeyboardModifierMappingSrc\":$DEFAULT_MAC_KEYBOARD_LEFT_OPTION,
+      \"HIDKeyboardModifierMappingDst\":$DEFAULT_WIN_KEYBOARD_LEFT_ALT
+    },
+    {
+      \"HIDKeyboardModifierMappingSrc\":$DEFAULT_MAC_KEYBOARD_RIGHT_OPTION,
+      \"HIDKeyboardModifierMappingDst\":$DEFAULT_WIN_KEYBOARD_RIGHT_ALT
     }
   ]
 }"
@@ -41,19 +58,21 @@ hidutil property \
 # Checklist to verify keyboard shortcuts
 |win Keyboard Shortcut|Action|
 |---|---|
-|`ALT` + `+`|Increase font size|
-|`ALT` + `-`|Decrease font size|
-|`ALT` + `/`|Show shortcuts|
-|`ALT` + `CTRL` + `f`|Toggle full screen|
 |`ALT` + `CTRL` + `SHIFT` + c|Format selection as code block|
-|`ALT` + `n`|New message|
-|`ALT` + `SHIFT` + `k`|All DMs|
-|`ALT` + `SHIFT` + `t`|All Threads|
-|`CTRL` + `left`|Move cursor to previous word|
-|`CTRL` + `right`|Move cursor to next word|
+|`ALT` + `left`|Move cursor to previous word|
+|`ALT` + `right`|Move cursor to next word|
+|`CTRL` + `+`|Increase font size|
+|`CTRL` + `-`|Decrease font size|
+|`CTRL` + `/`|Show shortcuts|
+|`CTRL` + `n`|New message|
+|`CTRL` + `SHIFT` + `k`|All DMs|
+|`CTRL` + `SHIFT` + `t`|All Threads|
+|`SHIFT` + enter|Start new line (same message)|
+
+Fail:
 |`end`|Move cursor to end of line|
 |`home`|Move cursor to start of line|
-|`SHIFT` + enter|Start new line (same message)|
+|`ALT` + `CTRL` + `f`|Toggle full screen|
 
 
 # Other resources
