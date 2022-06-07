@@ -115,7 +115,7 @@ func main () {
 1. Why? Similar to [Chi](https://github.com/go-chi/chi)
 
 
-## core http.ServeMux
+## core [`http.ServeMux`](https://pkg.go.dev/net/http#ServeMux)
 1. Pro: no external dependencies
 1. Pro: Fast
 1. Pro: Well Documented
