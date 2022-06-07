@@ -64,15 +64,14 @@ hidutil property \
 |`CTRL` + `+`|Increase font size|
 |`CTRL` + `-`|Decrease font size|
 |`CTRL` + `/`|Show shortcuts|
+|`CTRL` + `end`|Move cursor to end of line|
+|`CTRL` + `home`|Move cursor to start of line|
+|`CTRL` + `meta` + `f`|Toggle full screen|
 |`CTRL` + `n`|New message|
 |`CTRL` + `SHIFT` + `k`|All DMs|
 |`CTRL` + `SHIFT` + `t`|All Threads|
+|`CTRL` + `z`|Undo|
 |`SHIFT` + enter|Start new line (same message)|
-
-Fail:
-|`end`|Move cursor to end of line|
-|`home`|Move cursor to start of line|
-|`ALT` + `CTRL` + `f`|Toggle full screen|
 
 
 # Other resources
