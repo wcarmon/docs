@@ -67,29 +67,41 @@ hidutil property \
 --set "{\"UserKeyMapping\":
   [
     {
-      \"HIDKeyboardModifierMappingSrc\":$DEFAULT_WIN_KEYBOARD_LEFT_ALT,
+      \"HIDKeyboardModifierMappingSrc\":$DEFAULT_WIN_KEYBOARD_LEFT_CTRL,
       \"HIDKeyboardModifierMappingDst\":$DEFAULT_MAC_KEYBOARD_LEFT_COMMAND
     },
     {
-      \"HIDKeyboardModifierMappingSrc\":$DEFAULT_WIN_KEYBOARD_RIGHT_ALT,
+      \"HIDKeyboardModifierMappingSrc\":$DEFAULT_WIN_KEYBOARD_RIGHT_CTRL,
       \"HIDKeyboardModifierMappingDst\":$DEFAULT_MAC_KEYBOARD_RIGHT_COMMAND
     },
     {
-      \"HIDKeyboardModifierMappingSrc\":$DEFAULT_WIN_KEYBOARD_LEFT_CTRL,
+      \"HIDKeyboardModifierMappingSrc\":$DEFAULT_MAC_KEYBOARD_LEFT_COMMAND,
+      \"HIDKeyboardModifierMappingDst\":$DEFAULT_WIN_KEYBOARD_LEFT_CTRL
+    },
+    {
+      \"HIDKeyboardModifierMappingSrc\":$DEFAULT_MAC_KEYBOARD_RIGHT_COMMAND,
+      \"HIDKeyboardModifierMappingDst\":$DEFAULT_WIN_KEYBOARD_RIGHT_CTRL
+    },
+
+    {
+      \"HIDKeyboardModifierMappingSrc\":$DEFAULT_WIN_KEYBOARD_LEFT_ALT,
       \"HIDKeyboardModifierMappingDst\":$DEFAULT_MAC_KEYBOARD_LEFT_OPTION
     },
     {
-      \"HIDKeyboardModifierMappingSrc\":$DEFAULT_WIN_KEYBOARD_RIGHT_CTRL,
+      \"HIDKeyboardModifierMappingSrc\":$DEFAULT_WIN_KEYBOARD_RIGHT_ALT,
       \"HIDKeyboardModifierMappingDst\":$DEFAULT_MAC_KEYBOARD_RIGHT_OPTION
     },
     {
-      \"HIDKeyboardModifierMappingSrc\":$DEFAULT_WIN_KEYBOARD_META,
-      \"HIDKeyboardModifierMappingDst\":$DEFAULT_MAC_KEYBOARD_CONTROL
+      \"HIDKeyboardModifierMappingSrc\":$DEFAULT_MAC_KEYBOARD_LEFT_OPTION,
+      \"HIDKeyboardModifierMappingDst\":$DEFAULT_WIN_KEYBOARD_LEFT_ALT
+    },
+    {
+      \"HIDKeyboardModifierMappingSrc\":$DEFAULT_MAC_KEYBOARD_RIGHT_OPTION,
+      \"HIDKeyboardModifierMappingDst\":$DEFAULT_WIN_KEYBOARD_RIGHT_ALT
     }
   ]
 }"
 ```
-- TODO: Home, Insert, Delete
 
 ### Verify
 ```sh
@@ -105,6 +117,8 @@ hidutil property \
 1. `CTRL+SHIFT+Z`: redo
 1. `CTRL+Z`: undo
 1. `SHIFT+Right`: highlight next char
+1. TODO: Quit an app
+1. TODO: Spotlight
 
 
 ### Reset/Undo
@@ -120,12 +134,17 @@ hidutil property --set '{"UserKeyMapping":[]}';
 - *or just restart the machine*
 
 
-## Steps: Via GUI
-1. System Preferences > Keyboard > Modifier Keys... (lower right)
-1. Select the "windows" keyboard
-    1. Control (⌃) Key: `⌘ Command`
-    1. Option (⌥) Key: `⌃ Control`
-    1. Command (⌘) Key: `⌥ Option`
+# Disable greek letters for option key
+1. `System Preferences` > `Keyboard` > `Input Sources` Tab
+1. click `+` at bottom left
+1. add and select `Other` > `Unicode Hex Input`
+1. In top menu, on right, change input source to `U+`
+
+
+# Other keyboard settings
+1. `System Preferences` > `Keyboard` > `Text` tab
+    1. uncheck `Use smart quotes and dashes`
+    1. remove any replacements
 
 
 # Other Resources
