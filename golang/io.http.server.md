@@ -105,10 +105,10 @@ func main () {
     - Actively maintained
     - Modular
     - No external deps
-    - Subrouter support
-    - Supports named url params
+    - [Subrouter support](TODO)
+    - [Supports named url params](TODO)
     - Used in production
-    - Well documented
+    - [Well documented](TODO)
 
 
 ## Gorilla
