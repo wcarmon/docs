@@ -33,6 +33,9 @@ hidutil property \
 }"
 ```
 
+## Reset/Undo
+- See [keymap.os](./keymap.os.md) doc
+
 
 # Checklist to verify keyboard shortcuts
 |win Keyboard Shortcut|Action|
