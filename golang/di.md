@@ -52,10 +52,11 @@ func BuildObjects() (*appObjects, error) {
         // Allows wiring an instance
         wire.Value(FancyStr("cheese")),
 
-        // Allows access to any interesting objects
+        // Injects all objects required in main func
         wire.Struct(new(appObjects), "*"),
     )
 
+    // just to appease the compiler
     return &appObjects{}, nil
 }
 
@@ -68,7 +69,7 @@ func NewBar() (*Bar, error) { ... }
 
 # Patterns
 ## Need: interface, Have: implementation instance
-1. Given:
+- Given:
 ```go
 type Cheese interface
 
@@ -76,13 +77,12 @@ var myMozzarella Cheese
 
 func NewTaco(c *Cheese) (*taco, error) { ... }
 ```
-1. In `wire.go`
+- In `wire.go`
 ```
 wire.Build(
-  NewTaco,
-  wire.InterfaceValue(new(Cheese), myMozzarella),
-  ...
-  )
+    NewTaco,
+    wire.InterfaceValue(new(Cheese), myMozzarella),
+    ...)
 ```
 
 ## Need: interface, Have: implementing type
@@ -100,8 +100,7 @@ func NewTaco(c *Cheese) (*taco, error) { ... }
 wire.Build(
     NewTaco,
     wire.Bind(new(Taco), new(*Cheddar)),
-    ...
-)
+    ...)
 ```
 
 ## Need: `type`, Have: instance
