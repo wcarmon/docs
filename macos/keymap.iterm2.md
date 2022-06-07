@@ -39,6 +39,16 @@
 |`SHIFT` + Insert|Paste|
 |TODO|copy|
 
+# Global hotkey
+1. `Preferences`... > `Profiles` > `Default` (or Profile name) > `Keys` > `General`
+1. `Configure Hotkey Window` > click `Hotkey`
+    1. I use `F12` (default for [guake](http://guake-project.org/))
+
+# Default window size
+1. `Preferences`... > `Profiles` > `Default` (or Profile name) > `Window`
+1. Columns: 205
+1. Rows: 34
+
 
 
 # Other resources
