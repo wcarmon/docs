@@ -145,6 +145,7 @@ func main () {
 - TODO: ListenAndServe always returns non-nil error
 - TODO: swagger/openapi
 - TODO: context
+- TODO: opentelemetry
 
 
 # Other resources
