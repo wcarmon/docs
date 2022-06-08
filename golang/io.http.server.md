@@ -200,27 +200,28 @@ func SendPlainTextError(
 ```
 
 # Get Params from URL (Chi)
-- In your route
+- In your route:
 ```go
     ...
     r.Get("/foo/{id}", MyHandler)
+    ...
 ```
-- In your handler
+- In your handler:
 ```go
 func MyHandler(w http.ResponseWriter, r *http.Request) {
 
     fooId := chi.URLParam(r, "uuid")
-    //TODO: validate it here
+    //TODO: validate fooId here
 
     ...
 }
 ```
 
 # TODO/Organize
+- TODO: context example
+- TODO: opentelemetry example
+- TODO: openapi example
 - TODO: ListenAndServe always returns non-nil error
-- TODO: swagger/openapi
-- TODO: context
-- TODO: opentelemetry
 
 
 # Other resources
