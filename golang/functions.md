@@ -5,12 +5,18 @@
 
 # Key features of functions
 1. An executable code block
+1. Multiple arguments
+    1. Passed by value (or pass an address by value)
+    1. varargs supported
 1. Multiple return types
-1. Pass-by-reference  <-- TODO verify
+    1. Passed by value (or pass an address by value)
+1. All types pass by value & return by value
+    1. Some types pass by address value (feels like pass-by-reference)
+    1. eg. map, slice, channel, pointer, function args
     1. See [Language spec](https://go.dev/ref/spec#Method_values)
 1. No [overloading](https://www.w3schools.com/java/java_methods_overloading.asp)
     1. Same as C, javascript, typescript, Python, ...
-    1. Different from Java, C++, ...
+    1. Unlike Java, C++, ...
 
 
 TODO: (higher order) accepting function as arg

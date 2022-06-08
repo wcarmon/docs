@@ -9,11 +9,14 @@
     1. Avoids unnecessary dependencies
     1. Compiler checks for implementation
 1. Only interfaces can be embedded into interfaces (Union)
-1. Pass by reference (behaves like a pointer)  <-- TODO: verify & demonstrate
+1. Interfaces Pass-by-address-value
+    1. All things pass by value
+    1. "feels like" Pass-by-reference
+    1. behaves like passing a pointer
 
 
 TODO: embedding
-TODO: implicit implementation
+TODO: implicit interface implementation
 TODO: runtime checks for interfaces like Marshaler
 
 

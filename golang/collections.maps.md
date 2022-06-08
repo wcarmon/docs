@@ -6,8 +6,10 @@
 1. Key-value pairs
 1. **NOT** [Thread safe](https://en.wikipedia.org/wiki/Thread_safety)
     1. [Official docs](https://go.dev/doc/faq#atomic_maps)
-1. [Pass-by-reference](https://www.educative.io/edpresso/pass-by-value-vs-pass-by-reference)
-    - If you pass a `map` to a function/method, callee can mutate the `map`
+1. [Pass-by-address-value](https://www.educative.io/edpresso/pass-by-value-vs-pass-by-reference)
+    1. All things pass by value
+    1. maps, slices, channels, functions are passed by "address" value (like a pointer)
+    1. If you pass a `map` to a function/method, callee can mutate the `map`
 1. Key can be any type with equality operator defined
     1. eg. string, integer, float, pointer, struct, array, most interfaces
     1. NOT slices

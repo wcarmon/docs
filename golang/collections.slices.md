@@ -5,8 +5,10 @@
 # Slices
 1. Dynamically-sized, in-memory sequence
 1. **NOT** [Thread safe](https://en.wikipedia.org/wiki/Thread_safety)
-1. [Pass-by-reference](https://www.educative.io/edpresso/pass-by-value-vs-pass-by-reference)
-    - If you pass a slice to a function/method, callee can mutate the slice
+1. [Pass-by-address-value](https://www.educative.io/edpresso/pass-by-value-vs-pass-by-reference)
+    1. All things pass by value
+    1. maps, slices, channels, functions are passed by "address" value (like a pointer)
+    1. If you pass a slice to a function/method, callee can mutate the slice
 1. [How slices work](https://go.dev/blog/slices-intro)
 1. Like an [`ArrayList`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/ArrayList.html) in java
 
@@ -42,7 +44,7 @@ fmt.Println(s)  // [0]
 
 s = append(s, 1)
 
-// When it grows the reference changes
+// When it grows the "reference" changes
 s = append(s, 2)
 s = append(s, 3)
 

@@ -4,7 +4,10 @@
 
 # Key features of Channels
 1. Type-safe
-1. Pass-by-reference
+1. [Pass-by-address-value](https://www.educative.io/edpresso/pass-by-value-vs-pass-by-reference)
+    1. All things pass by value
+    1. maps, slices, channels, functions are passed by "address" value (like a pointer)
+    1. If you pass a `channel` to a function/method, caller & callee are referencing the same `channel`
 1. Thread-safe
 1. Optionally buffered
     1. Only affects Senders (Not receivers)
