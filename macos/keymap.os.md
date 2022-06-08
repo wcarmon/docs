@@ -146,6 +146,10 @@ hidutil property --set '{"UserKeyMapping":[]}';
     1. uncheck `Use smart quotes and dashes`
     1. remove any replacements
 
+# Disable VoiceOver
+1. `System Preferences` > `Keyboard` > `Shortcuts` > `Accessibility` > `Turn VoiceOver on or off`
+    1. Conflicts with some jetbrains shortcuts
+
 
 # Other Resources
 1. https://9to5mac.com/2016/03/17/how-to-remap-windows-keyboard-buttons-match-mac-layout/
