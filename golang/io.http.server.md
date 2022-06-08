@@ -146,7 +146,7 @@ func main () {
 ```go
 const MaxReqBodyBytes = int64(1e7)
 
-
+//TODO: more here
 ```
 
 # Error handling
@@ -164,11 +164,14 @@ func FooHandler(w http.ResponseWriter, r *http.Request) {
     ...
 }
 ```
-1. More advanced:
+1. More advanced example:
 ```go
 // Reusable/Common http error handling
 // See also http.Error
-// Logs errors via zerikig
+// Logs errors via zerolog
+//
+// publicMsg is sent to the client (No sensitive/server info)
+// privateMsg is logged (can contain server info)
 func SendPlainTextError(
 	w http.ResponseWriter,
 	respCode int,
