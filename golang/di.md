@@ -37,6 +37,7 @@ go install github.com/google/wire/cmd/wire@latest;
 ```go
 // go:build wireinject
 
+// wire will inject the instances
 type appObjects struct {
     config *appConfig
     server *http.Server
@@ -44,7 +45,7 @@ type appObjects struct {
     //NOTE: add field for other fields needed directly from main func
 }
 
-func BuildObjects() (*appObjects, error) {
+func BuildAppObjects() (*appObjects, error) {
     wire.Build(
         NewFoo,
         NewBar,
@@ -72,7 +73,7 @@ func NewBar() (*Bar, error) { ... }
 ```go
 func main() {
 
-    appCtx, err := BuildObjects()
+    appCtx, err := BuildAppObjects()
     //check for error
 
     // Use appCtx.config
