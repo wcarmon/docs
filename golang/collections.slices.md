@@ -142,6 +142,8 @@ for _, v := range before {
 
 # Other resources
 1. [Really useful slice tricks](https://ueokande.github.io/go-slice-tricks/)
+1. https://www.practical-go-lessons.com/chap-21-slices
+1. https://www.practical-go-lessons.com/chap-15-pointer-type#slices
 1. https://go.dev/tour/moretypes/7
 1. https://gobyexample.com/slices
 1. https://codeburst.io/a-comprehensive-guide-to-slices-in-golang-bacebfe46669

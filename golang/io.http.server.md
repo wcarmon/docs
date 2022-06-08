@@ -121,6 +121,7 @@ func main () {
     - [Supports named url params](TODO)
     - Used in production
     - [Well documented](TODO)
+1. When routes conflict, last route wins
 
 
 ## Gorilla

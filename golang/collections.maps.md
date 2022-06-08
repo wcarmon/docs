@@ -143,7 +143,8 @@ fmt.Printf("Data: %#v\n", m)
 
 # Other resources
 1. [Official docs](https://go.dev/blog/maps)
-1. [gobyexample.com](https://gobyexample.com/maps)
-1. [Syncronized map](https://pkg.go.dev/sync#Map)
-1. [Language spec](https://go.dev/ref/spec#Map_types)
+1. [practical-go-lessons](https://www.practical-go-lessons.com/chap-22-maps)
 1. [go101](https://go101.org/optimizations/6-map.html)
+1. [gobyexample.com](https://gobyexample.com/maps)
+1. [Language spec](https://go.dev/ref/spec#Map_types)
+1. [Syncronized map](https://pkg.go.dev/sync#Map)

@@ -51,3 +51,4 @@ var z struct{}
 
 # Other resources
 1. https://gobyexample.com/embedding
+1. https://www.practical-go-lessons.com/chap-15-pointer-type#pointers-to-structs

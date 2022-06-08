@@ -57,5 +57,6 @@ func acceptPointer(p *int) {
 # Other resources
 1. https://go.dev/ref/spec#Calls
 1. https://go.dev/tour/moretypes/1
+1. https://www.practical-go-lessons.com/chap-15-pointer-type
 1. https://gobyexample.com/pointers
 1. https://www.golang-book.com/books/intro/8
