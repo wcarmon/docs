@@ -9,7 +9,8 @@
 1. Examples
 ```go
 n := -7
-n := 3e4		// 30,000
+n := 3e4		// 30,000  (4 zeros)
+n := 1e+7 == 10_000_000 (7 zeros)
 n := 30_000		// 30,000
 n := 0xFF		// 255
 ```
@@ -43,8 +44,17 @@ n := 0xFF		// 255
 # Common operations
 
 ## max & min of numbers
-TODO
-
+1. Easy for float: [`math.Min(f0, f1)`](https://pkg.go.dev/math#Min)
+1. Hard for other numbers
+    1. See https://stackoverflow.com/questions/27516387/what-is-the-correct-way-to-find-the-min-between-two-integers-in-go
+    1. See https://unexpected-go.com/theres-no-min-function.html
+```go
+if a < b {
+  ...
+} else {
+  ...
+}
+```
 
 ## Formatting to string
 TODO

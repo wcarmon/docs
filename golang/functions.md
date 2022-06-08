@@ -33,5 +33,7 @@ TODO: it's ok to return address of local var in constructor
 
 
 # Other resources
+1. https://www.practical-go-lessons.com/chap-40-design-recommendations#methods-and-functions
+1. https://www.practical-go-lessons.com/chap-10-functions
 1. https://www.golangprograms.com/go-language/functions.html
 1. https://gobyexample.com/functions

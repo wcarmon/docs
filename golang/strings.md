@@ -68,9 +68,9 @@ for i, c := range "foo" {
 | [StringUtils::containsAny](https://commons.apache.org/proper/commons-lang/apidocs/org/apache/commons/lang3/StringUtils.html#containsAny-java.lang.CharSequence-char...-) | [`strings.ContainsAny(haystack,needles)`](https://pkg.go.dev/strings#ContainsAny) |
 
 
-- TODO: StringUtils.abbreviate			see below
+- TODO: StringUtils.abbreviate			TODO
 - TODO: StringUtils.appendIfMissing		...TODO: ??...
-- TODO: StringUtils.capitalize			see below
+- TODO: StringUtils.capitalize			TODO
 - TODO: StringUtils.isAlpha			    ...TODO: ??...
 - TODO: StringUtils.isNumeric			...TODO: ??...
 - TODO: StringUtils.isAsciiPrintable	...TODO: ??...
@@ -104,4 +104,5 @@ for i, c := range "foo" {
 1. [Official Language spec](https://go.dev/ref/spec#String_types)
 1. [Official Language Spec for Rune literal](https://go.dev/ref/spec#Rune_literals)
 1. [Official Language Spec for String literal](https://go.dev/ref/spec#String_literals)
+1. https://www.practical-go-lessons.com/chap-7-hexadecimal-octal-ascii-utf8-unicode-runes
 1. [yourbasic](https://yourbasic.org/golang/string-functions-reference-cheat-sheet)

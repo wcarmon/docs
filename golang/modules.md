@@ -46,3 +46,4 @@ go mod edit -replace github.com/dave/dst=github.com/hawkinsw/dst@generics
 1. https://go.dev/doc/tutorial/create-module
 1. https://go.dev/blog/using-go-modules
 1. https://www.practical-go-lessons.com/chap-17-go-modules
+1. https://www.practical-go-lessons.com/chap-41-cheatsheet#go-modules

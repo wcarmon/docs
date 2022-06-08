@@ -147,3 +147,4 @@ for _, v := range before {
 1. https://go.dev/tour/moretypes/7
 1. https://gobyexample.com/slices
 1. https://codeburst.io/a-comprehensive-guide-to-slices-in-golang-bacebfe46669
+1. https://www.practical-go-lessons.com/chap-41-cheatsheet#slices

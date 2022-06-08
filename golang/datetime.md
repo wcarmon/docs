@@ -21,6 +21,7 @@ t.Format("2006-01-02T15:04:05Z07:00") // rfc3339
 t.Format("Mon Jan _2 15:04:05 MST 2006")
 ```
 1. [Official doc](https://pkg.go.dev/time#Time.Format)
+1. https://www.practical-go-lessons.com/chap-28-dates-and-time#format-the-time
 
 
 # Parsing (from string)
@@ -34,6 +35,7 @@ if err != nil {
 ```
 1. TODO: other formats (magic string)
 1. [Official doc](https://pkg.go.dev/time#Parse)
+1. https://www.practical-go-lessons.com/chap-28-dates-and-time#how-to-parse-a-datetime-contained-in-a-string
 
 
 # Current Time
@@ -102,4 +104,5 @@ TODO
 
 
 # Other resources
-1. TODO ...
+1. https://www.practical-go-lessons.com/chap-28-dates-and-time
+

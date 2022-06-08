@@ -137,10 +137,81 @@ func main () {
 1. Con: No support for url params
 
 
-# Avoid
+# Routers to Avoid
 1. [Pat](https://github.com/bmizerany/pat): unmaintained, no go-modules support, slower than competition, no regex matching
 1. TODO: others
 
+
+# Limiting request bodies
+```go
+const MaxReqBodyBytes = int64(1e7)
+
+
+```
+
+# Error handling
+1. `w.WriteHeader(...)` must be before `w.Write(...)`
+```go
+
+func FooHandler(w http.ResponseWriter, r *http.Request) {
+
+    ...
+    if err != nil {
+        w.WriteHeader(http.StatusBadRequest)
+        w.Write([]byte("missing foo"))
+    }
+
+    ...
+}
+```
+1. More advanced:
+```go
+// Reusable/Common http error handling
+// See also http.Error
+// Logs errors via zerikig
+func SendPlainTextError(
+	w http.ResponseWriter,
+	respCode int,
+	publicMsg string,
+	privateMsg string,
+	cause error) {
+
+	w.Header().Set("Content-Type", "text/plain; charset=utf-8")
+	w.Header().Set("X-Content-Type-Options", "nosniff")
+	w.WriteHeader(respCode)
+
+	log.Warn().
+		Err(cause).
+		Str("publicMessage", publicMsg).
+		Str("privateMessage", privateMsg).
+		Msg("Sending error to client")
+
+	_, err := fmt.Fprintln(w, cause)
+	if err != nil {
+		log.Error().
+			Caller().
+			Err(err).
+			Msg("Failed to send error to client")
+	}
+}
+```
+
+# Get Params from URL (Chi)
+- In your route
+```go
+    ...
+    r.Get("/foo/{id}", MyHandler)
+```
+- In your handler
+```go
+func MyHandler(w http.ResponseWriter, r *http.Request) {
+
+    fooId := chi.URLParam(r, "uuid")
+    //TODO: validate it here
+
+    ...
+}
+```
 
 # TODO/Organize
 - TODO: ListenAndServe always returns non-nil error
@@ -154,6 +225,7 @@ func main () {
 1. https://github.com/gorilla/mux
 1. https://benhoyt.com/writings/go-routing/
 1. https://gobyexample.com/http-servers
+1. https://www.practical-go-lessons.com/chap-26-basic-http-server
 1. https://www.digitalocean.com/community/tutorials/how-to-make-an-http-server-in-go
 1. https://go.dev/doc/articles/wiki/
 1. https://gowebexamples.com/http-server/

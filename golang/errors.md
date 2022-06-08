@@ -65,6 +65,8 @@ func doWhatever() error {
 
 
 # Other resources
+1. https://www.practical-go-lessons.com/chap-40-design-recommendations#error-handling
+1. https://www.practical-go-lessons.com/chap-23-errors
 1. https://go.dev/blog/go1.13-errors
 1. https://go.dev/doc/effective_go#errors
 1. https://pkg.go.dev/errors

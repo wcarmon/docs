@@ -140,5 +140,6 @@ TODO: do I need this?
 1. https://threedots.tech/post/safer-enums-in-go/
 1. https://dlintw.github.io/gobyexample/public/constants-and-iota.html
 1. https://yourbasic.org/golang/iota/
+1. https://www.practical-go-lessons.com/chap-27-enum-iota-and-bitmask
 1. https://golangbyexample.com/iota-in-golang/
 1. https://medium.com/swlh/iota-create-effective-constants-in-golang-b399f94aac31

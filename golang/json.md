@@ -30,5 +30,6 @@
 1. https://pkg.go.dev/encoding/json
 1. https://gobyexample.com/json
 1. https://linuxhint.com/marshal-unmarshal-golang/
+1. https://www.practical-go-lessons.com/chap-25-json-and-xml
 1. https://thedeveloperblog.com/go/json-go
 1. https://yourbasic.org/golang/json-example/

@@ -53,3 +53,4 @@ TODO: http://golang.org/doc/articles/concurrency_patterns.html
 1. https://golangbot.com/goroutines/
 1. https://www.golangprograms.com/goroutines.html
 1. https://www.golang-book.com/books/intro/10
+1. https://unexpected-go.com/goroutines-on-loops.html
