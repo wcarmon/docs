@@ -38,6 +38,7 @@
 1. Always set a deadline for calling external systems (eg. database, http, grpc, kafka, ...)
 1. Prefer [`context.WithDeadline`](https://pkg.go.dev/context#WithDeadline) to [~~`context.WithTimeout`~~](https://pkg.go.dev/context#WithTimeout)
     1. [`WithTimeout`](https://cs.opensource.google/go/go/+/refs/tags/go1.18.3:src/context/context.go;l=506) hard-codes [`time.Now()`](https://cs.opensource.google/go/go/+/refs/tags/go1.18.3:src/context/context.go;l=507), makes testing harder (eg. cannot inject clock)
+    1. `WithTimeout` is just a wrapper around `WithDeadline`
 1. Pass `ctx` to sql calls (So deadline/timeout/cancellation works)
     1. [`conn.PingContext`](https://pkg.go.dev/database/sql#Conn.PingContext)
     1. [`conn.PrepareContext`](https://pkg.go.dev/database/sql#Conn.PrepareContext)
@@ -67,7 +68,19 @@ func foo() {
 
 ## Example: Set Deadline
 ```go
-//TODO
+func ShowDeadlineUsage(
+	ctx context.Context,
+	clock func() time.Time,
+	timeout time.Duration) {
+
+	childCtx, cancel := context.WithDeadline(
+		ctx,
+		clock().Add(timeout))
+	defer cancel()
+
+	r, err := DoSomeExpensiveIO(childCtx)
+	...
+}
 ```
 
 
@@ -88,8 +101,11 @@ func DoSomeExpensiveIO(ctx context.Context) (FooResult, error) {
 	resultChan := make(chan FooResult, 1)
 
 	go func() {
-		// send result on channel
+		// send returned result on channel
 		resultChan <- doRealIOWork()
+
+		// -- alternative: func writes result to channel instead of returning
+		// doRealIOWork(resultChan)
 	}()
 
 	// wait for first of [a result/error] or [cancellation/timeout]
@@ -97,8 +113,8 @@ func DoSomeExpensiveIO(ctx context.Context) (FooResult, error) {
 	case <-ctx.Done():
 		return 0, ctx.Err()
 
-	case r := <-resultChan:
-		return r, nil
+	case out := <-resultChan:
+		return out, nil
 	}
 }
 ```
@@ -147,6 +163,7 @@ func FromRequest(r *http.Request) (UserUuid, bool) {
 
 
 ## Example: HTTP Server
+1. Server [automatically cancels](https://pkg.go.dev/net/http#Request.Context) context when connection closed
 1. Use [`req.Context()`](https://pkg.go.dev/net/http#Request.Context) to pass into other context aware functions (eg. sql)
 1. See [examples in http-client](./io.http.server.md) doc
 
