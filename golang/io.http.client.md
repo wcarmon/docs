@@ -5,6 +5,7 @@
 # Key Concepts
 1. builtin http client is robust & feature rich
 1. builtin http client handles cancellation, timeout, deadline expiration
+1. chi [Timeout middleware](https://pkg.go.dev/github.com/go-chi/chi/middleware#Timeout) sets deadline on [requests idiomatically](https://github.com/go-chi/chi/blob/master/middleware/timeout.go#L36)
 
 
 # Examples
