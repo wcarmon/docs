@@ -5,7 +5,7 @@
 # Key Concepts
 1. Context is thread-safe *(safe for simultaneous use by multiple goroutines)*
 1. Contexts have a parent/child relationship
-    1. [Parent cancels children](https://cs.opensource.google/go/go/+/refs/tags/go1.18.3:src/context/context.go;l=16)
+    1. [Parent cancels children](https://cs.opensource.google/go/go/+/refs/tags/go1.18.3:src/context/context.go;l=16) (Propagation)
 1. [`context.Background()`](https://pkg.go.dev/context#Background)
     1. Is the root of any Context tree
     1. [no values, no deadline, never cancelled](https://pkg.go.dev/context#Background)
@@ -23,29 +23,29 @@
     1. Context can only be cancelled at-most-once
 
 ## Purpose 2
-1. Context is for "small" request scoped data
-    1. [RequestId](https://pkg.go.dev/github.com/go-chi/chi/middleware#RequestID)
-    1. UserUuid/UserId
+1. Context is for "small" request-scoped data
+    1. [RequestId](https://pkg.go.dev/github.com/go-chi/chi/middleware#RequestID) (helps with tracing/debugging)
+    1. UserUuid/UserId for Authenticated user
     1. TraceId/SpanId ([OpenTelemetry](./tracing.md), [OpenTracing](./tracing.md), ...)
 1. Data you add to Context **MUST BE** safe for simultaneous use by multiple goroutines
     1. This is another reason to use immutable IDs
-1. [`ctx.Value(...)`](https://pkg.go.dev/context#Context) and [`context.WithValue`](https://pkg.go.dev/context#WithValue) help get & set request scoped values
+1. [`ctx.Value(...)`](https://pkg.go.dev/context#Context) and [`context.WithValue`](https://pkg.go.dev/context#WithValue) help get & set request-scoped values
 
 
 # Idioms
 1. Context is the first argument, named `ctx`
-1. Every function on the path between incoming and outgoing request accepts context as first arg
-1. Always set a deadline for calling external systems (database, http, grpc, kafka, ...)
+1. Every `func` on the path between incoming and outgoing request accepts `ctx` as 1st argument
+1. Always set a deadline for calling external systems (eg. database, http, grpc, kafka, ...)
 1. Prefer [`context.WithDeadline`](https://pkg.go.dev/context#WithDeadline) to [~~`context.WithTimeout`~~](https://pkg.go.dev/context#WithTimeout)
-    1. `WithTimeout`(https://cs.opensource.google/go/go/+/refs/tags/go1.18.3:src/context/context.go;l=506) hard-codes [`time.Now()`](https://cs.opensource.google/go/go/+/refs/tags/go1.18.3:src/context/context.go;l=507), which makes it harder to test (eg. cannot inject clock)
-1. Pass `context` to sql calls
+    1. [`WithTimeout`](https://cs.opensource.google/go/go/+/refs/tags/go1.18.3:src/context/context.go;l=506) hard-codes [`time.Now()`](https://cs.opensource.google/go/go/+/refs/tags/go1.18.3:src/context/context.go;l=507), makes testing harder (eg. cannot inject clock)
+1. Pass `ctx` to sql calls (So deadline/timeout/cancellation works)
     1. [`conn.PingContext`](https://pkg.go.dev/database/sql#Conn.PingContext)
     1. [`conn.PrepareContext`](https://pkg.go.dev/database/sql#Conn.PrepareContext)
     1. [`conn.QueryContext`](https://pkg.go.dev/database/sql#Conn.QueryContext)
     1. [`stmt.ExecContext`](https://pkg.go.dev/database/sql#Stmt.ExecContext)
     1. [`stmt.QueryContext`](https://pkg.go.dev/database/sql#Stmt.QueryContext)
     1. [`stmt.QueryRowContext`](https://pkg.go.dev/database/sql#Stmt.QueryRowContext)
-1. `context.Value()` is **not** a replacement func arguments
+1. `context.Value()` is **not** a replacement for func arguments
 
 
 # Patterns
