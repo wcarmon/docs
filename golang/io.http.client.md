@@ -1,8 +1,10 @@
 # Overview
-1. TODO ...
+1. HTTP Client examples
 
 
 # Key Concepts
+1. builtin http client is robust & feature rich
+1. builtin http client handles cancellation, timeout, deadline expiration
 
 
 # Examples
@@ -22,8 +24,8 @@ var client http.Client
 
 # Example: HTTP GET
 ```go
-// Calls REST endpoint with HTTP GET
-// Service returns slice of entities
+// ListFoos makes HTTP GET call to REST endpoint
+// Service returns slice of entities (possibly nil)
 func ListFoos(
 	ctx context.Context,
 	baseURI string) ([]Foo, error) {
@@ -40,10 +42,10 @@ func ListFoos(
 	}
 
 	// -- Req headers
-	// TODO: set Auth header here
+	// TODO: set Auth/Bearer header here
 
 	// -- Call
-	resp, err := client.Do(req) // Auto handles context cancellation
+	resp, err := client.Do(req) // Auto-handles context cancellation
 	if err != nil {
 		// TODO: log extra details here
 		return nil, err
@@ -52,7 +54,8 @@ func ListFoos(
 
 	// -- Parse resp
 	if resp.StatusCode != http.StatusOK {
-		// ...
+		// TODO: log extra details here
+		return nil, fmt.Errorf("unexpected statusCode=%v", resp.StatusCode)
 	}
 
 	b, err := io.ReadAll(resp.Body)
@@ -102,10 +105,10 @@ func CreateFoo(
 
 	// -- Req headers
 	req.Header.Set("Content-Type", "application/json")
-	// TODO: set Auth header here
+	// TODO: set Auth/Bearer header here
 
 	// -- Call
-	resp, err := client.Do(req) // Auto handles context cancellation
+	resp, err := client.Do(req) // Auto-handles context cancellation
 	if err != nil {
 		// TODO: log extra details here
 		return "", err
@@ -114,7 +117,8 @@ func CreateFoo(
 
 	// -- Parse resp
 	if resp.StatusCode != http.StatusOK {
-		// ...
+		// TODO: log extra details here
+		return nil, fmt.Errorf("unexpected statusCode=%v", resp.StatusCode)
 	}
 
 	b, err := io.ReadAll(resp.Body)
