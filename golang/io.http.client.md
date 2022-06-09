@@ -48,6 +48,7 @@ func ListFoos(
 	resp, err := client.Do(req) // Auto-handles context cancellation
 	if err != nil {
 		// TODO: log extra details here
+		// NOTE: timeouts come here
 		return nil, err
 	}
 	defer resp.Body.Close()
@@ -64,28 +65,28 @@ func ListFoos(
 		return nil, err
 	}
 
-	items := make([]Foo, 0, 64)
-	err = json.Unmarshal(b, &items)
+	output := make([]Foo, 0, 64)
+	err = json.Unmarshal(b, &output)
 	if err != nil {
 		// TODO: log extra details here
 		return nil, err
 	}
 
-	return items, nil
+	return output, nil
 }
 ```
 
 
 # Example: HTTP POST
 ```go
-// Calls REST endpoint with HTTP POST
-// Service returns ID for persisted entity
+// CreateFoo makes HTTP POST call to REST endpoint
+// Service persists and returns generated ID for new entity
 func CreateFoo(
 	ctx context.Context,
 	foo Foo,
 	baseURI string) (FooId, error) {
 
-	// -- Serialize body
+	// -- Build req body
 	reqBody, err := json.Marshal(foo)
 	if err != nil {
 		// TODO: log extra details here
@@ -111,6 +112,7 @@ func CreateFoo(
 	resp, err := client.Do(req) // Auto-handles context cancellation
 	if err != nil {
 		// TODO: log extra details here
+		// NOTE: timeouts come here
 		return "", err
 	}
 	defer resp.Body.Close()
@@ -140,4 +142,7 @@ func CreateFoo(
 
 # Other resources
 1. https://www.practical-go-lessons.com/chap-35-build-an-http-client
-
+1. https://pkg.go.dev/net/http
+1. https://gobyexample.com/http-clients
+1. https://zetcode.com/golang/http-client/
+1. https://blog.logrocket.com/configuring-the-go-http-client/
