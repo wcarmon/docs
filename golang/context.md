@@ -12,6 +12,8 @@
     1. Is the root of any Context tree
     1. [no values, no deadline, never cancelled](https://pkg.go.dev/context#Background)
     1. Is the [zero value](https://go.dev/ref/spec#The_zero_value) of a context
+1. You can distinguish timeout errors from others using `if ctx.Err() == context.DeadlineExceeded {...}`
+
 
 ## Purpose 1
 1. Context is for [cancellation](./concurrency.cancellation.md) (Both emitting and listening)
