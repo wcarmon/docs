@@ -6,6 +6,7 @@
 1. Context is thread-safe *(safe for simultaneous use by multiple goroutines)*
 1. Contexts have a parent/child relationship
     1. [Parent cancels children](https://cs.opensource.google/go/go/+/refs/tags/go1.18.3:src/context/context.go;l=16) (Propagation)
+    1. [Parent keeps references to children](https://cs.opensource.google/go/go/+/refs/tags/go1.18.3:src/context/context.go;l=347)
 1. [`context.Background()`](https://pkg.go.dev/context#Background)
     1. Is the root of any Context tree
     1. [no values, no deadline, never cancelled](https://pkg.go.dev/context#Background)
@@ -90,7 +91,8 @@ func ShowTimeoutUsage(
 1. [Official example](https://pkg.go.dev/context#example-WithDeadline)
 
 
-## Example: Cancel aware task (handles cancellation, timeout, deadline expiration)
+## Example: Cancel aware task
+1. handles cancellation, timeout, deadline expiration
 ```go
 type FooResult int // or use a struct with both result & error
 
@@ -122,6 +124,7 @@ func DoSomeExpensiveIO(ctx context.Context) (FooResult, error) {
 
 ## Example: Request-scoped ID
 1. TraceId/SpanID for OpenTelemetry or OpenTracing work the same way
+1. Any [comparable](https://go.dev/ref/spec#Comparison_operators) type works as a context key
 ```go
 package user
 
@@ -136,7 +139,7 @@ const (
 )
 
 // NewContext returns new context with passed userUuid
-func NewContext(ctx context.Context, u UserUuid) context.Context {
+func NewContext(ctx context.Context, u Id) context.Context {
 	// TODO: validate u here
 
 	return context.WithValue(ctx, userUuidKey, u)
@@ -169,18 +172,18 @@ func FromRequest(r *http.Request) (Id, bool) {
 1. See [examples in http-client](./io.http.server.md) doc
 
 
-## Example SQL Database client
+## Example: SQL Database client
 1. See [database](./database.md) doc
 
 
-## Example Kafka client
+## Example: Kafka client
 1. See [kafka](./kafka.md) doc
 
 
-## Example gRPC client
+## Example: gRPC client
 1. See [gRPC client](./io.grpc.client.md) doc
 
-## Example gRPC server
+## Example: gRPC server
 1. See [gRPC server](./io.grpc.server.md) doc
 
 
