@@ -118,22 +118,21 @@ const (
 	// other related context keys go here
 )
 
-// Return new context with passed userUuid
+// NewContext returns new context with passed userUuid
 func NewContext(ctx context.Context, u UserUuid) context.Context {
 	// TODO: validate u here
 
 	return context.WithValue(ctx, userUuidKey, u)
 }
 
-// Lookup userUuid in a context
+// FromContext returns userUuid in a context
 // ok==true when returned userUuid is usable
 func FromContext(ctx context.Context) (u UserUuid, ok bool) {
 	u, ok = ctx.Value(userUuidKey).(UserUuid)
 	return
 }
 
-// convenience
-// Lookup userUuid in http.Request
+// FromRequest returns userUuid in http.Request
 // 2nd return value is true when ok to use
 func FromRequest(r *http.Request) (UserUuid, bool) {
 	return FromContext(r.Context())
@@ -147,7 +146,11 @@ func FromRequest(r *http.Request) (UserUuid, bool) {
 1. See [examples in http-client](./io.http.client.md) doc
 
 
-- TODO: http server
+## Example: HTTP Server
+1. Use [`req.Context()`](https://pkg.go.dev/net/http#Request.Context) to pass into other context aware functions (eg. sql)
+1. See [examples in http-client](./io.http.server.md) doc
+
+
 - TODO: grpc client
 - TODO: grpc server
 - TODO: database
