@@ -13,7 +13,7 @@
     1. Is the [zero value](https://go.dev/ref/spec#The_zero_value) of a context
 
 ## Purpose 1
-1. Context is for [cancellation](./concurrency.cancellation.md)
+1. Context is for [cancellation](./concurrency.cancellation.md) (Both emitting and listening)
 1. Context is for Deadlines/Timeouts (even across API boundaries)
     1. [`ctx.Deadline()`](https://pkg.go.dev/context#Context) is useful for setting I/O timeouts
 1. [`ctx.Done()`](https://pkg.go.dev/context#Context) `channel` is closed after a timeout or when manually closed (see examples below)
@@ -148,6 +148,9 @@ func NewContext(ctx context.Context, u Id) context.Context {
 // FromContext returns userUuid in a context
 // ok==true when returned userUuid is usable
 func FromContext(ctx context.Context) (u Id, ok bool) {
+
+    // NOTE: ctx.Value returns nil for missing value
+    // NOTE: type assertion allows nil arg
 	u, ok = ctx.Value(userUuidKey).(Id)
 	return
 }
