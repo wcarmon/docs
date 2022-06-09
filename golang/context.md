@@ -66,11 +66,8 @@ func foo() {
 ```
 
 
-## Example: Set Deadline
-1. https://pkg.go.dev/context#example-WithDeadline
-
-
 ## Example: Set Timeout
+1. Example without hard-coding clock:
 ```go
 func ShowTimeoutUsage(
 	ctx context.Context,
@@ -86,6 +83,11 @@ func ShowTimeoutUsage(
 	...
 }
 ```
+1. [Official example](https://pkg.go.dev/context#example-WithTimeout)
+
+
+## Example: Set Deadline
+1. [Official example](https://pkg.go.dev/context#example-WithDeadline)
 
 
 ## Example: Cancel aware task (includes Timeout & Deadline)
