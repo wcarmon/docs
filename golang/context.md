@@ -123,7 +123,7 @@ func DoSomeExpensiveIO(ctx context.Context) (FooResult, error) {
 
 
 ## Example: Request-scoped ID
-1. TraceId/SpanID for OpenTelemetry or OpenTracing work the same way
+1. [TraceId](https://pkg.go.dev/go.opentelemetry.io/otel/trace#TraceID)/[SpanID](https://pkg.go.dev/go.opentelemetry.io/otel/trace#SpanID) for [OpenTelemetry](https://opentelemetry.io/docs/instrumentation/go/) or [OpenTracing](https://pkg.go.dev/github.com/opentracing/opentracing-go) work the same way
 1. Any [comparable](https://go.dev/ref/spec#Comparison_operators) type works as a context key
 ```go
 package user
