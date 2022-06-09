@@ -136,9 +136,11 @@ func FromContext(ctx context.Context) (u UserUuid, ok bool) {
 }
 ```
 
+## HTTP Client
+1. Use [`http.NewRequestWithContext`](https://pkg.go.dev/net/http#NewRequestWithContext) or [`req.WithContext`](https://pkg.go.dev/net/http#Request.WithContext)
+1. See [examples in http-client](./io.http.client.md) doc
 
 
-- TODO: http client
 - TODO: http server
 - TODO: grpc client
 - TODO: grpc server

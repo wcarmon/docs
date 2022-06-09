@@ -31,7 +31,7 @@ fmt.Println("%d", runtime.GOMAXPROCS(0))
 1. Goroutines have multiple places for suspension & reentry (managed by the runtime)
     1. [`time.Sleep`](https://pkg.go.dev/time)
     1. Before/After a function invocation
-
+1. TODO: `runtime.NumGoroutine()`
 
 # Idioms
 1. Do most "sharing" via channels (90%)
