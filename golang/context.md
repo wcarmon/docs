@@ -29,6 +29,7 @@
 
 # Idioms
 1. Context is the first argument, named `ctx`
+1. Every function on the path between incoming and outgoing request accepts context as first arg
 1. Always set a deadline for calling external systems (database, http, grpc, kafka, ...)
 1. Prefer [`context.WithDeadline`](https://pkg.go.dev/context#WithDeadline) to [~~`context.WithTimeout`~~](https://pkg.go.dev/context#WithTimeout)
     1. `WithTimeout` hard-codes `time.Now()`, which makes it harder to test (eg. cannot inject clock)
@@ -54,16 +55,78 @@ func foo() {
 }
 ```
 
-## Deadline
+
+## Set Deadline
 ```go
+//TODO
 ```
 
-## Timeout
+
+## Set Timeout
 ```go
+//TODO
 ```
+
+
+## Deadline/Cancel aware task
+```go
+type FooResult int // arbitrary
+
+func CallSomeService(ctx context.Context) (FooResult, error) {
+
+	// result of "real" call goes here
+	// sender not blocked because buffer is 1
+	resultChan := make(chan FooResult, 1)
+
+	go func() {
+		// -- send result on resultChan
+		resultChan <- doRealWork()
+	}()
+
+	// -- wait for first of [cancellation/timeout] or [a result]
+	select {
+	case <-ctx.Done():
+		return 0, ctx.Err()
+
+	case r := <-resultChan:
+		return r, nil
+	}
+}
+```
+
 
 ## Request scoped data
+1. Assuming a useruuid package
 ```go
+type UserUuid string
+
+// NOTE: unexported to prevent collisions
+type key int
+
+const (
+	userUuidKey key = iota
+	// other keys go here
+)
+
+// Build a new context with passed userUuid
+func NewContext(ctx context.Context, u UserUuid) context.Context {
+	// TODO: validate u here
+
+	return context.WithValue(ctx, userUuidKey, u)
+}
+
+// Lookup the userUuid from an http request
+// 2nd return value is true when ok to use
+func FromRequest(r *http.Request) (UserUuid, bool) {
+	return FromContext(r.Context())
+}
+
+// Lookup the userUuid from a context
+// 2nd return value is true when ok to use
+func FromContext(ctx context.Context) (u UserUuid, ok bool) {
+	u, ok = ctx.Value(userUuidKey).(UserUuid)
+	return
+}
 ```
 
 
