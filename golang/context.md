@@ -67,8 +67,12 @@ func foo() {
 
 
 ## Example: Set Deadline
+1. https://pkg.go.dev/context#example-WithDeadline
+
+
+## Example: Set Timeout
 ```go
-func ShowDeadlineUsage(
+func ShowTimeoutUsage(
 	ctx context.Context,
 	clock func() time.Time,
 	timeout time.Duration) {
@@ -81,12 +85,6 @@ func ShowDeadlineUsage(
 	r, err := DoSomeExpensiveIO(childCtx)
 	...
 }
-```
-
-
-## Example: Set Timeout
-```go
-//TODO
 ```
 
 
