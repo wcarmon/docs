@@ -137,7 +137,7 @@ func CreateFoo(
 # Idioms
 1. Reuse `http.Client`
 
-- TODO: opentelemetry
+- TODO: opentelemetry B3 header propagation
 
 
 # Other resources
