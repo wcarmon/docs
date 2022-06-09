@@ -34,6 +34,7 @@ func ListFoos(
 	req, err := http.NewRequestWithContext(
 		ctx,
 		http.MethodGet,
+		// NOTE: Append any other url params here
 		baseURI+"/foo",
 		nil)
 	if err != nil {

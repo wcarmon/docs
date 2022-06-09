@@ -51,6 +51,7 @@
     1. [`stmt.QueryRowContext`](https://pkg.go.dev/database/sql#Stmt.QueryRowContext)
 1. `context.Value()` is **not** a replacement for func arguments
 1. [Do **NOT** pass `nil` context](https://pkg.go.dev/context#pkg-overview)
+    1. [Stated repeatedly in official docs](https://pkg.go.dev/context#WithValue)
 1. Contexts are "mostly" immutable
     1. Only `ctx.Done` `channel` contents can change
     1. Context methods return a copy
@@ -100,7 +101,7 @@ func ShowTimeoutUsage(
 ## Example: Cancel aware task
 1. handles cancellation, timeout, deadline expiration
 ```go
-type FooResult int // or use a struct with both result & error
+type FooResult int // or a struct with both result & error
 
 func DoSomeExpensiveIO(ctx context.Context) (FooResult, error) {
 
