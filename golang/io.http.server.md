@@ -227,6 +227,7 @@ func MyHandler(w http.ResponseWriter, r *http.Request) {
 - TODO: opentelemetry example
 - TODO: openapi example
 - TODO: ListenAndServe always returns non-nil error
+- TODO: limiting request body size
 
 
 # Other resources

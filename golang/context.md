@@ -1,5 +1,6 @@
 # Overview
 1. How to use [context](https://pkg.go.dev/context)
+1. How to do cancellation, timeouts, deadlines
 
 
 # Key Concepts
@@ -156,8 +157,8 @@ func NewContext(ctx context.Context, u Id) context.Context {
 // ok==true when returned userUuid is usable
 func FromContext(ctx context.Context) (u Id, ok bool) {
 
-    // NOTE: ctx.Value returns nil for missing value
-    // NOTE: type assertion allows nil arg
+	// NOTE: ctx.Value returns nil for missing value
+	// NOTE: type assertion allows nil arg
 	u, ok = ctx.Value(userUuidKey).(Id)
 	return
 }
