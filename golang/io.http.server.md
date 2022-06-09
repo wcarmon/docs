@@ -128,6 +128,26 @@ func main () {
     - [Well documented](TODO)
 1. When routes conflict, last route wins
 
+### Example
+```go
+r := chi.NewRouter()
+r.Use(middleware.RequestID)
+r.Use(middleware.Logger)
+r.Use(middleware.Timeout(10 * time.Second))
+// NOTE: auth middleware can go here
+r.Use(middleware.Recoverer)
+
+// -- Map uri to handler func
+r.Route(baseUri, func(r chi.Router) {
+    // NOTE: these routes all have baseUri as prefix
+
+    r.Delete("/employee/{id}", employee.Delete)
+    r.Get("/employee/{id}", employee.FindById)
+    r.Post("/employee", employee.Create)
+    r.Put("/employee", employee.Update)
+})
+```
+
 
 ## Gorilla
 1. https://github.com/gorilla/mux
