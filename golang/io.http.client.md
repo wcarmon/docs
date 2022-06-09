@@ -5,8 +5,8 @@
 # Key Concepts
 
 
-# Example: HTTP POST
-1. Assuming things like this exist:
+# Examples
+1. Assuming things like this are defined:
 ```go
 type FooId string
 
@@ -18,7 +18,62 @@ type Foo struct {
 // Threadsafe & reusable
 var client http.Client
 ```
-1. Call:
+
+
+# Example: HTTP GET
+```go
+// Calls REST endpoint with HTTP GET
+// Service returns slice of entities
+func ListFoos(
+	ctx context.Context,
+	baseURI string) ([]Foo, error) {
+
+	// -- Build req
+	req, err := http.NewRequestWithContext(
+		ctx,
+		http.MethodGet,
+		baseURI+"/foo",
+		nil)
+	if err != nil {
+		// TODO: log extra details here
+		return nil, err
+	}
+
+	// -- Req headers
+	// TODO: set Auth header here
+
+	// -- Call
+	resp, err := client.Do(req) // Auto handles context cancellation
+	if err != nil {
+		// TODO: log extra details here
+		return nil, err
+	}
+	defer resp.Body.Close()
+
+	// -- Parse resp
+	if resp.StatusCode != http.StatusOK {
+		// ...
+	}
+
+	b, err := io.ReadAll(resp.Body)
+	if err != nil {
+		// TODO: log extra details here
+		return nil, err
+	}
+
+	items := make([]Foo, 0, 64)
+	err = json.Unmarshal(b, &items)
+	if err != nil {
+		// TODO: log extra details here
+		return nil, err
+	}
+
+	return items, nil
+}
+```
+
+
+# Example: HTTP POST
 ```go
 // Calls REST endpoint with HTTP POST
 // Service returns ID for persisted entity
@@ -47,6 +102,7 @@ func CreateFoo(
 
 	// -- Req headers
 	req.Header.Set("Content-Type", "application/json")
+	// TODO: set Auth header here
 
 	// -- Call
 	resp, err := client.Do(req) // Auto handles context cancellation
@@ -68,27 +124,13 @@ func CreateFoo(
 	}
 
 	return FooId(b), nil
-
-	// -- If response contains entities ...
-	/*
-		var f Foo
-		err = json.Unmarshal(b, &f)
-		if err != nil {
-			return 0, err
-		}
-
-		return f, nil
-	*/
 }
-
 ```
 
 
 # Idioms
 1. Reuse `http.Client`
 
-
-- TODO: context for cancellation
 - TODO: opentelemetry
 
 
