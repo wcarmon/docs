@@ -48,8 +48,9 @@
 1. `context.Value()` is **not** a replacement for func arguments
 
 
-# Patterns
-## Manual cancellation
+# Examples
+
+## Example: Cancel manually
 ```go
 func foo() {
     ...
@@ -58,39 +59,40 @@ func foo() {
     ctx, cancel = context.WithCancel(parentCtx)
     defer cancel() // Guarantee children are cleaned up
 
-    // pass ctx to other func (eg. http client, grpc client, sql, kafka, rabbitmq, ...)
+    // pass ctx to another func, or use with another pattern below
+    // (eg. pass to http client, grpc client, sql client, kafka, rabbitmq, ...)
 }
 ```
 
 
-## Set Deadline
+## Example: Set Deadline
 ```go
 //TODO
 ```
 
 
-## Set Timeout
+## Example: Set Timeout
 ```go
 //TODO
 ```
 
 
-## Deadline/Cancel aware task
+## Example: Cancel aware task (includes Timeout & Deadline)
 ```go
-type FooResult int // arbitrary
+type FooResult int // or use a struct with both result & error
 
-func CallSomeService(ctx context.Context) (FooResult, error) {
+func DoSomeExpensiveIO(ctx context.Context) (FooResult, error) {
 
-	// result of "real" call goes here
-	// sender not blocked because buffer is 1
+	// result of "real" call goes into channel
+	// sender not blocked since buffer is 1
 	resultChan := make(chan FooResult, 1)
 
 	go func() {
-		// -- send result on resultChan
-		resultChan <- doRealWork()
+		// send result on channel
+		resultChan <- doRealIOWork()
 	}()
 
-	// -- wait for first of [cancellation/timeout] or [a result]
+	// wait for first of [a result/error] or [cancellation/timeout]
 	select {
 	case <-ctx.Done():
 		return 0, ctx.Err()
@@ -102,41 +104,43 @@ func CallSomeService(ctx context.Context) (FooResult, error) {
 ```
 
 
-## Request scoped data
-1. Assuming a useruuid package
+## Example: Request-scoped ID
 ```go
-type UserUuid string
+package user
 
-// NOTE: unexported to prevent collisions
+type Id string
+
+// NOTE: unexported to prevent collisions in context
 type key int
 
 const (
 	userUuidKey key = iota
-	// other keys go here
+	// other related context keys go here
 )
 
-// Build a new context with passed userUuid
+// Return new context with passed userUuid
 func NewContext(ctx context.Context, u UserUuid) context.Context {
 	// TODO: validate u here
 
 	return context.WithValue(ctx, userUuidKey, u)
 }
 
-// Lookup the userUuid from an http request
-// 2nd return value is true when ok to use
-func FromRequest(r *http.Request) (UserUuid, bool) {
-	return FromContext(r.Context())
-}
-
-// Lookup the userUuid from a context
-// 2nd return value is true when ok to use
+// Lookup userUuid in a context
+// ok==true when returned userUuid is usable
 func FromContext(ctx context.Context) (u UserUuid, ok bool) {
 	u, ok = ctx.Value(userUuidKey).(UserUuid)
 	return
 }
+
+// convenience
+// Lookup userUuid in http.Request
+// 2nd return value is true when ok to use
+func FromRequest(r *http.Request) (UserUuid, bool) {
+	return FromContext(r.Context())
+}
 ```
 
-## HTTP Client
+## Example: HTTP Client
 1. Use [`http.NewRequestWithContext`](https://pkg.go.dev/net/http#NewRequestWithContext) or [`req.WithContext`](https://pkg.go.dev/net/http#Request.WithContext)
 1. [`client.Do(req)`](https://pkg.go.dev/net/http#Client.Do) automatically handles context cancellation
     1. `client.Do(...)` is invoked indirectly by all the "convenient" methods
