@@ -58,7 +58,7 @@ func foo() {
     parentCtx := context.Background()
 
     ctx, cancel = context.WithCancel(parentCtx)
-    defer cancel() // Guarantee children are cleaned up
+    defer cancel() // Guarantee child cancellation
 
     // pass ctx to another func, or use with another pattern below
     // (eg. pass to http client, grpc client, sql client, kafka, rabbitmq, ...)
@@ -83,14 +83,14 @@ func ShowTimeoutUsage(
 	...
 }
 ```
-1. [Official example](https://pkg.go.dev/context#example-WithTimeout)
+1. [Official example](https://pkg.go.dev/context#example-WithTimeout) (hard-codes `time.Now()`)
 
 
 ## Example: Set Deadline
 1. [Official example](https://pkg.go.dev/context#example-WithDeadline)
 
 
-## Example: Cancel aware task (includes Timeout & Deadline)
+## Example: Cancel aware task (handles cancellation, timeout, deadline expiration)
 ```go
 type FooResult int // or use a struct with both result & error
 
@@ -101,14 +101,14 @@ func DoSomeExpensiveIO(ctx context.Context) (FooResult, error) {
 	resultChan := make(chan FooResult, 1)
 
 	go func() {
-		// send returned result on channel
+		// send returned result to channel
 		resultChan <- doRealIOWork()
 
-		// -- alternative: func writes result to channel instead of returning
+		// -- alternative: func writes result to channel (instead of returning)
 		// doRealIOWork(resultChan)
 	}()
 
-	// wait for first of [a result/error] or [cancellation/timeout]
+	// wait for first of [a result] or [cancellation/timeout]
 	select {
 	case <-ctx.Done():
 		return 0, ctx.Err()
@@ -121,6 +121,7 @@ func DoSomeExpensiveIO(ctx context.Context) (FooResult, error) {
 
 
 ## Example: Request-scoped ID
+1. TraceId/SpanID for OpenTelemetry or OpenTracing work the same way
 ```go
 package user
 
@@ -143,14 +144,14 @@ func NewContext(ctx context.Context, u UserUuid) context.Context {
 
 // FromContext returns userUuid in a context
 // ok==true when returned userUuid is usable
-func FromContext(ctx context.Context) (u UserUuid, ok bool) {
-	u, ok = ctx.Value(userUuidKey).(UserUuid)
+func FromContext(ctx context.Context) (u Id, ok bool) {
+	u, ok = ctx.Value(userUuidKey).(Id)
 	return
 }
 
 // FromRequest returns userUuid in http.Request
 // 2nd return value is true when ok to use
-func FromRequest(r *http.Request) (UserUuid, bool) {
+func FromRequest(r *http.Request) (Id, bool) {
 	return FromContext(r.Context())
 }
 ```
@@ -168,11 +169,19 @@ func FromRequest(r *http.Request) (UserUuid, bool) {
 1. See [examples in http-client](./io.http.server.md) doc
 
 
-- TODO: grpc client
-- TODO: grpc server
-- TODO: database
-- TODO: kafka
-- TODO: opentracing/opentelemetry
+## Example SQL Database client
+1. See [database](./database.md) doc
+
+
+## Example Kafka client
+1. See [kafka](./kafka.md) doc
+
+
+## Example gRPC client
+1. See [gRPC client](./io.grpc.client.md) doc
+
+## Example gRPC server
+1. See [gRPC server](./io.grpc.server.md) doc
 
 
 # Other resources
