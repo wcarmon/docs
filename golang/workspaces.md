@@ -4,7 +4,7 @@
 1. See [modules](./modules.md) doc first
 
 
-# Concepts
+# Key Concepts
 1. Workspaces obsolete [replace](https://go.dev/ref/mod#go-mod-file-replace) directives in go.mod
 1. Workspaces obsolete `GOPATH`
 

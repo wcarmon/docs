@@ -3,6 +3,11 @@
 1. How to choose a router/mux
 
 
+# Key Concepts
+1. Each request handled in its own goroutine
+1. http Server handles triggeres [context Cancellation](./context.md) when connection lost
+
+
 # Server
 1. https://gobyexample.com/http-servers
 1. https://yourbasic.org/golang/http-server-example/

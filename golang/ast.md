@@ -2,7 +2,7 @@
 - How to parse and (re)write `*.go` source files
 
 
-# Concepts
+# Key Concepts
 1. Use [`parser.ParseFile(...)`](https://pkg.go.dev/go/parser#ParseFile) to build a [`*ast.File`](https://pkg.go.dev/go/ast#File) from a file or from source as `[]byte`
 1. Use [`printer.Fprint(...)`](https://pkg.go.dev/go/printer#Fprint) to write a [`*ast.File`](https://pkg.go.dev/go/ast#File) to a [Writer](https://pkg.go.dev/io#Writer)
 1. core ast package [handles comments poorly](https://github.com/dave/dst#where-does-goast-break)

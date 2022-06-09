@@ -2,7 +2,7 @@
 1. Key points about Pointers in golang
 
 
-# Concepts
+# Key Concepts
 1. Pointer is an address (of a variable)
 1. `&` means **address-of**
 1. `*` means two things:
