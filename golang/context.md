@@ -22,6 +22,7 @@
 1. [`WithDeadline`](https://pkg.go.dev/context#WithDeadline) and [`ctx.WithCancel`](https://pkg.go.dev/context#WithCancel) return a [CancelFunc](https://pkg.go.dev/context#CancelFunc)
     1. Invoking the [CancelFunc](https://pkg.go.dev/context#CancelFunc) is the **only** way to manually cancel a context
     1. Context can only be cancelled at-most-once
+    1. `context.WithDeadline(...)` can return a ctx with an **EARLIER** deadline (when parent expires earlier)
 
 ## Purpose 2
 1. Context is for "small" request-scoped data
@@ -34,6 +35,7 @@
 
 
 # Idioms
+1. Context is safe for simultaneous use by multiple goroutines
 1. Context is the first argument, named `ctx`
 1. Every `func` on the path between incoming and outgoing request accepts `ctx` as 1st argument
 1. Always set a deadline for calling external systems (eg. database, http, grpc, kafka, ...)
@@ -48,6 +50,10 @@
     1. [`stmt.QueryContext`](https://pkg.go.dev/database/sql#Stmt.QueryContext)
     1. [`stmt.QueryRowContext`](https://pkg.go.dev/database/sql#Stmt.QueryRowContext)
 1. `context.Value()` is **not** a replacement for func arguments
+1. [Do **NOT** pass `nil` context](https://pkg.go.dev/context#pkg-overview)
+1. Contexts are "mostly" immutable
+    1. Only `ctx.Done` `channel` contents can change
+    1. Context methods return a copy
 
 
 # Examples
