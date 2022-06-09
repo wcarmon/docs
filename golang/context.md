@@ -138,6 +138,8 @@ func FromContext(ctx context.Context) (u UserUuid, ok bool) {
 
 ## HTTP Client
 1. Use [`http.NewRequestWithContext`](https://pkg.go.dev/net/http#NewRequestWithContext) or [`req.WithContext`](https://pkg.go.dev/net/http#Request.WithContext)
+1. [`client.Do(req)`](https://pkg.go.dev/net/http#Client.Do) automatically handles context cancellation
+    1. `client.Do(...)` is invoked indirectly by all the "convenient" methods
 1. See [examples in http-client](./io.http.client.md) doc
 
 
