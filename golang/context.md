@@ -5,10 +5,10 @@
 # Key Concepts
 1. Context is thread-safe *(safe for simultaneous use by multiple goroutines)*
 1. Contexts have a parent/child relationship
-    1. Parent cancels children
+    1. [Parent cancels children](https://cs.opensource.google/go/go/+/refs/tags/go1.18.3:src/context/context.go;l=16)
 1. [`context.Background()`](https://pkg.go.dev/context#Background)
     1. Is the root of any Context tree
-    1. no values, no deadline, never cancelled
+    1. [no values, no deadline, never cancelled](https://pkg.go.dev/context#Background)
     1. Is the [zero value](https://go.dev/ref/spec#The_zero_value) of a context
 
 ## Purpose 1
