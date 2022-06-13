@@ -62,6 +62,8 @@ $DOCKER_BINARY run \
     -v "${CERT_FILE}":/usr/local/share/ca-certificates/extra.crt \
     --workdir /usr/src/myapp \
     $GOLANG_IMAGE \
-    update-ca-certificates && \
-    go test ./...
+    /bin/bash -c "
+    update-ca-certificates;
+    go test ./...;
+    "
 EXAMPLE_WITH_CERT
