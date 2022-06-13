@@ -4,6 +4,8 @@
 # --
 # -- Runs tests via docker container
 # --
+# -- Assumptions:
+# -- 1. Docker installed: https://docs.docker.com/get-docker/
 # ---------------------------------------------
 
 #set -x
@@ -27,15 +29,15 @@ readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
 # ---------------------------------------------
 # -- Config
 # ---------------------------------------------
+# See https://hub.docker.com/_/golang?tab=tags
 readonly GOLANG_IMAGE=golang:1.18.3-bullseye
-
-# Dir contains go.mod file
-readonly PROJ_ROOT=$PARENT_DIR
 
 
 # ---------------------------------------------
 # -- Derived
 # ---------------------------------------------
+# Dir contains go.mod file
+readonly PROJ_ROOT=$PARENT_DIR
 
 
 # ---------------------------------------------
