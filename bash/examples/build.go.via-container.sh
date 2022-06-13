@@ -40,15 +40,15 @@ readonly PROJ_ROOT=$PARENT_DIR
 # ---------------------------------------------
 # -- Derived
 # ---------------------------------------------
-readonly OUTPUT_DIR="$PROJ_ROOT/bin"
+# Inside container:  relative to /usr/src/myapp
+# outside container: relative to $PROJ_ROOT
+readonly OUTPUT_DIR="bin"
+
 
 # ---------------------------------------------
 # -- Build
 # ---------------------------------------------
-mkdir -p $OUTPUT_DIR
-
-echo ""
-echo "|-- Building for $GOOS ...";
+mkdir -p "$PROJ_ROOT/$OUTPUT_DIR"
 
 $DOCKER_BINARY run \
   --rm \
@@ -65,6 +65,8 @@ $DOCKER_BINARY run \
   "
 
 <<EXAMPLE_WITH_CERT
+readonly CERT_FILE="my.crt"
+
 $DOCKER_BINARY run \
   --rm \
   -it \
