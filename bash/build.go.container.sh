@@ -11,7 +11,6 @@ set -e
 set -o pipefail
 set -u
 
-
 # ---------------------------------------------
 # -- Config
 # ---------------------------------------------
@@ -28,18 +27,12 @@ readonly PROJ_ROOT=$(dirname "${BASH_SOURCE[0]}")/..
 # ---------------------------------------------
 readonly OUTPUT_DIR="$PROJ_ROOT/bin"
 
-
 # ---------------------------------------------
 # -- Build
 # ---------------------------------------------
-cd "$PROJ_ROOT" >/dev/null 2>&1
-
 mkdir -p $OUTPUT_DIR
 
-echo "|-- Cross compiling go code in $(pwd)"
-GOOS=linux GOARCH=amd64 go build -o $OUTPUT_DIR/$OUTPUT_BINARY_NAME.linux.amd64 $CMD_PACKAGE;
-GOOS=darwin GOARCH=amd64 go build -o $OUTPUT_DIR/$OUTPUT_BINARY_NAME.macos.amd64 $CMD_PACKAGE;
-GOOS=windows GOARCH=amd64 go build -o $OUTPUT_DIR/$OUTPUT_BINARY_NAME.win.amd64.exe $CMD_PACKAGE;
+TODO: call docker here
 
 
 # NOTE: list architectures:
