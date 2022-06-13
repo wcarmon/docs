@@ -22,11 +22,36 @@ cd $PROJ_ROOT;
 staticcheck ./...
 ```
 
+# Golangci-lint
+1. See https://golangci-lint.run/
+
+## Install locally
+1. See https://golangci-lint.run/usage/install/
+
+## Run via docker
+```sh
+cd /dir/with/go.mod;
+
+docker run --rm \
+-v $(pwd):/app \
+-w \
+/app golangci/golangci-lint:v1.46.2 \
+golangci-lint run ./...
+```
+
+
+## Run
+```sh
+cd /dir/with/go.mod;
+
+golangci-lint run ./...
+# golangci-lint run  -v ./...
+```
+
+
 # Go-critic
 1. See https://go-critic.com/overview
-```sh
-# TODO more here
-```
+1. Run as part of [golangci-lint](https://golangci-lint.run/)
 
 
 # Sonar
