@@ -2,7 +2,7 @@
 
 # ---------------------------------------------
 # --
-# -- Run tests via docker container
+# -- Runs tests via docker container
 # --
 # ---------------------------------------------
 
@@ -27,7 +27,7 @@ readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
 # ---------------------------------------------
 # -- Config
 # ---------------------------------------------
-readonly GOLANG_IMAGE=golang:1.18
+readonly GOLANG_IMAGE=golang:1.18.3-alpine
 
 # Dir contains go.mod file
 readonly PROJ_ROOT=$PARENT_DIR
