@@ -27,7 +27,7 @@ readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
 # ---------------------------------------------
 # -- Config
 # ---------------------------------------------
-readonly GOLANG_IMAGE=golang:1.18.3-alpine
+readonly GOLANG_IMAGE=golang:1.18.3-bullseye
 
 # Dir contains go.mod file
 readonly PROJ_ROOT=$PARENT_DIR
@@ -62,6 +62,6 @@ $DOCKER_BINARY run \
     -v "$CERT_FILE":/usr/local/share/ca-certificates/extra.crt \
     --workdir /usr/src/myapp \
     $GOLANG_IMAGE \
-    apk --no-cache add ca-certificates && \
+    update-ca-certificates && \
     go test ./...
 EXAMPLE_WITH_CERT
