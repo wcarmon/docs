@@ -80,4 +80,4 @@ EXAMPLE_WITH_CERT
 # NOTE: list architectures:
 #   go tool dist list;
 
-echo "|-- See binaries in $(pwd)/bin"
+echo "|-- See binaries in $OUTPUT_DIR"

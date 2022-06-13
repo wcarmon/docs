@@ -56,4 +56,4 @@ GOOS=windows GOARCH=amd64 go build -o $OUTPUT_DIR/$OUTPUT_BINARY_NAME.win.amd64.
 # NOTE: list architectures:
 #   go tool dist list;
 
-echo "|-- See binaries in $(pwd)/bin"
+echo "|-- See binaries in $OUTPUT_DIR"
