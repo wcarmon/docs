@@ -39,6 +39,8 @@ readonly LINT_IMAGE=golangci/golangci-lint:v1.46.2
 # Dir contains go.mod file
 readonly PROJ_ROOT=$PARENT_DIR
 
+#readonly CERT_FILE="${PROJ_ROOT}/foo.crt"
+
 
 # ---------------------------------------------
 # -- Lint

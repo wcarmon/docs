@@ -23,6 +23,7 @@ staticcheck ./...
 ```
 
 # Golangci-lint
+1. Aggregates `go vet`, deadcode, errcheck, gosimple, govet, ineffassign, staticcheck, structcheck, typecheck, unused, varcheck, ...
 1. See https://golangci-lint.run/
 
 ## Install locally
