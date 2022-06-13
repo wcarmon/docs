@@ -4,7 +4,7 @@
 
 
 # Simple Example
-1. Put this into `config.go` for each command (eg. `/foo/cmd/mycmd1/config.go`)
+1. Put this into `config.go` for each command (eg. `/foo/cmd/mycmd/config.go`)
 ```go
 import (
 	"errors"
@@ -68,7 +68,7 @@ func NewConfig(osArgs OSArgs) (*appConfig, error) {
 	// alternatively: https://github.com/spf13/viper#establishing-defaults
 	c.setDefaults()
 
-	// -- Validation
+	// -- Validate
 	err = c.Validate()
 	if err != nil {
 		log.Error().
@@ -119,7 +119,7 @@ func (c *appConfig) setDefaults() {
 		c.LogLevel = "debug"
 	}
 
-	//TODO: set other defaults here (when field is blank/nil)
+	//TODO: set other defaults here (for blank/nil field)
 }
 ```
 
@@ -128,7 +128,7 @@ func (c *appConfig) setDefaults() {
 ```go
 func main() {
 
-    // TODO: setup zerolog here
+	// TODO: setup zerolog here
 
 	cfg, err := NewConfig(os.Args)
 	if err != nil {
@@ -139,6 +139,6 @@ func main() {
 		os.Exit(1)
 	}
 
-    // TODO: use cfg here
+	// TODO: use cfg here
 }
 ```
