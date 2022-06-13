@@ -27,12 +27,18 @@ readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
 # -- Config
 # ---------------------------------------------
 # NOTE: all paths relative to $PROJ_ROOT
+
 # Dir contains go.mod file
 readonly PROJ_ROOT=$PARENT_DIR
 
 
 # ---------------------------------------------
 # -- Derived
+# ---------------------------------------------
+
+
+# ---------------------------------------------
+# -- Validate
 # ---------------------------------------------
 
 

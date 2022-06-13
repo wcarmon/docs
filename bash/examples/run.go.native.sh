@@ -28,14 +28,21 @@ readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
 # -- Config
 # ---------------------------------------------
 # NOTE: all paths relative to $PROJ_ROOT
+
 CMD_PACKAGE=./cmd/run-service/...
 CONFIG_FILE=./app.config.yaml
 
 # Dir contains go.mod file
 readonly PROJ_ROOT=$PARENT_DIR
 
+
 # ---------------------------------------------
 # -- Derived
+# ---------------------------------------------
+
+
+# ---------------------------------------------
+# -- Validate
 # ---------------------------------------------
 
 

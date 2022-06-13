@@ -27,6 +27,7 @@ readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
 # -- Config
 # ---------------------------------------------
 # NOTE: all paths relative to $PROJ_ROOT
+
 readonly CMD_PACKAGE=./cmd/run-service
 readonly OUTPUT_BINARY_NAME=foo-service
 
@@ -38,6 +39,11 @@ readonly PROJ_ROOT=$PARENT_DIR
 # -- Derived
 # ---------------------------------------------
 readonly OUTPUT_DIR="$PROJ_ROOT/bin"
+
+
+# ---------------------------------------------
+# -- Validate
+# ---------------------------------------------
 
 
 # ---------------------------------------------

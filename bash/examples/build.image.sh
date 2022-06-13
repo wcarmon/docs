@@ -32,6 +32,7 @@ readonly TAG_NAME=$1
 # -- Config
 # ---------------------------------------------
 # NOTE: all paths relative to $PROJ_ROOT
+
 readonly APP_NAME=foo-service
 readonly DOCKERFILE=./Dockerfile
 readonly IMAGE_REPO_URI=ecr.us-east-1.amazonaws.com
@@ -48,7 +49,7 @@ readonly QUALIFIED_REPOSITORY_NAME=myorg/${REPOSITORY_NAME}/${APP_NAME}
 
 
 # ---------------------------------------------
-# -- Validation
+# -- Validate
 # ---------------------------------------------
 # TODO: more here
 
