@@ -51,3 +51,17 @@ $DOCKER_BINARY run \
   --workdir /usr/src/myapp \
   $GOLANG_IMAGE \
   go test ./...
+
+<<EXAMPLE_WITH_CERT
+  readonly CERT_FILE=my.crt
+
+  $DOCKER_BINARY run \
+    --rm \
+    -it \
+    -v "$PROJ_ROOT":/usr/src/myapp \
+    -v "$CERT_FILE":/usr/local/share/ca-certificates/extra.crt \
+    --workdir /usr/src/myapp \
+    $GOLANG_IMAGE \
+    apk --no-cache add ca-certificates && \
+    go test ./...
+EXAMPLE_WITH_CERT
