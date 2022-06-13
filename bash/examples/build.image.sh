@@ -29,7 +29,7 @@ readonly DOCKERFILE=./Dockerfile
 readonly IMAGE_REPO_URI=ecr.us-east-1.amazonaws.com
 readonly REPOSITORY_NAME=my-github-project
 
-# Dir contains Dockerfile file
+# Dir contains Dockerfile
 readonly PROJ_ROOT=$(dirname "${BASH_SOURCE[0]}")/..
 
 
