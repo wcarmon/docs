@@ -35,7 +35,7 @@ echo "|-- Images before Delete:"
 docker images -a
 
 
-$DOCKER_BINARY images -a \
+$DOCKER_BINARY images -a |
   grep -i $IMAGE_PATTERN |
   awk '{print $3}' |
   xargs docker rmi --force || true
