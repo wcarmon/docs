@@ -68,14 +68,16 @@ $DOCKER_BINARY run \
 $DOCKER_BINARY run \
   --rm \
   -it \
-  -e GOARCH=amd64 \
-  -e GOOS=$GOOS \
   -v "${PROJ_ROOT}":/usr/src/myapp \
   -v "${CERT_FILE}":/usr/local/share/ca-certificates/extra.crt \
   --workdir /usr/src/myapp \
   $GOLANG_IMAGE \
-  update-ca-certificates && \
-  go build ./...
+  /bin/bash -c "
+  update-ca-certificates;
+  GOOS=linux GOARCH=amd64 go build -o $OUTPUT_DIR/$OUTPUT_BINARY_NAME.linux.amd64 $CMD_PACKAGE;
+  GOOS=darwin GOARCH=amd64 go build -o $OUTPUT_DIR/$OUTPUT_BINARY_NAME.macos.amd64 $CMD_PACKAGE;
+  GOOS=windows GOARCH=amd64 go build -o $OUTPUT_DIR/$OUTPUT_BINARY_NAME.win.amd64.exe $CMD_PACKAGE;
+  "
 EXAMPLE_WITH_CERT
 
 # NOTE: list architectures:
