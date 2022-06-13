@@ -38,6 +38,15 @@ go mod edit -replace github.com/dave/dst=github.com/hawkinsw/dst@generics
 1. Goland will auto-import new dependencies only after you setup a module
 
 
+# Listing old dependencies
+```sh
+go list -u -m -f '{{if .Update}}{{.}}{{end}}' all
+```
+1. See also: https://github.com/psampaz/go-mod-outdated
+```sh
+go list -u -m -json all | $HOME/go/bin/go-mod-outdated;
+```
+
 # Deprecated
 1. [replace](https://go.dev/ref/mod#go-mod-file-replace) directives should be replaced with [workspaces](./workspaces.md)
 
