@@ -33,6 +33,8 @@ readonly DOCKER_BINARY=$(which docker)
 # ---------------------------------------------
 # -- Debug
 # ---------------------------------------------
+echo
+echo "|-- Starting shell in container..."
 $DOCKER_BINARY run \
   --rm \
   -it \
