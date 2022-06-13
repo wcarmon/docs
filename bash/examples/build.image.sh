@@ -4,12 +4,19 @@
 # --
 # -- Builds docker image for app
 # --
+# -- Assumptions:
+# -- 1. Docker installed: https://docs.docker.com/get-docker/
 # ---------------------------------------------
 
 #set -x
 set -e
 set -o pipefail
 set -u
+
+# ---------------------------------------------
+# -- Script arguments
+# ---------------------------------------------
+readonly TAG_NAME=$1
 
 
 # ---------------------------------------------
