@@ -47,21 +47,22 @@ readonly OUTPUT_DIR="$PROJ_ROOT/bin"
 # ---------------------------------------------
 mkdir -p $OUTPUT_DIR
 
-for GOOS in linux darwin windows;
-do
-  echo ""
-  echo "|-- Building for $GOOS ...";
+echo ""
+echo "|-- Building for $GOOS ...";
 
-  $DOCKER_BINARY run \
-    --rm \
-    -it \
-    -e GOARCH=amd64 \
-    -e GOOS=$GOOS \
-    -v "${PROJ_ROOT}":/usr/src/myapp \
-    --workdir /usr/src/myapp \
-    $GOLANG_IMAGE \
-    go build ./...
-done
+$DOCKER_BINARY run \
+  --rm \
+  -it \
+  -e GOARCH=amd64 \
+  -e GOOS=$GOOS \
+  -v "${PROJ_ROOT}":/usr/src/myapp \
+  --workdir /usr/src/myapp \
+  $GOLANG_IMAGE \
+  /bin/bash -c "
+  GOOS=linux GOARCH=amd64 go build -o $OUTPUT_DIR/$OUTPUT_BINARY_NAME.linux.amd64 $CMD_PACKAGE;
+  GOOS=darwin GOARCH=amd64 go build -o $OUTPUT_DIR/$OUTPUT_BINARY_NAME.macos.amd64 $CMD_PACKAGE;
+  GOOS=windows GOARCH=amd64 go build -o $OUTPUT_DIR/$OUTPUT_BINARY_NAME.win.amd64.exe $CMD_PACKAGE;
+  "
 
 <<EXAMPLE_WITH_CERT
 $DOCKER_BINARY run \
