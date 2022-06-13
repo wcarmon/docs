@@ -53,8 +53,8 @@ RUN addgroup -g 1001 gopher && \
     -D \
     -G gopher \
     -h /app \
-    -H /app \
-    -u 1001app \
+    -H \
+    -u 1001 \
     gopher
 
 RUN chmod 0755 /app/app.binary && \
