@@ -4,7 +4,7 @@
 
 
 # Complex Example
-1. Put this into `config.go` for each command (eg. `/foo/cmd/mycmd1/config.go`)
+1. Put this into `config.go` for each command (eg. `/foo/cmd/mycmd/config.go`)
 1. Handles explicit config file or can search for config file
 1. Configurable search paths
 ```go
@@ -77,6 +77,9 @@ func NewConfig(osArgs OSArgs) (*appConfig, error) {
 	// -- Parse config
 	err = v.ReadInConfig()
 	if err != nil {
+	    log.Error().
+	        Err(err).
+	        Msg("Failed to read config using viper")
 		return nil, err
 	}
 
@@ -84,6 +87,9 @@ func NewConfig(osArgs OSArgs) (*appConfig, error) {
 	var c appConfig
 	err = v.Unmarshal(&c)
 	if err != nil {
+	    log.Error().
+	        Err(err).
+	        Msg("Failed to unmarshal config")
 		return nil, err
 	}
 
@@ -91,9 +97,13 @@ func NewConfig(osArgs OSArgs) (*appConfig, error) {
     // alternatively: https://github.com/spf13/viper#establishing-defaults
     c.setDefaults()
 
-	// -- Validation
+	// -- Validate
 	err = c.Validate()
 	if err != nil {
+		log.Error().
+			Err(err).
+			Str("config", fmt.Sprintf("%#v", c))
+			Msg("Config is invalid")
 		return nil, err
 	}
 
@@ -118,7 +128,7 @@ func (cfg appConfig) Validate() error {
 // Pass os.Args
 func setPathConfigForViper(
 	v *viper.Viper,
-	osArgs []string,
+	osArgs OSArgs,
 	defaultConfigFilename string,
 	searchDirs []string) error {
 
@@ -153,7 +163,7 @@ func (c *appConfig) setDefaults() {
 		c.LogLevel = "debug"
 	}
 
-    //TODO: set other defaults here (when field is blank/nil)
+	//TODO: set other defaults here (for blank/nil field)
 }
 ```
 
@@ -162,7 +172,7 @@ func (c *appConfig) setDefaults() {
 ```go
 func main() {
 
-    // TODO: setup zerolog here
+	// TODO: setup zerolog here
 
 	cfg, err := NewConfig(os.Args)
 	if err != nil {
@@ -173,7 +183,6 @@ func main() {
 		os.Exit(1)
 	}
 
-    // TODO: use cfg here
-
+	// TODO: use cfg here
 }
 ```
