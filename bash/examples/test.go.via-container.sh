@@ -58,8 +58,8 @@ $DOCKER_BINARY run \
   $DOCKER_BINARY run \
     --rm \
     -it \
-    -v "$PROJ_ROOT":/usr/src/myapp \
-    -v "$CERT_FILE":/usr/local/share/ca-certificates/extra.crt \
+    -v "${PROJ_ROOT}":/usr/src/myapp \
+    -v "${CERT_FILE}":/usr/local/share/ca-certificates/extra.crt \
     --workdir /usr/src/myapp \
     $GOLANG_IMAGE \
     update-ca-certificates && \
