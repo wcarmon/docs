@@ -51,8 +51,8 @@ readonly QUALIFIED_REPOSITORY_NAME=myorg/${REPOSITORY_NAME}/${APP_NAME}
 # ---------------------------------------------
 cd "$PROJ_ROOT" >/dev/null 2>&1
 
-echo;
-echo "|-- Building docker image ...";
+echo
+echo "|-- Building docker image ..."
 $DOCKER_BINARY build \
   --file ${DOCKERFILE}\
   --tag ${QUALIFIED_REPOSITORY_NAME}:${TAG_NAME}\
