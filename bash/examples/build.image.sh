@@ -29,12 +29,15 @@ readonly DOCKERFILE=./Dockerfile
 readonly IMAGE_REPO_URI=ecr.us-east-1.amazonaws.com
 readonly REPOSITORY_NAME=my-github-project
 
+# Dir contains Dockerfile file
+readonly PROJ_ROOT=$(dirname "${BASH_SOURCE[0]}")/..
+
 
 # ---------------------------------------------
 # -- Derived
 # ---------------------------------------------
 readonly DOCKER_BINARY=$(which docker)
-readonly QUALIFIED_REPOSITORY_NAME=my-org/${REPOSITORY_NAME}/${APP_NAME}
+readonly QUALIFIED_REPOSITORY_NAME=myorg/${REPOSITORY_NAME}/${APP_NAME}
 
 
 # ---------------------------------------------
@@ -46,6 +49,8 @@ readonly QUALIFIED_REPOSITORY_NAME=my-org/${REPOSITORY_NAME}/${APP_NAME}
 # ---------------------------------------------
 # -- Build
 # ---------------------------------------------
+cd "$PROJ_ROOT" >/dev/null 2>&1
+
 echo;
 echo "|-- Building docker image ...";
 $DOCKER_BINARY build \
