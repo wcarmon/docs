@@ -34,8 +34,8 @@ cd /dir/with/go.mod;
 
 docker run --rm \
 -v $(pwd):/app \
--w \
-/app golangci/golangci-lint:v1.46.2 \
+--workdir /app \
+golangci/golangci-lint:v1.46.2 \
 golangci-lint run ./...
 ```
 

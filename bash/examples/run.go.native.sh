@@ -13,14 +13,29 @@ set -u
 
 
 # ---------------------------------------------
+# -- Constants
+# ---------------------------------------------
+readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
+
+
+# ---------------------------------------------
+# -- Script arguments
+# ---------------------------------------------
+
+
+# ---------------------------------------------
 # -- Config
 # ---------------------------------------------
 # NOTE: all paths relative to $PROJ_ROOT
-CONFIG_FILE=./app.config.yaml
 CMD_PACKAGE=./cmd/run-service/...
+CONFIG_FILE=./app.config.yaml
 
 # Dir contains go.mod file
-readonly PROJ_ROOT=$(dirname "${BASH_SOURCE[0]}")/..
+readonly PROJ_ROOT=$PARENT_DIR
+
+# ---------------------------------------------
+# -- Derived
+# ---------------------------------------------
 
 
 # ---------------------------------------------

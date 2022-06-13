@@ -11,6 +11,18 @@ set -e
 set -o pipefail
 set -u
 
+
+# ---------------------------------------------
+# -- Constants
+# ---------------------------------------------
+readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
+
+
+# ---------------------------------------------
+# -- Script arguments
+# ---------------------------------------------
+
+
 # ---------------------------------------------
 # -- Config
 # ---------------------------------------------
@@ -19,7 +31,7 @@ readonly CMD_PACKAGE=./cmd/run-service
 readonly OUTPUT_BINARY_NAME=foo-service
 
 # Dir contains go.mod file
-readonly PROJ_ROOT=$(dirname "${BASH_SOURCE[0]}")/..
+readonly PROJ_ROOT=$PARENT_DIR
 
 
 # ---------------------------------------------
