@@ -22,6 +22,12 @@ cd $PROJ_ROOT;
 staticcheck ./...
 ```
 
+# Go-critic
+1. See https://go-critic.com/overview
+```sh
+# TODO more here
+```
+
 
 # Sonar
 - TODO: container
