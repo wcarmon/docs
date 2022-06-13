@@ -64,9 +64,9 @@ func NewConfig(osArgs OSArgs) (*appConfig, error) {
 		return nil, err
 	}
 
-    // -- Set defaults
-    // alternatively: https://github.com/spf13/viper#establishing-defaults
-    c.setDefaults()
+	// -- Set defaults
+	// alternatively: https://github.com/spf13/viper#establishing-defaults
+	c.setDefaults()
 
 	// -- Validation
 	err = c.Validate()
@@ -96,7 +96,7 @@ func (cfg appConfig) Validate() error {
 }
 
 // Pass os.Args
-func setPathConfigForViper(v *viper.Viper, osArgs []string) error {
+func setPathConfigForViper(v *viper.Viper, osArgs OSArgs) error {
 
 	if v == nil {
 		return errors.New("viper instance is required")
@@ -119,7 +119,7 @@ func (c *appConfig) setDefaults() {
 		c.LogLevel = "debug"
 	}
 
-    //TODO: set other defaults here (when field is blank/nil)
+	//TODO: set other defaults here (when field is blank/nil)
 }
 ```
 
