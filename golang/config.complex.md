@@ -93,9 +93,9 @@ func NewConfig(osArgs OSArgs) (*appConfig, error) {
 		return nil, err
 	}
 
-    // -- Set defaults
-    // alternatively: https://github.com/spf13/viper#establishing-defaults
-    c.setDefaults()
+	// -- Set defaults
+	// alternatively: https://github.com/spf13/viper#establishing-defaults
+	c.setDefaults()
 
 	// -- Validate
 	err = c.Validate()
