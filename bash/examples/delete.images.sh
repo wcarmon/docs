@@ -17,6 +17,7 @@ set -u
 # ---------------------------------------------
 # -- Constants
 # ---------------------------------------------
+readonly DOCKER_BINARY=$(which docker)
 readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
 
 
@@ -43,7 +44,7 @@ readonly DOCKER_BINARY=$(which docker)
 # ---------------------------------------------
 echo
 echo "|-- Images before Delete:"
-docker images -a
+$DOCKER_BINARY images -a
 
 
 $DOCKER_BINARY images -a |
@@ -54,4 +55,4 @@ $DOCKER_BINARY images -a |
 
 echo
 echo "|-- Images after Delete:"
-docker images -a
+$DOCKER_BINARY images -a

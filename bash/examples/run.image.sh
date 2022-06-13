@@ -17,6 +17,7 @@ set -u
 # ---------------------------------------------
 # -- Constants
 # ---------------------------------------------
+readonly DOCKER_BINARY=$(which docker)
 readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
 
 
@@ -34,7 +35,6 @@ readonly IMAGE=myorg/foo:latest
 # ---------------------------------------------
 # -- Derived
 # ---------------------------------------------
-readonly DOCKER_BINARY=$(which docker)
 
 
 # ---------------------------------------------

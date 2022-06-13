@@ -2,7 +2,7 @@
 
 # ---------------------------------------------
 # --
-# -- Builds local binary via local go sdk
+# -- Builds local binary via docker container
 # --
 # ---------------------------------------------
 
@@ -15,6 +15,7 @@ set -u
 # ---------------------------------------------
 # -- Constants
 # ---------------------------------------------
+readonly DOCKER_BINARY=$(which docker)
 readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
 
 

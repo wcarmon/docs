@@ -17,6 +17,7 @@ set -u
 # ---------------------------------------------
 # -- Constants
 # ---------------------------------------------
+readonly DOCKER_BINARY=$(which docker)
 readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
 
 
@@ -43,7 +44,6 @@ readonly PROJ_ROOT=$PARENT_DIR
 # ---------------------------------------------
 # -- Derived
 # ---------------------------------------------
-readonly DOCKER_BINARY=$(which docker)
 readonly QUALIFIED_REPOSITORY_NAME=myorg/${REPOSITORY_NAME}/${APP_NAME}
 
 

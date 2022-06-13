@@ -17,6 +17,7 @@ set -u
 # ---------------------------------------------
 # -- Constants
 # ---------------------------------------------
+readonly DOCKER_BINARY=$(which docker)
 readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
 
 
@@ -38,7 +39,7 @@ readonly SHELL_FOR_DEBIAN=/bin/bash
 # ---------------------------------------------
 # -- Derived
 # ---------------------------------------------
-readonly DOCKER_BINARY=$(which docker)
+
 
 
 # ---------------------------------------------
