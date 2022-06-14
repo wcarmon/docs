@@ -1,7 +1,7 @@
 # syntax=docker/dockerfile:1
 
 # ---------------------------------------------
-# -- Build Stage
+# -- Build stage
 # ---------------------------------------------
 FROM golang:1.18-alpine AS builder
 WORKDIR /app/src
@@ -17,7 +17,7 @@ RUN update-ca-certificates && \
     apk add --no-cache ca-certificates && \
     update-ca-certificates
 
-# -- Copy sources (see also: .dockerignore
+# -- Copy sources (see also: .dockerignore)
 COPY . .
 
 # -- Get dependencies via go.mod & go.sum
@@ -29,7 +29,7 @@ RUN go build -o /app/app.binary -v /app/src/cmd/run-service/...
 
 
 # ---------------------------------------------
-# -- Deploy Stage
+# -- Deploy stage
 # ---------------------------------------------
 FROM alpine:latest
 #LABEL Foo=bar Version=1.0.0

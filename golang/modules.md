@@ -8,8 +8,9 @@
 
 
 # Create a module
-- TODO: get from ~/git-repos/go/steps-to-make-new-module.md
 ```sh
+go mod init company.com/foo;
+go mod tidy;
 ```
 
 
