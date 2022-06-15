@@ -16,7 +16,6 @@
 |---|---|
 |`ALT` + `b`|Move cursor **back** 1 word| Send escape sequence | `b`|
 |`ALT` + `f`|Move cursor **forward** 1 word| Send escape sequence | `f`|
-|`CTRL` + `SHIFT` + v|Paste|
 |`end`|Move cursor to end of line|
 |`home`|Move cursor to start of line|
 
@@ -27,14 +26,21 @@
 |`CTRL` + `e`|Move cursor to **end** of line|Send Hex Code|`0x05`|
 |`CTRL` + `k`|Clear from cursor to end|Send Hex Code|`0xb`|
 |`CTRL` + `l`|Clear terminal|Send Hex Code|`0xc`|
-|`CTRL` + `left`|Move cursor to previous word| Send escape sequence |`b`|
-|`CTRL` + `r`|command history|Send Hex Code|`0x12` (18th letter in hex)|
-|`CTRL` + `right`|Move cursor to next word| Send escape sequence | `f`|
+|`CTRL` + `r`|command history|Send Hex Code|`0x12` *(18th letter in hex)*|
 |`CTRL` + `u`|Clear from cursor to start|Send Hex Code|`0x15`|
 |`CTRL` + `z`|Move process to background|Send Hex Code|`0x1a`|
-|`SHIFT` + Insert|Paste|TODO|TODO|
+|`CTRL` + `left`|Move cursor to previous word| Send escape sequence |`b`|
+|`CTRL` + `right`|Move cursor to next word| Send escape sequence | `f`|
 |TODO|Undo|Send Hex Code|`0x1f`|
 
+## Paste
+1. `Preferences`... > `Profiles` > `Default` (or Profile name) > `Keys` > `Key Mappings`
+1. Click `+` at the bottom
+1. Add this:
+    - Keyboard Shortcut: `CTRL + SHIFT + v`, same for `SHIFT + Insert`
+    - Action: Paste
+    - [x] Paste with tabs
+    - [x] Remove unsafe control codes
 
 # Global hotkey
 1. `Preferences`... > `Profiles` > `Default` (or Profile name) > `Keys` > `General`
