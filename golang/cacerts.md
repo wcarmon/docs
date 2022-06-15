@@ -5,7 +5,7 @@
 ## Linux
 - See [`x509`](https://cs.opensource.google/go/go/+/refs/tags/go1.18.3:src/crypto/x509/root_linux.go;l=8) package
 
-## Mac
+## MacOS
 - See [`x509`](https://cs.opensource.google/go/go/+/refs/tags/go1.18.3:src/crypto/x509/root_bsd.go;l=10) package
 
 
@@ -13,7 +13,7 @@
 ## Linux
 - TODO
 
-## Mac
+## MacOS
 ```bash
 # PEM format, starts with a tag like: -----BEGIN CERTIFICATE-----
 NEW_CA_CERT="/path/to/my.crt"
