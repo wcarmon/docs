@@ -23,16 +23,14 @@ fi
 # ------------------------------------
 # -- PATH
 # ------------------------------------
+PATH="$PATH:$HOME/.sdkman/candidates/gradle/current/bin"
 PATH="$PATH:$HOME/.sdkman/candidates/java/current/bin"
 PATH="$PATH:$HOME/.sdkman/candidates/kotlin/current/bin"
 PATH="$PATH:$HOME/.sdkman/candidates/visualvm/current/bin"
-PATH="$PATH:$HOME/.sdkman/candidates/gradle/current/bin"
-PATH="$PATH:/usr/local/go/bin"
 
 PATH="$PATH:/bin"
 PATH="$PATH:/usr/bin"
 PATH="$PATH:/usr/local/bin"
-PATH="$PATH:/usr/local/go/bin"
 
 PATH="$PATH:/sbin"
 PATH="$PATH:/usr/local/sbin"
@@ -61,7 +59,13 @@ fi
 # ------------------------------------
 # -- Golang
 # ------------------------------------
-# TODO: GOPATH
+# TODO: set $GOPATH if needed
+PATH="$PATH:$HOME/go/bin"
+PATH="$PATH:/usr/local/go/bin"
+
+if [ -n "$GOPATH" ]
+    PATH="$PATH:$GOPATH/bin"
+fi
 
 
 # ------------------------------------
