@@ -38,7 +38,7 @@
 1. Click `+` at the bottom
 1. Add this:
     - Keyboard Shortcut: `CTRL + SHIFT + v`, same for `SHIFT + Insert`
-    - Action: Paste
+    - Action: `Paste`
     - [x] Paste with tabs
     - [x] Remove unsafe control codes
 
