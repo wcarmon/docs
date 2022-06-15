@@ -28,6 +28,8 @@ $KEYTOOL -import \
 -file $DER_FILE \
 -alias custom-Root-CA-keystore \
 -cacerts;
+
+# May have to enter a keystore pass here
 ```
 
 
