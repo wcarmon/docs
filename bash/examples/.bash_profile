@@ -63,7 +63,7 @@ fi
 PATH="$PATH:$HOME/go/bin"
 PATH="$PATH:/usr/local/go/bin"
 
-if [ -n "$GOPATH" ]
+if [ -n "$GOPATH" ]; then
     PATH="$PATH:$GOPATH/bin"
 fi
 
