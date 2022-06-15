@@ -1,17 +1,18 @@
 # Overview
 
 # Adding CA certificate
-1. define vars
+1. Define some vars (assuming [sdkman](https://sdkman.io/))
 ```bash
-JAVA_HOME=$HOME/.sdkman/candidates/java/17.0.1-open
+# Linux or Mac
+JAVA_HOME="$HOME/.sdkman/candidates/java/17.0.1-open"
 
-CA_CERTS_FILE=$JAVA_HOME/lib/security/cacerts;
-KEYTOOL=$JAVA_HOME/bin/keytool;
+CA_CERTS_FILE="$JAVA_HOME/lib/security/cacerts"
+KEYTOOL="$JAVA_HOME/bin/keytool"
 
-NEW_CA_CERT=/path/to/my.crt
-# Has tag like -----BEGIN CERTIFICATE-----
+# PEM format, starts with a tag like: -----BEGIN CERTIFICATE-----
+NEW_CA_CERT="/path/to/my.crt"
 ```
-1. Convert to .der
+1. Convert [*.crt]() to [.der](https://wiki.openssl.org/index.php/DER)
 ```bash
 DER_FILE=./foo.der;
 openssl x509 \
@@ -19,7 +20,7 @@ openssl x509 \
 -outform der \
 -out $DER_FILE;
 ```
-1. Import cert to JVM
+1. Import [*.der](https://wiki.openssl.org/index.php/DER) formatted certificate to JVM
 ```bash
 $KEYTOOL -import \
 -trustcacerts \
