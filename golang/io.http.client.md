@@ -142,6 +142,10 @@ func CreateFoo(
 - TODO: opentelemetry B3 header propagation
 
 
+# Debugging
+1. use [`httputil.DumpRequest(...)`](https://pkg.go.dev/net/http/httputil#DumpRequest)
+
+
 # Other resources
 1. https://www.practical-go-lessons.com/chap-35-build-an-http-client
 1. https://pkg.go.dev/net/http
