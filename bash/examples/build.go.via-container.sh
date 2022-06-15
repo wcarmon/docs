@@ -55,6 +55,7 @@ readonly OUTPUT_DIR="bin"
 # ---------------------------------------------
 mkdir -p "$PROJ_ROOT/$OUTPUT_DIR"
 
+# -- Cross compile
 $DOCKER_BINARY run \
   --rm \
   -it \
