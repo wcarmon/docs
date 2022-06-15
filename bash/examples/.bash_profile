@@ -1,7 +1,7 @@
-# ~/.profile: executed on login
-# Ignored if ~/.bash_profile or ~/.bash_login exist
+# ~/.bash_profile: executed on login
+# ~/.profile: executed on login, ignored when ~/.bash_profile or ~/.bash_login exist
 
-# if running bash
+# Only for bash
 if [ -n "$BASH_VERSION" ]; then
     # include .bashrc if it exists
     if [ -f "$HOME/.bashrc" ]; then
