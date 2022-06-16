@@ -14,7 +14,9 @@ brew install tree;
 brew install xz;
 
 brew install bash-completion;
-# Follow the steps on the outout (add a line to ~/.bash_profile)
+# Follow the steps on the outout
+# (add the line below to ~/.bash_profile)
+# [[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"
 ```
 
 
