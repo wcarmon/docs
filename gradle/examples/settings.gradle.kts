@@ -1,14 +1,21 @@
 pluginManagement {
   plugins {
-    id("com.github.ben-manes.versions") version "0.33.0"
+    // for fat-jar/uber-jar
     id("com.github.johnrengelman.shadow") version "6.0.0"
+
+    // For analyzing builds
     id("com.gradle.build-scan") version "3.4.1"
-    id("io.gitlab.arturbosch.detekt") version "1.16.0"
+
+    // For finding old dependencies
+    id("com.github.ben-manes.versions") version "0.33.0"
 
     // if using kotlin
     id("org.jetbrains.kotlin.plugin.allopen") version "1.6.0"
     id("org.jetbrains.kotlin.plugin.spring") version "1.6.0"
-    id("org.springframework.boot") version "2.3.4.RELEASE" // bootRun
+    id("io.gitlab.arturbosch.detekt") version "1.16.0"
+
+    // if using spring boot (eg. bootRun task)
+    id("org.springframework.boot") version "2.3.4.RELEASE"
   }
 
   repositories {

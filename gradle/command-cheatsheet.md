@@ -3,16 +3,16 @@
 
 
 # Commands
-1. Assuming working diretory is $PROJ_ROOT (dir containing `build.gradle.kts`)
+1. Assuming working diretory is `$PROJ_ROOT` (dir containing `build.gradle.kts`)
 
 
-## Setup/Init/Upgrade
+## Setup, Init, Upgrade
 ```
 gradle init
 gradle wrapper --gradle-version 7.4.2
 gradle wrapper
 
-# Upgrade
+# -- Upgrade:
 ./gradlew wrapper --gradle-version=7.4.2 --distribution-type=all
 ./gradlew wrapper --gradle-version=7.3.3 --distribution-type=bin
 ```
@@ -28,34 +28,32 @@ gradle wrapper
 ./gradlew build -Dorg.gradle.debug=true
 ./gradlew build -x test
 
-# Clean first
+# -- Clean first:
+./gradlew clean build -q
 ./gradlew clean build -x detekt -x test -q
 ./gradlew clean build --exclude-task test -q
-./gradlew clean build -q
 ```
 
 
 ## Dependencies
 ```sh
-./gradlew analyzeClassesDependencies
-
-./gradlew dependencies
 ./gradlew dependencies -q
 
-# For one configuration
+
+# -- For one configuration:
 ./gradlew dependencies --configuration compileOnly -q
 ./gradlew dependencies --configuration runtimeClasspath -q
 ./gradlew dependencies --configuration runtimeOnly -q
 ./gradlew dependencies --configuration testCompileOnly
 
 
-# List outdated/old deps
+# -- List outdated/old deps:
+./gradlew dependencyUpdates -q
 ./gradlew dependencyUpdates
 ./gradlew dependencyUpdates --refresh-dependencies --quiet
-./gradlew dependencyUpdates -q
 
 
-# For one module
+# -- For one module:
 ./gradlew module-123:dependencies -q
 ./gradlew module-123:dependencies --configuration runtimeClasspath --quiet
 ```
