@@ -28,9 +28,10 @@ sudo apt-get install build-essential libz-dev zlib1g-dev
     1. `sdk install java 22.1.0.r17-grl`
     1. See `$HOME/.sdkman/candidates/java/current/bin/gu` (if graal is your default jvm)
     1. Or else run `find $HOME/.sdkman/candidates -name gu`
-    1. symlink: (`ln -s /path/to/gu ~/bin/gu`)
+    1. symlink: (`ln -s /path/to/gu ~/bin`)
+1. [Add any ca-certificates](./cacerts.md), if needed
 1. [`gu`](https://www.graalvm.org/22.1/reference-manual/graalvm-updater/) can install [`native-image`](https://www.graalvm.org/22.1/reference-manual/native-image/)
-
+    1. `gu install native-image`
 
 # Native Image
 1. [`native-image`](https://www.graalvm.org/22.1/reference-manual/native-image/) builds binaries from `*.jar` and/or `*.class`
