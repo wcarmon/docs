@@ -10,7 +10,7 @@
 1. `$HOME/.config/JetBrains/<product><version>/keymaps`
     1. eg. `$HOME/.config/JetBrains/IntelliJIdea2022.1/keymaps`
 
-## Mac
+## MacOS
 1. `~/Library/Application Support/JetBrains/<product><version>/keymaps`
 
 ## windows

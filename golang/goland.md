@@ -7,11 +7,11 @@
 1. Add [Postfix Completion templates](https://www.jetbrains.com/help/go/settings-postfix-completion.html) for anything you regularly type by accident
     1. Eg. all the methods in [strings](./strings.md) doc (they would be methods in java, but are in [`strings`](https://pkg.go.dev/strings) package for go)
     1. Linux: `$HOME/.config/JetBrains/GoLand<version>/options/postfixTemplates.xml`
-    1. Mac: `~/Library/Application Support/JetBrains/GoLand<version>/options/postfixTemplates.xml`
+    1. MacOS: `~/Library/Application Support/JetBrains/GoLand<version>/options/postfixTemplates.xml`
     1. windows: `%APPDATA%\JetBrains\GoLand<version>\options\postfixTemplates.xml`
 1. Add LiveTemplates for code snippets you use more than once
     1. Linux: `$HOME/.config/JetBrains/GoLand<version>/jba_config/templates/<your-group-name>.xml`
-    1. Mac: `~/Library/Application Support/JetBrains/GoLand<version>/jba_config/templates/<your-group-name>.xml`
+    1. MacOS: `~/Library/Application Support/JetBrains/GoLand<version>/jba_config/templates/<your-group-name>.xml`
     1. windows: `%APPDATA%\JetBrains\GoLand<version>\jba_config\templates\<your-group-name>.xml`
 
 
@@ -40,7 +40,7 @@
 1. `$HOME/.config/JetBrains/GoLand<version>/`
     1. eg. `$HOME/.config/JetBrains/GoLand2022.1/`
 
-## Mac
+## MacOS
 1. `~/Library/Application Support/JetBrains/GoLand<version>/`
 
 ## windows

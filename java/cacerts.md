@@ -7,7 +7,7 @@
 # Adding CA certificate
 1. Define some vars (assuming [sdkman](https://sdkman.io/))
 ```bash
-# Linux or Mac
+# Linux or MacOS
 JAVA_HOME="$HOME/.sdkman/candidates/java/17.0.1-open"
 
 #CA_CERTS_FILE="$JAVA_HOME/lib/security/cacerts"

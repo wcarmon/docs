@@ -23,7 +23,8 @@ sudo apt-get install build-essential libz-dev zlib1g-dev
 1. Put the binary into a container via docker or similar
 
 
-# gu - GraalVM Updater
+# [gu - GraalVM Updater](https://www.graalvm.org/22.1/reference-manual/graalvm-updater/)
+1. [gu](https://www.graalvm.org/22.1/reference-manual/graalvm-updater/) is a program which installs/updates Graal components
 1. [gu](https://www.graalvm.org/22.1/reference-manual/graalvm-updater/) comes with a graal installation
     1. `sdk install java 22.1.0.r17-grl`
     1. See `$HOME/.sdkman/candidates/java/current/bin/gu` (if graal is your default jvm)
@@ -33,9 +34,10 @@ sudo apt-get install build-essential libz-dev zlib1g-dev
 1. [`gu`](https://www.graalvm.org/22.1/reference-manual/graalvm-updater/) can install [`native-image`](https://www.graalvm.org/22.1/reference-manual/native-image/)
     1. `gu install native-image`
 
-# Native Image
-1. [`native-image`](https://www.graalvm.org/22.1/reference-manual/native-image/) builds binaries from `*.jar` and/or `*.class`
-    1.
+
+# [Native Image](https://www.graalvm.org/22.1/reference-manual/native-image/)
+1. [`native-image`](https://www.graalvm.org/22.1/reference-manual/native-image/) is a program which builds binaries from `*.jar` and/or `*.class`
+    1. TODO: ensure on PATH
     1. See `$HOME/.sdkman/candidates/java/current/bin/native-image`
 
 
@@ -50,7 +52,6 @@ sudo apt-get install build-essential libz-dev zlib1g-dev
 - TODO: native-image: native-image.properties
 - TODO: gu list
 - TODO: gu install native-image
-- TODO: install "gu"
 - TODO: Must have META-INF/MANIFEST.MF
 - TODO: native-image: reports incompatible features
 - TODO: native-image: substitutions for incompatible bytecode
