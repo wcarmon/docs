@@ -26,10 +26,9 @@ sudo apt-get install build-essential libz-dev zlib1g-dev
 # [gu - GraalVM Updater](https://www.graalvm.org/22.1/reference-manual/graalvm-updater/)
 1. [gu](https://www.graalvm.org/22.1/reference-manual/graalvm-updater/) is a program which installs/updates Graal components
 1. [gu](https://www.graalvm.org/22.1/reference-manual/graalvm-updater/) comes with a graal installation
-    1. `sdk install java 22.1.0.r17-grl`
-    1. See `$HOME/.sdkman/candidates/java/current/bin/gu` (if graal is your default jvm)
-    1. Or else run `find $HOME/.sdkman/candidates -name gu`
-    1. symlink: (`ln -s /path/to/gu ~/bin`)
+    1. Example: `sdk install java 22.1.0.r17-grl` (or latest version)
+    1. Find `gu`: `find $HOME/.sdkman/candidates -name gu`
+    1. Symlink: (`ln -s /path/to/gu ~/bin`)
 1. [Add any ca-certificates](./cacerts.md), if needed
 1. [`gu`](https://www.graalvm.org/22.1/reference-manual/graalvm-updater/) can install [`native-image`](https://www.graalvm.org/22.1/reference-manual/native-image/)
     1. `gu install native-image`
