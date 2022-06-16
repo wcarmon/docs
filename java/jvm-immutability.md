@@ -5,8 +5,8 @@
 
 # Immutable POJO Checklist
 ## Java
-1. See How to build [Core Java based POJOs](./pojos.core.java8-11.md)
-1. See How to build [Lombok based POJOs](./pojos.lombok.java8-11.md)
+1. See How to build [Core Java based POJOs](./pojos.core.java8-17.md)
+1. See How to build [Lombok based POJOs](./pojos.lombok.java8-17.md)
 
 ## [Kotlin](https://kotlinlang.org/)
 1. Use [`data class`](https://kotlinlang.org/docs/data-classes.html) with [`val`](https://kotlinlang.org/docs/basic-syntax.html#variables)

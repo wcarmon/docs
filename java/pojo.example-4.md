@@ -1,7 +1,7 @@
 # Overview
-1. Example of "idiomatic", Lombok, Jackson, Java 8-11 POJO
-1. See also, [detailed explanation](./pojos.lombok.java8-11.md)
-1. See also, [core Java POJO examples](./pojos.core.java8-11.md)
+1. Example of "idiomatic", Lombok, Jackson, Java 8-17 POJO
+1. See also, [detailed explanation](./pojos.lombok.java8-17.md)
+1. See also, [core Java POJO examples](./pojos.core.java8-17.md)
 
 # POJO Example
 ```java

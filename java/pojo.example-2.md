@@ -1,8 +1,8 @@
 # Overview
-1. Example of "idiomatic" Jackson compatible Java 8-11 POJO
-1. See also, [detailed explanation](./pojos.core.java8-11.md)
+1. Example of "idiomatic" Jackson compatible Java 8-17 POJO
+1. See also, [detailed explanation](./pojos.core.java8-17.md)
 1. See also, [non-Jackson POJO example](./pojo.example-1.md)
-1. See also, [Lombok POJO examples](./pojos.lombok.java8-11.md)
+1. See also, [Lombok POJO examples](./pojos.lombok.java8-17.md)
 
 # POJO Example
 ```java

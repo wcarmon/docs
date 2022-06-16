@@ -42,8 +42,8 @@
 
 
 # POJOs
-1. [With lombok](./pojos.lombok.java8-11.md), [example](./pojo.example-3.md)
-1. [Without lombok](./pojos.core.java8-11.md), [example](./pojo.example-1.md)
+1. [With lombok](./pojos.lombok.java8-17.md), [example](./pojo.example-3.md)
+1. [Without lombok](./pojos.core.java8-17.md), [example](./pojo.example-1.md)
 
 
 # Spring
