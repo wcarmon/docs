@@ -1,4 +1,6 @@
 # Overview
+1. How to add a [ca-certificate](TODO) for a JVM SDK installation
+
 
 # Adding CA certificate
 1. Define some vars (assuming [sdkman](https://sdkman.io/))
