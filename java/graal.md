@@ -44,6 +44,12 @@ sudo apt-get install build-essential libz-dev zlib1g-dev
 1. Verify install: `native-image --version`
 
 
+## Cross compile
+1. OS & Arch combinations are $GRAAL_HOME/lib/svm/clibraries/
+    - linux-amd64
+    - darwin-aarch64
+    - ...
+
 
 # TODO: organize these:
 - TODO: gu list
