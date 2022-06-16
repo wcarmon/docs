@@ -6,6 +6,7 @@
 ```bash
 brew install ag;
 brew install awscli;
+brew install git-flow;
 brew install git;
 brew install go;
 brew install golangci-lint;
