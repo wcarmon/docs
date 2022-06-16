@@ -123,12 +123,26 @@ rm -rf $HOME/.gradle/caches/modules-2/files-2.1/*
 
 ## Debugging gradle
 ```sh
+# Print current gradle version (and java, kotlin, groovy, ant, OS, ...)
+# See https://docs.gradle.org/current/userguide/compatibility.html#java
 ./gradlew --version
-./gradlew buildEnvironment
-./gradlew model
-./gradlew projects
-./gradlew properties
+
+# Print classpath of build env (gradle)
+./gradlew buildEnvironment -q
+
+# Print blocks/types available for use in scripts
+./gradlew model -q
+
+# Print your subprojects
+./gradlew projects -q
+
+# Print variables/properties availble for use in scripts
+./gradlew properties -q | sort
+
+# Print executable tasks
 ./gradlew tasks --all -q
+
+# TODO: Describe this
 ./gradlew --stop
 ```
 

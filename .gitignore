@@ -4,6 +4,8 @@
 !.vscode/launch.json
 !.vscode/settings.json
 !.vscode/tasks.json
+!gradle/*.gradle
+!gradle/*.gradle.kts
 $RECYCLE.BIN/
 *.7z
 *.a

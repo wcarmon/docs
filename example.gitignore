@@ -22,6 +22,8 @@
 # -----------------------------------------------------------------------------
 
 
+!gradle/*.gradle
+!gradle/*.gradle.kts
 !src/vendor/manifest
 $RECYCLE.BIN/
 **/out/production/
