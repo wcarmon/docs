@@ -2,6 +2,8 @@
 1. How to add a [ca-certificate](TODO) for a JVM SDK installation
 
 
+- TODO: loop
+
 # Adding CA certificate
 1. Define some vars (assuming [sdkman](https://sdkman.io/))
 ```bash
@@ -16,14 +18,14 @@ DER_FILE=./foo.der;
 # PEM format, starts with a tag like: -----BEGIN CERTIFICATE-----
 NEW_CA_CERT="/path/to/my.crt"
 ```
-1. Convert [*.crt]() to [.der](https://wiki.openssl.org/index.php/DER)
+2. Convert [*.crt]() to [.der](https://wiki.openssl.org/index.php/DER)
 ```bash
 openssl x509 \
 -in $NEW_CA_CERT \
 -outform der \
 -out $DER_FILE;
 ```
-1. Import [*.der](https://wiki.openssl.org/index.php/DER) formatted certificate to JVM
+3. Import [*.der](https://wiki.openssl.org/index.php/DER) formatted certificate to JVM
 ```bash
 $KEYTOOL -import \
 -trustcacerts \
@@ -31,7 +33,7 @@ $KEYTOOL -import \
 -alias custom-Root-CA-keystore \
 -cacerts;
 
-# May have to enter a keystore pass here
+# You may need to enter a keystore password here
 ```
 
 
