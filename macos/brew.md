@@ -1,5 +1,5 @@
 # Overview
-1. TODO
+1. Frequently used developer apps installable via [brew](TODO)
 
 
 # Utils to install
@@ -7,12 +7,14 @@
 brew install ag;
 brew install awscli;
 brew install git;
-brew install git bash-completion;
 brew install go;
 brew install golangci-lint;
 brew install sqlite;
 brew install tree;
 brew install xz;
+
+brew install bash-completion;
+# Follow the steps on the outout (add a line to ~/.bash_profile)
 ```
 
 
@@ -20,12 +22,6 @@ brew install xz;
 ```bash
 brew install drawio --cask;
 brew install gimp --cask;
-```
-
-
-# git completion
-```
-TODO
 ```
 
 
