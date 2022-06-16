@@ -16,6 +16,7 @@
     1. Recommended: [kak-tus/nan](https://github.com/kak-tus/nan)
     1. Runner-up: [guregu/null](https://github.com/guregu/null)
     1. See [rdbms](./rdbms.md) doc
+1. [Goland can build structs from json](https://www.jetbrains.com/help/go/working-with-json.html)
 
 
 # TODO: organize

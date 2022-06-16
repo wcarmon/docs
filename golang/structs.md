@@ -47,6 +47,7 @@ var z struct{}
 1. If you have setters, use `SetOwner`
 1. Method which converts to string is `String()` not `ToString()`
     1. Generate String() using [Stringer](./stringer.md)
+1. [Goland can build structs from json](https://www.jetbrains.com/help/go/working-with-json.html)
 
 
 # Other resources
