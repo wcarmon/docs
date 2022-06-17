@@ -50,6 +50,11 @@ sudo apt-get install build-essential libz-dev zlib1g-dev
     - darwin-aarch64
     - ...
 
+## Set output path
+```sh
+native-image --target="linux-amd64" -jar foo.jar build/myBinary
+```
+
 
 # TODO: organize these:
 - TODO: gu list
