@@ -1210,6 +1210,7 @@
     <action id="ToggleBookmark2"/>
     <action id="ToggleBookmark3"/>
     <action id="ToggleBookmark4"/>
+    <action id="ToggleBookmark5"/>
     <action id="ToggleBookmark6">
         <keyboard-shortcut first-keystroke="meta shift 6"/>
     </action>
