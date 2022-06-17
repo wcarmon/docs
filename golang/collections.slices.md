@@ -138,6 +138,8 @@ for _, v := range before {
 1. Sometimes used for multi-dimensional matrices
 1. [go by example](https://gobyexample.com/arrays) doc
 1. Pass-by-value
+1. Gotcha: Maps are not comparable with `==`
+    1. Compare index by index using `for`-`range`
 
 
 # Other resources

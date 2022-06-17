@@ -139,6 +139,7 @@ fmt.Printf("Data: %#v\n", m)
 1. If you must **mutate** the map *value* (structs values), use pointer
     1. eg. `map[string]*myStruct`
 1. If your *value* is complicated, use a [type alias](TODO)
+1. Gotcha: Maps are not comparable with `==`
 
 
 # Other resources
