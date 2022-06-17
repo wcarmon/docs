@@ -4,8 +4,8 @@
 
 
 # Jetbrains user-defined keymap files
-- Linux: `$HOME/.config/JetBrains/IntelliJIdea<version>/jba_config/keymaps/*.xml`
-    1. or `$HOME/.config/JetBrains/IntelliJIdea<version>/keymaps/*.xml`
+- Linux: `$HOME/.config/JetBrains/IntelliJIdea<version>/keymaps/*.xml`
+    1. or ``
 - MacOS: `~/Library/Application Support/JetBrains/IntelliJIdea<version>/jba_config/mac.keymaps/*.xml`
     1. **NOT** `~/Library/Application Support/JetBrains/IntelliJIdea<version>/keymaps/*.xml`
 - win: `%APPDATA%\JetBrains\IntelliJIdea<version>\keymaps\*.xml`
