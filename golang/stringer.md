@@ -3,9 +3,18 @@
 - How to generate string representation of a struct
 
 
+# Install
+```sh
+go install golang.org/x/tools/cmd/stringer
+```
+
+
+# Usage
+1.
+1. Don't commit the stringer files
+
 TODO: generating String()
 TODO: goland support
-TODO: get stringer on $PATH
 TODO: `//go:generate stringer -type=Foo` at top of file
 
 
