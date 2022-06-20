@@ -10,9 +10,10 @@
 # --        go install golang.org/x/tools/cmd/stringer
 # --    3. some *.go files start with generate header
 # --        //go:generate stringer -type=Foo
+# --    4. you have a modern version of stringer (like 0.1.11+)
 # ---------------------------------------------
 
-set -x # uncomment to debug script
+#set -x # uncomment to debug script
 set -e
 set -o pipefail
 set -u
