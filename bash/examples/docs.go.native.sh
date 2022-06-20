@@ -39,10 +39,18 @@ readonly SOURCES_ROOT=$PROJ_ROOT/src
 # ---------------------------------------------
 # -- Validate
 # ---------------------------------------------
+if [ ! -f "$GODOC" ]; then
+  echo "|-- cannot find godoc at path=$GODOC"
+  exit 1
+fi
 
 # ---------------------------------------------
 # -- Host docs
 # ---------------------------------------------
+# TODO: only where there is port conflict
+killall godoc --quiet || true
+#    netstat -pant | grep -i godoc
+
 echo
 echo "|-- Hosting docs on localhost:$PORT"
 
@@ -51,7 +59,7 @@ $GODOC \
   -index \
   -play=true \
   -timestamps=true \
-  -goroot=$SOURCES_ROOT &
+  -goroot=$PROJ_ROOT &
 
 echo
 echo "|-- godoc process info:"
