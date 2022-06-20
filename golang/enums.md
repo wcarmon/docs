@@ -1,6 +1,7 @@
 # Overview
-- How enums work
-- [`iota`](https://go.dev/ref/spec#Iota) (not [`itoa`](https://pkg.go.dev/strconv#Itoa))
+1. How enums work
+1. [`iota`](https://go.dev/ref/spec#Iota) (not [`itoa`](https://pkg.go.dev/strconv#Itoa))
+1. See also [`stringer`](./stringer.md) doc
 
 
 # iota
@@ -51,6 +52,7 @@ var directionLabels = map[GameDirection]string{
 	Up:    "Up",
 }
 
+// NOTE: You can also generate these via stringer program
 // signature matches fmt.Stringer interface
 func (d GameDirection) String() string {
 	s, ok := directionLabels[d]
