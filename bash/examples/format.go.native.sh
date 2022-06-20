@@ -24,11 +24,13 @@ readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
 # -- Config
 # ---------------------------------------------
 # NOTE: all paths relative to $PROJ_ROOT
-readonly SOURCES_ROOT=$PARENT_DIR/src
+
 
 # ---------------------------------------------
 # -- Derived
 # ---------------------------------------------
+readonly PROJ_ROOT=$PARENT_DIR
+readonly SOURCES_ROOT=$PROJ_ROOT/src
 
 # ---------------------------------------------
 # -- Validate

@@ -92,3 +92,4 @@ EXAMPLE_WITH_CERT
 #   go tool dist list;
 
 echo "|-- See binaries in $OUTPUT_DIR"
+ls -hlt $OUTPUT_DIR

@@ -6,7 +6,7 @@
 # --
 # ---------------------------------------------
 
-#set -x # uncomment to debug script
+#set -x
 set -e
 set -o pipefail
 set -u
@@ -35,7 +35,7 @@ readonly PROJ_ROOT=$PARENT_DIR
 # ---------------------------------------------
 # -- Derived
 # ---------------------------------------------
-
+readonly SOURCES_ROOT=$PROJ_ROOT/src
 
 # ---------------------------------------------
 # -- Validate
@@ -45,7 +45,7 @@ readonly PROJ_ROOT=$PARENT_DIR
 # ---------------------------------------------
 # -- Test
 # ---------------------------------------------
-cd "$PROJ_ROOT" >/dev/null 2>&1
+cd "$SOURCES_ROOT" >/dev/null 2>&1
 
 echo
 echo "|-- Running tests in $(pwd)"
