@@ -18,7 +18,7 @@ func (t *MyType) MarshalJSON() ([]byte, error) {
 
     // NOTE: alias MyType if you have recursive structure
 
-	return json.Marshal(t.foo)
+    return json.Marshal(t.foo)
 }
 ```
 

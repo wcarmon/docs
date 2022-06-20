@@ -52,6 +52,9 @@ readonly SOURCES_ROOT=$PROJ_ROOT/src
 # ---------------------------------------------
 # -- Lint
 # ---------------------------------------------
+echo
+echo "|-- Analyzing code in ${SOURCES_ROOT}"
+
 $DOCKER_BINARY run \
   --rm \
   -v "${SOURCES_ROOT}":/app \

@@ -53,5 +53,8 @@ fi
 # ---------------------------------------------
 cd "$SOURCES_ROOT" >/dev/null 2>&1
 
+echo
+echo "|-- Generating code in $(pwd)"
+
 #go generate ./...
 go generate -x ./...
