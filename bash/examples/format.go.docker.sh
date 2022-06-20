@@ -2,7 +2,7 @@
 
 # ---------------------------------------------
 # --
-# -- Runs static analysis via docker container
+# -- Auto format the go files via docker container
 # --
 # -- Assumptions:
 # -- 1. Docker installed: https://docs.docker.com/get-docker/
@@ -13,25 +13,26 @@ set -e
 set -o pipefail
 set -u
 
-
 # ---------------------------------------------
 # -- Constants
 # ---------------------------------------------
 readonly DOCKER_BINARY=$(which docker)
 readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
 
-
 # ---------------------------------------------
 # -- Script arguments
 # ---------------------------------------------
 
-
 # ---------------------------------------------
 # -- Config
 # ---------------------------------------------
-# See https://hub.docker.com/r/golangci/golangci-lint/tags
-readonly LINT_IMAGE=golangci/golangci-lint:v1.46.2
+# NOTE: all paths relative to $PROJ_ROOT
 
+# See https://hub.docker.com/_/golang?tab=tags
+#readonly GOLANG_IMAGE=golang:1.18.3-bullseye
+readonly GOLANG_IMAGE=golang:1.18.3-alpine3.16
+
+readonly SOURCES_ROOT=$PARENT_DIR/src
 
 # ---------------------------------------------
 # -- Derived
@@ -39,23 +40,24 @@ readonly LINT_IMAGE=golangci/golangci-lint:v1.46.2
 # Dir contains go.mod file
 readonly PROJ_ROOT=$PARENT_DIR
 
-#readonly CERT_FILE="${PROJ_ROOT}/foo.crt"
-
 
 # ---------------------------------------------
 # -- Validate
 # ---------------------------------------------
 
+# ---------------------------------------------
+# -- Format
+# ---------------------------------------------
+echo
+echo "|-- Formatting code in ${SOURCES_ROOT}"
 
-# ---------------------------------------------
-# -- Lint
-# ---------------------------------------------
 $DOCKER_BINARY run \
   --rm \
-  -v "${PROJ_ROOT}":/app \
-  --workdir /app \
-  $LINT_IMAGE \
-  golangci-lint run ./...
+  -it \
+  -v "${SOURCES_ROOT}":/usr/src/myapp \
+  --workdir /usr/src/myapp \
+  $GOLANG_IMAGE \
+  gofmt -s -e -w .
 
 <<'EXAMPLE_WITH_CERT'
   readonly CERT_FILE=my.crt
@@ -63,13 +65,12 @@ $DOCKER_BINARY run \
   $DOCKER_BINARY run \
     --rm \
     -it \
-    -v "${PROJ_ROOT}":/app \
+    -v "${SOURCES_ROOT}":/usr/src/myapp \
     -v "${CERT_FILE}":/usr/local/share/ca-certificates/extra.crt \
-    --workdir /app \
-    $LINT_IMAGE \
+    --workdir /usr/src/myapp \
+    $GOLANG_IMAGE \
     /bin/bash -c "
     update-ca-certificates;
-    golangci-lint run ./...
+    gofmt -s -e -w .
     "
-
 EXAMPLE_WITH_CERT

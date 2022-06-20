@@ -6,7 +6,7 @@
 # --
 # ---------------------------------------------
 
-#set -x
+#set -x # uncomment to debug script
 set -e
 set -o pipefail
 set -u
@@ -70,7 +70,7 @@ $DOCKER_BINARY run \
   GOOS=windows GOARCH=amd64 go build -o $OUTPUT_DIR/$OUTPUT_BINARY_NAME.win.amd64.exe $CMD_PACKAGE;
   "
 
-<<EXAMPLE_WITH_CERT
+<<'EXAMPLE_WITH_CERT'
 readonly CERT_FILE="my.crt"
 
 $DOCKER_BINARY run \

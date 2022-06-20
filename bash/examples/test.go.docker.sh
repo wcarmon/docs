@@ -2,7 +2,7 @@
 
 # ---------------------------------------------
 # --
-# -- Delete docker images created by build.*.sh
+# -- Runs tests via docker container
 # --
 # -- Assumptions:
 # -- 1. Docker installed: https://docs.docker.com/get-docker/
@@ -29,30 +29,48 @@ readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
 # ---------------------------------------------
 # -- Config
 # ---------------------------------------------
-# TODO: change grep pattern to match your generated images
-readonly IMAGE_PATTERN="foo-bar"
+# See https://hub.docker.com/_/golang?tab=tags
+readonly GOLANG_IMAGE=golang:1.18.3-bullseye
 
 
 # ---------------------------------------------
 # -- Derived
 # ---------------------------------------------
-readonly DOCKER_BINARY=$(which docker)
+# Dir contains go.mod file
+readonly PROJ_ROOT=$PARENT_DIR
 
 
 # ---------------------------------------------
-# -- Delete
+# -- Validate
+# ---------------------------------------------
+
+
+# ---------------------------------------------
+# -- Test
 # ---------------------------------------------
 echo
-echo "|-- Images before Delete:"
-$DOCKER_BINARY images -a
+echo "|-- Running tests in ${PROJ_ROOT}"
 
+$DOCKER_BINARY run \
+  --rm \
+  -it \
+  -v "${PROJ_ROOT}":/usr/src/myapp \
+  --workdir /usr/src/myapp \
+  $GOLANG_IMAGE \
+  go test ./...
 
-$DOCKER_BINARY images -a |
-  grep -i $IMAGE_PATTERN |
-  awk '{print $3}' |
-  xargs docker rmi --force || true
+<<'EXAMPLE_WITH_CERT'
+  readonly CERT_FILE=my.crt
 
-
-echo
-echo "|-- Images after Delete:"
-$DOCKER_BINARY images -a
+  $DOCKER_BINARY run \
+    --rm \
+    -it \
+    -v "${PROJ_ROOT}":/usr/src/myapp \
+    -v "${CERT_FILE}":/usr/local/share/ca-certificates/extra.crt \
+    --workdir /usr/src/myapp \
+    $GOLANG_IMAGE \
+    /bin/bash -c "
+    update-ca-certificates;
+    go test ./...;
+    "
+EXAMPLE_WITH_CERT

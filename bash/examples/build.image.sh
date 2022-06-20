@@ -8,7 +8,7 @@
 # -- 1. Docker installed: https://docs.docker.com/get-docker/
 # ---------------------------------------------
 
-#set -x
+#set -x # uncomment to debug script
 set -e
 set -o pipefail
 set -u
