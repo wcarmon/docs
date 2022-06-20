@@ -29,7 +29,7 @@ readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
 # ---------------------------------------------
 # NOTE: all paths relative to $PROJ_ROOT
 
-readonly CMD_PACKAGE=./cmd/run-service
+readonly CMD_PACKAGE=./src/cmd/run-service
 readonly GOLANG_IMAGE=golang:1.18.3-bullseye
 readonly OUTPUT_BINARY_NAME=foo-service
 

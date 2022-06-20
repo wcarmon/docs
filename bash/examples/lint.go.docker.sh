@@ -30,7 +30,8 @@ readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
 # -- Config
 # ---------------------------------------------
 # See https://hub.docker.com/r/golangci/golangci-lint/tags
-readonly LINT_IMAGE=golangci/golangci-lint:v1.46.2
+readonly LINT_IMAGE=golangci/golangci-lint:v1.46.2-alpine
+#readonly LINT_IMAGE=golangci/golangci-lint:v1.46.2
 
 
 # ---------------------------------------------
@@ -38,6 +39,7 @@ readonly LINT_IMAGE=golangci/golangci-lint:v1.46.2
 # ---------------------------------------------
 # Dir contains go.mod file
 readonly PROJ_ROOT=$PARENT_DIR
+readonly SOURCES_ROOT=$PARENT_DIR/src
 
 #readonly CERT_FILE="${PROJ_ROOT}/foo.crt"
 
@@ -52,7 +54,7 @@ readonly PROJ_ROOT=$PARENT_DIR
 # ---------------------------------------------
 $DOCKER_BINARY run \
   --rm \
-  -v "${PROJ_ROOT}":/app \
+  -v "${SOURCES_ROOT}":/app \
   --workdir /app \
   $LINT_IMAGE \
   golangci-lint run ./...
@@ -63,7 +65,7 @@ $DOCKER_BINARY run \
   $DOCKER_BINARY run \
     --rm \
     -it \
-    -v "${PROJ_ROOT}":/app \
+    -v "${SOURCES_ROOT}":/app \
     -v "${CERT_FILE}":/usr/local/share/ca-certificates/extra.crt \
     --workdir /app \
     $LINT_IMAGE \

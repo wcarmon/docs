@@ -11,40 +11,33 @@ set -e
 set -o pipefail
 set -u
 
-
 # ---------------------------------------------
 # -- Constants
 # ---------------------------------------------
 readonly DOCKER_BINARY=$(which docker)
 readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
 
-
 # ---------------------------------------------
 # -- Script arguments
 # ---------------------------------------------
-
 
 # ---------------------------------------------
 # -- Config
 # ---------------------------------------------
 # NOTE: all paths relative to $PROJ_ROOT
 
-CMD_PACKAGE=./cmd/run-service/...
+CMD_PACKAGE=./src/cmd/run-service/...
 CONFIG_FILE=./app.config.yaml
-
-# Dir contains go.mod file
-readonly PROJ_ROOT=$PARENT_DIR
-
 
 # ---------------------------------------------
 # -- Derived
 # ---------------------------------------------
-
+# Dir contains go.mod file
+readonly PROJ_ROOT=$PARENT_DIR
 
 # ---------------------------------------------
 # -- Validate
 # ---------------------------------------------
-
 
 # ---------------------------------------------
 # -- Run
