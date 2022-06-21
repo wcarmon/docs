@@ -17,8 +17,13 @@ set -u
 # ---------------------------------------------
 # -- Constants
 # ---------------------------------------------
-readonly DOCKER_BINARY=$(which docker)
 readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
+if [ -n "$DOCKER_BINARY" ]; then
+  echo "DOCKER_BINARY already set to $DOCKER_BINARY"
+else
+  readonly DOCKER_BINARY=$(which docker)
+fi
+
 
 
 # ---------------------------------------------
@@ -58,6 +63,9 @@ readonly QUALIFIED_REPOSITORY_NAME=myorg/${REPOSITORY_NAME}/${APP_NAME}
 # -- Build
 # ---------------------------------------------
 cd "$PROJ_ROOT" >/dev/null 2>&1
+
+echo
+echo "|-- Latest commit: $(git log -1 --format='%H at %ci')"
 
 echo
 echo "|-- Building docker image ..."
