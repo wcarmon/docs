@@ -82,6 +82,10 @@ for value, contains := range srcSet {
 ```
 
 
+# Acceptable values
+1. A "set" can only structs if **all** [its fields are comparable](https://xgo.dev/ref/spec#Comparison_operators)
+
+
 # Sorting
 - See [sorting](./sorting.md) doc
 

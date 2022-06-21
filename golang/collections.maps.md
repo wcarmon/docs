@@ -133,6 +133,9 @@ m := make(...)
 fmt.Printf("Data: %#v\n", m)
 ```
 
+# Custom keys
+1. structs can only be keys if **all** [its fields are comparable](https://xgo.dev/ref/spec#Comparison_operators)
+
 
 # Idioms
 1. Only use [`sync.Map`](https://pkg.go.dev/sync#Map) when you can demonstrate high lock contention
@@ -149,3 +152,4 @@ fmt.Printf("Data: %#v\n", m)
 1. [gobyexample.com](https://gobyexample.com/maps)
 1. [Language spec](https://go.dev/ref/spec#Map_types)
 1. [Syncronized map](https://pkg.go.dev/sync#Map)
+1. https://golangbyexample.com/allowed-key-and-value-types-golang/
