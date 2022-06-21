@@ -17,20 +17,16 @@ set -u
 # ---------------------------------------------
 # -- Constants
 # ---------------------------------------------
+readonly DOCKER_BINARY=$(which docker)
 readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
-if [ -n "$DOCKER_BINARY" ]; then
-  echo "DOCKER_BINARY already set to $DOCKER_BINARY"
-else
-  readonly DOCKER_BINARY=$(which docker)
-fi
 
 
 
 # ---------------------------------------------
 # -- Script arguments
 # ---------------------------------------------
-#TODO: document docker tag syntax
-readonly TAG_NAME=$1
+# Format: https://docs.docker.com/engine/reference/commandline/tag/#description
+readonly TAG=$1
 
 
 # ---------------------------------------------
@@ -71,13 +67,13 @@ echo
 echo "|-- Building docker image ..."
 $DOCKER_BINARY build \
   --file ${DOCKERFILE}\
-  --tag ${QUALIFIED_REPOSITORY_NAME}:${TAG_NAME}\
+  --tag ${QUALIFIED_REPOSITORY_NAME}:${TAG}\
   --tag ${QUALIFIED_REPOSITORY_NAME}:latest \
   .
 
 echo
 echo "|-- Tagging docker image for Remote image repo ..."
-$DOCKER_BINARY tag ${QUALIFIED_REPOSITORY_NAME}:${TAG_NAME} ${IMAGE_REPO_URI}/${QUALIFIED_REPOSITORY_NAME}:${TAG_NAME}
+$DOCKER_BINARY tag ${QUALIFIED_REPOSITORY_NAME}:${TAG} ${IMAGE_REPO_URI}/${QUALIFIED_REPOSITORY_NAME}:${TAG}
 $DOCKER_BINARY tag ${QUALIFIED_REPOSITORY_NAME}:latest ${IMAGE_REPO_URI}/${QUALIFIED_REPOSITORY_NAME}:latest
 
 
