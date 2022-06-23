@@ -1,12 +1,10 @@
 #!/bin/bash
 
 # ---------------------------------------------
-# --
 # -- Runs tests via local go sdk
-# --
 # ---------------------------------------------
 
-#set -x
+#set -x # uncomment to debug script
 set -e
 set -o pipefail
 set -u

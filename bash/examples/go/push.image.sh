@@ -1,7 +1,6 @@
 #!/bin/bash
 
 # ---------------------------------------------
-# --
 # -- Push docker images to registry (eg. ECR)
 # --
 # -- Assumptions:
@@ -13,7 +12,7 @@
 # --
 # ---------------------------------------------
 
-#set -x
+#set -x # uncomment to debug script
 set -e
 set -o pipefail
 set -u

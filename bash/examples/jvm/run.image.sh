@@ -1,7 +1,10 @@
 #!/bin/bash
 
 # ---------------------------------------------
-# -- Runs tests via local go sdk
+# -- Runs tests via docker image locally
+# --
+# -- Assumptions:
+# -- 1. Docker installed: https://docs.docker.com/get-docker/
 # ---------------------------------------------
 
 #set -x # uncomment to debug script
@@ -9,9 +12,11 @@ set -e
 set -o pipefail
 set -u
 
+
 # ---------------------------------------------
 # -- Constants
 # ---------------------------------------------
+readonly DOCKER_BINARY=$(which docker)
 readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
 
 
@@ -19,10 +24,12 @@ readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
 # -- Script arguments
 # ---------------------------------------------
 
+
 # ---------------------------------------------
 # -- Config
 # ---------------------------------------------
-# NOTE: all paths relative to $PROJ_ROOT
+readonly IMAGE=myorg/foo:latest
+
 
 # ---------------------------------------------
 # -- Derived
@@ -35,6 +42,9 @@ readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
 
 
 # ---------------------------------------------
-# -- Test
+# -- Run
 # ---------------------------------------------
-TODO
+$DOCKER_BINARY run \
+  --rm \
+  -it \
+  $IMAGE

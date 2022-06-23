@@ -1,9 +1,7 @@
 #!/bin/bash
 
 # ---------------------------------------------
-# --
 # -- Runs main func via local go sdk
-# --
 # ---------------------------------------------
 
 #set -x # uncomment to debug script

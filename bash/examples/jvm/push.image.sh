@@ -1,11 +1,15 @@
 #!/bin/bash
 
 # ---------------------------------------------
-# --
-# -- Builds docker image for app
+# -- Push docker images to registry (eg. ECR)
 # --
 # -- Assumptions:
 # -- 1. Docker installed: https://docs.docker.com/get-docker/
+# -- 2. Executed by CI tool (eg. Jenkins)
+# -- 3. awscli (or equivalent) is installed
+# -- 4. Previously ran `aws configure`
+# -- 5. Previously created an image repo (eg. on ECR)
+# --
 # ---------------------------------------------
 
 #set -x # uncomment to debug script
@@ -13,73 +17,74 @@ set -e
 set -o pipefail
 set -u
 
-
 # ---------------------------------------------
 # -- Constants
 # ---------------------------------------------
 readonly DOCKER_BINARY=$(which docker)
 readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
 
-
-
 # ---------------------------------------------
 # -- Script arguments
 # ---------------------------------------------
-# Format: https://docs.docker.com/engine/reference/commandline/tag/#description
-readonly TAG=$1
-
+# alphanumeric, dot, dash
+# eg. "1.0.0"
+# eg. "1.0.1-hotfix"
+# eg. "1.2.3-debug"
+readonly VERSION=$1
 
 # ---------------------------------------------
 # -- Config
 # ---------------------------------------------
 # NOTE: all paths relative to $PROJ_ROOT
-
-readonly APP_NAME=foo-service
-readonly DOCKERFILE=./Dockerfile
+readonly APP_NAME=go-rest-server
 readonly IMAGE_REPO_URI=ecr.us-east-1.amazonaws.com
-readonly REPOSITORY_NAME=my-github-project
 
-# Dir contains Dockerfile
-readonly PROJ_ROOT=$PARENT_DIR
-
+# See the name in ECR
+readonly REPOSITORY_NAME="company/example"
 
 # ---------------------------------------------
 # -- Derived
 # ---------------------------------------------
-readonly QUALIFIED_REPOSITORY_NAME=myorg/${REPOSITORY_NAME}/${APP_NAME}
+# format: https://docs.docker.com/engine/reference/commandline/tag/#description
+readonly TAG=${VERSION}-${APP_NAME}
 
 
 # ---------------------------------------------
 # -- Validate
 # ---------------------------------------------
-# TODO: more here
+#TODO: validate $VERSION
+
+# ---------------------------------------------
+# -- Login to Image registry
+# ---------------------------------------------
+echo
+echo "|-- Logging into image registry thru Docker ..."
+aws \
+  ecr \
+  get-login-password \
+  --region us-east-1 |
+  docker \
+    login \
+    --username AWS \
+    --password-stdin \
+    ${IMAGE_REPO_URI}
+
+echo
+echo "|-- "
+$DOCKER_BINARY image ls -a | grep ${REPOSITORY_NAME} | sort
+
+# ---------------------------------------------
+# -- Push
+# ---------------------------------------------
+echo
+echo "|-- Pushing image to AWS ECR"
+$DOCKER_BINARY push ${IMAGE_REPO_URI}/${REPOSITORY_NAME}:${TAG}
+
+# Cleanup
+$DOCKER_BINARY rmi ${REPOSITORY_NAME}:${TAG}
 
 
 # ---------------------------------------------
-# -- Build
+# -- Logout
 # ---------------------------------------------
-cd "$PROJ_ROOT" >/dev/null 2>&1
-
-echo
-echo "|-- Latest commit: $(git log -1 --format='%H at %ci')"
-
-echo
-echo "|-- Building docker image ..."
-$DOCKER_BINARY build \
-  --file ${DOCKERFILE}\
-  --tag ${QUALIFIED_REPOSITORY_NAME}:${TAG}\
-  --tag ${QUALIFIED_REPOSITORY_NAME}:latest \
-  .
-
-echo
-echo "|-- Tagging docker image for Remote image repo ..."
-$DOCKER_BINARY tag ${QUALIFIED_REPOSITORY_NAME}:${TAG} ${IMAGE_REPO_URI}/${QUALIFIED_REPOSITORY_NAME}:${TAG}
-$DOCKER_BINARY tag ${QUALIFIED_REPOSITORY_NAME}:latest ${IMAGE_REPO_URI}/${QUALIFIED_REPOSITORY_NAME}:latest
-
-
-# ---------------------------------------------
-# -- Verify
-# ---------------------------------------------
-echo
-echo "|-- Successfully built and tagged image"
-$DOCKER_BINARY images -a | grep ${QUALIFIED_REPOSITORY_NAME}
+# $DOCKER_BINARY logout

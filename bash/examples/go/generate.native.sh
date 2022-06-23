@@ -1,7 +1,6 @@
 #!/bin/bash
 
 # ---------------------------------------------
-# --
 # -- Run generate (and tools like stringer)
 # --
 # -- Assumptions

@@ -1,8 +1,7 @@
 #!/bin/bash
 
 # ---------------------------------------------
-# --
-# -- Starts & enters an image (for debugging)
+# -- Runs tests via docker container
 # --
 # -- Assumptions:
 # -- 1. Docker installed: https://docs.docker.com/get-docker/
@@ -29,28 +28,48 @@ readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
 # ---------------------------------------------
 # -- Config
 # ---------------------------------------------
-# NOTE: change to whatever image/tag you need
-readonly IMAGE=golang:1.18-alpine
-
-readonly SHELL_FOR_ALPINE=/bin/ash
-readonly SHELL_FOR_DEBIAN=/bin/bash
+# See https://hub.docker.com/_/golang?tab=tags
+readonly GOLANG_IMAGE=golang:1.18.3-bullseye
 
 
 # ---------------------------------------------
 # -- Derived
 # ---------------------------------------------
-
+# Dir contains go.mod file
+readonly PROJ_ROOT=$PARENT_DIR
 
 
 # ---------------------------------------------
-# -- Debug
+# -- Validate
+# ---------------------------------------------
+
+
+# ---------------------------------------------
+# -- Test
 # ---------------------------------------------
 echo
-echo "|-- Starting shell in container..."
+echo "|-- Running tests in ${PROJ_ROOT}"
+
 $DOCKER_BINARY run \
   --rm \
   -it \
-  $IMAGE \
-  $SHELL_FOR_ALPINE
+  -v "${PROJ_ROOT}":/usr/src/myapp \
+  --workdir /usr/src/myapp \
+  $GOLANG_IMAGE \
+  go test ./...
 
-# You are now at a terminal inside the container ...
+<<'EXAMPLE_WITH_CERT'
+  readonly CERT_FILE=my.crt
+
+  $DOCKER_BINARY run \
+    --rm \
+    -it \
+    -v "${PROJ_ROOT}":/usr/src/myapp \
+    -v "${CERT_FILE}":/usr/local/share/ca-certificates/extra.crt \
+    --workdir /usr/src/myapp \
+    $GOLANG_IMAGE \
+    /bin/bash -c "
+    update-ca-certificates;
+    go test ./...;
+    "
+EXAMPLE_WITH_CERT

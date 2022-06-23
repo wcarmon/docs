@@ -1,8 +1,7 @@
 #!/bin/bash
 
 # ---------------------------------------------
-# --
-# -- Auto format the go files via docker container
+# -- Starts & enters an image (for debugging)
 # --
 # -- Assumptions:
 # -- 1. Docker installed: https://docs.docker.com/get-docker/
@@ -13,65 +12,44 @@ set -e
 set -o pipefail
 set -u
 
+
 # ---------------------------------------------
 # -- Constants
 # ---------------------------------------------
 readonly DOCKER_BINARY=$(which docker)
 readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
 
+
 # ---------------------------------------------
 # -- Script arguments
 # ---------------------------------------------
 
+
 # ---------------------------------------------
 # -- Config
 # ---------------------------------------------
-# NOTE: all paths relative to $PROJ_ROOT
+# NOTE: change to whatever image/tag you need
+readonly IMAGE=golang:1.18-alpine
 
-# See https://hub.docker.com/_/golang?tab=tags
-#readonly GOLANG_IMAGE=golang:1.18.3-bullseye
-readonly GOLANG_IMAGE=golang:1.18.3-alpine3.16
+readonly SHELL_FOR_ALPINE=/bin/ash
+readonly SHELL_FOR_DEBIAN=/bin/bash
 
 
 # ---------------------------------------------
 # -- Derived
 # ---------------------------------------------
-# Dir contains go.mod file
-readonly PROJ_ROOT=$PARENT_DIR
 
-readonly SOURCES_ROOT=$PROJ_ROOT/src
 
 
 # ---------------------------------------------
-# -- Validate
-# ---------------------------------------------
-
-# ---------------------------------------------
-# -- Format
+# -- Debug
 # ---------------------------------------------
 echo
-echo "|-- Formatting code in ${SOURCES_ROOT}"
-
+echo "|-- Starting shell in container..."
 $DOCKER_BINARY run \
   --rm \
   -it \
-  -v "${SOURCES_ROOT}":/usr/src/myapp \
-  --workdir /usr/src/myapp \
-  $GOLANG_IMAGE \
-  gofmt -s -e -w .
+  $IMAGE \
+  $SHELL_FOR_ALPINE
 
-<<'EXAMPLE_WITH_CERT'
-  readonly CERT_FILE=my.crt
-
-  $DOCKER_BINARY run \
-    --rm \
-    -it \
-    -v "${SOURCES_ROOT}":/usr/src/myapp \
-    -v "${CERT_FILE}":/usr/local/share/ca-certificates/extra.crt \
-    --workdir /usr/src/myapp \
-    $GOLANG_IMAGE \
-    /bin/bash -c "
-    update-ca-certificates;
-    gofmt -s -e -w .
-    "
-EXAMPLE_WITH_CERT
+# You are now at a terminal inside the container ...

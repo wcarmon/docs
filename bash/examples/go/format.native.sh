@@ -1,9 +1,7 @@
 #!/bin/bash
 
 # ---------------------------------------------
-# --
 # -- Auto format the go files
-# --
 # ---------------------------------------------
 
 #set -x # uncomment to debug script
