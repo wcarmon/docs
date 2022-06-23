@@ -1,7 +1,6 @@
 #!/bin/bash
 
 # ---------------------------------------------
-# --
 # -- Delete docker images created by build.*.sh
 # --
 # -- Assumptions:

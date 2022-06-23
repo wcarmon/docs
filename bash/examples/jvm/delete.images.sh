@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # ---------------------------------------------
-# -- Builds local binary via gradle & graal
+# -- Delete docker images created by build.*.sh
 # --
 # -- Assumptions:
-# --
+# -- 1. Docker installed: https://docs.docker.com/get-docker/
 # ---------------------------------------------
 
 #set -x # uncomment to debug script
@@ -12,10 +12,13 @@ set -e
 set -o pipefail
 set -u
 
+
 # ---------------------------------------------
 # -- Constants
 # ---------------------------------------------
+readonly DOCKER_BINARY=$(which docker)
 readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
+
 
 # ---------------------------------------------
 # -- Script arguments
@@ -25,20 +28,30 @@ readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
 # ---------------------------------------------
 # -- Config
 # ---------------------------------------------
+# TODO: change grep pattern to match your generated images
+readonly IMAGE_PATTERN="foo-bar"
 
 
 # ---------------------------------------------
 # -- Derived
 # ---------------------------------------------
-#TODO: revisit
-readonly OUTPUT_DIR="$PROJ_ROOT/bin"
+readonly DOCKER_BINARY=$(which docker)
 
 
 # ---------------------------------------------
-# -- Validate
+# -- Delete
 # ---------------------------------------------
+echo
+echo "|-- Images before Delete:"
+$DOCKER_BINARY images -a
 
 
-# ---------------------------------------------
-# -- Build
-# ---------------------------------------------
+$DOCKER_BINARY images -a |
+  grep -i $IMAGE_PATTERN |
+  awk '{print $3}' |
+  xargs docker rmi --force || true
+
+
+echo
+echo "|-- Images after Delete:"
+$DOCKER_BINARY images -a
