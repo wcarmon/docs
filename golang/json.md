@@ -43,14 +43,26 @@ func (t *MyType) UnmarshalJSON(data []byte) error {
 ```
 
 
+# Null handling
+1. Important interfaces to implement:
+    - [`driver.Valuer`](https://pkg.go.dev/database/sql/driver#Valuer) (one method: `Value`)
+    - [`json.Marshaler`](https://pkg.go.dev/encoding/json#Marshaler) (one method: `MarshalJSON`)
+    - [`json.Unmarshaler`](https://pkg.go.dev/encoding/json#Unmarshaler) (one method: `UnmarshalJSON`)
+    - [`sql.Scanner`](https://pkg.go.dev/database/sql#Scanner) (one method: `Scan`)
+
+
 # Idioms
 - Use null types to distinguish unset values from zero values
-    1. Recommended: [kak-tus/nan](https://github.com/kak-tus/nan)
     1. Runner-up: [guregu/null](https://github.com/guregu/null)
     1. See [rdbms](./rdbms.md) doc
 1. [Goland can build structs from json](https://www.jetbrains.com/help/go/working-with-json.html)
 1. GOTCHA: custom json Unmarshal method **not** called for Unexported fields (only Exported)
     1. Goland has an inspection for this
+
+
+## Rejected tools
+1. [kak-tus/nan](https://github.com/kak-tus/nan)
+    1. Far too many deps (gocql, [etc](https://github.com/kak-tus/nan/blob/master/go.mod))
 
 
 # TODO: organize
