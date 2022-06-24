@@ -46,7 +46,7 @@ readonly JAR_FILE=$PROJ_ROOT/build/libs/foo.1.0.0.jar
 # ---------------------------------------------
 # -- Build
 # ---------------------------------------------
-cd $PROJ_ROOT
+cd $PROJ_ROOT >/dev/null 2>&1
 
 echo
 echo "|-- Building jar"
