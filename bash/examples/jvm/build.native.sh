@@ -57,6 +57,7 @@ time $GRADLE \
   build \
   jar \
   --quiet
+#-x test
 
 echo
 echo "|-- Building native binary from jar..."

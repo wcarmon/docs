@@ -1,14 +1,13 @@
 #!/bin/bash
 
 # ---------------------------------------------
-# --
 # -- Runs static analysis via docker container
 # --
 # -- Assumptions:
 # -- 1. Docker installed: https://docs.docker.com/get-docker/
 # ---------------------------------------------
 
-#set -x
+#set -x # uncomment to debug script
 set -e
 set -o pipefail
 set -u
@@ -44,7 +43,7 @@ readonly SOURCES_ROOT=$PROJ_ROOT/src
 # ---------------------------------------------
 
 # ---------------------------------------------
-# -- Lint
+# -- Lint (static analysis)
 # ---------------------------------------------
 echo
 echo "|-- Analyzing code in ${SOURCES_ROOT}"

@@ -41,4 +41,4 @@ echo "|-- Formatting code in ${PROJ_ROOT}"
 
 cd $PROJ_ROOT >/dev/null 2>&1
 
-./gradlew spotlessApply -q
+./gradlew spotlessApply --quiet
