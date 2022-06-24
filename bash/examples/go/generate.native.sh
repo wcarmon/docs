@@ -48,12 +48,12 @@ if [ ! -f "$STRINGER_BINARY_PATH" ]; then
 fi
 
 # ---------------------------------------------
-# -- Generate and stringer
+# -- Generate and run stringer
 # ---------------------------------------------
 cd "$SOURCES_ROOT" >/dev/null 2>&1
 
 echo
 echo "|-- Generating code in $(pwd)"
 
-#go generate ./...
-go generate -x ./...
+go generate ./...
+#go generate -x ./...
