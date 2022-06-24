@@ -12,7 +12,6 @@ set -u
 # ---------------------------------------------
 # -- Constants
 # ---------------------------------------------
-readonly DOCKER_BINARY=$(which docker)
 readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
 
 # ---------------------------------------------
@@ -42,4 +41,5 @@ readonly PROJ_ROOT=$PARENT_DIR
 # ---------------------------------------------
 cd "$PROJ_ROOT" >/dev/null 2>&1
 
+#TODO: pass the dir for config files
 go run $CMD_PACKAGE $CONFIG_FILE
