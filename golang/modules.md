@@ -4,7 +4,7 @@
 
 
 # Purpose
-- TODO
+- Modules are how Go manages dependencies
 
 
 # Create a module
