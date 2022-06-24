@@ -23,12 +23,12 @@ readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
 # ---------------------------------------------
 # NOTE: all paths relative to $PROJ_ROOT
 
-# Dir contains go.mod file
-readonly PROJ_ROOT=$PARENT_DIR
-
 # ---------------------------------------------
 # -- Derived
 # ---------------------------------------------
+# Dir contains go.mod file
+readonly PROJ_ROOT=$PARENT_DIR
+
 readonly SOURCES_ROOT=$PROJ_ROOT/src
 
 # ---------------------------------------------
@@ -41,5 +41,6 @@ readonly SOURCES_ROOT=$PROJ_ROOT/src
 cd "$SOURCES_ROOT" >/dev/null 2>&1
 
 echo
-echo "|-- Running tests in $(pwd)"
+echo "|-- Testing code in $(pwd)"
+
 go test ./...
