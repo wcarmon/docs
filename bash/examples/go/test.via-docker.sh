@@ -36,7 +36,7 @@ readonly GOLANG_IMAGE=golang:1.18.3-bullseye
 # -- Derived
 # ---------------------------------------------
 # Dir contains go.mod file
-readonly PROJ_ROOT=$PARENT_DIR
+readonly PROJ_ROOT="$PARENT_DIR"
 
 
 # ---------------------------------------------

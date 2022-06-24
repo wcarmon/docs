@@ -33,7 +33,7 @@ readonly PORT=6060
 # -- Derived
 # ---------------------------------------------
 # Dir contains go.mod file
-readonly PROJ_ROOT=$PARENT_DIR
+readonly PROJ_ROOT="$PARENT_DIR"
 
 # ---------------------------------------------
 # -- Validate

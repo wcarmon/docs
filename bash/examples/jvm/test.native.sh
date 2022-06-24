@@ -28,7 +28,7 @@ readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
 # -- Derived
 # ---------------------------------------------
 # Dir contains settings.gradle.kts file
-readonly PROJ_ROOT=$PARENT_DIR
+readonly PROJ_ROOT="$PARENT_DIR"
 
 readonly GRADLE=$PROJ_ROOT/gradlew
 

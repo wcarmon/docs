@@ -36,7 +36,7 @@ readonly STRINGER_BINARY_PATH=$HOME/go/bin/stringer
 # -- Derived
 # ---------------------------------------------
 # Dir contains go.mod file
-readonly PROJ_ROOT=$PARENT_DIR
+readonly PROJ_ROOT="$PARENT_DIR"
 readonly SOURCES_ROOT=$PROJ_ROOT/src
 
 # ---------------------------------------------

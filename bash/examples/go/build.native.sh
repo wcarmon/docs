@@ -27,7 +27,7 @@ readonly CMD_PACKAGE=./src/cmd/run-service
 readonly OUTPUT_BINARY_NAME=foo-service
 
 # Dir contains go.mod file
-readonly PROJ_ROOT=$PARENT_DIR
+readonly PROJ_ROOT="$PARENT_DIR"
 
 # ---------------------------------------------
 # -- Derived

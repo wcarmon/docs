@@ -28,7 +28,7 @@ readonly CONFIG_FILE=./app.config.yaml
 # -- Derived
 # ---------------------------------------------
 # Dir contains settings.gradle.kts file
-readonly PROJ_ROOT=$PARENT_DIR
+readonly PROJ_ROOT="$PARENT_DIR"
 
 readonly GRADLE="$PROJ_ROOT/gradlew"
 
