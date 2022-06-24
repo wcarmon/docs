@@ -62,5 +62,6 @@ $GODOC \
 
 echo
 echo "|-- godoc process info:"
+#TODO: consider pgrep
 ps -ax | grep -i godoc | grep -v grep
 #killall godoc
