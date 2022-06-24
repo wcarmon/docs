@@ -40,7 +40,7 @@ readonly GRADLE=$PROJ_ROOT/gradlew
 # ---------------------------------------------
 # -- Test
 # ---------------------------------------------
-cd $PROJ_ROOT >/dev/null 2>&1
+cd "$PROJ_ROOT" >/dev/null 2>&1
 
 echo
 echo "|-- Testing code in ${PROJ_ROOT}"

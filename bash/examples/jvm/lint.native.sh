@@ -29,7 +29,7 @@ readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
 # Dir contains settings.gradle.kts file
 readonly PROJ_ROOT=$PARENT_DIR
 
-readonly GRADLE=$PROJ_ROOT/gradlew
+readonly GRADLE="$PROJ_ROOT/gradlew"
 
 # ---------------------------------------------
 # -- Validate
@@ -41,6 +41,6 @@ readonly GRADLE=$PROJ_ROOT/gradlew
 echo
 echo "|-- Analyzing code in ${PROJ_ROOT}"
 
-cd $PROJ_ROOT >/dev/null 2>&1
+cd "$PROJ_ROOT" >/dev/null 2>&1
 
 $GRADLE check --quiet

@@ -22,13 +22,15 @@ readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
 # -- Config
 # ---------------------------------------------
 # NOTE: all paths relative to $PROJ_ROOT
-CONFIG_FILE=./app.config.yaml
+readonly CONFIG_FILE=./app.config.yaml
 
 # ---------------------------------------------
 # -- Derived
 # ---------------------------------------------
 # Dir contains settings.gradle.kts file
 readonly PROJ_ROOT=$PARENT_DIR
+
+readonly GRADLE="$PROJ_ROOT/gradlew"
 
 # ---------------------------------------------
 # -- Validate
@@ -40,3 +42,4 @@ readonly PROJ_ROOT=$PARENT_DIR
 cd "$PROJ_ROOT" >/dev/null 2>&1
 
 TODO: run jar here
+#$GRADLE

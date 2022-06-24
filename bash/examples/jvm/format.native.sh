@@ -39,6 +39,6 @@ readonly PROJ_ROOT=$PARENT_DIR
 echo
 echo "|-- Formatting code in ${PROJ_ROOT}"
 
-cd $PROJ_ROOT >/dev/null 2>&1
+cd "$PROJ_ROOT" >/dev/null 2>&1
 
 ./gradlew spotlessApply --quiet
