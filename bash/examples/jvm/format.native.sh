@@ -26,6 +26,8 @@ readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
 # ---------------------------------------------
 # -- Derived
 # ---------------------------------------------
+# Dir contains settings.gradle.kts file
+readonly PROJ_ROOT=$PARENT_DIR
 
 # ---------------------------------------------
 # -- Validate
@@ -34,5 +36,7 @@ readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
 # ---------------------------------------------
 # -- Format
 # ---------------------------------------------
+echo
+echo "|-- Formatting code in ${SOURCES_ROOT}"
 
 TODO
