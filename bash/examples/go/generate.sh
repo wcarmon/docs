@@ -1,11 +1,14 @@
 #!/bin/bash
 
 # ---------------------------------------------
+# -- Run generate (and tools like stringer)
 # --
-# -- Builds local binary via local go sdk
-# --
-# -- Assumes godoc installed:
-# --   go install golang.org/x/tools/cmd/godoc
+# -- Assumptions
+# --    1. run before go build
+# --    2. installed stringer
+# --        go install golang.org/x/tools/cmd/stringer
+# --    3. some *.go files start with generate header
+# --        //go:generate stringer -type=Foo
 # ---------------------------------------------
 
 #set -x # uncomment to debug script
@@ -26,41 +29,30 @@ readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
 # -- Config
 # ---------------------------------------------
 # NOTE: all paths relative to $PROJ_ROOT
-readonly GODOC=$HOME/go/bin/godoc
-readonly PORT=6060
+readonly STRINGER_BINARY_PATH=$HOME/go/bin/stringer
 
 # ---------------------------------------------
 # -- Derived
 # ---------------------------------------------
 # Dir contains go.mod file
 readonly PROJ_ROOT=$PARENT_DIR
+readonly SOURCES_ROOT=$PROJ_ROOT/src
 
 # ---------------------------------------------
 # -- Validate
 # ---------------------------------------------
-if [ ! -f "$GODOC" ]; then
-  echo "|-- cannot find godoc at path=$GODOC"
+if [ ! -f "$STRINGER_BINARY_PATH" ]; then
+  echo "|-- Failed to find binary: stringer at path=$STRINGER_BINARY_PATH"
   exit 1
 fi
 
 # ---------------------------------------------
-# -- Host docs
+# -- Generate and run stringer
 # ---------------------------------------------
-# TODO: only where there is port conflict
-killall godoc --quiet || true
-#    netstat -pant | grep -i godoc
+cd "$SOURCES_ROOT" >/dev/null 2>&1
 
 echo
-echo "|-- Hosting docs on localhost:$PORT"
+echo "|-- Generating code in $(pwd)"
 
-$GODOC \
-  -http=":$PORT" \
-  -index \
-  -play=true \
-  -timestamps=true \
-  -goroot="$PROJ_ROOT" &
-
-echo
-echo "|-- godoc process info:"
-ps -ax | grep -i godoc | grep -v grep
-#killall godoc
+go generate ./...
+#go generate -x ./...

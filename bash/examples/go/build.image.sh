@@ -27,7 +27,6 @@ readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
 # Format: https://docs.docker.com/engine/reference/commandline/tag/#description
 readonly TAG=$1
 
-
 # ---------------------------------------------
 # -- Config
 # ---------------------------------------------
@@ -47,12 +46,10 @@ readonly PROJ_ROOT=$PARENT_DIR
 # ---------------------------------------------
 readonly QUALIFIED_REPOSITORY_NAME=myorg/${REPOSITORY_NAME}/${APP_NAME}
 
-
 # ---------------------------------------------
 # -- Validate
 # ---------------------------------------------
 # TODO: more here
-
 
 # ---------------------------------------------
 # -- Build

@@ -23,10 +23,10 @@ readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
 # ---------------------------------------------
 # NOTE: all paths relative to $PROJ_ROOT
 
-
 # ---------------------------------------------
 # -- Derived
 # ---------------------------------------------
+# Dir contains go.mod file
 readonly PROJ_ROOT=$PARENT_DIR
 readonly SOURCES_ROOT=$PROJ_ROOT/src
 
@@ -37,4 +37,7 @@ readonly SOURCES_ROOT=$PROJ_ROOT/src
 # ---------------------------------------------
 # -- Format
 # ---------------------------------------------
-gofmt -s -e -w $SOURCES_ROOT
+echo
+echo "|-- Formatting code in ${SOURCES_ROOT}"
+
+gofmt -s -e -w "$SOURCES_ROOT"

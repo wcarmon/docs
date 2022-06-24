@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # ---------------------------------------------
+# --
 # -- Auto format the go files via docker container
 # --
 # -- Assumptions:
@@ -31,15 +32,12 @@ readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
 #readonly GOLANG_IMAGE=golang:1.18.3-bullseye
 readonly GOLANG_IMAGE=golang:1.18.3-alpine3.16
 
-
 # ---------------------------------------------
 # -- Derived
 # ---------------------------------------------
 # Dir contains go.mod file
 readonly PROJ_ROOT=$PARENT_DIR
-
 readonly SOURCES_ROOT=$PROJ_ROOT/src
-
 
 # ---------------------------------------------
 # -- Validate
