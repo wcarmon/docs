@@ -31,7 +31,7 @@ readonly BINARY=build/app
 # ---------------------------------------------
 # -- Derived
 # ---------------------------------------------
-readonly GRADLE=$PROJ_ROOT/gradlew
+readonly GRADLE="$PROJ_ROOT/gradlew"
 readonly PROJ_ROOT="$PARENT_DIR"
 
 # NOTE: to get project name: (might not match the jar name)

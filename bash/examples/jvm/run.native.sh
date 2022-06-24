@@ -41,5 +41,6 @@ readonly GRADLE="$PROJ_ROOT/gradlew"
 # ---------------------------------------------
 cd "$PROJ_ROOT" >/dev/null 2>&1
 
+exit 1 # TODO: finish this
 TODO: run jar here
 #$GRADLE
