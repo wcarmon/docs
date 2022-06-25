@@ -90,5 +90,8 @@ for value, contains := range srcSet {
 - See [sorting](./sorting.md) doc
 
 
+- TODO: json unmarshal
+- TODO: json marshal
+
 # Other resources
 1. TODO

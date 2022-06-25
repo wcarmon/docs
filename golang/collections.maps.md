@@ -102,6 +102,15 @@ for _, v := range someMap {
 }
 ```
 
+# Get Keys
+```go
+keys := make([]keyType, len(m))
+for k := range m {
+    keys = append(keys, k)
+}
+```
+
+
 # Shallow copy
 ```go
 src := map[string]int {

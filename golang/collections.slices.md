@@ -128,6 +128,25 @@ for _, v := range before {
 }
 ```
 
+# Unique/distinct & sort
+1. (like a Sorted set)
+```go
+s := []string{"c", "e", "a", "d", "b", "c", "b", "a"}
+
+set := make(map[string]struct{}, len(s))
+for _, v := range s {
+    set[v] = struct{}{}
+}
+
+uniq := make([]string, 0, len(set))
+for k := range set {
+    uniq = append(uniq, k)
+}
+sort.Strings(uniq)
+
+// uniq has [a b c d e]
+```
+
 
 # ~~Arrays~~
 1. Fixed size
