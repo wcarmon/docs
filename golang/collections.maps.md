@@ -109,6 +109,7 @@ for k := range m {
     keys = append(keys, k)
 }
 ```
+1. Alternative: https://pkg.go.dev/golang.org/x/exp/maps#Keys
 
 
 # Shallow copy

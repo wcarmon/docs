@@ -22,12 +22,24 @@ var z struct{}
 
 
 - TODO: adding methods - methods.md
-- TODO: := copy/assign?
 - TODO: Embedding
 
 # Equality
 1. TODO: ==
 1. TODO: reflect.DeepEquals
+
+
+# Shallow Copy/Clone
+```go
+a := Foo{
+    // ... set properties ...
+}
+
+b := a
+// b is a shallow copy
+// change to b don't affect a
+```
+1. `copy(...)` function only works on [slices](./collections.slices.md), not structs
 
 
 # JSON
