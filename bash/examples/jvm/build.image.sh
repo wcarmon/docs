@@ -7,10 +7,10 @@
 # -- 1. Docker installed: https://docs.docker.com/get-docker/
 # ---------------------------------------------
 
-#set -x # uncomment to debug script
-set -e
+#set -x # trace commands
+set -e  # exit on first error
 set -o pipefail
-set -u
+set -u  # fail on unset var
 
 
 # ---------------------------------------------
@@ -63,14 +63,14 @@ echo
 echo "|-- Building docker image ..."
 $DOCKER_BINARY build \
   --file ${DOCKERFILE}\
-  --tag ${QUALIFIED_REPOSITORY_NAME}:${TAG}\
-  --tag ${QUALIFIED_REPOSITORY_NAME}:latest \
+  --tag "${QUALIFIED_REPOSITORY_NAME}:${TAG}" \
+  --tag "${QUALIFIED_REPOSITORY_NAME}:latest" \
   .
 
 echo
 echo "|-- Tagging docker image for Remote image repo ..."
-$DOCKER_BINARY tag ${QUALIFIED_REPOSITORY_NAME}:${TAG} ${IMAGE_REPO_URI}/${QUALIFIED_REPOSITORY_NAME}:${TAG}
-$DOCKER_BINARY tag ${QUALIFIED_REPOSITORY_NAME}:latest ${IMAGE_REPO_URI}/${QUALIFIED_REPOSITORY_NAME}:latest
+$DOCKER_BINARY tag "${QUALIFIED_REPOSITORY_NAME}:${TAG}" "${IMAGE_REPO_URI}/${QUALIFIED_REPOSITORY_NAME}:${TAG}"
+$DOCKER_BINARY tag "${QUALIFIED_REPOSITORY_NAME}:latest" "${IMAGE_REPO_URI}/${QUALIFIED_REPOSITORY_NAME}:latest"
 
 
 # ---------------------------------------------

@@ -7,39 +7,32 @@
 # -- 1. Docker installed: https://docs.docker.com/get-docker/
 # ---------------------------------------------
 
-#set -x # uncomment to debug script
-set -e
+#set -x # trace commands
+set -e # exit on first error
 set -o pipefail
-set -u
-
+set -u # fail on unset var
 
 # ---------------------------------------------
 # -- Constants
 # ---------------------------------------------
 readonly DOCKER_BINARY=$(which docker)
-readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
-
 
 # ---------------------------------------------
 # -- Script arguments
 # ---------------------------------------------
-
 
 # ---------------------------------------------
 # -- Config
 # ---------------------------------------------
 readonly IMAGE=myorg/foo:latest
 
-
 # ---------------------------------------------
 # -- Derived
 # ---------------------------------------------
 
-
 # ---------------------------------------------
 # -- Validate
 # ---------------------------------------------
-
 
 # ---------------------------------------------
 # -- Run

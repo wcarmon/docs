@@ -8,10 +8,10 @@
 # --    https://www.graalvm.org/22.1/reference-manual/native-image/#install-native-image
 # ---------------------------------------------
 
-#set -x # uncomment to debug script
-set -e
+#set -x # trace commands
+set -e  # exit on first error
 set -o pipefail
-set -u
+set -u  # fail on unset var
 
 # ---------------------------------------------
 # -- Constants
@@ -32,6 +32,8 @@ readonly BINARY=build/app
 # -- Derived
 # ---------------------------------------------
 readonly GRADLE="$PROJ_ROOT/gradlew"
+
+# Dir contains settings.gradle.kts, build.gradle.kts, gradlew, ...
 readonly PROJ_ROOT="$PARENT_DIR"
 
 # NOTE: to get project name: (might not match the jar name)
