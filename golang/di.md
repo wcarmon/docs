@@ -34,7 +34,7 @@ go install github.com/google/wire/cmd/wire@latest;
 1. The first two lines below are important!!
     1. These two lines avoid duplicate declarations compile failure
     1. *yes*, the blank line **after** the comment is important.
-    1. This `wire.go` file is ignored by the `go build` (only used by `wire`)
+    1. `go build` ignores this `wire.go` file (`wire.go` is only used by `wire`)
 ```go
 // go:build wireinject
 
