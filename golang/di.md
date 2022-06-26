@@ -22,8 +22,8 @@ go install github.com/google/wire/cmd/wire@latest;
 1. Can inject interface, struct, ...
 1. For common types (like `string`), create custom type
     1. eg. `type dbUser string` ... `wire.Value(dbUser("admin"))`
-    1. In [Spring](https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#beans-annotation-config) you would use Bean name or [`@Qualifier`](https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#beans-scanning-qualifiers) instead.
-    1. In [Guice](https://github.com/google/guice) you would use a [Binding annotation](https://github.com/google/guice/wiki/BindingAnnotations) instead.
+    1. In [Spring](https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#beans-annotation-config), you would use Bean name or [`@Qualifier`](https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#beans-scanning-qualifiers) instead.
+    1. In [Guice](https://github.com/google/guice), you would use a [Binding annotation](https://github.com/google/guice/wiki/BindingAnnotations) instead.
     1. In [Angular](https://angular.io/), you would use a [Decorator](https://angular.io/guide/dependency-injection-in-action#qualify-dependency-lookup-with-parameter-decorators) instead.
 1. Providers must be exported (factory functions)
 
