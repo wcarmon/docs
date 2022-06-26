@@ -13,6 +13,7 @@ set -u
 # -- Constants
 # ---------------------------------------------
 readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
+readonly WIRE=$(which wire)
 
 # ---------------------------------------------
 # -- Script arguments
@@ -44,6 +45,8 @@ readonly OUTPUT_DIR="$PROJ_ROOT/bin"
 mkdir -p "$PROJ_ROOT/$OUTPUT_DIR"
 
 cd "$PROJ_ROOT" >/dev/null 2>&1
+
+$WIRE ./...
 
 echo "|-- Cross compiling go code in $(pwd)"
 GOOS=linux GOARCH=amd64 go build -o "$OUTPUT_DIR/$OUTPUT_BINARY_NAME.linux.amd64" $CMD_PACKAGE

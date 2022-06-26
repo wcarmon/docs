@@ -43,7 +43,7 @@ type appObjects struct {
     config *appConfig
     server *http.Server
 
-    //NOTE: add field for other fields needed directly from main func
+    //TODO: add field for each obj used directly in main func
 }
 
 func BuildAppObjects() (*appObjects, error) {
