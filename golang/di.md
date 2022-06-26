@@ -29,10 +29,10 @@ go install github.com/google/wire/cmd/wire@latest;
 
 
 # `wire.go` file
-1. Each command might require their own object graph
+1. Each [command](https://github.com/golang-standards/project-layout#cmd) might require their own object graph
     1. eg. `my-project/cmd/run-foo/wire.go`
-1. The first two lines are important!!
-    1. These lines avoid duplicate declarations.
+1. The first two lines below are important!!
+    1. These two lines avoid duplicate declarations compile failure
     1. *yes*, the blank line **after** the comment is important.
     1. This `wire.go` file is ignored by the `go build` (only used by `wire`)
 ```go
@@ -70,7 +70,7 @@ func NewFoo(b *Bar) (*Foo, error) { ... }
 func NewBar() (*Bar, error) { ... }
 ```
 
-# in main func
+# in main `func`
 ```go
 func main() {
 
