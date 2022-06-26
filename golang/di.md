@@ -75,7 +75,7 @@ func NewBar() (*Bar, error) { ... }
 func main() {
 
     appCtx, err := BuildAppObjects()
-    //check for error
+    // check for error
 
     // Use appCtx.config
 }

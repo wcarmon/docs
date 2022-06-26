@@ -51,7 +51,6 @@ echo "|-- Formatting code in ${SOURCES_ROOT}"
 
 $DOCKER_BINARY run \
   --rm \
-  -it \
   -v "${SOURCES_ROOT}":/usr/src/myapp \
   --workdir /usr/src/myapp \
   $GOLANG_IMAGE \
@@ -62,7 +61,6 @@ $DOCKER_BINARY run \
 
   $DOCKER_BINARY run \
     --rm \
-    -it \
     -v "${SOURCES_ROOT}":/usr/src/myapp \
     -v "${CERT_FILE}":/usr/local/share/ca-certificates/extra.crt \
     --workdir /usr/src/myapp \

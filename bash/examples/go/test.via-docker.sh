@@ -7,11 +7,10 @@
 # -- 1. Docker installed: https://docs.docker.com/get-docker/
 # ---------------------------------------------
 
-#set -x # uncomment to debug script
-set -e
+#set -x # trace commands
+set -e # exit on first error
 set -o pipefail
-set -u
-
+set -u # fail on unset var
 
 # ---------------------------------------------
 # -- Constants
@@ -19,18 +18,17 @@ set -u
 readonly DOCKER_BINARY=$(which docker)
 readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
 
-
 # ---------------------------------------------
 # -- Script arguments
 # ---------------------------------------------
 
-
 # ---------------------------------------------
 # -- Config
 # ---------------------------------------------
+# NOTE: all paths relative to $PROJ_ROOT
+
 # See https://hub.docker.com/_/golang?tab=tags
 readonly GOLANG_IMAGE=golang:1.18.3-bullseye
-
 
 # ---------------------------------------------
 # -- Derived
@@ -38,11 +36,9 @@ readonly GOLANG_IMAGE=golang:1.18.3-bullseye
 # Dir contains go.mod file
 readonly PROJ_ROOT="$PARENT_DIR"
 
-
 # ---------------------------------------------
 # -- Validate
 # ---------------------------------------------
-
 
 # ---------------------------------------------
 # -- Test
@@ -52,7 +48,6 @@ echo "|-- Running tests in ${PROJ_ROOT}"
 
 $DOCKER_BINARY run \
   --rm \
-  -it \
   -v "${PROJ_ROOT}":/usr/src/myapp \
   --workdir /usr/src/myapp \
   $GOLANG_IMAGE \
@@ -63,7 +58,6 @@ $DOCKER_BINARY run \
 
   $DOCKER_BINARY run \
     --rm \
-    -it \
     -v "${PROJ_ROOT}":/usr/src/myapp \
     -v "${CERT_FILE}":/usr/local/share/ca-certificates/extra.crt \
     --workdir /usr/src/myapp \

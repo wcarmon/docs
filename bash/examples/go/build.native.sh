@@ -4,10 +4,10 @@
 # -- Builds local binary via local go sdk
 # ---------------------------------------------
 
-#set -x # uncomment to debug script
-set -e
+#set -x # trace commands
+set -e  # exit on first error
 set -o pipefail
-set -u
+set -u  # fail on unset var
 
 # ---------------------------------------------
 # -- Constants
@@ -27,13 +27,13 @@ readonly WIRE=$(which wire)
 readonly CMD_PACKAGE=./src/cmd/run-service
 readonly OUTPUT_BINARY_NAME=foo-service
 
-# Dir contains go.mod file
-readonly PROJ_ROOT="$PARENT_DIR"
-
 # ---------------------------------------------
 # -- Derived
 # ---------------------------------------------
-readonly OUTPUT_DIR="$PROJ_ROOT/bin"
+# Dir contains go.mod file
+readonly PROJ_ROOT="$PARENT_DIR"
+
+readonly OUTPUT_DIR="bin"
 
 # ---------------------------------------------
 # -- Validate
@@ -49,12 +49,12 @@ cd "$PROJ_ROOT" >/dev/null 2>&1
 $WIRE ./...
 
 echo "|-- Cross compiling go code in $(pwd)"
-GOOS=linux GOARCH=amd64 go build -o "$OUTPUT_DIR/$OUTPUT_BINARY_NAME.linux.amd64" $CMD_PACKAGE
-GOOS=darwin GOARCH=amd64 go build -o "$OUTPUT_DIR/$OUTPUT_BINARY_NAME.macos.amd64" $CMD_PACKAGE
-GOOS=windows GOARCH=amd64 go build -o "$OUTPUT_DIR/$OUTPUT_BINARY_NAME.win.amd64.exe" $CMD_PACKAGE
+GOOS=linux    GOARCH=amd64 go build -o "$OUTPUT_DIR/$OUTPUT_BINARY_NAME.linux.amd64"   $CMD_PACKAGE;
+GOOS=darwin   GOARCH=amd64 go build -o "$OUTPUT_DIR/$OUTPUT_BINARY_NAME.macos.amd64"   $CMD_PACKAGE;
+#GOOS=windows GOARCH=amd64 go build -o "$OUTPUT_DIR/$OUTPUT_BINARY_NAME.win.amd64.exe" $CMD_PACKAGE;
 
 # NOTE: list architectures:
 #   go tool dist list;
 
-echo "|-- See binaries in $OUTPUT_DIR"
-ls -dhlt "$OUTPUT_DIR"/*
+echo "|-- See binaries in $PROJ_ROOT/$OUTPUT_DIR"
+ls -dhlt "$PROJ_ROOT/$OUTPUT_DIR"/*

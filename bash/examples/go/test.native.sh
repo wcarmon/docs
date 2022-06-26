@@ -4,10 +4,10 @@
 # -- Runs tests via local go sdk
 # ---------------------------------------------
 
-#set -x # uncomment to debug script
-set -e
+#set -x # trace commands
+set -e # exit on first error
 set -o pipefail
-set -u
+set -u # fail on unset var
 
 # ---------------------------------------------
 # -- Constants
