@@ -58,6 +58,23 @@
 # Keymap: Jetbrains shortcuts
 - See [jetbrains-shortcuts](../macos/jetbrains-shortcuts.md) doc
 
+# Import Live templates
+1. Export from "source" Goland, copy into path below
+    1. Linux: TODO
+    1. MacOS: `~/Library/Application Support/JetBrains/GoLand2022.1/templates/foo.xml`
+    1. windows: TODO
+1. Open "receiving" Goland/Pycharm
+1. Disable synchronization
+    1. Check `Copy actual/last settings from account to this IDE`
+    1. Click `Disable Settings Sync` button
+1. Move templates xml to ...
+    1. `~/Library/Application Support/JetBrains/GoLand<version>/templates/*.xml`
+1. Restart GoLand (or PyCharm)
+1. Enable Sync ...
+    1. Click **`Keep and Sync Local Settings`**
+    1. This will automatically write files to `~/Library/Application Support/JetBrains/<product><version>/jba_config/...`
+1. Settings/Preferences > Live templates
+
 
 # Other optional settings/preferences
 1. Disable smart quotes
