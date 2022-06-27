@@ -46,7 +46,7 @@ mkdir -p "$PROJ_ROOT/$OUTPUT_DIR"
 
 cd "$PROJ_ROOT" >/dev/null 2>&1
 
-$WIRE ./...
+$WIRE ./src/...
 
 echo "|-- Cross compiling go code in $(pwd)"
 GOOS=linux    GOARCH=amd64 go build -o "$OUTPUT_DIR/$OUTPUT_BINARY_NAME.linux.amd64"   $CMD_PACKAGE;
