@@ -60,8 +60,15 @@ func (t *MyType) UnmarshalJSON(data []byte) error {
     1. Goland has an inspection for this
 
 
+# Preferred tools
+1. [emvi/null](https://github.com/emvi/null)
+    1. light & simple implementation
+    1. tests
+    1. zero external deps
+1. [guregu/null.v4](https://github.com/guregu/null/tree/v4.0.0)
+
 ## Rejected tools
-1. [kak-tus/nan](https://github.com/kak-tus/nan)
+1. ~~[kak-tus/nan](https://github.com/kak-tus/nan)~~
     1. Far too many deps (gocql, [etc](https://github.com/kak-tus/nan/blob/master/go.mod))
 
 
