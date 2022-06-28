@@ -16,9 +16,8 @@
     1. using [`t.ParseFiles`](https://pkg.go.dev/text/template#Template.ParseFiles) or [`t.ParseGlob`](https://pkg.go.dev/text/template#Template.ParseGlob)
 1. Make a fresh association "set" with [`New`](https://pkg.go.dev/text/template#New), [`ParseFiles`](https://pkg.go.dev/text/template#ParseFS) or [`ParseGlob`](https://pkg.go.dev/text/template#ParseGlob)
     1. Notice these are (package) functions, not (instance) methods
-1. Associate using indirectly
-1. [`Lookup`](https://pkg.go.dev/html/template#Template.Lookup) returns a single associated template by name
-1. [`Templates`](https://pkg.go.dev/html/template#Template.Templates) returns all associated templates
+1. [`t.Lookup`](https://pkg.go.dev/html/template#Template.Lookup) returns a single associated template by name
+1. [`t.Templates`](https://pkg.go.dev/html/template#Template.Templates) returns all associated templates
 
 
 # Embedded
