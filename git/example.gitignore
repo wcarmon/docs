@@ -287,3 +287,5 @@ Thumbs.db
 tmp/
 vendor/
 yarn-error.log
+~$*.docx
+~$*.xlsx

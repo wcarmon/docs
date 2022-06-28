@@ -10,6 +10,8 @@
 1. Add association for `*.gotmpl`
     1. See https://www.jetbrains.com/help/go/creating-and-registering-file-types.html
 
+- TODO: `ParseFiles` assumes all templates are in the same directory
+- TODO: `ParseFiles` test colission handling
 
 
 # Other resources
