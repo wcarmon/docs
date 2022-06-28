@@ -3,10 +3,16 @@
 
 # Name
 1. [`Name()`](https://pkg.go.dev/text/template#Template.Name) allows one template to [nest (or inline)](https://pkg.go.dev/text/template#hdr-Nested_template_definitions) another template
-    1. eg. `{{template "my-associated-template-name"}}`
+    1. eg. `{{template "my-nested-template-name"}}`
+    1. [Nesting](https://pkg.go.dev/text/template#hdr-Nested_template_definitions) is one way to reuse (associated) templates
 
-# Related templates
+
+# Associated/Related templates
+1. a Template can have zero or more associated templates
+1. Associate using [`t.Parse`]() or indirectly via [`t.ParseFiles`](https://pkg.go.dev/text/template#Template.ParseFiles) or [`t.ParseGlob`](https://pkg.go.dev/text/template#Template.ParseGlob)
 1. https://pkg.go.dev/text/template#hdr-Associated_templates
+1. [`Lookup`](https://pkg.go.dev/html/template#Template.Lookup) returns a single associated template by name
+1. [`Templates`](https://pkg.go.dev/html/template#Template.Templates) returns all associated templates
 
 
 # Nesting templates
