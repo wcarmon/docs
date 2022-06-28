@@ -2,7 +2,7 @@
 - Idioms for [text](https://pkg.go.dev/text/template) and [html](https://pkg.go.dev/html/template) templates
 
 # Name
-1. [`Name`](https://pkg.go.dev/text/template#Template.Name) allows one template to [inline/nest](https://pkg.go.dev/text/template#hdr-Nested_template_definitions) another template
+1. [`Name()`](https://pkg.go.dev/text/template#Template.Name) allows one template to [nest (or inline)](https://pkg.go.dev/text/template#hdr-Nested_template_definitions) another template
     1. eg. `{{template "my-associated-template-name"}}`
 
 # Related templates
