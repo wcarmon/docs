@@ -14,7 +14,8 @@
 
 
 # Idioms
-1. Avoid [`template.ParseFiles`](https://pkg.go.dev/text/template#Template.ParseFiles) and [`template.ParseGlob`](https://pkg.go.dev/text/template#Template.ParseGlob) across files
+1. [`ParseFiles`](https://pkg.go.dev/text/template#Template.ParseFiles) and [`ParseGlob`](https://pkg.go.dev/text/template#Template.ParseGlob) are just simpler ways to invoke [`t.Parse`](https://pkg.go.dev/text/template#Template.Parse) multiple times
+1. Avoid [`ParseFiles`](https://pkg.go.dev/text/template#Template.ParseFiles) and [`ParseGlob`](https://pkg.go.dev/text/template#Template.ParseGlob) across files
     1. (unqualified) file name becomes template.[`Name`](https://pkg.go.dev/text/template#Template.Name)
     1. On collision, last file wins
 
