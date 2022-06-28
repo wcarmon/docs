@@ -11,9 +11,18 @@
 # Associated templates
 1. [Official description](https://pkg.go.dev/text/template#hdr-Associated_templates)
 1. a Template can have zero or more associated/related templates
-1. Associate using [`t.Parse`]() or indirectly via [`t.ParseFiles`](https://pkg.go.dev/text/template#Template.ParseFiles) or [`t.ParseGlob`](https://pkg.go.dev/text/template#Template.ParseGlob)
+1. Associate to existing template `t`...
+    1. using [`t.New(...)`](https://pkg.go.dev/html/template#Template.New) then [`t.Parse`](https://pkg.go.dev/html/template#Template.Parse)
+    1. using [`t.ParseFiles`](https://pkg.go.dev/text/template#Template.ParseFiles) or [`t.ParseGlob`](https://pkg.go.dev/text/template#Template.ParseGlob)
+1. Make a fresh association "set" with [`New`](https://pkg.go.dev/text/template#New), [`ParseFiles`](https://pkg.go.dev/text/template#ParseFS) or [`ParseGlob`](https://pkg.go.dev/text/template#ParseGlob)
+    1. Notice these are (package) functions, not (instance) methods
+1. Associate using indirectly
 1. [`Lookup`](https://pkg.go.dev/html/template#Template.Lookup) returns a single associated template by name
 1. [`Templates`](https://pkg.go.dev/html/template#Template.Templates) returns all associated templates
+
+
+# Embedded
+- TODO
 
 
 # Idioms
