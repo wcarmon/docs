@@ -1,17 +1,27 @@
 # Overview
 - Idioms for text and html templates
 
+# Name
+1. [`Name`](https://pkg.go.dev/text/template#Template.Name) allows one template to [inline/nest](https://pkg.go.dev/text/template#hdr-Nested_template_definitions) another template
+    1. eg. `{{template "my-associated-template-name"}}`
+
+# Related templates
+1. https://pkg.go.dev/text/template#hdr-Associated_templates
+
+
+# Nesting templates
+1. https://pkg.go.dev/text/template#hdr-Nested_template_definitions
+
 
 # Idioms
-1. TODO ...
+1. Avoid [`template.ParseFiles`](https://pkg.go.dev/text/template#Template.ParseFiles) and [`template.ParseGlob`](https://pkg.go.dev/text/template#Template.ParseGlob) across files
+    1. (unqualified) file name becomes template.[`Name`](https://pkg.go.dev/text/template#Template.Name)
+    1. On collision, last file wins
 
 
 # Goland
 1. Add association for `*.gotmpl`
     1. See https://www.jetbrains.com/help/go/creating-and-registering-file-types.html
-
-- TODO: `ParseFiles` assumes all templates are in the same directory
-- TODO: `ParseFiles` test colission handling
 
 
 # Other resources
