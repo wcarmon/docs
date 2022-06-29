@@ -19,7 +19,10 @@ type Foo struct {
 
 // Previously initialized
 // Threadsafe & reusable
-var client http.Client
+// Inject using wire
+var client = http.Client{
+    Timeout: 10 * time.Second
+}
 ```
 
 
