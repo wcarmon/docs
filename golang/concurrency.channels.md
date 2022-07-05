@@ -22,7 +22,11 @@ c1 := make(chan int)
 
 // unbuffered channel of empty struct (zero memory)
 c2 := make(chan struct{})
+
+// buffered channel of strings, capacity of 5
+c3 := make(chan string, 5)
 ```
+
 
 # Buffering
 ## Unbuffered
@@ -35,12 +39,21 @@ c2 := make(chan struct{})
     1. (unbounded) Unbuffered and receiver hasn't received
     1. (unbounded) writing to a full buffer (until there's buffer capacity)
     1. (briefly) writing to the non-full buffer (just long enough to commit the value)
+1. Send:
+```go
+responseCodeCh <- 200
+```
+
 
 # Receiver
 1. Blocks when ...
     1. (unbounded) no messages available
     1. (unbounded) when buffer empty
 1. Reading from closed channel yields zero value
+1. Receive:
+```go
+//TODO
+```
 - TODO: range
 
 
@@ -93,4 +106,4 @@ TODO: https://www.golang-book.com/books/intro/10
 1. [go101](https://go101.org/article/channel.html)
 1. [gobyexample](https://gobyexample.com/channels)
 1. [Official tour](https://go.dev/tour/concurrency/2)
-
+1. [yourbasic](https://yourbasic.org/golang/channels-explained/)
