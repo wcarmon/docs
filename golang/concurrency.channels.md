@@ -28,10 +28,13 @@ c3 := make(chan string, 5)
 ```
 
 
-# Buffering
-## Unbuffered
+# Buffering: Unbuffered channel
 - sender blocks for first receiver
 - receiver blocks for sender
+
+
+# Buffering: buffered channel
+- TODO
 
 
 # Sender
