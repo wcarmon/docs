@@ -17,14 +17,18 @@
 # Creation
 1. allocated with [`make`](./allocation.md)
 ```go
-// unbuffered channel (sender blocks for receiver)
+// unbuffered channel of ints
 c1 := make(chan int)
+
+// unbuffered channel of empty struct (zero memory)
+c2 := make(chan struct{})
 ```
 
 # Buffering
 ## Unbuffered
-- sender blocks for receiver
+- sender blocks for first receiver
 - receiver blocks for sender
+
 
 # Sender
 1. Blocks when ...
