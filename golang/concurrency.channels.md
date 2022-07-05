@@ -4,25 +4,44 @@
 
 # Key features of Channels
 1. Type-safe
+1. Thread-safe (goroutine safe)
+1. FIFO queue
 1. [Pass-by-address-value](https://www.educative.io/edpresso/pass-by-value-vs-pass-by-reference)
     1. All things pass by value
     1. maps, slices, channels, functions are passed by "address" value (like a pointer)
     1. If you pass a `channel` to a function/method, caller & callee are referencing the same `channel`
-1. Thread-safe
 1. Optionally buffered
     1. Only affects Senders (Not receivers)
+
 
 # Creation
 1. allocated with [`make`](./allocation.md)
 ```go
-TODO
+// unbuffered channel (sender blocks for receiver)
+c1 := make(chan int)
 ```
 
 # Buffering
-TODO
+## Unbuffered
+- sender blocks for receiver
+- receiver blocks for sender
+
+# Sender
+1. Blocks when ...
+    1. (unbounded) Unbuffered and receiver hasn't received
+    1. (unbounded) writing to a full buffer (until there's buffer capacity)
+    1. (briefly) writing to the non-full buffer (just long enough to commit the value)
+
+# Receiver
+1. Blocks when ...
+    1. (unbounded) no messages available
+    1. (unbounded) when buffer empty
+1. Reading from closed channel yields zero value
+- TODO: range
 
 
-# Two-way
+
+# Direction: Two-way
 TODO
 
 
@@ -48,18 +67,6 @@ func mySender(sink chan<- bool) {
 TODO: more here
 
 
-# Receivers
-1. Always block until a message is available
-1. Reading from closed channel yields zero value
-TODO: range
-
-
-# Senders
-1. Blocks when ...
-    1. Unbuffered and receiver hasn't received
-    1. writing to the non-full buffer (just long enough to commit the value)
-    1. writing to a full buffer (until there's buffer capacity)
-TODO
 
 
 # `select` block
