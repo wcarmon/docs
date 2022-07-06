@@ -135,7 +135,7 @@ wire.Build(
 )
 ```
 
-## Need: any type, Have: Factory func (Provider)
+## Need: instance, Have: Factory func (Provider)
 - Pass Provider directly to `wire.Build(...)`
 ```go
 func NewTomato() (*Tomato, error) { ... }
