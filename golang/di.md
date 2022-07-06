@@ -129,11 +129,62 @@ In `wire.go`:
 
 ## Inject: Interface, Given: Interface func
 ```go
-//TODO
+type Cheese interface {
+	// ... methods here ...
+}
+
+type brie struct {
+	// ... fields here ...
+}
+
+// add methods to brie (to implement Cheese)
+
+// interface builder func
+func NewCheese() Cheese {
+	return &brie{}
+}
 ```
 In `wire.go`:
 ```go
-//TODO
+...
+	panic(wire.Build(
+		NewCheese,
+
+		// appObjects references Cheese
+		wire.Struct(new(appObjects), "*"),
+	))
+```
+
+
+## Inject: Interface, Given: Concrete instance
+- Implies you are using global variables (only recommended for constants)
+```go
+type Cheese interface {
+	// ... methods here ...
+}
+
+type brie struct {
+	// ... fields here ...
+}
+
+// add methods to brie (to implement Cheese)
+
+// concrete instance
+var b = brie{ /* ...fields here... */ }
+```
+In `wire.go`:
+```go
+...
+	panic(wire.Build(
+		// Provider for impl
+		wire.Value(b),
+
+		// Bind impl to interface
+		wire.Bind(new(Cheese), &b),
+
+		// appObjects references Cheese
+		wire.Struct(new(appObjects), "*"),
+	))
 ```
 
 
@@ -158,7 +209,7 @@ In `wire.go`:
 
 
 
-## Inject: **Concrete type**, Given: **Provider func**
+## Inject: Concrete type, Given: Provider func
 ```go
 //TODO
 ```
@@ -169,7 +220,7 @@ In `wire.go`:
 
 
 
-## Inject: **Concrete type**, Given: **Concrete type**
+## Inject: Concrete type, Given: Concrete type
 ```go
 //TODO
 ```
