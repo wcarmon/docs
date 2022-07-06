@@ -11,7 +11,55 @@
 
 
 # Idioms
-1. TODO
+1. Always call `cancel()` in `defer` statement
+1. Always call `cancel()` func returned by [`WithDeadline`](https://pkg.go.dev/context#WithDeadline)
+
+
+# Examples
+
+## Example: Cancel manually
+```go
+func foo() {
+    ...
+    parentCtx := context.Background()
+
+    ctx, cancel = context.WithCancel(parentCtx)
+    defer cancel() // Guarantee child cancellation
+
+    // pass ctx to another func, or use with another pattern below
+    // (eg. pass to http client, grpc client, sql client, kafka, rabbitmq, ...)
+}
+```
+
+## Example: Listen for cancellation (Cancel aware task)
+1. To handle cancellation, timeout, deadline expiration:
+```go
+type FooResult int // or a struct with both result & error
+
+func DoSomeExpensiveIO(ctx context.Context) (FooResult, error) {
+
+	// result of "real" call goes into channel
+	// sender not blocked since buffer is 1
+	resultChan := make(chan FooResult, 1)
+
+	go func() {
+		// send returned result to channel
+		resultChan <- doRealIOWork()
+
+		// -- alternative: func writes result to channel (instead of returning)
+		// doRealIOWork(resultChan)
+	}()
+
+	// wait for first of [a result] or [cancellation/timeout]
+	select {
+	case <-ctx.Done():
+		return 0, ctx.Err()
+
+	case out := <-resultChan:
+		return out, nil
+	}
+}
+```
 
 
 # Other resources

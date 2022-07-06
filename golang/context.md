@@ -64,18 +64,11 @@
 # Examples
 
 ## Example: Cancel manually
-```go
-func foo() {
-    ...
-    parentCtx := context.Background()
+1. See [cancellation](./concurrency.cancellation.md) doc
 
-    ctx, cancel = context.WithCancel(parentCtx)
-    defer cancel() // Guarantee child cancellation
 
-    // pass ctx to another func, or use with another pattern below
-    // (eg. pass to http client, grpc client, sql client, kafka, rabbitmq, ...)
-}
-```
+## Example: Cancel aware task
+1. See [cancellation](./concurrency.cancellation.md) doc
 
 
 ## Example: Set Timeout
@@ -101,36 +94,6 @@ func ShowTimeoutUsage(
 ## Example: Set Deadline
 1. [Official example](https://pkg.go.dev/context#example-WithDeadline)
 
-
-## Example: Cancel aware task
-1. To handle cancellation, timeout, deadline expiration
-```go
-type FooResult int // or a struct with both result & error
-
-func DoSomeExpensiveIO(ctx context.Context) (FooResult, error) {
-
-	// result of "real" call goes into channel
-	// sender not blocked since buffer is 1
-	resultChan := make(chan FooResult, 1)
-
-	go func() {
-		// send returned result to channel
-		resultChan <- doRealIOWork()
-
-		// -- alternative: func writes result to channel (instead of returning)
-		// doRealIOWork(resultChan)
-	}()
-
-	// wait for first of [a result] or [cancellation/timeout]
-	select {
-	case <-ctx.Done():
-		return 0, ctx.Err()
-
-	case out := <-resultChan:
-		return out, nil
-	}
-}
-```
 
 
 ## Example: Request-scoped ID
