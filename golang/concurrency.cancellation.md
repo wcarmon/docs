@@ -14,7 +14,7 @@
 
 
 # Idioms
-1. Always call `cancel()` in `defer` statement
+1. Call `cancel()` func in `defer` statement
 1. Always call `cancel()` func returned by [`WithDeadline`](https://pkg.go.dev/context#WithDeadline) or [`WithCancel`](https://pkg.go.dev/context#WithCancel)
 
 
@@ -26,7 +26,7 @@ func foo() {
     parentCtx := context.Background()
     ...
 
-    ctx, cancel = context.WithCancel(parentCtx) // WithDeadline is similar
+    ctx, cancel = context.WithCancel(parentCtx) // context.WithDeadline is similar
     defer cancel() // Guarantee child cancellation
 
     // pass ctx to another func or use below
