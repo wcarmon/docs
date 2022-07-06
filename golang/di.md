@@ -118,13 +118,26 @@ In `wire.go`:
 
 ## Inject: Interface, Given: Concrete type
 ```go
-//TODO
+type Cheese interface {
+	// ... methods here ...
+}
+
+type brie struct {
+	// ... fields here ...
+}
+
+// add methods to brie (to implement Cheese)
 ```
 In `wire.go`:
 ```go
-//TODO
-```
+...
+	panic(wire.Build(
+		wire.InterfaceValue(new(Cheese), new(*brie)),
 
+		// appObjects references Cheese
+		wire.Struct(new(appObjects), "*"),
+	))
+```
 
 
 ## Inject: Interface, Given: Interface func
@@ -140,8 +153,8 @@ type brie struct {
 // add methods to brie (to implement Cheese)
 
 // interface builder func
-func NewCheese() Cheese {
-	return &brie{}
+func NewCheese() (Cheese, error) {
+	return &brie{}, nil
 }
 ```
 In `wire.go`:
