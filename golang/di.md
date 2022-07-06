@@ -26,6 +26,7 @@ go install github.com/google/wire/cmd/wire@latest;
     1. In [Guice](https://github.com/google/guice), you would use a [Binding annotation](https://github.com/google/guice/wiki/BindingAnnotations) instead.
     1. In [Angular](https://angular.io/), you would use a [Decorator](https://angular.io/guide/dependency-injection-in-action#qualify-dependency-lookup-with-parameter-decorators) instead.
 1. [Providers](https://github.com/google/wire/blob/main/docs/guide.md#defining-providers) must be [exported](https://go.dev/ref/spec#Exported_identifiers) (factory functions)
+1. Provider functions cannot be inlined
 
 
 # `wire.go` file
@@ -48,7 +49,7 @@ type appObjects struct {
 }
 
 func BuildAppObjects() (*appObjects, error) {
-    wire.Build(
+    panic(wire.Build(
         NewFoo,
         NewBar,
         NewBaz,
@@ -58,10 +59,7 @@ func BuildAppObjects() (*appObjects, error) {
 
         // Injects all objects required in main func
         wire.Struct(new(appObjects), "*"),
-    )
-
-    // just to appease the compiler
-    return &appObjects{}, nil
+    ))
 }
 ```
 - Assuming you have factory functions (Provider) like:
@@ -84,7 +82,54 @@ func main() {
 
 
 # Patterns
-## Need: interface, Have: implementation instance
+
+## Inject: **Interface**, Given: **Concrete type**
+```go
+//TODO
+```
+
+## Inject: **Interface**, Given: **Provider func**
+```go
+//TODO
+```
+
+## Inject: **Interface**, Given: **Interface func**
+```go
+//TODO
+```
+
+
+## Inject: **Concrete type pointer**, Given: **Provider func**
+```go
+//TODO
+```
+
+
+## Inject: **Concrete type pointer**, Given: **Concrete type**
+```go
+//TODO
+```
+
+
+## Inject: **Concrete type**, Given: **Provider func**
+```go
+//TODO
+```
+
+
+## Inject: **Concrete type**, Given: **Concrete type**
+```go
+//TODO
+```
+
+
+
+
+---------------------------------------
+
+
+
+## Need: interface, Have: concrete type provider func
 - Use `wire.InterfaceValue(new(TheInterface), impl)`
 - Given:
 ```go
@@ -103,24 +148,25 @@ wire.Build(
 ```
 
 ## Need: interface, Have: implementing type
-- Use `wire.Bind(new(TheInterface), new(*TheImplType))`
+- Add provider for concrete type, then
+- Use `wire.Bind(new(TheInterface), new(*TheImplType))` to bind concrete type to interface
 ```go
-type Cheese interface
+type Cheese interface {}
 
 // Cheddar implements Cheese
 type Cheddar struct {}
 
-func NewTaco(c *Cheese) (*taco, error) { ... }
+func NewTaco(c Cheese) (*Taco, error) { ... }
 ```
 - In `wire.go`
 ```
-wire.Build(
+panic(wire.Build(
     NewTaco,
     wire.Bind(new(Cheese), new(*Cheddar)),
-    ...)
+    ...))
 ```
 
-## Need: instance, Have: instance
+## Need: concrete type, Have: instance
 - Use `wire.Value`
 ```go
 var co Cotija
@@ -129,10 +175,10 @@ func NewTaco(c Cotija) (*taco, error) { ... }
 ```
 - In `wire.go`
 ```
-wire.Build(
+panic(wire.Build(
     NewTaco,
     wire.Value(co),
-)
+))
 ```
 
 ## Need: instance, Have: Factory func (Provider)
@@ -144,9 +190,9 @@ func NewTaco(t Tomato) (*taco, error) { ... }
 ```
 - In `wire.go`
 ```
-wire.Build(
+panic(wire.Build(
     NewTaco,
-    NewTomato)
+    NewTomato))
 ```
 
 - TODO: wire.FieldsOf example
