@@ -1,6 +1,7 @@
 # Overview
 1. How to use [context](https://pkg.go.dev/context)
 1. How to do cancellation, timeouts, deadlines
+1. See also [cancellation](./concurrency.cancellation.md) doc
 
 
 # Key Concepts
@@ -16,22 +17,22 @@
 
 
 ## Purpose 1
-1. Context is for [cancellation](./concurrency.cancellation.md) (Both emitting and listening)
-1. Context is for Deadlines/Timeouts (even across API boundaries)
+1. Context is for [cancellation](./concurrency.cancellation.md) (Both signalling cancel and listening for cancel)
+1. Context is for Deadline/Timeout (even across API boundaries)
     1. [`ctx.Deadline()`](https://pkg.go.dev/context#Context) is useful for setting I/O timeouts
-1. [`ctx.Done()`](https://pkg.go.dev/context#Context) `channel` is closed after a timeout or when manually closed (see examples below)
-1. [`ctx.Err()`](https://pkg.go.dev/context#Context) has the reason why `ctx.Done()` is closed
-1. [`ctx.Deadline()`](https://pkg.go.dev/context#Context) returns the deadline, (when present)
-1. [`WithDeadline`](https://pkg.go.dev/context#WithDeadline) and [`ctx.WithCancel`](https://pkg.go.dev/context#WithCancel) return a [CancelFunc](https://pkg.go.dev/context#CancelFunc)
+1. [`ctx.Done()`](https://pkg.go.dev/context#Context) `channel` is closed after either a timeout or when manually closed (see examples below)
+1. Getter [`ctx.Err()`](https://pkg.go.dev/context#Context) has the reason why `ctx.Done()` is closed
+1. Getter [`ctx.Deadline()`](https://pkg.go.dev/context#Context) returns the deadline, (when present)
+1. Builder: [`WithDeadline`](https://pkg.go.dev/context#WithDeadline) and [`ctx.WithCancel`](https://pkg.go.dev/context#WithCancel) return a [CancelFunc](https://pkg.go.dev/context#CancelFunc)
     1. Invoking the [CancelFunc](https://pkg.go.dev/context#CancelFunc) is the **only** way to manually cancel a context
-    1. Context can only be cancelled at-most-once
-    1. `context.WithDeadline(...)` can return a ctx with an **EARLIER** deadline (when parent expires earlier)
+    1. Context can be cancelled **at-most-once**
+    1. `context.WithDeadline(...)` can return a `ctx` with an **EARLIER** deadline (when parent expires earlier)
 
 ## Purpose 2
 1. Context is for "small" request-scoped data
-    1. [RequestId](https://pkg.go.dev/github.com/go-chi/chi/middleware#RequestID) (helps with tracing/debugging)
-    1. UserUuid/UserId for Authenticated user
-    1. TraceId/SpanId ([OpenTelemetry](./tracing.md), [OpenTracing](./tracing.md), ...)
+    1. eg. [RequestId](https://pkg.go.dev/github.com/go-chi/chi/middleware#RequestID) (helps with tracing/debugging)
+    1. eg. UserUuid/UserId for Authenticated user
+    1. eg. TraceId/SpanId ([OpenTelemetry](./tracing.md), [OpenTracing](./tracing.md), ...)
 1. Data you add to Context **MUST BE** safe for simultaneous use by multiple goroutines
     1. This is another reason to use immutable IDs
 1. [`ctx.Value(...)`](https://pkg.go.dev/context#Context) and [`context.WithValue`](https://pkg.go.dev/context#WithValue) help get & set request-scoped values
@@ -39,12 +40,12 @@
 
 # Idioms
 1. Context is safe for simultaneous use by multiple goroutines
-1. Context is the first argument, named `ctx`
-1. Every `func` on the path between incoming and outgoing request accepts `ctx` as 1st argument
-1. Always set a deadline for calling external systems (eg. database, http, grpc, kafka, ...)
+1. Context is the **first** `func` argument, named `ctx`
+1. Every `func` on the path between incoming and outgoing request accepts `ctx` as first argument
+1. Always set a [deadline](https://pkg.go.dev/context#WithDeadline) for calling external systems (eg. database, http, grpc, kafka, ...)
 1. Prefer [`context.WithDeadline`](https://pkg.go.dev/context#WithDeadline) to [~~`context.WithTimeout`~~](https://pkg.go.dev/context#WithTimeout)
     1. ~~[`WithTimeout`](https://cs.opensource.google/go/go/+/refs/tags/go1.18.3:src/context/context.go;l=506)~~ hard-codes [`time.Now()`](https://cs.opensource.google/go/go/+/refs/tags/go1.18.3:src/context/context.go;l=507), makes testing harder (eg. cannot inject clock)
-    1. ~~`WithTimeout`~~ is just a wrapper around `WithDeadline`
+    1. ~~`WithTimeout`~~ is just a wrapper around [`WithDeadline`](https://pkg.go.dev/context#WithDeadline)
 1. Pass `ctx` to sql calls (So deadline/timeout/cancellation works)
     1. [`conn.PingContext`](https://pkg.go.dev/database/sql#Conn.PingContext)
     1. [`conn.PrepareContext`](https://pkg.go.dev/database/sql#Conn.PrepareContext)
@@ -52,11 +53,11 @@
     1. [`stmt.ExecContext`](https://pkg.go.dev/database/sql#Stmt.ExecContext)
     1. [`stmt.QueryContext`](https://pkg.go.dev/database/sql#Stmt.QueryContext)
     1. [`stmt.QueryRowContext`](https://pkg.go.dev/database/sql#Stmt.QueryRowContext)
-1. `context.Value()` is **not** a replacement for func arguments
+1. `context.Value()` is **not** a replacement for `func` arguments
 1. [Do **NOT** pass `nil` context](https://pkg.go.dev/context#pkg-overview)
     1. [Stated repeatedly in official docs](https://pkg.go.dev/context#WithValue)
 1. Contexts are "mostly" immutable
-    1. Only `ctx.Done` `channel` contents can change
+    1. Only `ctx.Done()` and `channel` contents can change
     1. Context methods return a copy
 
 
@@ -102,7 +103,7 @@ func ShowTimeoutUsage(
 
 
 ## Example: Cancel aware task
-1. handles cancellation, timeout, deadline expiration
+1. To handle cancellation, timeout, deadline expiration
 ```go
 type FooResult int // or a struct with both result & error
 
