@@ -283,7 +283,7 @@ In `wire.go`:
 - TODO: providerSets for grouping example
 
 
-# Generate (Running wire)
+# Generate (Running `wire` binary)
 ```sh
 DIR_CONTAINING_WIRE_DOT_GO=/path/to/cmd/run-server;
 wire $DIR_CONTAINING_WIRE_DOT_GO;
