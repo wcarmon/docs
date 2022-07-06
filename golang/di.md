@@ -82,42 +82,98 @@ func main() {
 
 
 # Patterns
+## Inject: Interface, Given: Provider func
+```go
+type Cheese interface {
+	// ... methods here ...
+}
 
-## Inject: **Interface**, Given: **Concrete type**
+// Implements Cheese
+type brie struct {
+	// ... fields here ...
+}
+
+// Provider func
+func NewBrie() *brie {
+	return ...
+}
+
+// add methods to brie (to implement Cheese)
+```
+In `wire.go`:
+```go
+...
+	panic(wire.Build(
+		// Provider for impl
+		NewBrie,
+
+		// Bind impl to interface
+		wire.Bind(new(Cheese), new(*brie)),
+
+		// appObjects references Cheese
+		wire.Struct(new(appObjects), "*"),
+	))
+```
+
+
+## Inject: Interface, Given: Concrete type
+```go
+//TODO
+```
+In `wire.go`:
 ```go
 //TODO
 ```
 
-## Inject: **Interface**, Given: **Provider func**
+
+
+## Inject: Interface, Given: Interface func
 ```go
 //TODO
 ```
-
-## Inject: **Interface**, Given: **Interface func**
-```go
-//TODO
-```
-
-
-## Inject: **Concrete type pointer**, Given: **Provider func**
+In `wire.go`:
 ```go
 //TODO
 ```
 
 
-## Inject: **Concrete type pointer**, Given: **Concrete type**
+## Inject: Concrete type pointer, Given: Provider func
 ```go
 //TODO
 ```
+In `wire.go`:
+```go
+//TODO
+```
+
+
+## Inject: Concrete type pointer, Given: Concrete type
+```go
+//TODO
+```
+In `wire.go`:
+```go
+//TODO
+```
+
 
 
 ## Inject: **Concrete type**, Given: **Provider func**
 ```go
 //TODO
 ```
+In `wire.go`:
+```go
+//TODO
+```
+
 
 
 ## Inject: **Concrete type**, Given: **Concrete type**
+```go
+//TODO
+```
+In `wire.go`:
 ```go
 //TODO
 ```
