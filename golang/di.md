@@ -270,6 +270,20 @@ In `wire.go`:
 	))
 ```
 
+## Inject: Concrete type, Given: Concrete instance
+```go
+type DbUser string
+```
+In `wire.go`:
+```go
+...
+	panic(wire.Build(
+		wire.Value(DbUser("dbUser1")),
+
+		// appObjects references DbUser (not a pointer)
+		wire.Struct(new(appObjects), "*"),
+	))
+```
 
 
 ## Inject: Concrete type, Given: Concrete type
