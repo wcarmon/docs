@@ -10,6 +10,7 @@
     1. eg. `context.Background()` is never cancelled
 1. HTTP Server: [automatically cancels](https://pkg.go.dev/net/http#Request.Context) context when connection closed
 1. HTTP Client: Use [`http.NewRequestWithContext`](https://pkg.go.dev/net/http#NewRequestWithContext) or [`req.WithContext`](https://pkg.go.dev/net/http#Request.WithContext) to handle cancellation
+1. Cancellation is cooperative, cancellation does **NOT** kill a goroutine
 
 
 # Idioms
@@ -22,14 +23,14 @@
 ## Example: Cancel manually
 ```go
 func foo() {
-    ...
     parentCtx := context.Background()
+    ...
 
     ctx, cancel = context.WithCancel(parentCtx)
     defer cancel() // Guarantee child cancellation
 
-    // pass ctx to another func, or use with another pattern below
-    // (eg. pass to http client, grpc client, sql client, kafka, rabbitmq, ...)
+    // pass ctx to another func or use below
+    // (eg. pass to http client, grpc client, sql client, kafka, rabbitmq client, ...)
 }
 ```
 
@@ -42,14 +43,14 @@ func DoSomeExpensiveIO(ctx context.Context) (FooResult, error) {
 
 	// result of "real" call goes into channel
 	// sender not blocked since buffer is 1
-	resultChan := make(chan FooResult, 1)
+	resultCh := make(chan FooResult, 1)
 
 	go func() {
 		// send returned result to channel
-		resultChan <- doRealIOWork()
+		resultCh <- doRealIOWork()
 
 		// -- alternative: func writes result to channel (instead of returning)
-		// doRealIOWork(resultChan)
+		// doRealIOWork(resultCh)
 	}()
 
 	// wait for first of [a result] or [cancellation/timeout]
@@ -57,7 +58,7 @@ func DoSomeExpensiveIO(ctx context.Context) (FooResult, error) {
 	case <-ctx.Done():
 		return 0, ctx.Err()
 
-	case out := <-resultChan:
+	case out := <-resultCh:
 		return out, nil
 	}
 }
@@ -65,4 +66,7 @@ func DoSomeExpensiveIO(ctx context.Context) (FooResult, error) {
 
 
 # Other resources
-1. TODO
+1. https://go.dev/doc/database/cancel-operations
+1. https://www.prakharsrivastav.com/posts/golang-context-and-cancellation/
+1. https://www.sohamkamani.com/golang/context-cancellation-and-values/
+1. https://medium.com/a-journey-with-go/go-context-and-cancellation-by-propagation-7a808bbc889c
