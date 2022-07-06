@@ -220,16 +220,6 @@ In `wire.go`:
 ```
 
 
-## Inject: Concrete type pointer, Given: Concrete type
-```go
-//TODO
-```
-In `wire.go`:
-```go
-//TODO
-```
-
-
 ## Inject: Concrete type pointer, Given: Concrete instance
 ```go
 type brie struct {
@@ -249,6 +239,9 @@ In `wire.go`:
 	))
 ```
 
+
+## Inject: Concrete type pointer, Given: Concrete type
+1. not possible, use pattern for `Given: Concrete instance` or `Given: Provider func`
 
 
 ## Inject: Concrete type, Given: Provider func
