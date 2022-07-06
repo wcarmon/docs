@@ -230,6 +230,26 @@ In `wire.go`:
 ```
 
 
+## Inject: Concrete type pointer, Given: Concrete instance
+```go
+type brie struct {
+	// ... fields here ...
+}
+```
+In `wire.go`:
+```go
+...
+	panic(wire.Build(
+		wire.Value(&brie{
+			// ... fields here ...
+		}),
+
+		// appObjects references Cheese
+		wire.Struct(new(appObjects), "*"),
+	))
+```
+
+
 
 ## Inject: Concrete type, Given: Provider func
 ```go
