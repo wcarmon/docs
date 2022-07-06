@@ -145,6 +145,7 @@ fmt.Printf("Data: %#v\n", m)
 
 # Custom keys
 1. structs can only be keys if **all** [its fields are comparable](https://xgo.dev/ref/spec#Comparison_operators)
+    1. eg. `url.URL` works as a key
 
 
 # Idioms
