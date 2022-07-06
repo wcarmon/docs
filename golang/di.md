@@ -169,7 +169,6 @@ In `wire.go`:
 
 
 ## Inject: Interface, Given: Concrete instance
-- Implies you are using global variables (only recommended for constants)
 - Use [`wire.Value`](https://github.com/google/wire/blob/main/wire.go#L130) + [`wire.Bind`](https://github.com/google/wire/blob/main/wire.go#L113)
 ```go
 type Cheese interface {
@@ -180,16 +179,14 @@ type Cheese interface {
 type brie struct {
 	// ... fields here ...
 }
-
-// concrete instance
-var b = brie{ /* ...fields here... */ }
 ```
 In `wire.go`:
 ```go
 ...
 	panic(wire.Build(
 		// Provider for impl
-		wire.Value(b),
+		wire.Value(
+		    brie{ /* ...fields here... */ }),
 
 		// Bind impl to interface
 		wire.Bind(new(Cheese), &b),
