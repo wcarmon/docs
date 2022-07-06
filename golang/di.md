@@ -234,23 +234,40 @@ In `wire.go`:
 			// ... fields here ...
 		}),
 
-		// appObjects references Cheese
+		// appObjects references *brie
 		wire.Struct(new(appObjects), "*"),
 	))
 ```
 
 
 ## Inject: Concrete type pointer, Given: Concrete type
-1. not possible, use pattern for `Given: Concrete instance` or `Given: Provider func`
+1. not supported
+1. use patterns above for [`Given: Concrete instance`](TODO) or [`Given: Provider func`](TODO)
 
 
 ## Inject: Concrete type, Given: Provider func
 ```go
-//TODO
+type DbUrl url.URL
+
+// provider func
+func NewDbUrl() (DbUrl, error) {
+	u, err := url.Parse("...")
+	if err != nil {
+		...
+	}
+
+	return DbUrl(*u), nil
+}
 ```
 In `wire.go`:
 ```go
-//TODO
+...
+	panic(wire.Build(
+		NewDbUrl,
+
+		// appObjects references DbUrl (not a pointer)
+		wire.Struct(new(appObjects), "*"),
+	))
 ```
 
 
