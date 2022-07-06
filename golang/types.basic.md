@@ -39,6 +39,12 @@ type T2 T1
 1. See [Language Spec](https://go.dev/ref/spec#Type_declarations)
 K
 
+# Conversions
+1. Other languages call this casting
+1. Conversion with pointer may require extra parentheses
+    1. See [Official doc](https://go.dev/ref/spec#Conversions)
+
+
 # Idioms
 - TODO ...
 
