@@ -34,7 +34,7 @@ c3 := make(chan string, 5)
 
 
 # Buffering: buffered channel
-- TODO
+- Buffer size == how many values to accept without a receiver
 
 
 # Sender
@@ -57,6 +57,8 @@ responseCodeCh <- 200
 ```go
 //TODO
 ```
+1. You can also use [`select`](https://go.dev/ref/spec#Select_statements) + [`default`](https://gobyexample.com/non-blocking-channel-operations) for non-blocking
+
 - TODO: range
 
 
