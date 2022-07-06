@@ -223,11 +223,24 @@ In `wire.go`:
 
 ## Inject: Concrete type, Given: Provider func
 ```go
-//TODO
+type brie struct {
+	// ... fields here ...
+}
+
+// Provider func
+func NewBrie() (*brie, error) {
+	return ...
+}
 ```
 In `wire.go`:
 ```go
-//TODO
+...
+	panic(wire.Build(
+		NewBrie,
+
+		// appObjects references Cheese
+		wire.Struct(new(appObjects), "*"),
+	))
 ```
 
 
