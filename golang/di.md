@@ -120,7 +120,7 @@ wire.Build(
     ...)
 ```
 
-## Need: any type, Have: instance
+## Need: instance, Have: instance
 - Use `wire.Value`
 ```go
 var co Cotija
