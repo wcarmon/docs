@@ -43,8 +43,8 @@
 1. Every `func` on the path between incoming and outgoing request accepts `ctx` as 1st argument
 1. Always set a deadline for calling external systems (eg. database, http, grpc, kafka, ...)
 1. Prefer [`context.WithDeadline`](https://pkg.go.dev/context#WithDeadline) to [~~`context.WithTimeout`~~](https://pkg.go.dev/context#WithTimeout)
-    1. [`WithTimeout`](https://cs.opensource.google/go/go/+/refs/tags/go1.18.3:src/context/context.go;l=506) hard-codes [`time.Now()`](https://cs.opensource.google/go/go/+/refs/tags/go1.18.3:src/context/context.go;l=507), makes testing harder (eg. cannot inject clock)
-    1. `WithTimeout` is just a wrapper around `WithDeadline`
+    1. ~~[`WithTimeout`](https://cs.opensource.google/go/go/+/refs/tags/go1.18.3:src/context/context.go;l=506)~~ hard-codes [`time.Now()`](https://cs.opensource.google/go/go/+/refs/tags/go1.18.3:src/context/context.go;l=507), makes testing harder (eg. cannot inject clock)
+    1. ~~`WithTimeout`~~ is just a wrapper around `WithDeadline`
 1. Pass `ctx` to sql calls (So deadline/timeout/cancellation works)
     1. [`conn.PingContext`](https://pkg.go.dev/database/sql#Conn.PingContext)
     1. [`conn.PrepareContext`](https://pkg.go.dev/database/sql#Conn.PrepareContext)
