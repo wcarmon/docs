@@ -116,7 +116,7 @@ In `wire.go`:
 
 
 ## Inject: Interface, Given: Concrete type
-- Use [`wire.InterfaceValue`](TODO)
+- Use [`wire.InterfaceValue`](https://github.com/google/wire/blob/0675cdc9191c85b3aeb6bc2529e7e28263d7e202/wire.go#L142)
 ```go
 type Cheese interface {
 	// ... methods here ...
@@ -242,7 +242,7 @@ In `wire.go`:
 
 ## Inject: Concrete type pointer, Given: Concrete type
 1. not supported
-1. use patterns above for [`Given: Concrete instance`](TODO) or [`Given: Provider func`](TODO)
+1. use patterns above for [`Given: Concrete instance`](./di.md#inject-concrete-type-pointer-given-concrete-instance) or [`Given: Provider func`](TODO)
 
 
 ## Inject: Concrete type, Given: Provider func
@@ -273,87 +273,11 @@ In `wire.go`:
 
 
 ## Inject: Concrete type, Given: Concrete type
-```go
-//TODO
-```
-In `wire.go`:
-```go
-//TODO
-```
+1. not supported
+1. use patterns above for [`Given: Concrete instance`](TODO) or [`Given: Provider func`](TODO)
 
 
-
-
----------------------------------------
-
-
-
-## Need: interface, Have: concrete type provider func
-- Use `wire.InterfaceValue(new(TheInterface), impl)`
-- Given:
-```go
-type Cheese interface
-
-var myMozzarella Cheese
-
-func NewTaco(c *Cheese) (*taco, error) { ... }
-```
-- In `wire.go`
-```
-wire.Build(
-    NewTaco,
-    wire.InterfaceValue(new(Cheese), myMozzarella),
-    ...)
-```
-
-## Need: interface, Have: implementing type
-- Add provider for concrete type, then
-- Use `wire.Bind(new(TheInterface), new(*TheImplType))` to bind concrete type to interface
-```go
-type Cheese interface {}
-
-// Cheddar implements Cheese
-type Cheddar struct {}
-
-func NewTaco(c Cheese) (*Taco, error) { ... }
-```
-- In `wire.go`
-```
-panic(wire.Build(
-    NewTaco,
-    wire.Bind(new(Cheese), new(*Cheddar)),
-    ...))
-```
-
-## Need: concrete type, Have: instance
-- Use `wire.Value`
-```go
-var co Cotija
-
-func NewTaco(c Cotija) (*taco, error) { ... }
-```
-- In `wire.go`
-```
-panic(wire.Build(
-    NewTaco,
-    wire.Value(co),
-))
-```
-
-## Need: instance, Have: Factory func (Provider)
-- Pass Provider directly to `wire.Build(...)`
-```go
-func NewTomato() (*Tomato, error) { ... }
-
-func NewTaco(t Tomato) (*taco, error) { ... }
-```
-- In `wire.go`
-```
-panic(wire.Build(
-    NewTaco,
-    NewTomato))
-```
-
+# TODO
 - TODO: wire.FieldsOf example
 - TODO: cleanup function example
 - TODO: providerSets for grouping example
