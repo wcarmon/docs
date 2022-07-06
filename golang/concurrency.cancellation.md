@@ -11,6 +11,7 @@
 1. HTTP Server: [automatically cancels](https://pkg.go.dev/net/http#Request.Context) context when connection closed
 1. HTTP Client: Use [`http.NewRequestWithContext`](https://pkg.go.dev/net/http#NewRequestWithContext) or [`req.WithContext`](https://pkg.go.dev/net/http#Request.WithContext) to handle cancellation
 1. Cancellation is cooperative, cancellation does **NOT** kill a goroutine
+1. `go vet` [checks that CancelFuncs](https://pkg.go.dev/cmd/vet#pkg-overview) are used on all control-flow paths.
 
 
 # Idioms
