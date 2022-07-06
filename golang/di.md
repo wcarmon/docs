@@ -347,7 +347,6 @@ In `wire.go`:
 1. Use Provider func
 
 
-
 # TODO
 - TODO: wire.FieldsOf example
 - TODO: cleanup function example
