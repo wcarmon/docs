@@ -95,7 +95,6 @@ func ShowTimeoutUsage(
 1. [Official example](https://pkg.go.dev/context#example-WithDeadline)
 
 
-
 ## Example: Request-scoped ID
 1. [TraceId](https://pkg.go.dev/go.opentelemetry.io/otel/trace#TraceID)/[SpanID](https://pkg.go.dev/go.opentelemetry.io/otel/trace#SpanID) for [OpenTelemetry](https://opentelemetry.io/docs/instrumentation/go/) or [OpenTracing](https://pkg.go.dev/github.com/opentracing/opentracing-go) work the same way
 1. Any [comparable](https://go.dev/ref/spec#Comparison_operators) type works as a context key
@@ -159,6 +158,7 @@ func FromRequest(r *http.Request) (Id, bool) {
 
 ## Example: gRPC client
 1. See [gRPC client](./io.grpc.client.md) doc
+
 
 ## Example: gRPC server
 1. See [gRPC server](./io.grpc.server.md) doc

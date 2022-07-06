@@ -8,6 +8,8 @@
 1. [Parent `context` cancels children](https://cs.opensource.google/go/go/+/refs/tags/go1.18.3:src/context/context.go;l=16) (Propagation)
     1. child `context` does **NOT** cancel parent `context`
     1. eg. `context.Background()` is never cancelled
+1. HTTP Server: [automatically cancels](https://pkg.go.dev/net/http#Request.Context) context when connection closed
+1. HTTP Client: Use [`http.NewRequestWithContext`](https://pkg.go.dev/net/http#NewRequestWithContext) or [`req.WithContext`](https://pkg.go.dev/net/http#Request.WithContext) to handle cancellation
 
 
 # Idioms
