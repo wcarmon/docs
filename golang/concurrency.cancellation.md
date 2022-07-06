@@ -14,7 +14,7 @@
 
 # Idioms
 1. Always call `cancel()` in `defer` statement
-1. Always call `cancel()` func returned by [`WithDeadline`](https://pkg.go.dev/context#WithDeadline)
+1. Always call `cancel()` func returned by [`WithDeadline`](https://pkg.go.dev/context#WithDeadline) or [`WithCancel`](https://pkg.go.dev/context#WithCancel)
 
 
 # Examples
