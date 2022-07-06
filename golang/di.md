@@ -97,8 +97,6 @@ type brie struct {
 func NewBrie() *brie {
 	return ...
 }
-
-// add methods to brie (to implement Cheese)
 ```
 In `wire.go`:
 ```go
@@ -110,7 +108,7 @@ In `wire.go`:
 		// Bind impl to interface
 		wire.Bind(new(Cheese), new(*brie)),
 
-		// appObjects references Cheese
+		// appObjects references Cheese (interface)
 		wire.Struct(new(appObjects), "*"),
 	))
 ```
@@ -122,11 +120,10 @@ type Cheese interface {
 	// ... methods here ...
 }
 
+// Implements Cheese
 type brie struct {
 	// ... fields here ...
 }
-
-// add methods to brie (to implement Cheese)
 ```
 In `wire.go`:
 ```go
@@ -134,7 +131,7 @@ In `wire.go`:
 	panic(wire.Build(
 		wire.InterfaceValue(new(Cheese), new(*brie)),
 
-		// appObjects references Cheese
+		// appObjects references Cheese (interface)
 		wire.Struct(new(appObjects), "*"),
 	))
 ```
@@ -146,11 +143,10 @@ type Cheese interface {
 	// ... methods here ...
 }
 
+// Implements Cheese
 type brie struct {
 	// ... fields here ...
 }
-
-// add methods to brie (to implement Cheese)
 
 // interface builder func
 func NewCheese() (Cheese, error) {
@@ -163,7 +159,7 @@ In `wire.go`:
 	panic(wire.Build(
 		NewCheese,
 
-		// appObjects references Cheese
+		// appObjects references Cheese (interface)
 		wire.Struct(new(appObjects), "*"),
 	))
 ```
@@ -176,11 +172,10 @@ type Cheese interface {
 	// ... methods here ...
 }
 
+// Implements Cheese
 type brie struct {
 	// ... fields here ...
 }
-
-// add methods to brie (to implement Cheese)
 
 // concrete instance
 var b = brie{ /* ...fields here... */ }
@@ -195,7 +190,7 @@ In `wire.go`:
 		// Bind impl to interface
 		wire.Bind(new(Cheese), &b),
 
-		// appObjects references Cheese
+		// appObjects references Cheese (interface)
 		wire.Struct(new(appObjects), "*"),
 	))
 ```
