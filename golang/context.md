@@ -59,6 +59,7 @@
 1. Contexts are "mostly" immutable
     1. Only `ctx.Done()` and `channel` contents can change
     1. Context methods return a copy
+1. [Official code review feedback](https://github.com/golang/go/wiki/CodeReviewComments#contexts)
 
 
 # Examples
@@ -169,3 +170,4 @@ func FromRequest(r *http.Request) (Id, bool) {
 1. https://pkg.go.dev/context
 1. https://www.digitalocean.com/community/tutorials/how-to-use-contexts-in-go
 1. http://p.agnihotry.com/post/understanding_the_context_package_in_golang/
+1. https://github.com/golang/go/wiki/CodeReviewComments#contexts

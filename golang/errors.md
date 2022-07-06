@@ -50,6 +50,7 @@ func doWhatever() error {
 1. [errors are just values](https://go.dev/blog/errors-are-values)
 1. Almost any type can implement [error](https://pkg.go.dev/errors)
 1. Minimize usage of `panic`
+1. [Official code review feedback](https://github.com/golang/go/wiki/CodeReviewComments#error-strings)
 
 
 # Official examples

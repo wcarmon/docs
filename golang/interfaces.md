@@ -29,6 +29,8 @@ TODO: runtime checks for interfaces like Marshaler
 
 
 # Idioms
+1. interfaces generally belong in the package that **uses** values of the interface type, not the package that implements those values
+    1. https://github.com/golang/go/wiki/CodeReviewComments#interfaces
 1. Prefer built-in/core interfaces
 1. Prefer defining interfaces **where they are used**
 1. Prefer accepting an interface over a concrete type
