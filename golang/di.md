@@ -291,6 +291,69 @@ In `wire.go`:
 1. use patterns above for [`Given: Concrete instance`](TODO) or [`Given: Provider func`](TODO)
 
 
+## Inject: func (literal), Given: Provider func
+```go
+func NewTimeProvider() func() time.Time {
+	return func() time.Time {
+		return time.Now()
+	}
+}
+
+type appObjects struct {
+	Clock func() time.Time
+	...
+}
+```
+In `wire.go`:
+```go
+...
+	panic(wire.Build(
+		NewTimeProvider,
+
+		// appObjects references: func() time.Time
+		wire.Struct(new(appObjects), "*"),
+	))
+```
+
+
+## Inject: func (literal), Given: Concrete instance (literal)
+1. not supported
+1. Use Provider func
+
+
+## Inject: func (custom type), Given: Provider func
+```go
+type TimeProvider func() time.Time
+
+func NewTimeProvider() TimeProvider {
+	return func() time.Time {
+		return time.Now()
+	}
+}
+
+type appObjects struct {
+	Clock TimeProvider
+	...
+}
+```
+In `wire.go`:
+```go
+...
+	panic(wire.Build(
+		NewTimeProvider,
+
+		// appObjects references: TimeProvider
+		wire.Struct(new(appObjects), "*"),
+	))
+```
+
+
+## Inject: func (custom type), Given: Concrete instance
+```go
+//TODO
+```
+
+
 # TODO
 - TODO: wire.FieldsOf example
 - TODO: cleanup function example
