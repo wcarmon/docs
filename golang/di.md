@@ -83,6 +83,7 @@ func main() {
 
 # Patterns
 ## Inject: Interface, Given: Provider func
+- Use provider + [`wire.Bind`](https://github.com/google/wire/blob/main/wire.go#L113)
 ```go
 type Cheese interface {
 	// ... methods here ...
@@ -115,6 +116,7 @@ In `wire.go`:
 
 
 ## Inject: Interface, Given: Concrete type
+- Use [`wire.InterfaceValue`](TODO)
 ```go
 type Cheese interface {
 	// ... methods here ...
@@ -138,6 +140,7 @@ In `wire.go`:
 
 
 ## Inject: Interface, Given: Interface func
+- Just use Provider
 ```go
 type Cheese interface {
 	// ... methods here ...
@@ -167,6 +170,7 @@ In `wire.go`:
 
 ## Inject: Interface, Given: Concrete instance
 - Implies you are using global variables (only recommended for constants)
+- Use [`wire.Value`](https://github.com/google/wire/blob/main/wire.go#L130) + [`wire.Bind`](https://github.com/google/wire/blob/main/wire.go#L113)
 ```go
 type Cheese interface {
 	// ... methods here ...
