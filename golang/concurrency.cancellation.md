@@ -2,8 +2,6 @@
 1. How to handle cancellation
 1. See also [context](./context.md) doc
 
-[TOC]
-
 
 # Key Concepts
 1. Use [`context`](./context.md) for cancellation
