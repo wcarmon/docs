@@ -316,11 +316,6 @@ In `wire.go`:
 ```
 
 
-## Inject: func (literal), Given: Concrete instance (literal)
-1. not supported
-1. Use Provider func
-
-
 ## Inject: func (custom type), Given: Provider func
 ```go
 type TimeProvider func() time.Time
@@ -347,11 +342,10 @@ In `wire.go`:
 	))
 ```
 
+## Inject: func (literal or custom type), Given: Concrete instance (literal)
+1. not supported
+1. Use Provider func
 
-## Inject: func (custom type), Given: Concrete instance
-```go
-//TODO
-```
 
 
 # TODO
