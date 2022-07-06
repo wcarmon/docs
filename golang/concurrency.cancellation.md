@@ -2,6 +2,8 @@
 1. How to handle cancellation
 1. See also [context](./context.md) doc
 
+[TOC]
+
 
 # Key Concepts
 1. Use [`context`](./context.md) for cancellation
@@ -26,7 +28,7 @@ func foo() {
     parentCtx := context.Background()
     ...
 
-    ctx, cancel = context.WithCancel(parentCtx)
+    ctx, cancel = context.WithCancel(parentCtx) // WithDeadline is similar
     defer cancel() // Guarantee child cancellation
 
     // pass ctx to another func or use below
