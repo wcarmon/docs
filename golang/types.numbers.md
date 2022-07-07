@@ -31,9 +31,19 @@ n := 0xFF		// 255
 |`int` | at least 32-bits, but not an alias for `int32`|
 |`uint` | TODO ...|
 
-- TODO: floating
+# Floating
+1. [`float64`](https://go.dev/ref/spec#Numeric_types) can represent about **16 decimal digits**.
+    1. same as java [`double`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html) ([IEEE 754](https://en.wikipedia.org/wiki/IEEE_754-1985))
+    1. See https://en.wikipedia.org/wiki/IEEE_754-1985
+1. [`float32`](https://go.dev/ref/spec#Numeric_types) can represent about **7 decimal digits**
 
-## Complex/Imaginary numbers
+# big
+1. [`big.Float`](https://pkg.go.dev/math/big) use string in json for unmarshaling/marshaling
+1. Prefer `*big.Float` (pointer) for fields in structs (simplifies json)
+1. Printing: `fmt.Printf("big.Float: %s\n", myBigFloat.Text('f', 20))` <-- 20 decimal places
+
+
+# Complex/Imaginary numbers
 1. See [Official docs](https://go.dev/ref/spec#Imaginary_literals)
 - TODO: more here
 - `complex128`

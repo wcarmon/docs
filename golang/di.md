@@ -337,7 +337,7 @@ In `wire.go`:
 	panic(wire.Build(
 		NewTimeProvider,
 
-		// appObjects references: TimeProvider
+		// appObjects references TimeProvider
 		wire.Struct(new(appObjects), "*"),
 	))
 ```
