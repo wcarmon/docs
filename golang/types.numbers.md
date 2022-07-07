@@ -37,10 +37,14 @@ n := 0xFF		// 255
     1. See https://en.wikipedia.org/wiki/IEEE_754-1985
 1. [`float32`](https://go.dev/ref/spec#Numeric_types) can represent about **7 decimal digits**
 
-# big
-1. [`big.Float`](https://pkg.go.dev/math/big) use string in json for unmarshaling/marshaling
-1. Prefer `*big.Float` (pointer) for fields in structs (simplifies json)
-1. Printing: `fmt.Printf("big.Float: %s\n", myBigFloat.Text('f', 20))` <-- 20 decimal places
+# [`big.Float`](https://pkg.go.dev/math/big)
+1. Use `string` in json, `"3.1e+08"` syntax works
+1. Prefer pointer for for fields in structs `*big.Float`
+    1. simplifies json
+    1. simplifies printing
+1. Printing:
+    - `fmt.Printf("%s\n", myBigFloat.Text('f', 20))` <-- 20 decimal places
+    - `fmt.Printf("%g\n", myBigFloat)`
 
 
 # Complex/Imaginary numbers
