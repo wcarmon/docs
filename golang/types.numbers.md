@@ -53,6 +53,29 @@ n := 0xFF		// 255
 1. Printing:
     - `fmt.Printf("%s\n", myBigFloat.Text('f', 20))` <-- 20 decimal places
     - `fmt.Printf("%g\n", myBigFloat)`
+1. Flexible json unmarshaling:
+```go
+	var f = new(big.Float)
+
+	switch amt := rawAmount.(type) {
+	case int8:
+		f.SetInt64(int64(amt))
+	case int16:
+		f.SetInt64(int64(amt))
+	case int32:
+		f.SetInt64(int64(amt))
+	case int64:
+		f.SetInt64(amt)
+	case float32:
+		f.SetFloat64(float64(amt))
+	case float64:
+		f.SetFloat64(amt)
+	case string:
+		f.SetString(amt)
+	default:
+		return fmt.Errorf("TODO: handle type: %T", amt)
+	}
+```
 
 
 # Complex/Imaginary numbers
