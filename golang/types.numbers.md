@@ -31,11 +31,19 @@ n := 0xFF		// 255
 |`int` | at least 32-bits, but not an alias for `int32`|
 |`uint` | TODO ...|
 
-# Floating
-1. [`float64`](https://go.dev/ref/spec#Numeric_types) can represent about **16 decimal digits**.
+# Floating point
+1. [`float64`](https://go.dev/ref/spec#Numeric_types)
+    1. can represent about **16 decimal digits**.
+    1. same as rust [`f64`](https://doc.rust-lang.org/std/primitive.f64.html)
     1. same as java [`double`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html) ([IEEE 754](https://en.wikipedia.org/wiki/IEEE_754-1985))
+    1. same as c++ [`double`](https://en.cppreference.com/w/cpp/language/types)
+    1. same as dart [`double`](https://api.dart.dev/stable/2.17.5/dart-core/double-class.html)
     1. See https://en.wikipedia.org/wiki/IEEE_754-1985
-1. [`float32`](https://go.dev/ref/spec#Numeric_types) can represent about **7 decimal digits**
+1. [`float32`](https://go.dev/ref/spec#Numeric_types)
+    1. can represent about **7 decimal digits**
+    1. same as rust [`f32`](https://doc.rust-lang.org/std/primitive.f32.html)
+    1. same as java [`float`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Float.html)
+
 
 # [`big.Float`](https://pkg.go.dev/math/big)
 1. Use `string` in json, `"3.1e+08"` syntax works
