@@ -36,8 +36,41 @@ func teardown() {
 - TODO: test deadlines
 - TODO: explain t.Errorf
 - TODO: using reflect.DeepEqual to compare structs - https://pkg.go.dev/reflect#DeepEqual
-- TODO: testdata dir (not fixtures)  <-- examples from official
 - TODO: got & want  (not expected & actual)  <-- examples from official
+
+
+# Fixtures & testdata
+1. Use `testdata` directory in the package
+1. Official examples (70+)
+    - [archive/tar/testdata](https://go.dev/src/archive/tar/testdata)
+    - [archive/zip/testdata](https://go.dev/src/archive/zip/testdata)
+    - [compress/bzip2/testdata](https://go.dev/src/compress/bzip2/testdata)
+    - [compress/flate/testdata](https://go.dev/src/compress/flate/testdata)
+    - [compress/gzip/testdata](https://go.dev/src/compress/gzip/testdata)
+    - [compress/testdata](https://go.dev/src/compress/testdata)
+    - [crypto/ecdsa/testdata](https://go.dev/src/crypto/ecdsa/testdata)
+    - [crypto/ed25519/testdata](https://go.dev/src/crypto/ed25519/testdata)
+    - [crypto/rsa/testdata](https://go.dev/src/crypto/rsa/testdata)
+    - [crypto/tls/testdata](https://go.dev/src/crypto/tls/testdata)
+    - [crypto/x509/testdata](https://go.dev/src/crypto/x509/testdata)
+    - [encoding/json/testdata](https://go.dev/src/encoding/json/testdata)
+    - [html/template/testdata](https://go.dev/src/html/template/testdata)
+    - [image/png/testdata](https://go.dev/src/image/png/testdata)
+    - [image/testdata](https://go.dev/src/image/testdata)
+    - [io/ioutil/testdata](https://go.dev/src/io/ioutil/testdata)
+    - [mime/multipart/testdata](https://go.dev/src/mime/multipart/testdata)
+    - [mime/testdata](https://go.dev/src/mime/testdata)
+    - [net/http/testdata](https://go.dev/src/net/http/testdata)
+    - [net/testdata](https://go.dev/src/net/testdata)
+    - [os/testdata](https://go.dev/src/os/testdata)
+    - [regexp/testdata](https://go.dev/src/regexp/testdata)
+    - [runtime/pprof/testdata](https://go.dev/src/runtime/pprof/testdata)
+    - [runtime/race/testdata](https://go.dev/src/runtime/race/testdata)
+    - [runtime/testdata](https://go.dev/src/runtime/testdata)
+    - [strconv/testdata](https://go.dev/src/strconv/testdata)
+    - [testdata](https://go.dev/src/testdata)
+    - [text/template/testdata](https://go.dev/src/text/template/testdata)
+    - [time/testdata](https://go.dev/src/time/testdata)
 
 
 
