@@ -28,7 +28,7 @@ func teardown() {
 
 # Fixtures & testdata
 1. Use `testdata` directory in the package
-1. Official examples (70+)
+1. Official examples (There are 70+ examples)
     - [archive/tar/testdata](https://go.dev/src/archive/tar/testdata)
     - [archive/zip/testdata](https://go.dev/src/archive/zip/testdata)
     - [compress/bzip2/testdata](https://go.dev/src/compress/bzip2/testdata)
