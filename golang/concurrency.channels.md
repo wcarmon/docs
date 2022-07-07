@@ -89,8 +89,6 @@ func mySender(sink chan<- bool) {
 TODO: more here
 
 
-
-
 # `select` block
 TODO
 TODO: https://www.golang-book.com/books/intro/10
