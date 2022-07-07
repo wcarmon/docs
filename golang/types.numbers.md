@@ -39,7 +39,7 @@ n := 0xFF		// 255
 
 # [`big.Float`](https://pkg.go.dev/math/big)
 1. Use `string` in json, `"3.1e+08"` syntax works
-1. Prefer pointer for for fields in structs: `Foo *big.Float \`json:"foo"\``
+1. Prefer pointer for for fields in structs: `Foo *big.Float ``json:"foo"`` `
     1. simplifies json
     1. simplifies printing
 1. Printing:
