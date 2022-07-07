@@ -42,12 +42,12 @@ func teardown() {
     - [image/testdata](https://go.dev/src/image/testdata)
     - [mime/multipart/testdata](https://go.dev/src/mime/multipart/testdata)
     - [mime/testdata](https://go.dev/src/mime/testdata)
-    - [net/http/testdata](https://go.dev/src/net/http/testdata)
     - [net/testdata](https://go.dev/src/net/testdata)
     - [os/testdata](https://go.dev/src/os/testdata)
     - [regexp/testdata](https://go.dev/src/regexp/testdata)
     - [text/template/testdata](https://go.dev/src/text/template/testdata)
     - [time/testdata](https://go.dev/src/time/testdata)
+
 
 # TODO/Organize these
 - TODO: just link to  https://www.practical-go-lessons.com/chap-19-unit-tests
