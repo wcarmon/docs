@@ -23,20 +23,7 @@ func teardown() {
 
 
 # Failures
-
 - TODO: use t.Errorf() + t.Fail() instead of t.Fatalf since it breaks some parallel things and goland output printing
-
-
-- TODO: just link to  https://www.practical-go-lessons.com/chap-19-unit-tests
-- TODO: explain t.log
-- TODO: explain _test package suffix
-- TODO: explain subtests
-- TODO: explain table driven tests (show examples from sdk sources)
-- TODO: explain t.Parallel
-- TODO: test deadlines
-- TODO: explain t.Errorf
-- TODO: using reflect.DeepEqual to compare structs - https://pkg.go.dev/reflect#DeepEqual
-- TODO: got & want  (not expected & actual)  <-- examples from official
 
 
 # Fixtures & testdata
@@ -72,6 +59,17 @@ func teardown() {
     - [text/template/testdata](https://go.dev/src/text/template/testdata)
     - [time/testdata](https://go.dev/src/time/testdata)
 
+# TODO/Organize these
+- TODO: just link to  https://www.practical-go-lessons.com/chap-19-unit-tests
+- TODO: explain t.log
+- TODO: explain _test package suffix
+- TODO: explain subtests
+- TODO: explain table driven tests (show examples from sdk sources)
+- TODO: explain t.Parallel
+- TODO: test deadlines
+- TODO: explain t.Errorf
+- TODO: using reflect.DeepEqual to compare structs - https://pkg.go.dev/reflect#DeepEqual
+- TODO: got & want  (not expected & actual)  <-- examples from official
 
 
 # Other resources
