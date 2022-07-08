@@ -127,6 +127,9 @@ func (c *appConfig) setDefaults() {
 # Main func
 1. Put this into `main.go` for each command
 ```go
+// Entry point
+// Command line Args:
+// 1. path to app.config.yaml file
 func main() {
 
 	// TODO: setup zerolog here
