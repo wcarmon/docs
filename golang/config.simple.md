@@ -12,6 +12,7 @@ import (
 	"path/filepath"
 )
 
+// structure mirrors the config yaml file
 type appConfig struct {
 
 	// debug, info, warn, error
