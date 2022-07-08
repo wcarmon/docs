@@ -55,6 +55,11 @@ func NewConfig(osArgs OSArgs) (*appConfig, error) {
 		return nil, err
 	}
 
+    // -- Allow env vars to override config file
+	// -- NOTE: use v.AllKeys() to print all available keys (for 1st arg below)
+	//v.BindEnv("db.user", "DB_USER")
+	//v.BindEnv("db.pass", "DB_PASS")
+
 	// -- Store into config struct
 	var c appConfig
 	err = v.Unmarshal(&c)
