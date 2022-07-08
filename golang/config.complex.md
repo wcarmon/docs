@@ -80,7 +80,7 @@ func NewConfig(osArgs OSArgs) (*appConfig, error) {
 	if err != nil {
 	    log.Error().
 	        Err(err).
-	        Msg("Failed to read config using viper")
+	        Msg("failed to read config using viper")
 		return nil, err
 	}
 
@@ -90,7 +90,7 @@ func NewConfig(osArgs OSArgs) (*appConfig, error) {
 	if err != nil {
 	    log.Error().
 	        Err(err).
-	        Msg("Failed to unmarshal config")
+	        Msg("failed to unmarshal config")
 		return nil, err
 	}
 
@@ -180,7 +180,7 @@ func main() {
 		log.Error().
 			Err(err).
 			Str("cfg", fmt.Sprintf("%#v", cfg)).
-			Msg("Failed to parse config")
+			Msg("failed to parse config")
 		os.Exit(1)
 	}
 
