@@ -102,7 +102,7 @@ func NewConfig(osArgs OSArgs) (*appConfig, error) {
 	if err != nil {
 		log.Error().
 			Err(err).
-			Str("config", fmt.Sprintf("%#v", c))
+			Str("config", fmt.Sprintf("%#v", c)).
 			Msg("Config is invalid")
 		return nil, err
 	}
