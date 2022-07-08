@@ -87,12 +87,12 @@ func NewConfig(osArgs OSArgs) (*appConfig, error) {
 	return &c, err
 }
 
-func (cfg appConfig) Validate() error {
-	if strings.TrimSpace(cfg.InputPath) == "" {
+func (c appConfig) Validate() error {
+	if strings.TrimSpace(c.InputPath) == "" {
 		return errors.New("inputPath is required")
 	}
 
-	if strings.TrimSpace(cfg.OutputPath) == "" {
+	if strings.TrimSpace(c.OutputPath) == "" {
 		return errors.New("outputPath is required")
 	}
 

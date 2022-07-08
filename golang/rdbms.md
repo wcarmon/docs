@@ -18,7 +18,7 @@
 type DbConf struct {
     Host string
     Pass string
-    Port uint32
+    Port uint16
     User string
 
     // SELECT datname FROM pg_database;
