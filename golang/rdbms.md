@@ -12,6 +12,39 @@
     1. ...
 
 
+# pgx
+```go
+type DbConf struct {
+    Host string
+    Pass string
+    Port uint32
+    User string
+
+    // SELECT datname FROM pg_database;
+    Name string
+}
+
+func (c *DbConf) ConnStr() string {
+    return fmt.Sprintf("postgres://%s:%s@%s:%d/%s",
+    c.User, c.Pass, c.Host, c.Port, c.Name)
+}
+```
+- Build a conf:
+```
+dbConf := {
+    Host: "localhost",
+    Name: "foo",
+    Pass: os.Getenv("DB_PASS"),
+    Port: 5432,
+    User: "admin",
+}
+
+conn, err := pgx.Connect(ctx, dbConf.ConnStr())
+// handle err
+
+defer conn.close(ctx)
+```
+
 
 # Idioms
 1. TODO
