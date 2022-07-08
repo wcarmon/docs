@@ -65,15 +65,18 @@ func NewConfig(osArgs OSArgs) (*appConfig, error) {
 		defaultConfigFilename,
 		configSearchDirs)
 	if err != nil {
+	    log.Error().
+	        Err(err).
+	        Msg("failed to init viper")
 		return nil, err
 	}
 
 	v.SetConfigType("yaml")
 
-	// -- If you want to accept env vars
-	// v.AutomaticEnv()
-	// v.BindEnv("DB_USER", dbUser)
-	// v.BindEnv("DB_PASS", dbPass)
+    // -- Allow env vars to override config file
+	// -- NOTE: use v.AllKeys() to print all available keys (for 1st arg below)
+	//v.BindEnv("db.user", "DB_USER")
+	//v.BindEnv("db.pass", "DB_PASS")
 
 	// -- Parse config
 	err = v.ReadInConfig()
@@ -171,10 +174,15 @@ func (c *appConfig) setDefaults() {
 # Main func
 1. Put this into `main.go` for each command
 ```go
+// Entry point
+// Command line Args:
+// 1. path to app.config.yaml file
 func main() {
 
 	// TODO: setup zerolog here
 
+    // TODO: if using wire, make this a provider instead
+    // and add wire.Value(OSArgs(os.Args))
 	cfg, err := NewConfig(os.Args)
 	if err != nil {
 		log.Error().
