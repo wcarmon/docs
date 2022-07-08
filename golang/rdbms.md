@@ -14,6 +14,7 @@
 
 # pgx
 ```go
+// fields required to connect to a rdbms
 type DbConf struct {
     Host string
     Pass string
@@ -24,6 +25,8 @@ type DbConf struct {
     Name string
 }
 
+// ConnStr builds a connection string for pgx.
+// see https://pkg.go.dev/github.com/jackc/pgx/v4#hdr-Establishing_a_Connection
 func (c *DbConf) ConnStr() string {
     return fmt.Sprintf("postgres://%s:%s@%s:%d/%s",
     c.User, c.Pass, c.Host, c.Port, c.Name)
