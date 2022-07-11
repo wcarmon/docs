@@ -29,6 +29,8 @@
 1. Avoid [`ParseFiles`](https://pkg.go.dev/text/template#Template.ParseFiles) and [`ParseGlob`](https://pkg.go.dev/text/template#Template.ParseGlob) across files
     1. (unqualified) file name becomes template.[`Name`](https://pkg.go.dev/text/template#Template.Name)
     1. On collision, last file wins
+1. func/methods you invoke on template can/should have `error` as final arg
+    1. runtime will print a pretty message when evaluating the template func
 
 
 # Goland
