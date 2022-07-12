@@ -102,7 +102,11 @@ if a < b {
 ```
 
 ## Formatting to string
-TODO
+### Print hex
+```
+fmt.Printf("%x\n", 16)   // 10
+fmt.Printf("%x\n", 10)   // a
+```
 
 
 ## Parsing
