@@ -86,6 +86,7 @@ if !ok {
 ```
 1. Positive/Negative test/check
 ```go
+f := ...
 isNegative := f.Cmp(new(big.Float)) < 0
 ...
 ```
