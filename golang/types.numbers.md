@@ -53,6 +53,14 @@ n := 0xFF		// 255
 1. Printing:
     - `fmt.Printf("%s\n", myBigFloat.Text('f', 20))` <-- 20 decimal places
     - `fmt.Printf("%g\n", myBigFloat)`
+1. Parse string:
+```go
+f := new(big.Float)
+_, ok := f.SetString(str)
+if !ok {
+    ...
+}
+```
 1. Flexible json unmarshaling:
 ```go
 	var f = new(big.Float)
