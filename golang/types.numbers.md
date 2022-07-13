@@ -84,6 +84,11 @@ if !ok {
 		return fmt.Errorf("TODO: handle type: %T", amt)
 	}
 ```
+1. Positive/Negative test/check
+```go
+isNegative := f.Cmp(new(big.Float)) < 0
+...
+```
 
 
 # Complex/Imaginary numbers
