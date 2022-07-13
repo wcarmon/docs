@@ -101,6 +101,7 @@ fmt.Println(s[2:4]) // [2,3], closed-open range
 ```go
 src := []string{"a", "b"}
 
+// notice we are initializing all to zero value (not an empty slice)
 dest := make([]string, len(src))
 copy(dest, src)
 ```
