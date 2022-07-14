@@ -90,6 +90,13 @@ f := ...
 isNegative := f.Cmp(new(big.Float)) < 0
 ...
 ```
+1. Subtraction
+```go
+a := big.NewFloat(1.0)
+b := big.NewFloat(4.4)
+
+diff := new(big.Float).Sub(a, b)	// -3.4000000000000004
+```
 
 
 # Complex/Imaginary numbers
