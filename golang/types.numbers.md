@@ -84,11 +84,30 @@ if !ok {
 		return fmt.Errorf("TODO: handle type: %T", amt)
 	}
 ```
+1. Equality
+```go
+a := big.NewFloat(1.6)
+b := big.NewFloat(1.60)
+areEqual := a.Cmp(b) == 0 // true
+```
 1. Positive/Negative test/check
 ```go
 f := ...
 isNegative := f.Cmp(new(big.Float)) < 0
 ...
+```
+1. Addition
+- `.Add` will replace the value on the receiver (thing before the dot)
+```go
+a := big.NewFloat(1.6)
+b := big.NewFloat(2.4)
+c := big.NewFloat(6.0)
+
+sum := new(big.Float)
+sum.Add(sum, a) // works like: sum += a
+sum.Add(sum, b)
+sum.Add(sum, c)
+// sum is 10.0
 ```
 1. Subtraction
 ```go
