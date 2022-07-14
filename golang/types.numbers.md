@@ -51,11 +51,11 @@ n := 0xFF		// 255
 1. Prefer pointer for for fields in structs: ``Foo *big.Float `json:"foo"` ``
     1. simplifies json & printing
 
-## Print:
+## Print
     - `fmt.Printf("%s\n", myBigFloat.Text('f', 20))` <-- 20 decimal places
     - `fmt.Printf("%g\n", myBigFloat)`
 
-## Parse string:
+## Parse string
 ```go
 f := new(big.Float)
 _, ok := f.SetString(str)
