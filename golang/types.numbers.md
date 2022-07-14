@@ -86,42 +86,45 @@ sum.Add(sum, c)
 a := big.NewFloat(1.0)
 b := big.NewFloat(4.4)
 
-diff := new(big.Float).Sub(a, b)	// -3.4000000000000004
+diff := new(big.Float).Sub(a, b)  // -3.4000000000000004
 ```
 
 ## Flexible json unmarshal:
 ```go
-	var f = new(big.Float)
+var f = new(big.Float)
 
-	switch amt := rawAmount.(type) {
-	case int8:
-		f.SetInt64(int64(amt))
-	case int16:
-		f.SetInt64(int64(amt))
-	case int32:
-		f.SetInt64(int64(amt))
-	case int64:
-		f.SetInt64(amt)
-	case float32:
-		f.SetFloat64(float64(amt))
-	case float64:
-		f.SetFloat64(amt)
-	case string:
-		f.SetString(amt)
-	default:
-		return fmt.Errorf("TODO: handle type: %T", amt)
-	}
+switch amt := rawAmount.(type) {
+case int8:
+    f.SetInt64(int64(amt))
+case int16:
+    f.SetInt64(int64(amt))
+case int32:
+    f.SetInt64(int64(amt))
+case int64:
+    f.SetInt64(amt)
+
+case float32:
+    f.SetFloat64(float64(amt))
+case float64:
+    f.SetFloat64(amt)
+
+case string:
+    f.SetString(amt)
+default:
+    return fmt.Errorf("TODO: handle type: %T", amt)
+}
 ```
 
 ## Test for Equality
 ```go
 a := big.NewFloat(1.6)
-b := big.NewFloat(1.60)
+b := big.NewFloat(1.6000)
 areEqual := a.Cmp(b) == 0 // true
 ```
 ## Test for Positive/Negative
+1. Recall: zero value of `big.Float` is `0.0`
 ```go
-f := ...
+n := ...
 isNegative := f.Cmp(new(big.Float)) < 0
 ...
 ```
