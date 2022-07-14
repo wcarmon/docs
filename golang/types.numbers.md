@@ -126,7 +126,6 @@ areEqual := a.Cmp(b) == 0 // true
 ```go
 n := ...
 isNegative := n.Cmp(new(big.Float)) < 0
-...
 ```
 
 
