@@ -52,8 +52,11 @@ n := 0xFF		// 255
     1. simplifies json & printing
 
 ## Print
-    - `fmt.Printf("%s\n", myBigFloat.Text('f', 20))` <-- 20 decimal places
-    - `fmt.Printf("%g\n", myBigFloat)`
+```go
+fmt.Printf("%s\n", myBigFloat.Text('f', 20)) // <-- 20 decimal places
+
+fmt.Printf("%g\n", myBigFloat)
+```
 
 ## Parse string
 ```go
