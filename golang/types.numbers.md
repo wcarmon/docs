@@ -125,11 +125,9 @@ areEqual := a.Cmp(b) == 0 // true
 1. Recall: zero value of `big.Float` is `0.0`
 ```go
 n := ...
-isNegative := f.Cmp(new(big.Float)) < 0
+isNegative := n.Cmp(new(big.Float)) < 0
 ...
 ```
-
-
 
 
 # Complex/Imaginary numbers
@@ -137,7 +135,6 @@ isNegative := f.Cmp(new(big.Float)) < 0
 - TODO: more here
 - `complex128`
 - `complex64`
-
 
 
 # Common operations
