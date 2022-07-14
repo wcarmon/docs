@@ -128,6 +128,18 @@ n := ...
 isNegative := n.Cmp(new(big.Float)) < 0
 ```
 
+## Close enough (small delta)
+```go
+func IsCloseEnough(
+	want, got *big.Float,
+	tolerance float64,
+) bool {
+	delta := new(big.Float).Sub(got, want)
+
+	return delta.Abs(delta).Cmp(big.NewFloat(tolerance)) < 0
+}
+```
+
 
 # Complex/Imaginary numbers
 1. See [Official docs](https://go.dev/ref/spec#Imaginary_literals)
