@@ -50,10 +50,12 @@ n := 0xFF		// 255
 1. Use `string` in json, `"3.1e+08"` syntax works
 1. Prefer pointer for for fields in structs: ``Foo *big.Float `json:"foo"` ``
     1. simplifies json & printing
-1. Printing:
+
+## Print:
     - `fmt.Printf("%s\n", myBigFloat.Text('f', 20))` <-- 20 decimal places
     - `fmt.Printf("%g\n", myBigFloat)`
-1. Parse string:
+
+## Parse string:
 ```go
 f := new(big.Float)
 _, ok := f.SetString(str)
@@ -61,7 +63,30 @@ if !ok {
     ...
 }
 ```
-1. Flexible json unmarshaling:
+
+## Addition
+- `.Add` will replace the value on the receiver (thing before the dot)
+```go
+a := big.NewFloat(1.6)
+b := big.NewFloat(2.4)
+c := big.NewFloat(6.0)
+
+sum := new(big.Float)
+sum.Add(sum, a) // works like: sum += a
+sum.Add(sum, b)
+sum.Add(sum, c)
+// sum is 10.0
+```
+
+## Subtraction
+```go
+a := big.NewFloat(1.0)
+b := big.NewFloat(4.4)
+
+diff := new(big.Float).Sub(a, b)	// -3.4000000000000004
+```
+
+## Flexible json unmarshal:
 ```go
 	var f = new(big.Float)
 
@@ -84,38 +109,21 @@ if !ok {
 		return fmt.Errorf("TODO: handle type: %T", amt)
 	}
 ```
-1. Equality
+
+## Test for Equality
 ```go
 a := big.NewFloat(1.6)
 b := big.NewFloat(1.60)
 areEqual := a.Cmp(b) == 0 // true
 ```
-1. Positive/Negative test/check
+## Test for Positive/Negative
 ```go
 f := ...
 isNegative := f.Cmp(new(big.Float)) < 0
 ...
 ```
-1. Addition
-- `.Add` will replace the value on the receiver (thing before the dot)
-```go
-a := big.NewFloat(1.6)
-b := big.NewFloat(2.4)
-c := big.NewFloat(6.0)
 
-sum := new(big.Float)
-sum.Add(sum, a) // works like: sum += a
-sum.Add(sum, b)
-sum.Add(sum, c)
-// sum is 10.0
-```
-1. Subtraction
-```go
-a := big.NewFloat(1.0)
-b := big.NewFloat(4.4)
 
-diff := new(big.Float).Sub(a, b)	// -3.4000000000000004
-```
 
 
 # Complex/Imaginary numbers
