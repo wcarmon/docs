@@ -65,7 +65,7 @@ if !ok {
 ```
 
 ## Addition
-- `.Add` will replace the value on the receiver (thing before the dot)
+- [`.Add`](https://pkg.go.dev/math/big#Float.Add) will replace the value on the receiver (thing before the dot)
 ```go
 a := big.NewFloat(1.6)
 b := big.NewFloat(2.4)
@@ -78,7 +78,7 @@ sum.Add(sum, c)
 // sum is 10.0
 ```
 
-## Subtraction
+## [Subtraction](https://pkg.go.dev/math/big#Float.Sub)
 ```go
 a := big.NewFloat(1.0)
 b := big.NewFloat(4.4)
