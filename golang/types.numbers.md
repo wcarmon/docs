@@ -144,6 +144,12 @@ func IsCloseEnough(
 }
 ```
 
+## Absolute value
+```go
+n = ...
+alwsyPositive := new(big.Float).Abs(n)
+```
+
 
 # Complex/Imaginary numbers
 1. See [Official docs](https://go.dev/ref/spec#Imaginary_literals)
