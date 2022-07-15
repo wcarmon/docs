@@ -98,8 +98,10 @@ for i, c := range "foo" {
 1. github.com/iancoleman/strcase
 1. github.com/bitly/nsq/internal/stringy
 
+# Char Codes
+1. See [ascii table](https://www.ascii-code.com/)
 
-# Char code to letter
+## Char code to letter
 ```go
 upperA := string(65)    // A
 upperZ := string(90)    // Z
@@ -108,7 +110,7 @@ lowerA := string(97)    // a
 lowerZ := string(122)   // z
 ```
 
-# letter to Char code
+## Letter to char code
 ```go
 // -- upper case
 codeForA := int('A') // 65
