@@ -20,7 +20,7 @@
 //  104 	-> "DA"
 //  999 	-> "ALL"
 //  4460 	-> "FOO"
-func ConvertNumToColString(colNum int) string {
+func ConvertNumToColString(colNum int) (string, error) {
 	if colNum < 0 {
 		return "", fmt.Errorf("colNum must be non-zero")
 	}
