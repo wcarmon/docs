@@ -21,10 +21,12 @@
 //  999 	-> "ALL"
 //  4460 	-> "FOO"
 func ConvertNumToColString(colNum int) string {
-	excelColNum := colNum + 1
+	if colNum < 0 {
+		return "", fmt.Errorf("colNum must be non-zero")
+	}
 
 	out := ""
-	colRemain := excelColNum
+	colRemain := colNum + 1
 
 	for colRemain > 0 {
 
@@ -41,8 +43,9 @@ func ConvertNumToColString(colNum int) string {
 		out = colChar + out
 	}
 
-	return out
+	return out, nil
 }
 ```
+
 
 # Other resources
