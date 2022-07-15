@@ -31,7 +31,6 @@ func ConvertNumToColString(colNum int) string {
 	for colRemain > 0 {
 
 		thisPart := colRemain % 26
-
 		if thisPart == 0 {
 			thisPart = 26
 		}
