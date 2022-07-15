@@ -101,8 +101,8 @@ for i, c := range "foo" {
 # Char Codes
 1. See [ascii table](https://www.ascii-code.com/)
 1. See [unicode table](https://unicode-table.com/en/)
-1. Upper case letters from A=65 to Z=90
-1. Lower case letters from a=97 to z=122
+1. Upper case letters from `A` == `65` to `Z` == `90`
+1. Lower case letters from `a` == `97` to `z` == `122`
 
 ## Char code to letter
 ```go
