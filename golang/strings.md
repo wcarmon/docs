@@ -99,6 +99,31 @@ for i, c := range "foo" {
 1. github.com/bitly/nsq/internal/stringy
 
 
+# Char code > letter
+```go
+upperA := string(65) // A
+upperZ := string(90) // Z
+
+lowerA := string(97) // a
+lowerZ := string(122) // z
+```
+
+# letter > Char code
+```go
+// -- upper case
+codeForA := int('A') // 65
+codeForA := "ABC"[0] // 65 (only for ascii)
+codeForA := []rune("ABC")[0] // 65 (only for any unicode)
+...
+codeForZ := int('Z') // 90
+
+// -- lower case
+codeForA := int('a') // 97
+...
+codeForZ := int('z') // 122
+```
+
+
 # Other resources
 1. [Official docs](https://go.dev/blog/strings)
 1. [Official Language spec](https://go.dev/ref/spec#String_types)

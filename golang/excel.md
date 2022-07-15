@@ -1,10 +1,7 @@
 # Overview
-- TODO ...
 
 
-# Idioms
-TODO ...
+# Column name func
 
 
 # Other resources
-1. TODO ...
