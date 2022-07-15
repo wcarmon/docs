@@ -99,16 +99,16 @@ for i, c := range "foo" {
 1. github.com/bitly/nsq/internal/stringy
 
 
-# Char code > letter
+# Char code to letter
 ```go
-upperA := string(65) // A
-upperZ := string(90) // Z
+upperA := string(65)    // A
+upperZ := string(90)    // Z
 
-lowerA := string(97) // a
-lowerZ := string(122) // z
+lowerA := string(97)    // a
+lowerZ := string(122)   // z
 ```
 
-# letter > Char code
+# letter to Char code
 ```go
 // -- upper case
 codeForA := int('A') // 65
