@@ -100,6 +100,7 @@ for i, c := range "foo" {
 
 # Char Codes
 1. See [ascii table](https://www.ascii-code.com/)
+1. See [unicode table](https://unicode-table.com/en/)
 
 ## Char code to letter
 ```go
