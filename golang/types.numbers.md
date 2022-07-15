@@ -134,6 +134,10 @@ func IsCloseEnough(
 	want, got *big.Float,
 	tolerance float64,
 ) bool {
+    if want == nil && got == nil {
+        return true
+    }
+
 	delta := new(big.Float).Sub(got, want)
 
 	return delta.Abs(delta).Cmp(big.NewFloat(tolerance)) < 0
