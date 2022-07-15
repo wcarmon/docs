@@ -47,6 +47,27 @@ func main() {
 }
 ```
 
+## Sort by multiple fields
+```go
+type Foo struct {
+	A, B, C string
+}
+
+...
+	sort.Slice(foos, func(i, j int) bool {
+		switch {
+		case foos[i].A != foos[j].A:
+			return foos[i].A < foos[j].A
+
+		case foos[i].B != foos[j].B:
+			return foos[i].B < foos[j].B
+
+		default:
+			return foos[i].C < foos[j].C
+		}
+	})
+```
+
 
 # Maps
 1. Example
