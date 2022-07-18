@@ -5,6 +5,8 @@
 
 # Purpose
 - Modules are how Go manages dependencies
+- Modules collect related packages
+- Modules expose packages to other modules
 
 
 # Create a module
