@@ -38,6 +38,8 @@ var configSearchDirs = []string{
 // structure mirrors the config yaml file
 type appConfig struct {
 
+    // GOTCHA: unexported fields are ignored by viper/mapstructure
+
 	// debug, info, warn, error
 	LogLevel   string
 
