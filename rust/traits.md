@@ -8,7 +8,8 @@
 - TODO: https://www.chiark.greenend.org.uk/~ianmdlvl/rust-polyglot/traits.html
 - TODO: https://oswalt.dev/2020/07/rust-traits-defining-behavior/
 - TODO: https://stevedonovan.github.io/rustifications/2018/09/08/common-rust-traits.html
-
+- TODO: https://vino.dev/blog/node-to-rust-day-10-traits/
+- TODO: https://cheats.rs/#generics-constraints
 
 # Other resources
 
