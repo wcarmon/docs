@@ -6,7 +6,8 @@
 
 # Key points
 1. Guaranteed to run in linear time (unlike regex in many other languages)
-1. Unlike javascript, regular expressions are reusable
+1. Unlike javascript, regular expressions **are reusable**
+1. Threadsafe (safe for use by multiple goroutines) [Proof](https://pkg.go.dev/regexp#Regexp)
 1. Backreferences can be computationally expensive (eg. exponential time)
 
 
