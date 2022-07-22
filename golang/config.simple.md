@@ -13,7 +13,7 @@ import (
 )
 
 // structure mirrors the config yaml file
-type appConfig struct {
+type appConf struct {
 
     // GOTCHA: unexported fields are ignored by viper/mapstructure
 
@@ -34,7 +34,7 @@ type OSArgs []string
 
 // Load reads from config file, env vars, ...
 // Pass os.Args
-func NewConfig(osArgs OSArgs) (*appConfig, error) {
+func NewConfig(osArgs OSArgs) (*appConf, error) {
 	v := viper.New()
 
 	// -- Set paths for config file
@@ -63,7 +63,7 @@ func NewConfig(osArgs OSArgs) (*appConfig, error) {
 	}
 
 	// -- Store into config struct
-	var c appConfig
+	var c appConf
 	err = v.Unmarshal(&c)
 	if err != nil {
 	    log.Error().
@@ -89,7 +89,7 @@ func NewConfig(osArgs OSArgs) (*appConfig, error) {
 	return &c, err
 }
 
-func (c appConfig) Validate() error {
+func (c appConf) Validate() error {
 	if strings.TrimSpace(c.InputPath) == "" {
 		return errors.New("inputPath is required")
 	}
@@ -122,7 +122,7 @@ func setPathConfigForViper(v *viper.Viper, osArgs OSArgs) error {
 	return nil
 }
 
-func (c *appConfig) setDefaults() {
+func (c *appConf) setDefaults() {
 	if strings.TrimSpace(c.LogLevel) == "" {
 		c.LogLevel = "debug"
 	}
