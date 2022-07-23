@@ -17,7 +17,7 @@
 
 # Marshal (Writing, Serializing)
 ```go
-xmlBytes, err := xml.Marshal(rootElement)
+xmlBytes, err := xml.Marshal(rootElement) // see also xml.MarshalIndent(...)
 if err != nil {
     ...
 }
