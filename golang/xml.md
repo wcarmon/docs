@@ -16,7 +16,24 @@
 
 
 # Marshal (Writing, Serializing)
-1. TODO
+```
+xmlBytes, err := xml.Marshal(rootElement)
+if err != nil {
+    ...
+}
+
+f, err := os.OpenFile(dest, os.O_WRONLY|os.O_CREATE|os.O_TRUNC, 0644)
+if err != nil {
+    ...
+}
+defer f.Close()
+
+bw := bufio.NewWriter(f)
+defer bw.Flush()
+
+bw.Write([]byte(xml.Header))
+bw.Write(xmlBytes)
+```
 
 
 # Sort
