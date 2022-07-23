@@ -31,8 +31,10 @@ defer f.Close()
 bw := bufio.NewWriter(f)
 defer bw.Flush()
 
-bw.Write([]byte(xml.Header))
-bw.Write(xmlBytes)
+_, err = bw.WriteString(xml.Header + string(xmlBytes))
+if err != nil {
+    ...
+}
 ```
 
 
