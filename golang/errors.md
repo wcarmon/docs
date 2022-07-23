@@ -51,7 +51,14 @@ func doWhatever() error {
 1. Almost any type can implement [error](https://pkg.go.dev/errors)
 1. Minimize usage of `panic`
 1. [Official code review feedback](https://github.com/golang/go/wiki/CodeReviewComments#error-strings)
-
+1. Write a little log statement with context before returning err.  Simplifies debugging
+```go
+...
+if err != nil {
+    log.Error().Err(err).Msg("failed to eat tacos")
+    return nil, err
+}
+```
 
 # Official examples
 1. [os.PathError](https://pkg.go.dev/os#PathError)
