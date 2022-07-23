@@ -5,11 +5,11 @@
 # Struct idioms
 1. Set name of current `struct` via XMLName
     - eg. `XMLName xml.Name `xml:"the-root-element-name"`
-1. Better to use pointers to struct since `omitempty` fails on empty struct
 
 ## Parent/Child
 1. Parent MUST specify child tag name on attribute
 1. Child can optionally include `XMLName xml.Name`
+1. Better to use pointers to struct since `omitempty` fails on empty struct
 
 
 # Unmarshal (Parsing, Deserializing)
