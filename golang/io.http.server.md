@@ -5,7 +5,7 @@
 
 # Key Concepts
 1. Each request handled in its own goroutine
-1. http Server handles triggeres [context Cancellation](./context.md) when connection lost
+1. http Server triggeres [context Cancellation](./context.md) when connection lost
 
 
 # Server
