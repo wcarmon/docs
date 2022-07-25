@@ -105,7 +105,7 @@ func main () {
 
 
 # Router/Mux
-1. A Router/Mux maps a uri (or pattern) to your function
+1. A Router/Mux maps a uri (or uri pattern) to your handler func
 1. All libs below accept standard [`http.Handler`](https://pkg.go.dev/net/http#Handler)
 1. Avoid `http.HandleFunc` and `http.Handle` functions (unless using DefaultServeMux)
 
