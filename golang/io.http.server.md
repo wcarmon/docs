@@ -5,7 +5,7 @@
 
 # Key Concepts
 1. Each request handled in its own goroutine
-1. http Server handles triggeres [context Cancellation](./context.md) when connection lost
+1. http Server triggeres [context Cancellation](./context.md) when connection lost
 
 
 # Server
@@ -17,7 +17,7 @@
 # [http.Handler](https://pkg.go.dev/net/http#Handler) and [http.HandlerFunc](https://pkg.go.dev/net/http#HandlerFunc)
 1. Signature: `func (w http.ResponseWriter, r *http.Request)`
 1. [`http.Handler`](https://pkg.go.dev/net/http#Handler) is the interface for handling HTTP requests
-1. [`http.HandlerFunc`](https://pkg.go.dev/net/http#HandlerFunc) converts any func with the signature above to a [`http.Handler`](https://pkg.go.dev/net/http#Handler)
+1. [`http.HandlerFunc`](https://pkg.go.dev/net/http#HandlerFunc) adapter converts any func with the signature above to a [`http.Handler`](https://pkg.go.dev/net/http#Handler)
 1. *Almost* any type can have a `ServeHTTP` method
     1. Examples in [Effective Go doc](https://go.dev/doc/effective_go#interface_methods)
     1. See [`http.Handler`](https://pkg.go.dev/net/http#Handler) interface
@@ -105,7 +105,7 @@ func main () {
 
 
 # Router/Mux
-1. A Router/Mux maps a uri (or pattern) to your function
+1. A Router/Mux maps a uri (or uri pattern) to your handler func
 1. All libs below accept standard [`http.Handler`](https://pkg.go.dev/net/http#Handler)
 1. Avoid `http.HandleFunc` and `http.Handle` functions (unless using DefaultServeMux)
 
