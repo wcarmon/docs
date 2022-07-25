@@ -125,7 +125,7 @@ areEqual := a.Cmp(b) == 0 // true
 1. Recall: zero value of `big.Float` is `0.0`
 ```go
 n := ...
-isNegative := n.Cmp(new(big.Float)) < 0
+isNegative := new(big.Float).Cmp(n) > 0
 ```
 
 ## Close enough (small delta)
