@@ -129,6 +129,38 @@ codeForZ := int('z') // 122
 ```
 
 
+# String to runes (unicode)
+- TODO
+
+
+# Runes (unicode) to string
+- TODO
+
+
+# String to bytes
+- TODO
+
+
+# Bytes to string
+- TODO
+
+
+# Bytes to runes (unicode)
+- TODO
+
+
+# Runes (unicode) to bytes
+- TODO
+
+
+# Ascii code to String
+- TODO
+
+
+# String to Ascii code
+- TODO
+
+
 # Other resources
 1. [Official docs](https://go.dev/blog/strings)
 1. [Official Language spec](https://go.dev/ref/spec#String_types)
