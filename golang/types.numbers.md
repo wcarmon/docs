@@ -89,6 +89,15 @@ b := big.NewFloat(4.4)
 diff := new(big.Float).Sub(a, b)  // -3.4000000000000004
 ```
 
+## [Multiplication](https://pkg.go.dev/math/big#Float.Mul)
+```go
+a := big.NewFloat(-1.3)
+b := big.NewFloat(4.4)
+
+product := new(big.Float).Mul(a, b) // -5.720000000000001
+```
+
+
 ## Flexible json unmarshal:
 ```go
 var f = new(big.Float)
