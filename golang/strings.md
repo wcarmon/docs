@@ -137,8 +137,9 @@ s := "abc"
 c := "🐧"
 []rune(c)[0] == 128039
 
+// https://unicode-table.com/en/3088/
 c := "よ"
-[]rune(c)[0] == 12424
+[]rune(c)[0] == 12424  // \u3088
 
 c := "🤣"
 []rune(c)[0] == 129315
@@ -151,10 +152,16 @@ c := "🤣"
 r := []rune{97, 36}
 string(r) == "a$"
 
-r := rune(129315)
+r := rune(129315)   // 129315 (dec) == '\U0001F923' (codepoint)
 string(r) == "🤣"
+
+r := '\u3088'       // single quotes for rune, lowercase u for lower codepoints
+string(r) == "よ"
+
+r := '\U0001F923'   // uppercase U for higher code-points
+string(r) == "🤣"
+
 ```
-- TODO: from \u0000
 
 
 # Bytes to string
