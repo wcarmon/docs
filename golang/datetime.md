@@ -88,6 +88,20 @@ TODO
 # Sleep
 1. See [Duration](./duration.md) doc
 
+
+# Timing operations
+```go
+start := time.Now()
+
+// ... do something ...
+
+elapsed := time.Now().Sub(start)
+log.Info().
+    Str("elapsed", fmt.Sprintf("%v", elapsed)).
+    Msg("total time")
+```
+
+
 # Idioms
 1. Avoid `time.Since` because it hard codes `time.Now()` (better to inject a time provider)
 1. Avoid `time.Until` because it hard codes `time.Now()` (better to inject a time provider)
