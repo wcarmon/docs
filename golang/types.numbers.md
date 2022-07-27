@@ -94,6 +94,7 @@ diff := new(big.Float).Sub(a, b)  // -3.4000000000000004
 a := big.NewFloat(-1.3)
 b := big.NewFloat(4.4)
 
+//NOTE: to invert, multiply by -1
 product := new(big.Float).Mul(a, b) // -5.720000000000001
 ```
 
