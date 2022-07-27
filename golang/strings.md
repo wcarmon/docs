@@ -143,6 +143,7 @@ c := "よ"
 c := "🤣"
 []rune(c)[0] == 129315
 ```
+- TODO: produce \u something (eg. fmt.Sprintf("%+q")
 
 
 # Runes (unicode) to string
@@ -153,13 +154,16 @@ string(r) == "a$"
 r := rune(129315)
 string(r) == "🤣"
 ```
+- TODO: from \u0000
 
 
 # Bytes to string
 ```go
+// base 10 == dec
 b := []byte{119, 99}
 string(b) == "wc"
 ```
+- TODO: hex example
 
 
 # String to bytes
@@ -171,7 +175,7 @@ bytes.Equal([]byte(s), []byte{97, 98})
 
 # Ascii code to String
 ```go
-asc == 115
+asc == 115  // base 10 == dec
 string(asc) == "s"
 
 b := []byte{115}
@@ -182,7 +186,7 @@ string(b) == "s"
 # String to Ascii code
 ```go
 s := "Q"
-[]byte(s)[0] == 81
+[]byte(s)[0] == 81 // base 10 == dec
 ```
 
 
@@ -193,6 +197,14 @@ s := "Q"
 # Runes (unicode) to bytes
 - TODO
 
+
+# Printing runes
+```go
+r := []rune("😀")[0]
+fmt.Printf("%d (dec) == %+q (code-point) == 0x%x (hex)",
+    r, r, r)
+// 128512 (dec) == '\U0001f600' (code-point) == 0x1f600 (hex)
+```
 
 
 
