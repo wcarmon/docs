@@ -12,11 +12,11 @@ func main() {
 
 	// -- Spawn tasks
 	for taskId := 0; taskId < 50; taskId++ {
-		semaphoreCh <- struct{}{}
+		semaphoreCh <- struct{}{} // reserve a slot (blocking)
 
 		go func(taskId int) {
 			simulateSlowTask(taskId)
-			<-semaphoreCh // blocks until a slot is available
+			<-semaphoreCh // free the slot
 		}(taskId)
 	}
 
