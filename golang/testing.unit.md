@@ -53,7 +53,7 @@ func teardown() {
 - TODO: just link to  https://www.practical-go-lessons.com/chap-19-unit-tests
 - TODO: explain t.log
 - TODO: explain _test package suffix
-- TODO: explain subtests
+- TODO: explain subtests (t.Run)
 - TODO: explain table driven tests (show examples from sdk sources)
 - TODO: explain t.Parallel
 - TODO: test deadlines
