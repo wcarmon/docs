@@ -52,6 +52,19 @@ fmt.Printf("dur: %v", dur.String())
 1. https://pkg.go.dev/time#Duration.String
 
 
+# Timing operations
+```go
+start := time.Now()
+
+// ... do something ...
+
+elapsed := time.Now().Sub(start)
+log.Info().
+    Str("elapsed", fmt.Sprintf("%v", elapsed)).
+    Msg("total time")
+```
+
+
 # Sleep
 1. Probably better to wait for [channel]() or a [`WaitGroup`](https://pkg.go.dev/sync#WaitGroup.Wait)
 ```go

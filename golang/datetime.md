@@ -85,21 +85,13 @@ TODO
 1. January == 1
 
 
-# Sleep
+# Timing operations
 1. See [Duration](./duration.md) doc
 
 
-# Timing operations
-```go
-start := time.Now()
+# Sleep
+1. See [Duration](./duration.md) doc
 
-// ... do something ...
-
-elapsed := time.Now().Sub(start)
-log.Info().
-    Str("elapsed", fmt.Sprintf("%v", elapsed)).
-    Msg("total time")
-```
 
 
 # Idioms
