@@ -137,15 +137,23 @@ codeForZ := int('z') // 122
 
 
 # Runes (unicode) to string
-- TODO
-
-
-# String to bytes
-- TODO
+```go
+string([]rune{97, 36}) == "a$
+```
 
 
 # Bytes to string
-- TODO
+```go
+b := []byte{119, 99}
+string(b) == "wc"
+```
+
+
+# String to bytes
+```go
+s := "ab"
+bytes.Equal([]byte(s), []byte{97, 98})
+```
 
 
 # Bytes to runes (unicode)
