@@ -197,14 +197,6 @@ s := "Q"
 ```
 
 
-# Bytes to runes (unicode)
-- TODO
-
-
-# Runes (unicode) to bytes
-- TODO
-
-
 # Printing runes
 ```go
 r := []rune("😀")[0]
