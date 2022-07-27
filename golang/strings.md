@@ -160,6 +160,23 @@ bytes.Equal([]byte(s), []byte{97, 98})
 ```
 
 
+# Ascii code to String
+```go
+asc == 115
+string(asc) == "s"
+
+b := []byte{115}
+string(b) == "s"
+```
+
+
+# String to Ascii code
+```go
+s := "Q"
+[]byte(s)[0] == 81
+```
+
+
 # Bytes to runes (unicode)
 - TODO
 
@@ -168,18 +185,6 @@ bytes.Equal([]byte(s), []byte{97, 98})
 - TODO
 
 
-
-# Ascii code to String
-```go
-string(115) == "s"
-string([]byte{115}) == "s"
-```
-
-
-# String to Ascii code
-```go
-[]byte("s")[0] == 115
-```
 
 
 # Other resources
