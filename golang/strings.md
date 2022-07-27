@@ -130,7 +130,10 @@ codeForZ := int('z') // 122
 
 
 # String to runes (unicode)
-- TODO
+```go
+[]rune("abc") // []rune{97, 98, 99}
+[]rune("🐧")[0] == 128039
+```
 
 
 # Runes (unicode) to string
@@ -153,12 +156,18 @@ codeForZ := int('z') // 122
 - TODO
 
 
+
 # Ascii code to String
-- TODO
+```go
+string(115) == "s"
+string([]byte{115}) == "s"
+```
 
 
 # String to Ascii code
-- TODO
+```go
+[]byte("s")[0] == 115
+```
 
 
 # Other resources
