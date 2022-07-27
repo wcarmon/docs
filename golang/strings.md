@@ -131,14 +131,18 @@ codeForZ := int('z') // 122
 
 # String to runes (unicode)
 ```go
-[]rune("abc") // []rune{97, 98, 99}
-[]rune("🐧")[0] == 128039
+s := "abc"
+[]rune(s) // []rune{97, 98, 99}
+
+c := "🐧"
+[]rune(c)[0] == 128039
 ```
 
 
 # Runes (unicode) to string
 ```go
-string([]rune{97, 36}) == "a$
+r := []rune{97, 36}
+string(r) == "a$"
 ```
 
 
