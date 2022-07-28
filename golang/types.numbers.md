@@ -200,7 +200,33 @@ TODO
 
 
 ## Rounding
-TODO
+```go
+func Round(n *big.Float, decimalCount uint) float64 {
+
+	if n == nil {
+		return 0.0
+	}
+
+	var mult float64
+	switch decimalCount {
+	case 0:
+		mult = 1.0
+	case 1:
+		mult = 10.0
+	case 2:
+		mult = 100.0
+	case 3:
+		mult = 1000.0
+	case 4:
+		mult = 10000.0
+	default:
+		mult = math.Pow(10, float64(decimalCount))
+	}
+
+	out, _ := n.Float64()
+	return math.Round(out*mult) / mult
+}
+```
 
 
 # Other resources
