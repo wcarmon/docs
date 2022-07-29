@@ -31,10 +31,22 @@ func main() {
 
     // zerolog setup ...
 
-    log.Info().
-        Str("gitCommitHash", gitCommitHash).
-        Msg("version")
+    printAppInfo()
 
     ...
+}
+
+func printAppInfo() {
+	binPath, _ := os.Executable()
+	cwd, _ := os.Getwd()
+
+	log.Info().
+		Str("gitCommitHash", gitCommitHash).
+		Str("goVersion", runtime.Version()).
+		Int("cpuCount", runtime.NumCPU()).
+		Str("cwd", cwd).
+		Str("binary", binPath).
+		Str("tempDir", os.TempDir()).
+		Msg("appInfo")
 }
 ```
