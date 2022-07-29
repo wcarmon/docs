@@ -72,9 +72,20 @@ $DOCKER_BINARY run \
   wire ./src/...
 
   echo '-- Compiling...'
-  GOOS=linux   GOARCH=amd64 go build -o $OUTPUT_DIR/$OUTPUT_BINARY_NAME.linux.amd64   $CMD_PACKAGE;
-  GOOS=darwin  GOARCH=amd64 go build -o $OUTPUT_DIR/$OUTPUT_BINARY_NAME.macos.amd64   $CMD_PACKAGE;
-  GOOS=windows GOARCH=amd64 go build -o $OUTPUT_DIR/$OUTPUT_BINARY_NAME.win.amd64.exe $CMD_PACKAGE;
+  GOOS=linux   GOARCH=amd64 \
+    go build \
+    -o $OUTPUT_DIR/$OUTPUT_BINARY_NAME.amd64.bin \
+    $CMD_PACKAGE;
+
+  GOOS=darwin  GOARCH=amd64 \
+    go build \
+    -o $OUTPUT_DIR/$OUTPUT_BINARY_NAME.amd64.app \
+    $CMD_PACKAGE;
+
+  GOOS=windows GOARCH=amd64 \
+    go build \
+    -o $OUTPUT_DIR/$OUTPUT_BINARY_NAME.amd64.exe \
+    $CMD_PACKAGE;
   "
 
 # NOTE: list architectures:
