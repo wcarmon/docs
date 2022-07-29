@@ -1,5 +1,6 @@
 # Overview
 1. Idioms for [Dependency Injection](https://en.wikipedia.org/wiki/Dependency_injection) design pattern
+1. How to setup an use [wire](https://github.com/google/wire) for compile time dependency injection
 
 
 # Setup

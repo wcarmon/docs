@@ -41,11 +41,11 @@ func printAppInfo() {
 	cwd, _ := os.Getwd()
 
 	log.Info().
+		Int("cpuCount", runtime.NumCPU()).
+		Str("binary", binPath).
+		Str("cwd", cwd).
 		Str("gitCommitHash", gitCommitHash).
 		Str("goVersion", runtime.Version()).
-		Int("cpuCount", runtime.NumCPU()).
-		Str("cwd", cwd).
-		Str("binary", binPath).
 		Str("tempDir", os.TempDir()).
 		Msg("appInfo")
 }
