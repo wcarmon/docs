@@ -26,10 +26,10 @@ func main() {
 
     // zerolog setup ...
 
-	log.Info().
-		Str("gitCommitHash", gitCommitHash).
-		Msg("version")
+    log.Info().
+        Str("gitCommitHash", gitCommitHash).
+        Msg("version")
 
-	...
+    ...
 }
 ```
