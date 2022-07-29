@@ -23,7 +23,7 @@ GOOS=linux \
 
 ## Update main.go file
 ```go
-// Set by build process
+// gitCommitHash is set by build process
 // go build ... -ldflags="-X main.gitCommitHash=..."
 var gitCommitHash string
 
