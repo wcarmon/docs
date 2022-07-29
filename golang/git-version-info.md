@@ -5,6 +5,7 @@
 # Example
 
 ## Update Build script
+1. set hash using `-ldflags`
 ```bash
 readonly GIT_COMMIT=$(git rev-list -1 HEAD)
 # alternative: readonly GIT_COMMIT=$(git rev-parse HEAD)
