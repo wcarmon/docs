@@ -4,8 +4,15 @@
 
 ```bash
 readonly GIT_COMMIT=$(git rev-list -1 HEAD)
+# alternative: readonly GIT_COMMIT=$(git rev-parse HEAD)
 ...
-GOOS=linux    GOARCH=amd64 go build -o "$OUTPUT_DIR/$OUTPUT_BINARY_NAME.linux.amd64" -ldflags="-X main.gitCommitHash=${GIT_COMMIT}" $CMD_PACKAGE;
+
+GOOS=linux \
+  GOARCH=amd64 \
+  go build \
+  -o "$OUTPUT_DIR/$OUTPUT_BINARY_NAME.linux.amd64" \
+  -ldflags="-X main.gitCommitHash=${GIT_COMMIT}" \
+  $CMD_PACKAGE
 ...
 ```
 
