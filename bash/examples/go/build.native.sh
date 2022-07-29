@@ -54,19 +54,19 @@ $WIRE ./src/...
 echo "|-- Cross compiling go code in $(pwd)"
 GOOS=linux GOARCH=amd64 \
   go build \
-  -o "$OUTPUT_DIR/$OUTPUT_BINARY_NAME.linux.amd64" \
+  -o "$OUTPUT_DIR/$OUTPUT_BINARY_NAME.amd64.bin" \
   -ldflags="-X main.gitCommitHash=${GIT_COMMIT}" \
   $CMD_PACKAGE
 
 GOOS=darwin GOARCH=amd64 \
   go build \
-  -o "$OUTPUT_DIR/$OUTPUT_BINARY_NAME.macos.amd64" \
+  -o "$OUTPUT_DIR/$OUTPUT_BINARY_NAME.amd64.app" \
   -ldflags="-X main.gitCommitHash=${GIT_COMMIT}" \
   $CMD_PACKAGE
 
 GOOS=windows GOARCH=amd64 \
   go build \
-  -o "$OUTPUT_DIR/$OUTPUT_BINARY_NAME.win.amd64.exe" \
+  -o "$OUTPUT_DIR/$OUTPUT_BINARY_NAME.amd64.exe" \
   -ldflags="-X main.gitCommitHash=${GIT_COMMIT}" \
   $CMD_PACKAGE
 
