@@ -49,8 +49,12 @@ func initLoggers(level zerolog.Level) *os.File {
 	zerolog.TimeFieldFormat = zerolog.TimeFormatUnix
 
 	multi := zerolog.MultiLevelWriter(
+		// pretty console logger
 		zerolog.ConsoleWriter{Out: os.Stdout},
-		logFile)
+
+		// file logger
+		logFile,
+	)
 
 	log.Logger = zerolog.
 		New(multi).
