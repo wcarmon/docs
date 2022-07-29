@@ -32,6 +32,46 @@
 ```go
 ```
 
+# Multiple loggers
+```go
+func initLoggers(level zerolog.Level) *os.File {
+
+	today := time.Now().Format("2006-01-02")
+	logFilePath := fmt.Sprintf("app.%v.log", today)
+
+	logFile, err := os.OpenFile(logFilePath,
+		os.O_WRONLY|os.O_CREATE|os.O_APPEND,
+		0644)
+	if err != nil {
+		panic("failed to open log file")
+	}
+
+	zerolog.TimeFieldFormat = zerolog.TimeFormatUnix
+
+	multi := zerolog.MultiLevelWriter(
+		zerolog.ConsoleWriter{Out: os.Stdout},
+		logFile)
+
+	log.Logger = zerolog.
+		New(multi).
+		Level(level).
+		With().
+		Timestamp().
+		Logger()
+
+	return logFile
+}
+
+func main() {
+
+	logFile := initLoggers(zerolog.DebugLevel)
+	defer logFile.Close()
+
+    ...
+}
+```
+
+
 # Other resources
 1. https://pkg.go.dev/github.com/rs/zerolog
 1. https://github.com/rs/zerolog
