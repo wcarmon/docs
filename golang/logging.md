@@ -28,10 +28,6 @@
     1. keys and values have to be paired carefully (error prone)
 
 
-# Mapping levels
-```go
-```
-
 # Multiple loggers
 ```go
 func initLoggers(level zerolog.Level) *os.File {
