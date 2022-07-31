@@ -50,4 +50,9 @@ flutter doctor -v;
 1. `flutter upgrade`
 
 
+# Devices setup
+- Check `flutter devices`
+
+
+
 # Other resources
