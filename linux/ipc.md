@@ -8,7 +8,7 @@
 |---|---|
 |Same host, Same process, Same language|`import`/`use`/`include` library|
 |Same host, Same process|[FFI](https://en.wikipedia.org/wiki/Foreign_function_interface)|
-|Same host, Different process|[gRPC](https://grpc.io/) over [UDS](https://en.wikipedia.org/wiki/Unix_domain_socket) or <br/> REST [over UDS](https://en.wikipedia.org/wiki/Unix_domain_socket) or <br/>shared local [File System](https://en.wikipedia.org/wiki/File_system)|
+|Same host, Different process|[gRPC](https://grpc.io/) over [UDS](https://en.wikipedia.org/wiki/Unix_domain_socket) or <br/> [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) over [UDS](https://en.wikipedia.org/wiki/Unix_domain_socket) or <br/>shared local [File System](https://en.wikipedia.org/wiki/File_system)|
 |Different host (implies different process)|[gRPC](https://grpc.io/) over [HTTP/2](https://en.wikipedia.org/wiki/HTTP/2) or <br/>[REST](https://en.wikipedia.org/wiki/Representational_state_transfer) over [HTTP/2](https://en.wikipedia.org/wiki/HTTP/2)|
 
 
