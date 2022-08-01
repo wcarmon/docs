@@ -14,6 +14,13 @@
 
 --------
 # [FFI](https://en.wikipedia.org/wiki/Foreign_function_interface)
+1. Garbage collected languages are better for calling foreign functions. (eg. Go, Java, Kotlin, Python, Dart, Typescript, Javascript, C#, Ruby, ...)
+1. Non-garbage collected languages are better for exporting foreign functions. (eg. C, Rust, C++, ...)
+1. Library formats
+    1. Linux: [`.so`](TODO) (ELF)
+    1. MacOS:
+    1. windows:
+
 ## Exporting
 1. C:
     1. [Official docs](TODO)
@@ -37,10 +44,9 @@
 
 ## Calling foreign functions
 1. Dart:
-    1. [Official docs](TODO)
-    1. Example:
-    ```dart
-    ```
+    1. [Official docs](https://dart.dev/guides/libraries/c-interop)
+    1. Examples: [with flutter](https://docs.flutter.dev/development/platform-integration/android/c-interop),
+    1. Keywords: [`DynamicLibrary.executable`](TODO), [`DynamicLibrary.process`](TODO),
 1. Go:
     1. [Official docs](TODO)
     1. Example:
