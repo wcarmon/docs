@@ -75,19 +75,19 @@
 1. `Languages`: C: [`sockaddr_un`](https://man7.org/linux/man-pages/man7/unix.7.html#DESCRIPTION)
 1. `Languages`: C#: [`UnixDomainSocketEndPoint`](https://docs.microsoft.com/en-us/dotnet/api/system.net.sockets.unixdomainsocketendpoint?view=net-6.0)
 1. `Languages`: Dart:
-    1. Use [`Internet Address`](https://api.flutter.dev/flutter/dart-io/InternetAddress-class.html)
+    1. Use [`InternetAddress` class](https://api.flutter.dev/flutter/dart-io/InternetAddress-class.html)
     1. gRPC client: [`ClientChannel`](https://pub.dev/documentation/grpc/latest/grpc_connection_interface/ClientChannel-class.html), set [`host`](https://pub.dev/documentation/grpc/latest/grpc_connection_interface/ClientChannel/host.html)
     1. gRPC server: [`await server.serve(address: udsAddress)`](https://pub.dev/documentation/grpc/latest/grpc/Server/serve.html)
     1. HTTP/2 client: [`TODO`](TODO)
     1. HTTP/2 server: [`TODO`](TODO)
 1. `Languages`: Go:
-    1. Use [`UnixAddr`](https://pkg.go.dev/net#UnixAddr)
+    1. Use [`UnixAddr` struct](https://pkg.go.dev/net#UnixAddr)
     1. gRPC client: Use [`grpc.DialContext`](https://pkg.go.dev/google.golang.org/grpc#DialContext) to build a [`ClientConn`](https://pkg.go.dev/google.golang.org/grpc#ClientConn), pass `conn` to generated Client builder (eg. `NewFooClient(conn)`)
     1. gRPC server: [`Server.Serve`](https://pkg.go.dev/google.golang.org/grpc#Server.Serve) needs [`net.Listener`](https://pkg.go.dev/net#Listener) eg. [`net.UnixListener`](https://pkg.go.dev/net#UnixListener)
     1. HTTP/2 client: [`http.Client`](https://pkg.go.dev/net/http#Client) with custom [`http.Transport`](https://pkg.go.dev/net/http#Transport), override [`Dialer.Dial("unix", ...)`](https://pkg.go.dev/net#Dialer.Dial)
     1. HTTP/2 server: [`net.Serve`](https://pkg.go.dev/net/http#Serve) with a [`net.UnixListener`](https://pkg.go.dev/net#UnixListener)
 1. `Languages`: Java/JVM:
-    1. Use [`java.net.UnixDomainSocketAddress`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/net/UnixDomainSocketAddress.html) (Java 16+) or [`io.netty.channel.unix.DomainSocketAddress`](https://netty.io/4.1/api/io/netty/channel/unix/DomainSocketAddress.html)
+    1. Use [`java.net.UnixDomainSocketAddress` class](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/net/UnixDomainSocketAddress.html) (Java 16+) or [`io.netty.channel.unix.DomainSocketAddress`](https://netty.io/4.1/api/io/netty/channel/unix/DomainSocketAddress.html)
     1. gRPC client: [`TODO`](TODO) - [`io.grpc.netty.NettyChannelBuilder`](https://grpc.github.io/grpc-java/javadoc/io/grpc/netty/NettyChannelBuilder.html)
     1. gRPC server: [`TODO`](TODO) - [`io.grpc.netty.NettyServerBuilder`](https://grpc.github.io/grpc-java/javadoc/io/grpc/netty/NettyServerBuilder.html)
     1. HTTP/2 client: [`TODO`](TODO)
