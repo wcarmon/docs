@@ -25,7 +25,8 @@
 1. Python: [TODO](TODO)
 1. Rust: [TODO](TODO)
     1. [Official docs](https://doc.rust-lang.org/nomicon/ffi.html#calling-foreign-functions)
-    1. ```rust
+    1.
+    ```rust
     #[link(name = "...")]
     extern {
         fn ...
