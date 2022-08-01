@@ -87,8 +87,14 @@
 1. `Domain`: communication on same host machine
 1. `Languages`: C: [`sockaddr_un`](https://man7.org/linux/man-pages/man7/unix.7.html#DESCRIPTION)
 1. `Languages`: C#: [`UnixDomainSocketEndPoint`](https://docs.microsoft.com/en-us/dotnet/api/system.net.sockets.unixdomainsocketendpoint?view=net-6.0)
-1. `Languages`: Dart: [`Internet Address`](https://api.flutter.dev/flutter/dart-io/InternetAddress-class.html)
-1. `Languages`: Go: [`UnixAddr`](https://pkg.go.dev/net#UnixAddr), grpc [`Server.Serve`](https://pkg.go.dev/google.golang.org/grpc#Server.Serve) needs [`net.Listener`](https://pkg.go.dev/net#Listener) eg. [`net.UnixListener`](https://pkg.go.dev/net#UnixListener)
+1. `Languages`: Dart:
+    1. Use [`Internet Address`](https://api.flutter.dev/flutter/dart-io/InternetAddress-class.html)
+    1. gRPC server: [`await server.serve(address: udsAddress);`](https://pub.dev/documentation/grpc/latest/grpc/Server/serve.html)
+    1. gRPC client: [`TODO`](TODO)
+1. `Languages`: Go:
+    1. Use [`UnixAddr`](https://pkg.go.dev/net#UnixAddr)
+    1. gRPC server: [`Server.Serve`](https://pkg.go.dev/google.golang.org/grpc#Server.Serve) needs [`net.Listener`](https://pkg.go.dev/net#Listener) eg. [`net.UnixListener`](https://pkg.go.dev/net#UnixListener)
+    1. gRPC client: [`TODO`](TODO)
 1. `Languages`: Java/JVM: [`UnixDomainSocketAddress`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/net/UnixDomainSocketAddress.html)
 1. `Languages`: Python: [`socket`](https://docs.python.org/3/library/socket.html)
 1. `Languages`: Rust: [`std::os::unix::net::UnixListener`](https://doc.rust-lang.org/std/os/unix/net/struct.UnixListener.html) and [`std::os::unix::net::UnixStream`](https://doc.rust-lang.org/std/os/unix/net/struct.UnixStream.html)
