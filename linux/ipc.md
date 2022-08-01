@@ -94,7 +94,7 @@
 1. `Languages`: Go:
     1. Use [`UnixAddr`](https://pkg.go.dev/net#UnixAddr)
     1. gRPC server: [`Server.Serve`](https://pkg.go.dev/google.golang.org/grpc#Server.Serve) needs [`net.Listener`](https://pkg.go.dev/net#Listener) eg. [`net.UnixListener`](https://pkg.go.dev/net#UnixListener)
-    1. gRPC client: [`TODO`](TODO)
+    1. gRPC client: [`ClientChannel`](https://pub.dev/documentation/grpc/latest/grpc_connection_interface/ClientChannel-class.html), set [`host`](https://pub.dev/documentation/grpc/latest/grpc_connection_interface/ClientChannel/host.html)
 1. `Languages`: Java/JVM:
     1. Use [`UnixDomainSocketAddress`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/net/UnixDomainSocketAddress.html)
     1. gRPC server: [`TODO`](TODO)
