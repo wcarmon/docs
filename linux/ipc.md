@@ -8,21 +8,14 @@
 |---|---|
 |Same host, Same process, Same language|`import`/`use`/`include` library|
 |Same host, Same process|[FFI](https://en.wikipedia.org/wiki/Foreign_function_interface)|
-|Same host, Different process|gRPC [over UDS](https://en.wikipedia.org/wiki/Unix_domain_socket) or REST [over UDS](https://en.wikipedia.org/wiki/Unix_domain_socket) or shared local [File System](https://en.wikipedia.org/wiki/File_system)|
-|Different host (implies different process)|[gRPC over HTTP/2](https://grpc.io/) or [REST over HTTP/2](https://en.wikipedia.org/wiki/Representational_state_transfer)|
+|Same host, Different process|gRPC [over UDS](https://en.wikipedia.org/wiki/Unix_domain_socket) or <br/> REST [over UDS](https://en.wikipedia.org/wiki/Unix_domain_socket) or shared local [File System](https://en.wikipedia.org/wiki/File_system)|
+|Different host (implies different process)|[gRPC](https://grpc.io/) over [HTTP/2](https://en.wikipedia.org/wiki/HTTP/2) or [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) over [HTTP/2](https://en.wikipedia.org/wiki/HTTP/2)|
 
 
 1. Same machine?
     1. Small/medium sized data
-        1. [non-blocking, TCP-based, Unix Domain sockets](TODO)
-            1. [c++](TODO)
-            1. [c](TODO)
-            1. [go](TODO)
-            1. [Java](TODO)
             1. [c#](https://docs.microsoft.com/en-us/aspnet/core/grpc/interprocess?view=aspnetcore-6.0)
             1. [Python](https://github.com/grpc/grpc/blob/master/examples/python/uds/README.md)
-            1. [Dart](TODO)
-            1. [Rust](TODO)
         1. [`gRPC`](TODO) over `localhost` (which, for most languages, is as fast as Unix domain socket)
         1. memory mapped file?
     1. Large data
