@@ -88,10 +88,11 @@
 1. Similar to above
 
 ## Memory Mapped file
-1. `Reference`: pathname or file descriptor
+1. `IO`: any store to the mapped file segment results in implicit I/O
 1. `Lifetime`: lives in file system, across system reboots
 1. `Lifetime`: must be explicitly deleted
-1. `IO`: any store to the mapped file segment results in implicit I/O
+1. `Reference`: pathname or file descriptor
+1. `Tradeoffs`: https://en.wikipedia.org/wiki/Memory-mapped_file#Drawbacks
 
 
 ## Fileless Memory Mapping
