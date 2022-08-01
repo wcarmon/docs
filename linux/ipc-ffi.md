@@ -87,16 +87,16 @@
     1. HTTP client: [`http.Client`](https://pkg.go.dev/net/http#Client) with custom [`http.Transport`](https://pkg.go.dev/net/http#Transport), override [`Dialer.Dial("unix", ...)`](https://pkg.go.dev/net#Dialer.Dial)
     1. HTTP server: [`net.Serve`](https://pkg.go.dev/net/http#Serve) with a [`net.UnixListener`](https://pkg.go.dev/net#UnixListener)
 1. `Languages`: Java/JVM:
-    1. Use [`UnixDomainSocketAddress`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/net/UnixDomainSocketAddress.html)
-    1. gRPC client: [`TODO`](TODO)
-    1. gRPC server: [`TODO`](TODO)
+    1. Use [`java.net.UnixDomainSocketAddress`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/net/UnixDomainSocketAddress.html) or [`io.netty.channel.unix.DomainSocketAddress`](https://netty.io/4.1/api/io/netty/channel/unix/DomainSocketAddress.html)
+    1. gRPC client: [`TODO`](TODO) - [`io.grpc.netty.NettyChannelBuilder`](https://grpc.github.io/grpc-java/javadoc/io/grpc/netty/NettyChannelBuilder.html)
+    1. gRPC server: [`TODO`](TODO) - [`io.grpc.netty.NettyServerBuilder`](https://grpc.github.io/grpc-java/javadoc/io/grpc/netty/NettyServerBuilder.html)
     1. HTTP client: [`TODO`](TODO)
     1. HTTP server: [`TODO`](TODO)
 1. `Languages`: Python:
     1. Use [`socket`](https://docs.python.org/3/library/socket.html)
     1. gRPC client: [`TODO`](TODO)
     1. gRPC server: [`TODO`](TODO)
-        1. [Python](https://github.com/grpc/grpc/blob/master/examples/python/uds/README.md)
+        1. [TODO](https://github.com/grpc/grpc/blob/master/examples/python/uds/README.md)
     1. HTTP client: [`TODO`](TODO)
     1. HTTP server: [`TODO`](TODO)
 1. `Languages`: Rust:
