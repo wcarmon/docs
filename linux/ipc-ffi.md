@@ -1,6 +1,6 @@
 # Overview
-1. Mechanisms for communicating across Linux processes
-
+1. Mechanisms for communicating across processes
+1. Mechanisms for communicating across programming languages
 
 
 # TL;DR;
@@ -10,19 +10,6 @@
 |Same host, Same [process](https://en.wikipedia.org/wiki/Process_(computing)), Different language|[FFI](https://en.wikipedia.org/wiki/Foreign_function_interface)|
 |Same host, Different [process](https://en.wikipedia.org/wiki/Process_(computing))|[gRPC](https://grpc.io/) over [UDS](https://en.wikipedia.org/wiki/Unix_domain_socket) or <br/> [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) over [UDS](https://en.wikipedia.org/wiki/Unix_domain_socket) or <br/>shared local [File System](https://en.wikipedia.org/wiki/File_system)|
 |Different host (implies different process)|[gRPC](https://grpc.io/) over [HTTP/2](https://en.wikipedia.org/wiki/HTTP/2) or <br/>[REST](https://en.wikipedia.org/wiki/Representational_state_transfer) over [HTTP/2](https://en.wikipedia.org/wiki/HTTP/2)|
-
-
-1. Same machine?
-    1. Small/medium sized data
-            1. [c#](https://docs.microsoft.com/en-us/aspnet/core/grpc/interprocess?view=aspnetcore-6.0)
-            1. [Python](https://github.com/grpc/grpc/blob/master/examples/python/uds/README.md)
-        1. [`gRPC`](TODO) over `localhost` (which, for most languages, is as fast as Unix domain socket)
-        1. memory mapped file?
-    1. Large data
-        1. Shared file system
-        1. file locks
-        1. memory mapped file?
-1. Ignore all pipes
 
 
 --------
@@ -95,7 +82,7 @@
     1. HTTP server: [`TODO`](TODO)
 1. `Languages`: Go:
     1. Use [`UnixAddr`](https://pkg.go.dev/net#UnixAddr)
-    1. gRPC client: Use [`grpc.DialContext`](https://pkg.go.dev/google.golang.org/grpc#DialContext) to build a [`ClientConn`](https://pkg.go.dev/google.golang.org/grpc#ClientConn), pass `conn` to generated Client builder
+    1. gRPC client: Use [`grpc.DialContext`](https://pkg.go.dev/google.golang.org/grpc#DialContext) to build a [`ClientConn`](https://pkg.go.dev/google.golang.org/grpc#ClientConn), pass `conn` to generated Client builder (eg. `NewFooClient(conn)`)
     1. gRPC server: [`Server.Serve`](https://pkg.go.dev/google.golang.org/grpc#Server.Serve) needs [`net.Listener`](https://pkg.go.dev/net#Listener) eg. [`net.UnixListener`](https://pkg.go.dev/net#UnixListener)
     1. HTTP client: [`http.Client`](https://pkg.go.dev/net/http#Client) with custom [`http.Transport`](https://pkg.go.dev/net/http#Transport), override [`Dialer.Dial("unix", ...)`](https://pkg.go.dev/net#Dialer.Dial)
     1. HTTP server: [`net.Serve`](https://pkg.go.dev/net/http#Serve) with a [`net.UnixListener`](https://pkg.go.dev/net#UnixListener)
@@ -109,6 +96,7 @@
     1. Use [`socket`](https://docs.python.org/3/library/socket.html)
     1. gRPC client: [`TODO`](TODO)
     1. gRPC server: [`TODO`](TODO)
+        1. [Python](https://github.com/grpc/grpc/blob/master/examples/python/uds/README.md)
     1. HTTP client: [`TODO`](TODO)
     1. HTTP server: [`TODO`](TODO)
 1. `Languages`: Rust:
