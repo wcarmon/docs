@@ -55,10 +55,7 @@
     1. 3rd party libs: [JNA](https://github.com/java-native-access/jna), [JNR](https://github.com/jnr/jnr-ffi) and [JavaCPP](https://github.com/bytedeco/javacpp)
     1. [Official docs (legacy)](https://docs.oracle.com/javase/7/docs/technotes/guides/jni/spec/intro.html) <-- GOTCHA: jni is abandonware and painful
 1. Python:
-    1. [Official docs](TODO)
-    1. Example:
-    ```python
-    ```
+    1. [ctypes](https://docs.python.org/3/library/ctypes.html), [cffi](https://cffi.readthedocs.io/en/latest/)
 1. Rust:
     1. [Official docs](https://doc.rust-lang.org/nomicon/ffi.html#calling-foreign-functions)
     1. Example:
