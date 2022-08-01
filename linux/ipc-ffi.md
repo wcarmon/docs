@@ -15,8 +15,17 @@
 --------
 # [FFI](https://en.wikipedia.org/wiki/Foreign_function_interface)
 ## Exporting
-1. C: [TODO](TODO)
-1. Rust: [TODO](TODO)
+1. C:
+    1. [Official docs](TODO)
+    1. Example:
+    ```c
+    ```
+1. Rust:
+    1. [Official docs](TODO)
+    1. Example:
+    ```rust
+    ```
+
 
 ## Calling foreign functions
 1. Dart:
