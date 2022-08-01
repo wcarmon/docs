@@ -17,9 +17,9 @@
 1. Garbage collected languages are better for calling foreign functions. (eg. Go, Java, Kotlin, Python, Dart, Typescript, Javascript, C#, Ruby, ...)
 1. Non-garbage collected languages are better for exporting foreign functions. (eg. C, Rust, C++, ...)
 1. Library formats
-    1. Linux: [`.so`](TODO) (ELF)
-    1. MacOS:
-    1. windows:
+    1. **Linux**: Dynamic/Shared lib: [`.so`](https://tldp.org/HOWTO/Program-Library-HOWTO/shared-libraries.html) (ELF), Static lib: [`.a`](TODO)
+    1. **MacOS**: Dynamic/Shared lib: [`.dylib`](https://developer.apple.com/library/archive/documentation/DeveloperTools/Conceptual/DynamicLibraries/100-Articles/UsingDynamicLibraries.html), Static lib: [`.a`](TODO)
+    1. **windows**: Dynamic/Shared lib: [`.dll`](https://docs.microsoft.com/en-us/troubleshoot/windows-client/deployment/dynamic-link-library), Static lib: [`.lib`](TODO)
 
 ## Exporting
 1. Rust:
@@ -283,3 +283,4 @@
 1. https://docs.oracle.com/cd/E19504-01/802-5882/6i9k22elq/index.html
 1. https://www.softprayog.in/programming/interprocess-communication-using-posix-shared-memory-in-linux
 1. https://opensource.com/article/19/4/interprocess-communication-linux-storage
+1. https://wiki.lazarus.freepascal.org/macOS_Dynamic_Libraries
