@@ -1,27 +1,35 @@
 # Overview
 1. Mechanisms for communicating across Linux processes
-1. TL;DR;
-    1. Same machine?
-        1. Small/medium sized data
-            1. [non-blocking, TCP-based, Unix Domain sockets](TODO)
-                1. [c++](TODO)
-                1. [c](TODO)
-                1. [go](TODO)
-                1. [Java](TODO)
-                1. [c#](https://docs.microsoft.com/en-us/aspnet/core/grpc/interprocess?view=aspnetcore-6.0)
-                1. [Python](https://github.com/grpc/grpc/blob/master/examples/python/uds/README.md)
-                1. [Dart](TODO)
-                1. [Rust](TODO)
-            1. [`gRPC`](TODO) over `localhost` (which, for most languages, is as fast as Unix domain socket)
-            1. memory mapped file?
-        1. Large data
-            1. Shared file system
-            1. file locks
-            1. memory mapped file?
-    1. Different machines?
-        1. [gRPC](TODO) over HTTP/2 or REST over HTTP/2
-    1. Ignore all the "System V" options
-    1. Ignore all pipes
+
+
+
+# TL;DR;
+|Scenario|Best option|
+|---|---|
+|Same host, Same process, same language|import/use library|
+|Same host, Same process|TODO|
+|Same host|TODO|
+|Different host|[gRPC over HTTP/2](TODO) or [REST over HTTP/2](TODO)|
+
+
+1. Same machine?
+    1. Small/medium sized data
+        1. [non-blocking, TCP-based, Unix Domain sockets](TODO)
+            1. [c++](TODO)
+            1. [c](TODO)
+            1. [go](TODO)
+            1. [Java](TODO)
+            1. [c#](https://docs.microsoft.com/en-us/aspnet/core/grpc/interprocess?view=aspnetcore-6.0)
+            1. [Python](https://github.com/grpc/grpc/blob/master/examples/python/uds/README.md)
+            1. [Dart](TODO)
+            1. [Rust](TODO)
+        1. [`gRPC`](TODO) over `localhost` (which, for most languages, is as fast as Unix domain socket)
+        1. memory mapped file?
+    1. Large data
+        1. Shared file system
+        1. file locks
+        1. memory mapped file?
+1. Ignore all pipes
 
 
 --------
