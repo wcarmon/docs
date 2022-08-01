@@ -19,13 +19,29 @@
 1. Rust: [TODO](TODO)
 
 ## Calling foreign functions
-1. Dart: [TODO](TODO)
-1. Go: [TODO](TODO)
-1. Java: [TODO](TODO)
-1. Python: [TODO](TODO)
-1. Rust: [TODO](TODO)
+1. Dart:
+    1. [Official docs](TODO)
+    1. Example:
+    ```dart
+    ```
+1. Go:
+    1. [Official docs](TODO)
+    1. Example:
+    ```go
+    ```
+1. Java:
+    1. [Official docs](TODO)
+    1. Example:
+    ```java
+    ```
+1. Python:
+    1. [Official docs](TODO)
+    1. Example:
+    ```python
+    ```
+1. Rust:
     1. [Official docs](https://doc.rust-lang.org/nomicon/ffi.html#calling-foreign-functions)
-    1.
+    1. Example:
     ```rust
     #[link(name = "...")]
     extern {
