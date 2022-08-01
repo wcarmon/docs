@@ -84,16 +84,15 @@
 
 ## Unix Domain Socket (non-networked)
 1. Domain: communication on same host machine
-1. Languages: [`c#`](TODO)
-1. Languages: [`c++`](TODO)
-1. Languages: [`c`](TODO)
+1. Languages: c#: [`UnixDomainSocketEndPoint`](https://docs.microsoft.com/en-us/dotnet/api/system.net.sockets.unixdomainsocketendpoint?view=net-6.0)
+1. Languages: C: [`sockaddr_un`](https://man7.org/linux/man-pages/man7/unix.7.html#DESCRIPTION)
 1. Languages: Dart: [`Internet Address`](https://api.flutter.dev/flutter/dart-io/InternetAddress-class.html)
-1. Languages: go: [`?`](TODO)
+1. Languages: go: [`UnixAddr`](https://pkg.go.dev/net#UnixAddr)
 1. Languages: Java/JVM: [`UnixDomainSocketAddress`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/net/UnixDomainSocketAddress.html)
 1. Languages: Python: [`socket`](https://docs.python.org/3/library/socket.html)
 1. Languages: Rust: [`std::os::unix::net::UnixListener`](https://doc.rust-lang.org/std/os/unix/net/struct.UnixListener.html) and [`std::os::unix::net::UnixStream`](https://doc.rust-lang.org/std/os/unix/net/struct.UnixStream.html)
 1. Lifetime: lives in file system, must be deleted explicitly
-1. Name: [`AF_UNIX`](TODO)
+1. Name: [`AF_UNIX`](https://man7.org/linux/man-pages/man7/unix.7.html#DESCRIPTION)
 1. Reference: (absolute) pathname or file descriptor
 1. Reference: socket bound one-to-one with file path
 1. Security: don't use /tmp since you have less control over permissions
