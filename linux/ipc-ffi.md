@@ -176,12 +176,13 @@
 
 
 ## WebSockets
-1. `Languages`: C [`TODO`](TODO)
-1. `Languages`: Dart [`TODO`](TODO)
-1. `Languages`: Go [`TODO`](TODO)
-1. `Languages`: Java/JVM [`TODO`](TODO)
-1. `Languages`: Python [`TODO`](TODO)
-1. `Languages`: Rust [`websocket`](https://docs.rs/websocket/latest/websocket/) crate
+1. [RFC 6455](https://datatracker.ietf.org/doc/html/rfc6455)
+1. Not nearly as well supported as REST or gRPC
+1. `Languages`: Dart [`WebSocket`](https://api.dart.dev/stable/2.17.6/dart-io/WebSocket-class.html) class, [flutter docs](https://docs.flutter.dev/cookbook/networking/web-sockets) (Official)
+1. `Languages`: Go [gorilla](https://pkg.go.dev/github.com/gorilla/websocket) (unofficial)
+1. `Languages`: Java EE [`javax.websocket`](https://docs.oracle.com/javaee/7/api/javax/websocket/package-summary.html) or Spring WebSocket?
+1. `Languages`: Python [`websockets`](https://websockets.readthedocs.io/en/stable/) (unofficial)
+1. `Languages`: Rust [`websocket`](https://docs.rs/websocket/latest/websocket/) crate (unofficial)
 
 
 --------
