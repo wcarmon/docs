@@ -70,7 +70,7 @@
 1. `Lifetime`: name/identifier lives in file system
 1. `Lifetime`: Socket is dropped when no process has it open
 1. `Connection`: Operate in pairs
-1. `Def`: AF == Address Family == Domain
+1. `Def`: AF == [Address Family](https://man7.org/linux/man-pages/man7/address_families.7.html) == Domain
 
 
 ## ~~Datagram~~
@@ -88,12 +88,12 @@
 1. `Languages`: C: [`sockaddr_un`](https://man7.org/linux/man-pages/man7/unix.7.html#DESCRIPTION)
 1. `Languages`: C#: [`UnixDomainSocketEndPoint`](https://docs.microsoft.com/en-us/dotnet/api/system.net.sockets.unixdomainsocketendpoint?view=net-6.0)
 1. `Languages`: Dart: [`Internet Address`](https://api.flutter.dev/flutter/dart-io/InternetAddress-class.html)
-1. `Languages`: Go: [`UnixAddr`](https://pkg.go.dev/net#UnixAddr)
+1. `Languages`: Go: [`UnixAddr`](https://pkg.go.dev/net#UnixAddr), [grpc.Serve](https://pkg.go.dev/google.golang.org/grpc#Server.Serve) needs [`net.Listener`](https://pkg.go.dev/net#Listener) eg. [`UnixListener`](https://pkg.go.dev/net#UnixListener)
 1. `Languages`: Java/JVM: [`UnixDomainSocketAddress`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/net/UnixDomainSocketAddress.html)
 1. `Languages`: Python: [`socket`](https://docs.python.org/3/library/socket.html)
 1. `Languages`: Rust: [`std::os::unix::net::UnixListener`](https://doc.rust-lang.org/std/os/unix/net/struct.UnixListener.html) and [`std::os::unix::net::UnixStream`](https://doc.rust-lang.org/std/os/unix/net/struct.UnixStream.html)
 1. `Lifetime`: lives in file system, must be deleted explicitly
-1. `Name`: [`AF_UNIX`](https://man7.org/linux/man-pages/man7/unix.7.html#DESCRIPTION)
+1. `Title`: [`AF_UNIX`](https://man7.org/linux/man-pages/man7/unix.7.html#DESCRIPTION)
 1. `Reference`: (absolute) pathname or file descriptor
 1. `Reference`: socket bound one-to-one with file path
 1. `Security`: don't use /tmp since you have less control over permissions
@@ -123,7 +123,7 @@
 
 --------
 # Local Data transfer (Non-socket)
-1. `Direction`: Can only communicate in one direction
+1. `Direction`: One direction
 1. `Read`: Readers block until data available
 1. `Speed`: Requires copying data twice between user-space and kernel-space
 1. `Sync`: reader/writer synchronization is not required (automatic, by kernel)
@@ -164,12 +164,12 @@
 1. `Language`: 3rd party lib for golang, rust, java (jvm), python
 1. `Language`: native to c
 1. `Lifetime`: lives until explicitly deleted or system shutdown (reference counted by kernel)
-1. `Linking`: requires [`librt`](TODO)
-1. `Name`: 255 chars max
+1. `Linking`: requires [`librt`](https://man.cx/librt(3))
+1. `Name`: max length: 255 chars
 1. `Priority`: allows message prioritization (assign an `int`)
 1. `Read`: must read message fully (no partial)
 1. `Read`: reads are destructive
-1. `Reference`: [`mqd_t`](TODO)
+1. `Reference`: [`mqd_t`](https://man7.org/linux/man-pages/man2/mq_open.2.html)
 1. `Reference`: IPC pathname? TODO
 1. `Reference`: message queue descriptor is per-process (same as file-descriptors)
 
@@ -181,6 +181,15 @@
 --------
 # Synchronization
 1. Required for shared memory coordination
+
+## File lock
+1. Coordinates access to a single file
+1. 2-types:
+    1. Read lock (shared, multiple readers)
+    1. Write lock (exclusive)
+1. Locks can work on whole file or regions of a file
+1. see [`fcntl`](https://man7.org/linux/man-pages/man2/fcntl.2.html)
+1. `Access`: access to lock requires read access to file
 
 
 ## POSIX semaphores (named)
@@ -197,16 +206,6 @@
 
 ## ~~System V semaphores~~ (legacy)
 1. similar to above
-
-## File lock
-1. Coordinates access to a single file
-1. 2-types:
-    1. Read lock (shared, multiple readers)
-    1. Write lock (exclusive)
-1. Locks can work on whole file or regions of a file
-1. see [`fcntl`](TODO)
-1. `Access`: access to lock requires read access to file
-
 
 
 --------
