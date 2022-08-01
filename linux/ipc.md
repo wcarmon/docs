@@ -3,11 +3,21 @@
 1. TL;DR;
     1. Same machine?
         1. Small/medium sized data
-            1. [non-blocking, TCP-based, Domain sockets](TODO)
+            1. [non-blocking, TCP-based, Unix Domain sockets](TODO)
+                1. [c++](TODO)
+                1. [c](TODO)
+                1. [go](TODO)
+                1. [Java](TODO)
+                1. [c#](https://docs.microsoft.com/en-us/aspnet/core/grpc/interprocess?view=aspnetcore-6.0)
+                1. [Python](https://github.com/grpc/grpc/blob/master/examples/python/uds/README.md)
+                1. [Dart](TODO)
+                1. [Rust](TODO)
             1. [`gRPC`](TODO) over `localhost` (which, for most languages, is as fast as Unix domain socket)
+            1. memory mapped file?
         1. Large data
             1. Shared file system
             1. file locks
+            1. memory mapped file?
     1. Different machines?
         1. [gRPC](TODO) over HTTP/2 or REST over HTTP/2
     1. Ignore all the "System V" options
@@ -58,9 +68,12 @@
 1. Lifetime: Both sender and receiver need a Socket (Server binds to known address/name)
 1. Lifetime: name/identifier lives in file system
 1. Lifetime: Socket is dropped when no process has it open
+1. Connection: Operate in pairs
+1. Def: AF == Address Family == Domain
 
 
 ## ~~Datagram~~
+1. eg. [UDP](TODO) - OSI Layer 4
 1. Delim: Delimited messages
 1. Delim: Message boundaries preserved
 1. Order: out-of-order
@@ -71,8 +84,32 @@
 
 ## Unix Domain Socket (non-networked)
 1. Domain: communication on same host machine
-1. Reference: pathname or file descriptor
-1. Speed: communication hapens in kernel-space
+1. Languages: [`c#`](TODO)
+1. Languages: [`c++`](TODO)
+1. Languages: [`c`](TODO)
+1. Languages: Dart: [`Internet Address`](https://api.flutter.dev/flutter/dart-io/InternetAddress-class.html)
+1. Languages: go: [`?`](TODO)
+1. Languages: Java/JVM: [`UnixDomainSocketAddress`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/net/UnixDomainSocketAddress.html)
+1. Languages: Python: [`socket`](https://docs.python.org/3/library/socket.html)
+1. Languages: Rust: [`std::os::unix::net::UnixListener`](https://doc.rust-lang.org/std/os/unix/net/struct.UnixListener.html) and [`std::os::unix::net::UnixStream`](https://doc.rust-lang.org/std/os/unix/net/struct.UnixStream.html)
+1. Lifetime: lives in file system, must be deleted explicitly
+1. Name: [`AF_UNIX`](TODO)
+1. Reference: (absolute) pathname or file descriptor
+1. Reference: socket bound one-to-one with file path
+1. Security: don't use /tmp since you have less control over permissions
+1. Security: permissions determined by (socket) file permissions
+1. Speed: communication happens in kernel-space
+1. Speed: faster than Internet domain sockets
+
+
+## Internet Domain Socket / TCP (networked)
+1. Concept: IP layer adds IP address header (connectionless, unreliable)
+1. Concept: TCP layer adds ports, sequence #, ack, checksums, flow-control, congestion-control, ... headers
+1. Domain: same or different host machines
+1. Lifetime: TODO
+1. Reference:
+1. Security: handled in higher-level protocol
+1. Speed: TCP ([OSI Layer 4](https://en.wikipedia.org/wiki/Transport_layer)) and IP ([OSI Layer 3](https://en.wikipedia.org/wiki/Network_layer)) are in kernel space
 
 
 ## WebSockets
@@ -189,3 +226,4 @@
 # Other resources
 1. https://docs.oracle.com/cd/E19504-01/802-5882/6i9k22elq/index.html
 1. https://www.softprayog.in/programming/interprocess-communication-using-posix-shared-memory-in-linux
+1. https://opensource.com/article/19/4/interprocess-communication-linux-storage
