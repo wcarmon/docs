@@ -86,12 +86,6 @@
     1. gRPC server: [`Server.Serve`](https://pkg.go.dev/google.golang.org/grpc#Server.Serve) needs [`net.Listener`](https://pkg.go.dev/net#Listener) eg. [`net.UnixListener`](https://pkg.go.dev/net#UnixListener)
     1. HTTP/2 client: [`http.Client`](https://pkg.go.dev/net/http#Client) with custom [`http.Transport`](https://pkg.go.dev/net/http#Transport), override [`Dialer.Dial("unix", ...)`](https://pkg.go.dev/net#Dialer.Dial)
     1. HTTP/2 server: [`net.Serve`](https://pkg.go.dev/net/http#Serve) with a [`net.UnixListener`](https://pkg.go.dev/net#UnixListener)
-1. `Languages`: Java/JVM:
-    1. Use [`java.net.UnixDomainSocketAddress` class](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/net/UnixDomainSocketAddress.html) (Java 16+) or [`io.netty.channel.unix.DomainSocketAddress`](https://netty.io/4.1/api/io/netty/channel/unix/DomainSocketAddress.html)
-    1. gRPC client: [`TODO`](TODO) - [`io.grpc.netty.NettyChannelBuilder`](https://grpc.github.io/grpc-java/javadoc/io/grpc/netty/NettyChannelBuilder.html)
-    1. gRPC server: [`TODO`](TODO) - [`io.grpc.netty.NettyServerBuilder`](https://grpc.github.io/grpc-java/javadoc/io/grpc/netty/NettyServerBuilder.html)
-    1. HTTP/2 client: [`TODO`](TODO)
-    1. HTTP/2 server: [`TODO`](TODO)
 1. `Languages`: Python:
     1. Use [`socket`](https://docs.python.org/3/library/socket.html)
     1. gRPC client: [`TODO`](TODO)
@@ -105,6 +99,12 @@
     1. gRPC server: [`TODO`](TODO)
     1. HTTP/2 client: [`TODO`](TODO)
     1. HTTP/2 server: [`TODO`](TODO)
+1. `Languages`: Java/JVM:
+    1. Use [`java.net.UnixDomainSocketAddress` class](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/net/UnixDomainSocketAddress.html) (Java 16+) or [`io.netty.channel.unix.DomainSocketAddress`](https://netty.io/4.1/api/io/netty/channel/unix/DomainSocketAddress.html)
+    1. gRPC client: [`io.grpc.netty.NettyChannelBuilder`](https://grpc.github.io/grpc-java/javadoc/io/grpc/netty/NettyChannelBuilder.html)
+    1. gRPC server: [`io.grpc.netty.NettyServerBuilder`](https://grpc.github.io/grpc-java/javadoc/io/grpc/netty/NettyServerBuilder.html)
+    1. HTTP/2 client: [`TODO`](TODO)    <-- not core, use Netty
+    1. HTTP/2 server: [`TODO`](TODO)    <-- not core, use Netty
 1. `Lifetime`: lives in file system, must be deleted explicitly
 1. `Title`: [`AF_UNIX`](https://man7.org/linux/man-pages/man7/unix.7.html#DESCRIPTION)
 1. `Reference`: (absolute) pathname or file descriptor
