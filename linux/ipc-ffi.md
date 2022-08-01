@@ -22,11 +22,6 @@
     1. windows:
 
 ## Exporting
-1. C:
-    1. [Official docs](TODO)
-    1. Example:
-    ```c
-    ```
 1. Rust:
     1. [Official docs](https://doc.rust-lang.org/nomicon/ffi.html#calling-rust-code-from-c)
     1. Example:
