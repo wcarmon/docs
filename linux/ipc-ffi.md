@@ -45,7 +45,7 @@
 ## Calling foreign functions
 1. Dart:
     1. [Official docs](https://dart.dev/guides/libraries/c-interop)
-    1. Examples: [with flutter](https://docs.flutter.dev/development/platform-integration/android/c-interop),
+    1. Examples: [with flutter](https://docs.flutter.dev/development/platform-integration/android/c-interop), [two](https://blog.logrocket.com/dart-ffi-native-libraries-flutter/),
     1. Keywords: [`DynamicLibrary.executable`](https://api.dart.dev/dev/2.19.0-51.0.dev/dart-ffi/DynamicLibrary/DynamicLibrary.executable.html) (static), [`DynamicLibrary.process`](TODO), [`DynamicLibrary.open`](https://api.dart.dev/dev/2.19.0-51.0.dev/dart-ffi/DynamicLibrary/DynamicLibrary.open.html)
 1. Go:
     1. [Official docs](TODO)
