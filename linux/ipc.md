@@ -36,9 +36,10 @@
 
 --------
 # Data transfer
-1. Requires copying data twice between user-space and kernel-space
-1. Pro: reader/writer synchronization is not required (automatic, by kernel)
-1. Readers block until data available
+1. Direction: Can only communicate in one direction
+1. Read: Readers block until data available
+1. Speed: Requires copying data twice between user-space and kernel-space
+1. Sync: reader/writer synchronization is not required (automatic, by kernel)
 
 
 ## Pipe (Anonymous)
