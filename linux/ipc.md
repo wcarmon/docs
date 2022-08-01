@@ -1,5 +1,12 @@
 # Overview
 1. Mechanisms for communicating across Linux processes
+1. TL;DR;
+    1. Same machine?
+        1. [POSIX Message queues](TODO) or [Domain sockets](TODO)
+    1. Different machines?
+        1. [gRPC](TODO) or REST over HTTP/2
+    1. Ignore all the "System V" options
+    1. Ignore all pipes
 
 
 --------
@@ -42,15 +49,6 @@
 1. Sync: reader/writer synchronization is not required (automatic, by kernel)
 
 
-## Pipe (Anonymous)
-1. Con: framing challenges, messages can be intermingled
-1. Con: Processes must share common ancestor
-1. anonymous data queues
-1. Undelimited byte stream
-1. reads are destructive
-1. Use file descriptor to reference
-
-
 ## FIFO == Named Pipe
 1. Concept: data queues with file names
 1. Access: determined by file permissions
@@ -63,6 +61,16 @@
 1. Reference: named in a directory
 1. Reference: Use pathname or file descriptor
 1. Priority: roll your own
+
+
+## Pipe (Anonymous)
+1. Con: framing challenges, messages can be intermingled
+1. Con: Processes must share common ancestor
+1. anonymous data queues
+1. Delim: Undelimited byte stream
+1. Protocol: must roll your own protocol
+1. Read: reads are destructive
+1. Reference: Use file descriptor to reference
 
 
 ## POSIX Message Queues
@@ -83,8 +91,9 @@
 --------
 # Net (Sockets)
 1. Access: determined by file permissions
-1. Lifetime: Socket is dropped when no process has it open
 1. Lifetime: name/identifier lives in file system
+1. Lifetime: Socket is dropped when no process has it open
+1. Scope: Sockets are the ONLY option for IPC across host machines
 
 
 ## Sockets / Datagram
@@ -92,7 +101,7 @@
 1. Read: must read message fully (no partial)
 
 
-## Socket / Unix Domain Socket
+## Socket / Unix Domain Socket (non-networked)
 1. Scope: communication on same host machine
 1. Reference: pathname or file desriptor
 
