@@ -45,18 +45,15 @@
 ## Calling foreign functions
 1. Dart:
     1. [Official docs](https://dart.dev/guides/libraries/c-interop)
+    1. Generator: [`ffigen`](https://pub.dev/packages/ffigen)
     1. Examples: [with flutter](https://docs.flutter.dev/development/platform-integration/android/c-interop), [two](https://blog.logrocket.com/dart-ffi-native-libraries-flutter/),
-    1. Keywords: [`DynamicLibrary.executable`](https://api.dart.dev/dev/2.19.0-51.0.dev/dart-ffi/DynamicLibrary/DynamicLibrary.executable.html) (static), [`DynamicLibrary.process`](TODO), [`DynamicLibrary.open`](https://api.dart.dev/dev/2.19.0-51.0.dev/dart-ffi/DynamicLibrary/DynamicLibrary.open.html)
+    1. Keywords: [`DynamicLibrary.executable`](https://api.dart.dev/dev/2.19.0-51.0.dev/dart-ffi/DynamicLibrary/DynamicLibrary.executable.html) (static), [`DynamicLibrary.open`](https://api.dart.dev/dev/2.19.0-51.0.dev/dart-ffi/DynamicLibrary/DynamicLibrary.open.html)
 1. Go:
-    1. [Official docs](TODO)
-    1. Example:
-    ```go
-    ```
+    1. [Official docs](https://pkg.go.dev/cmd/cgo)
 1. Java:
-    1. [Official docs](TODO)
-    1. Example:
-    ```java
-    ```
+    1. Related Language improvements: [JEP 412](https://openjdk.org/jeps/412), [JEP 424](https://openjdk.org/jeps/424)
+    1. 3rd party libs: [JNA](https://github.com/java-native-access/jna), [JNR](https://github.com/jnr/jnr-ffi) and [JavaCPP](https://github.com/bytedeco/javacpp)
+    1. [Official docs (legacy)](https://docs.oracle.com/javase/7/docs/technotes/guides/jni/spec/intro.html) <-- GOTCHA: jni is abandonware and painful
 1. Python:
     1. [Official docs](TODO)
     1. Example:
