@@ -21,9 +21,13 @@
     ```c
     ```
 1. Rust:
-    1. [Official docs](TODO)
+    1. [Official docs](https://doc.rust-lang.org/nomicon/ffi.html#calling-rust-code-from-c)
     1. Example:
     ```rust
+    #[no_mangle]
+    pub extern "C" fn example() {
+        ...
+    }
     ```
 
 
