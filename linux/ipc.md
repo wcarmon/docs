@@ -4,27 +4,40 @@
 
 --------
 # Shared memory
-1. Fastest IPC mechanism (for 2+ processes on same host system)
-1. No extra kernel-space copy required
-1. Con: reader/writer require synchronization
-1. Con: synchronization requirement can offset speed advantage over other IPC mechanisms
-1. Use a semaphore to synchronize access to shared memory
-1. Kernel places page-table entries in in each process point to same RAM pages
-1. Reads are non-destructive (i.e. can be read multiple times)
+1. Impl: Kernel places page-table entries in in each process point to same RAM pages
+1. Read: Reads are non-destructive (i.e. can be read multiple times)
+1. Speed: Fastest IPC mechanism (for 2+ processes on same host system)
+1. Speed: might not be the bottleneck for your application
+1. Speed: No extra kernel-space copy required
+1. Sync: reader/writer require synchronization
+1. Sync: synchronization requirement can offset speed advantage over other IPC mechanisms
+1. Sync: Use a semaphore to synchronize access to shared memory
 
 
-## POSIX Shared memory (newer)
+## POSIX Shared memory
+1. Reference: IPC pathname? TODO
+1. Reference: file descriptor (TODO: more here)
+1. Lifetime: lives until explicitly deleted or system shutdown
 
 
 ## System V Shared memory (legacy)
 
+
 ## Memory Mapped file
+1. Reference: pathname or file descriptor
+1. Lifetime: lives in file system, across system reboots
+1. Lifetime: must be explicitly deleted
+1. IO: any store to the mapped file segment results in implicit I/O
+
+
+## Fileless Memory Mapping
+
 
 
 --------
 # Data transfer
 1. Requires copying data twice between user-space and kernel-space
-1. Pro: reader/writer synchronization is not required (automatic)
+1. Pro: reader/writer synchronization is not required (automatic, by kernel)
 1. Readers block until data available
 
 
@@ -37,19 +50,29 @@
 1. Use file descriptor to reference
 
 
-## FIFO ==  Named Pipe
+## FIFO == Named Pipe
 1. Concept: data queues with file names
+1. Access: determined by file permissions
+1. Compatible with epoll (simultaneous monitoring of multiple file descriptors)
 1. Delim: Undelimited byte stream
-1. Reading: reads are destructive
+1. Delim: use delim chars, message headers containing length or fixed-length messages
+1. Lifetime: FIFO is dropped when no process has it open
+1. Lifetime: name/identifier lives in file system
+1. Read: reads are destructive
 1. Reference: named in a directory
-1. Reference: Use pathname or file descriptor to
+1. Reference: Use pathname or file descriptor
+1. Priority: roll your own
 
 
-## POSIX Message Queues (newer)
+## POSIX Message Queues
 1. Messages are passed as blocks of arbitrary size, not as byte streams
 1. Delimited messages
 1. must read message fully (no partial)
-1. reads are destructive
+1. Read: reads are destructive
+1. Reference: IPC pathname? TODO
+1. Reference: [`mqd_t`](TODO)
+1. Priority: allows message prioritization
+1. Lifetime: lives until explicitly deleted or system shutdown
 
 
 ## ~~System V Message Queues (legacy)~~
@@ -57,19 +80,32 @@
 
 
 --------
-# Net
+# Net (Sockets)
+1. Access: determined by file permissions
+1. Lifetime: Socket is dropped when no process has it open
+1. Lifetime: name/identifier lives in file system
 
-## Datagram sockets
-1. Delimited messages
-1. must read message fully (no partial)
+
+## Sockets / Datagram
+1. Delim: Delimited messages
+1. Read: must read message fully (no partial)
+
+
+## Socket / Unix Domain Socket
+1. Scope: communication on same host machine
+1. Reference: pathname or file desriptor
 
 
 --------
-# Syncronization
+# Synchronization
 
-## POSIX semaphores
+## POSIX semaphores (named)
+1. [`semaphore.h`](https://man7.org/linux/man-pages/man0/semaphore.h.0p.html)
 1. Useful for coordinating access to shared memory
 1. Kernel maintained uint
+1. Reference: [`sem_t`](TODO
+1. Reference: IPC pathname? TODO
+1. Lifetime: lives until explicitly deleted or system shutdown
 
 
 ## ~~System V semaphores (legacy)~~
@@ -82,11 +118,15 @@
     1. Write lock (exclusive)
 1. Locks can work on whole file or regions of a file
 1. see [`fcntl`](TODO)
+1. Access: access to lock requires read access to file
+
 
 
 --------
 # Small notifications
+
 ## Signals
+1. TODO
 
 
 ---------------------------------
@@ -96,9 +136,6 @@
 ## System V IPC
 
 ## POSIX IPC
-
-## Net / Socket / Unix Domain Socket
-1. Reference: pathname or file desriptor
 
 ## Net / Socket / IP Socket
 1. Reference: IP address + port
