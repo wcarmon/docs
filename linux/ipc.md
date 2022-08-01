@@ -7,7 +7,7 @@
 |Scenario|Best option|
 |---|---|
 |Same host, Same process, Same language|import/use library|
-|Same host, Same process|[FFI](https://en.wikipedia.org/wiki/Foreign_function_interface#:~:text=A%20foreign%20function%20interface%20(FFI,of%20services%20written%20in%20another.)|
+|Same host, Same process|[FFI](https://en.wikipedia.org/wiki/Foreign_function_interface)|
 |Same host|gRPC [over UDS](https://en.wikipedia.org/wiki/Unix_domain_socket) or REST [over UDS](https://en.wikipedia.org/wiki/Unix_domain_socket) or shared local [File System](https://en.wikipedia.org/wiki/File_system)|
 |Different host|[gRPC over HTTP/2](https://grpc.io/) or [REST over HTTP/2](https://en.wikipedia.org/wiki/Representational_state_transfer)|
 
