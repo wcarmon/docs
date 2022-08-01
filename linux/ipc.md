@@ -22,13 +22,16 @@
 
 
 ## POSIX Shared memory
+1. Header: [`sys/mman.h`](TODO)
 1. Reference: IPC pathname? TODO
 1. Reference: file descriptor (TODO: more here)
 1. Lifetime: lives until explicitly deleted or system shutdown
+1. Name: 255 chars max
+1. Linking: requires [`librt`](TODO)
 
 
-## System V Shared memory (legacy)
-
+## ~~System V Shared memory~~ (legacy)
+1. Similar to above
 
 ## Memory Mapped file
 1. Reference: pathname or file descriptor
@@ -64,27 +67,31 @@
 
 
 ## Pipe (Anonymous)
-1. Con: framing challenges, messages can be intermingled
-1. Con: Processes must share common ancestor
-1. anonymous data queues
+1. Concept: anonymous data queues
+1. Delim: framing challenges, messages can be intermingled
 1. Delim: Undelimited byte stream
 1. Protocol: must roll your own protocol
 1. Read: reads are destructive
 1. Reference: Use file descriptor to reference
+1. Scope: Processes must share common ancestor
 
 
 ## POSIX Message Queues
-1. Messages are passed as blocks of arbitrary size, not as byte streams
-1. Delimited messages
-1. must read message fully (no partial)
-1. Read: reads are destructive
-1. Reference: IPC pathname? TODO
-1. Reference: [`mqd_t`](TODO)
-1. Priority: allows message prioritization
+1. API: [`mq_open`](TODO), [`mq_close`](TODO), [`mq_send`](TODO), [`mq_receive`](TODO)
+1. Delim: Delimited messages
+1. Delim: Messages are passed as blocks of arbitrary size, not as byte streams
+1. Header: [`mqueue.h`](TODO)
 1. Lifetime: lives until explicitly deleted or system shutdown
+1. Name: 255 chars max
+1. Priority: allows message prioritization
+1. Read: must read message fully (no partial)
+1. Read: reads are destructive
+1. Reference: [`mqd_t`](TODO)
+1. Reference: IPC pathname? TODO
+1. Linking: requires [`librt`](TODO)
 
 
-## ~~System V Message Queues (legacy)~~
+## ~~System V Message Queues~~ (legacy)
 1. Similar to newer POSIX message queues
 
 
@@ -110,15 +117,18 @@
 # Synchronization
 
 ## POSIX semaphores (named)
-1. [`semaphore.h`](https://man7.org/linux/man-pages/man0/semaphore.h.0p.html)
+1. Header: [`sys/mman.h`](https://man7.org/linux/man-pages/man0/semaphore.h.0p.html)
+1. Header: [`semaphore.h`](TODO)
 1. Useful for coordinating access to shared memory
 1. Kernel maintained uint
 1. Reference: [`sem_t`](TODO
 1. Reference: IPC pathname? TODO
 1. Lifetime: lives until explicitly deleted or system shutdown
+1. API: [`sem_open`](TODO), [`sem_close`](TODO), [`sem_post`](TODO), [`sem_wait`](TODO)
+1. Linking: requires [`librt`](TODO)
 
 
-## ~~System V semaphores (legacy)~~
+## ~~System V semaphores~~ (legacy)
 1. similar to above
 
 ## File lock
@@ -142,10 +152,6 @@
 ---------------------------------
 # Unfiled
 ## Shared File system
-
-## System V IPC
-
-## POSIX IPC
 
 ## Net / Socket / IP Socket
 1. Reference: IP address + port
