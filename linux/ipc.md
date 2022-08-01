@@ -2,15 +2,21 @@
 1. Mechanisms for communicating across Linux processes
 1. TL;DR;
     1. Same machine?
-        1. [POSIX Message queues](TODO) or [Domain sockets](TODO)
+        1. Small/medium sized data
+            1. [non-blocking, TCP-based, Domain sockets](TODO)
+            1. [`gRPC`](TODO) over `localhost` (which, for most languages, is as fast as Unix domain socket)
+        1. Large data
+            1. Shared file system
+            1. file locks
     1. Different machines?
-        1. [gRPC](TODO) or REST over HTTP/2
+        1. [gRPC](TODO) over HTTP/2 or REST over HTTP/2
     1. Ignore all the "System V" options
     1. Ignore all pipes
 
 
 --------
 # Shared memory
+1. Domain: same host machine
 1. Impl: Kernel places page-table entries in in each process point to same RAM pages
 1. Read: Reads are non-destructive (i.e. can be read multiple times)
 1. Speed: Fastest IPC mechanism (for 2+ processes on same host system)
@@ -41,11 +47,40 @@
 
 
 ## Fileless Memory Mapping
+1. TODO
 
 
 
 --------
-# Data transfer
+# Net (Sockets)
+1. Access: determined by file permissions
+1. Domain: Sockets are the ONLY option for IPC across host machines
+1. Lifetime: Both sender and receiver need a Socket (Server binds to known address/name)
+1. Lifetime: name/identifier lives in file system
+1. Lifetime: Socket is dropped when no process has it open
+
+
+## ~~Datagram~~
+1. Delim: Delimited messages
+1. Delim: Message boundaries preserved
+1. Order: out-of-order
+1. Read: must read message fully (no partial)
+1. Reliability:  duplicated, or no-delivery possible
+1. Reliability: delivery NOT guaranteed/reliable
+
+
+## Unix Domain Socket (non-networked)
+1. Domain: communication on same host machine
+1. Reference: pathname or file descriptor
+1. Speed: communication hapens in kernel-space
+
+
+## WebSockets
+1. TODO
+
+
+--------
+# Local Data transfer
 1. Direction: Can only communicate in one direction
 1. Read: Readers block until data available
 1. Speed: Requires copying data twice between user-space and kernel-space
@@ -53,42 +88,48 @@
 
 
 ## FIFO == Named Pipe
-1. Concept: data queues with file names
 1. Access: determined by file permissions
 1. Compatible with epoll (simultaneous monitoring of multiple file descriptors)
+1. Concept: data queues with file names
 1. Delim: Undelimited byte stream
 1. Delim: use delim chars, message headers containing length or fixed-length messages
+1. Domain: same host machine  TODO: even more restrictive than this
 1. Lifetime: FIFO is dropped when no process has it open
 1. Lifetime: name/identifier lives in file system
+1. Priority: roll your own
 1. Read: reads are destructive
 1. Reference: named in a directory
 1. Reference: Use pathname or file descriptor
-1. Priority: roll your own
 
 
 ## Pipe (Anonymous)
 1. Concept: anonymous data queues
 1. Delim: framing challenges, messages can be intermingled
 1. Delim: Undelimited byte stream
+1. Domain: Processes must share common ancestor
 1. Protocol: must roll your own protocol
 1. Read: reads are destructive
 1. Reference: Use file descriptor to reference
-1. Scope: Processes must share common ancestor
 
 
 ## POSIX Message Queues
 1. API: [`mq_open`](TODO), [`mq_close`](TODO), [`mq_send`](TODO), [`mq_receive`](TODO)
+1. Async: allows async notification
 1. Delim: Delimited messages
 1. Delim: Messages are passed as blocks of arbitrary size, not as byte streams
+1. Domain: same host machine
 1. Header: [`mqueue.h`](TODO)
-1. Lifetime: lives until explicitly deleted or system shutdown
+1. Language: 3rd party lib for golang, rust, java (jvm), python
+1. Language: native to c
+1. Lifetime: lives until explicitly deleted or system shutdown (reference counted by kernel)
+1. Linking: requires [`librt`](TODO)
 1. Name: 255 chars max
-1. Priority: allows message prioritization
+1. Priority: allows message prioritization (assign an `int`)
 1. Read: must read message fully (no partial)
 1. Read: reads are destructive
 1. Reference: [`mqd_t`](TODO)
 1. Reference: IPC pathname? TODO
-1. Linking: requires [`librt`](TODO)
+1. Reference: message queue descriptor is per-process (same as file-descriptors)
 
 
 ## ~~System V Message Queues~~ (legacy)
@@ -96,25 +137,9 @@
 
 
 --------
-# Net (Sockets)
-1. Access: determined by file permissions
-1. Lifetime: name/identifier lives in file system
-1. Lifetime: Socket is dropped when no process has it open
-1. Scope: Sockets are the ONLY option for IPC across host machines
-
-
-## Sockets / Datagram
-1. Delim: Delimited messages
-1. Read: must read message fully (no partial)
-
-
-## Socket / Unix Domain Socket (non-networked)
-1. Scope: communication on same host machine
-1. Reference: pathname or file desriptor
-
-
---------
 # Synchronization
+1. Required for shared memory coordination
+
 
 ## POSIX semaphores (named)
 1. Header: [`sys/mman.h`](https://man7.org/linux/man-pages/man0/semaphore.h.0p.html)
