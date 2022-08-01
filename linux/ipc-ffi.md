@@ -29,7 +29,11 @@
         ...
     }
     ```
-
+    1. in `Cargo.toml`,
+    ```toml
+    [lib]
+    crate-type = ["staticlib"] # or ["cdylib"]
+    ```
 
 ## Calling foreign functions
 1. Dart:
