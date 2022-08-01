@@ -13,6 +13,27 @@
 
 
 --------
+# [FFI](https://en.wikipedia.org/wiki/Foreign_function_interface)
+## Exporting
+1. C: [TODO](TODO)
+1. Rust: [TODO](TODO)
+
+## Calling foreign functions
+1. Dart: [TODO](TODO)
+1. Go: [TODO](TODO)
+1. Java: [TODO](TODO)
+1. Python: [TODO](TODO)
+1. Rust: [TODO](TODO)
+    1. [Official docs](https://doc.rust-lang.org/nomicon/ffi.html#calling-foreign-functions)
+    1. ```rust
+    #[link(name = "...")]
+    extern {
+        fn ...
+    }
+    ```
+
+
+--------
 # Shared memory
 1. `Domain`: same host machine
 1. `Impl`: Kernel places page-table entries in in each process point to same RAM pages
