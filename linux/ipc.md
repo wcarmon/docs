@@ -6,10 +6,10 @@
 # TL;DR;
 |Scenario|Best option|
 |---|---|
-|Same host, Same process, same language|import/use library|
-|Same host, Same process|TODO|
-|Same host|TODO|
-|Different host|[gRPC over HTTP/2](TODO) or [REST over HTTP/2](TODO)|
+|Same host, Same process, Same language|import/use library|
+|Same host, Same process|[FFI](https://en.wikipedia.org/wiki/Foreign_function_interface#:~:text=A%20foreign%20function%20interface%20(FFI,of%20services%20written%20in%20another.)|
+|Same host|gRPC [over UDS](https://en.wikipedia.org/wiki/Unix_domain_socket) or REST [over UDS](https://en.wikipedia.org/wiki/Unix_domain_socket) or shared local [File System](https://en.wikipedia.org/wiki/File_system)|
+|Different host|[gRPC over HTTP/2](https://grpc.io/) or [REST over HTTP/2](https://en.wikipedia.org/wiki/Representational_state_transfer)|
 
 
 1. Same machine?
@@ -92,10 +92,10 @@
 
 ## Unix Domain Socket (non-networked)
 1. Domain: communication on same host machine
-1. Languages: c#: [`UnixDomainSocketEndPoint`](https://docs.microsoft.com/en-us/dotnet/api/system.net.sockets.unixdomainsocketendpoint?view=net-6.0)
 1. Languages: C: [`sockaddr_un`](https://man7.org/linux/man-pages/man7/unix.7.html#DESCRIPTION)
+1. Languages: C#: [`UnixDomainSocketEndPoint`](https://docs.microsoft.com/en-us/dotnet/api/system.net.sockets.unixdomainsocketendpoint?view=net-6.0)
 1. Languages: Dart: [`Internet Address`](https://api.flutter.dev/flutter/dart-io/InternetAddress-class.html)
-1. Languages: go: [`UnixAddr`](https://pkg.go.dev/net#UnixAddr)
+1. Languages: Go: [`UnixAddr`](https://pkg.go.dev/net#UnixAddr)
 1. Languages: Java/JVM: [`UnixDomainSocketAddress`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/net/UnixDomainSocketAddress.html)
 1. Languages: Python: [`socket`](https://docs.python.org/3/library/socket.html)
 1. Languages: Rust: [`std::os::unix::net::UnixListener`](https://doc.rust-lang.org/std/os/unix/net/struct.UnixListener.html) and [`std::os::unix::net::UnixStream`](https://doc.rust-lang.org/std/os/unix/net/struct.UnixStream.html)
@@ -120,7 +120,12 @@
 
 
 ## WebSockets
-1. TODO
+1. Languages: C [`TODO`](TODO)
+1. Languages: Dart [`TODO`](TODO)
+1. Languages: Go [`TODO`](TODO)
+1. Languages: Java/JVM [`TODO`](TODO)
+1. Languages: Python [`TODO`](TODO)
+1. Languages: Rust [`websocket`](https://docs.rs/websocket/latest/websocket/) crate
 
 
 --------
