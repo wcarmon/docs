@@ -46,11 +46,11 @@ readonly SOURCES_ROOT=$PROJ_ROOT/src
 # -- Lint (static analysis)
 # ---------------------------------------------
 echo
-echo "|-- Analyzing code in ${PROJ_ROOT}"
+echo "|-- Analyzing code in ${SOURCES_ROOT}"
 
 $DOCKER_BINARY run \
   --rm \
-  -v "${PROJ_ROOT}":/app \
+  -v "${SOURCES_ROOT}":/app \
   --workdir /app \
   $LINT_IMAGE \
   golangci-lint run ./...
