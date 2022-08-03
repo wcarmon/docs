@@ -23,7 +23,7 @@ if err != nil {
     ...
 }
 
-f, err := os.OpenFile(dest, os.O_WRONLY|os.O_CREATE|os.O_TRUNC, 0644)
+f, err := os.OpenFile(dest, os.O_WRONLY|os.O_CREATE|os.O_TRUNC, 0640)
 if err != nil {
     ...
 }

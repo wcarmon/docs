@@ -37,7 +37,7 @@ func initLoggers(level zerolog.Level) *os.File {
 
 	logFile, err := os.OpenFile(logFilePath,
 		os.O_WRONLY|os.O_CREATE|os.O_APPEND,
-		0644)
+		0640)
 	if err != nil {
 		panic("failed to open log file")
 	}

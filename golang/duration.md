@@ -58,7 +58,7 @@ start := time.Now()
 
 // ... do something ...
 
-elapsed := time.Now().Sub(start)
+elapsed := time.Since(start)
 log.Info().
     Str("elapsed", fmt.Sprintf("%v", elapsed)).
     Msg("total time")

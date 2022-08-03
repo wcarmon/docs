@@ -26,8 +26,11 @@ readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
 # -- Config
 # ---------------------------------------------
 # See https://hub.docker.com/r/golangci/golangci-lint/tags
-readonly LINT_IMAGE=golangci/golangci-lint:v1.46.2-alpine
-#readonly LINT_IMAGE=golangci/golangci-lint:v1.46.2
+readonly GOLANGCI_IMAGE=golangci/golangci-lint:v1.46.2-alpine
+#readonly GOLANGCI_IMAGE=golangci/golangci-lint:v1.46.2
+
+# See https://hub.docker.com/r/returntocorp/semgrep
+readonly SEMGREP_IMAGE=returntocorp/semgrep
 
 # ---------------------------------------------
 # -- Derived
@@ -50,7 +53,29 @@ echo "|-- Analyzing code in ${SOURCES_ROOT}"
 
 $DOCKER_BINARY run \
   --rm \
+  -v "${SOURCES_ROOT}:/src" \
+  $SEMGREP_IMAGE \
+  semgrep scan \
+  --config "p/ci" \
+  --config "p/docker" \
+  --config "p/golang" \
+  --config "p/jwt" \
+  --config "p/r2c-ci" \
+  --config "p/trailofbits" \
+  --disable-version-check \
+  --jobs 4 \
+  --metrics=off \
+  --timeout 30 \
+  --use-git-ignore
+
+$DOCKER_BINARY run \
+  --rm \
   -v "${SOURCES_ROOT}":/app \
   --workdir /app \
-  $LINT_IMAGE \
-  golangci-lint run ./...
+  $GOLANGCI_IMAGE \
+  golangci-lint run ./... \
+  --color auto \
+  --concurrency 6 \
+  --sort-results \
+  --tests true \
+  --timeout 1m30s
