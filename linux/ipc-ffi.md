@@ -164,6 +164,7 @@
 1. `Security`: permissions determined by (socket) file permissions
 1. `Speed`: communication happens in kernel-space
 1. `Speed`: faster than Internet domain sockets
+1. `Examples`: PostgreSQL, docker, MySQL, MariaDB
 
 
 ## Internet Domain Socket / TCP (networked)
@@ -178,12 +179,18 @@
 
 ## WebSockets
 1. [RFC 6455](https://datatracker.ietf.org/doc/html/rfc6455)
-1. Not nearly as well supported as REST or gRPC
+1. `Reach`: Not nearly as well supported as REST or gRPC
+1. `Reach`: Better support in browser than gRPC (Chrome 4+, Firefox 11+, Edge 12+, IE 10+)
 1. `Languages`: Dart [`WebSocket`](https://api.dart.dev/stable/2.17.6/dart-io/WebSocket-class.html) class, [flutter docs](https://docs.flutter.dev/cookbook/networking/web-sockets) (Official)
 1. `Languages`: Go [gorilla](https://pkg.go.dev/github.com/gorilla/websocket) (unofficial)
 1. `Languages`: Java EE [`javax.websocket`](https://docs.oracle.com/javaee/7/api/javax/websocket/package-summary.html) or Spring WebSocket?
 1. `Languages`: Python [`websockets`](https://websockets.readthedocs.io/en/stable/) (unofficial)
 1. `Languages`: Rust [`websocket`](https://docs.rs/websocket/latest/websocket/) crate (unofficial)
+1. `Layer`: IP < TCP < WebSocket < Your protocol < Your application
+1. `Cons`: have to build status/success/failure protocol on top
+1. `Cons`: Doesn't allow prioritization
+1. `Pros`: might be better than gRPC or REST when server data keeps changing
+1. Multiplexed (just like gRPC)
 
 
 --------
