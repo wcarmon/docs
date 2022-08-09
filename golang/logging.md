@@ -64,8 +64,7 @@ func initLoggers(level zerolog.Level) *os.File {
 
 func main() {
 
-	logFile := initLoggers(zerolog.DebugLevel)
-	defer logFile.Close()
+	defer initLoggers(zerolog.DebugLevel).Close()
 
     ...
 }
