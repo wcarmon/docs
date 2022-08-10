@@ -3,14 +3,14 @@
 |`Operation`|[`Go`](https://go.dev/)|[`Rust`](https://www.rust-lang.org/)|[`Java`](https://docs.oracle.com/javase/8/docs/technotes/guides/language/)|
 |---|---|---|---|
 |bytes|[`[]byte($EXPR$)`](TODO)|[`TODO`](TODO)|[`TODO`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#getBytes())|
-|charAt|[`$EXPR$[i:i+1] /* or */ `( []rune($EXPR$) )[3]``](TODO)|[`TODO`](TODO)|[`TODO`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#charAt(int))|
+|charAt|[`$EXPR$[i:i+1] /* or */ ( []rune($EXPR$) )[3]`](TODO)|[`TODO`](TODO)|[`TODO`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#charAt(int))|
 |chars|[`range in  /* or */ []rune($EXPR$)`](TODO)|[`TODO`](TODO)|[`TODO`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#toCharArray())|
 |compareTo|[`TODO`](https://pkg.go.dev/strings#Compare)|[`TODO`](TODO)|[`TODO`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#compareTo(java.lang.String))|
 |contains|[`strings.Contains($EXPR$, needle)`](https://pkg.go.dev/strings#Contains)|[`$EXPR$.contains(needle)`](https://doc.rust-lang.org/std/primitive.str.html#method.contains)|[`TODO`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#contains(java.lang.CharSequence))|
 |endswith|[`strings.HasSuffix($EXPR$, sfx)`](https://pkg.go.dev/strings#HasSuffix)|[`$EXPR$.ends_with(sfx)`](https://doc.rust-lang.org/std/primitive.str.html#method.ends_with)|[`$EXPR$.endsWith(sfx)`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#endsWith(java.lang.String))|
 |equals|[`$EXPR$ == s2`](https://go.dev/ref/spec#Comparison_operators)|[`$EXPR$ == s2`](https://doc.rust-lang.org/std/cmp/trait.PartialEq.html#tymethod.eq)|[`$EXPR$.equals(s2)`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#equals(java.lang.Object))|
 |equalsIgnoreCase|[`strings.EqualsFold($EXPR$, s2)`](https://pkg.go.dev/strings#EqualFold)|[`$EXPR$.eq_ignore_ascii_case(&s2)`](https://doc.rust-lang.org/std/primitive.str.html#method.eq_ignore_ascii_case)|[`TODO`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#equalsIgnoreCase(java.lang.String))|
-|indexOf|[`strings.Index(haystack, needle)`](https://pkg.go.dev/strings#Index)|[`TODO`](TODO)|[`TODO`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#indexOf(int))|
+|indexOf|[`strings.Index(haystack, needle)`](https://pkg.go.dev/strings#Index)|[`TODO`](https://doc.rust-lang.org/std/string/struct.String.html#method.find)|[`TODO`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#indexOf(int))|
 |isBlank|[`strings.TrimSpace(s) == ""`](https://pkg.go.dev/strings#TrimSpace)|[`$EXPR$.trim().is_empty()`](TODO)|[`TODO`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#isBlank())|
 |isEmpty|[`len($EXPR$) == 0`](https://pkg.go.dev/builtin#len)|[`$EXPR$ == s2`](https://doc.rust-lang.org/std/primitive.str.html#method.is_empty)|[`$EXPR$.isEmpty`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html#isEmpty())|
 |join|[`strings.Join(slice, sep)`](https://pkg.go.dev/strings#Join)|[`vec!["a", "b", "c"].join(sep);`](https://doc.rust-lang.org/std/primitive.slice.html#method.join)|[`String.join(" ", List.of("a", "b", "c"))`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html#join(java.lang.CharSequence,java.lang.Iterable))|
@@ -36,7 +36,7 @@
 |endswith|[`TODO`](TODO)|[`$EXPR$.endsWith(sfx)`](https://api.dart.dev/stable/2.17.0/dart-core/String/endsWith.html)|[`TODO`](TODO)|[`TODO`](TODO)|
 |equals|[`TODO`](TODO)|[`$EXPR$ == s2`](https://api.dart.dev/stable/2.17.6/dart-core/String/operator_equals.html)|[`TODO`](TODO)|[`TODO`](TODO)|
 |equalsIgnoreCase|[`TODO`](TODO)|[`$EXPR$.toLowerCase() == s2.toLowerCase()`](https://api.dart.dev/stable/2.17.6/dart-core/String/toLowerCase.html)|[`TODO`](TODO)|[`TODO`](TODO)|
-|indexOf|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
+|indexOf|[`TODO`](TODO)|[`$EXPR$.indexOf(needle)`](https://api.dart.dev/be/181224/dart-core/String/indexOf.html)|[`TODO`](TODO)|[`TODO`](TODO)|
 |isBlank|[`$EXPR$.strip() == ""`](https://docs.python.org/3/library/stdtypes.html#str.strip)|[`$EXPR$.trim().isEmpty`](https://api.dart.dev/stable/2.17.6/dart-core/Iterable/isEmpty.html)|[`TODO`](TODO)|[`TODO`](TODO)|
 |isEmpty|[`$EXPR$ == ""`](https://docs.python.org/3/library/stdtypes.html#comparisons)|[`$EXPR$.isEmpty`](https://api.dart.dev/stable/2.17.6/dart-core/String/isEmpty.html)|[`TODO`](TODO)|[`TODO`](TODO)|
 |join|[`TODO`](https://docs.python.org/3/library/stdtypes.html#str.join)|[`$EXPR$.join(",")`](https://api.dart.dev/stable/2.17.6/dart-core/Iterable/join.html)|[`TODO`](TODO)|[`TODO`](TODO)|
