@@ -2,8 +2,8 @@
 
 |`Operation`|[`Go`](https://go.dev/)|[`Rust`](https://www.rust-lang.org/)|[`Java`](https://docs.oracle.com/javase/8/docs/technotes/guides/language/)|
 |---|---|---|---|
-|bytes|[`[]byte($EXPR$)`](TODO)|[`TODO`](TODO)|[`TODO`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#getBytes())|
-|charAt|`$EXPR$[i:i+1] /* or */ ( []rune($EXPR$) )[3]`|[`TODO`](TODO)|[`TODO`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#charAt(int))|
+|bytes|[`[]byte($EXPR$)`](TODO)|[`$EXPR$.as_bytes()`](https://doc.rust-lang.org/std/string/struct.String.html#method.as_bytes)|[`TODO`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#getBytes())|
+|charAt|`$EXPR$[i:i+1] /* or */ ( []rune($EXPR$) )[3]`|[`$EXPR$.chars().nth(3)`](https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.nth)|[`TODO`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#charAt(int))|
 |chars|[`range in  /* or */ []rune($EXPR$)`](TODO)|[`TODO`](TODO)|[`TODO`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#toCharArray())|
 |compareTo|[`TODO`](https://pkg.go.dev/strings#Compare)|[`TODO`](TODO)|[`TODO`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#compareTo(java.lang.String))|
 |contains|[`strings.Contains($EXPR$, needle)`](https://pkg.go.dev/strings#Contains)|[`$EXPR$.contains(needle)`](https://doc.rust-lang.org/std/primitive.str.html#method.contains)|[`TODO`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#contains(java.lang.CharSequence))|
