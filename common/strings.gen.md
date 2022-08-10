@@ -3,7 +3,7 @@
 |`Operation`|[`Go`](https://go.dev/)|[`Rust`](https://www.rust-lang.org/)|[`Java`](https://docs.oracle.com/javase/8/docs/technotes/guides/language/)|
 |---|---|---|---|
 |bytes|[`[]byte($EXPR$)`](TODO)|[`TODO`](TODO)|[`TODO`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#getBytes())|
-|charAt|[`$EXPR$[i:i+1] /* or */ ( []rune($EXPR$) )[3]`](TODO)|[`TODO`](TODO)|[`TODO`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#charAt(int))|
+|charAt|`$EXPR$[i:i+1] /* or */ ( []rune($EXPR$) )[3]`|[`TODO`](TODO)|[`TODO`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#charAt(int))|
 |chars|[`range in  /* or */ []rune($EXPR$)`](TODO)|[`TODO`](TODO)|[`TODO`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#toCharArray())|
 |compareTo|[`TODO`](https://pkg.go.dev/strings#Compare)|[`TODO`](TODO)|[`TODO`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#compareTo(java.lang.String))|
 |contains|[`strings.Contains($EXPR$, needle)`](https://pkg.go.dev/strings#Contains)|[`$EXPR$.contains(needle)`](https://doc.rust-lang.org/std/primitive.str.html#method.contains)|[`TODO`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#contains(java.lang.CharSequence))|
@@ -29,9 +29,9 @@
 |`Operation`|[`Python`](https://www.python.org/)|[`Dart`](https://dart.dev/)|[`Ts`](https://www.typescriptlang.org/)|[`Kotlin`](https://kotlinlang.org/)|
 |---|---|---|---|---|
 |bytes|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
-|charAt|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
-|chars|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
-|compareTo|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
+|charAt|[`TODO`](TODO)|`$EXPR$[3]`|[`TODO`](TODO)|[`TODO`](TODO)|
+|chars|[`TODO`](TODO)|[`$EXPR$.split('')`](https://api.flutter.dev/flutter/dart-core/String/split.html)|[`TODO`](TODO)|[`TODO`](TODO)|
+|compareTo|[`TODO`](TODO)|[`$EXPR$.compareTo(s2)`](https://api.flutter.dev/flutter/dart-core/String/compareTo.html)|[`TODO`](TODO)|[`TODO`](TODO)|
 |contains|[`TODO`](TODO)|[`$EXPR$.contains(needle)`](https://api.dart.dev/stable/2.17.0/dart-core/String/contains.html)|[`TODO`](TODO)|[`TODO`](TODO)|
 |endswith|[`TODO`](TODO)|[`$EXPR$.endsWith(sfx)`](https://api.dart.dev/stable/2.17.0/dart-core/String/endsWith.html)|[`TODO`](TODO)|[`TODO`](TODO)|
 |equals|[`TODO`](TODO)|[`$EXPR$ == s2`](https://api.dart.dev/stable/2.17.6/dart-core/String/operator_equals.html)|[`TODO`](TODO)|[`TODO`](TODO)|
