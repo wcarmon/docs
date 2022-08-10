@@ -41,14 +41,14 @@
 |isEmpty|[`$EXPR$ == ""`](https://docs.python.org/3/library/stdtypes.html#comparisons)|[`$EXPR$.isEmpty`](https://api.dart.dev/stable/2.17.6/dart-core/String/isEmpty.html)|[`TODO`](TODO)|[`TODO`](TODO)|
 |join|[`TODO`](https://docs.python.org/3/library/stdtypes.html#str.join)|[`$EXPR$.join(",")`](https://api.dart.dev/stable/2.17.6/dart-core/Iterable/join.html)|[`TODO`](TODO)|[`TODO`](TODO)|
 |lastIndexOf|[`$EXPR$.rfind(needle)`](https://docs.python.org/3/library/stdtypes.html#str.rfind)|[`$EXPR$.lastIndexOf(needle)`](https://api.dart.dev/stable/2.17.6/dart-core/String/lastIndexOf.html)|[`TODO`](TODO)|[`TODO`](TODO)|
-|length|[`TODO`](TODO)|[`$EXPR$.length`](https://api.dart.dev/stable/2.17.6/dart-core/String/length.html)|[`TODO`](TODO)|[`TODO`](TODO)|
-|repeat|[`TODO`](TODO)|[`$EXPR$ * n`](https://api.dart.dev/stable/2.17.6/dart-core/String/operator_multiply.html)|[`TODO`](TODO)|[`TODO`](TODO)|
-|replaceAll|[`TODO`](TODO)|[`$EXPR$.replaceAll(RegExp(r'ab'), new)`](https://api.dart.dev/stable/2.17.6/dart-core/String/replaceAll.html)|[`TODO`](TODO)|[`TODO`](TODO)|
-|split|[`TODO`](TODO)|[`$EXPR$.split(sep)`](https://api.dart.dev/stable/2.17.6/dart-core/String/split.html)|[`TODO`](TODO)|[`TODO`](TODO)|
-|startsWith|[`TODO`](TODO)|[`$EXPR$.startsWith(pfx)`](https://api.dart.dev/stable/2.17.6/dart-core/String/startsWith.html)|[`TODO`](TODO)|[`TODO`](TODO)|
+|length|[`len($EXPR$)`](TODO)|[`$EXPR$.length`](https://api.dart.dev/stable/2.17.6/dart-core/String/length.html)|[`TODO`](TODO)|[`TODO`](TODO)|
+|repeat|[`$EXPR$ * n`](https://docs.python.org/3/library/stdtypes.html#common-sequence-operations)|[`$EXPR$ * n`](https://api.dart.dev/stable/2.17.6/dart-core/String/operator_multiply.html)|[`TODO`](TODO)|[`TODO`](TODO)|
+|replaceAll|[`$EXPR$.replace(old, new, -1)`](https://docs.python.org/3/library/stdtypes.html#str.replace)|[`$EXPR$.replaceAll(RegExp(r'ab'), new)`](https://api.dart.dev/stable/2.17.6/dart-core/String/replaceAll.html)|[`TODO`](TODO)|[`TODO`](TODO)|
+|split|[`$EXPR$.split(sep)`](https://docs.python.org/3/library/stdtypes.html#str.split)|[`$EXPR$.split(sep)`](https://api.dart.dev/stable/2.17.6/dart-core/String/split.html)|[`TODO`](TODO)|[`TODO`](TODO)|
+|startsWith|[`$EXPR$.startswith(pfx)`](https://docs.python.org/3/library/stdtypes.html#str.startswith)|[`$EXPR$.startsWith(pfx)`](https://api.dart.dev/stable/2.17.6/dart-core/String/startsWith.html)|[`TODO`](TODO)|[`TODO`](TODO)|
 |substring|[`TODO`](TODO)|[`$EXPR$.substring(start, end)`](https://api.dart.dev/stable/2.17.6/dart-core/String/substring.html)|[`TODO`](TODO)|[`TODO`](TODO)|
-|toLower|[`TODO`](TODO)|[`$EXPR$.toLowerCase()`](https://api.dart.dev/stable/2.17.6/dart-core/String/toLowerCase.html)|[`TODO`](TODO)|[`TODO`](TODO)|
-|toUpper|[`TODO`](TODO)|[`$EXPR$.toUpperCase()`](https://api.dart.dev/stable/2.17.6/dart-core/String/toUpperCase.html)|[`TODO`](TODO)|[`TODO`](TODO)|
+|toLower|[`$EXPR$.lower()`](https://docs.python.org/3/library/stdtypes.html#str.lower)|[`$EXPR$.toLowerCase()`](https://api.dart.dev/stable/2.17.6/dart-core/String/toLowerCase.html)|[`TODO`](TODO)|[`TODO`](TODO)|
+|toUpper|[`$EXPR$.upper()`](https://docs.python.org/3/library/stdtypes.html#str.upper)|[`$EXPR$.toUpperCase()`](https://api.dart.dev/stable/2.17.6/dart-core/String/toUpperCase.html)|[`TODO`](TODO)|[`TODO`](TODO)|
 |trim|[`TODO`](TODO)|[`$EXPR$.trim()`](https://api.dart.dev/stable/2.17.6/dart-core/String/trim.html)|[`TODO`](TODO)|[`TODO`](TODO)|
 
 
