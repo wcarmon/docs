@@ -12,7 +12,7 @@
 |length|[`len($EXPR$)`](https://pkg.go.dev/builtin#len)|[`$EXPR$.len()`](https://doc.rust-lang.org/std/primitive.str.html#method.len)|[`TODO`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#length())|
 |repeat|[`strings.Repeat(s, n)`](https://pkg.go.dev/strings#Repeat)|[`$EXPR$.repeat(n)`](https://doc.rust-lang.org/std/primitive.str.html#method.repeat)|[`TODO`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#repeat(int))|
 |replaceAll|[`TODO`](TODO)|[`$EXPR$.replace(old, new)`](https://doc.rust-lang.org/std/primitive.str.html#method.replace)|[`TODO`](TODO)|
-|split|[`strings.Split(s, sep)`](https://pkg.go.dev/strings#Split)|[`let v: Vec<_> = "$EXPR$".split(",").collect();`](https://doc.rust-lang.org/std/primitive.str.html#method.split)|[`TODO`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#split(java.lang.String))|
+|split|[`strings.Split(s, sep)`](https://pkg.go.dev/strings#Split)|[`let v: Vec<_> = "$EXPR$".split(sep).collect();`](https://doc.rust-lang.org/std/primitive.str.html#method.split)|[`TODO`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#split(java.lang.String))|
 |startswith|[`strings.HasPrefix($EXPR$, pfx)`](https://pkg.go.dev/strings#HasPrefix)|[`$EXPR$.starts_with(pfx)`](https://doc.rust-lang.org/std/primitive.str.html#method.starts_with)|[`TODO`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#startsWith(java.lang.String))|
 |toLower|[`strings.ToLower($EXPR$)`](https://pkg.go.dev/strings#ToLower)|[`$EXPR$.to_lowercase()`](https://doc.rust-lang.org/std/primitive.str.html#method.to_lowercase)|[`TODO`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#toLowerCase())|
 |toUpper|[`strings.ToUpper($EXPR$)`](https://pkg.go.dev/strings#ToUpper)|[`$EXPR$.to_uppercase()`](https://doc.rust-lang.org/std/primitive.str.html#method.to_uppercase)|[`TODO`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#toUpperCase())|
@@ -30,9 +30,9 @@
 |join|[`TODO`](https://docs.python.org/3/library/stdtypes.html#str.join)|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 |length|[`TODO`](TODO)|[`$EXPR$.length`](https://api.dart.dev/stable/2.17.6/dart-core/String/length.html)|[`TODO`](TODO)|[`TODO`](TODO)|
 |repeat|[`TODO`](TODO)|[`$EXPR$ * n`](https://api.dart.dev/stable/2.17.6/dart-core/String/operator_multiply.html)|[`TODO`](TODO)|[`TODO`](TODO)|
-|replaceAll|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
-|split|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
-|startswith|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
+|replaceAll|[`TODO`](TODO)|[`$EXPR$.replaceAll(RegExp(r'ab'), new)`](https://api.dart.dev/stable/2.17.6/dart-core/String/replaceAll.html)|[`TODO`](TODO)|[`TODO`](TODO)|
+|split|[`TODO`](TODO)|[`$EXPR$.split(sep)`](https://api.dart.dev/stable/2.17.6/dart-core/String/split.html)|[`TODO`](TODO)|[`TODO`](TODO)|
+|startswith|[`TODO`](TODO)|[`$EXPR$.startsWith(pfx)`](https://api.dart.dev/stable/2.17.6/dart-core/String/startsWith.html)|[`TODO`](TODO)|[`TODO`](TODO)|
 |toLower|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 |toUpper|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 |trim|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
