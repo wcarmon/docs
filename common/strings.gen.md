@@ -28,7 +28,7 @@
 
 |`Operation`|[`Python`](https://www.python.org/)|[`Dart`](https://dart.dev/)|[`Ts`](https://www.typescriptlang.org/)|[`Kotlin`](https://kotlinlang.org/)|
 |---|---|---|---|---|
-|bytes|[`TODO`](TODO)|[`$EXPR$.runes`](https://api.dart.dev/stable/2.17.6/dart-core/String/runes.html)|[`TODO`](TODO)|[`TODO`](TODO)|
+|bytes|[`$EXPR$.encode()`](https://docs.python.org/3/library/stdtypes.html#str.encode)|[`$EXPR$.runes`](https://api.dart.dev/stable/2.17.6/dart-core/String/runes.html)|[`TODO`](TODO)|[`TODO`](TODO)|
 |charAt|[`$EXPR$[3]`](TODO)|`$EXPR$[3]`|[`TODO`](TODO)|[`TODO`](TODO)|
 |chars|[`TODO`](TODO)|[`$EXPR$.split('')`](https://api.flutter.dev/flutter/dart-core/String/split.html)|[`TODO`](TODO)|[`TODO`](TODO)|
 |compareTo|`$EXPR$ < s2`|[`$EXPR$.compareTo(s2)`](https://api.flutter.dev/flutter/dart-core/String/compareTo.html)|[`TODO`](TODO)|[`TODO`](TODO)|
@@ -49,6 +49,6 @@
 |substring|[`TODO`](TODO)|[`$EXPR$.substring(start, end)`](https://api.dart.dev/stable/2.17.6/dart-core/String/substring.html)|[`TODO`](TODO)|[`TODO`](TODO)|
 |toLower|[`$EXPR$.lower()`](https://docs.python.org/3/library/stdtypes.html#str.lower)|[`$EXPR$.toLowerCase()`](https://api.dart.dev/stable/2.17.6/dart-core/String/toLowerCase.html)|[`TODO`](TODO)|[`TODO`](TODO)|
 |toUpper|[`$EXPR$.upper()`](https://docs.python.org/3/library/stdtypes.html#str.upper)|[`$EXPR$.toUpperCase()`](https://api.dart.dev/stable/2.17.6/dart-core/String/toUpperCase.html)|[`TODO`](TODO)|[`TODO`](TODO)|
-|trim|[`TODO`](TODO)|[`$EXPR$.trim()`](https://api.dart.dev/stable/2.17.6/dart-core/String/trim.html)|[`TODO`](TODO)|[`TODO`](TODO)|
+|trim|[`$EXPR$.strip()`](https://docs.python.org/3/library/stdtypes.html#str.strip)|[`$EXPR$.trim()`](https://api.dart.dev/stable/2.17.6/dart-core/String/trim.html)|[`TODO`](TODO)|[`TODO`](TODO)|
 
 
