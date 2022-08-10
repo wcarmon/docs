@@ -4,7 +4,7 @@
 |---|---|---|---|
 |bytes|[`[]byte($EXPR$)`](TODO)|[`$EXPR$.as_bytes()`](https://doc.rust-lang.org/std/string/struct.String.html#method.as_bytes)|[`$EXPR$.getBytes("UTF8")`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html#getBytes(java.lang.String))|
 |charAt|`$EXPR$[i:i+1] /* or */ ( []rune($EXPR$) )[3]`|[`$EXPR$.chars().nth(3)`](https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.nth)|[`$EXPR$.charAt(3)`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#charAt(int))|
-|chars|[`range in $EXPR$ /* or */ []rune($EXPR$)`](TODO)|[`$EXPR$.chars()`](https://doc.rust-lang.org/std/primitive.str.html#method.chars)|[`$EXPR$.toCharArray()`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#toCharArray())|
+|chars|[`range in $EXPR$ /* or */ []rune($EXPR$)`](https://go.dev/ref/spec#For_statements)|[`$EXPR$.chars()`](https://doc.rust-lang.org/std/primitive.str.html#method.chars)|[`$EXPR$.toCharArray()`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#toCharArray())|
 |compareTo|[`strings.Compare($EXPR$, s2)`](https://pkg.go.dev/strings#Compare)|[`$EXPR$.cmp(s2) == Ordering::Less`](https://doc.rust-lang.org/std/cmp/trait.Ord.html#tymethod.cmp)|[`$EXPR$.compareTo(s2)`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#compareTo(java.lang.String))|
 |contains|[`strings.Contains($EXPR$, needle)`](https://pkg.go.dev/strings#Contains)|[`$EXPR$.contains(needle)`](https://doc.rust-lang.org/std/primitive.str.html#method.contains)|[`$EXPR$.contains(needle)`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#contains(java.lang.CharSequence))|
 |endsWith|[`strings.HasSuffix($EXPR$, sfx)`](https://pkg.go.dev/strings#HasSuffix)|[`$EXPR$.ends_with(sfx)`](https://doc.rust-lang.org/std/primitive.str.html#method.ends_with)|[`$EXPR$.endsWith(sfx)`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#endsWith(java.lang.String))|
@@ -30,7 +30,7 @@
 |---|---|---|---|---|
 |bytes|[`$EXPR$.encode()`](https://docs.python.org/3/library/stdtypes.html#str.encode)|[`$EXPR$.runes`](https://api.dart.dev/stable/2.17.6/dart-core/String/runes.html)|[`TODO`](TODO)|[`TODO`](TODO)|
 |charAt|[`$EXPR$[3]`](TODO)|`$EXPR$[3]`|[`TODO`](TODO)|[`TODO`](TODO)|
-|chars|[`TODO`](TODO)|[`$EXPR$.split('')`](https://api.flutter.dev/flutter/dart-core/String/split.html)|[`TODO`](TODO)|[`TODO`](TODO)|
+|chars|[`list($EXPR$)`](https://docs.python.org/3/library/stdtypes.html#list)|[`$EXPR$.split('')`](https://api.flutter.dev/flutter/dart-core/String/split.html)|[`TODO`](TODO)|[`TODO`](TODO)|
 |compareTo|`$EXPR$ < s2`|[`$EXPR$.compareTo(s2)`](https://api.flutter.dev/flutter/dart-core/String/compareTo.html)|[`TODO`](TODO)|[`TODO`](TODO)|
 |contains|[`needle in $EXPR$`](https://docs.python.org/3/library/operator.html#mapping-operators-to-functions)|[`$EXPR$.contains(needle)`](https://api.dart.dev/stable/2.17.0/dart-core/String/contains.html)|[`TODO`](TODO)|[`TODO`](TODO)|
 |endsWith|[`$EXPR$.endswith(sfx)`](https://docs.python.org/3/library/stdtypes.html?highlight=endswith#str.endswith)|[`$EXPR$.endsWith(sfx)`](https://api.dart.dev/stable/2.17.0/dart-core/String/endsWith.html)|[`TODO`](TODO)|[`TODO`](TODO)|
@@ -46,7 +46,7 @@
 |replaceAll|[`$EXPR$.replace(old, new, -1)`](https://docs.python.org/3/library/stdtypes.html#str.replace)|[`$EXPR$.replaceAll(RegExp(r'ab'), new)`](https://api.dart.dev/stable/2.17.6/dart-core/String/replaceAll.html)|[`TODO`](TODO)|[`TODO`](TODO)|
 |split|[`$EXPR$.split(sep)`](https://docs.python.org/3/library/stdtypes.html#str.split)|[`$EXPR$.split(sep)`](https://api.dart.dev/stable/2.17.6/dart-core/String/split.html)|[`TODO`](TODO)|[`TODO`](TODO)|
 |startsWith|[`$EXPR$.startswith(pfx)`](https://docs.python.org/3/library/stdtypes.html#str.startswith)|[`$EXPR$.startsWith(pfx)`](https://api.dart.dev/stable/2.17.6/dart-core/String/startsWith.html)|[`TODO`](TODO)|[`TODO`](TODO)|
-|substring|[`TODO`](TODO)|[`$EXPR$.substring(start, end)`](https://api.dart.dev/stable/2.17.6/dart-core/String/substring.html)|[`TODO`](TODO)|[`TODO`](TODO)|
+|substring|[`"abcde"[2:4] == "cd"`](https://docs.python.org/3/library/functions.html?highlight=slice#slice)|[`$EXPR$.substring(start, end)`](https://api.dart.dev/stable/2.17.6/dart-core/String/substring.html)|[`TODO`](TODO)|[`TODO`](TODO)|
 |toLower|[`$EXPR$.lower()`](https://docs.python.org/3/library/stdtypes.html#str.lower)|[`$EXPR$.toLowerCase()`](https://api.dart.dev/stable/2.17.6/dart-core/String/toLowerCase.html)|[`TODO`](TODO)|[`TODO`](TODO)|
 |toUpper|[`$EXPR$.upper()`](https://docs.python.org/3/library/stdtypes.html#str.upper)|[`$EXPR$.toUpperCase()`](https://api.dart.dev/stable/2.17.6/dart-core/String/toUpperCase.html)|[`TODO`](TODO)|[`TODO`](TODO)|
 |trim|[`$EXPR$.strip()`](https://docs.python.org/3/library/stdtypes.html#str.strip)|[`$EXPR$.trim()`](https://api.dart.dev/stable/2.17.6/dart-core/String/trim.html)|[`TODO`](TODO)|[`TODO`](TODO)|
