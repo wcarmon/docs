@@ -34,9 +34,9 @@
 |compareTo|`$EXPR$ < s2`|[`$EXPR$.compareTo(s2)`](https://api.flutter.dev/flutter/dart-core/String/compareTo.html)|[`TODO`](TODO)|[`TODO`](TODO)|
 |contains|[`needle in $EXPR$`](https://docs.python.org/3/library/operator.html#mapping-operators-to-functions)|[`$EXPR$.contains(needle)`](https://api.dart.dev/stable/2.17.0/dart-core/String/contains.html)|[`TODO`](TODO)|[`TODO`](TODO)|
 |endsWith|[`$EXPR$.endswith(sfx)`](https://docs.python.org/3/library/stdtypes.html?highlight=endswith#str.endswith)|[`$EXPR$.endsWith(sfx)`](https://api.dart.dev/stable/2.17.0/dart-core/String/endsWith.html)|[`TODO`](TODO)|[`TODO`](TODO)|
-|equals|[`TODO`](TODO)|[`$EXPR$ == s2`](https://api.dart.dev/stable/2.17.6/dart-core/String/operator_equals.html)|[`TODO`](TODO)|[`TODO`](TODO)|
-|equalsIgnoreCase|[`TODO`](TODO)|[`$EXPR$.toLowerCase() == s2.toLowerCase()`](https://api.dart.dev/stable/2.17.6/dart-core/String/toLowerCase.html)|[`TODO`](TODO)|[`TODO`](TODO)|
-|indexOf|[`TODO`](TODO)|[`$EXPR$.indexOf(needle)`](https://api.dart.dev/be/181224/dart-core/String/indexOf.html)|[`TODO`](TODO)|[`TODO`](TODO)|
+|equals|[`$EXPR$ == s2`](https://docs.python.org/3/library/operator.html?highlight=operator#operator.eq)|[`$EXPR$ == s2`](https://api.dart.dev/stable/2.17.6/dart-core/String/operator_equals.html)|[`TODO`](TODO)|[`TODO`](TODO)|
+|equalsIgnoreCase|[`$EXPR$.casefold() == s2.casefold()`](https://docs.python.org/3/library/stdtypes.html#str.casefold)|[`$EXPR$.toLowerCase() == s2.toLowerCase()`](https://api.dart.dev/stable/2.17.6/dart-core/String/toLowerCase.html)|[`TODO`](TODO)|[`TODO`](TODO)|
+|indexOf|[`$EXPR$.find(needle)`](https://docs.python.org/3/library/stdtypes.html#str.find)|[`$EXPR$.indexOf(needle)`](https://api.dart.dev/be/181224/dart-core/String/indexOf.html)|[`TODO`](TODO)|[`TODO`](TODO)|
 |isBlank|[`$EXPR$.strip() == ""`](https://docs.python.org/3/library/stdtypes.html#str.strip)|[`$EXPR$.trim().isEmpty`](https://api.dart.dev/stable/2.17.6/dart-core/Iterable/isEmpty.html)|[`TODO`](TODO)|[`TODO`](TODO)|
 |isEmpty|[`$EXPR$ == ""`](https://docs.python.org/3/library/stdtypes.html#comparisons)|[`$EXPR$.isEmpty`](https://api.dart.dev/stable/2.17.6/dart-core/String/isEmpty.html)|[`TODO`](TODO)|[`TODO`](TODO)|
 |join|[`TODO`](https://docs.python.org/3/library/stdtypes.html#str.join)|[`$EXPR$.join(",")`](https://api.dart.dev/stable/2.17.6/dart-core/Iterable/join.html)|[`TODO`](TODO)|[`TODO`](TODO)|
