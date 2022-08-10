@@ -26,7 +26,7 @@ readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
 # -- Config
 # ---------------------------------------------
 # See https://hub.docker.com/r/golangci/golangci-lint/tags
-readonly GOLANGCI_IMAGE=golangci/golangci-lint:v1.46.2-alpine
+readonly GOLANGCI_IMAGE=golangci/golangci-lint:v1.48-alpine
 #readonly GOLANGCI_IMAGE=golangci/golangci-lint:v1.46.2
 
 # See https://hub.docker.com/r/returntocorp/semgrep
