@@ -134,7 +134,7 @@ strings.isBlank.kotlin.code = "TODO"
 strings.isBlank.kotlin.url = "TODO"
 strings.isBlank.python.code = '$EXPR$.strip() == ""'
 strings.isBlank.python.url = "https://docs.python.org/3/library/stdtypes.html#str.strip"
-strings.isBlank.rust.code = "$EXPR$.trim().is_empty()"
+strings.isBlank.rust.code = '$EXPR$.trim() == ""'
 strings.isBlank.rust.url = "TODO"
 strings.isBlank.ts.code = "TODO"
 strings.isBlank.ts.url = "TODO"
