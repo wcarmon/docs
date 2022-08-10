@@ -2,6 +2,16 @@
 1. Idioms for TOML parsing
 
 
+# Ignoring fields
+```go
+type Foo struct {
+    ...
+    IgnoredForParsing `toml:"-"`
+    ...
+}
+```
+
+
 # Parse Error handling
 ```go
     ...
