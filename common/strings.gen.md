@@ -40,7 +40,7 @@
 |isBlank|[`$EXPR$.strip() == ""`](https://docs.python.org/3/library/stdtypes.html#str.strip)|[`$EXPR$.trim().isEmpty`](https://api.dart.dev/stable/2.17.6/dart-core/Iterable/isEmpty.html)|[`TODO`](TODO)|[`TODO`](TODO)|
 |isEmpty|[`$EXPR$ == ""`](https://docs.python.org/3/library/stdtypes.html#comparisons)|[`$EXPR$.isEmpty`](https://api.dart.dev/stable/2.17.6/dart-core/String/isEmpty.html)|[`TODO`](TODO)|[`TODO`](TODO)|
 |join|[`TODO`](https://docs.python.org/3/library/stdtypes.html#str.join)|[`$EXPR$.join(",")`](https://api.dart.dev/stable/2.17.6/dart-core/Iterable/join.html)|[`TODO`](TODO)|[`TODO`](TODO)|
-|lastIndexOf|[`TODO`](TODO)|[`$EXPR$.lastIndexOf(needle)`](https://api.dart.dev/stable/2.17.6/dart-core/String/lastIndexOf.html)|[`TODO`](TODO)|[`TODO`](TODO)|
+|lastIndexOf|[`$EXPR$.rfind(needle)`](https://docs.python.org/3/library/stdtypes.html#str.rfind)|[`$EXPR$.lastIndexOf(needle)`](https://api.dart.dev/stable/2.17.6/dart-core/String/lastIndexOf.html)|[`TODO`](TODO)|[`TODO`](TODO)|
 |length|[`TODO`](TODO)|[`$EXPR$.length`](https://api.dart.dev/stable/2.17.6/dart-core/String/length.html)|[`TODO`](TODO)|[`TODO`](TODO)|
 |repeat|[`TODO`](TODO)|[`$EXPR$ * n`](https://api.dart.dev/stable/2.17.6/dart-core/String/operator_multiply.html)|[`TODO`](TODO)|[`TODO`](TODO)|
 |replaceAll|[`TODO`](TODO)|[`$EXPR$.replaceAll(RegExp(r'ab'), new)`](https://api.dart.dev/stable/2.17.6/dart-core/String/replaceAll.html)|[`TODO`](TODO)|[`TODO`](TODO)|
