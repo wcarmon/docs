@@ -52,29 +52,29 @@
 |trim|[`$EXPR$.strip()`](https://docs.python.org/3/library/stdtypes.html#str.strip)|[`$EXPR$.trim()`](https://api.dart.dev/stable/2.17.6/dart-core/String/trim.html)|[`$EXPR$.trim()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/Trim)|
 
 
-|`Operation`|[`Bash`](https://www.gnu.org/software/bash/)|[`Kotlin`](https://kotlinlang.org/)|
-|---|---|---|
-|bytes|[`TODO`](TODO)|[`TODO`](TODO)|
-|charAt|[`TODO`](TODO)|[`TODO`](TODO)|
-|chars|[`TODO`](TODO)|[`TODO`](TODO)|
-|compareTo|[`TODO`](TODO)|[`TODO`](TODO)|
-|contains|[`TODO`](TODO)|[`TODO`](TODO)|
-|endsWith|[`TODO`](TODO)|[`TODO`](TODO)|
-|equals|[`TODO`](TODO)|[`TODO`](TODO)|
-|equalsIgnoreCase|[`TODO`](TODO)|[`TODO`](TODO)|
-|indexOf|[`TODO`](TODO)|[`TODO`](TODO)|
-|isBlank|[`TODO`](TODO)|[`TODO`](TODO)|
-|isEmpty|[`TODO`](TODO)|[`TODO`](TODO)|
-|join|[`TODO`](TODO)|[`TODO`](TODO)|
-|lastIndexOf|[`TODO`](TODO)|[`TODO`](TODO)|
-|length|[`TODO`](TODO)|[`TODO`](TODO)|
-|repeat|[`TODO`](TODO)|[`TODO`](TODO)|
-|replaceAll|[`TODO`](TODO)|[`TODO`](TODO)|
-|split|[`TODO`](TODO)|[`TODO`](TODO)|
-|startsWith|[`TODO`](TODO)|[`TODO`](TODO)|
-|substring|[`TODO`](TODO)|[`TODO`](TODO)|
-|toLower|[`TODO`](TODO)|[`TODO`](TODO)|
-|toUpper|[`TODO`](TODO)|[`TODO`](TODO)|
-|trim|[`TODO`](TODO)|[`TODO`](TODO)|
+|`Operation`|[`Bash`](https://www.gnu.org/software/bash/)|[`Ash`](https://en.wikipedia.org/wiki/Almquist_shell)|[`Kotlin`](https://kotlinlang.org/)|
+|---|---|---|---|
+|bytes|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
+|charAt|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
+|chars|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
+|compareTo|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
+|contains|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
+|endsWith|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
+|equals|[`TODO`](TODO)|[`if [ "a" = "a" ]; then echo 'yes'; fi;`](TODO)|[`TODO`](TODO)|
+|equalsIgnoreCase|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
+|indexOf|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
+|isBlank|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
+|isEmpty|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
+|join|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
+|lastIndexOf|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
+|length|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
+|repeat|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
+|replaceAll|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
+|split|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
+|startsWith|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
+|substring|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
+|toLower|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
+|toUpper|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
+|trim|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 
 
