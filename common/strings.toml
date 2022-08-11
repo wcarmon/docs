@@ -406,16 +406,7 @@ strings.substring.ash.url = "TODO"
 # --- Ash
 # Verified:     if [ "a" = "a" ]; then echo 'yes'; fi;
 
-#  sed -e 's/[[:space:]]*$//'
-# echo "${foo}" | sed -e 's/^[[:space:]]*//'
-# S=" foo "; T=$(echo "${S}" | sed -e 's/^[[:space:]]*//')
-
-# IN=" foo "; OUT=${IN##*( )}; echo $OUT; LEN=${#OUT}; echo $LEN
-
-# IN='foo'; OUT=$(echo $IN | tr '[:lower:]' '[:upper:]'); echo ">${IN}<"; echo ">${OUT}<"
-# IN=' foo '; OUT=$(echo $IN); echo ">${IN}<"; echo ">${OUT}<"
-
-# IN='abc'; if [[ $IN =~ c$ ]]; then echo 'yes'; fi
+# IN1="A"; echo ${IN1,,}
 
 # --- TODO
 
