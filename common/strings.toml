@@ -351,5 +351,68 @@ strings.trim.rust.url = "https://doc.rust-lang.org/std/primitive.str.html#method
 strings.trim.ts.code = "$EXPR$.trim()"
 strings.trim.ts.url = "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/Trim"
 
+strings.bytes.ash.code = "TODO"
+strings.bytes.ash.url = "TODO"
+strings.charAt.ash.code = "TODO"
+strings.charAt.ash.url = "TODO"
+strings.chars.ash.code = "TODO"
+strings.chars.ash.url = "TODO"
+strings.compareTo.ash.code = "TODO"
+strings.compareTo.ash.url = "TODO"
+strings.contains.ash.code = "TODO"
+strings.contains.ash.url = "TODO"
+strings.endsWith.ash.code = "TODO"
+strings.endsWith.ash.url = "TODO"
+strings.equals.ash.code = "TODO"
+strings.equals.ash.url = "TODO"
+strings.equalsIgnoreCase.ash.code = "TODO"
+strings.equalsIgnoreCase.ash.url = "TODO"
+strings.indexOf.ash.code = "TODO"
+strings.indexOf.ash.url = "TODO"
+strings.isBlank.ash.code = "TODO"
+strings.isBlank.ash.url = "TODO"
+strings.isEmpty.ash.code = "TODO"
+strings.isEmpty.ash.url = "TODO"
+strings.join.ash.code = "TODO"
+strings.join.ash.url = "TODO"
+strings.lastIndexOf.ash.code = "TODO"
+strings.lastIndexOf.ash.url = "TODO"
+strings.length.ash.code = "TODO"
+strings.length.ash.url = "TODO"
+strings.repeat.ash.code = "TODO"
+strings.repeat.ash.url = "TODO"
+strings.replaceAll.ash.code = "TODO"
+strings.replaceAll.ash.url = "TODO"
+strings.split.ash.code = "TODO"
+strings.split.ash.url = "TODO"
+strings.startsWith.ash.code = "TODO"
+strings.startsWith.ash.url = "TODO"
+strings.substring.ash.code = "TODO"
+strings.substring.ash.url = "TODO"
+strings.toLower.ash.code = "TODO"
+strings.toLower.ash.url = "TODO"
+strings.toUpper.ash.code = "TODO"
+strings.toUpper.ash.url = "TODO"
+strings.trim.ash.code = "TODO"
+strings.trim.ash.url = "TODO"
+
+# --- Bash
+# Verified:     [ 'a' == 'b' ] && echo 'yes'
+# Verified:     if [ "a" = "a" ]; then echo 'yes'; fi;
+# Verified:     if [ "A" == "B" ]; then echo 'yes'; fi
+
+# --- Ash
+# Verified:     if [ "a" = "a" ]; then echo 'yes'; fi;
+
+
+# --- TODO
+#if [ condition ]; then
+#Commands
+#fi
+
+# [ -f "/usr/bin/wine" ] && export WINEARCH=win32
+
+
 # TODO: [String::`format`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#format(java.lang.String,java.lang.Object...)) | [`fmt.Sprintf(s, ...)`](https://pkg.go.dev/fmt#Sprintf) | TODO |
 # TODO: [String::`valueOf`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#valueOf(java.lang.Object)) |`string(foo)` fmt.Sprintf("%v")| TODO |
+
