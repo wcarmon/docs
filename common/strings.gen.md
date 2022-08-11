@@ -59,7 +59,7 @@
 |chars|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 |compareTo|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 |contains|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
-|endsWith|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
+|endsWith|[`IN='abc'; if [[ $IN =~ c$ ]]; then echo 'yes'; fi`](https://riptutorial.com/bash/example/19469/regex-matching)|[`IN='abc'; if [[ $IN =~ c$ ]]; then echo 'yes'; fi`](https://riptutorial.com/bash/example/19469/regex-matching)|[`TODO`](TODO)|
 |equals|[`TODO`](TODO)|`if [ "a" = "a" ]; then echo 'yes'; fi;`|[`TODO`](TODO)|
 |equalsIgnoreCase|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 |indexOf|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
@@ -67,11 +67,11 @@
 |isEmpty|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 |join|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 |lastIndexOf|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
-|length|[`TODO`](TODO)|[`IN="foo"; OUT=${#IN}`](TODO)|[`TODO`](TODO)|
+|length|[`IN="foo"; OUT=${#IN}`](TODO)|[`IN="foo"; OUT=${#IN}`](TODO)|[`TODO`](TODO)|
 |repeat|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 |replaceAll|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 |split|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
-|startsWith|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
+|startsWith|[`IN='abc'; if [[ $IN =~ ^ab ]]; then echo 'yes'; fi`](https://riptutorial.com/bash/example/19469/regex-matching)|[`IN='abc'; if [[ $IN =~ ^ab ]]; then echo 'yes'; fi`](https://riptutorial.com/bash/example/19469/regex-matching)|[`TODO`](TODO)|
 |substring|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 |toLower|[`IN='FOO'; OUT=$(echo $IN \| tr '[:upper:]' '[:lower:]')`](https://linuxcommand.org/lc3_man_pages/tr1.html)|[`IN='FOO'; OUT=$(echo $IN \| tr '[:upper:]' '[:lower:]')`](https://linuxcommand.org/lc3_man_pages/tr1.html)|[`TODO`](TODO)|
 |toUpper|[`IN='foo'; OUT=$(echo $IN \| tr '[:lower:]' '[:upper:]')`](https://linuxcommand.org/lc3_man_pages/tr1.html)|[`IN='foo'; OUT=$(echo $IN \| tr '[:lower:]' '[:upper:]')`](https://linuxcommand.org/lc3_man_pages/tr1.html)|[`TODO`](TODO)|
