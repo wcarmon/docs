@@ -302,8 +302,10 @@ strings.substring.rust.code = '&"abcde"[2..4] == "cd"'
 strings.substring.rust.url = "https://doc.rust-lang.org/nightly/book/ch08-02-strings.html#slicing-strings"
 strings.substring.ts.code = '"abcde".substring(2,4) === "cd"'
 strings.substring.ts.url = "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/substring"
-strings.toLower.bash.code = "TODO"
-strings.toLower.bash.url = "TODO"
+strings.toLower.ash.code = "IN='FOO'; OUT=$(echo $IN | tr '[:upper:]' '[:lower:]')"
+strings.toLower.ash.url = "https://linuxcommand.org/lc3_man_pages/tr1.html"
+strings.toLower.bash.code = "IN='FOO'; OUT=$(echo $IN | tr '[:upper:]' '[:lower:]')"
+strings.toLower.bash.url = "https://linuxcommand.org/lc3_man_pages/tr1.html"
 strings.toLower.dart.code = "$EXPR$.toLowerCase()"
 strings.toLower.dart.url = "https://api.dart.dev/stable/2.17.6/dart-core/String/toLowerCase.html"
 strings.toLower.go.code = "strings.ToLower($EXPR$)"
@@ -395,8 +397,6 @@ strings.startsWith.ash.code = "TODO"
 strings.startsWith.ash.url = "TODO"
 strings.substring.ash.code = "TODO"
 strings.substring.ash.url = "TODO"
-strings.toLower.ash.code = "TODO"
-strings.toLower.ash.url = "TODO"
 
 # --- Bash
 # Verified:     [ 'a' == 'b' ] && echo 'yes'
@@ -417,6 +417,7 @@ strings.toLower.ash.url = "TODO"
 # IN=' foo '; OUT=$(echo $IN); echo ">${IN}<"; echo ">${OUT}<"
 # IN='foo'; OUT=$(echo $IN | tr '[:lower:]' '[:upper:]'); echo ">${IN}<"; echo ">${OUT}<"
 
+#
 # IN=' foo '; OUT=$(echo $IN); echo ">${IN}<"; echo ">${OUT}<"
 
 # --- TODO
