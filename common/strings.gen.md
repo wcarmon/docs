@@ -74,7 +74,7 @@
 |startsWith|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 |substring|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 |toLower|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
-|toUpper|[`IN='foo'; OUT=$(echo $IN | tr '[:lower:]' '[:upper:]')`](https://linuxcommand.org/lc3_man_pages/tr1.html)|[`IN='foo'; OUT=$(echo $IN | tr '[:lower:]' '[:upper:]')`](https://linuxcommand.org/lc3_man_pages/tr1.html)|[`TODO`](TODO)|
+|toUpper|[`IN='foo'; OUT=$(echo $IN \| tr '[:lower:]' '[:upper:]')`](https://linuxcommand.org/lc3_man_pages/tr1.html)|[`IN='foo'; OUT=$(echo $IN \| tr '[:lower:]' '[:upper:]')`](https://linuxcommand.org/lc3_man_pages/tr1.html)|[`TODO`](TODO)|
 |trim|[`IN=' foo '; OUT=$(echo $IN)`](http://mywiki.wooledge.org/WordSplitting)|[`IN=' foo '; OUT=$(echo $IN)`](http://mywiki.wooledge.org/WordSplitting)|[`TODO`](TODO)|
 
 
