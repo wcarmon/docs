@@ -63,12 +63,12 @@
 |equals|[`TODO`](TODO)|`if [ "a" = "a" ]; then echo 'yes'; fi;`|[`TODO`](TODO)|
 |equalsIgnoreCase|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 |indexOf|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
-|isBlank|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
+|isBlank|`IN=' '; if [ "$(echo $IN)" = "" ]; then echo 'yes'; fi;`|`IN=' '; if [ "$(echo $IN)" = "" ]; then echo 'yes'; fi;`|[`TODO`](TODO)|
 |isEmpty|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 |join|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 |lastIndexOf|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 |length|[`IN="foo"; OUT=${#IN}`](TODO)|[`IN="foo"; OUT=${#IN}`](TODO)|[`TODO`](TODO)|
-|repeat|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
+|repeat|[`IN='z'; CNT=5; OUT=$(echo $(for i in $(seq 1 $CNT); do printf $IN; done))`](https://linux.die.net/man/1/seq)|[`IN='z'; CNT=5; OUT=$(echo $(for i in $(seq 1 $CNT); do printf $IN; done))`](https://linux.die.net/man/1/seq)|[`TODO`](TODO)|
 |replaceAll|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 |split|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 |startsWith|[`IN='abc'; if [[ $IN =~ ^ab ]]; then echo 'yes'; fi`](https://riptutorial.com/bash/example/19469/regex-matching)|[`IN='abc'; if [[ $IN =~ ^ab ]]; then echo 'yes'; fi`](https://riptutorial.com/bash/example/19469/regex-matching)|[`TODO`](TODO)|

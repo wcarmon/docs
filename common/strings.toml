@@ -146,8 +146,10 @@ strings.indexOf.rust.code = "$EXPR$.find(needle)"
 strings.indexOf.rust.url = "https://doc.rust-lang.org/std/string/struct.String.html#method.find"
 strings.indexOf.ts.code = "$EXPR$.indexOf(needle)"
 strings.indexOf.ts.url = "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/indexOf"
-strings.isBlank.bash.code = "TODO"
-strings.isBlank.bash.url = "TODO"
+strings.isBlank.ash.code = "IN=' '; if [ \"$(echo $IN)\" = \"\" ]; then echo 'yes'; fi;"
+strings.isBlank.ash.url = ""
+strings.isBlank.bash.code = "IN=' '; if [ \"$(echo $IN)\" = \"\" ]; then echo 'yes'; fi;"
+strings.isBlank.bash.url = ""
 strings.isBlank.dart.code = "$EXPR$.trim().isEmpty"
 strings.isBlank.dart.url = "https://api.dart.dev/stable/2.17.6/dart-core/Iterable/isEmpty.html"
 strings.isBlank.go.code = 'strings.TrimSpace(s) == ""'
@@ -382,8 +384,6 @@ strings.equalsIgnoreCase.ash.code = "TODO"
 strings.equalsIgnoreCase.ash.url = "TODO"
 strings.indexOf.ash.code = "TODO"
 strings.indexOf.ash.url = "TODO"
-strings.isBlank.ash.code = "TODO"
-strings.isBlank.ash.url = "TODO"
 strings.isEmpty.ash.code = "TODO"
 strings.isEmpty.ash.url = "TODO"
 strings.join.ash.code = "TODO"
@@ -409,6 +409,8 @@ strings.substring.ash.url = "TODO"
 # IN1="A"; echo ${IN1,,}
 
 # IN='z'; CNT=5; OUT=$(echo $(for i in $(seq 1 $CNT); do printf $IN; done))
+
+# IN=' '; if [ "$(echo $IN)" = "" ]; then echo 'yes'; fi;
 
 # --- TODO
 
