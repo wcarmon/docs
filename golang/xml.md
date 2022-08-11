@@ -4,7 +4,7 @@
 
 # Struct idioms
 1. Set name of current `struct` via XMLName
-    - eg. `XMLName xml.Name \`xml:"the-root-element-name"\``
+    - eg. ```XMLName xml.Name `xml:"the-root-element-name"````
 
 ## Parent/Child
 1. Parent MUST specify child tag name on attribute
