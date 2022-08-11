@@ -28,8 +28,8 @@
 
 |`Operation`|[`Python`](https://www.python.org/)|[`Dart`](https://dart.dev/)|[`Ts`](https://www.typescriptlang.org/)|
 |---|---|---|---|
-|bytes|[`$EXPR$.encode()`](https://docs.python.org/3/library/stdtypes.html#str.encode)|[`$EXPR$.runes`](https://api.dart.dev/stable/2.17.6/dart-core/String/runes.html)|[`TODO`](TODO)|
-|charAt|[`$EXPR$[3]`](TODO)|`$EXPR$[3]`|[`TODO`](TODO)|
+|bytes|[`$EXPR$.encode()`](https://docs.python.org/3/library/stdtypes.html#str.encode)|[`$EXPR$.runes`](https://api.dart.dev/stable/2.17.6/dart-core/String/runes.html)|[`new TextEncoder().encode($EXPR$)`](https://developer.mozilla.org/en-US/docs/Web/API/TextEncoder/TextEncoder)|
+|charAt|[`$EXPR$[3]`](TODO)|`$EXPR$[3]`|`$EXPR$[3]`|
 |chars|[`list($EXPR$)`](https://docs.python.org/3/library/stdtypes.html#list)|[`$EXPR$.split('')`](https://api.flutter.dev/flutter/dart-core/String/split.html)|[`TODO`](TODO)|
 |compareTo|`$EXPR$ < s2`|[`$EXPR$.compareTo(s2)`](https://api.flutter.dev/flutter/dart-core/String/compareTo.html)|[`TODO`](TODO)|
 |contains|[`needle in $EXPR$`](https://docs.python.org/3/library/operator.html#mapping-operators-to-functions)|[`$EXPR$.contains(needle)`](https://api.dart.dev/stable/2.17.0/dart-core/String/contains.html)|[`TODO`](TODO)|
