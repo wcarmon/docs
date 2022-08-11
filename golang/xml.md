@@ -19,6 +19,8 @@ XMLName xml.Name `xml:"the-root-element-name"`
 
 
 # Marshal (Writing, Serializing)
+1. Attributes are written in the order they are defined in the struct
+1. [no support for self closing tags](https://github.com/golang/go/issues/21399)
 ```go
 xmlBytes, err := xml.Marshal(rootElement) // see also xml.MarshalIndent(...)
 if err != nil {
