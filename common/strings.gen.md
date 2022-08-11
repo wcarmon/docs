@@ -60,14 +60,14 @@
 |compareTo|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 |contains|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 |endsWith|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
-|equals|[`TODO`](TODO)|[`if [ "a" = "a" ]; then echo 'yes'; fi;`](TODO)|[`TODO`](TODO)|
+|equals|[`TODO`](TODO)|`if [ "a" = "a" ]; then echo 'yes'; fi;`|[`TODO`](TODO)|
 |equalsIgnoreCase|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 |indexOf|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 |isBlank|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 |isEmpty|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 |join|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 |lastIndexOf|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
-|length|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
+|length|[`TODO`](TODO)|[`IN="foo"; OUT=${#IN}`](TODO)|[`TODO`](TODO)|
 |repeat|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 |replaceAll|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 |split|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
@@ -75,6 +75,6 @@
 |substring|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 |toLower|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 |toUpper|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
-|trim|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
+|trim|[`TODO`](TODO)|[`IN=' foo '; OUT=$(echo $IN)`](http://mywiki.wooledge.org/WordSplitting)|[`TODO`](TODO)|
 
 

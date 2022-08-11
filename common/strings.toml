@@ -364,7 +364,7 @@ strings.contains.ash.url = "TODO"
 strings.endsWith.ash.code = "TODO"
 strings.endsWith.ash.url = "TODO"
 strings.equals.ash.code = "if [ \"a\" = \"a\" ]; then echo 'yes'; fi;"
-strings.equals.ash.url = "TODO"
+strings.equals.ash.url = ""
 strings.equalsIgnoreCase.ash.code = "TODO"
 strings.equalsIgnoreCase.ash.url = "TODO"
 strings.indexOf.ash.code = "TODO"
@@ -377,7 +377,7 @@ strings.join.ash.code = "TODO"
 strings.join.ash.url = "TODO"
 strings.lastIndexOf.ash.code = "TODO"
 strings.lastIndexOf.ash.url = "TODO"
-strings.length.ash.code = "TODO"
+strings.length.ash.code = 'IN="foo"; OUT=${#IN}'
 strings.length.ash.url = "TODO"
 strings.repeat.ash.code = "TODO"
 strings.repeat.ash.url = "TODO"
@@ -393,8 +393,8 @@ strings.toLower.ash.code = "TODO"
 strings.toLower.ash.url = "TODO"
 strings.toUpper.ash.code = "TODO"
 strings.toUpper.ash.url = "TODO"
-strings.trim.ash.code = "TODO"
-strings.trim.ash.url = "TODO"
+strings.trim.ash.code = "IN=' foo '; OUT=$(echo $IN)"
+strings.trim.ash.url = "http://mywiki.wooledge.org/WordSplitting"
 
 # --- Bash
 # Verified:     [ 'a' == 'b' ] && echo 'yes'
@@ -404,14 +404,18 @@ strings.trim.ash.url = "TODO"
 # --- Ash
 # Verified:     if [ "a" = "a" ]; then echo 'yes'; fi;
 
+#  sed -e 's/[[:space:]]*$//'
+# echo "${foo}" | sed -e 's/^[[:space:]]*//'
+# S=" foo "; T=$(echo "${S}" | sed -e 's/^[[:space:]]*//')
+
+# IN=" foo "; OUT=${IN##*( )}; echo $OUT; LEN=${#OUT}; echo $LEN
+
+# IN=" foo "; OUT=$(echo $IN | sed 's/ *$//g'); echo ">${OUT}<"
+# IN=" foo "; OUT=$IN; echo ">${IN}<"; echo ">${OUT}<"
+# IN=' foo '; OUT=$(echo $IN); echo ">${IN}<"; echo ">${OUT}<"
+
 
 # --- TODO
-#if [ condition ]; then
-#Commands
-#fi
-
-# [ -f "/usr/bin/wine" ] && export WINEARCH=win32
-
 
 # TODO: [String::`format`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#format(java.lang.String,java.lang.Object...)) | [`fmt.Sprintf(s, ...)`](https://pkg.go.dev/fmt#Sprintf) | TODO |
 # TODO: [String::`valueOf`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#valueOf(java.lang.Object)) |`string(foo)` fmt.Sprintf("%v")| TODO |
