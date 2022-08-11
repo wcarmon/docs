@@ -227,8 +227,10 @@ strings.length.rust.code = "$EXPR$.len()"
 strings.length.rust.url = "https://doc.rust-lang.org/std/primitive.str.html#method.len"
 strings.length.ts.code = "$EXPR$.length"
 strings.length.ts.url = "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/length"
-strings.repeat.bash.code = "TODO"
-strings.repeat.bash.url = "TODO"
+strings.repeat.ash.code = "IN='z'; CNT=5; OUT=$(echo $(for i in $(seq 1 $CNT); do printf $IN; done))"
+strings.repeat.ash.url = "https://linux.die.net/man/1/seq"
+strings.repeat.bash.code = "IN='z'; CNT=5; OUT=$(echo $(for i in $(seq 1 $CNT); do printf $IN; done))"
+strings.repeat.bash.url = "https://linux.die.net/man/1/seq"
 strings.repeat.dart.code = "$EXPR$ * n"
 strings.repeat.dart.url = "https://api.dart.dev/stable/2.17.6/dart-core/String/operator_multiply.html"
 strings.repeat.go.code = "strings.Repeat(s, n)"
@@ -389,8 +391,6 @@ strings.join.ash.url = "TODO"
 strings.lastIndexOf.ash.code = "TODO"
 strings.lastIndexOf.ash.url = "TODO"
 strings.length.ash.url = "TODO"
-strings.repeat.ash.code = "TODO"
-strings.repeat.ash.url = "TODO"
 strings.replaceAll.ash.code = "TODO"
 strings.replaceAll.ash.url = "TODO"
 strings.split.ash.code = "TODO"
@@ -407,6 +407,8 @@ strings.substring.ash.url = "TODO"
 # Verified:     if [ "a" = "a" ]; then echo 'yes'; fi;
 
 # IN1="A"; echo ${IN1,,}
+
+# IN='z'; CNT=5; OUT=$(echo $(for i in $(seq 1 $CNT); do printf $IN; done))
 
 # --- TODO
 
