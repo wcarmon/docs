@@ -55,7 +55,7 @@
 |`Operation`|[`Bash`](https://www.gnu.org/software/bash/)|[`Ash`](https://en.wikipedia.org/wiki/Almquist_shell)|[`Kotlin`](https://kotlinlang.org/)|
 |---|---|---|---|
 |bytes|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
-|charAt|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
+|charAt|[`IN='abc'; OUT=${IN:2:1}`](https://tldp.org/LDP/abs/html/string-manipulation.html)|[`IN='abc'; OUT=${IN:2:1}`](https://tldp.org/LDP/abs/html/string-manipulation.html)|[`TODO`](TODO)|
 |chars|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 |compareTo|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 |contains|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
