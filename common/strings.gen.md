@@ -60,7 +60,7 @@
 |compareTo|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 |contains|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 |endsWith|[`IN='abc'; if [[ $IN =~ c$ ]]; then echo 'yes'; fi`](https://riptutorial.com/bash/example/19469/regex-matching)|[`IN='abc'; if [[ $IN =~ c$ ]]; then echo 'yes'; fi`](https://riptutorial.com/bash/example/19469/regex-matching)|[`TODO`](TODO)|
-|equals|[`TODO`](TODO)|`if [ "a" = "a" ]; then echo 'yes'; fi;`|[`TODO`](TODO)|
+|equals|`if [ "a" = "a" ]; then echo 'yes'; fi;`|`if [ "a" = "a" ]; then echo 'yes'; fi;`|[`TODO`](TODO)|
 |equalsIgnoreCase|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 |indexOf|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 |isBlank|`IN=' '; if [ "$(echo $IN)" = "" ]; then echo 'yes'; fi;`|`IN=' '; if [ "$(echo $IN)" = "" ]; then echo 'yes'; fi;`|[`TODO`](TODO)|
