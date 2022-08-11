@@ -164,8 +164,10 @@ strings.isBlank.rust.code = '$EXPR$.trim() == ""'
 strings.isBlank.rust.url = "TODO"
 strings.isBlank.ts.code = '$EXPR$.trim() === ""'
 strings.isBlank.ts.url = "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/Trim"
-strings.isEmpty.bash.code = "TODO"
-strings.isEmpty.bash.url = "TODO"
+strings.isEmpty.ash.code = "IN=''; if [ \"$IN\" = \"\" ]; then echo 'yes'; fi;"
+strings.isEmpty.ash.url = ""
+strings.isEmpty.bash.code = "IN=''; if [ \"$IN\" = \"\" ]; then echo 'yes'; fi;"
+strings.isEmpty.bash.url = ""
 strings.isEmpty.dart.code = "$EXPR$.isEmpty"
 strings.isEmpty.dart.url = "https://api.dart.dev/stable/2.17.6/dart-core/String/isEmpty.html"
 strings.isEmpty.go.code = "len($EXPR$) == 0"
@@ -384,8 +386,6 @@ strings.equalsIgnoreCase.ash.code = "TODO"
 strings.equalsIgnoreCase.ash.url = "TODO"
 strings.indexOf.ash.code = "TODO"
 strings.indexOf.ash.url = "TODO"
-strings.isEmpty.ash.code = "TODO"
-strings.isEmpty.ash.url = "TODO"
 strings.join.ash.code = "TODO"
 strings.join.ash.url = "TODO"
 strings.lastIndexOf.ash.code = "TODO"
@@ -410,7 +410,7 @@ strings.substring.ash.url = "TODO"
 
 # IN='z'; CNT=5; OUT=$(echo $(for i in $(seq 1 $CNT); do printf $IN; done))
 
-# IN=' '; if [ "$(echo $IN)" = "" ]; then echo 'yes'; fi;
+# IN=''; if [ "$IN" = "" ]; then echo 'yes'; fi;
 
 # --- TODO
 

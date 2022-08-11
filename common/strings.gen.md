@@ -64,7 +64,7 @@
 |equalsIgnoreCase|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 |indexOf|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 |isBlank|`IN=' '; if [ "$(echo $IN)" = "" ]; then echo 'yes'; fi;`|`IN=' '; if [ "$(echo $IN)" = "" ]; then echo 'yes'; fi;`|[`TODO`](TODO)|
-|isEmpty|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
+|isEmpty|`IN=''; if [ "$IN" = "" ]; then echo 'yes'; fi;`|`IN=''; if [ "$IN" = "" ]; then echo 'yes'; fi;`|[`TODO`](TODO)|
 |join|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 |lastIndexOf|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 |length|[`IN="foo"; OUT=${#IN}`](TODO)|[`IN="foo"; OUT=${#IN}`](TODO)|[`TODO`](TODO)|
