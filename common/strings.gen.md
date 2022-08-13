@@ -59,7 +59,7 @@
 |chars|`TODO`|`TODO`|`TODO`|
 |compareTo|`TODO`|`TODO`|`TODO`|
 |contains|`TODO`|`TODO`|`TODO`|
-|eic,equalsIgnoreCase|`TODO`|`TODO`|`TODO`|
+|eic, <br/>equalsIgnoreCase|`TODO`|`TODO`|`TODO`|
 |endsWith|`IN='abc'; if [[ $IN =~ c$ ]]; then echo 'yes'; fi`|`IN='abc'; if [[ $IN =~ c$ ]]; then echo 'yes'; fi`|`TODO`|
 |equals|`if [ "a" = "a" ]; then echo 'yes'; fi;`|`if [ "a" = "a" ]; then echo 'yes'; fi;`|`TODO`|
 |indexOf|`TODO`|`TODO`|`TODO`|
