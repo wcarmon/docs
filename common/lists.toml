@@ -20,8 +20,8 @@ lists.op.addAll.ash.code = "TODO"
 lists.op.addAll.ash.url = "TODO"
 lists.op.addAll.bash.code = "TODO"
 lists.op.addAll.bash.url = "TODO"
-lists.op.addAll.dart.code = "TODO"
-lists.op.addAll.dart.url = "TODO"
+lists.op.addAll.dart.code = "TODO: addAll"
+lists.op.addAll.dart.url = "https://api.dart.dev/stable/2.17.3/dart-core/List/addAll.html"
 lists.op.addAll.go.code = "TODO"
 lists.op.addAll.go.url = "TODO"
 lists.op.addAll.java.code = "TODO"
@@ -57,7 +57,7 @@ lists.op.concat.ash.url = "TODO"
 lists.op.concat.bash.code = "TODO"
 lists.op.concat.bash.url = "TODO"
 lists.op.concat.dart.code = "TODO"
-lists.op.concat.dart.url = "TODO"
+lists.op.concat.dart.url = "https://api.dart.dev/stable/2.17.3/dart-core/Iterable/followedBy.html"
 lists.op.concat.go.code = "TODO"
 lists.op.concat.go.url = "TODO"
 lists.op.concat.java.code = "TODO"
@@ -128,12 +128,12 @@ lists.op.filter.ash.code = "TODO"
 lists.op.filter.ash.url = "TODO"
 lists.op.filter.bash.code = "TODO"
 lists.op.filter.bash.url = "TODO"
-lists.op.filter.dart.code = "TODO"
-lists.op.filter.dart.url = "TODO"
+lists.op.filter.dart.code = "TODO: retainWhere"
+lists.op.filter.dart.url = "https://api.dart.dev/stable/2.17.3/dart-core/List/retainWhere.html"
 lists.op.filter.go.code = "TODO"
 lists.op.filter.go.url = "TODO"
-lists.op.filter.java.code = "TODO"
-lists.op.filter.java.url = "TODO"
+lists.op.filter.java.code = "TODO: filter"
+lists.op.filter.java.url = "https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/stream/Stream.html#filter(java.util.function.Predicate)"
 lists.op.filter.kotlin.code = "TODO"
 lists.op.filter.kotlin.url = "TODO"
 lists.op.filter.python.code = "TODO"
@@ -398,8 +398,9 @@ lists.op.truncate.ts.url = "TODO"
 lists.alias = [
     ["add", "append", "push", "push_back"],
     ["clear", "removeAll"],
+    ["concat", "followedBy"],
     ["copyRange", "shallowCopy"],
-    ["filter", "retain"],
+    ["filter", "retain", "retainWhere"],
     ["fromLiteral", "literal"],
     ["len", "length", "size"],
     ["pop", "removeLast"],
