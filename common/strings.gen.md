@@ -17,12 +17,12 @@
 |join|`strings.Join(slice, sep)`|`vec!["a", "b", "c"].join(sep)`|`String.join(sep, List.of("a", "b", "c"))`|
 |lastIndex<br/>lastIndexOf|`strings.LastIndex(haystack, needle)`|`$EXPR$.rfind(needle)`|`$EXPR$.lastIndexOf(needle)`|
 |len<br/>length<br/>size|`len($EXPR$)`|`$EXPR$.len()`|`$EXPR$.length()`|
+|lower<br/>toLower<br/>toLowerCase|`strings.ToLower($EXPR$)`|`$EXPR$.to_lowercase()`|`$EXPR$.toLowerCase(Locale.ROOT)`|
 |repeat|`strings.Repeat(s, n)`|`$EXPR$.repeat(n)`|`$EXPR$.repeat(n)`|
 |replaceAll|`strings.ReplaceAll($EXPR$, old, new)`|`$EXPR$.replace(old, new)`|`$EXPR$.replaceAll(old, new)`|
 |split|`strings.Split($EXPR$, sep)`|`let v: Vec<_> = "$EXPR$".split(sep).collect()`|`$EXPR$.split(sep, 0)`|
 |strip<br/>trim<br/>trimSpace|`strings.TrimSpace($EXPR$)`|`$EXPR$.trim()`|`$EXPR$.strip()`|
 |substring|`"abcde"[2:4] == "cd"`|`&"abcde"[2..4] == "cd"`|`"abcde".substring(2, 4).equals("cd")`|
-|toLower|`strings.ToLower($EXPR$)`|`$EXPR$.to_lowercase()`|`$EXPR$.toLowerCase(Locale.ROOT)`|
 |toUpper<br/>toUpperCase<br/>upper|`strings.ToUpper($EXPR$)`|`$EXPR$.to_uppercase()`|`$EXPR$.toUpperCase(Locale.ROOT)`|
 
 
@@ -43,12 +43,12 @@
 |join|`",".join(["a", "b", "c"])`|`$EXPR$.join(",")`|`["a", "b", "c"].join(sep)`|
 |lastIndex<br/>lastIndexOf|`$EXPR$.rfind(needle)`|`$EXPR$.lastIndexOf(needle)`|`$EXPR$.lastIndexOf(needle)`|
 |len<br/>length<br/>size|`len($EXPR$)`|`$EXPR$.length`|`$EXPR$.length`|
+|lower<br/>toLower<br/>toLowerCase|`$EXPR$.lower()`|`$EXPR$.toLowerCase()`|`$EXPR$.toLowerCase()`|
 |repeat|`$EXPR$ * n`|`$EXPR$ * n`|`$EXPR$.repeat(n)`|
 |replaceAll|`$EXPR$.replace(old, new, -1)`|`$EXPR$.replaceAll(RegExp(r'ab'), new)`|`$EXPR$.replaceAll(old, new)`|
 |split|`$EXPR$.split(sep)`|`$EXPR$.split(sep)`|`$EXPR$.split(sep)`|
 |strip<br/>trim<br/>trimSpace|`$EXPR$.strip()`|`$EXPR$.trim()`|`$EXPR$.trim()`|
 |substring|`"abcde"[2:4] == "cd"`|`$EXPR$.substring(start, end)`|`"abcde".substring(2,4) === "cd"`|
-|toLower|`$EXPR$.lower()`|`$EXPR$.toLowerCase()`|`$EXPR$.toLowerCase()`|
 |toUpper<br/>toUpperCase<br/>upper|`$EXPR$.upper()`|`$EXPR$.toUpperCase()`|`$EXPR$.toUpperCase()`|
 
 
@@ -69,12 +69,12 @@
 |join|`TODO`|`TODO`|`TODO`|
 |lastIndex<br/>lastIndexOf|`TODO`|`TODO`|`TODO`|
 |len<br/>length<br/>size|`IN="foo"; OUT=${#IN}`|`IN="foo"; OUT=${#IN}`|`TODO`|
+|lower<br/>toLower<br/>toLowerCase|`IN='FOO'; OUT=$(echo $IN \| tr '[:upper:]' '[:lower:]')`|`IN='FOO'; OUT=$(echo $IN \| tr '[:upper:]' '[:lower:]')`|`TODO`|
 |repeat|`IN='z'; CNT=5; OUT=$(echo $(for i in $(seq 1 $CNT); do printf $IN; done))`|`IN='z'; CNT=5; OUT=$(echo $(for i in $(seq 1 $CNT); do printf $IN; done))`|`TODO`|
 |replaceAll|`TODO`|`TODO`|`TODO`|
 |split|`TODO`|`TODO`|`TODO`|
 |strip<br/>trim<br/>trimSpace|`IN=' foo '; OUT=$(echo $IN)`|`IN=' foo '; OUT=$(echo $IN)`|`TODO`|
 |substring|`TODO`|`TODO`|`TODO`|
-|toLower|`IN='FOO'; OUT=$(echo $IN \| tr '[:upper:]' '[:lower:]')`|`IN='FOO'; OUT=$(echo $IN \| tr '[:upper:]' '[:lower:]')`|`TODO`|
 |toUpper<br/>toUpperCase<br/>upper|`IN='foo'; OUT=$(echo $IN \| tr '[:lower:]' '[:upper:]')`|`IN='foo'; OUT=$(echo $IN \| tr '[:lower:]' '[:upper:]')`|`TODO`|
 
 

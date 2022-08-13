@@ -409,6 +409,7 @@ strings.alias = [
     ["charAt", "nth"],
     ["strip", "trim", "trimSpace"],
     ["toUpper", "toUpperCase", "upper"],
+    ["lower", "toLower", "toLowerCase"],
 ]
 
 # --- Bash
