@@ -399,8 +399,9 @@ strings.op.substring.ash.url = "TODO"
 # ----------------------------------------
 strings.alias = [
     ["charAt", "nth"],
+    ["chars", "toCharArray"],
     ["cmp", "compare", "compareTo"],
-    ["eic", "equalsFold", "equalsIgnoreCase"],
+    ["eic", "eqIgnoreCase", "equalsFold", "equalsIgnoreCase"],
     ["encode", "runes", "utf8bytes"],
     ["endsWith", "hasSuffix"],
     ["eq", "equals"],

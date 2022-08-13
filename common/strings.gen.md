@@ -3,10 +3,10 @@
 |`Operation`|[`Go`](https://go.dev/)|[`Rust`](https://www.rust-lang.org/)|[`Java`](https://docs.oracle.com/javase/8/docs/technotes/guides/language/)|
 |---|---|---|---|
 |charAt<br/>nth|`$EXPR$[i:i+1] /* or */ ( []rune($EXPR$) )[3]`|`$EXPR$.chars().nth(3)`|`$EXPR$.charAt(3)`|
-|chars|`range in $EXPR$ /* or */ []rune($EXPR$)`|`$EXPR$.chars()`|`$EXPR$.toCharArray()`|
+|chars<br/>toCharArray|`range in $EXPR$ /* or */ []rune($EXPR$)`|`$EXPR$.chars()`|`$EXPR$.toCharArray()`|
 |cmp<br/>compare<br/>compareTo|`strings.Compare($EXPR$, s2)`|`$EXPR$.cmp(s2) == Ordering::Less`|`$EXPR$.compareTo(s2)`|
 |contains|`strings.Contains($EXPR$, needle)`|`$EXPR$.contains(needle)`|`$EXPR$.contains(needle)`|
-|eic<br/>equalsFold<br/>equalsIgnoreCase|`strings.EqualsFold($EXPR$, s2)`|`$EXPR$.eq_ignore_ascii_case(&s2)`|`$EXPR$.equalsIgnoreCase(s2)`|
+|eic<br/>eqIgnoreCase<br/>equalsFold<br/>equalsIgnoreCase|`strings.EqualsFold($EXPR$, s2)`|`$EXPR$.eq_ignore_ascii_case(&s2)`|`$EXPR$.equalsIgnoreCase(s2)`|
 |encode<br/>runes<br/>utf8bytes|`[]byte($EXPR$)`|`$EXPR$.as_bytes()`|`$EXPR$.getBytes("UTF8")`|
 |endsWith<br/>hasSuffix|`strings.HasSuffix($EXPR$, sfx)`|`$EXPR$.ends_with(sfx)`|`$EXPR$.endsWith(sfx)`|
 |eq<br/>equals|`$EXPR$ == s2`|`$EXPR$ == s2`|`$EXPR$.equals(s2)`|
@@ -29,10 +29,10 @@
 |`Operation`|[`Python`](https://www.python.org/)|[`Dart`](https://dart.dev/)|[`Ts`](https://www.typescriptlang.org/)|
 |---|---|---|---|
 |charAt<br/>nth|`$EXPR$[3]`|`$EXPR$[3]`|`$EXPR$[3]`|
-|chars|`list($EXPR$)`|`$EXPR$.split('')`|`$EXPR$.split('')`|
+|chars<br/>toCharArray|`list($EXPR$)`|`$EXPR$.split('')`|`$EXPR$.split('')`|
 |cmp<br/>compare<br/>compareTo|`$EXPR$ < s2`|`$EXPR$.compareTo(s2)`|`$EXPR$.localeCompare(s2)`|
 |contains|`needle in $EXPR$`|`$EXPR$.contains(needle)`|`$EXPR$.indexOf(needle) > -1`|
-|eic<br/>equalsFold<br/>equalsIgnoreCase|`$EXPR$.casefold() == s2.casefold()`|`$EXPR$.toUpperCase() == s2.toUpperCase()`|`$EXPR$.toUpperCase() === s2.toUpperCase()`|
+|eic<br/>eqIgnoreCase<br/>equalsFold<br/>equalsIgnoreCase|`$EXPR$.casefold() == s2.casefold()`|`$EXPR$.toUpperCase() == s2.toUpperCase()`|`$EXPR$.toUpperCase() === s2.toUpperCase()`|
 |encode<br/>runes<br/>utf8bytes|`$EXPR$.encode()`|`$EXPR$.runes`|`new TextEncoder().encode($EXPR$)`|
 |endsWith<br/>hasSuffix|`$EXPR$.endswith(sfx)`|`$EXPR$.endsWith(sfx)`|`$EXPR$.endsWith(sfx)`|
 |eq<br/>equals|`$EXPR$ == s2`|`$EXPR$ == s2`|`$EXPR$ === s2`|
@@ -55,10 +55,10 @@
 |`Operation`|[`Bash`](https://www.gnu.org/software/bash/)|[`Ash`](https://en.wikipedia.org/wiki/Almquist_shell)|[`Kotlin`](https://kotlinlang.org/)|
 |---|---|---|---|
 |charAt<br/>nth|`IN='abc'; OUT=${IN:2:1}`|`IN='abc'; OUT=${IN:2:1}`|`TODO`|
-|chars|`TODO`|`TODO`|`TODO`|
+|chars<br/>toCharArray|`TODO`|`TODO`|`TODO`|
 |cmp<br/>compare<br/>compareTo|`TODO`|`TODO`|`TODO`|
 |contains|`TODO`|`TODO`|`TODO`|
-|eic<br/>equalsFold<br/>equalsIgnoreCase|`TODO`|`TODO`|`TODO`|
+|eic<br/>eqIgnoreCase<br/>equalsFold<br/>equalsIgnoreCase|`TODO`|`TODO`|`TODO`|
 |encode<br/>runes<br/>utf8bytes|`TODO`|`TODO`|`TODO`|
 |endsWith<br/>hasSuffix|`IN='abc'; if [[ $IN =~ c$ ]]; then echo 'yes'; fi`|`IN='abc'; if [[ $IN =~ c$ ]]; then echo 'yes'; fi`|`TODO`|
 |eq<br/>equals|`if [ "a" = "a" ]; then echo 'yes'; fi;`|`if [ "a" = "a" ]; then echo 'yes'; fi;`|`TODO`|
