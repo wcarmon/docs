@@ -423,12 +423,9 @@ strings.alias = [
 # Verified:     if [ "a" = "a" ]; then echo 'yes'; fi;
 
 # IN1="A"; echo ${IN1,,}
-
 # IN='z'; CNT=5; OUT=$(echo $(for i in $(seq 1 $CNT); do printf $IN; done))
-
 # IN='abc'; OUT=${IN:2:1}; echo $OUT
 
 # --- TODO
-
 # TODO: [String::`format`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#format(java.lang.String,java.lang.Object...)) | [`fmt.Sprintf(s, ...)`](https://pkg.go.dev/fmt#Sprintf) | TODO |
 # TODO: [String::`valueOf`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#valueOf(java.lang.Object)) |`string(foo)` fmt.Sprintf("%v")| TODO |
