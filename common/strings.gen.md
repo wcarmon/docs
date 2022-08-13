@@ -7,7 +7,7 @@
 |chars|`range in $EXPR$ /* or */ []rune($EXPR$)`|`$EXPR$.chars()`|`$EXPR$.toCharArray()`|
 |compareTo|`strings.Compare($EXPR$, s2)`|`$EXPR$.cmp(s2) == Ordering::Less`|`$EXPR$.compareTo(s2)`|
 |contains|`strings.Contains($EXPR$, needle)`|`$EXPR$.contains(needle)`|`$EXPR$.contains(needle)`|
-|eic,equalsIgnoreCase|`strings.EqualsFold($EXPR$, s2)`|`$EXPR$.eq_ignore_ascii_case(&s2)`|`$EXPR$.equalsIgnoreCase(s2)`|
+|eic<br/>equalsIgnoreCase|`strings.EqualsFold($EXPR$, s2)`|`$EXPR$.eq_ignore_ascii_case(&s2)`|`$EXPR$.equalsIgnoreCase(s2)`|
 |endsWith|`strings.HasSuffix($EXPR$, sfx)`|`$EXPR$.ends_with(sfx)`|`$EXPR$.endsWith(sfx)`|
 |equals|`$EXPR$ == s2`|`$EXPR$ == s2`|`$EXPR$.equals(s2)`|
 |indexOf|`strings.Index(haystack, needle)`|`$EXPR$.find(needle)`|`$EXPR$.indexOf(needle)`|
@@ -20,10 +20,10 @@
 |replaceAll|`strings.ReplaceAll($EXPR$, old, new)`|`$EXPR$.replace(old, new)`|`$EXPR$.replaceAll(old, new)`|
 |split|`strings.Split($EXPR$, sep)`|`let v: Vec<_> = "$EXPR$".split(sep).collect()`|`$EXPR$.split(sep, 0)`|
 |startsWith|`strings.HasPrefix($EXPR$, pfx)`|`$EXPR$.starts_with(pfx)`|`$EXPR$.startsWith(pfx)`|
-|strip,trim,TrimSpace|`strings.TrimSpace($EXPR$)`|`$EXPR$.trim()`|`$EXPR$.strip()`|
+|strip<br/>trim<br/>TrimSpace|`strings.TrimSpace($EXPR$)`|`$EXPR$.trim()`|`$EXPR$.strip()`|
 |substring|`"abcde"[2:4] == "cd"`|`&"abcde"[2..4] == "cd"`|`"abcde".substring(2, 4).equals("cd")`|
 |toLower|`strings.ToLower($EXPR$)`|`$EXPR$.to_lowercase()`|`$EXPR$.toLowerCase(Locale.ROOT)`|
-|toUpper,touppercase,upper|`strings.ToUpper($EXPR$)`|`$EXPR$.to_uppercase()`|`$EXPR$.toUpperCase(Locale.ROOT)`|
+|toUpper<br/>touppercase<br/>upper|`strings.ToUpper($EXPR$)`|`$EXPR$.to_uppercase()`|`$EXPR$.toUpperCase(Locale.ROOT)`|
 
 
 |`Operation`|[`Python`](https://www.python.org/)|[`Dart`](https://dart.dev/)|[`Ts`](https://www.typescriptlang.org/)|
@@ -33,7 +33,7 @@
 |chars|`list($EXPR$)`|`$EXPR$.split('')`|`$EXPR$.split('')`|
 |compareTo|`$EXPR$ < s2`|`$EXPR$.compareTo(s2)`|`$EXPR$.localeCompare(s2)`|
 |contains|`needle in $EXPR$`|`$EXPR$.contains(needle)`|`$EXPR$.indexOf(needle) > -1`|
-|eic,equalsIgnoreCase|`$EXPR$.casefold() == s2.casefold()`|`$EXPR$.toUpperCase() == s2.toUpperCase()`|`$EXPR$.toUpperCase() === s2.toUpperCase()`|
+|eic<br/>equalsIgnoreCase|`$EXPR$.casefold() == s2.casefold()`|`$EXPR$.toUpperCase() == s2.toUpperCase()`|`$EXPR$.toUpperCase() === s2.toUpperCase()`|
 |endsWith|`$EXPR$.endswith(sfx)`|`$EXPR$.endsWith(sfx)`|`$EXPR$.endsWith(sfx)`|
 |equals|`$EXPR$ == s2`|`$EXPR$ == s2`|`$EXPR$ === s2`|
 |indexOf|`$EXPR$.find(needle)`|`$EXPR$.indexOf(needle)`|`$EXPR$.indexOf(needle)`|
@@ -46,10 +46,10 @@
 |replaceAll|`$EXPR$.replace(old, new, -1)`|`$EXPR$.replaceAll(RegExp(r'ab'), new)`|`$EXPR$.replaceAll(old, new)`|
 |split|`$EXPR$.split(sep)`|`$EXPR$.split(sep)`|`$EXPR$.split(sep)`|
 |startsWith|`$EXPR$.startswith(pfx)`|`$EXPR$.startsWith(pfx)`|`$EXPR$.startsWith(pfx)`|
-|strip,trim,TrimSpace|`$EXPR$.strip()`|`$EXPR$.trim()`|`$EXPR$.trim()`|
+|strip<br/>trim<br/>TrimSpace|`$EXPR$.strip()`|`$EXPR$.trim()`|`$EXPR$.trim()`|
 |substring|`"abcde"[2:4] == "cd"`|`$EXPR$.substring(start, end)`|`"abcde".substring(2,4) === "cd"`|
 |toLower|`$EXPR$.lower()`|`$EXPR$.toLowerCase()`|`$EXPR$.toLowerCase()`|
-|toUpper,touppercase,upper|`$EXPR$.upper()`|`$EXPR$.toUpperCase()`|`$EXPR$.toUpperCase()`|
+|toUpper<br/>touppercase<br/>upper|`$EXPR$.upper()`|`$EXPR$.toUpperCase()`|`$EXPR$.toUpperCase()`|
 
 
 |`Operation`|[`Bash`](https://www.gnu.org/software/bash/)|[`Ash`](https://en.wikipedia.org/wiki/Almquist_shell)|[`Kotlin`](https://kotlinlang.org/)|
@@ -59,7 +59,7 @@
 |chars|`TODO`|`TODO`|`TODO`|
 |compareTo|`TODO`|`TODO`|`TODO`|
 |contains|`TODO`|`TODO`|`TODO`|
-|eic, <br/>equalsIgnoreCase|`TODO`|`TODO`|`TODO`|
+|eic<br/>equalsIgnoreCase|`TODO`|`TODO`|`TODO`|
 |endsWith|`IN='abc'; if [[ $IN =~ c$ ]]; then echo 'yes'; fi`|`IN='abc'; if [[ $IN =~ c$ ]]; then echo 'yes'; fi`|`TODO`|
 |equals|`if [ "a" = "a" ]; then echo 'yes'; fi;`|`if [ "a" = "a" ]; then echo 'yes'; fi;`|`TODO`|
 |indexOf|`TODO`|`TODO`|`TODO`|
@@ -72,9 +72,9 @@
 |replaceAll|`TODO`|`TODO`|`TODO`|
 |split|`TODO`|`TODO`|`TODO`|
 |startsWith|`IN='abc'; if [[ $IN =~ ^ab ]]; then echo 'yes'; fi`|`IN='abc'; if [[ $IN =~ ^ab ]]; then echo 'yes'; fi`|`TODO`|
-|strip,trim,TrimSpace|`IN=' foo '; OUT=$(echo $IN)`|`IN=' foo '; OUT=$(echo $IN)`|`TODO`|
+|strip<br/>trim<br/>TrimSpace|`IN=' foo '; OUT=$(echo $IN)`|`IN=' foo '; OUT=$(echo $IN)`|`TODO`|
 |substring|`TODO`|`TODO`|`TODO`|
 |toLower|`IN='FOO'; OUT=$(echo $IN \| tr '[:upper:]' '[:lower:]')`|`IN='FOO'; OUT=$(echo $IN \| tr '[:upper:]' '[:lower:]')`|`TODO`|
-|toUpper,touppercase,upper|`IN='foo'; OUT=$(echo $IN \| tr '[:lower:]' '[:upper:]')`|`IN='foo'; OUT=$(echo $IN \| tr '[:lower:]' '[:upper:]')`|`TODO`|
+|toUpper<br/>touppercase<br/>upper|`IN='foo'; OUT=$(echo $IN \| tr '[:lower:]' '[:upper:]')`|`IN='foo'; OUT=$(echo $IN \| tr '[:lower:]' '[:upper:]')`|`TODO`|
 
 
