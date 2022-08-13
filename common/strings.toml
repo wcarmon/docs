@@ -400,15 +400,16 @@ strings.op.substring.ash.url = "TODO"
 strings.alias = [
     ["charAt", "nth"],
     ["cmp", "compareTo"],
+    ["compare", "compareTo"],
     ["eic", "equalsFold", "equalsIgnoreCase"],
+    ["encode", "runes", "utf8bytes"],
     ["endsWith", "hasSuffix"],
     ["eq", "equals"],
     ["find", "index", "indexOf"],
     ["hasPrefix", "startsWith"],
-    ["lastIndex", "lastIndexOf"],
+    ["lastIndex", "lastIndexOf", "rfind"],
     ["len", "length", "size"],
     ["lower", "toLower", "toLowerCase"],
-    ["runes", "utf8bytes"],
     ["strip", "trim", "trimSpace"],
     ["toUpper", "toUpperCase", "upper"],
 ]
