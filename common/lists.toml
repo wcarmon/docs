@@ -168,8 +168,8 @@ lists.op.firstN.dart.code = "TODO"
 lists.op.firstN.dart.url = "TODO"
 lists.op.firstN.go.code = "TODO"
 lists.op.firstN.go.url = "TODO"
-lists.op.firstN.java.code = "TODO"
-lists.op.firstN.java.url = "TODO"
+lists.op.firstN.java.code = "TODO: limit"
+lists.op.firstN.java.url = "https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html#limit-long-"
 lists.op.firstN.kotlin.code = "TODO"
 lists.op.firstN.kotlin.url = "TODO"
 lists.op.firstN.python.code = "TODO"
@@ -417,11 +417,11 @@ lists.op.skip.ash.url = "TODO"
 lists.op.skip.bash.code = "TODO"
 lists.op.skip.bash.url = "TODO"
 lists.op.skip.dart.code = "TODO"
-lists.op.skip.dart.url = "TODO"
+lists.op.skip.dart.url = "https://api.dart.dev/stable/2.17.3/dart-core/Iterable/skip.html"
 lists.op.skip.go.code = "TODO"
 lists.op.skip.go.url = "TODO"
-lists.op.skip.java.code = "TODO"
-lists.op.skip.java.url = "TODO"
+lists.op.skip.java.code = "TODO: skip"
+lists.op.skip.java.url = "https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html#skip-long-"
 lists.op.skip.kotlin.code = "TODO"
 lists.op.skip.kotlin.url = "TODO"
 lists.op.skip.python.code = "TODO"
@@ -510,7 +510,7 @@ lists.alias = [
     ["concat", "followedBy"],
     ["copyRange", "shallowCopy"],
     ["filter", "retain", "retainWhere"],
-    ["firstN","take"],
+    ["firstN", "limit", "take"],
     ["fromLiteral", "literal"],
     ["len", "length", "size"],
     ["pop", "removeLast"],

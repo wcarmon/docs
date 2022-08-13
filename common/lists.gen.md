@@ -11,18 +11,24 @@
 |equals|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 |fill|[`TODO`](TODO)|[`TODO`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.fill)|[`TODO: Collections.fill`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Collections.html#fill(java.util.List,T))|
 |filter<br/>retain<br/>retainWhere|[`TODO`](TODO)|[`TODO`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.retain)|[`TODO: filter`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/stream/Stream.html#filter(java.util.function.Predicate))|
+|first|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
+|firstN<br/>take|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 |fromLiteral<br/>literal|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 |get|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 |indexOf|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 |isEmpty|[`TODO`](TODO)|[`TODO`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.is_empty)|[`TODO`](TODO)|
 |iterator|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 |join|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
+|last|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
+|lastN|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 |len<br/>length<br/>size|[`TODO`](TODO)|[`TODO`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.len)|[`TODO`](TODO)|
 |new|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 |pop<br/>removeLast|[`TODO`](TODO)|[`TODO: pop`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.pop)|[`TODO`](TODO)|
 |reverse|[`TODO`](TODO)|[`TODO`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.reverse)|[`TODO`](TODO)|
+|skip|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 |sort|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 |sublist|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
+|toSet|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 |truncate|[`TODO`](TODO)|[`TODO`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.truncate)|[`TODO`](TODO)|
 
 
@@ -37,18 +43,24 @@
 |equals|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 |fill|[`TODO`](TODO)|[`TODO: fillRange`](https://api.dart.dev/stable/2.17.3/dart-core/List/fillRange.html)|[`TODO`](TODO)|
 |filter<br/>retain<br/>retainWhere|[`TODO`](TODO)|[`TODO: retainWhere`](https://api.dart.dev/stable/2.17.3/dart-core/List/retainWhere.html)|[`TODO`](TODO)|
+|first|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
+|firstN<br/>take|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 |fromLiteral<br/>literal|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 |get|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
-|indexOf|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
-|isEmpty|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
-|iterator|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
-|join|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
+|indexOf|[`TODO`](TODO)|[`TODO: indexOf`](https://api.dart.dev/stable/2.17.3/dart-core/List/indexOf.html)|[`TODO`](TODO)|
+|isEmpty|[`TODO`](TODO)|[`TODO: isEmpty`](https://api.dart.dev/stable/2.17.3/dart-core/Iterable/isEmpty.html)|[`TODO`](TODO)|
+|iterator|[`TODO`](TODO)|[`TODO: iterator`](https://api.dart.dev/stable/2.17.3/dart-core/Iterable/iterator.html)|[`TODO`](TODO)|
+|join|[`TODO`](TODO)|[`TODO: join`](https://api.dart.dev/stable/2.17.3/dart-core/Iterable/join.html)|[`TODO`](TODO)|
+|last|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
+|lastN|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 |len<br/>length<br/>size|[`TODO`](TODO)|[`TODO: length`](https://api.dart.dev/stable/2.17.3/dart-core/List/length.html)|[`TODO`](TODO)|
 |new|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
-|pop<br/>removeLast|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
-|reverse|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
+|pop<br/>removeLast|[`TODO`](TODO)|[`TODO: remove last`](https://api.dart.dev/stable/2.17.3/dart-core/List/removeLast.html)|[`TODO`](TODO)|
+|reverse|[`TODO`](TODO)|[`TODO: $EXPR$.reversed.toList()`](https://api.dart.dev/stable/2.17.3/dart-core/List/reversed.html)|[`TODO`](TODO)|
+|skip|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 |sort|[`TODO`](TODO)|[`TODO: sort`](https://api.dart.dev/stable/2.17.3/dart-core/List/sort.html)|[`TODO`](TODO)|
-|sublist|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
+|sublist|[`TODO`](TODO)|[`TODO`](https://api.dart.dev/stable/2.17.3/dart-core/List/sublist.html)|[`TODO`](TODO)|
+|toSet|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 |truncate|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 
 
@@ -63,18 +75,24 @@
 |equals|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 |fill|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 |filter<br/>retain<br/>retainWhere|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
+|first|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
+|firstN<br/>take|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 |fromLiteral<br/>literal|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 |get|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 |indexOf|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 |isEmpty|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 |iterator|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 |join|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
+|last|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
+|lastN|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 |len<br/>length<br/>size|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 |new|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 |pop<br/>removeLast|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 |reverse|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
+|skip|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 |sort|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 |sublist|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
+|toSet|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 |truncate|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 
 
