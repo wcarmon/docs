@@ -2,79 +2,79 @@
 
 |`Operation`|[`Go`](https://go.dev/)|[`Rust`](https://www.rust-lang.org/)|[`Java`](https://docs.oracle.com/javase/8/docs/technotes/guides/language/)|
 |---|---|---|---|
-|bytes|[`[]byte($EXPR$)`](TODO)|[`$EXPR$.as_bytes()`](https://doc.rust-lang.org/std/string/struct.String.html#method.as_bytes)|[`$EXPR$.getBytes("UTF8")`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html#getBytes(java.lang.String))|
-|charAt|`$EXPR$[i:i+1] /* or */ ( []rune($EXPR$) )[3]`|[`$EXPR$.chars().nth(3)`](https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.nth)|[`$EXPR$.charAt(3)`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#charAt(int))|
-|chars|[`range in $EXPR$ /* or */ []rune($EXPR$)`](https://go.dev/ref/spec#For_statements)|[`$EXPR$.chars()`](https://doc.rust-lang.org/std/primitive.str.html#method.chars)|[`$EXPR$.toCharArray()`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#toCharArray())|
-|compareTo|[`strings.Compare($EXPR$, s2)`](https://pkg.go.dev/strings#Compare)|[`$EXPR$.cmp(s2) == Ordering::Less`](https://doc.rust-lang.org/std/cmp/trait.Ord.html#tymethod.cmp)|[`$EXPR$.compareTo(s2)`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#compareTo(java.lang.String))|
-|contains|[`strings.Contains($EXPR$, needle)`](https://pkg.go.dev/strings#Contains)|[`$EXPR$.contains(needle)`](https://doc.rust-lang.org/std/primitive.str.html#method.contains)|[`$EXPR$.contains(needle)`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#contains(java.lang.CharSequence))|
-|endsWith|[`strings.HasSuffix($EXPR$, sfx)`](https://pkg.go.dev/strings#HasSuffix)|[`$EXPR$.ends_with(sfx)`](https://doc.rust-lang.org/std/primitive.str.html#method.ends_with)|[`$EXPR$.endsWith(sfx)`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#endsWith(java.lang.String))|
-|equals|[`$EXPR$ == s2`](https://go.dev/ref/spec#Comparison_operators)|[`$EXPR$ == s2`](https://doc.rust-lang.org/std/cmp/trait.PartialEq.html#tymethod.eq)|[`$EXPR$.equals(s2)`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#equals(java.lang.Object))|
-|equalsIgnoreCase|[`strings.EqualsFold($EXPR$, s2)`](https://pkg.go.dev/strings#EqualFold)|[`$EXPR$.eq_ignore_ascii_case(&s2)`](https://doc.rust-lang.org/std/primitive.str.html#method.eq_ignore_ascii_case)|[`$EXPR$.equalsIgnoreCase(s2)`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#equalsIgnoreCase(java.lang.String))|
-|indexOf|[`strings.Index(haystack, needle)`](https://pkg.go.dev/strings#Index)|[`$EXPR$.find(needle)`](https://doc.rust-lang.org/std/string/struct.String.html#method.find)|[`$EXPR$.indexOf(needle)`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#indexOf(int))|
-|isBlank|[`strings.TrimSpace(s) == ""`](https://pkg.go.dev/strings#TrimSpace)|[`$EXPR$.trim() == ""`](TODO)|[`$EXPR$.isBlank()`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#isBlank())|
-|isEmpty|[`len($EXPR$) == 0`](https://pkg.go.dev/builtin#len)|[`$EXPR$ == s2`](https://doc.rust-lang.org/std/primitive.str.html#method.is_empty)|[`$EXPR$.isEmpty`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html#isEmpty())|
-|join|[`strings.Join(slice, sep)`](https://pkg.go.dev/strings#Join)|[`vec!["a", "b", "c"].join(sep)`](https://doc.rust-lang.org/std/primitive.slice.html#method.join)|[`String.join(sep, List.of("a", "b", "c"))`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html#join(java.lang.CharSequence,java.lang.Iterable))|
-|lastIndexOf|[`strings.LastIndex(haystack, needle)`](https://pkg.go.dev/strings#LastIndex)|[`$EXPR$.rfind(needle)`](https://doc.rust-lang.org/std/string/struct.String.html#method.rfind)|[`$EXPR$.lastIndexOf(needle)`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#lastIndexOf(int))|
-|length|[`len($EXPR$)`](https://pkg.go.dev/builtin#len)|[`$EXPR$.len()`](https://doc.rust-lang.org/std/primitive.str.html#method.len)|[`$EXPR$.length()`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#length())|
-|repeat|[`strings.Repeat(s, n)`](https://pkg.go.dev/strings#Repeat)|[`$EXPR$.repeat(n)`](https://doc.rust-lang.org/std/primitive.str.html#method.repeat)|[`$EXPR$.repeat(n)`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#repeat(int))|
-|replaceAll|[`strings.ReplaceAll($EXPR$, old, new)`](https://pkg.go.dev/strings#ReplaceAll)|[`$EXPR$.replace(old, new)`](https://doc.rust-lang.org/std/primitive.str.html#method.replace)|[`$EXPR$.replaceAll(old, new)`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#replaceAll(java.lang.String,java.lang.String))|
-|split|[`strings.Split($EXPR$, sep)`](https://pkg.go.dev/strings#Split)|[`let v: Vec<_> = "$EXPR$".split(sep).collect()`](https://doc.rust-lang.org/std/primitive.str.html#method.split)|[`$EXPR$.split(sep, 0)`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#split(java.lang.String))|
-|startsWith|[`strings.HasPrefix($EXPR$, pfx)`](https://pkg.go.dev/strings#HasPrefix)|[`$EXPR$.starts_with(pfx)`](https://doc.rust-lang.org/std/primitive.str.html#method.starts_with)|[`$EXPR$.startsWith(pfx)`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#startsWith(java.lang.String))|
-|substring|[`"abcde"[2:4] == "cd"`](TODO)|[`&"abcde"[2..4] == "cd"`](https://doc.rust-lang.org/nightly/book/ch08-02-strings.html#slicing-strings)|[`"abcde".substring(2, 4).equals("cd")`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#substring(int,int))|
-|toLower|[`strings.ToLower($EXPR$)`](https://pkg.go.dev/strings#ToLower)|[`$EXPR$.to_lowercase()`](https://doc.rust-lang.org/std/primitive.str.html#method.to_lowercase)|[`$EXPR$.toLowerCase(Locale.ROOT)`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#toLowerCase())|
-|toUpper|[`strings.ToUpper($EXPR$)`](https://pkg.go.dev/strings#ToUpper)|[`$EXPR$.to_uppercase()`](https://doc.rust-lang.org/std/primitive.str.html#method.to_uppercase)|[`$EXPR$.toUpperCase(Locale.ROOT)`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#toUpperCase())|
-|trim|[`strings.TrimSpace($EXPR$)`](https://pkg.go.dev/strings#TrimSpace)|[`$EXPR$.trim()`](https://doc.rust-lang.org/std/primitive.str.html#method.trim)|[`$EXPR$.strip()`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html#strip())|
+|bytes|`[]byte($EXPR$)`|`$EXPR$.as_bytes()`|`$EXPR$.getBytes("UTF8")`|
+|charAt|`$EXPR$[i:i+1] /* or */ ( []rune($EXPR$) )[3]`|`$EXPR$.chars().nth(3)`|`$EXPR$.charAt(3)`|
+|chars|`range in $EXPR$ /* or */ []rune($EXPR$)`|`$EXPR$.chars()`|`$EXPR$.toCharArray()`|
+|compareTo|`strings.Compare($EXPR$, s2)`|`$EXPR$.cmp(s2) == Ordering::Less`|`$EXPR$.compareTo(s2)`|
+|contains|`strings.Contains($EXPR$, needle)`|`$EXPR$.contains(needle)`|`$EXPR$.contains(needle)`|
+|eic,equalsIgnoreCase|`strings.EqualsFold($EXPR$, s2)`|`$EXPR$.eq_ignore_ascii_case(&s2)`|`$EXPR$.equalsIgnoreCase(s2)`|
+|endsWith|`strings.HasSuffix($EXPR$, sfx)`|`$EXPR$.ends_with(sfx)`|`$EXPR$.endsWith(sfx)`|
+|equals|`$EXPR$ == s2`|`$EXPR$ == s2`|`$EXPR$.equals(s2)`|
+|indexOf|`strings.Index(haystack, needle)`|`$EXPR$.find(needle)`|`$EXPR$.indexOf(needle)`|
+|isBlank|`strings.TrimSpace(s) == ""`|`$EXPR$.trim() == ""`|`$EXPR$.isBlank()`|
+|isEmpty|`len($EXPR$) == 0`|`$EXPR$ == s2`|`$EXPR$.isEmpty`|
+|join|`strings.Join(slice, sep)`|`vec!["a", "b", "c"].join(sep)`|`String.join(sep, List.of("a", "b", "c"))`|
+|lastIndexOf|`strings.LastIndex(haystack, needle)`|`$EXPR$.rfind(needle)`|`$EXPR$.lastIndexOf(needle)`|
+|length|`len($EXPR$)`|`$EXPR$.len()`|`$EXPR$.length()`|
+|repeat|`strings.Repeat(s, n)`|`$EXPR$.repeat(n)`|`$EXPR$.repeat(n)`|
+|replaceAll|`strings.ReplaceAll($EXPR$, old, new)`|`$EXPR$.replace(old, new)`|`$EXPR$.replaceAll(old, new)`|
+|split|`strings.Split($EXPR$, sep)`|`let v: Vec<_> = "$EXPR$".split(sep).collect()`|`$EXPR$.split(sep, 0)`|
+|startsWith|`strings.HasPrefix($EXPR$, pfx)`|`$EXPR$.starts_with(pfx)`|`$EXPR$.startsWith(pfx)`|
+|strip,trim,TrimSpace|`strings.TrimSpace($EXPR$)`|`$EXPR$.trim()`|`$EXPR$.strip()`|
+|substring|`"abcde"[2:4] == "cd"`|`&"abcde"[2..4] == "cd"`|`"abcde".substring(2, 4).equals("cd")`|
+|toLower|`strings.ToLower($EXPR$)`|`$EXPR$.to_lowercase()`|`$EXPR$.toLowerCase(Locale.ROOT)`|
+|toUpper,touppercase,upper|`strings.ToUpper($EXPR$)`|`$EXPR$.to_uppercase()`|`$EXPR$.toUpperCase(Locale.ROOT)`|
 
 
 |`Operation`|[`Python`](https://www.python.org/)|[`Dart`](https://dart.dev/)|[`Ts`](https://www.typescriptlang.org/)|
 |---|---|---|---|
-|bytes|[`$EXPR$.encode()`](https://docs.python.org/3/library/stdtypes.html#str.encode)|[`$EXPR$.runes`](https://api.dart.dev/stable/2.17.6/dart-core/String/runes.html)|[`new TextEncoder().encode($EXPR$)`](https://developer.mozilla.org/en-US/docs/Web/API/TextEncoder/TextEncoder)|
-|charAt|[`$EXPR$[3]`](TODO)|`$EXPR$[3]`|`$EXPR$[3]`|
-|chars|[`list($EXPR$)`](https://docs.python.org/3/library/stdtypes.html#list)|[`$EXPR$.split('')`](https://api.flutter.dev/flutter/dart-core/String/split.html)|[`$EXPR$.split('')`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/split)|
-|compareTo|`$EXPR$ < s2`|[`$EXPR$.compareTo(s2)`](https://api.flutter.dev/flutter/dart-core/String/compareTo.html)|[`$EXPR$.localeCompare(s2)`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/localeCompare)|
-|contains|[`needle in $EXPR$`](https://docs.python.org/3/library/operator.html#mapping-operators-to-functions)|[`$EXPR$.contains(needle)`](https://api.dart.dev/stable/2.17.0/dart-core/String/contains.html)|[`$EXPR$.indexOf(needle) > -1`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf)|
-|endsWith|[`$EXPR$.endswith(sfx)`](https://docs.python.org/3/library/stdtypes.html?highlight=endswith#str.endswith)|[`$EXPR$.endsWith(sfx)`](https://api.dart.dev/stable/2.17.0/dart-core/String/endsWith.html)|[`$EXPR$.endsWith(sfx)`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/endsWith)|
-|equals|[`$EXPR$ == s2`](https://docs.python.org/3/library/operator.html?highlight=operator#operator.eq)|[`$EXPR$ == s2`](https://api.dart.dev/stable/2.17.6/dart-core/String/operator_equals.html)|[`$EXPR$ === s2`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#comparing_strings)|
-|equalsIgnoreCase|[`$EXPR$.casefold() == s2.casefold()`](https://docs.python.org/3/library/stdtypes.html#str.casefold)|[`$EXPR$.toUpperCase() == s2.toUpperCase()`](https://api.dart.dev/stable/2.17.6/dart-core/String/toLowerCase.html)|[`$EXPR$.toUpperCase() === s2.toUpperCase()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#comparing_strings)|
-|indexOf|[`$EXPR$.find(needle)`](https://docs.python.org/3/library/stdtypes.html#str.find)|[`$EXPR$.indexOf(needle)`](https://api.dart.dev/be/181224/dart-core/String/indexOf.html)|[`$EXPR$.indexOf(needle)`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/indexOf)|
-|isBlank|[`$EXPR$.strip() == ""`](https://docs.python.org/3/library/stdtypes.html#str.strip)|[`$EXPR$.trim().isEmpty`](https://api.dart.dev/stable/2.17.6/dart-core/Iterable/isEmpty.html)|[`$EXPR$.trim() === ""`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/Trim)|
-|isEmpty|[`$EXPR$ == ""`](https://docs.python.org/3/library/stdtypes.html#comparisons)|[`$EXPR$.isEmpty`](https://api.dart.dev/stable/2.17.6/dart-core/String/isEmpty.html)|[`$EXPR$ === ""`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#comparing_strings)|
-|join|[`",".join(["a", "b", "c"])`](https://docs.python.org/3/library/stdtypes.html#str.join)|[`$EXPR$.join(",")`](https://api.dart.dev/stable/2.17.6/dart-core/Iterable/join.html)|[`["a", "b", "c"].join(sep)`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/join)|
-|lastIndexOf|[`$EXPR$.rfind(needle)`](https://docs.python.org/3/library/stdtypes.html#str.rfind)|[`$EXPR$.lastIndexOf(needle)`](https://api.dart.dev/stable/2.17.6/dart-core/String/lastIndexOf.html)|[`$EXPR$.lastIndexOf(needle)`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/lastIndexOf)|
-|length|[`len($EXPR$)`](TODO)|[`$EXPR$.length`](https://api.dart.dev/stable/2.17.6/dart-core/String/length.html)|[`$EXPR$.length`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/length)|
-|repeat|[`$EXPR$ * n`](https://docs.python.org/3/library/stdtypes.html#common-sequence-operations)|[`$EXPR$ * n`](https://api.dart.dev/stable/2.17.6/dart-core/String/operator_multiply.html)|[`$EXPR$.repeat(n)`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/repeat)|
-|replaceAll|[`$EXPR$.replace(old, new, -1)`](https://docs.python.org/3/library/stdtypes.html#str.replace)|[`$EXPR$.replaceAll(RegExp(r'ab'), new)`](https://api.dart.dev/stable/2.17.6/dart-core/String/replaceAll.html)|[`$EXPR$.replaceAll(old, new)`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replaceAll)|
-|split|[`$EXPR$.split(sep)`](https://docs.python.org/3/library/stdtypes.html#str.split)|[`$EXPR$.split(sep)`](https://api.dart.dev/stable/2.17.6/dart-core/String/split.html)|[`$EXPR$.split(sep)`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/split)|
-|startsWith|[`$EXPR$.startswith(pfx)`](https://docs.python.org/3/library/stdtypes.html#str.startswith)|[`$EXPR$.startsWith(pfx)`](https://api.dart.dev/stable/2.17.6/dart-core/String/startsWith.html)|[`$EXPR$.startsWith(pfx)`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/startsWith)|
-|substring|[`"abcde"[2:4] == "cd"`](https://docs.python.org/3/library/functions.html?highlight=slice#slice)|[`$EXPR$.substring(start, end)`](https://api.dart.dev/stable/2.17.6/dart-core/String/substring.html)|[`"abcde".substring(2,4) === "cd"`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/substring)|
-|toLower|[`$EXPR$.lower()`](https://docs.python.org/3/library/stdtypes.html#str.lower)|[`$EXPR$.toLowerCase()`](https://api.dart.dev/stable/2.17.6/dart-core/String/toLowerCase.html)|[`$EXPR$.toLowerCase()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toLowerCase)|
-|toUpper|[`$EXPR$.upper()`](https://docs.python.org/3/library/stdtypes.html#str.upper)|[`$EXPR$.toUpperCase()`](https://api.dart.dev/stable/2.17.6/dart-core/String/toUpperCase.html)|[`$EXPR$.toUpperCase()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toUpperCase)|
-|trim|[`$EXPR$.strip()`](https://docs.python.org/3/library/stdtypes.html#str.strip)|[`$EXPR$.trim()`](https://api.dart.dev/stable/2.17.6/dart-core/String/trim.html)|[`$EXPR$.trim()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/Trim)|
+|bytes|`$EXPR$.encode()`|`$EXPR$.runes`|`new TextEncoder().encode($EXPR$)`|
+|charAt|`$EXPR$[3]`|`$EXPR$[3]`|`$EXPR$[3]`|
+|chars|`list($EXPR$)`|`$EXPR$.split('')`|`$EXPR$.split('')`|
+|compareTo|`$EXPR$ < s2`|`$EXPR$.compareTo(s2)`|`$EXPR$.localeCompare(s2)`|
+|contains|`needle in $EXPR$`|`$EXPR$.contains(needle)`|`$EXPR$.indexOf(needle) > -1`|
+|eic,equalsIgnoreCase|`$EXPR$.casefold() == s2.casefold()`|`$EXPR$.toUpperCase() == s2.toUpperCase()`|`$EXPR$.toUpperCase() === s2.toUpperCase()`|
+|endsWith|`$EXPR$.endswith(sfx)`|`$EXPR$.endsWith(sfx)`|`$EXPR$.endsWith(sfx)`|
+|equals|`$EXPR$ == s2`|`$EXPR$ == s2`|`$EXPR$ === s2`|
+|indexOf|`$EXPR$.find(needle)`|`$EXPR$.indexOf(needle)`|`$EXPR$.indexOf(needle)`|
+|isBlank|`$EXPR$.strip() == ""`|`$EXPR$.trim().isEmpty`|`$EXPR$.trim() === ""`|
+|isEmpty|`$EXPR$ == ""`|`$EXPR$.isEmpty`|`$EXPR$ === ""`|
+|join|`",".join(["a", "b", "c"])`|`$EXPR$.join(",")`|`["a", "b", "c"].join(sep)`|
+|lastIndexOf|`$EXPR$.rfind(needle)`|`$EXPR$.lastIndexOf(needle)`|`$EXPR$.lastIndexOf(needle)`|
+|length|`len($EXPR$)`|`$EXPR$.length`|`$EXPR$.length`|
+|repeat|`$EXPR$ * n`|`$EXPR$ * n`|`$EXPR$.repeat(n)`|
+|replaceAll|`$EXPR$.replace(old, new, -1)`|`$EXPR$.replaceAll(RegExp(r'ab'), new)`|`$EXPR$.replaceAll(old, new)`|
+|split|`$EXPR$.split(sep)`|`$EXPR$.split(sep)`|`$EXPR$.split(sep)`|
+|startsWith|`$EXPR$.startswith(pfx)`|`$EXPR$.startsWith(pfx)`|`$EXPR$.startsWith(pfx)`|
+|strip,trim,TrimSpace|`$EXPR$.strip()`|`$EXPR$.trim()`|`$EXPR$.trim()`|
+|substring|`"abcde"[2:4] == "cd"`|`$EXPR$.substring(start, end)`|`"abcde".substring(2,4) === "cd"`|
+|toLower|`$EXPR$.lower()`|`$EXPR$.toLowerCase()`|`$EXPR$.toLowerCase()`|
+|toUpper,touppercase,upper|`$EXPR$.upper()`|`$EXPR$.toUpperCase()`|`$EXPR$.toUpperCase()`|
 
 
 |`Operation`|[`Bash`](https://www.gnu.org/software/bash/)|[`Ash`](https://en.wikipedia.org/wiki/Almquist_shell)|[`Kotlin`](https://kotlinlang.org/)|
 |---|---|---|---|
-|bytes|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
-|charAt|[`IN='abc'; OUT=${IN:2:1}`](https://tldp.org/LDP/abs/html/string-manipulation.html)|[`IN='abc'; OUT=${IN:2:1}`](https://tldp.org/LDP/abs/html/string-manipulation.html)|[`TODO`](TODO)|
-|chars|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
-|compareTo|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
-|contains|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
-|endsWith|[`IN='abc'; if [[ $IN =~ c$ ]]; then echo 'yes'; fi`](https://riptutorial.com/bash/example/19469/regex-matching)|[`IN='abc'; if [[ $IN =~ c$ ]]; then echo 'yes'; fi`](https://riptutorial.com/bash/example/19469/regex-matching)|[`TODO`](TODO)|
-|equals|`if [ "a" = "a" ]; then echo 'yes'; fi;`|`if [ "a" = "a" ]; then echo 'yes'; fi;`|[`TODO`](TODO)|
-|equalsIgnoreCase|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
-|indexOf|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
-|isBlank|`IN=' '; if [ "$(echo $IN)" = "" ]; then echo 'yes'; fi;`|`IN=' '; if [ "$(echo $IN)" = "" ]; then echo 'yes'; fi;`|[`TODO`](TODO)|
-|isEmpty|`IN=''; if [ "$IN" = "" ]; then echo 'yes'; fi;`|`IN=''; if [ "$IN" = "" ]; then echo 'yes'; fi;`|[`TODO`](TODO)|
-|join|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
-|lastIndexOf|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
-|length|[`IN="foo"; OUT=${#IN}`](TODO)|[`IN="foo"; OUT=${#IN}`](TODO)|[`TODO`](TODO)|
-|repeat|[`IN='z'; CNT=5; OUT=$(echo $(for i in $(seq 1 $CNT); do printf $IN; done))`](https://linux.die.net/man/1/seq)|[`IN='z'; CNT=5; OUT=$(echo $(for i in $(seq 1 $CNT); do printf $IN; done))`](https://linux.die.net/man/1/seq)|[`TODO`](TODO)|
-|replaceAll|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
-|split|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
-|startsWith|[`IN='abc'; if [[ $IN =~ ^ab ]]; then echo 'yes'; fi`](https://riptutorial.com/bash/example/19469/regex-matching)|[`IN='abc'; if [[ $IN =~ ^ab ]]; then echo 'yes'; fi`](https://riptutorial.com/bash/example/19469/regex-matching)|[`TODO`](TODO)|
-|substring|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
-|toLower|[`IN='FOO'; OUT=$(echo $IN \| tr '[:upper:]' '[:lower:]')`](https://linuxcommand.org/lc3_man_pages/tr1.html)|[`IN='FOO'; OUT=$(echo $IN \| tr '[:upper:]' '[:lower:]')`](https://linuxcommand.org/lc3_man_pages/tr1.html)|[`TODO`](TODO)|
-|toUpper|[`IN='foo'; OUT=$(echo $IN \| tr '[:lower:]' '[:upper:]')`](https://linuxcommand.org/lc3_man_pages/tr1.html)|[`IN='foo'; OUT=$(echo $IN \| tr '[:lower:]' '[:upper:]')`](https://linuxcommand.org/lc3_man_pages/tr1.html)|[`TODO`](TODO)|
-|trim|[`IN=' foo '; OUT=$(echo $IN)`](http://mywiki.wooledge.org/WordSplitting)|[`IN=' foo '; OUT=$(echo $IN)`](http://mywiki.wooledge.org/WordSplitting)|[`TODO`](TODO)|
+|bytes|`TODO`|`TODO`|`TODO`|
+|charAt|`IN='abc'; OUT=${IN:2:1}`|`IN='abc'; OUT=${IN:2:1}`|`TODO`|
+|chars|`TODO`|`TODO`|`TODO`|
+|compareTo|`TODO`|`TODO`|`TODO`|
+|contains|`TODO`|`TODO`|`TODO`|
+|eic,equalsIgnoreCase|`TODO`|`TODO`|`TODO`|
+|endsWith|`IN='abc'; if [[ $IN =~ c$ ]]; then echo 'yes'; fi`|`IN='abc'; if [[ $IN =~ c$ ]]; then echo 'yes'; fi`|`TODO`|
+|equals|`if [ "a" = "a" ]; then echo 'yes'; fi;`|`if [ "a" = "a" ]; then echo 'yes'; fi;`|`TODO`|
+|indexOf|`TODO`|`TODO`|`TODO`|
+|isBlank|`IN=' '; if [ "$(echo $IN)" = "" ]; then echo 'yes'; fi;`|`IN=' '; if [ "$(echo $IN)" = "" ]; then echo 'yes'; fi;`|`TODO`|
+|isEmpty|`IN=''; if [ "$IN" = "" ]; then echo 'yes'; fi;`|`IN=''; if [ "$IN" = "" ]; then echo 'yes'; fi;`|`TODO`|
+|join|`TODO`|`TODO`|`TODO`|
+|lastIndexOf|`TODO`|`TODO`|`TODO`|
+|length|`IN="foo"; OUT=${#IN}`|`IN="foo"; OUT=${#IN}`|`TODO`|
+|repeat|`IN='z'; CNT=5; OUT=$(echo $(for i in $(seq 1 $CNT); do printf $IN; done))`|`IN='z'; CNT=5; OUT=$(echo $(for i in $(seq 1 $CNT); do printf $IN; done))`|`TODO`|
+|replaceAll|`TODO`|`TODO`|`TODO`|
+|split|`TODO`|`TODO`|`TODO`|
+|startsWith|`IN='abc'; if [[ $IN =~ ^ab ]]; then echo 'yes'; fi`|`IN='abc'; if [[ $IN =~ ^ab ]]; then echo 'yes'; fi`|`TODO`|
+|strip,trim,TrimSpace|`IN=' foo '; OUT=$(echo $IN)`|`IN=' foo '; OUT=$(echo $IN)`|`TODO`|
+|substring|`TODO`|`TODO`|`TODO`|
+|toLower|`IN='FOO'; OUT=$(echo $IN \| tr '[:upper:]' '[:lower:]')`|`IN='FOO'; OUT=$(echo $IN \| tr '[:upper:]' '[:lower:]')`|`TODO`|
+|toUpper,touppercase,upper|`IN='foo'; OUT=$(echo $IN \| tr '[:lower:]' '[:upper:]')`|`IN='foo'; OUT=$(echo $IN \| tr '[:lower:]' '[:upper:]')`|`TODO`|
 
 
