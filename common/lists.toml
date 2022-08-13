@@ -211,7 +211,7 @@ lists.op.isEmpty.kotlin.url = "TODO"
 lists.op.isEmpty.python.code = "TODO"
 lists.op.isEmpty.python.url = "TODO"
 lists.op.isEmpty.rust.code = "TODO"
-lists.op.isEmpty.rust.url = "TODO"
+lists.op.isEmpty.rust.url = "https://doc.rust-lang.org/std/vec/struct.Vec.html#method.is_empty"
 lists.op.isEmpty.ts.code = "TODO"
 lists.op.isEmpty.ts.url = "TODO"
 lists.op.iterator.ash.code = "TODO"
@@ -337,7 +337,7 @@ lists.op.size.kotlin.url = "TODO"
 lists.op.size.python.code = "TODO"
 lists.op.size.python.url = "TODO"
 lists.op.size.rust.code = "TODO"
-lists.op.size.rust.url = "TODO"
+lists.op.size.rust.url = "https://doc.rust-lang.org/std/vec/struct.Vec.html#method.len"
 lists.op.size.ts.code = "TODO"
 lists.op.size.ts.url = "TODO"
 lists.op.sort.ash.code = "TODO"
@@ -398,6 +398,7 @@ lists.op.truncate.ts.url = "TODO"
 lists.alias = [
     ["add", "append", "push", "push_back"],
     ["fromLiteral", "literal"],
+    ["len", "length", "size"],
     ["pop", "removeLast"],
 ]
 
