@@ -398,9 +398,17 @@ strings.op.substring.ash.url = "TODO"
 
 # ----------------------------------------
 strings.alias = [
-    ["eic", "equalsIgnoreCase"],
-    ["strip", "trim", "TrimSpace"],
-    ["toUpper", "touppercase", "upper"],
+    ["cmp", "compareTo"],
+    ["eic", "equalsFold", "equalsIgnoreCase"],
+    ["endsWith", "hasSuffix"],
+    ["eq", "equals"],
+    ["hasPrefix", "startsWith"],
+    ["find", "index", "indexOf"],
+    ["lastIndex", "lastIndexOf"],
+    ["len", "length", "size"],
+    ["charAt", "nth"],
+    ["strip", "trim", "trimSpace"],
+    ["toUpper", "toUpperCase", "upper"],
 ]
 
 # --- Bash
