@@ -7,6 +7,7 @@
 |clear<br/>removeAll|[`TODO`](TODO)|[`TODO: clear`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.clear)|[`TODO: clear`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html#clear())|
 |concat|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 |contains|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
+|copyRange<br/>shallowCopy|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 |equals|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 |fill|[`TODO`](TODO)|[`TODO`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.fill)|[`TODO: Collections.fill`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Collections.html#fill(java.util.List,T))|
 |filter<br/>retain|[`TODO`](TODO)|[`TODO`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.retain)|[`TODO`](TODO)|
@@ -20,7 +21,6 @@
 |new|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 |pop<br/>removeLast|[`TODO`](TODO)|[`TODO: pop`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.pop)|[`TODO`](TODO)|
 |reverse|[`TODO`](TODO)|[`TODO`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.reverse)|[`TODO`](TODO)|
-|shallowCopy|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 |sort|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 |sublist|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 |truncate|[`TODO`](TODO)|[`TODO`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.truncate)|[`TODO`](TODO)|
@@ -33,6 +33,7 @@
 |clear<br/>removeAll|[`TODO`](TODO)|[`TODO`](https://api.dart.dev/stable/2.17.3/dart-core/List/clear.html)|[`TODO`](TODO)|
 |concat|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 |contains|[`TODO`](TODO)|[`TODO: contains`](https://api.dart.dev/stable/2.17.3/dart-core/Iterable/contains.html)|[`TODO`](TODO)|
+|copyRange<br/>shallowCopy|[`TODO`](TODO)|[`TODO: copyRange`](https://api.dart.dev/stable/2.17.3/dart-core/List/copyRange.html)|[`TODO`](TODO)|
 |equals|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 |fill|[`TODO`](TODO)|[`TODO: fillRange`](https://api.dart.dev/stable/2.17.3/dart-core/List/fillRange.html)|[`TODO`](TODO)|
 |filter<br/>retain|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
@@ -42,12 +43,11 @@
 |isEmpty|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 |iterator|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 |join|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
-|len<br/>length<br/>size|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
+|len<br/>length<br/>size|[`TODO`](TODO)|[`TODO: length`](https://api.dart.dev/stable/2.17.3/dart-core/List/length.html)|[`TODO`](TODO)|
 |new|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 |pop<br/>removeLast|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 |reverse|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
-|shallowCopy|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
-|sort|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
+|sort|[`TODO`](TODO)|[`TODO: sort`](https://api.dart.dev/stable/2.17.3/dart-core/List/sort.html)|[`TODO`](TODO)|
 |sublist|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 |truncate|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 
@@ -59,6 +59,7 @@
 |clear<br/>removeAll|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 |concat|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 |contains|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
+|copyRange<br/>shallowCopy|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 |equals|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 |fill|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 |filter<br/>retain|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
@@ -72,7 +73,6 @@
 |new|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 |pop<br/>removeLast|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 |reverse|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
-|shallowCopy|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 |sort|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 |sublist|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 |truncate|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
