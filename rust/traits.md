@@ -16,18 +16,25 @@
     1. Traits *cannot* have fields, just methods
 1. Differences
     1. implementation is decoupled from the type (`impl` block is separate from struct/enum/type)
+    1. Trait implementation is outside the type’s definition
+    1. Can choose between vtable/indirect dispatch (heap allocated) and static/direct dispatch
 
 
 ## Golang
-1. Similar to golang interfaces
+1. Similar to [golang interfaces](https://go.dev/ref/spec#Interface_types)
     1. Traits can "extend" other traits
     1. Traits *cannot* have fields, just methods
 1. Differences
     1. Traits are **explicitly** implemented on types
+    1. No embedding
 
 
 ## C++
-
+1. Similar to c++ [abstract classes](TODO)
+    1. Traits can "extend" other traits
+1. Differences
+    1. TODO: no fields
+    1. [Operator overloading](https://doc.rust-lang.org/rust-by-example/trait/ops.html) works via traits
 
 
 - TODO: https://doc.rust-lang.org/book/ch10-02-traits.html
