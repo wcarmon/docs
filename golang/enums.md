@@ -2,6 +2,10 @@
 1. How enums work
 1. [`iota`](https://go.dev/ref/spec#Iota) (not [`itoa`](https://pkg.go.dev/strconv#Itoa))
 1. See also [`stringer`](./stringer.md) doc
+1. Enums are relatively annoying to use
+    1. Compare to [Rust enum](https://doc.rust-lang.org/book/ch06-01-defining-an-enum.html) or to [Java enum](https://docs.oracle.com/javase/tutorial/java/javaOO/enum.html)
+    1. eg. does the compiler enforce switch statements are comprehensive? (not for golang)
+    1. eg. can the enum have properties? (not for golang)
 
 
 # iota

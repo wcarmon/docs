@@ -1,6 +1,8 @@
 # Overview
 1. Idioms for error handling
 1. Error handling improvements since v1.13
+1. Robust Error handling is verbose
+    1. This is also true in other languages like [rust](https://www.youtube.com/watch?v=jpVzSse7oJ4), java, js, ...
 
 
 # Custom error

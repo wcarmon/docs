@@ -47,6 +47,7 @@
 - TODO: https://stevedonovan.github.io/rustifications/2018/09/08/common-rust-traits.html
 - TODO: https://vino.dev/blog/node-to-rust-day-10-traits/
 - TODO: https://cheats.rs/#generics-constraints
+- TODO: compiler needs to know how much space every function's return type requires
 
 # Other resources
 1. https://doc.rust-lang.org/book/ch10-02-traits.html
