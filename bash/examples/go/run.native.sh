@@ -24,7 +24,7 @@ readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
 # NOTE: all paths relative to $PROJ_ROOT
 
 CMD_PACKAGE=./src/cmd/run-service/...
-CONFIG_FILE=./app.config.yaml
+CONFIG_FILE=./app.config.toml
 
 # ---------------------------------------------
 # -- Derived
