@@ -6,3 +6,8 @@
 |writeString|[`$EXPR$.WriteString("foo")<br/>$EXPR$.Flush()`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
 
 
+```a<br/>b```
+
+`a<br/>b`
+
+a<br/>b
