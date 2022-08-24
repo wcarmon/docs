@@ -1,9 +1,14 @@
 io.op.writeString.dart.code = "TODO"
 io.op.writeString.dart.url = "TODO"
-io.op.writeString.go.code = "$EXPR$.WriteString(\"foo\")\n$EXPR$.Flush()"
+#io.op.writeString.go.code = "$EXPR$.WriteString(\"foo\")\n$EXPR$.Flush()"
+io.op.writeString.go.code = """\
+$EXPR$.WriteString1(\"foo\")
+$EXPR$.Flush1()"""
 io.op.writeString.go.url = "TODO"
 io.op.writeString.java.code = "TODO"
 io.op.writeString.java.url = "TODO"
+
+#TODO: test on multiline string
 
 io.op.bufferedWriter.dart.code = "TODO"
 io.op.bufferedWriter.dart.url = "TODO"
