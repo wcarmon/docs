@@ -4,5 +4,8 @@
 |---|---|---|---|
 |bufferedWriter<br/>bufWriter<br/>bw|[<pre lang='go'>bufio.NewWriter($EXPR$)</pre>](https://pkg.go.dev/bufio#NewWriter)|[<pre lang='go'>TODO</pre>](TODO)|[<pre lang='go'>TODO</pre>](TODO)|
 |writeString|[<pre lang='go'>$EXPR$.WriteString("foo")<br/>$EXPR$.Flush()</pre>](TODO)|[<pre lang='go'>TODO</pre>](TODO)|[<pre lang='go'>TODO</pre>](TODO)|
+|writeString|[<pre lang='go'>$EXPR$.WriteString("foo")<br>$EXPR$.Flush()</pre>](TODO)|[<pre lang='go'>TODO</pre>](TODO)|[<pre lang='go'>TODO</pre>](TODO)|
+|writeString|[<pre>$EXPR$.WriteString("foo")<br>$EXPR$.Flush()</pre>](TODO)|[<pre lang='go'>TODO</pre>](TODO)|[<pre lang='go'>TODO</pre>](TODO)|
+|writeString|[<pre>$EXPR$.WriteString("foo")\n$EXPR$.Flush()</pre>](TODO)|[<pre lang='go'>TODO</pre>](TODO)|[<pre lang='go'>TODO</pre>](TODO)|
 
 
