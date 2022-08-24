@@ -1,7 +1,8 @@
 # IO Operations
 
-|<code>Operation</code>|[<code>Go</code>](https://go.dev/)|[<code>Dart</code>](https://dart.dev/)|[<code>Java</code>](https://docs.oracle.com/javase/8/docs/technotes/guides/language/)|
+|<pre lang='go'>Operation</pre>|[<pre lang='go'>Go</pre>](https://go.dev/)|[<pre lang='go'>Dart</pre>](https://dart.dev/)|[<pre lang='go'>Java</pre>](https://docs.oracle.com/javase/8/docs/technotes/guides/language/)|
 |---|---|---|---|
-|bufferedWriter<br/>bufWriter<br/>bw|[<code>bufio.NewWriter($EXPR$)</code>](https://pkg.go.dev/bufio#NewWriter)|[<code>TODO</code>](TODO)|[<code>TODO</code>](TODO)|
-|writeString|[<code>$EXPR$.WriteString("foo")<br>$EXPR$.Flush()</code>](TODO)|[<code>TODO</code>](TODO)|[<code>TODO</code>](TODO)|
+|bufferedWriter<br/>bufWriter<br/>bw|[<pre lang='go'>bufio.NewWriter($EXPR$)</pre>](https://pkg.go.dev/bufio#NewWriter)|[<pre lang='go'>TODO</pre>](TODO)|[<pre lang='go'>TODO</pre>](TODO)|
+|writeString|[<pre lang='go'>$EXPR$.WriteString("foo")<br/>$EXPR$.Flush()</pre>](TODO)|[<pre lang='go'>TODO</pre>](TODO)|[<pre lang='go'>TODO</pre>](TODO)|
+
 
