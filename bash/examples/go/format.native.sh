@@ -4,7 +4,7 @@
 # -- Auto format the go files
 # --
 # -- Assumptions:
-# -- 1. gofmt installed: https://golang.org/cmd/gofmt/
+# -- 1. gofmt is on your PATH: https://golang.org/cmd/gofmt/
 # --    see $GO_SDK/bin/gofmt
 # ---------------------------------------------
 
