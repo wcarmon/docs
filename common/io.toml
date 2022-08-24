@@ -1,14 +1,4 @@
-io.op.writeString.dart.code = "TODO"
-io.op.writeString.dart.url = "TODO"
-#io.op.writeString.go.code = "$EXPR$.WriteString(\"foo\")\n$EXPR$.Flush()"
-io.op.writeString.go.code = """\
-$EXPR$.WriteString1(\"foo\")
-$EXPR$.Flush1()"""
-io.op.writeString.go.url = "TODO"
-io.op.writeString.java.code = "TODO"
-io.op.writeString.java.url = "TODO"
-
-#TODO: test on multiline string
+# Usage: for newline, use multiline string (""") or \n
 
 io.op.bufferedWriter.dart.code = "TODO"
 io.op.bufferedWriter.dart.url = "TODO"
@@ -16,6 +6,12 @@ io.op.bufferedWriter.go.code = "bufio.NewWriter($EXPR$)"
 io.op.bufferedWriter.go.url = "https://pkg.go.dev/bufio#NewWriter"
 io.op.bufferedWriter.java.code = "TODO"
 io.op.bufferedWriter.java.url = "TODO"
+io.op.writeString.dart.code = "TODO"
+io.op.writeString.dart.url = "TODO"
+io.op.writeString.go.code = "$EXPR$.WriteString(\"foo\")\n$EXPR$.Flush()"
+io.op.writeString.go.url = "TODO"
+io.op.writeString.java.code = "TODO"
+io.op.writeString.java.url = "TODO"
 
 #io..dart.code="TODO"
 #io..go.code="TODO"
