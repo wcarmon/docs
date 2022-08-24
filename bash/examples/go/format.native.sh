@@ -8,7 +8,7 @@
 # --    see $GO_SDK/bin/gofmt
 # ---------------------------------------------
 
-#set -x # trace commands
+#set -x # uncomment to debug
 set -e # exit on first error
 set -o pipefail
 set -u # fail on unset var

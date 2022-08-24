@@ -12,7 +12,7 @@
 # --    4. you have a modern version of stringer (like 0.1.11+)
 # ---------------------------------------------
 
-#set -x # trace commands
+#set -x # uncomment to debug
 set -e # exit on first error
 set -o pipefail
 set -u # fail on unset var

@@ -4,9 +4,9 @@
 # -- Aggregator example
 # ---------------------------------------------
 
-set -e
+set -e # exit on first error
 set -o pipefail
-set -u
+set -u # fail on unset var
 
 readonly SCRIPTS_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")")
 

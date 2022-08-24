@@ -4,7 +4,7 @@
 # -- Builds local binary via local go sdk
 # ---------------------------------------------
 
-#set -x # trace commands
+#set -x # uncomment to debug
 set -e # exit on first error
 set -o pipefail
 set -u # fail on unset var
