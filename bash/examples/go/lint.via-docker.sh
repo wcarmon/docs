@@ -51,6 +51,9 @@ readonly SOURCES_ROOT=$PROJ_ROOT/src
 echo
 echo "|-- Analyzing code in ${SOURCES_ROOT}"
 
+<<'SEMGREP_EXAMPLE'
+echo
+echo "|-- Running semgrep ...";
 $DOCKER_BINARY run \
   --rm \
   -v "${SOURCES_ROOT}:/src" \
@@ -67,7 +70,10 @@ $DOCKER_BINARY run \
   --metrics=off \
   --timeout 30 \
   --use-git-ignore
+SEMGREP_EXAMPLE
 
+echo
+echo "|-- Running golangci-lint ...";
 $DOCKER_BINARY run \
   --rm \
   -v "${SOURCES_ROOT}":/app \

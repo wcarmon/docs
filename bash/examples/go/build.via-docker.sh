@@ -67,7 +67,9 @@ $DOCKER_BINARY run \
   /bin/bash -c "
   set -e
   set -u
+  #set -x
 
+  go mod tidy;
   go install github.com/google/wire/cmd/wire@latest;
   wire ./src/...
 

@@ -2,6 +2,10 @@
 
 # ---------------------------------------------
 # -- Auto format the go files
+# --
+# -- Assumptions:
+# -- 1. gofmt installed: https://golang.org/cmd/gofmt/
+# --    see $GO_SDK/bin/gofmt
 # ---------------------------------------------
 
 #set -x # trace commands
