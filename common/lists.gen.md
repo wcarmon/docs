@@ -1,98 +1,98 @@
 # List Operations
 
-|`Operation`|[`Go`](https://go.dev/)|[`Rust`](https://www.rust-lang.org/)|[`Java`](https://docs.oracle.com/javase/8/docs/technotes/guides/language/)|
+|<pre>Operation</pre>|[<pre>Go</pre>](https://go.dev/)|[<pre>Rust</pre>](https://www.rust-lang.org/)|[<pre>Java</pre>](https://docs.oracle.com/javase/8/docs/technotes/guides/language/)|
 |---|---|---|---|
-|add<br/>append<br/>push<br/>push_back|[`TODO: append-assign`](https://go.dev/ref/spec#Appending_and_copying_slices)|[`TODO: push`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.push)|[`TODO: add`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html#add(E))|
-|addAll|[`TODO`](TODO)|[`TODO: splice`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.splice)|[`TODO`](TODO)|
-|clear<br/>removeAll|[`TODO`](TODO)|[`TODO: clear`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.clear)|[`TODO: clear`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html#clear())|
-|concat<br/>followedBy|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
-|contains|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
-|copyRange<br/>shallowCopy|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
-|equals|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
-|fill|[`TODO`](TODO)|[`TODO`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.fill)|[`TODO: Collections.fill`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Collections.html#fill(java.util.List,T))|
-|filter<br/>retain<br/>retainWhere|[`TODO`](TODO)|[`TODO`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.retain)|[`TODO: filter`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/stream/Stream.html#filter(java.util.function.Predicate))|
-|first|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
-|firstN<br/>limit<br/>take|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO: limit`](https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html#limit-long-)|
-|fromLiteral<br/>literal|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
-|get|[`TODO`](TODO)|[`TODO`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.get)|[`TODO`](TODO)|
-|indexOf|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
-|isEmpty|[`TODO`](TODO)|[`TODO`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.is_empty)|[`TODO`](TODO)|
-|iterator|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
-|join|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
-|last|[`TODO`](TODO)|[`TODO`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.last)|[`TODO`](TODO)|
-|lastN|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
-|len<br/>length<br/>size|[`TODO`](TODO)|[`TODO`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.len)|[`TODO`](TODO)|
-|new|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
-|pop<br/>removeLast|[`TODO`](TODO)|[`TODO: pop`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.pop)|[`TODO`](TODO)|
-|reverse|[`TODO`](TODO)|[`TODO`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.reverse)|[`TODO`](TODO)|
-|skip|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO: skip`](https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html#skip-long-)|
-|sort|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
-|sublist|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
-|toSet|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
-|truncate|[`TODO`](TODO)|[`TODO`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.truncate)|[`TODO`](TODO)|
+|add<br/>append<br/>push<br/>push_back|[<pre>TODO: append-assign</pre>](https://go.dev/ref/spec#Appending_and_copying_slices)|[<pre>TODO: push</pre>](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.push)|[<pre>TODO: add</pre>](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html#add(E))|
+|addAll|[<pre>TODO</pre>](TODO)|[<pre>TODO: splice</pre>](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.splice)|[<pre>TODO</pre>](TODO)|
+|clear<br/>removeAll|[<pre>TODO</pre>](TODO)|[<pre>TODO: clear</pre>](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.clear)|[<pre>TODO: clear</pre>](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html#clear())|
+|concat<br/>followedBy|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|
+|contains|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|
+|copyRange<br/>shallowCopy|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|
+|equals|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|
+|fill|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.fill)|[<pre>TODO: Collections.fill</pre>](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Collections.html#fill(java.util.List,T))|
+|filter<br/>retain<br/>retainWhere|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.retain)|[<pre>TODO: filter</pre>](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/stream/Stream.html#filter(java.util.function.Predicate))|
+|first|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|
+|firstN<br/>limit<br/>take|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|[<pre>TODO: limit</pre>](https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html#limit-long-)|
+|fromLiteral<br/>literal|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|
+|get|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.get)|[<pre>TODO</pre>](TODO)|
+|indexOf|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|
+|isEmpty|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.is_empty)|[<pre>TODO</pre>](TODO)|
+|iterator|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|
+|join|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|
+|last|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.last)|[<pre>TODO</pre>](TODO)|
+|lastN|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|
+|len<br/>length<br/>size|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.len)|[<pre>TODO</pre>](TODO)|
+|new|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|
+|pop<br/>removeLast|[<pre>TODO</pre>](TODO)|[<pre>TODO: pop</pre>](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.pop)|[<pre>TODO</pre>](TODO)|
+|reverse|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.reverse)|[<pre>TODO</pre>](TODO)|
+|skip|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|[<pre>TODO: skip</pre>](https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html#skip-long-)|
+|sort|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|
+|sublist|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|
+|toSet|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|
+|truncate|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.truncate)|[<pre>TODO</pre>](TODO)|
 
 
-|`Operation`|[`Python`](https://www.python.org/)|[`Dart`](https://dart.dev/)|[`Ts`](https://www.typescriptlang.org/)|
+|<pre>Operation</pre>|[<pre>Python</pre>](https://www.python.org/)|[<pre>Dart</pre>](https://dart.dev/)|[<pre>Ts</pre>](https://www.typescriptlang.org/)|
 |---|---|---|---|
-|add<br/>append<br/>push<br/>push_back|[`TODO: append`](https://docs.python.org/3/tutorial/datastructures.html#more-on-lists)|[`TODO: add`](https://api.dart.dev/stable/2.16.2/dart-core/List/add.html)|[`TODO: push`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push)|
-|addAll|[`TODO`](TODO)|[`TODO: addAll`](https://api.dart.dev/stable/2.17.3/dart-core/List/addAll.html)|[`TODO`](TODO)|
-|clear<br/>removeAll|[`TODO`](TODO)|[`TODO`](https://api.dart.dev/stable/2.17.3/dart-core/List/clear.html)|[`TODO`](TODO)|
-|concat<br/>followedBy|[`TODO`](TODO)|[`TODO`](https://api.dart.dev/stable/2.17.3/dart-core/Iterable/followedBy.html)|[`TODO`](TODO)|
-|contains|[`TODO`](TODO)|[`TODO: contains`](https://api.dart.dev/stable/2.17.3/dart-core/Iterable/contains.html)|[`TODO`](TODO)|
-|copyRange<br/>shallowCopy|[`TODO`](TODO)|[`TODO: copyRange`](https://api.dart.dev/stable/2.17.3/dart-core/List/copyRange.html)|[`TODO`](TODO)|
-|equals|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
-|fill|[`TODO`](TODO)|[`TODO: fillRange`](https://api.dart.dev/stable/2.17.3/dart-core/List/fillRange.html)|[`TODO`](TODO)|
-|filter<br/>retain<br/>retainWhere|[`TODO`](TODO)|[`TODO: retainWhere`](https://api.dart.dev/stable/2.17.3/dart-core/List/retainWhere.html)|[`TODO`](TODO)|
-|first|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
-|firstN<br/>limit<br/>take|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
-|fromLiteral<br/>literal|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
-|get|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
-|indexOf|[`TODO`](TODO)|[`TODO: indexOf`](https://api.dart.dev/stable/2.17.3/dart-core/List/indexOf.html)|[`TODO`](TODO)|
-|isEmpty|[`TODO`](TODO)|[`TODO: isEmpty`](https://api.dart.dev/stable/2.17.3/dart-core/Iterable/isEmpty.html)|[`TODO`](TODO)|
-|iterator|[`TODO`](TODO)|[`TODO: iterator`](https://api.dart.dev/stable/2.17.3/dart-core/Iterable/iterator.html)|[`TODO`](TODO)|
-|join|[`TODO`](TODO)|[`TODO: join`](https://api.dart.dev/stable/2.17.3/dart-core/Iterable/join.html)|[`TODO`](TODO)|
-|last|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
-|lastN|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
-|len<br/>length<br/>size|[`TODO`](TODO)|[`TODO: length`](https://api.dart.dev/stable/2.17.3/dart-core/List/length.html)|[`TODO`](TODO)|
-|new|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
-|pop<br/>removeLast|[`TODO`](TODO)|[`TODO: remove last`](https://api.dart.dev/stable/2.17.3/dart-core/List/removeLast.html)|[`TODO`](TODO)|
-|reverse|[`TODO`](TODO)|[`TODO: $EXPR$.reversed.toList()`](https://api.dart.dev/stable/2.17.3/dart-core/List/reversed.html)|[`TODO`](TODO)|
-|skip|[`TODO`](TODO)|[`TODO`](https://api.dart.dev/stable/2.17.3/dart-core/Iterable/skip.html)|[`TODO`](TODO)|
-|sort|[`TODO`](TODO)|[`TODO: sort`](https://api.dart.dev/stable/2.17.3/dart-core/List/sort.html)|[`TODO`](TODO)|
-|sublist|[`TODO`](TODO)|[`TODO`](https://api.dart.dev/stable/2.17.3/dart-core/List/sublist.html)|[`TODO`](TODO)|
-|toSet|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
-|truncate|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
+|add<br/>append<br/>push<br/>push_back|[<pre>TODO: append</pre>](https://docs.python.org/3/tutorial/datastructures.html#more-on-lists)|[<pre>TODO: add</pre>](https://api.dart.dev/stable/2.16.2/dart-core/List/add.html)|[<pre>TODO: push</pre>](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push)|
+|addAll|[<pre>TODO</pre>](TODO)|[<pre>TODO: addAll</pre>](https://api.dart.dev/stable/2.17.3/dart-core/List/addAll.html)|[<pre>TODO</pre>](TODO)|
+|clear<br/>removeAll|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](https://api.dart.dev/stable/2.17.3/dart-core/List/clear.html)|[<pre>TODO</pre>](TODO)|
+|concat<br/>followedBy|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](https://api.dart.dev/stable/2.17.3/dart-core/Iterable/followedBy.html)|[<pre>TODO</pre>](TODO)|
+|contains|[<pre>TODO</pre>](TODO)|[<pre>TODO: contains</pre>](https://api.dart.dev/stable/2.17.3/dart-core/Iterable/contains.html)|[<pre>TODO</pre>](TODO)|
+|copyRange<br/>shallowCopy|[<pre>TODO</pre>](TODO)|[<pre>TODO: copyRange</pre>](https://api.dart.dev/stable/2.17.3/dart-core/List/copyRange.html)|[<pre>TODO</pre>](TODO)|
+|equals|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|
+|fill|[<pre>TODO</pre>](TODO)|[<pre>TODO: fillRange</pre>](https://api.dart.dev/stable/2.17.3/dart-core/List/fillRange.html)|[<pre>TODO</pre>](TODO)|
+|filter<br/>retain<br/>retainWhere|[<pre>TODO</pre>](TODO)|[<pre>TODO: retainWhere</pre>](https://api.dart.dev/stable/2.17.3/dart-core/List/retainWhere.html)|[<pre>TODO</pre>](TODO)|
+|first|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|
+|firstN<br/>limit<br/>take|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|
+|fromLiteral<br/>literal|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|
+|get|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|
+|indexOf|[<pre>TODO</pre>](TODO)|[<pre>TODO: indexOf</pre>](https://api.dart.dev/stable/2.17.3/dart-core/List/indexOf.html)|[<pre>TODO</pre>](TODO)|
+|isEmpty|[<pre>TODO</pre>](TODO)|[<pre>TODO: isEmpty</pre>](https://api.dart.dev/stable/2.17.3/dart-core/Iterable/isEmpty.html)|[<pre>TODO</pre>](TODO)|
+|iterator|[<pre>TODO</pre>](TODO)|[<pre>TODO: iterator</pre>](https://api.dart.dev/stable/2.17.3/dart-core/Iterable/iterator.html)|[<pre>TODO</pre>](TODO)|
+|join|[<pre>TODO</pre>](TODO)|[<pre>TODO: join</pre>](https://api.dart.dev/stable/2.17.3/dart-core/Iterable/join.html)|[<pre>TODO</pre>](TODO)|
+|last|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|
+|lastN|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|
+|len<br/>length<br/>size|[<pre>TODO</pre>](TODO)|[<pre>TODO: length</pre>](https://api.dart.dev/stable/2.17.3/dart-core/List/length.html)|[<pre>TODO</pre>](TODO)|
+|new|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|
+|pop<br/>removeLast|[<pre>TODO</pre>](TODO)|[<pre>TODO: remove last</pre>](https://api.dart.dev/stable/2.17.3/dart-core/List/removeLast.html)|[<pre>TODO</pre>](TODO)|
+|reverse|[<pre>TODO</pre>](TODO)|[<pre>TODO: $EXPR$.reversed.toList()</pre>](https://api.dart.dev/stable/2.17.3/dart-core/List/reversed.html)|[<pre>TODO</pre>](TODO)|
+|skip|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](https://api.dart.dev/stable/2.17.3/dart-core/Iterable/skip.html)|[<pre>TODO</pre>](TODO)|
+|sort|[<pre>TODO</pre>](TODO)|[<pre>TODO: sort</pre>](https://api.dart.dev/stable/2.17.3/dart-core/List/sort.html)|[<pre>TODO</pre>](TODO)|
+|sublist|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](https://api.dart.dev/stable/2.17.3/dart-core/List/sublist.html)|[<pre>TODO</pre>](TODO)|
+|toSet|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|
+|truncate|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|
 
 
-|`Operation`|[`Bash`](https://www.gnu.org/software/bash/)|[`Ash`](https://en.wikipedia.org/wiki/Almquist_shell)|[`Kotlin`](https://kotlinlang.org/)|
+|<pre>Operation</pre>|[<pre>Bash</pre>](https://www.gnu.org/software/bash/)|[<pre>Ash</pre>](https://en.wikipedia.org/wiki/Almquist_shell)|[<pre>Kotlin</pre>](https://kotlinlang.org/)|
 |---|---|---|---|
-|add<br/>append<br/>push<br/>push_back|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO: add`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-list/add.html)|
-|addAll|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
-|clear<br/>removeAll|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
-|concat<br/>followedBy|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
-|contains|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
-|copyRange<br/>shallowCopy|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
-|equals|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
-|fill|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
-|filter<br/>retain<br/>retainWhere|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
-|first|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
-|firstN<br/>limit<br/>take|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
-|fromLiteral<br/>literal|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
-|get|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
-|indexOf|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
-|isEmpty|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
-|iterator|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
-|join|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
-|last|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
-|lastN|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
-|len<br/>length<br/>size|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
-|new|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
-|pop<br/>removeLast|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
-|reverse|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
-|skip|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
-|sort|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
-|sublist|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
-|toSet|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
-|truncate|[`TODO`](TODO)|[`TODO`](TODO)|[`TODO`](TODO)|
+|add<br/>append<br/>push<br/>push_back|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|[<pre>TODO: add</pre>](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-list/add.html)|
+|addAll|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|
+|clear<br/>removeAll|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|
+|concat<br/>followedBy|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|
+|contains|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|
+|copyRange<br/>shallowCopy|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|
+|equals|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|
+|fill|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|
+|filter<br/>retain<br/>retainWhere|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|
+|first|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|
+|firstN<br/>limit<br/>take|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|
+|fromLiteral<br/>literal|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|
+|get|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|
+|indexOf|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|
+|isEmpty|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|
+|iterator|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|
+|join|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|
+|last|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|
+|lastN|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|
+|len<br/>length<br/>size|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|
+|new|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|
+|pop<br/>removeLast|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|
+|reverse|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|
+|skip|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|
+|sort|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|
+|sublist|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|
+|toSet|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|
+|truncate|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|[<pre>TODO</pre>](TODO)|
 
 
