@@ -134,3 +134,39 @@ io.alias = [
     #    ["writeString"],
     ["bufferedWriter", "bufWriter", "bw"],
 ]
+
+
+#TODO: absolutePath
+#TODO: cleanDir, removeAll
+#TODO: copyFile
+#TODO: createTempDir, makeTempDir, tempDir
+#TODO: delete, remove
+#TODO: deleteRecurse, deleteTree
+#TODO: exists, fileExists
+#TODO: fileContentsEqual, filesEqual
+#TODO: fileExtension
+#TODO: fileSize, fileLength
+#TODO: glob
+#TODO: gzipIn, readGzip
+#TODO: isDir
+#TODO: isRegularFile
+#TODO: iterateFiles
+#TODO: lines
+#TODO: list-files, list
+#TODO: matchingFiles
+#TODO: mkdir
+#TODO: mkdirs
+#TODO: mv, rename, move
+#TODO: nameWithExtension, filename, name, base
+#TODO: nameWithoutExtension
+#TODO: normalizePath
+#TODO: parent-dir
+#TODO: readFile, readToString, readBytes
+#TODO: string::reader (postfix)
+#TODO: tempFile, createTempFile
+#TODO: toBytes, bytes
+#TODO: touch
+#TODO: truncateFile
+#TODO: writeBytes
+#TODO: writeGzip, gzipOut
+#TODO: writeStrings

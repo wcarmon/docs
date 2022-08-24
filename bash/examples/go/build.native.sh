@@ -35,8 +35,8 @@ readonly PROJ_ROOT="$PARENT_DIR"
 
 readonly OUTPUT_DIR="bin"
 
-readonly GIT_COMMIT=$(git rev-list -1 HEAD)
-#readonly GIT_COMMIT=$(git rev-parse HEAD)
+readonly GIT_COMMIT=$(cd $PROJ_ROOT; git rev-list -1 HEAD)
+#readonly GIT_COMMIT=$(cd $PROJ_ROOT; git rev-parse HEAD)
 
 # ---------------------------------------------
 # -- Validate
@@ -51,7 +51,7 @@ cd "$PROJ_ROOT" >/dev/null 2>&1
 
 $WIRE ./src/...
 
-echo "|-- Cross compiling go code in $(pwd)"
+echo "|-- Cross compiling go code in $PROJ_ROOT"
 GOOS=linux GOARCH=amd64 \
   go build \
   -o "$OUTPUT_DIR/$OUTPUT_BINARY_NAME.amd64.bin" \

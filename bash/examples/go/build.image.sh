@@ -20,7 +20,6 @@ readonly DOCKER_BINARY=$(which docker)
 readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
 
 
-
 # ---------------------------------------------
 # -- Script arguments
 # ---------------------------------------------

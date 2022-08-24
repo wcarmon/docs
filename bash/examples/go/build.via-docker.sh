@@ -44,8 +44,8 @@ readonly PROJ_ROOT="$PARENT_DIR"
 readonly OUTPUT_DIR="bin"
 
 #readonly CERT_FILE=...
-readonly GIT_COMMIT=$(git rev-list -1 HEAD)
-#readonly GIT_COMMIT=$(git rev-parse HEAD)
+readonly GIT_COMMIT=$(cd $PROJ_ROOT; git rev-list -1 HEAD)
+#readonly GIT_COMMIT=$(cd $PROJ_ROOT; git rev-parse HEAD)
 
 # ---------------------------------------------
 # -- Validate
@@ -56,7 +56,7 @@ readonly GIT_COMMIT=$(git rev-list -1 HEAD)
 # ---------------------------------------------
 mkdir -p "$PROJ_ROOT/$OUTPUT_DIR"
 
-echo "|-- Cross compiling go code in $(pwd)"
+echo "|-- Cross compiling go code in $PROJ_ROOT"
 
 # TODO: fix ldflags here
 $DOCKER_BINARY run \
