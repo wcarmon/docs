@@ -2,6 +2,7 @@
 1. What is [gRPC](https://grpc.io/docs/languages/go/basics/)
 
 
+# Relation to other technologies
 - TODO: more here
 
 
