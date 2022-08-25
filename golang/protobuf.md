@@ -18,7 +18,6 @@ unzip -d $INSTALL_DIR $DOWNLOADED_ARCHIVE;
 
 ln -sv $INSTALL_DIR/bin/protoc $HOME/bin/protoc;
 ```
-- TODO: verify include path for well known types like Duration and Timestamp
 
 
 ## protoc-gen-go
