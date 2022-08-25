@@ -39,9 +39,9 @@ find $HOME -name protoc-gen-go;
 
 
 
-# Proto file
-- [Official docs](https://developers.google.com/protocol-buffers/docs/proto3)
-- Be careful with the `option go_package` path.  It is related to [`--go_out`](TODO) flag for [`protoc`](TODO)
+# Build a *.proto file
+- See [Official docs](https://developers.google.com/protocol-buffers/docs/proto3)
+- Be careful with the [`option go_package`](https://developers.google.com/protocol-buffers/docs/reference/go-generated#package) path.  It is related to [`--go_out`](https://developers.google.com/protocol-buffers/docs/reference/go-generated#invocation) flag for `protoc`
 
 
 # Compile (Generate `*.pb.go` from `*.proto`)
