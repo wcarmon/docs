@@ -3,7 +3,6 @@
 # ---------------------------------------------
 # -- Builds go sources from *.proto files
 # ---------------------------------------------
-
 #set -x # uncomment to debug
 set -e # exit on first error
 set -o pipefail
@@ -12,14 +11,17 @@ set -u # fail on unset var
 # ---------------------------------------------
 # -- Config
 # ---------------------------------------------
-# Contains proto files we generate
-PROTO_INPUT_DIR=$HOME/git-repos/go/src/chrono/proto
+# Contains *.proto files, we generate *.pb.go files for each
+PROTO_INPUT_DIR=$HOME/dir/with/protos
 
+# Root output dir for generated *.pb.go files
 # "option go_package" is appended to this path
-PROTO_OUTPUT_DIR=$HOME/git-repos/go/src/chrono
+PROTO_OUTPUT_DIR=$HOME/src
 
-# For resolving imports in proto files
+# Paths containing *.proto files
+# For resolving imports in other *.proto files
 #SEARCH_PATH1=$HOME/opt/protobuf/include;
+#SEARCH_PATH2=$HOME/another/path;
 
 # ---------------------------------------------
 # -- Derived
@@ -40,6 +42,8 @@ protoc \
   --proto_path=$PROTO_INPUT_DIR \
   --go_out=$PROTO_OUTPUT_DIR \
   $PROTO_INPUT_DIR/*.proto
+
+# If needed, add flags like --proto_path=$SEARCH_PATH1
 
 # -- See generated *.pb.go files
 #find $PROTO_OUTPUT_DIR -name '*.pb.go'

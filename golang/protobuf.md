@@ -58,3 +58,5 @@ find $HOME -name protoc-gen-go;
 1. https://developers.google.com/protocol-buffers/docs/gotutorial
 1. https://github.com/golang/protobuf
 1. https://pkg.go.dev/google.golang.org/protobuf/proto
+1. https://developers.google.com/protocol-buffers/docs/reference/go/faq
+1. https://go.dev/blog/protobuf-apiv2
