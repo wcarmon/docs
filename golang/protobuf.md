@@ -7,25 +7,25 @@
 1. See [Official docs](https://developers.google.com/protocol-buffers/docs/gotutorial#compiling-your-protocol-buffers)
 
 ## Setup: Protoc
-1. Download [`protoc`](https://github.com/protocolbuffers/protobuf/releases)
-    1. eg. download `protoc-<version>-<platform>-x86_64.zip`
+1. Download [`protoc` from the releases page](https://github.com/protocolbuffers/protobuf/releases)
+    1. eg. download `protoc-<version>-<platform>-<arch>.zip`
 1. Install:
 ```
-# -- Set these two vars
+# -- TODO: Set these two vars
 DOWNLOADED_ARCHIVE=$HOME/Downloads/protoc-21.5*.zip;
 INSTALL_DIR=$HOME/opt/protobuf;
 
-
+# -- NOTE: this unzips
 mkdir -pv $INSTALL_DIR;
 unzip -d $INSTALL_DIR $DOWNLOADED_ARCHIVE;
 
-# Add to $PATH
+# -- NOTE: this adds to $PATH
 ln -sv $INSTALL_DIR/bin/protoc $HOME/bin/protoc;
 ```
 
 
 ## Setup: [protoc-gen-go](https://pkg.go.dev/google.golang.org/protobuf)
-1. Install [`protoc-gen-go`](https://pkg.go.dev/google.golang.org/protobuf) (used by `protoc`)
+1. Install [`protoc-gen-go`](https://pkg.go.dev/google.golang.org/protobuf) (used by `protoc` to generate go)
 ```
 go install google.golang.org/protobuf/cmd/protoc-gen-go@latest;
 ```
