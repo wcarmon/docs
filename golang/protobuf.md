@@ -38,7 +38,6 @@ find $HOME -name protoc-gen-go;
 - Ensure `protoc-gen-go` is on your `$PATH` (try to execute directly)
 
 
-
 # Build a *.proto file
 - See [Official docs](https://developers.google.com/protocol-buffers/docs/proto3)
 - Be careful with the [`option go_package`](https://developers.google.com/protocol-buffers/docs/reference/go-generated#package) path.  It is related to [`--go_out`](https://developers.google.com/protocol-buffers/docs/reference/go-generated#invocation) flag for `protoc`
