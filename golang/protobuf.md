@@ -66,6 +66,11 @@ require google.golang.org/protobuf v1.28.1
 1. See [example shell script](../bash/examples/go/build.protobuf.sh)
 
 
+# Reading & Writing
+1. [Marshal/Write](https://developers.google.com/protocol-buffers/docs/gotutorial#writing_a_message)
+1. [Unmarshal/Read](https://developers.google.com/protocol-buffers/docs/gotutorial#reading_a_message)
+
+
 # gRPC
 1. See [gRPC doc](./grpc.md)
 
