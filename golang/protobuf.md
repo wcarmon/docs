@@ -44,6 +44,14 @@ find $HOME -name protoc-gen-go;
 - Be careful with the [`option go_package`](https://developers.google.com/protocol-buffers/docs/reference/go-generated#package) path.  It is related to [`--go_out`](https://developers.google.com/protocol-buffers/docs/reference/go-generated#invocation) flag for `protoc`
 
 
+# Add dep to `go.mod`
+```
+# dir with go.mod file
+cd $PROJ_ROOT;
+go get google.golang.org/protobuf;
+```
+
+
 # Compile
 1. Meaning: Generate `*.pb.go` from `*.proto`
 1. See `protoc` [command line options](https://manpages.ubuntu.com/manpages/trusty/man1/protoc.1.html) or use `protoc --help`
