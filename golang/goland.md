@@ -90,7 +90,8 @@
 1. Find `$PROJ_ROOT/.idea/jsonSchemas.xml` file
     1. eg. `$HOME/.../project-root/.idea/jsonSchemas.xml`
     1. or use `find $HOME -name jsonSchemas.xml 2>/dev/null | grep -i ".idea/"`
-1. Add new schemas like this:
+1. Add new json schemas files like this:
+    1. One `<entry>` per schema
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
