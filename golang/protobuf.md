@@ -42,6 +42,7 @@ find $HOME -name protoc-gen-go;
 # Build a *.proto file
 - See [Official docs](https://developers.google.com/protocol-buffers/docs/proto3)
 - Be careful with the [`option go_package`](https://developers.google.com/protocol-buffers/docs/reference/go-generated#package) path.  It is related to [`--go_out`](https://developers.google.com/protocol-buffers/docs/reference/go-generated#invocation) flag for `protoc`
+- See [Official style guide](https://developers.google.com/protocol-buffers/docs/style)
 
 
 # Add dep to `go.mod`
