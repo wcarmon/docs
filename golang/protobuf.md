@@ -44,8 +44,8 @@ find $HOME -name protoc-gen-go;
 1. See [Official style guide](https://developers.google.com/protocol-buffers/docs/style)
 1. Don't use `proto` as package name because it conflicts
 1. Conversions
-    1. Time: [protobuf timestamp](https://pkg.go.dev/google.golang.org/protobuf@v1.28.1/types/known/timestamppb) -> [time.Time](https://pkg.go.dev/google.golang.org/protobuf/types/known/timestamppb#hdr-Conversion_to_a_Go_Time)
-    1. Time: [time.Time](https://pkg.go.dev/google.golang.org/protobuf/types/known/timestamppb#hdr-Conversion_from_a_Go_Time) -> [protobuf timestamp](https://pkg.go.dev/google.golang.org/protobuf@v1.28.1/types/known/timestamppb)
+    1. Time: From [protobuf timestamp](https://pkg.go.dev/google.golang.org/protobuf@v1.28.1/types/known/timestamppb)  [convert](https://pkg.go.dev/google.golang.org/protobuf/types/known/timestamppb#hdr-Conversion_to_a_Go_Time)
+    1. Time: To [protobuf timestamp](https://pkg.go.dev/google.golang.org/protobuf@v1.28.1/types/known/timestamppb) [convert](https://pkg.go.dev/google.golang.org/protobuf/types/known/timestamppb#hdr-Conversion_from_a_Go_Time)
     1. TODO: duration
 
 
