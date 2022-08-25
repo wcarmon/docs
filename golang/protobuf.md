@@ -44,8 +44,8 @@ find $HOME -name protoc-gen-go;
 1. See [Official style guide](https://developers.google.com/protocol-buffers/docs/style)
 1. Don't use `proto` as package name because it conflicts
 1. Conversions
-    1. Duration: [protobuf duration](https://pkg.go.dev/google.golang.org/protobuf/types/known/durationpb): [convert from](https://pkg.go.dev/google.golang.org/protobuf@v1.28.1/types/known/durationpb#hdr-Conversion_to_a_Go_Duration) using `.AsDuration()`, [convert to](https://pkg.go.dev/google.golang.org/protobuf@v1.28.1/types/known/durationpb#hdr-Conversion_from_a_Go_Duration) using `New`
-    1. Time: [protobuf timestamp](https://pkg.go.dev/google.golang.org/protobuf@v1.28.1/types/known/timestamppb): [convert from](https://pkg.go.dev/google.golang.org/protobuf/types/known/timestamppb#hdr-Conversion_to_a_Go_Time) using `.AsTime()`, [convert to](https://pkg.go.dev/google.golang.org/protobuf/types/known/timestamppb#hdr-Conversion_from_a_Go_Time) using `New`
+    1. Duration: [protobuf duration](https://pkg.go.dev/google.golang.org/protobuf/types/known/durationpb): [convert from](https://pkg.go.dev/google.golang.org/protobuf@v1.28.1/types/known/durationpb#hdr-Conversion_to_a_Go_Duration) using [`.AsDuration()`](https://pkg.go.dev/google.golang.org/protobuf/types/known/durationpb#Duration.AsDuration), [convert to](https://pkg.go.dev/google.golang.org/protobuf@v1.28.1/types/known/durationpb#hdr-Conversion_from_a_Go_Duration) using `New`
+    1. Time: [protobuf timestamp](https://pkg.go.dev/google.golang.org/protobuf@v1.28.1/types/known/timestamppb): [convert from](https://pkg.go.dev/google.golang.org/protobuf/types/known/timestamppb#hdr-Conversion_to_a_Go_Time) using [`.AsTime()`](https://pkg.go.dev/google.golang.org/protobuf/types/known/timestamppb#Timestamp.AsTime), [convert to](https://pkg.go.dev/google.golang.org/protobuf/types/known/timestamppb#hdr-Conversion_from_a_Go_Time) using `New`
 
 
 # Add dep to `go.mod`
@@ -69,7 +69,7 @@ require google.golang.org/protobuf v1.28.1
 # Reading & Writing
 1. [Marshal/Write](https://developers.google.com/protocol-buffers/docs/gotutorial#writing_a_message)
 1. [Unmarshal/Read](https://developers.google.com/protocol-buffers/docs/gotutorial#reading_a_message)
-1. For comparing timestamps, use `proto.Equal(ts1, ts2)` or convert first using `.AsTime()`
+1. For comparing timestamps, use [`proto.Equal(ts1, ts2)`](https://pkg.go.dev/google.golang.org/protobuf/proto#Equal) or convert first using [`.AsTime()`](https://pkg.go.dev/google.golang.org/protobuf/types/known/timestamppb#Timestamp.AsTime)
 
 
 # gRPC
