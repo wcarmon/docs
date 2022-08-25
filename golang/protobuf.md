@@ -50,6 +50,10 @@ find $HOME -name protoc-gen-go;
 cd $PROJ_ROOT;
 go get google.golang.org/protobuf;
 ```
+- or just add a require statement to `go.mod` and then run `go mod tidy`
+```
+require google.golang.org/protobuf v1.28.1
+```
 
 
 # Compile
