@@ -69,7 +69,8 @@ require google.golang.org/protobuf v1.28.1
 # Reading & Writing
 1. [Marshal/Write](https://developers.google.com/protocol-buffers/docs/gotutorial#writing_a_message)
 1. [Unmarshal/Read](https://developers.google.com/protocol-buffers/docs/gotutorial#reading_a_message)
-1. For comparing timestamps, use [`proto.Equal(ts1, ts2)`](https://pkg.go.dev/google.golang.org/protobuf/proto#Equal) or convert first using [`.AsTime()`](https://pkg.go.dev/google.golang.org/protobuf/types/known/timestamppb#Timestamp.AsTime)
+1. For comparing [timestamps](https://pkg.go.dev/google.golang.org/protobuf/types/known/timestamppb), use [`proto.Equal(ts1, ts2)`](https://pkg.go.dev/google.golang.org/protobuf/proto#Equal) or convert first using [`.AsTime()`](https://pkg.go.dev/google.golang.org/protobuf/types/known/timestamppb#Timestamp.AsTime)
+    1. Similar for [Durations](https://pkg.go.dev/google.golang.org/protobuf/types/known/durationpb#pkg-overview)
 
 
 # gRPC
