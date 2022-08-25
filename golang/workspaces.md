@@ -14,6 +14,12 @@
 1. TODO
 
 
+# Dependencies
+1. Get stale deps:
+```
+go list -f '{{if not .Indirect}}{{.}}{{end}}' -u -m all
+```
+
 # Goland
 1. You have to add packages to `go.work` for some imports to resolve
 
