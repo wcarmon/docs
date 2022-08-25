@@ -1,7 +1,6 @@
 #!/bin/bash
 
 # ---------------------------------------------
-# --
 # -- Auto format the go files via docker container
 # --
 # -- Assumptions:
