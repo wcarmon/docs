@@ -40,7 +40,7 @@ find $HOME -name protoc-gen-go;
 
 # Build a `*.proto` file
 1. See [Official docs](https://developers.google.com/protocol-buffers/docs/proto3)
-2. Be careful with the [`option go_package`](https://developers.google.com/protocol-buffers/docs/reference/go-generated#package) path.  It is related to [`--go_out`](https://developers.google.com/protocol-buffers/docs/reference/go-generated#invocation) flag for `protoc`
+1. Be careful with the [`option go_package`](https://developers.google.com/protocol-buffers/docs/reference/go-generated#package) path.  It is related to [`--go_out`](https://developers.google.com/protocol-buffers/docs/reference/go-generated#invocation) flag for `protoc`
 1. See [Official style guide](https://developers.google.com/protocol-buffers/docs/style)
 1. Don't use `proto` as package name because it conflicts
 1. Conversions
@@ -69,6 +69,7 @@ require google.golang.org/protobuf v1.28.1
 # Reading & Writing
 1. [Marshal/Write](https://developers.google.com/protocol-buffers/docs/gotutorial#writing_a_message)
 1. [Unmarshal/Read](https://developers.google.com/protocol-buffers/docs/gotutorial#reading_a_message)
+1. For comparing timestamps, use `proto.Equal(ts1, ts2)` or convert first using `.AsTime()`
 
 
 # gRPC
