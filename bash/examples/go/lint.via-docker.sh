@@ -82,6 +82,8 @@ $DOCKER_BINARY run \
   golangci-lint run ./... \
   --color auto \
   --concurrency 6 \
+  --max-same-issues 5 \
+  --print-linter-name  \
   --sort-results \
   --tests true \
   --timeout 1m30s

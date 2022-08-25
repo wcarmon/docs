@@ -31,7 +31,6 @@ readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
 #readonly GOLANG_IMAGE=golang:1.18.3-bullseye
 readonly GOLANG_IMAGE=golang:1.19.0-bullseye
 
-
 # ---------------------------------------------
 # -- Derived
 # ---------------------------------------------
