@@ -44,5 +44,9 @@ type Foo struct {
     ...
 ```
 
+- TODO: schema?
+- TODO: detect duplicate assignment (overwrite)?
+
+
 # Other resources
 1. https://github.com/pelletier/go-toml

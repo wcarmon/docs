@@ -80,6 +80,18 @@ func (t *MyType) UnmarshalJSON(data []byte) error {
 - TODO: how to serialize (Marshal) properties alphabetical
 
 
+# Alternatives
+1. [mapstructure](https://github.com/mitchellh/mapstructure)
+    1. Supports multiple serialization types
+    1. Captures "remainder" or "extra" fields while unmarshaling
+    1. Supports [Embedded Structs and Squashing](https://pkg.go.dev/github.com/mitchellh/mapstructure#hdr-Embedded_Structs_and_Squashing)
+1. [jsoniter](http://jsoniter.com/go-tips.html)
+    1. Supports private fields (unlike standard json serde)
+    1. Supports field type encoders/decoders
+
+
+
+
 # Other resources
 1. https://pkg.go.dev/encoding/json
 1. https://gobyexample.com/json
