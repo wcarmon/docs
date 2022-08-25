@@ -39,9 +39,13 @@ find $HOME -name protoc-gen-go;
 
 
 # Build a *.proto file
-- See [Official docs](https://developers.google.com/protocol-buffers/docs/proto3)
-- Be careful with the [`option go_package`](https://developers.google.com/protocol-buffers/docs/reference/go-generated#package) path.  It is related to [`--go_out`](https://developers.google.com/protocol-buffers/docs/reference/go-generated#invocation) flag for `protoc`
-- See [Official style guide](https://developers.google.com/protocol-buffers/docs/style)
+1. See [Official docs](https://developers.google.com/protocol-buffers/docs/proto3)
+2. Be careful with the [`option go_package`](https://developers.google.com/protocol-buffers/docs/reference/go-generated#package) path.  It is related to [`--go_out`](https://developers.google.com/protocol-buffers/docs/reference/go-generated#invocation) flag for `protoc`
+1. See [Official style guide](https://developers.google.com/protocol-buffers/docs/style)
+1. Don't use `proto` as package name because it conflicts
+1. Conversions
+    1. Time conversion from [protobuf timestamp](https://pkg.go.dev/google.golang.org/protobuf@v1.28.1/types/known/timestamppb) [to time.Time](https://pkg.go.dev/google.golang.org/protobuf/types/known/timestamppb#hdr-Conversion_to_a_Go_Time) and [from time.Time](https://pkg.go.dev/google.golang.org/protobuf/types/known/timestamppb#hdr-Conversion_from_a_Go_Time)
+    1. TODO: duration
 
 
 # Add dep to `go.mod`
