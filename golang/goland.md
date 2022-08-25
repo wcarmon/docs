@@ -84,5 +84,37 @@
 - TODO: gofmt on commit
 
 
+# JSON Schemas
+1. Open Goland and create 1 (dummy) json mapping
+    1. File | Settings | Languages & Frameworks | Schemas and DTDs | JSON Schema Mappings
+1. Find `$PROJ_ROOT/.idea/jsonSchemas.xml` file
+    1. eg. `$HOME/.../project-root/.idea/jsonSchemas.xml`
+    1. or use `find $HOME -name jsonSchemas.xml 2>/dev/null | grep -i ".idea/"`
+1. Add new schemas like this:
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JsonSchemaMappingsProjectConfiguration">
+    <state>
+      <map>
+        <entry key="the-schema-file-label">
+          <value>
+            <SchemaInfo>
+              <option name="generatedName" value="New Schema" />
+              <option name="name" value="the-schema-file-label" />
+              <option name="relativePathToSchema" value="src/jsonschema/request.schema.json" />
+            </SchemaInfo>
+          </value>
+        </entry>
+
+        <!-- more entries here -->
+
+      </map>
+    </state>
+  </component>
+</project>
+```
+
+
 # Other resources
 1. TODO ...
