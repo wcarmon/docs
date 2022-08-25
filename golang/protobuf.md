@@ -63,7 +63,7 @@ require google.golang.org/protobuf v1.28.1
 
 
 # gRPC
-1. See [gRPC](./grpc.md)
+1. See [gRPC doc](./grpc.md)
 
 
 # Other resources

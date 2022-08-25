@@ -7,7 +7,7 @@
 
 
 # Protocol Buffers
-1. See [doc](./protobuf.md)
+1. See [protobuf doc](./protobuf.md)
 
 
 # Other resources
