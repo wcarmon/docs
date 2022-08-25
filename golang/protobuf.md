@@ -36,34 +36,18 @@ find $HOME -name protoc-gen-go
 - Ensure `protoc-gen-go` is on your `$PATH`
 
 
-
 # Proto file
 - TODO:
-
 
 
 # Compile
 1. See protoc [command line options](https://manpages.ubuntu.com/manpages/trusty/man1/protoc.1.html)
     1. or use `protoc --help`
-```
-PROTO_INPUT_DIR=$HOME/my-project/proto;
-PROTO_OUTPUT_DIR=$HOME/my-project/go/src;
+1. See [example script](../bash/examples/go/build.protobuf.sh)
 
-protoc \
-...
+# gRPC
+1. See [gRPC](./grpc.md)
 
-```
-
-/*
-
-*/
-
-
-
-TODO: point to shell script with example build
-TODO: point to grpc.md file
-
-
-TODO: https://grpc.io/docs/languages/go/quickstart/
 
 # Other resources
+- TODO
