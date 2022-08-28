@@ -46,7 +46,8 @@ type Foo struct {
 
 - TODO: schema?
 - TODO: detect duplicate assignment (overwrite)?
-
+- TODO: burnt sushi allows types to unmarshal themselves
+- TODO: idiom: setDefaults before unmarshal, set derived after
 
 # Other resources
 1. https://github.com/pelletier/go-toml
