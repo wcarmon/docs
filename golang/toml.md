@@ -51,7 +51,9 @@ type Foo struct {
 
 
 # Pelletier
-1. TODO
+1. Uses unsafe
+1. Has utility to lint and format toml files: [`tomll`](https://github.com/pelletier/go-toml#tools)
+
 
 
 # Unfiled
