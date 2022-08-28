@@ -44,10 +44,19 @@ type Foo struct {
     ...
 ```
 
+# Burnt Sushi
+- use Metadata.Undecoded for "extra" fields
+- use Metadata.IsDefined for "missing" fields
+- use Unmarshal interface to self unmarshal 
+
+
+# P
+
+
+# Unfiled
 - TODO: schema?
 - TODO: detect duplicate assignment (overwrite)?
-- TODO: burnt sushi allows types to unmarshal themselves
-- TODO: idiom: setDefaults before unmarshal, set derived after
+- TODO: idiom: setDefaults before unmarshal, setDerived after
 
 # Other resources
 1. https://github.com/pelletier/go-toml
