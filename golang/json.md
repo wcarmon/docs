@@ -56,8 +56,10 @@ func (t *MyType) UnmarshalJSON(data []byte) error {
     1. Runner-up: [guregu/null](https://github.com/guregu/null)
     1. See [rdbms](./rdbms.md) doc
 1. [Goland can build structs from json](https://www.jetbrains.com/help/go/working-with-json.html)
-1. GOTCHA: custom json Unmarshal method **not** called for Unexported fields (only Exported)
+1. GOTCHA: custom json Unmarshal method **not** called for **Unexported** fields (only Exported)
     1. Goland has an inspection for this
+1. Use `DisallowUnknownFields` for strict unmarshal 
+1. TODO: verify idiom: setDefaults before unmarshal, set derived after
 
 
 # Preferred tools
