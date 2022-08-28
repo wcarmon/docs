@@ -45,12 +45,13 @@ type Foo struct {
 ```
 
 # Burnt Sushi
-- use Metadata.Undecoded for "extra" fields
-- use Metadata.IsDefined for "missing" fields
-- use Unmarshal interface to self unmarshal 
+1. use Metadata.Undecoded for "extra" fields
+1. use Metadata.IsDefined for "missing" fields
+1. use Unmarshal interface to self unmarshal 
 
 
-# P
+# Pelletier
+1. TODO
 
 
 # Unfiled
