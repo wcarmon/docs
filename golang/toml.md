@@ -8,7 +8,7 @@
 
 ## [BurntSushi](https://github.com/BurntSushi/toml)
 1. Prefer this unless you have a strong reason not to
-1. Use [`toml:"..."`](https://github.com/BurntSushi/toml#examples) for renaming fields
+1. Use [`toml:"..."`](https://github.com/BurntSushi/toml#examples) to rename a field
 1. Use [`MetaData.Undecoded`](https://github.com/BurntSushi/toml/blob/master/meta.go#L82) for "extra" fields
 1. Use [`MetaData.IsDefined`](https://github.com/BurntSushi/toml/blob/master/meta.go#L28) for "missing" fields
 1. Use [`encoding.TextUnmarshaler`](https://pkg.go.dev/encoding#TextUnmarshaler) interface (standard) to self unmarshal
@@ -20,7 +20,7 @@
 1. Pro: Has utility to lint and format `toml` files: [`tomll`](https://github.com/pelletier/go-toml#tools)
 
 
-# Example: Ignoring fields
+# Example: Ignoring a field
 ```go
 type Foo struct {
     ...
@@ -29,8 +29,13 @@ type Foo struct {
 }
 ```
 
+# BurntSushi Example: Error handling during parse
+```go
+- TODO
+```
 
-# Example: Parse Error handling
+
+# Pelletier Example: Error handling during parse
 ```go
 ...
 err = toml.Unmarshal(data, &foo)
