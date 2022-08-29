@@ -1,8 +1,26 @@
 # Overview
-1. Idioms for TOML parsing
+1. Idioms for [TOML](https://toml.io/en/) parsing
+1. Best 2 Libraries for toml parsing and generation
 
 
-# Ignoring fields
+# Libraries
+1. like [yaml](https://yaml.org/), [toml](https://toml.io/en/) is not in standard library
+## [BurntSushi](https://github.com/BurntSushi/toml)
+1. Preferred
+1. Use [`toml:"..."`](https://github.com/BurntSushi/toml#examples) for renaming fields
+1. use [`MetaData.Undecoded`](https://github.com/BurntSushi/toml/blob/master/meta.go#L82) for "extra" fields
+1. use [`MetaData.IsDefined`](https://github.com/BurntSushi/toml/blob/master/meta.go#L28) for "missing" fields
+1. use Unmarshal interface to self unmarshal
+
+
+## [Pelletier](https://github.com/pelletier/go-toml)
+1. Prefer [BurntSushi]((https://github.com/BurntSushi/toml))
+1. Uses [unsafe](https://github.com/pelletier/go-toml/blob/v2/internal/danger/danger.go#L12)
+1. Has utility to lint and format `toml` files: [`tomll`](https://github.com/pelletier/go-toml#tools)
+
+
+
+# Example: Ignoring fields
 ```go
 type Foo struct {
     ...
@@ -12,54 +30,46 @@ type Foo struct {
 ```
 
 
-# Parse Error handling
+# Example: Parse Error handling
 ```go
-    ...
-	err = toml.Unmarshal(data, &foo)
-	if err != nil {
-		if de, ok := err.(*toml.DecodeError); ok {
-			line, col := de.Position()
+...
+err = toml.Unmarshal(data, &foo)
+if err != nil {
+    if de, ok := err.(*toml.DecodeError); ok {
+        line, col := de.Position()
 
-			log.Error().
-				Caller().
-				Err(err).
-				Int("position.column", col).
-				Int("position.line", line).
-				Str("errMsg", de.Error()).
-				Str("key", fmt.Sprintf("%v", de.Key())).
-				Str("path", tomlInputPath).
-				Msg("failed to parse toml data")
+        log.Error().
+            Caller().
+            Err(err).
+            Int("position.column", col).
+            Int("position.line", line).
+            Str("errMsg", de.Error()).
+            Str("key", fmt.Sprintf("%v", de.Key())).
+            Str("path", tomlInputPath).
+            Msg("failed to parse toml data")
 
-		} else {
-			log.Error().
-				Caller().
-				Err(err).
-				Str("path", tomlInputPath).
-				Msg("failed to parse toml data")
-		}
+    } else {
+        log.Error().
+            Caller().
+            Err(err).
+            Str("path", tomlInputPath).
+            Msg("failed to parse toml data")
+    }
 
-		return nil, err
-	}
+    return nil, err
+}
 
-    ...
+...
 ```
 
-# Burnt Sushi
-1. use Metadata.Undecoded for "extra" fields
-1. use Metadata.IsDefined for "missing" fields
-1. use Unmarshal interface to self unmarshal 
 
+# Gotchas
+1. Unlike json & yaml, toml doesn't support schema
+    1. Many of the json schema validators are buggy and abandonware (not current)
+    1. yaml relies on json schema
 
-# Pelletier
-1. Uses unsafe
-1. Has utility to lint and format toml files: [`tomll`](https://github.com/pelletier/go-toml#tools)
-
-
-
-# Unfiled
-- TODO: schema?
+# TODO:
 - TODO: detect duplicate assignment (overwrite)?
-- TODO: idiom: setDefaults before unmarshal, setDerived after
 
 # Other resources
 1. https://github.com/pelletier/go-toml
