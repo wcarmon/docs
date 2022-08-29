@@ -9,16 +9,15 @@
 ## [BurntSushi](https://github.com/BurntSushi/toml)
 1. Prefer this unless you have a strong reason not to
 1. Use [`toml:"..."`](https://github.com/BurntSushi/toml#examples) for renaming fields
-1. use [`MetaData.Undecoded`](https://github.com/BurntSushi/toml/blob/master/meta.go#L82) for "extra" fields
-1. use [`MetaData.IsDefined`](https://github.com/BurntSushi/toml/blob/master/meta.go#L28) for "missing" fields
-1. use Unmarshal interface to self unmarshal
+1. Use [`MetaData.Undecoded`](https://github.com/BurntSushi/toml/blob/master/meta.go#L82) for "extra" fields
+1. Use [`MetaData.IsDefined`](https://github.com/BurntSushi/toml/blob/master/meta.go#L28) for "missing" fields
+1. Use [`encoding.TextUnmarshaler`](https://pkg.go.dev/encoding#TextUnmarshaler) interface (standard) to self unmarshal
 
 
 ## [Pelletier](https://github.com/pelletier/go-toml)
 1. Prefer [BurntSushi](https://github.com/BurntSushi/toml)
-1. Uses [unsafe](https://github.com/pelletier/go-toml/blob/v2/internal/danger/danger.go#L12)
-1. Has utility to lint and format `toml` files: [`tomll`](https://github.com/pelletier/go-toml#tools)
-
+1. Con: Uses [unsafe](https://github.com/pelletier/go-toml/blob/v2/internal/danger/danger.go#L12)
+1. Pro: Has utility to lint and format `toml` files: [`tomll`](https://github.com/pelletier/go-toml#tools)
 
 
 # Example: Ignoring fields
