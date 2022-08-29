@@ -1,6 +1,6 @@
 # Overview
-1. Idioms for [TOML](https://toml.io/en/) parsing
-1. Best 2 Libraries for toml parsing and generation
+1. Idioms for [toml](https://toml.io/en/) parsing
+1. Best [2 Libraries](https://github.com/avelino/awesome-go#markup-languages) for [toml](https://toml.io/en/) parsing and generation
 
 
 # Libraries
