@@ -4,7 +4,7 @@
 
 
 # Libraries
-1. like [yaml](https://yaml.org/), [toml](https://toml.io/en/) is not in standard library
+1. like [yaml](https://yaml.org/), [toml](https://toml.io/en/) is not in the [standard library](https://pkg.go.dev/std)
 ## [BurntSushi](https://github.com/BurntSushi/toml)
 1. Preferred
 1. Use [`toml:"..."`](https://github.com/BurntSushi/toml#examples) for renaming fields
