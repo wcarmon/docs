@@ -71,7 +71,7 @@ require google.golang.org/protobuf v1.28.1
 
 
 # Compile
-1. Meaning: Generate `*.pb.go` from `*.proto`
+1. The protoc compiler generates `*.pb.go` from `*.proto` files
 1. See `protoc` [command line options](https://manpages.ubuntu.com/manpages/trusty/man1/protoc.1.html) or use `protoc --help`
 1. See [example shell script](../bash/examples/go/build.protobuf.sh)
 
