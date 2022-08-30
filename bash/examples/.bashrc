@@ -168,7 +168,9 @@ alias h='history'
 
 # Expose ~/bin
 PATH="$PATH:$HOME/bin";
-PATH="$PATH:$(go env GOPATH)";
+
+# Expose "go install"ed binaries
+PATH="$PATH:$(go env GOPATH)/bin";
 
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
