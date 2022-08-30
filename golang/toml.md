@@ -13,12 +13,13 @@
     1. GOTCHA: not so useful since includes all primitives too
 1. Use [`MetaData.IsDefined`](https://github.com/BurntSushi/toml/blob/master/meta.go#L28) for "missing" fields
 1. Use [`encoding.TextUnmarshaler`](https://pkg.go.dev/encoding#TextUnmarshaler) interface (standard) to self unmarshal
+1. **Con**: Doesn't handle cyclic types (infinite loop)
 
 
 ## [Pelletier](https://github.com/pelletier/go-toml)
 1. Prefer [BurntSushi](https://github.com/BurntSushi/toml)
-1. Con: Uses [unsafe](https://github.com/pelletier/go-toml/blob/v2/internal/danger/danger.go#L12)
-1. Pro: Has utility to lint and format `toml` files: [`tomll`](https://github.com/pelletier/go-toml#tools)
+1. **Con**: Uses [unsafe](https://github.com/pelletier/go-toml/blob/v2/internal/danger/danger.go#L12)
+1. **Pro**: Has utility to lint and format `toml` files: [`tomll`](https://github.com/pelletier/go-toml#tools)
 
 
 # Example: Ignoring a field
