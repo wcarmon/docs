@@ -23,7 +23,7 @@ unzip -d $INSTALL_DIR $DOWNLOADED_ARCHIVE;
 ln -sv $INSTALL_DIR/bin/protoc $HOME/bin/protoc;
 ```
 
-### Mac
+### Mac: extra steps
 1. Allow `protoc` binary to run
     1. Try to run `protoc`
     1. Apple menu > System Preferences > Security & Privacy > General
