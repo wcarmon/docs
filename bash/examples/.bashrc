@@ -166,6 +166,9 @@ alias d='date'
 alias f='find'
 alias h='history'
 
+# Expose ~/bin
+PATH="$PATH:$HOME/bin";
+
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
