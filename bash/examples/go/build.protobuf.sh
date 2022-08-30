@@ -9,10 +9,17 @@ set -o pipefail
 set -u # fail on unset var
 
 # ---------------------------------------------
+# -- Constants
+# ---------------------------------------------
+readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
+
+# ---------------------------------------------
 # -- Config
 # ---------------------------------------------
 # Contains *.proto files, we generate *.pb.go files for each
 PROTO_INPUT_DIR=$HOME/dir/with/protos
+#PROTO_INPUT_DIR=$PARENT_DIR/../protos
+
 
 # Root output dir for generated *.pb.go files
 # "option go_package" is appended to this path
