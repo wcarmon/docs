@@ -52,7 +52,7 @@ func (t *MyType) UnmarshalJSON(data []byte) error {
 
 
 # Idioms
-- Use null types to distinguish unset values from zero values
+1. Use null types to distinguish unset values from zero values
     1. Runner-up: [guregu/null](https://github.com/guregu/null)
     1. See [rdbms](./rdbms.md) doc
 1. [Goland can build structs from json](https://www.jetbrains.com/help/go/working-with-json.html)
@@ -60,14 +60,17 @@ func (t *MyType) UnmarshalJSON(data []byte) error {
     1. Goland has an inspection for this
 1. Use `DisallowUnknownFields` for strict unmarshal 
 1. TODO: verify idiom: setDefaults before unmarshal, set derived after
+1. Standard lib lacks support for [json5](https://json5.org/)
 
 
 # Preferred tools
+1. [guregu/null.v4](https://github.com/guregu/null/tree/v4.0.0)
 1. [emvi/null](https://github.com/emvi/null)
     1. light & simple implementation
     1. tests
     1. zero external deps
-1. [guregu/null.v4](https://github.com/guregu/null/tree/v4.0.0)
+    1. Con: doesn't support custom MarshalText/UnmarshalText (important for toml & yaml)
+
 
 ## Rejected tools
 1. ~~[kak-tus/nan](https://github.com/kak-tus/nan)~~
