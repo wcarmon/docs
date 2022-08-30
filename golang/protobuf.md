@@ -50,7 +50,7 @@ find $HOME -name protoc-gen-go;
 1. See [Official docs](https://developers.google.com/protocol-buffers/docs/proto3)
 1. Be careful with the [`option go_package`](https://developers.google.com/protocol-buffers/docs/reference/go-generated#package) path.  It is related to [`--go_out`](https://developers.google.com/protocol-buffers/docs/reference/go-generated#invocation) flag for `protoc`
 1. See [Official style guide](https://developers.google.com/protocol-buffers/docs/style)
-1. Don't use `proto` as package name because it conflicts
+1. Do **NOT** use `proto` as a package name because it conflicts with generated code
 1. Conversions
     1. Duration: [protobuf duration](https://pkg.go.dev/google.golang.org/protobuf/types/known/durationpb): [convert from](https://pkg.go.dev/google.golang.org/protobuf@v1.28.1/types/known/durationpb#hdr-Conversion_to_a_Go_Duration) using [`.AsDuration()`](https://pkg.go.dev/google.golang.org/protobuf/types/known/durationpb#Duration.AsDuration), [convert to](https://pkg.go.dev/google.golang.org/protobuf@v1.28.1/types/known/durationpb#hdr-Conversion_from_a_Go_Duration) using `New`
     1. Time: [protobuf timestamp](https://pkg.go.dev/google.golang.org/protobuf@v1.28.1/types/known/timestamppb): [convert from](https://pkg.go.dev/google.golang.org/protobuf/types/known/timestamppb#hdr-Conversion_to_a_Go_Time) using [`.AsTime()`](https://pkg.go.dev/google.golang.org/protobuf/types/known/timestamppb#Timestamp.AsTime), [convert to](https://pkg.go.dev/google.golang.org/protobuf/types/known/timestamppb#hdr-Conversion_from_a_Go_Time) using `New`
