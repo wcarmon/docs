@@ -62,8 +62,10 @@ find $HOME -name protoc-gen-go;
 cd $PROJ_ROOT;
 go get google.golang.org/protobuf;
 ```
-- or just add a [`require`](https://go.dev/ref/mod#go-mod-file-require) directive to [`go.mod`](https://go.dev/ref/mod#go-mod-file) and then run [`go mod tidy`](https://go.dev/ref/mod#go-mod-tidy).  eg.
+- or just add a [`require`](https://go.dev/ref/mod#go-mod-file-require) directive to [`go.mod`](https://go.dev/ref/mod#go-mod-file) and then run [`go mod tidy`](https://go.dev/ref/mod#go-mod-tidy).
+- For example:
 ```
+# Use the latest version
 require google.golang.org/protobuf v1.28.1
 ```
 
