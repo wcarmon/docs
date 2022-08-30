@@ -16,7 +16,8 @@ readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
 # ---------------------------------------------
 # -- Config
 # ---------------------------------------------
-# Contains *.proto files, we generate *.pb.go files for each
+# Contains *.proto files,
+# we generate *.pb.go files for each
 readonly PROTO_INPUT_DIR=$HOME/dir/with/protos
 #readonly PROTO_INPUT_DIR=$PARENT_DIR/../protos
 
