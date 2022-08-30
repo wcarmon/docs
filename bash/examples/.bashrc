@@ -168,6 +168,7 @@ alias h='history'
 
 # Expose ~/bin
 PATH="$PATH:$HOME/bin";
+PATH="$PATH:$(go env GOPATH)";
 
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!

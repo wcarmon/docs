@@ -44,7 +44,7 @@ which protoc-gen-go;
 find $HOME -name protoc-gen-go;
 ```
 - Ensure `protoc-gen-go` is on your `$PATH` (try to execute directly)
-- May need to add `$GOPATH/bin` to `$PATH` (see `go env | grep GOPATH`)
+- May need to add `$GOPATH/bin` to `$PATH` (see `go env GOPATH`)
 
 
 # Build a `*.proto` file
