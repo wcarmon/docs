@@ -23,6 +23,13 @@ unzip -d $INSTALL_DIR $DOWNLOADED_ARCHIVE;
 ln -sv $INSTALL_DIR/bin/protoc $HOME/bin/protoc;
 ```
 
+### Mac
+1. Allow `protoc` binary to run
+    1. Try to run `protoc`
+    1. Apple menu > System Preferences > Security & Privacy > General
+    1. On the bottom, find the failed `protoc` execution
+    1. [Click "Allow Anyway" button](https://www.alphr.com/cannot-be-opened-because-the-developer-cannot-be-verified/)
+
 
 ## Setup: [protoc-gen-go](https://pkg.go.dev/google.golang.org/protobuf)
 1. Install [`protoc-gen-go`](https://pkg.go.dev/google.golang.org/protobuf) (used by `protoc` to generate go)
