@@ -5,6 +5,7 @@
 # --
 # -- Assumes godoc installed:
 # --   go install golang.org/x/tools/cmd/godoc
+# --   Verify: See `$HOME/go/bin/godoc`
 # ---------------------------------------------
 
 #set -x # uncomment to debug

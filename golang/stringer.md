@@ -7,6 +7,8 @@
 ```sh
 go install golang.org/x/tools/cmd/stringer
 ```
+- Verify: See `$HOME/go/bin/stringer`
+- (or use `go env | grep -i path` to find your `$GOPATH` path)
 
 
 # Usage

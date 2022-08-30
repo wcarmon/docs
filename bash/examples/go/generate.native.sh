@@ -7,6 +7,7 @@
 # --    1. run before go build
 # --    2. installed stringer
 # --        go install golang.org/x/tools/cmd/stringer
+# --        # verify: $HOME/go/bin/stringer
 # --    3. some *.go files start with generate header
 # --        //go:generate stringer -type=Foo
 # --    4. you have a modern version of stringer (like 0.1.11+)
