@@ -33,6 +33,7 @@
         - connects your VPC to the (public) internet
         - logical connection between VPC and internet
         - This is the **only way** to connect VPC to the public internet
+        - Allows instances with public IP to connect to the internet (eg. a public NAT Gateway)
     - **NAT Gateway (NGW)**:
         - **N**etwork **A**ddress **T**ranslation
         - Forwards traffic
@@ -46,6 +47,7 @@
         - Usage: Associate an elastic IP address with the NAT gateway at creation
         - Usage: route traffic from the NAT gateway to VPC's internet gateway
         - Protocols: TCP, UDP, and ICMP
+        - Bound to one Availability Zone
     - **Private Gateway**:
         - connects your VPC to your own network
 - **Route table** ([AWS](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html#RouteTables))
@@ -84,6 +86,7 @@
 # Hierarchy
 - Region / VPC / Availability Zone / Security Group / Subnet / Resource
 - Region / VPC / Availability Zone / NAT gateway
+- Region / VPC / Internet Gateway
 - Region / VPC / Router / Subnet
 - Network ACL / Subnet
 
