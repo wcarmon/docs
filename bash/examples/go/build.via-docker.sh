@@ -45,7 +45,10 @@ readonly PROJ_ROOT="$PARENT_DIR"
 readonly OUTPUT_DIR="bin"
 
 #readonly CERT_FILE=...
-readonly GIT_COMMIT=$(cd $PROJ_ROOT; git rev-list -1 HEAD)
+readonly GIT_COMMIT=$(
+  cd $PROJ_ROOT
+  git rev-list -1 HEAD
+)
 #readonly GIT_COMMIT=$(cd $PROJ_ROOT; git rev-parse HEAD)
 
 # ---------------------------------------------
@@ -59,7 +62,6 @@ mkdir -p "$PROJ_ROOT/$OUTPUT_DIR"
 
 echo "|-- Cross compiling go code in $PROJ_ROOT"
 
-# TODO: fix ldflags here
 $DOCKER_BINARY run \
   --rm \
   -v "${PROJ_ROOT}":/usr/src/myapp \
@@ -71,23 +73,27 @@ $DOCKER_BINARY run \
   #set -x
 
   go mod tidy;
+
   go install github.com/google/wire/cmd/wire@latest;
   wire ./src/...
 
   echo '-- Compiling...'
   GOOS=linux   GOARCH=amd64 \
     go build \
-    -o $OUTPUT_DIR/$OUTPUT_BINARY_NAME.amd64.bin \
+    -o \"$OUTPUT_DIR/$OUTPUT_BINARY_NAME.amd64.bin\" \
+    -ldflags=\"-X main.gitCommitHash=${GIT_COMMIT}\" \
     $CMD_PACKAGE;
 
   GOOS=darwin  GOARCH=amd64 \
     go build \
-    -o $OUTPUT_DIR/$OUTPUT_BINARY_NAME.amd64.app \
+    -o \"$OUTPUT_DIR/$OUTPUT_BINARY_NAME.amd64.app\" \
+    -ldflags=\"-X main.gitCommitHash=${GIT_COMMIT}\" \
     $CMD_PACKAGE;
 
   GOOS=windows GOARCH=amd64 \
     go build \
-    -o $OUTPUT_DIR/$OUTPUT_BINARY_NAME.amd64.exe \
+    -o \"$OUTPUT_DIR/$OUTPUT_BINARY_NAME.amd64.exe\" \
+    -ldflags=\"-X main.gitCommitHash=${GIT_COMMIT}\" \
     $CMD_PACKAGE;
   "
 
@@ -112,8 +118,12 @@ $DOCKER_BINARY run \
   wire ./...
 
   echo '-- Compiling...'
-  GOOS=linux   GOARCH=amd64 go build -o $OUTPUT_DIR/$OUTPUT_BINARY_NAME.linux.amd64   $CMD_PACKAGE;
-  GOOS=darwin  GOARCH=amd64 go build -o $OUTPUT_DIR/$OUTPUT_BINARY_NAME.macos.amd64   $CMD_PACKAGE;
-  GOOS=windows GOARCH=amd64 go build -o $OUTPUT_DIR/$OUTPUT_BINARY_NAME.win.amd64.exe $CMD_PACKAGE;
+  GOOS=linux   GOARCH=amd64 \
+    go build \
+    -o \"$OUTPUT_DIR/$OUTPUT_BINARY_NAME.linux.amd64\" \
+    -ldflags=\"-X main.gitCommitHash=${GIT_COMMIT}\" \
+    $CMD_PACKAGE;
+
+  ... other OS...
   "
 EXAMPLE_WITH_CERT

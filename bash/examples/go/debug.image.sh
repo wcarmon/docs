@@ -16,6 +16,8 @@ set -u # fail on unset var
 # -- Constants
 # ---------------------------------------------
 readonly DOCKER_BINARY=$(which docker)
+readonly SHELL_FOR_ALPINE=/bin/ash
+readonly SHELL_FOR_DEBIAN=/bin/bash
 
 # ---------------------------------------------
 # -- Script arguments
@@ -25,10 +27,8 @@ readonly DOCKER_BINARY=$(which docker)
 # -- Config
 # ---------------------------------------------
 # NOTE: change to whatever image/tag you need
-readonly IMAGE=golang:1.18-alpine
+readonly IMAGE=golang:1.19-alpine
 
-readonly SHELL_FOR_ALPINE=/bin/ash
-readonly SHELL_FOR_DEBIAN=/bin/bash
 
 # ---------------------------------------------
 # -- Derived

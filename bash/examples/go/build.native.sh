@@ -2,6 +2,9 @@
 
 # ---------------------------------------------
 # -- Builds local binary via local go sdk
+# --
+# -- Assumptions:
+# -- 1. Go SDK installed: https://go.dev/doc/install
 # ---------------------------------------------
 
 #set -x # uncomment to debug
@@ -33,7 +36,6 @@ readonly OUTPUT_DIR="bin"
 # ---------------------------------------------
 # Dir contains go.mod file
 readonly PROJ_ROOT="$PARENT_DIR"
-
 
 readonly GIT_COMMIT=$(
   cd $PROJ_ROOT
