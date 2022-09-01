@@ -30,7 +30,7 @@ RUN go mod download && go mod tidy
 
 # -- Build binary
 #TODO: replace with your cmd package dir
-RUN go build -o /app/app.binary -v /app/src/cmd/run-service/...
+RUN go build -o /app/app.bin -v /app/src/cmd/run-service/...
 
 
 # ---------------------------------------------
@@ -49,7 +49,7 @@ RUN update-ca-certificates && \
     apk --no-cache add ca-certificates
 
 # -- Copy binary & config
-COPY --from=builder /app/app.binary /app/app.binary
+COPY --from=builder /app/app.bin /app/app.bin
 COPY --from=builder /app/src/app.config.toml /app/app.config.toml
 
 # -- Make non-root user
@@ -62,9 +62,9 @@ RUN addgroup -g 1001 gopher && \
     -u 1001 \
     gopher
 
-RUN chmod 0755 /app/app.binary && \
+RUN chmod 0755 /app/app.bin && \
     chown -R gopher:gopher /app
 
 USER gopher:gopher
 
-CMD ["/app/app.binary", "app.config.toml"]
+CMD ["/app/app.bin", "app.config.toml"]

@@ -28,8 +28,12 @@ readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
 # NOTE: all paths relative to $PROJ_ROOT
 
 # See https://hub.docker.com/_/golang?tab=tags
-#readonly GOLANG_IMAGE=golang:1.19.0-alpine3.16
-readonly GOLANG_IMAGE=golang:1.19.0-bullseye
+# Some debian and alpine binaries are incompatible because of musl libc
+# Alpine uses: /lib/ld-musl-x86_64.so
+# Debian uses: /lib64/ld-linux-x86-64.so
+# So we build both
+readonly GOLANG_ALPINE_IMAGE=golang:1.19.0-alpine3.16
+readonly GOLANG_DEBIAN_IMAGE=golang:1.19.0-bullseye
 
 # GOTCHA: Leading dot is important
 readonly CMD_PACKAGE=./src/cmd/run-service/
@@ -60,18 +64,53 @@ readonly GIT_COMMIT=$(
 # ---------------------------------------------
 mkdir -p "$PROJ_ROOT/$OUTPUT_DIR"
 
-echo "|-- Cross compiling go code in $PROJ_ROOT"
+echo
+echo "|-- Cross compiling.  sources: $PROJ_ROOT"
 
+# ---------------------------------------------
+# -- Build for Alpine
+# ---------------------------------------------
 $DOCKER_BINARY run \
   --rm \
   -v "${PROJ_ROOT}":/usr/src/myapp \
   --workdir /usr/src/myapp \
-  $GOLANG_IMAGE \
+  $GOLANG_ALPINE_IMAGE \
+  /bin/ash -c "
+  set -e
+  set -u
+  #set -x
+
+  # -- get gcc for alpine
+  apk add build-base
+
+  go mod download;
+  go mod tidy;
+
+  go install github.com/google/wire/cmd/wire@latest;
+  wire ./src/...
+
+  echo '-- Compiling for alpine ...'
+  GOOS=linux   GOARCH=amd64 \
+    go build \
+    -o \"$OUTPUT_DIR/$OUTPUT_BINARY_NAME.amd64.alpine.bin\" \
+    -ldflags=\"-X main.gitCommitHash=${GIT_COMMIT}\" \
+    $CMD_PACKAGE;
+  "
+
+# ---------------------------------------------
+# -- Build for everything else
+# ---------------------------------------------
+$DOCKER_BINARY run \
+  --rm \
+  -v "${PROJ_ROOT}":/usr/src/myapp \
+  --workdir /usr/src/myapp \
+  $GOLANG_DEBIAN_IMAGE \
   /bin/bash -c "
   set -e
   set -u
   #set -x
 
+  go mod download;
   go mod tidy;
 
   go install github.com/google/wire/cmd/wire@latest;
