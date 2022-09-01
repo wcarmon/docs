@@ -29,16 +29,25 @@
     - eg. EC2
 - **Gateway**:
     - Connects your VPC to another network
-    - **Internet Gateway**:
+    - **Internet Gateway (IGW)**:
         - connects your VPC to the (public) internet
-    - **Private Gateway**:
-        - connects your VPC to your own network
-    - **NAT Gateway**:
+        - logical connection between VPC and internet
+        - This is the **only way** to connect VPC to the public internet
+    - **NAT Gateway (NGW)**:
         - **N**etwork **A**ddress **T**ranslation
+        - Forwards traffic
+        - A facade/proxy that partially "exposes" private resource
         - Allows resources/instances in a private subnet to connect to services outside your VPC
         - Prevents external services from initiate a connection with private resources/instances
+        - Prevents unsolicited inbound connections from the internet
         - Private resources/instances should never access the Internet directly
         - Private resources should always go through the **NAT gateway**
+        - Usage: create a public NAT gateway in a public subnet
+        - Usage: Associate an elastic IP address with the NAT gateway at creation
+        - Usage: route traffic from the NAT gateway to VPC's internet gateway
+        - Protocols: TCP, UDP, and ICMP
+    - **Private Gateway**:
+        - connects your VPC to your own network
 - **Route table** ([AWS](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html#RouteTables))
     - Is a ...TODO
     - Contains 1+ Routes
@@ -74,6 +83,7 @@
 
 # Hierarchy
 - Region / VPC / Availability Zone / Security Group / Subnet / Resource
+- Region / VPC / Availability Zone / NAT gateway
 - Region / VPC / Router / Subnet
 - Network ACL / Subnet
 
@@ -94,6 +104,8 @@
 - TODO: debugging - TODO: "Linting" security setup
 - TODO: DHCP
 - TODO: NAT gateway vs Internet gateway
+- TODO: NAT gateway belongs to subnet?
+- TODO: VPC has multiple NAT gateways?
 - TODO: can you share Internet gateways between VPCs?
 
 # Other resources
