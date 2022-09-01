@@ -21,10 +21,10 @@ RUN update-ca-certificates && \
 COPY . .
 
 # -- Get dependencies via go.mod & go.sum
-RUN go mod download
+RUN go mod download && go mod tidy
 
 # -- Build binary
-#TODO: replace with your cmd package
+#TODO: replace with your cmd package dir
 RUN go build -o /app/app.binary -v /app/src/cmd/run-service/...
 
 
@@ -45,7 +45,7 @@ RUN update-ca-certificates && \
 
 # -- Copy binary & config
 COPY --from=builder /app/app.binary /app/app.binary
-COPY --from=builder /app/src/app.config.yaml /app/app.config.yaml
+COPY --from=builder /app/src/app.config.toml /app/app.config.toml
 
 # -- Make non-root user
 RUN addgroup -g 1001 gopher && \
@@ -62,4 +62,4 @@ RUN chmod 0755 /app/app.binary && \
 
 USER gopher:gopher
 
-CMD ["/app/app.binary", "app.config.yaml"]
+CMD ["/app/app.binary", "app.config.toml"]
