@@ -14,22 +14,31 @@
     - Associated to your AWS account
     - contains 1+ non-overlapping Subnets
     - Traffic enters thru peered VPCs, internet or a VPN connection
+    - Has 0 or 1 Internet Gateway
 - **Subnet**: Range of IP addresses in your VPC
     - [**CIDR**](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing): a format for defining an IPv4 range. [AWS](https://docs.aws.amazon.com/vpc/latest/userguide/how-it-works.html#vpc-ip-addressing)
     - Resources are launched in a Subnet
     - Public subnets are accessible from the Internet
     - Subnet >|o----|- Router
     - Subnet >|o----|- Network ACL
-    - Private IP: not reachable from the Internet
-    - Public IP: reachable from the Internet
+    - Private IP (Private Subnet): not reachable from the Internet (eg. database)
+    - Public IP (Public Subnet): reachable from the Internet
     - Elastic IP: ...TODO...
 - **Resource**:
     - TODO
     - eg. EC2
 - **Gateway**:
     - Connects your VPC to another network
-    - **Internet Gateway**: connects your VPC to the internet
-    - **Private Gateway**: connects your VPC to your own network
+    - **Internet Gateway**:
+        - connects your VPC to the (public) internet
+    - **Private Gateway**:
+        - connects your VPC to your own network
+    - **NAT Gateway**:
+        - **N**etwork **A**ddress **T**ranslation
+        - Allows resources/instances in a private subnet to connect to services outside your VPC
+        - Prevents external services from initiate a connection with private resources/instances
+        - Private resources/instances should never access the Internet directly
+        - Private resources should always go through the **NAT gateway**
 - **Route table** ([AWS](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html#RouteTables))
     - Is a ...TODO
     - Contains 1+ Routes
@@ -82,13 +91,10 @@
 
 
 - TODO: VPC endpoint - private connection to AWS services without internet gateway
-- TODO: debugging
-- TODO: "Linting" security setup
+- TODO: debugging - TODO: "Linting" security setup
 - TODO: DHCP
-- TODO: NAT gateway == network address translation
-    - TODO: Private resources should never access the Internet directly;
-    - TODO: Private resources should always go through the NAT gateway and never be directly accessible from the internet
-
+- TODO: NAT gateway vs Internet gateway
+- TODO: can you share Internet gateways between VPCs?
 
 # Other resources
 1. https://aws.amazon.com/vpc/
