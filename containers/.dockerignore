@@ -1,3 +1,5 @@
+!src
+*
 **/*.class
 **/*.dbmdl
 **/*.jfm
@@ -11,6 +13,7 @@
 **/.project
 **/.settings
 **/.settingstoolstarget
+**/.toolstarget
 **/.vs
 **/.vscode
 **/bin
@@ -18,6 +21,7 @@
 **/compose*
 **/docker-compose*
 **/Dockerfile*
+**/modules
 **/node_modules
 **/npm-debug.log
 **/obj
@@ -25,13 +29,18 @@
 **/values.dev.y*ml
 *.iso
 *.md
+*/modules
 .cache
 .dockerignore
 .gcloudignore
 .git
 .gitignore
+Dockerfile
 Dockerfile*
 logs/
+modules
+modules*
+modules/*
 passphrase.txt
 passwords.txt
 README.md

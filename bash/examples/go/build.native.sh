@@ -26,6 +26,7 @@ readonly WIRE=$(which wire)
 
 readonly CMD_PACKAGE=./src/cmd/run-service
 readonly OUTPUT_BINARY_NAME=foo-service
+readonly OUTPUT_DIR="bin"
 
 # ---------------------------------------------
 # -- Derived
@@ -33,9 +34,11 @@ readonly OUTPUT_BINARY_NAME=foo-service
 # Dir contains go.mod file
 readonly PROJ_ROOT="$PARENT_DIR"
 
-readonly OUTPUT_DIR="bin"
 
-readonly GIT_COMMIT=$(cd $PROJ_ROOT; git rev-list -1 HEAD)
+readonly GIT_COMMIT=$(
+  cd $PROJ_ROOT
+  git rev-list -1 HEAD
+)
 #readonly GIT_COMMIT=$(cd $PROJ_ROOT; git rev-parse HEAD)
 
 # ---------------------------------------------
@@ -49,6 +52,7 @@ mkdir -p "$PROJ_ROOT/$OUTPUT_DIR"
 
 cd "$PROJ_ROOT" >/dev/null 2>&1
 
+go mod tidy
 $WIRE ./src/...
 
 echo "|-- Cross compiling go code in $PROJ_ROOT"
