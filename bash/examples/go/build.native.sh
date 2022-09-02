@@ -14,6 +14,7 @@ set -u # fail on unset var
 # ---------------------------------------------
 # -- Constants
 # ---------------------------------------------
+readonly GO=$(which go)
 readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
 readonly SCRIPTS_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")")
 readonly WIRE=$(which wire)
@@ -53,7 +54,7 @@ readonly GIT_COMMIT=$(
 mkdir -p "$PROJ_ROOT/$OUTPUT_DIR"
 
 cd "$PROJ_ROOT/src" >/dev/null 2>&1
-go mod tidy
+$GO mod tidy
 
 # -- TODO: If you use protobuf, run build.protobuf.sh here:
 #$SCRIPTS_DIR/build.protobuf.sh
@@ -64,25 +65,25 @@ echo "|-- Cross compiling go code for $CMD_PACKAGE"
 cd "$PROJ_ROOT" >/dev/null 2>&1
 
 GOOS=linux GOARCH=amd64 \
-  go build \
+  $GO build \
   -o "$OUTPUT_DIR/$OUTPUT_BINARY_NAME.amd64.bin" \
   -ldflags="-X main.gitCommitHash=${GIT_COMMIT}" \
   $CMD_PACKAGE
 
 GOOS=darwin GOARCH=amd64 \
-  go build \
+  $GO build \
   -o "$OUTPUT_DIR/$OUTPUT_BINARY_NAME.amd64.app" \
   -ldflags="-X main.gitCommitHash=${GIT_COMMIT}" \
   $CMD_PACKAGE
 
 GOOS=windows GOARCH=amd64 \
-  go build \
+  $GO build \
   -o "$OUTPUT_DIR/$OUTPUT_BINARY_NAME.amd64.exe" \
   -ldflags="-X main.gitCommitHash=${GIT_COMMIT}" \
   $CMD_PACKAGE
 
 # NOTE: list architectures:
-#   go tool dist list;
+#   $GO tool dist list;
 
 echo "|-- See binaries in $PROJ_ROOT/$OUTPUT_DIR"
 ls -dhlt "$PROJ_ROOT/$OUTPUT_DIR"/*

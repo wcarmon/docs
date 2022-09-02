@@ -153,6 +153,7 @@ $DOCKER_BINARY run \
   $GOLANG_IMAGE \
   /bin/bash -c "
   update-ca-certificates;
+
   go install github.com/google/wire/cmd/wire@latest;
   wire ./...
 

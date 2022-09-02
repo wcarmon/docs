@@ -2,9 +2,11 @@
 
 # ---------------------------------------------
 # -- Runs tests via local go sdk
+# --
+# -- Assumptions:
+# -- 1. Go SDK installed: https://go.dev/doc/install
 # ---------------------------------------------
-
-#set -x # uncomment to debug
+#set -x # uncomment to debug script
 set -e # exit on first error
 set -o pipefail
 set -u # fail on unset var
@@ -12,7 +14,9 @@ set -u # fail on unset var
 # ---------------------------------------------
 # -- Constants
 # ---------------------------------------------
+readonly GO=$(which go)
 readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
+readonly SCRIPTS_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")")
 
 # ---------------------------------------------
 # -- Script arguments
@@ -26,10 +30,8 @@ readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
 # ---------------------------------------------
 # -- Derived
 # ---------------------------------------------
-# Dir contains go.mod file
+# $PROJ_ROOT/src/go.mod file should exist
 readonly PROJ_ROOT="$PARENT_DIR"
-
-readonly SOURCES_ROOT=$PROJ_ROOT/src
 
 # ---------------------------------------------
 # -- Validate
@@ -38,10 +40,11 @@ readonly SOURCES_ROOT=$PROJ_ROOT/src
 # ---------------------------------------------
 # -- Test
 # ---------------------------------------------
-cd "$SOURCES_ROOT" >/dev/null 2>&1
+cd "$PROJ_ROOT/src" >/dev/null 2>&1
+$GO mod tidy
 
 echo
 echo "|-- Testing code in $(pwd)"
 
-#go test -short ./...
-go test ./...
+#$GO test -short ./...
+$GO test ./...

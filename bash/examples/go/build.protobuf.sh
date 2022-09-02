@@ -2,8 +2,12 @@
 
 # ---------------------------------------------
 # -- Builds go sources from *.proto files
+# --
+# -- Assumptions:
+# -- 1. protoc installed:
+#       https://developers.google.com/protocol-buffers/docs/gotutorial#compiling-your-protocol-buffers
 # ---------------------------------------------
-#set -x # uncomment to debug
+#set -x # uncomment to debug script
 set -e # exit on first error
 set -o pipefail
 set -u # fail on unset var
@@ -14,8 +18,14 @@ set -u # fail on unset var
 readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
 
 # ---------------------------------------------
+# -- Script arguments
+# ---------------------------------------------
+
+# ---------------------------------------------
 # -- Config
 # ---------------------------------------------
+# NOTE: all paths relative to $PROJ_ROOT
+
 # Contains *.proto files,
 # we generate *.pb.go files for each *.proto file
 #readonly PROTO_INPUT_DIR=$(readlink -f "$PARENT_DIR/proto");
@@ -35,6 +45,8 @@ readonly PROTO_OUTPUT_DIR=$PARENT_DIR/src
 # ---------------------------------------------
 # -- Derived
 # ---------------------------------------------
+# $PROJ_ROOT/src/go.mod file should exist
+readonly PROJ_ROOT="$PARENT_DIR"
 
 # ---------------------------------------------
 # -- Validate
@@ -43,10 +55,13 @@ readonly PROTO_OUTPUT_DIR=$PARENT_DIR/src
 # ---------------------------------------------
 # -- Generate
 # ---------------------------------------------
-mkdir -p $PROTO_OUTPUT_DIR
+mkdir -p "$PROTO_OUTPUT_DIR"
+
+cd "$PROJ_ROOT/src" >/dev/null 2>&1
 
 echo
 echo "|-- Generating go code from proto files in $PROTO_INPUT_DIR"
+
 protoc \
   --proto_path=$PROTO_INPUT_DIR \
   --go_out=$PROTO_OUTPUT_DIR \
@@ -54,5 +69,7 @@ protoc \
 
 # If needed, add flags like --proto_path=$SEARCH_PATH1
 
-# -- See generated *.pb.go files
-#find $PROTO_OUTPUT_DIR -name '*.pb.go'
+echo
+echo "|-- See generated go files in $PROTO_OUTPUT_DIR"
+find $PROTO_OUTPUT_DIR -name '*.pb.go' | head -10
+echo "..."

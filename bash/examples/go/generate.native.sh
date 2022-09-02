@@ -12,7 +12,6 @@
 # --        //go:generate stringer -type=Foo
 # --    4. you have a modern version of stringer (like 0.1.11+)
 # ---------------------------------------------
-
 #set -x # uncomment to debug
 set -e # exit on first error
 set -o pipefail
@@ -21,6 +20,7 @@ set -u # fail on unset var
 # ---------------------------------------------
 # -- Constants
 # ---------------------------------------------
+readonly GO=$(which go)
 readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
 
 # ---------------------------------------------
@@ -56,5 +56,5 @@ cd "$SOURCES_ROOT" >/dev/null 2>&1
 echo
 echo "|-- Generating code in $(pwd)"
 
-go generate ./...
-#go generate -x ./...
+$GO generate ./...
+#$GO generate -x ./...
