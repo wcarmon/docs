@@ -55,6 +55,9 @@ mkdir -p "$PROJ_ROOT/$OUTPUT_DIR"
 cd "$PROJ_ROOT" >/dev/null 2>&1
 
 go mod tidy
+
+# TODO: If you use protobuf, run build.protobuf.sh here
+
 $WIRE ./src/...
 
 echo "|-- Cross compiling go code in $PROJ_ROOT"
