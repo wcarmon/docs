@@ -32,7 +32,7 @@ readonly GOLANG_IMAGE=golang:1.19.0-bullseye
 # ---------------------------------------------
 # -- Derived
 # ---------------------------------------------
-# Dir contains go.mod file
+# $PROJ_ROOT/src/go.mod file should exist
 readonly PROJ_ROOT="$PARENT_DIR"
 
 # ---------------------------------------------

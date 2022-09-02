@@ -85,6 +85,9 @@ GOOS=windows GOARCH=amd64 \
 # NOTE: list architectures:
 #   $GO tool dist list;
 
+# ---------------------------------------------
+# -- Report
+# ---------------------------------------------
 echo
 echo "|-- See binaries in $PROJ_ROOT/$OUTPUT_DIR"
 ls -dhlt "$PROJ_ROOT/$OUTPUT_DIR"/*

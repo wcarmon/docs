@@ -6,8 +6,7 @@
 # -- Assumptions:
 # -- 1. Docker installed: https://docs.docker.com/get-docker/
 # ---------------------------------------------
-
-#set -x # uncomment to debug
+#set -x # uncomment to debug script
 set -e  # exit on first error
 set -o pipefail
 set -u  # fail on unset var
@@ -48,7 +47,6 @@ readonly QUALIFIED_REPOSITORY_NAME=myorg/${REPOSITORY_NAME}/${APP_NAME}
 # ---------------------------------------------
 # -- Validate
 # ---------------------------------------------
-# TODO: more here
 
 # ---------------------------------------------
 # -- Build
@@ -73,7 +71,7 @@ $DOCKER_BINARY build \
 
 
 # ---------------------------------------------
-# -- Verify
+# -- Report
 # ---------------------------------------------
 echo
 echo "|-- Successfully built and tagged image"

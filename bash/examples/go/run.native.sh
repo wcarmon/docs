@@ -16,6 +16,7 @@ set -u # fail on unset var
 # ---------------------------------------------
 readonly GO=$(which go)
 readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
+readonly SCRIPTS_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")")
 
 # ---------------------------------------------
 # -- Script arguments

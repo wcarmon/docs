@@ -68,6 +68,9 @@ protoc \
 
 # If needed, add flags like --proto_path=$SEARCH_PATH1
 
+# ---------------------------------------------
+# -- Report
+# ---------------------------------------------
 echo
 echo "|-- See generated go files in $PROTO_OUTPUT_DIR"
 find $PROTO_OUTPUT_DIR -name '*.pb.go' | head -10

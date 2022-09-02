@@ -137,8 +137,12 @@ $DOCKER_BINARY run \
   "
 
 # NOTE: list architectures:
-#   go tool dist list;
+#   $GO tool dist list;
 
+# ---------------------------------------------
+# -- Report
+# ---------------------------------------------
+echo
 echo "|-- See binaries in $PROJ_ROOT/$OUTPUT_DIR"
 ls -dhlt "$PROJ_ROOT/$OUTPUT_DIR"/*
 
