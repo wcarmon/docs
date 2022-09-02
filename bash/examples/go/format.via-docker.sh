@@ -31,13 +31,11 @@ readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
 #readonly GOLANG_IMAGE=golang:1.19.0-bullseye
 readonly GOLANG_IMAGE=golang:1.19.0-alpine3.16
 
-
 # ---------------------------------------------
 # -- Derived
 # ---------------------------------------------
 # Dir contains go.mod file
 readonly PROJ_ROOT="$PARENT_DIR"
-readonly SOURCES_ROOT=$PROJ_ROOT/src
 
 # ---------------------------------------------
 # -- Validate
@@ -47,11 +45,11 @@ readonly SOURCES_ROOT=$PROJ_ROOT/src
 # -- Format
 # ---------------------------------------------
 echo
-echo "|-- Formatting code in ${SOURCES_ROOT}"
+echo "|-- Formatting code in ${PROJ_ROOT}/src"
 
 $DOCKER_BINARY run \
   --rm \
-  -v "${SOURCES_ROOT}":/usr/src/myapp \
+  -v "${PROJ_ROOT}/src":/usr/src/myapp \
   --workdir /usr/src/myapp \
   $GOLANG_IMAGE \
   gofmt -s -e -w .
@@ -61,7 +59,7 @@ $DOCKER_BINARY run \
 
   $DOCKER_BINARY run \
     --rm \
-    -v "${SOURCES_ROOT}":/usr/src/myapp \
+    -v "${PROJ_ROOT}/src":/usr/src/myapp \
     -v "${CERT_FILE}":/usr/local/share/ca-certificates/extra.crt \
     --workdir /usr/src/myapp \
     $GOLANG_IMAGE \

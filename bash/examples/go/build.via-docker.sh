@@ -7,7 +7,7 @@
 # -- 1. Docker installed: https://docs.docker.com/get-docker/
 # ---------------------------------------------
 
-#set -x # uncomment to debug
+#set -x # uncomment to debug script
 set -e # exit on first error
 set -o pipefail
 set -u # fail on unset var
@@ -52,8 +52,8 @@ readonly OUTPUT_DIR="bin"
 readonly GIT_COMMIT=$(
   cd $PROJ_ROOT
   git rev-list -1 HEAD
+  #git rev-parse HEAD
 )
-#readonly GIT_COMMIT=$(cd $PROJ_ROOT; git rev-parse HEAD)
 
 # ---------------------------------------------
 # -- Validate
@@ -114,10 +114,10 @@ $DOCKER_BINARY run \
   go mod tidy;
 
   go install github.com/google/wire/cmd/wire@latest;
-  wire ./src/...
+  wire ./...
 
-  echo '-- Compiling...'
-  GOOS=linux   GOARCH=amd64 \
+  echo '-- Compiling ...'
+  GOOS=linux GOARCH=amd64 \
     go build \
     -o \"$OUTPUT_DIR/$OUTPUT_BINARY_NAME.amd64.bin\" \
     -ldflags=\"-X main.gitCommitHash=${GIT_COMMIT}\" \

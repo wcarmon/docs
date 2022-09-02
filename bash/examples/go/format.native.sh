@@ -7,8 +7,7 @@
 # -- 1. gofmt is on your PATH: https://golang.org/cmd/gofmt/
 # --    see $GO_SDK/bin/gofmt
 # ---------------------------------------------
-
-#set -x # uncomment to debug
+#set -x # uncomment to debug script
 set -e # exit on first error
 set -o pipefail
 set -u # fail on unset var
@@ -16,6 +15,7 @@ set -u # fail on unset var
 # ---------------------------------------------
 # -- Constants
 # ---------------------------------------------
+readonly GOFMT=$(which gofmt)
 readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
 
 # ---------------------------------------------
@@ -32,7 +32,6 @@ readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
 # ---------------------------------------------
 # Dir contains go.mod file
 readonly PROJ_ROOT="$PARENT_DIR"
-readonly SOURCES_ROOT=$PROJ_ROOT/src
 
 # ---------------------------------------------
 # -- Validate
@@ -44,4 +43,4 @@ readonly SOURCES_ROOT=$PROJ_ROOT/src
 echo
 echo "|-- Formatting code in ${SOURCES_ROOT}"
 
-gofmt -s -e -w "$SOURCES_ROOT"
+$GOFMT -s -e -w "$SOURCES_ROOT"

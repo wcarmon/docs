@@ -6,8 +6,7 @@
 # -- Assumptions:
 # -- 1. Docker installed: https://docs.docker.com/get-docker/
 # ---------------------------------------------
-
-#set -x # uncomment to debug
+#set -x # uncomment to debug script
 set -e # exit on first error
 set -o pipefail
 set -u # fail on unset var
@@ -37,7 +36,6 @@ readonly SEMGREP_IMAGE=returntocorp/semgrep
 # ---------------------------------------------
 # Dir contains go.mod file
 readonly PROJ_ROOT="$PARENT_DIR"
-readonly SOURCES_ROOT=$PROJ_ROOT/src
 
 #readonly CERT_FILE="${PROJ_ROOT}/foo.crt"
 
@@ -49,7 +47,7 @@ readonly SOURCES_ROOT=$PROJ_ROOT/src
 # -- Lint (static analysis)
 # ---------------------------------------------
 echo
-echo "|-- Analyzing code in ${SOURCES_ROOT}"
+echo "|-- Analyzing code in ${PROJ_ROOT}/src"
 
 <<'SEMGREP_EXAMPLE'
 echo
@@ -73,7 +71,7 @@ $DOCKER_BINARY run \
 SEMGREP_EXAMPLE
 
 echo
-echo "|-- Running golangci-lint ...";
+echo "|-- Running golangci-lint ..."
 $DOCKER_BINARY run \
   --rm \
   -v "${SOURCES_ROOT}":/app \
@@ -83,7 +81,7 @@ $DOCKER_BINARY run \
   --color auto \
   --concurrency 6 \
   --max-same-issues 5 \
-  --print-linter-name  \
+  --print-linter-name \
   --sort-results \
   --tests true \
   --timeout 1m30s

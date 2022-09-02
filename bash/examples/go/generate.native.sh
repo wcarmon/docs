@@ -12,7 +12,7 @@
 # --        //go:generate stringer -type=Foo
 # --    4. you have a modern version of stringer (like 0.1.11+)
 # ---------------------------------------------
-#set -x # uncomment to debug
+#set -x # uncomment to debug script
 set -e # exit on first error
 set -o pipefail
 set -u # fail on unset var
@@ -38,7 +38,6 @@ readonly STRINGER_BINARY_PATH=$HOME/go/bin/stringer
 # ---------------------------------------------
 # Dir contains go.mod file
 readonly PROJ_ROOT="$PARENT_DIR"
-readonly SOURCES_ROOT=$PROJ_ROOT/src
 
 # ---------------------------------------------
 # -- Validate
@@ -51,10 +50,10 @@ fi
 # ---------------------------------------------
 # -- Generate and run stringer
 # ---------------------------------------------
-cd "$SOURCES_ROOT" >/dev/null 2>&1
+cd "${PROJ_ROOT}/src" >/dev/null 2>&1
 
 echo
-echo "|-- Generating code in $(pwd)"
+echo "|-- Generating code in ${PROJ_ROOT}/src"
 
 $GO generate ./...
 #$GO generate -x ./...

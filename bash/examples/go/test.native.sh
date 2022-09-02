@@ -44,7 +44,7 @@ cd "$PROJ_ROOT/src" >/dev/null 2>&1
 $GO mod tidy
 
 echo
-echo "|-- Testing code in $(pwd)"
+echo "|-- Testing code in $PROJ_ROOT"
 
 #$GO test -short ./...
 $GO test ./...

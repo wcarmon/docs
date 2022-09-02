@@ -7,8 +7,7 @@
 # --   go install golang.org/x/tools/cmd/godoc
 # --   Verify: See `$HOME/go/bin/godoc`
 # ---------------------------------------------
-
-#set -x # uncomment to debug
+#set -x # uncomment to debug script
 set -e # exit on first error
 set -o pipefail
 set -u # fail on unset var

@@ -28,9 +28,8 @@ readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
 
 # Contains *.proto files,
 # we generate *.pb.go files for each *.proto file
-#readonly PROTO_INPUT_DIR=$(readlink -f "$PARENT_DIR/proto");
+#readonly PROTO_INPUT_DIR=$(readlink -f "$PARENT_DIR/proto")
 readonly PROTO_INPUT_DIR=$HOME/fix/dir/with/proto
-
 
 # Root output dir for generated *.pb.go files
 # eg. Use the dir containing go.mod file
