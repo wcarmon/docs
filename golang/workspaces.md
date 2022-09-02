@@ -5,20 +5,25 @@
 
 
 # Key Concepts
+1. Workspaces allow code to access packages in other (local) modules
 1. Workspaces obsolete [replace](https://go.dev/ref/mod#go-mod-file-replace) directives in go.mod
 1. Workspaces obsolete `GOPATH`
 
 
 # Creating
-1. Create the module(s) first
-1. TODO
-
-
-# Dependencies
-1. Get stale deps:
+1. Create the modules first (`go.mod`)
+    1. See [modules doc](./modules.md)
+1. cd to some parent dir of the modules
+```bash
+go work init
+go work use -r ./
 ```
-go list -f '{{if not .Indirect}}{{.}}{{end}}' -u -m all
+
+# Current workspace
+```bash
+go env GOWORK
 ```
+
 
 # Tidy/cleanup
 ```go

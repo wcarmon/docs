@@ -6,8 +6,7 @@
 # -- Assumptions:
 # -- 1. Go SDK installed: https://go.dev/doc/install
 # ---------------------------------------------
-
-#set -x # uncomment to debug
+#set -x # uncomment to debug script
 set -e # exit on first error
 set -o pipefail
 set -u # fail on unset var
@@ -16,6 +15,7 @@ set -u # fail on unset var
 # -- Constants
 # ---------------------------------------------
 readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
+readonly SCRIPTS_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")")
 readonly WIRE=$(which wire)
 
 # ---------------------------------------------
@@ -34,14 +34,14 @@ readonly OUTPUT_DIR="bin"
 # ---------------------------------------------
 # -- Derived
 # ---------------------------------------------
-# Dir contains go.mod file
+# $PROJ_ROOT/src/go.mod file should exist
 readonly PROJ_ROOT="$PARENT_DIR"
 
 readonly GIT_COMMIT=$(
   cd $PROJ_ROOT
   git rev-list -1 HEAD
+  #git rev-parse HEAD
 )
-#readonly GIT_COMMIT=$(cd $PROJ_ROOT; git rev-parse HEAD)
 
 # ---------------------------------------------
 # -- Validate
@@ -52,15 +52,17 @@ readonly GIT_COMMIT=$(
 # ---------------------------------------------
 mkdir -p "$PROJ_ROOT/$OUTPUT_DIR"
 
-cd "$PROJ_ROOT" >/dev/null 2>&1
-
+cd "$PROJ_ROOT/src" >/dev/null 2>&1
 go mod tidy
 
-# TODO: If you use protobuf, run build.protobuf.sh here
+# -- TODO: If you use protobuf, run build.protobuf.sh here:
+#$SCRIPTS_DIR/build.protobuf.sh
 
-$WIRE ./src/...
+$WIRE ./...
 
-echo "|-- Cross compiling go code in $PROJ_ROOT"
+echo "|-- Cross compiling go code for $CMD_PACKAGE"
+cd "$PROJ_ROOT" >/dev/null 2>&1
+
 GOOS=linux GOARCH=amd64 \
   go build \
   -o "$OUTPUT_DIR/$OUTPUT_BINARY_NAME.amd64.bin" \
@@ -73,11 +75,11 @@ GOOS=darwin GOARCH=amd64 \
   -ldflags="-X main.gitCommitHash=${GIT_COMMIT}" \
   $CMD_PACKAGE
 
-#GOOS=windows GOARCH=amd64 \
-#  go build \
-#  -o "$OUTPUT_DIR/$OUTPUT_BINARY_NAME.amd64.exe" \
-#  -ldflags="-X main.gitCommitHash=${GIT_COMMIT}" \
-#  $CMD_PACKAGE
+GOOS=windows GOARCH=amd64 \
+  go build \
+  -o "$OUTPUT_DIR/$OUTPUT_BINARY_NAME.amd64.exe" \
+  -ldflags="-X main.gitCommitHash=${GIT_COMMIT}" \
+  $CMD_PACKAGE
 
 # NOTE: list architectures:
 #   go tool dist list;
