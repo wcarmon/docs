@@ -14,7 +14,7 @@ set -u # fail on unset var
 # ---------------------------------------------
 # -- Constants
 # ---------------------------------------------
-readonly DOCKER_BINARY=$(which docker)
+readonly DOCKER=$(which docker)
 readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
 
 # ---------------------------------------------
@@ -52,7 +52,7 @@ echo "|-- Analyzing code in ${PROJ_ROOT}/src"
 <<'SEMGREP_EXAMPLE'
 echo
 echo "|-- Running semgrep ...";
-$DOCKER_BINARY run \
+$DOCKER run \
   --rm \
   -v "${SOURCES_ROOT}:/src" \
   $SEMGREP_IMAGE \
@@ -72,7 +72,7 @@ SEMGREP_EXAMPLE
 
 echo
 echo "|-- Running golangci-lint ..."
-$DOCKER_BINARY run \
+$DOCKER run \
   --rm \
   -v "${SOURCES_ROOT}":/app \
   --workdir /app \

@@ -14,7 +14,7 @@ set -u # fail on unset var
 # ---------------------------------------------
 # -- Constants
 # ---------------------------------------------
-readonly DOCKER_BINARY=$(which docker)
+readonly DOCKER=$(which docker)
 readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
 
 # ---------------------------------------------
@@ -45,7 +45,7 @@ readonly PROJ_ROOT="$PARENT_DIR"
 echo
 echo "|-- Running tests in ${PROJ_ROOT}"
 
-$DOCKER_BINARY run \
+$DOCKER run \
   --rm \
   -v "${PROJ_ROOT}":/usr/src/myapp \
   --workdir /usr/src/myapp \
@@ -55,7 +55,7 @@ $DOCKER_BINARY run \
 <<'EXAMPLE_WITH_CERT'
   readonly CERT_FILE=my.crt
 
-  $DOCKER_BINARY run \
+  $DOCKER run \
     --rm \
     -v "${PROJ_ROOT}":/usr/src/myapp \
     -v "${CERT_FILE}":/usr/local/share/ca-certificates/extra.crt \

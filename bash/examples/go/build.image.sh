@@ -15,7 +15,7 @@ set -u  # fail on unset var
 # ---------------------------------------------
 # -- Constants
 # ---------------------------------------------
-readonly DOCKER_BINARY=$(which docker)
+readonly DOCKER=$(which docker)
 readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
 
 
@@ -58,7 +58,7 @@ echo "|-- Latest commit: $(git log -1 --format='%H at %ci')"
 
 echo
 echo "|-- Building docker image ..."
-$DOCKER_BINARY build \
+$DOCKER build \
   --file ${DOCKERFILE}\
   --tag "${QUALIFIED_REPOSITORY_NAME}:${TAG}" \
   --tag "${QUALIFIED_REPOSITORY_NAME}:latest" \
@@ -66,8 +66,8 @@ $DOCKER_BINARY build \
 
 # echo
 # echo "|-- Tagging docker image for Remote image repo ..."
-# $DOCKER_BINARY tag "${QUALIFIED_REPOSITORY_NAME}:${TAG}" "${IMAGE_REPO_URI}/${QUALIFIED_REPOSITORY_NAME}:${TAG}"
-# $DOCKER_BINARY tag "${QUALIFIED_REPOSITORY_NAME}:latest" "${IMAGE_REPO_URI}/${QUALIFIED_REPOSITORY_NAME}:latest"
+# $DOCKER tag "${QUALIFIED_REPOSITORY_NAME}:${TAG}" "${IMAGE_REPO_URI}/${QUALIFIED_REPOSITORY_NAME}:${TAG}"
+# $DOCKER tag "${QUALIFIED_REPOSITORY_NAME}:latest" "${IMAGE_REPO_URI}/${QUALIFIED_REPOSITORY_NAME}:latest"
 
 
 # ---------------------------------------------
@@ -75,4 +75,4 @@ $DOCKER_BINARY build \
 # ---------------------------------------------
 echo
 echo "|-- Successfully built and tagged image"
-$DOCKER_BINARY images -a | grep ${QUALIFIED_REPOSITORY_NAME}
+$DOCKER images -a | grep ${QUALIFIED_REPOSITORY_NAME}

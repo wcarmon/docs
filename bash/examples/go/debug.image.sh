@@ -15,7 +15,7 @@ set -u # fail on unset var
 # ---------------------------------------------
 # -- Constants
 # ---------------------------------------------
-readonly DOCKER_BINARY=$(which docker)
+readonly DOCKER=$(which docker)
 readonly SHELL_FOR_ALPINE=/bin/ash
 readonly SHELL_FOR_DEBIAN=/bin/bash
 
@@ -39,7 +39,7 @@ readonly IMAGE=golang:1.19-alpine
 # ---------------------------------------------
 echo
 echo "|-- Starting shell in container..."
-$DOCKER_BINARY run \
+$DOCKER run \
   --rm \
   -it \
   $IMAGE \

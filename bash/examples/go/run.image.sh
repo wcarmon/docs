@@ -14,7 +14,7 @@ set -u # fail on unset var
 # ---------------------------------------------
 # -- Constants
 # ---------------------------------------------
-readonly DOCKER_BINARY=$(which docker)
+readonly DOCKER=$(which docker)
 
 # ---------------------------------------------
 # -- Script arguments
@@ -36,7 +36,7 @@ readonly IMAGE=myorg/foo:latest
 # ---------------------------------------------
 # -- Run
 # ---------------------------------------------
-$DOCKER_BINARY run \
+$DOCKER run \
   --rm \
   -it \
   $IMAGE

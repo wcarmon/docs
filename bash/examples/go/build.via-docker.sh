@@ -14,7 +14,7 @@ set -u # fail on unset var
 # ---------------------------------------------
 # -- Constants
 # ---------------------------------------------
-readonly DOCKER_BINARY=$(which docker)
+readonly DOCKER=$(which docker)
 readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
 
 # ---------------------------------------------
@@ -68,7 +68,7 @@ mkdir -p "$PROJ_ROOT/$OUTPUT_DIR"
 echo
 echo "|-- Building binary for Alpine based container image"
 
-$DOCKER_BINARY run \
+$DOCKER run \
   --rm \
   -v "${PROJ_ROOT}/src":/usr/src/myapp \
   --workdir /usr/src/myapp \
@@ -113,7 +113,7 @@ ls -hlt $PROJ_ROOT/$OUTPUT_DIR/*.alpine.bin
 echo
 echo "|-- Cross compiling via Debian.  sources: $PROJ_ROOT"
 
-$DOCKER_BINARY run \
+$DOCKER run \
   --rm \
   -v "${PROJ_ROOT}/src":/usr/src/myapp \
   --workdir /usr/src/myapp \
@@ -168,7 +168,7 @@ ls -hlt "$PROJ_ROOT/$OUTPUT_DIR"
 <<'EXAMPLE_WITH_CERT'
   readonly CERT_FILE=my.crt
 
-$DOCKER_BINARY run \
+$DOCKER run \
   --rm \
   -v "${PROJ_ROOT}":/usr/src/myapp \
   -v "${CERT_FILE}":/usr/local/share/ca-certificates/extra.crt \
