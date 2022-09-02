@@ -6,7 +6,6 @@
 # -- Assumptions:
 # -- 1. Docker installed: https://docs.docker.com/get-docker/
 # ---------------------------------------------
-
 #set -x # uncomment to debug script
 set -e # exit on first error
 set -o pipefail
@@ -36,19 +35,18 @@ readonly GOLANG_ALPINE_IMAGE=golang:1.19.0-alpine3.16
 readonly GOLANG_DEBIAN_IMAGE=golang:1.19.0-bullseye
 
 # GOTCHA: Leading dot is important
-readonly CMD_PACKAGE=./src/cmd/run-service/
+readonly CMD_PACKAGE=./cmd/run-service/...
 
 readonly OUTPUT_BINARY_NAME=foo-service
+readonly OUTPUT_DIR="bin"
+#readonly CERT_FILE=...
 
 # ---------------------------------------------
 # -- Derived
 # ---------------------------------------------
-# Dir contains go.mod file
+# $PROJ_ROOT/src/go.mod file should exist
 readonly PROJ_ROOT="$PARENT_DIR"
 
-readonly OUTPUT_DIR="bin"
-
-#readonly CERT_FILE=...
 readonly GIT_COMMIT=$(
   cd $PROJ_ROOT
   git rev-list -1 HEAD
@@ -64,15 +62,15 @@ readonly GIT_COMMIT=$(
 # ---------------------------------------------
 mkdir -p "$PROJ_ROOT/$OUTPUT_DIR"
 
-echo
-echo "|-- Cross compiling.  sources: $PROJ_ROOT"
-
 # ---------------------------------------------
 # -- Build for Alpine
 # ---------------------------------------------
+echo
+echo "|-- Building binary for Alpine based container image"
+
 $DOCKER_BINARY run \
   --rm \
-  -v "${PROJ_ROOT}":/usr/src/myapp \
+  -v "${PROJ_ROOT}/src":/usr/src/myapp \
   --workdir /usr/src/myapp \
   $GOLANG_ALPINE_IMAGE \
   /bin/ash -c "
@@ -81,28 +79,43 @@ $DOCKER_BINARY run \
   #set -x
 
   # -- get gcc for alpine
+  echo
+  echo '|-- [Alpine] Installing build tools'
   apk add build-base
 
+  echo
+  echo '|-- [Alpine] Downloading dependencies ...'
   go mod download;
   go mod tidy;
-
   go install github.com/google/wire/cmd/wire@latest;
-  wire ./src/...
 
-  echo '-- Compiling for alpine ...'
-  GOOS=linux   GOARCH=amd64 \
+  echo
+  echo '|-- [Alpine] Running wire ...'
+  wire ./...
+
+  echo
+  echo '|-- [Alpine] Compiling ...'
+
+  GOOS=linux GOARCH=amd64 \
     go build \
     -o \"$OUTPUT_DIR/$OUTPUT_BINARY_NAME.amd64.alpine.bin\" \
     -ldflags=\"-X main.gitCommitHash=${GIT_COMMIT}\" \
     $CMD_PACKAGE;
   "
 
+echo
+echo '|-- [Alpine] Successfully built binary:'
+ls -hlt $PROJ_ROOT/$OUTPUT_DIR/*.alpine.bin
+
 # ---------------------------------------------
 # -- Build for everything else
 # ---------------------------------------------
+echo
+echo "|-- Cross compiling via Debian.  sources: $PROJ_ROOT"
+
 $DOCKER_BINARY run \
   --rm \
-  -v "${PROJ_ROOT}":/usr/src/myapp \
+  -v "${PROJ_ROOT}/src":/usr/src/myapp \
   --workdir /usr/src/myapp \
   $GOLANG_DEBIAN_IMAGE \
   /bin/bash -c "
@@ -110,13 +123,19 @@ $DOCKER_BINARY run \
   set -u
   #set -x
 
+  echo
+  echo '|-- [Debian] Downloading dependencies ...'
   go mod download;
   go mod tidy;
-
   go install github.com/google/wire/cmd/wire@latest;
+
+  echo
+  echo '|-- [Debian] Running wire ...'
   wire ./...
 
-  echo '-- Compiling ...'
+  echo
+  echo '|-- [Debian] Compiling ...'
+
   GOOS=linux GOARCH=amd64 \
     go build \
     -o \"$OUTPUT_DIR/$OUTPUT_BINARY_NAME.amd64.bin\" \
@@ -144,7 +163,7 @@ $DOCKER_BINARY run \
 # ---------------------------------------------
 echo
 echo "|-- See binaries in $PROJ_ROOT/$OUTPUT_DIR"
-ls -dhlt "$PROJ_ROOT/$OUTPUT_DIR"/*
+ls -hlt "$PROJ_ROOT/$OUTPUT_DIR"
 
 <<'EXAMPLE_WITH_CERT'
   readonly CERT_FILE=my.crt

@@ -59,8 +59,11 @@ $GO mod tidy
 # -- TODO: If you use protobuf, run build.protobuf.sh here:
 #$SCRIPTS_DIR/build.protobuf.sh
 
+echo
+echo "|-- Running wire ..."
 $WIRE ./...
 
+echo
 echo "|-- Cross compiling go code for $CMD_PACKAGE"
 cd "$PROJ_ROOT" >/dev/null 2>&1
 
@@ -90,4 +93,4 @@ GOOS=windows GOARCH=amd64 \
 # ---------------------------------------------
 echo
 echo "|-- See binaries in $PROJ_ROOT/$OUTPUT_DIR"
-ls -dhlt "$PROJ_ROOT/$OUTPUT_DIR"/*
+ls -hlt "$PROJ_ROOT/$OUTPUT_DIR"
