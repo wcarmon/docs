@@ -73,11 +73,11 @@ GOOS=darwin GOARCH=amd64 \
   -ldflags="-X main.gitCommitHash=${GIT_COMMIT}" \
   $CMD_PACKAGE
 
-GOOS=windows GOARCH=amd64 \
-  go build \
-  -o "$OUTPUT_DIR/$OUTPUT_BINARY_NAME.amd64.exe" \
-  -ldflags="-X main.gitCommitHash=${GIT_COMMIT}" \
-  $CMD_PACKAGE
+#GOOS=windows GOARCH=amd64 \
+#  go build \
+#  -o "$OUTPUT_DIR/$OUTPUT_BINARY_NAME.amd64.exe" \
+#  -ldflags="-X main.gitCommitHash=${GIT_COMMIT}" \
+#  $CMD_PACKAGE
 
 # NOTE: list architectures:
 #   go tool dist list;

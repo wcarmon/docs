@@ -20,6 +20,11 @@
 go list -f '{{if not .Indirect}}{{.}}{{end}}' -u -m all
 ```
 
+# Tidy/cleanup
+```go
+go work sync
+```
+
 # Goland
 1. You have to add packages to `go.work` for some imports to resolve
 
