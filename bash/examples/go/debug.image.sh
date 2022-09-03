@@ -29,7 +29,6 @@ readonly SHELL_FOR_DEBIAN=/bin/bash
 # NOTE: change to whatever image/tag you need
 readonly IMAGE=golang:1.19-alpine
 
-
 # ---------------------------------------------
 # -- Derived
 # ---------------------------------------------

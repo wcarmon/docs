@@ -43,11 +43,11 @@ readonly PROJ_ROOT="$PARENT_DIR"
 # -- Test
 # ---------------------------------------------
 echo
-echo "|-- Running tests in ${PROJ_ROOT}"
+echo "|-- Running tests in ${PROJ_ROOT}/src"
 
 $DOCKER run \
   --rm \
-  -v "${PROJ_ROOT}":/usr/src/myapp \
+  -v "${PROJ_ROOT}/src":/usr/src/myapp \
   --workdir /usr/src/myapp \
   $GOLANG_IMAGE \
   go test ./...
@@ -57,7 +57,7 @@ $DOCKER run \
 
   $DOCKER run \
     --rm \
-    -v "${PROJ_ROOT}":/usr/src/myapp \
+    -v "${PROJ_ROOT}/src":/usr/src/myapp \
     -v "${CERT_FILE}":/usr/local/share/ca-certificates/extra.crt \
     --workdir /usr/src/myapp \
     $GOLANG_IMAGE \

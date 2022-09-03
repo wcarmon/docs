@@ -54,7 +54,7 @@ echo
 echo "|-- Running semgrep ...";
 $DOCKER run \
   --rm \
-  -v "${SOURCES_ROOT}:/src" \
+  -v "${PROJ_ROOT}/src:/src" \
   $SEMGREP_IMAGE \
   semgrep scan \
   --config "p/ci" \
@@ -74,7 +74,7 @@ echo
 echo "|-- Running golangci-lint ..."
 $DOCKER run \
   --rm \
-  -v "${SOURCES_ROOT}":/app \
+  -v "${PROJ_ROOT}/src":/app \
   --workdir /app \
   $GOLANGCI_IMAGE \
   golangci-lint run ./... \

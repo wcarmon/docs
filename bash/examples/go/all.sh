@@ -13,14 +13,35 @@ set -u # fail on unset var
 readonly SCRIPTS_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")")
 
 # ---------------------------------------------
+# -- Config
+# ---------------------------------------------
+readonly APP_VERSION=1.0.0
+
+# ---------------------------------------------
 # -- Sub-scripts
 # ---------------------------------------------
-#$SCRIPTS_DIR/generate.sh
+time (
+  echo
+  echo "|-- [Phase: Pre-build]"
+  #$SCRIPTS_DIR/generate.sh
 
-$SCRIPTS_DIR/format.native.sh
+  $SCRIPTS_DIR/format.native.sh
 
-$SCRIPTS_DIR/build.native.sh
+  echo
+  echo "|-- [Phase: Build]"
+  $SCRIPTS_DIR/build.native.sh
 
-$SCRIPTS_DIR/test.native.sh
+  echo
+  echo "|-- [Phase: Verify]"
+  $SCRIPTS_DIR/test.native.sh
 
-time $SCRIPTS_DIR/lint.via-docker.sh
+  $SCRIPTS_DIR/lint.via-docker.sh
+
+  echo
+  echo "|-- [Phase: Push]"
+  # ...
+
+  echo
+  echo "|-- [Phase: Deploy]"
+  # ...
+)
