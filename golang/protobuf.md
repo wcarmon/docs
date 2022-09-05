@@ -105,11 +105,11 @@ require google.golang.org/protobuf v1.28.1
     1. `import` paths uses slashes
     1. `import` paths end with `.proto";`
     1. `import` imports a `*.proto` file (not a message type)
+    1. For name resolution, `protoc` appends each `import` path to a [`--proto_path`](https://developers.google.com/protocol-buffers/docs/proto3#generating) flag (in order)
+    1. Using an imported `message` requires **proto package** qualification
     1. `import` path does **NOT** use proto package
-    1. For name resolution, protoc appends each `import` path to a [`--proto_path`](https://developers.google.com/protocol-buffers/docs/proto3#generating) flag (in order)
     1. `import` paths to **NOT** support wildcard import
     1. `import` paths are sensitive to directory hierarchy
-    1. Using an imported message requires **proto package** qualification
 1. `protoc` writes to: [`$CWD`](https://en.wikipedia.org/wiki/Working_directory)/[`--go_out`](https://developers.google.com/protocol-buffers/docs/reference/go-generated#invocation)/[`go_package`](https://developers.google.com/protocol-buffers/docs/reference/go-generated#package)/`filename`.pb.go
     1. `mkdir -p` on the output dir first (protoc will **NOT** create output dir)
     1. Directory of `*.proto` does *NOT** affect output path
