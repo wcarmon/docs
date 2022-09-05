@@ -26,10 +26,13 @@ readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
 # ---------------------------------------------
 # NOTE: all paths relative to $PROJ_ROOT
 
+# Must be relative path ...
+# Relative to $PARENT_DIR
+# See https://github.com/wcarmon/docs/blob/main/golang/protobuf.md
+#
 # Contains *.proto files,
 # we generate *.pb.go files for each *.proto file
-#readonly PROTO_INPUT_DIR=$(readlink -f "$PARENT_DIR/proto")
-readonly PROTO_INPUT_DIR=$HOME/fix/dir/with/proto
+readonly RELATIVE_PROTO_INPUT_DIR=proto
 
 # Root output dir for generated *.pb.go files
 # eg. Use the dir containing go.mod file
@@ -38,14 +41,16 @@ readonly PROTO_OUTPUT_DIR=${PARENT_DIR}/src
 
 # Paths containing *.proto files
 # For resolving imports in other *.proto files
-#readonly SEARCH_PATH1=$HOME/opt/protobuf/include;
-#readonly SEARCH_PATH2=$HOME/another/path;
+#readonly SEARCH_DIR_1=$HOME/opt/protobuf/include
+#readonly SEARCH_DIR_2=$HOME/another/path;
 
 # ---------------------------------------------
 # -- Derived
 # ---------------------------------------------
 # $PROJ_ROOT/src/go.mod file should exist
 readonly PROJ_ROOT="$PARENT_DIR"
+
+readonly PROTO_INPUT_DIR=$(readlink -f "$PARENT_DIR/$RELATIVE_PROTO_INPUT_DIR")
 
 # ---------------------------------------------
 # -- Validate
@@ -56,17 +61,17 @@ readonly PROJ_ROOT="$PARENT_DIR"
 # ---------------------------------------------
 mkdir -p "$PROTO_OUTPUT_DIR"
 
-cd "$PROJ_ROOT/src" >/dev/null 2>&1
+cd $PARENT_DIR >/dev/null 2>&1
 
 echo
 echo "|-- Generating go code from proto files in $PROTO_INPUT_DIR"
 
 protoc \
-  --proto_path=$PROTO_INPUT_DIR \
+  --proto_path="${RELATIVE_PROTO_INPUT_DIR}" \
+  --proto_path="${SEARCH_DIR_1}" \
   --go_out=$PROTO_OUTPUT_DIR \
-  $PROTO_INPUT_DIR/*.proto
+  $RELATIVE_PROTO_INPUT_DIR/*.proto
 
-# If needed, add flags like --proto_path=$SEARCH_PATH1
 
 # ---------------------------------------------
 # -- Report

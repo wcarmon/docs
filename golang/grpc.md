@@ -16,14 +16,17 @@ go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
 
 # Verify
 ls -al $(go env GOPATH)/bin | grep grpc
+
+which protoc-gen-go-grpc;
+find $HOME -name protoc-gen-go-grpc;
 ```
-
-
-# Enable ("Install")
+- Ensure `protoc-gen-go-grpc` is on your `$PATH` (try to execute directly)
+- May need to add `$GOPATH/bin` to `$PATH` (see `go env GOPATH`)
 ```bash
 ln -sv $(go env GOPATH)/bin/protoc-gen-go-grpc $HOME/bin/
 ```
 
+# Compile
 
 
 # Other resources
