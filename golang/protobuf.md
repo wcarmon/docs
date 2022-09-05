@@ -75,6 +75,7 @@ require google.golang.org/protobuf v1.28.1
 # Compile
 1. The compiler ([`protoc`](https://github.com/protocolbuffers/protobuf/releases)) generates `*.pb.go` from `*.proto` files
 1. See `protoc` [command line options](https://manpages.ubuntu.com/manpages/trusty/man1/protoc.1.html) or use `protoc --help`
+    1. Use relative paths for `protoc` flags
 1. See [example shell script](../bash/examples/go/build.protobuf.sh)
 
 
@@ -87,6 +88,28 @@ require google.golang.org/protobuf v1.28.1
 
 # gRPC
 1. See [gRPC doc](./grpc.md)
+
+
+# Packages, Imports
+1. proto Package names are independent of golang package names
+1. proto package names provide a namespace (name isolation from other proto packages)
+    1. helps prevent naming conflicts
+1. proto packages are used to reference messages in other proto files
+1. package are only connected to c++ namespaces
+    1. golang, python, java, ... packages are independent of proto packages
+1. [More info on name resolution](https://developers.google.com/protocol-buffers/docs/proto3#packages_and_name_resolution)
+1. import in `*.proto` should use slashes
+    1. eg. `package a.b.c;` -> `import "a/b/c/foo.proto";`
+1. `protoc` writes to: [<CWD>](https://en.wikipedia.org/wiki/Working_directory)/<[`--go_out`](https://developers.google.com/protocol-buffers/docs/reference/go-generated#invocation)>/<[`go_package`](https://developers.google.com/protocol-buffers/docs/reference/go-generated#package)>/<`filename`>.pb.go
+1. Example
+    1. Input: `--go_out=ccc/gen`
+    1. Input: `go_package = "serde/bar";`
+    1. Input: filename: `foo.proto`
+    1. Input: `package cheese.quuz;`  <-- proto package, not used for output
+    1. Output: `$CWD/ccc/gen/serde/bar/foo.pb.go`
+
+- TODO: relation to proto directories?
+- TODO: wildcard imports?
 
 
 # Other resources

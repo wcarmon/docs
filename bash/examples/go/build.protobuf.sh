@@ -34,7 +34,7 @@ readonly PROTO_INPUT_DIR=$HOME/fix/dir/with/proto
 # Root output dir for generated *.pb.go files
 # eg. Use the dir containing go.mod file
 # "option go_package" is appended to this path
-readonly PROTO_OUTPUT_DIR=$PARENT_DIR/src
+readonly PROTO_OUTPUT_DIR=${PARENT_DIR}/src
 
 # Paths containing *.proto files
 # For resolving imports in other *.proto files
@@ -73,5 +73,5 @@ protoc \
 # ---------------------------------------------
 echo
 echo "|-- See generated go files in $PROTO_OUTPUT_DIR"
-find $PROTO_OUTPUT_DIR -name '*.pb.go' | head -10
+find $PROTO_OUTPUT_DIR -name '*.pb.go' | head -7
 echo "..."
