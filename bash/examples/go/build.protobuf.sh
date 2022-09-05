@@ -38,7 +38,10 @@ readonly RELATIVE_PROTO_INPUT_DIR=proto
 # Root output dir for generated *.pb.go files
 # eg. Use the dir containing go.mod file
 # "option go_package" is appended to this path
-readonly PROTO_OUTPUT_DIR=${PARENT_DIR}/src
+readonly PROTO_OUTPUT_DIR="${PARENT_DIR}/src"
+
+#TODO: document me
+readonly GRPC_OUTPUT_DIR="${PARENT_DIR}/src"
 
 # Paths containing *.proto files
 # For resolving imports in other *.proto files
@@ -60,6 +63,7 @@ readonly PROTO_INPUT_DIR=$(readlink -f "$PARENT_DIR/$RELATIVE_PROTO_INPUT_DIR")
 # ---------------------------------------------
 # -- Generate
 # ---------------------------------------------
+mkdir -p "$GRPC_OUTPUT_DIR"
 mkdir -p "$PROTO_OUTPUT_DIR"
 
 cd $PARENT_DIR >/dev/null 2>&1
@@ -68,16 +72,16 @@ echo
 echo "|-- Generating go code from proto files in $PROTO_INPUT_DIR"
 
 $PROTOC \
+  --go-grpc_out=$GRPC_OUTPUT_DIR \
+  --go_out=$PROTO_OUTPUT_DIR \
   --proto_path="${RELATIVE_PROTO_INPUT_DIR}" \
   --proto_path="${SEARCH_DIR_1}" \
-  --go_out=$PROTO_OUTPUT_DIR \
   $RELATIVE_PROTO_INPUT_DIR/*.proto
-
 
 # ---------------------------------------------
 # -- Report
 # ---------------------------------------------
 echo
 echo "|-- See generated go files in $PROTO_OUTPUT_DIR"
-find $PROTO_OUTPUT_DIR -name '*.pb.go' | head -7
+find $PROTO_OUTPUT_DIR -name '*.pb.go' | head -3
 echo "..."

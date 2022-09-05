@@ -26,7 +26,20 @@ find $HOME -name protoc-gen-go-grpc;
 ln -sv $(go env GOPATH)/bin/protoc-gen-go-grpc $HOME/bin/
 ```
 
+# Get dependencies
+```bash
+PROJ_ROOT=/dir/containing/go.mod/
+cd $PROJ_ROOT
+
+go get google.golang.org/grpc
+go mod tidy
+```
+
+
 # Compile
+- see [protobuf doc](./protobuf.md)
+- TODO: more here
+- TODO: protoc generates `*_grpc.pb.go`
 
 
 # Other resources
