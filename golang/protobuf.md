@@ -127,8 +127,6 @@ require google.golang.org/protobuf v1.28.1
         - `package cheese.quuz;`  <-- proto package, **NOT** used for output
     1. *Output*: `$CWD/baz/gen/serde/bar/foo.pb.go`
 
-- TODO: which paths can be absolute?
-
 
 # Other resources
 1. https://grpc.io/docs/languages/go/quickstart/
