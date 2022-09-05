@@ -110,10 +110,12 @@ require google.golang.org/protobuf v1.28.1
     1. `import` paths do **NOT** use proto package
     1. `import` paths to **NOT** support wildcard import
     1. `import` paths are sensitive to directory hierarchy
-1. `protoc` writes to: [`$CWD`](https://en.wikipedia.org/wiki/Working_directory)/[`--go_out`](https://developers.google.com/protocol-buffers/docs/reference/go-generated#invocation)/[`go_package`](https://developers.google.com/protocol-buffers/docs/reference/go-generated#package)/`filename`.pb.go
+1. [`protoc`](https://github.com/protocolbuffers/protobuf/releases):
+    1. `protoc` writes to: [`$CWD`](https://en.wikipedia.org/wiki/Working_directory)/[`--go_out`](https://developers.google.com/protocol-buffers/docs/reference/go-generated#invocation)/[`go_package`](https://developers.google.com/protocol-buffers/docs/reference/go-generated#package)/`filename`.pb.go
     1. `mkdir -p` on the output directory first (protoc will **NOT** create output directory)
     1. Run `protoc` from any ancestor directory of the `*.proto` files
-    1. Use [`--proto_path`](https://developers.google.com/protocol-buffers/docs/proto3#generating) or [`-I`](https://developers.google.com/protocol-buffers/docs/proto3#generating) as parent of imported `*.proto` files
+    1. Add one [`--proto_path`](https://developers.google.com/protocol-buffers/docs/proto3#generating) (or [`-I`](https://developers.google.com/protocol-buffers/docs/proto3#generating)) for importing messages
+        1. $CWD/`--proto_path`/<import-path>
     1. Each `*.proto` file must reside on a [`--proto_path`](https://developers.google.com/protocol-buffers/docs/proto3#generating) directory
     1. Directory of `*.proto` does **NOT** affect output path
     1. proto package does **NOT** affect output path
