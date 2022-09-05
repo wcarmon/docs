@@ -120,13 +120,13 @@ require google.golang.org/protobuf v1.28.1
     1. `protoc` writes to: [`$CWD`](https://en.wikipedia.org/wiki/Working_directory)/[`--go_out`](https://developers.google.com/protocol-buffers/docs/reference/go-generated#invocation)/[`go_package`](https://developers.google.com/protocol-buffers/docs/reference/go-generated#package)/`filename`.pb.go
     1. Directory of `*.proto` does **NOT** affect output path
     1. proto package does **NOT** affect output path
-1. Example
-    1. *Input*:
-        - `--go_out=baz/gen`
-        - `go_package = "serde/bar";`
-        - filename: `foo.proto`
-        - `package cheese.quuz;`  <-- proto package, **NOT** used for output
-    1. *Output*: `$CWD/baz/gen/serde/bar/foo.pb.go`
+    1. Example
+        1. *Input*:
+            - `--go_out=baz/gen`
+            - `go_package = "serde/bar";`
+            - filename: `foo.proto`
+            - `package cheese.quuz;`  <-- proto package, **NOT** used for output
+        1. *Output*: `$CWD/baz/gen/serde/bar/foo.pb.go`
 
 
 # Other resources
