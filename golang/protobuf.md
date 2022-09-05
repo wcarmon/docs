@@ -115,6 +115,7 @@ require google.golang.org/protobuf v1.28.1
     1. Run `protoc` from any ancestor directory of the `*.proto` files
     1. Add one [`--proto_path`](https://developers.google.com/protocol-buffers/docs/proto3#generating) (or [`-I`](https://developers.google.com/protocol-buffers/docs/proto3#generating)) for importing messages
         1. $CWD/`--proto_path`/<import-path>
+        1. `--proto_path` can be absolute or relative
     1. `protoc` writes to: [`$CWD`](https://en.wikipedia.org/wiki/Working_directory)/[`--go_out`](https://developers.google.com/protocol-buffers/docs/reference/go-generated#invocation)/[`go_package`](https://developers.google.com/protocol-buffers/docs/reference/go-generated#package)/`filename`.pb.go
     1. Each `*.proto` file must reside at [`--proto_path`](https://developers.google.com/protocol-buffers/docs/proto3#generating)/*import-path*
     1. Directory of `*.proto` does **NOT** affect output path
