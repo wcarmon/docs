@@ -119,7 +119,7 @@ require google.golang.org/protobuf v1.28.1
         1. `--proto_path` can safely use absolute path for external/referenced `*.proto` directory (not generated protos dir)
     1. `protoc` writes to: [`$CWD`](https://en.wikipedia.org/wiki/Working_directory)/[`--go_out`](https://developers.google.com/protocol-buffers/docs/reference/go-generated#invocation)/[`go_package`](https://developers.google.com/protocol-buffers/docs/reference/go-generated#package)/`filename`.pb.go
     1. Directory of `*.proto` does **NOT** affect output path
-    1. proto package does **NOT** affect output path
+        1. proto package does **NOT** affect output path
     1. Example
         1. *Input*:
             - `--go_out=baz/gen`
