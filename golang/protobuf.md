@@ -108,7 +108,7 @@ require google.golang.org/protobuf v1.28.1
     1. proto package does **not** affect output path
     1. Run from any ancestor dir of the `*.proto` files
     1. Use [`--proto_path`](https://developers.google.com/protocol-buffers/docs/proto3#generating) or [`-I`](https://developers.google.com/protocol-buffers/docs/proto3#generating) as parent of imported `*.proto` files
-    1. Each `*.proto` file must reside on a `--proto_path` dir
+    1. Each `*.proto` file must reside on a [`--proto_path`](https://developers.google.com/protocol-buffers/docs/proto3#generating) dir
 1. Example
     1. *Input*:
         - `--go_out=baz/gen`
