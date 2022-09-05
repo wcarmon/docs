@@ -41,6 +41,16 @@ go mod tidy;
 go mod edit -replace github.com/dave/dst=github.com/hawkinsw/dst@generics
 ```
 
+# Using local package
+1. See: https://github.com/golang/go/wiki/Modules#when-should-i-use-the-replace-directive
+```
+// in go.mod
+replace example.com/original/import/path => /your/forked/import/path
+
+replace example.com/original/import/path => ../relative/dir/to/another/go.mod/
+```
+
+
 # Version control
 1. commit `go.sum` and `go.mod` files
 

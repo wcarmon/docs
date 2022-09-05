@@ -41,6 +41,10 @@ go mod tidy
 - TODO: more here
 - TODO: protoc generates `*_grpc.pb.go`
 
+# Server
+- TODO: embed UnimplementedFoo
+- TODO: implement methods on Foo interface
+
 
 # Other resources
 1. https://grpc.io/docs/languages/go/basics/
