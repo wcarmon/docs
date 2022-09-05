@@ -101,7 +101,14 @@ require google.golang.org/protobuf v1.28.1
     1. c++: proto packages are only connected/related to [c++ namespaces](https://developers.google.com/protocol-buffers/docs/cpptutorial#defining-your-protocol-format)
 1. In `*.proto`, `package` uses dot, `import` uses slashes
     1. eg. `package a.b;` -> `import "a/b/foo.proto";`
-    - TODO: wildcard imports
+1. Imports:
+    1. `import` uses slashes
+    1. `import` path ends with `.proto";`
+    1. `import` imports a proto file (not a message type)
+    1. `import` path does **not** use proto package
+    1. `import` path is appended to each of your `--proto_path` (in order) for name resolution
+    1. `import` paths are sensitive to directory hierarchy
+    1. Using an imported message requires **proto package** qualification
 1. `protoc` writes to: [`$CWD`](https://en.wikipedia.org/wiki/Working_directory)/[`--go_out`](https://developers.google.com/protocol-buffers/docs/reference/go-generated#invocation)/[`go_package`](https://developers.google.com/protocol-buffers/docs/reference/go-generated#package)/`filename`.pb.go
     1. `mkdir -p` on the output dir first (protoc will **NOT** create output dir)
     1. Directory of `*.proto` does *not** affect output path
@@ -117,10 +124,7 @@ require google.golang.org/protobuf v1.28.1
         - `package cheese.quuz;`  <-- proto package, **not** used for output
     1. *Output*: `$CWD/baz/gen/serde/bar/foo.pb.go`
 
-- TODO: relation to proto directories?
 - TODO: which paths can be absolute?
-- TODO: which -I flags are needed?
-- TODO: go-grpc_out
 
 
 # Other resources
