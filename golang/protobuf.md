@@ -91,17 +91,18 @@ require google.golang.org/protobuf v1.28.1
 
 
 # Packages, Imports, Namespaces
-1. [proto package](https://developers.google.com/protocol-buffers/docs/proto3#packages) names provide a namespace (name isolation from other proto packages)
+1. [proto package](https://developers.google.com/protocol-buffers/docs/proto3#packages) names provide a namespace
+    1. provides name isolation from other proto packages
     1. Helps prevent naming conflicts
-1. proto packages are used to reference messages in other `*.proto` files
-1. [proto package](https://developers.google.com/protocol-buffers/docs/proto3#packages) names are independent of golang package names
-1. proto package are only connected/related to [c++ namespaces](https://developers.google.com/protocol-buffers/docs/cpptutorial#defining-your-protocol-format)
-    1. golang, python, java, ... packages are independent of proto packages
+1. proto packages reference [messages](https://developers.google.com/protocol-buffers/docs/proto3#simple) in other `*.proto` files
+1. [proto package](https://developers.google.com/protocol-buffers/docs/proto3#packages) names are independent of golang packages
+    1. golang, python, java, ... packages are **independent** of proto packages
     1. python package determined [by dir structure](https://developers.google.com/protocol-buffers/docs/pythontutorial#defining-your-protocol-format)
-1. In `*.proto`, (proto) package uses dot, `import` uses slashes
-    1. eg. `package a.b.c;` -> `import "a/b/c/foo.proto";`
+    1. proto packages are only connected/related to [c++ namespaces](https://developers.google.com/protocol-buffers/docs/cpptutorial#defining-your-protocol-format)
+1. In `*.proto`, `package` uses dot, `import` uses slashes
+    1. eg. `package a.b;` -> `import "a/b/foo.proto";`
     - TODO: wildcard imports
-1. `protoc` writes to: [<CWD>](https://en.wikipedia.org/wiki/Working_directory)/<[`--go_out`](https://developers.google.com/protocol-buffers/docs/reference/go-generated#invocation)>/<[`go_package`](https://developers.google.com/protocol-buffers/docs/reference/go-generated#package)>/<`filename`>.pb.go
+1. `protoc` writes to: [<CWD>](https://en.wikipedia.org/wiki/Working_directory)/[`--go_out`](https://developers.google.com/protocol-buffers/docs/reference/go-generated#invocation)/[`go_package`](https://developers.google.com/protocol-buffers/docs/reference/go-generated#package)/`filename`.pb.go
 1. Example
     1. *Input*: `--go_out=ccc/gen`
     1. *Input*: `go_package = "serde/bar";`
