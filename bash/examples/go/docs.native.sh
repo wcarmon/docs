@@ -49,6 +49,8 @@ fi
 killall godoc --quiet || true
 #    netstat -pant | grep -i godoc
 
+cd "$PROJ_ROOT/src" >/dev/null 2>&1
+
 echo
 echo "|-- Hosting docs on localhost:$PORT"
 
@@ -64,3 +66,7 @@ echo "|-- godoc process info:"
 #TODO: consider pgrep
 ps -ax | grep -i godoc | grep -v grep
 #killall godoc
+
+echo
+echo "|-- to terminate:"
+echo "killall godoc"

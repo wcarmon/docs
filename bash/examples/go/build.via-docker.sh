@@ -142,7 +142,7 @@ $DOCKER run \
     -ldflags=\"-X main.gitCommitHash=${GIT_COMMIT}\" \
     $CMD_PACKAGE;
 
-  GOOS=darwin  GOARCH=amd64 \
+  GOOS=darwin GOARCH=amd64 \
     go build \
     -o \"$OUTPUT_DIR/$OUTPUT_BINARY_NAME.amd64.app\" \
     -ldflags=\"-X main.gitCommitHash=${GIT_COMMIT}\" \

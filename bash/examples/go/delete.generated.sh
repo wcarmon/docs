@@ -24,4 +24,4 @@ find "$PARENT_DIR" \
   -delete
 
 echo
-echo "Successfully deleted $COUNT *.pb.go files"
+echo "|-- Successfully deleted $COUNT *.pb.go files"

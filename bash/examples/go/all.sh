@@ -23,13 +23,15 @@ readonly APP_VERSION=1.0.0
 time (
   echo
   echo "|-- [Phase: Pre-build]"
+  $SCRIPTS_DIR/delete.generated.sh
   #$SCRIPTS_DIR/generate.sh
 
   $SCRIPTS_DIR/format.native.sh
 
   echo
   echo "|-- [Phase: Build]"
-  $SCRIPTS_DIR/build.native.sh
+  #$SCRIPTS_DIR/build.protobuf.sh
+  $SCRIPTS_DIR/build.via-docker.sh
 
   echo
   echo "|-- [Phase: Verify]"
