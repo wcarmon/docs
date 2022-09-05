@@ -102,7 +102,7 @@ require google.golang.org/protobuf v1.28.1
 1. In `*.proto`, `package` uses dot, `import` uses slashes
     1. eg. `package a.b;` -> `import "a/b/foo.proto";`
     - TODO: wildcard imports
-1. `protoc` writes to: [<CWD>](https://en.wikipedia.org/wiki/Working_directory)/[`--go_out`](https://developers.google.com/protocol-buffers/docs/reference/go-generated#invocation)/[`go_package`](https://developers.google.com/protocol-buffers/docs/reference/go-generated#package)/`filename`.pb.go
+1. `protoc` writes to: [$CWD](https://en.wikipedia.org/wiki/Working_directory)/[`--go_out`](https://developers.google.com/protocol-buffers/docs/reference/go-generated#invocation)/[`go_package`](https://developers.google.com/protocol-buffers/docs/reference/go-generated#package)/`filename`.pb.go
 1. Example
     1. *Input*:
         - `--go_out=baz/gen`
