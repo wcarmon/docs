@@ -90,26 +90,27 @@ require google.golang.org/protobuf v1.28.1
 1. See [gRPC doc](./grpc.md)
 
 
-# Packages, Imports
-1. proto Package names are independent of golang package names
-1. proto package names provide a namespace (name isolation from other proto packages)
-    1. helps prevent naming conflicts
-1. proto packages are used to reference messages in other proto files
-1. package are only connected to c++ namespaces
+# Packages, Imports, Namespaces
+1. [proto package](https://developers.google.com/protocol-buffers/docs/proto3#packages) names provide a namespace (name isolation from other proto packages)
+    1. Helps prevent naming conflicts
+1. proto packages are used to reference messages in other `*.proto` files
+1. [proto package](https://developers.google.com/protocol-buffers/docs/proto3#packages) names are independent of golang package names
+1. proto package are only connected/related to [c++ namespaces](https://developers.google.com/protocol-buffers/docs/cpptutorial#defining-your-protocol-format)
     1. golang, python, java, ... packages are independent of proto packages
-1. [More info on name resolution](https://developers.google.com/protocol-buffers/docs/proto3#packages_and_name_resolution)
-1. import in `*.proto` should use slashes
+    1. python package determined [by dir structure](https://developers.google.com/protocol-buffers/docs/pythontutorial#defining-your-protocol-format)
+1. In `*.proto`, (proto) package uses dot, `import` uses slashes
     1. eg. `package a.b.c;` -> `import "a/b/c/foo.proto";`
+    - TODO: wildcard imports
 1. `protoc` writes to: [<CWD>](https://en.wikipedia.org/wiki/Working_directory)/<[`--go_out`](https://developers.google.com/protocol-buffers/docs/reference/go-generated#invocation)>/<[`go_package`](https://developers.google.com/protocol-buffers/docs/reference/go-generated#package)>/<`filename`>.pb.go
 1. Example
     1. Input: `--go_out=ccc/gen`
     1. Input: `go_package = "serde/bar";`
     1. Input: filename: `foo.proto`
-    1. Input: `package cheese.quuz;`  <-- proto package, not used for output
+    1. Input: `package cheese.quuz;`  <-- proto package, **not** used for output
     1. Output: `$CWD/ccc/gen/serde/bar/foo.pb.go`
 
 - TODO: relation to proto directories?
-- TODO: wildcard imports?
+
 
 
 # Other resources
