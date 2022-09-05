@@ -5,7 +5,7 @@
 # --
 # -- Assumptions:
 # -- 1. protoc installed:
-#       https://developers.google.com/protocol-buffers/docs/gotutorial#compiling-your-protocol-buffers
+#       - https://developers.google.com/protocol-buffers/docs/gotutorial#compiling-your-protocol-buffers
 # ---------------------------------------------
 #set -x # uncomment to debug script
 set -e # exit on first error
@@ -16,6 +16,7 @@ set -u # fail on unset var
 # -- Constants
 # ---------------------------------------------
 readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
+readonly PROTOC=$(which protoc)
 
 # ---------------------------------------------
 # -- Script arguments
@@ -66,7 +67,7 @@ cd $PARENT_DIR >/dev/null 2>&1
 echo
 echo "|-- Generating go code from proto files in $PROTO_INPUT_DIR"
 
-protoc \
+$PROTOC \
   --proto_path="${RELATIVE_PROTO_INPUT_DIR}" \
   --proto_path="${SEARCH_DIR_1}" \
   --go_out=$PROTO_OUTPUT_DIR \
