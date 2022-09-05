@@ -60,7 +60,7 @@ find $HOME -name protoc-gen-go;
 
 # Add dep to `go.mod`
 ```
-# dir with go.mod file
+# directory with go.mod file
 cd $PROJ_ROOT;
 go get google.golang.org/protobuf;
 ```
@@ -97,7 +97,7 @@ require google.golang.org/protobuf v1.28.1
 1. [proto packages](https://developers.google.com/protocol-buffers/docs/proto3#packages) reference [messages](https://developers.google.com/protocol-buffers/docs/proto3#simple) in other `*.proto` files
 1. [proto package](https://developers.google.com/protocol-buffers/docs/proto3#packages) names are independent of golang packages
     1. golang, python, java, ... packages are **independent** of proto packages
-    1. python: package determined [by dir structure](https://developers.google.com/protocol-buffers/docs/pythontutorial#defining-your-protocol-format)
+    1. python: package determined [by directory structure](https://developers.google.com/protocol-buffers/docs/pythontutorial#defining-your-protocol-format)
     1. c++: proto packages are only connected/related to [c++ namespaces](https://developers.google.com/protocol-buffers/docs/cpptutorial#defining-your-protocol-format)
 1. In `*.proto`, `package` uses dot, `import` uses slashes
     1. eg. `package a.b;` -> `import "a/b/foo.proto";`
@@ -111,10 +111,10 @@ require google.golang.org/protobuf v1.28.1
     1. `import` paths to **NOT** support wildcard import
     1. `import` paths are sensitive to directory hierarchy
 1. `protoc` writes to: [`$CWD`](https://en.wikipedia.org/wiki/Working_directory)/[`--go_out`](https://developers.google.com/protocol-buffers/docs/reference/go-generated#invocation)/[`go_package`](https://developers.google.com/protocol-buffers/docs/reference/go-generated#package)/`filename`.pb.go
-    1. `mkdir -p` on the output dir first (protoc will **NOT** create output dir)
-    1. Run `protoc` from any ancestor dir of the `*.proto` files
+    1. `mkdir -p` on the output directory first (protoc will **NOT** create output directory)
+    1. Run `protoc` from any ancestor directory of the `*.proto` files
     1. Use [`--proto_path`](https://developers.google.com/protocol-buffers/docs/proto3#generating) or [`-I`](https://developers.google.com/protocol-buffers/docs/proto3#generating) as parent of imported `*.proto` files
-    1. Each `*.proto` file must reside on a [`--proto_path`](https://developers.google.com/protocol-buffers/docs/proto3#generating) dir
+    1. Each `*.proto` file must reside on a [`--proto_path`](https://developers.google.com/protocol-buffers/docs/proto3#generating) directory
     1. Directory of `*.proto` does **NOT** affect output path
     1. proto package does **NOT** affect output path
 1. Example
