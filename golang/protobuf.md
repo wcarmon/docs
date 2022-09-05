@@ -112,10 +112,9 @@ require google.golang.org/protobuf v1.28.1
 1. [`protoc`](https://github.com/protocolbuffers/protobuf/releases):
     1. `mkdir -p` on the output directory first (protoc will **NOT** create output directory)
     1. Run `protoc` from any ancestor directory of the `*.proto` files
-    1. Add one [`--proto_path`](https://developers.google.com/protocol-buffers/docs/proto3#generating) (or [`-I`](https://developers.google.com/protocol-buffers/docs/proto3#generating)) for importing messages
-        1. Each `*.proto` file must reside at [`--proto_path`](https://developers.google.com/protocol-buffers/docs/proto3#generating)/*import-path*
-        1. $CWD/`--proto_path`/<import-path>
-        1. `--proto_path` should be relative since `protoc` cannot infer when relative paths match absolute
+    1. Add one [`--proto_path`](https://developers.google.com/protocol-buffers/docs/proto3#generating) (or [`-I`](https://developers.google.com/protocol-buffers/docs/proto3#generating)) to import a message
+        1. Each `*.proto` file must reside at $CWD/[`--proto_path`](https://developers.google.com/protocol-buffers/docs/proto3#generating)/*import-path*
+        1. `--proto_path` *should* be relative since `protoc` cannot infer equivalent relative and absolute paths
         1. `--proto_path` can safely use absolute path for external/referenced `*.protos` (not generated protos)
         1. eg. if you use relative path for `*.proto` and absolute path for `--proto_path`, `protoc` cannot understand they are the same
         1. For name resolution, `protoc` appends each `import` path to a [`--proto_path`](https://developers.google.com/protocol-buffers/docs/proto3#generating) flag (in order)
