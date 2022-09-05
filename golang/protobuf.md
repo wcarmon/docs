@@ -104,11 +104,11 @@ require google.golang.org/protobuf v1.28.1
     - TODO: wildcard imports
 1. `protoc` writes to: [<CWD>](https://en.wikipedia.org/wiki/Working_directory)/[`--go_out`](https://developers.google.com/protocol-buffers/docs/reference/go-generated#invocation)/[`go_package`](https://developers.google.com/protocol-buffers/docs/reference/go-generated#package)/`filename`.pb.go
 1. Example
-    1. *Input*: `--go_out=ccc/gen`
+    1. *Input*: `--go_out=baz/gen`
     1. *Input*: `go_package = "serde/bar";`
     1. *Input*: filename: `foo.proto`
     1. *Input*: `package cheese.quuz;`  <-- proto package, **not** used for output
-    1. *Output*: `$CWD/ccc/gen/serde/bar/foo.pb.go`
+    1. *Output*: `$CWD/baz/gen/serde/bar/foo.pb.go`
 
 - TODO: relation to proto directories?
 
