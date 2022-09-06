@@ -26,10 +26,12 @@ readonly WIRE=$(which wire)
 # ---------------------------------------------
 # -- Config
 # ---------------------------------------------
-# NOTE: all paths relative to $PROJ_ROOT
+# Relative to dir containing go.mod file
+readonly CMD_PACKAGE=./cmd/run-server
 
-readonly CMD_PACKAGE=./src/cmd/run-server
 readonly OUTPUT_BINARY_NAME=foo-service
+
+# Relative to $PROJ_ROOT
 readonly RELATIVE_OUTPUT_DIR="bin"
 
 # ---------------------------------------------
@@ -68,7 +70,6 @@ $WIRE ./...
 
 echo
 echo "|-- Cross compiling go code for $CMD_PACKAGE"
-cd "$PROJ_ROOT" >/dev/null 2>&1
 
 GOOS=linux GOARCH=amd64 \
   $GO build \
