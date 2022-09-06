@@ -92,6 +92,7 @@ echo
 echo "|-- [Debian] Cross compiling.  sources: $PROJ_ROOT"
 
 # NOTE: if you have dependency protos, mount the dir volume here
+# NOTE: if you have a custom certificate, mount the volume here (/usr/local/share/ca-certificates/foo.crt)
 $DOCKER run \
   --rm \
   -v "${ABSOLUTE_OUTPUT_DIR}":/output:rw \
