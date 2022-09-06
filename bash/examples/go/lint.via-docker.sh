@@ -79,7 +79,7 @@ $DOCKER run \
   -v "${PROJ_ROOT}/src":/app:ro \
   --workdir /app \
   $GOLANGCI_IMAGE \
-  /bin/bash -c "
+  /bin/ash -c "
     update-ca-certificates;
 
     golangci-lint run ./... \
