@@ -31,7 +31,7 @@ RUN go build -o /app/app.bin -v /app/src/cmd/run-service/...
 # ---------------------------------------------
 # -- Deploy stage
 # ---------------------------------------------
-FROM alpine:latest
+FROM alpine:3
 #LABEL Foo=bar Version=1.0.0
 
 WORKDIR /app
