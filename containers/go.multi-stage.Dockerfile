@@ -1,10 +1,5 @@
 # syntax=docker/dockerfile:1
 
-# Alternative:
-# 1. erase Build stage
-# 2. run scripts/build.via-docker.sh to build the binary
-# 3. copy the binary to the container in Deploy stage
-
 # ---------------------------------------------
 # -- Build stage
 # ---------------------------------------------
