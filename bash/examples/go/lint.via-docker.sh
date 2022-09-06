@@ -72,16 +72,21 @@ SEMGREP_EXAMPLE
 
 echo
 echo "|-- Running golangci-lint ..."
+# NOTE: Mount volume for cert here
 $DOCKER run \
   --rm \
   -v "${PROJ_ROOT}/src":/app:ro \
   --workdir /app \
   $GOLANGCI_IMAGE \
-  golangci-lint run ./... \
-  --color auto \
-  --concurrency 6 \
-  --max-same-issues 5 \
-  --print-linter-name \
-  --sort-results \
-  --tests true \
-  --timeout 1m30s
+    /bin/bash -c "
+    update-ca-certificates;
+
+    golangci-lint run ./... \
+    --color auto \
+    --concurrency 6 \
+    --max-same-issues 5 \
+    --print-linter-name \
+    --sort-results \
+    --tests true \
+    --timeout 1m30s
+  "
