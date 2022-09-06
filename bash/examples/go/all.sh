@@ -24,11 +24,11 @@ time (
   echo
   echo "|-- [Phase: Pre-build]"
   $SCRIPTS_DIR/delete.generated.sh
-#  $SCRIPTS_DIR/generate.sh
-#  $SCRIPTS_DIR/build.protobuf.sh
+  #  $SCRIPTS_DIR/generate.sh
+  #  $SCRIPTS_DIR/build.protobuf.sh
 
   $SCRIPTS_DIR/format.native.sh
-#  $SCRIPTS_DIR/fix-imports.native.sh
+  #  $SCRIPTS_DIR/fix-imports.native.sh
 
   echo
   echo "|-- [Phase: Build]"

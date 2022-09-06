@@ -9,7 +9,6 @@
 # -- 3. awscli (or equivalent) is installed
 # -- 4. Previously ran `aws configure`
 # -- 5. Previously created an image repo (eg. on ECR)
-# --
 # ---------------------------------------------
 #set -x # uncomment to debug script
 set -e # exit on first error
@@ -68,7 +67,7 @@ aws \
     ${IMAGE_REPO_URI}
 
 echo
-echo "|-- "
+echo "|-- Available images:"
 $DOCKER image ls -a | grep ${REPOSITORY_NAME} | sort
 
 # ---------------------------------------------
