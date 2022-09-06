@@ -1,4 +1,6 @@
-!src
+!bin/
+!src/
+#**/bin
 **/*.*proj.user
 **/*.class
 **/*.dbmdl
@@ -16,7 +18,6 @@
 **/.toolstarget
 **/.vs
 **/.vscode
-**/bin
 **/charts
 **/compose*
 **/docker-compose*
