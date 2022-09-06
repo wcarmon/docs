@@ -33,3 +33,14 @@ readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
 # ---------------------------------------------
 # $PROJ_ROOT/src/go.mod file must exist
 readonly PROJ_ROOT="$PARENT_DIR"
+
+# ---------------------------------------------
+# -- Validate
+# ---------------------------------------------
+
+# ---------------------------------------------
+# -- Fix
+# ---------------------------------------------
+echo
+echo "|-- Fixing imports in code in ${PROJ_ROOT}/src"
+$GOIMPORTS -w "${PROJ_ROOT}/src"
