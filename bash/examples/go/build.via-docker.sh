@@ -43,7 +43,7 @@ readonly CMD_PACKAGE=./cmd/run-server/...
 
 readonly OUTPUT_BINARY_NAME=foo-server
 readonly RELATIVE_OUTPUT_DIR="bin"
-#readonly CERT_FILE=${PROJ_ROOT}/foo.crt
+#readonly CERT_FILE="${PROJ_ROOT}/foo.crt"
 
 # Ideally something that exists in both debian and alpine
 # TODO: alpine uses different group id for www-data, use an id instead of name

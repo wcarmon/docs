@@ -52,6 +52,7 @@ $DOCKER run \
   --workdir /usr/src/myapp \
   $GOLANG_DEBIAN_IMAGE \
   /bin/bash -c "
+    # update-ca-certificates;
     go test ./...
     #go test -short ./...
   "
