@@ -30,7 +30,7 @@ readonly WIRE=$(which wire)
 
 readonly CMD_PACKAGE=./src/cmd/run-server
 readonly OUTPUT_BINARY_NAME=foo-service
-readonly OUTPUT_DIR="bin"
+readonly RELATIVE_OUTPUT_DIR="bin"
 
 # ---------------------------------------------
 # -- Derived
@@ -44,6 +44,9 @@ readonly GIT_COMMIT=$(
   #git rev-parse HEAD
 )
 
+mkdir -p $PROJ_ROOT/$RELATIVE_OUTPUT_DIR
+readonly ABSOLUTE_OUTPUT_DIR=$(readlink -f "$PROJ_ROOT/$RELATIVE_OUTPUT_DIR")
+
 # ---------------------------------------------
 # -- Validate
 # ---------------------------------------------
@@ -51,7 +54,7 @@ readonly GIT_COMMIT=$(
 # ---------------------------------------------
 # -- Build
 # ---------------------------------------------
-mkdir -p "$PROJ_ROOT/$OUTPUT_DIR"
+mkdir -p $ABSOLUTE_OUTPUT_DIR
 
 cd "$PROJ_ROOT/src" >/dev/null 2>&1
 $GO mod tidy
@@ -69,19 +72,19 @@ cd "$PROJ_ROOT" >/dev/null 2>&1
 
 GOOS=linux GOARCH=amd64 \
   $GO build \
-  -o "$OUTPUT_DIR/$OUTPUT_BINARY_NAME.amd64.bin" \
+  -o "$ABSOLUTE_OUTPUT_DIR/$OUTPUT_BINARY_NAME.amd64.bin" \
   -ldflags="-X main.gitCommitHash=${GIT_COMMIT}" \
   $CMD_PACKAGE
 
 GOOS=darwin GOARCH=amd64 \
   $GO build \
-  -o "$OUTPUT_DIR/$OUTPUT_BINARY_NAME.amd64.app" \
+  -o "$ABSOLUTE_OUTPUT_DIR/$OUTPUT_BINARY_NAME.amd64.app" \
   -ldflags="-X main.gitCommitHash=${GIT_COMMIT}" \
   $CMD_PACKAGE
 
 GOOS=windows GOARCH=amd64 \
   $GO build \
-  -o "$OUTPUT_DIR/$OUTPUT_BINARY_NAME.amd64.exe" \
+  -o "$ABSOLUTE_OUTPUT_DIR/$OUTPUT_BINARY_NAME.amd64.exe" \
   -ldflags="-X main.gitCommitHash=${GIT_COMMIT}" \
   $CMD_PACKAGE
 
@@ -92,5 +95,5 @@ GOOS=windows GOARCH=amd64 \
 # -- Report
 # ---------------------------------------------
 echo
-echo "|-- See binaries in $PROJ_ROOT/$OUTPUT_DIR"
-ls -hlt "$PROJ_ROOT/$OUTPUT_DIR"
+echo "|-- See binaries in $ABSOLUTE_OUTPUT_DIR"
+ls -hlt $ABSOLUTE_OUTPUT_DIR
