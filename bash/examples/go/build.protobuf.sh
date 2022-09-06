@@ -38,12 +38,12 @@ readonly RELATIVE_PROTO_INPUT_DIR=proto
 # Root output dir for generated *.pb.go files containing "message"
 # Use a dir under the dir containing go.mod file
 # "option go_package" is appended to this path, unless --go_opt=paths=source_relative
-readonly PROTO_OUTPUT_DIR="${PARENT_DIR}/src/serde/pb"
+readonly PROTO_OUTPUT_DIR="${PARENT_DIR}/src/grpc/foo/api"
 
 # Root output dir for generated *.pb.go files containing "rpc"
 # Use a dir under the dir containing go.mod file
 # "option go_package" is appended to this path, unless --go-grpc_opt=paths=source_relative
-readonly GRPC_OUTPUT_DIR="${PARENT_DIR}/src/grpc/foo"
+readonly GRPC_OUTPUT_DIR="${PARENT_DIR}/src/grpc/foo/api"
 
 # Paths containing *.proto files
 # For resolving imports in other *.proto files
