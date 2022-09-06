@@ -35,6 +35,8 @@ readonly GOLANG_DEBIAN_IMAGE=golang:1.19.0-bullseye
 # $PROJ_ROOT/src/go.mod file must exist
 readonly PROJ_ROOT="$PARENT_DIR"
 
+readonly CERT_FILE="${PROJ_ROOT}/foo.crt"
+
 # ---------------------------------------------
 # -- Validate
 # ---------------------------------------------
