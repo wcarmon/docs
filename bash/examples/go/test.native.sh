@@ -41,10 +41,10 @@ readonly PROJ_ROOT="$PARENT_DIR"
 # -- Test
 # ---------------------------------------------
 cd "$PROJ_ROOT/src" >/dev/null 2>&1
-$GO mod tidy
+#$GO mod tidy
 
 echo
-echo "|-- Testing code in $PROJ_ROOT"
+echo "|-- Running tests in ${PROJ_ROOT}/src"
 
 #$GO test -short ./...
 $GO test ./...

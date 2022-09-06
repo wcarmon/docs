@@ -27,7 +27,7 @@ readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
 # NOTE: all paths relative to $PROJ_ROOT
 
 # See https://hub.docker.com/_/golang?tab=tags
-readonly GOLANG_IMAGE=golang:1.19.0-bullseye
+readonly GOLANG_DEBIAN_IMAGE=golang:1.19.0-bullseye
 
 # ---------------------------------------------
 # -- Derived
@@ -45,12 +45,16 @@ readonly PROJ_ROOT="$PARENT_DIR"
 echo
 echo "|-- Running tests in ${PROJ_ROOT}/src"
 
+# NOTE: if you have dependency protos, mount the dir volume here
 $DOCKER run \
   --rm \
-  -v "${PROJ_ROOT}/src":/usr/src/myapp \
+  -v "${PROJ_ROOT}/src":/usr/src/myapp:ro \
   --workdir /usr/src/myapp \
-  $GOLANG_IMAGE \
-  go test ./...
+  $GOLANG_DEBIAN_IMAGE \
+  /bin/bash -c "
+    go test ./...
+    #go test -short ./...
+  "
 
 <<'EXAMPLE_WITH_CERT'
   readonly CERT_FILE=my.crt
