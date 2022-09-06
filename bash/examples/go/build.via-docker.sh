@@ -46,6 +46,7 @@ readonly RELATIVE_OUTPUT_DIR="bin"
 #readonly CERT_FILE=...
 
 # Ideally something that exists in both debian and alpine
+# TODO: alpine uses different group id for www-data, use an id instead of name
 readonly GROUP_NAME_FOR_BINARY="www-data"
 
 # ---------------------------------------------
@@ -190,7 +191,7 @@ $DOCKER run \
 # ---------------------------------------------
 echo
 echo "|-- Successfully built.  See binaries in $ABSOLUTE_OUTPUT_DIR"
-ls -hlt "$ABSOLUTE_OUTPUT_DIR/${OUTPUT_BINARY_NAME}*"
+ls -hlt $ABSOLUTE_OUTPUT_DIR/"${OUTPUT_BINARY_NAME}"*
 
 <<'EXAMPLE_WITH_CERT'
   readonly CERT_FILE=my.crt
