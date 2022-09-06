@@ -14,10 +14,6 @@ set -u # fail on unset var
 # ---------------------------------------------
 # -- Constants
 # ---------------------------------------------
-readonly CURRENT_USER=$(whoami)
-readonly CURRENT_USER_ID=$UID
-#readonly CURRENT_USER_ID=$(id -u $(whoami))
-
 readonly DOCKER=$(which docker)
 readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
 
@@ -43,10 +39,6 @@ readonly CMD_PACKAGE=./cmd/run-server/...
 
 readonly OUTPUT_BINARY_NAME=foo-server
 readonly RELATIVE_OUTPUT_DIR="bin"
-
-# Ideally something that exists in both debian and alpine
-# TODO: alpine uses different group id for www-data, use an id instead of name
-readonly GROUP_NAME_FOR_BINARY="www-data"
 
 # ---------------------------------------------
 # -- Derived
@@ -74,9 +66,9 @@ readonly ABSOLUTE_OUTPUT_DIR=$(readlink -f "$PROJ_ROOT/$RELATIVE_OUTPUT_DIR")
 # ---------------------------------------------
 echo
 echo "|-- Clearing old binaries in $ABSOLUTE_OUTPUT_DIR"
-rm -vf "$ABSOLUTE_OUTPUT_DIR/${OUTPUT_BINARY_NAME}*.bin"
-rm -vf "$ABSOLUTE_OUTPUT_DIR/${OUTPUT_BINARY_NAME}*.app"
-rm -vf "$ABSOLUTE_OUTPUT_DIR/${OUTPUT_BINARY_NAME}*.exe"
+rm -vf $ABSOLUTE_OUTPUT_DIR/${OUTPUT_BINARY_NAME}*.bin
+rm -vf $ABSOLUTE_OUTPUT_DIR/${OUTPUT_BINARY_NAME}*.app
+rm -vf $ABSOLUTE_OUTPUT_DIR/${OUTPUT_BINARY_NAME}*.exe
 
 # ---------------------------------------------
 # -- Build
@@ -140,16 +132,14 @@ $DOCKER run \
     $CMD_PACKAGE;
 
   # -- Fix ownership on output
-  chown -v $CURRENT_USER_ID:$GROUP_NAME_FOR_BINARY /output/${OUTPUT_BINARY_NAME}*.bin
-  #chown -v $CURRENT_USER_ID:$GROUP_NAME_FOR_BINARY /output/${OUTPUT_BINARY_NAME}*.app
-  #chown -v $CURRENT_USER_ID:$GROUP_NAME_FOR_BINARY /output/${OUTPUT_BINARY_NAME}*.exe
+  chmod -v 777 /output/${OUTPUT_BINARY_NAME}*
   "
 
 # ---------------------------------------------
 # -- Build for Alpine
 # ---------------------------------------------
 # NOTE: if you have dependency protos, mount the dir volume here
-# TODO: mount volume for cert if required
+# NOTE: mount volume for cert if required
 $DOCKER run \
   --rm \
   -v "${ABSOLUTE_OUTPUT_DIR}":/output:rw \
@@ -161,8 +151,7 @@ $DOCKER run \
   set -u
   #set -x
 
-  # TODO: update certs here
-  # something like `update-ca-certificates`
+  #update-ca-certificates
 
   # -- get gcc for alpine
   echo
@@ -190,7 +179,7 @@ $DOCKER run \
     $CMD_PACKAGE;
 
   # -- Fix ownership on output
-  chown -v $CURRENT_USER_ID:$GROUP_NAME_FOR_BINARY /output/${OUTPUT_BINARY_NAME}*.alpine.bin
+  chmod -v 777 /output/${OUTPUT_BINARY_NAME}*.alpine.bin
   "
 
 # NOTE: list architectures:
