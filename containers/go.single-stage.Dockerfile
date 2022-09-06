@@ -1,14 +1,13 @@
 # syntax=docker/dockerfile:1
 
-# Assumption:
-# 1. Prior to this, Run scripts/build.via-docker.sh to build the binary
+# Assumptions:
+# 1. Prior to this, Run ./scripts/build.via-docker.sh to build the binary
 # 2. Copy the binary to the container in Deploy stage
 
 # ---------------------------------------------
 # -- Deploy stage
 # ---------------------------------------------
-FROM alpine:latest
-#LABEL Foo=bar Version=1.0.0
+FROM alpine:3
 
 WORKDIR /app
 EXPOSE 3000
@@ -20,8 +19,9 @@ RUN update-ca-certificates && \
     apk --no-cache add ca-certificates
 
 # -- Copy binary & config
-COPY --from=builder /app/app.bin /app/app.bin
-COPY --from=builder /app/src/app.config.toml /app/app.config.toml
+# TODO: replace foo with your binary name
+COPY bin/foo.amd64.alpine.bin /app/app.bin
+COPY app.config.toml /app/app.config.toml
 
 # -- Make non-root user
 RUN addgroup -g 1001 gopher && \
