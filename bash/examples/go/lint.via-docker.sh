@@ -73,12 +73,13 @@ SEMGREP_EXAMPLE
 echo
 echo "|-- Running golangci-lint ..."
 # NOTE: Mount volume for cert here
+# eg. -v "${CERT_FILE}":"/usr/local/share/ca-certificates/extra.crt":ro \
 $DOCKER run \
   --rm \
   -v "${PROJ_ROOT}/src":/app:ro \
   --workdir /app \
   $GOLANGCI_IMAGE \
-    /bin/bash -c "
+  /bin/bash -c "
     update-ca-certificates;
 
     golangci-lint run ./... \
