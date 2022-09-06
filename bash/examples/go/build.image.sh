@@ -40,7 +40,7 @@ readonly PROJ_ROOT="$PARENT_DIR"
 # ---------------------------------------------
 # -- Derived
 # ---------------------------------------------
-readonly QUALIFIED_REPOSITORY_NAME=${IMAGE_REPO_URI}/${REPOSITORY_NAME}
+readonly QUALIFIED_REPOSITORY_NAME="${IMAGE_REPO_URI}/${REPOSITORY_NAME}"
 readonly TAG_LATEST="latest-${APP_NAME}"
 readonly TAG_NUMBERED="${VERSION}-${APP_NAME}"
 
