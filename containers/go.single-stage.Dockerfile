@@ -13,13 +13,13 @@ WORKDIR /app
 EXPOSE 3000
 
 ## If you need extra certs, do that here
-#COPY --from=builder /usr/sbin/update-ca-certificates /usr/sbin/update-ca-certificates
+#COPY foo.crt /usr/local/share/ca-certificates/z.crt
 
-RUN update-ca-certificates && \
-    apk --no-cache add ca-certificates
+RUN cat /usr/local/share/ca-certificates/z.crt >> /etc/ssl/certs/ca-certificates.crt && \
+    apk --no-cache add curl
 
 # -- Copy binary & config
-# TODO: replace foo with your binary name
+# TODO: replace "foo" with your binary name
 COPY bin/foo.amd64.alpine.bin /app/app.bin
 COPY app.config.toml /app/app.config.toml
 
