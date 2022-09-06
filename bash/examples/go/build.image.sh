@@ -39,7 +39,7 @@ readonly PROJ_ROOT="$PARENT_DIR"
 # ---------------------------------------------
 # -- Derived
 # ---------------------------------------------
-readonly QUALIFIED_REPOSITORY_NAME=myorg/${REPOSITORY_NAME}/${APP_NAME}
+readonly QUALIFIED_REPOSITORY_NAME=${IMAGE_REPO_URI}/${REPOSITORY_NAME}/${APP_NAME}
 
 # ---------------------------------------------
 # -- Validate
