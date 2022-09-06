@@ -20,8 +20,9 @@ readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
 # ---------------------------------------------
 # -- Script arguments
 # ---------------------------------------------
-# Format: https://docs.docker.com/engine/reference/commandline/tag/#description
-readonly TAG=$1
+# semver: https://semver.org/
+# eg. "1.2.3" or "4.5"
+readonly VERSION=$1
 
 # ---------------------------------------------
 # -- Config
@@ -39,7 +40,9 @@ readonly PROJ_ROOT="$PARENT_DIR"
 # ---------------------------------------------
 # -- Derived
 # ---------------------------------------------
-readonly QUALIFIED_REPOSITORY_NAME=${IMAGE_REPO_URI}/${REPOSITORY_NAME}/${APP_NAME}
+readonly QUALIFIED_REPOSITORY_NAME=${IMAGE_REPO_URI}/${REPOSITORY_NAME}
+readonly TAG_LATEST="latest-${APP_NAME}"
+readonly TAG_NUMBERED="${VERSION}-${APP_NAME}"
 
 # ---------------------------------------------
 # -- Validate
@@ -57,9 +60,8 @@ echo
 echo "|-- Building & tagging docker image ..."
 $DOCKER build \
   --file ${DOCKERFILE} \
-  --tag "${QUALIFIED_REPOSITORY_NAME}:${TAG}" \
-  --tag "${QUALIFIED_REPOSITORY_NAME}:latest" \
-  --tag "${REPOSITORY_NAME}/${APP_NAME}:latest" \
+  --tag "${QUALIFIED_REPOSITORY_NAME}:${TAG_LATEST}" \
+  --tag "${QUALIFIED_REPOSITORY_NAME}:${TAG_NUMBERED}" \
   .
 
 # ---------------------------------------------

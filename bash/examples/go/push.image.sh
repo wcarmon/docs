@@ -24,10 +24,8 @@ readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
 # ---------------------------------------------
 # -- Script arguments
 # ---------------------------------------------
-# alphanumeric, dot, dash
-# eg. "1.0.0"
-# eg. "1.0.1-hotfix"
-# eg. "1.2.3-debug"
+# semver: https://semver.org/
+# eg. "1.2.3" or "4.5"
 readonly VERSION=$1
 
 # ---------------------------------------------
@@ -43,8 +41,9 @@ readonly REPOSITORY_NAME="company/example"
 # ---------------------------------------------
 # -- Derived
 # ---------------------------------------------
-# format: https://docs.docker.com/engine/reference/commandline/tag/#description
-readonly TAG=${VERSION}-${APP_NAME}
+readonly QUALIFIED_REPOSITORY_NAME=${IMAGE_REPO_URI}/${REPOSITORY_NAME}
+readonly TAG_LATEST="latest-${APP_NAME}"
+readonly TAG_NUMBERED="${VERSION}-${APP_NAME}"
 
 # ---------------------------------------------
 # -- Validate
@@ -66,19 +65,21 @@ aws \
     --password-stdin \
     ${IMAGE_REPO_URI}
 
-echo
-echo "|-- Available images:"
-$DOCKER image ls -a | grep ${REPOSITORY_NAME} | sort
-
 # ---------------------------------------------
 # -- Push
 # ---------------------------------------------
 echo
+echo "|-- Available images:"
+$DOCKER image ls -a | grep ${REPOSITORY_NAME} | sort
+
+echo
 echo "|-- Pushing image to AWS ECR"
-$DOCKER push ${IMAGE_REPO_URI}/${REPOSITORY_NAME}:${TAG}
+$DOCKER push ${QUALIFIED_REPOSITORY_NAME}/${TAG_NUMBERED}
+#$DOCKER push ${QUALIFIED_REPOSITORY_NAME}/${TAG_LATEST}
 
 # Cleanup
-$DOCKER rmi ${REPOSITORY_NAME}:${TAG}
+#$DOCKER rmi ${QUALIFIED_REPOSITORY_NAME}/${TAG_NUMBERED}
+#$DOCKER rmi ${QUALIFIED_REPOSITORY_NAME}/${TAG_LATEST}
 
 # ---------------------------------------------
 # -- Logout
