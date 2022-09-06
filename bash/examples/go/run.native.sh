@@ -27,13 +27,13 @@ readonly SCRIPTS_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")")
 # ---------------------------------------------
 # NOTE: all paths relative to $PROJ_ROOT
 
-readonly CMD_PACKAGE=./src/cmd/run-service/...
+readonly CMD_PACKAGE=./src/cmd/run-server/...
 readonly CONFIG_FILE=./app.config.toml
 
 # ---------------------------------------------
 # -- Derived
 # ---------------------------------------------
-# $PROJ_ROOT/src/go.mod file should exist
+# $PROJ_ROOT/src/go.mod file must exist
 readonly PROJ_ROOT="$PARENT_DIR"
 
 # ---------------------------------------------

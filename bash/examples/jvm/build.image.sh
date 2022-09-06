@@ -6,20 +6,16 @@
 # -- Assumptions:
 # -- 1. Docker installed: https://docs.docker.com/get-docker/
 # ---------------------------------------------
-
-#set -x # trace commands
-set -e  # exit on first error
+#set -x # uncomment to debug script
+set -e # exit on first error
 set -o pipefail
-set -u  # fail on unset var
-
+set -u # fail on unset var
 
 # ---------------------------------------------
 # -- Constants
 # ---------------------------------------------
 readonly DOCKER_BINARY=$(which docker)
 readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
-
-
 
 # ---------------------------------------------
 # -- Script arguments
@@ -39,7 +35,6 @@ readonly REPOSITORY_NAME=my-github-project
 
 # Dir contains Dockerfile
 readonly PROJ_ROOT="$PARENT_DIR"
-
 
 # ---------------------------------------------
 # -- Derived
@@ -62,7 +57,7 @@ echo "|-- Latest commit: $(git log -1 --format='%H at %ci')"
 echo
 echo "|-- Building docker image ..."
 $DOCKER_BINARY build \
-  --file ${DOCKERFILE}\
+  --file ${DOCKERFILE} \
   --tag "${QUALIFIED_REPOSITORY_NAME}:${TAG}" \
   --tag "${QUALIFIED_REPOSITORY_NAME}:latest" \
   .
@@ -71,7 +66,6 @@ echo
 echo "|-- Tagging docker image for Remote image repo ..."
 $DOCKER_BINARY tag "${QUALIFIED_REPOSITORY_NAME}:${TAG}" "${IMAGE_REPO_URI}/${QUALIFIED_REPOSITORY_NAME}:${TAG}"
 $DOCKER_BINARY tag "${QUALIFIED_REPOSITORY_NAME}:latest" "${IMAGE_REPO_URI}/${QUALIFIED_REPOSITORY_NAME}:latest"
-
 
 # ---------------------------------------------
 # -- Verify

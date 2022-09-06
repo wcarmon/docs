@@ -3,7 +3,6 @@
 # ---------------------------------------------
 # -- Runs static analysis via gradle
 # ---------------------------------------------
-
 #set -x # uncomment to debug script
 set -e
 set -o pipefail

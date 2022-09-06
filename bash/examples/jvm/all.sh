@@ -1,18 +1,33 @@
 #!/bin/bash
 
 # ---------------------------------------------
-# -- Aggregator example
+# -- Aggregator
 # ---------------------------------------------
-
-set -e
+set -e # exit on first error
 set -o pipefail
-set -u
+set -u # fail on unset var
 
+# ---------------------------------------------
+# -- Constants
+# ---------------------------------------------
 readonly SCRIPTS_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")")
 
-#$SCRIPTS_DIR/generate.sh
+# ---------------------------------------------
+# -- Config
+# ---------------------------------------------
+readonly APP_VERSION=1.0.0
 
-$SCRIPTS_DIR/format.native.sh
-$SCRIPTS_DIR/build.native.sh
-$SCRIPTS_DIR/test.native.sh
-$SCRIPTS_DIR/lint.native.sh
+# ---------------------------------------------
+# -- Sub-scripts
+# ---------------------------------------------
+time (
+  #$SCRIPTS_DIR/generate.sh
+
+  $SCRIPTS_DIR/format.native.sh
+
+  $SCRIPTS_DIR/build.native.sh
+
+  $SCRIPTS_DIR/test.native.sh
+
+  $SCRIPTS_DIR/lint.native.sh
+)

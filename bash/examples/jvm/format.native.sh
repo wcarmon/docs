@@ -3,7 +3,6 @@
 # ---------------------------------------------
 # -- Auto format the java files
 # ---------------------------------------------
-
 #set -x # trace commands
 set -e # exit on first error
 set -o pipefail

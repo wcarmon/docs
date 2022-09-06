@@ -35,16 +35,16 @@ readonly GOLANG_ALPINE_IMAGE=golang:1.19.0-alpine3.16
 readonly GOLANG_DEBIAN_IMAGE=golang:1.19.0-bullseye
 
 # GOTCHA: Leading dot is important
-readonly CMD_PACKAGE=./cmd/run-service/...
+readonly CMD_PACKAGE=./cmd/run-server/...
 
-readonly OUTPUT_BINARY_NAME=foo-service
+readonly OUTPUT_BINARY_NAME=foo-server
 readonly OUTPUT_DIR="bin"
 #readonly CERT_FILE=...
 
 # ---------------------------------------------
 # -- Derived
 # ---------------------------------------------
-# $PROJ_ROOT/src/go.mod file should exist
+# $PROJ_ROOT/src/go.mod file must exist
 readonly PROJ_ROOT="$PARENT_DIR"
 
 readonly GIT_COMMIT=$(
@@ -62,57 +62,15 @@ readonly GIT_COMMIT=$(
 # ---------------------------------------------
 mkdir -p "$PROJ_ROOT/$OUTPUT_DIR"
 
-# ---------------------------------------------
-# -- Build for Alpine
-# ---------------------------------------------
-echo
-echo "|-- Building binary for Alpine based container image"
-
-$DOCKER run \
-  --rm \
-  -v "${PROJ_ROOT}/src":/usr/src/myapp \
-  --workdir /usr/src/myapp \
-  $GOLANG_ALPINE_IMAGE \
-  /bin/ash -c "
-  set -e
-  set -u
-  #set -x
-
-  # -- get gcc for alpine
-  echo
-  echo '|-- [Alpine] Installing build tools'
-  apk add build-base
-
-  echo
-  echo '|-- [Alpine] Downloading dependencies ...'
-  go mod download;
-  go mod tidy;
-  go install github.com/google/wire/cmd/wire@latest;
-
-  echo
-  echo '|-- [Alpine] Running wire ...'
-  wire ./...
-
-  echo
-  echo '|-- [Alpine] Compiling ...'
-
-  GOOS=linux GOARCH=amd64 \
-    go build \
-    -o \"$OUTPUT_DIR/$OUTPUT_BINARY_NAME.amd64.alpine.bin\" \
-    -ldflags=\"-X main.gitCommitHash=${GIT_COMMIT}\" \
-    $CMD_PACKAGE;
-  "
-
-echo
-echo '|-- [Alpine] Successfully built binary:'
-ls -hlt $PROJ_ROOT/$OUTPUT_DIR/*.alpine.bin
+cd "$PROJ_ROOT" >/dev/null 2>&1
 
 # ---------------------------------------------
-# -- Build for everything else
+# -- Build for everything except Alpine
 # ---------------------------------------------
 echo
 echo "|-- Cross compiling via Debian.  sources: $PROJ_ROOT"
 
+# NOTE: if you have dependency protos, mount the dir volume here
 $DOCKER run \
   --rm \
   -v "${PROJ_ROOT}/src":/usr/src/myapp \
@@ -154,6 +112,54 @@ $DOCKER run \
     -ldflags=\"-X main.gitCommitHash=${GIT_COMMIT}\" \
     $CMD_PACKAGE;
   "
+
+# ---------------------------------------------
+# -- Build for Alpine
+# ---------------------------------------------
+echo
+echo "|-- Building binary for Alpine based container image"
+
+# NOTE: if you have dependency protos, mount the dir volume here
+$DOCKER run \
+  --rm \
+  -v "${PROJ_ROOT}/src":/usr/src/myapp \
+  --workdir /usr/src/myapp \
+  $GOLANG_ALPINE_IMAGE \
+  /bin/ash -c "
+  set -e
+  set -u
+  #set -x
+
+  # -- get gcc for alpine
+  echo
+  echo '|-- [Alpine] Installing build tools'
+  apk add build-base
+
+  echo
+  echo '|-- [Alpine] Downloading dependencies ...'
+
+  go mod download;
+  go mod tidy;
+  go install github.com/google/wire/cmd/wire@latest;
+
+  echo
+  echo '|-- [Alpine] Running wire ...'
+  wire ./...
+
+  echo
+  echo '|-- [Alpine] Compiling ...'
+
+  GOOS=linux GOARCH=amd64 \
+    go build \
+    -o \"$OUTPUT_DIR/$OUTPUT_BINARY_NAME.amd64.alpine.bin\" \
+    -ldflags=\"-X main.gitCommitHash=${GIT_COMMIT}\" \
+    $CMD_PACKAGE;
+  "
+
+echo
+echo '|-- [Alpine] Successfully built binary:'
+ls -hlt $PROJ_ROOT/$OUTPUT_DIR/*.alpine.bin
+
 
 # NOTE: list architectures:
 #   $GO tool dist list;

@@ -7,11 +7,10 @@
 # -- 1. (graal) native-image is installed:
 # --    https://www.graalvm.org/22.1/reference-manual/native-image/#install-native-image
 # ---------------------------------------------
-
 #set -x # trace commands
-set -e  # exit on first error
+set -e # exit on first error
 set -o pipefail
-set -u  # fail on unset var
+set -u # fail on unset var
 
 # ---------------------------------------------
 # -- Constants
@@ -39,7 +38,6 @@ readonly PROJ_ROOT="$PARENT_DIR"
 # NOTE: to get project name: (might not match the jar name)
 # ./gradlew properties -q | grep name
 readonly JAR_FILE=$PROJ_ROOT/build/libs/foo.1.0.0.jar
-
 
 # ---------------------------------------------
 # -- Validate

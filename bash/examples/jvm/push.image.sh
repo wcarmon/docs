@@ -11,7 +11,6 @@
 # -- 5. Previously created an image repo (eg. on ECR)
 # --
 # ---------------------------------------------
-
 #set -x # uncomment to debug script
 set -e
 set -o pipefail
@@ -48,7 +47,6 @@ readonly REPOSITORY_NAME="company/example"
 # format: https://docs.docker.com/engine/reference/commandline/tag/#description
 readonly TAG=${VERSION}-${APP_NAME}
 
-
 # ---------------------------------------------
 # -- Validate
 # ---------------------------------------------
@@ -82,7 +80,6 @@ $DOCKER_BINARY push ${IMAGE_REPO_URI}/${REPOSITORY_NAME}:${TAG}
 
 # Cleanup
 $DOCKER_BINARY rmi ${REPOSITORY_NAME}:${TAG}
-
 
 # ---------------------------------------------
 # -- Logout

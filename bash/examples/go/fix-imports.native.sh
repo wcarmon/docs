@@ -1,10 +1,12 @@
 #!/bin/bash
 
 # ---------------------------------------------
-# -- Runs tests via local go sdk
+# -- Auto fix imports
+# -- eg. remove unused, add missing
 # --
 # -- Assumptions:
-# -- 1. Go SDK installed: https://go.dev/doc/install
+# -- 1. goimports is on your PATH: https://pkg.go.dev/golang.org/x/tools/cmd/goimports
+# --    go install golang.org/x/tools/cmd/goimports@latest
 # ---------------------------------------------
 #set -x # uncomment to debug script
 set -e # exit on first error
@@ -14,9 +16,8 @@ set -u # fail on unset var
 # ---------------------------------------------
 # -- Constants
 # ---------------------------------------------
-readonly GO=$(which go)
+readonly GOIMPORTS=$(which goimports)
 readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
-readonly SCRIPTS_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")")
 
 # ---------------------------------------------
 # -- Script arguments
@@ -32,19 +33,3 @@ readonly SCRIPTS_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")")
 # ---------------------------------------------
 # $PROJ_ROOT/src/go.mod file must exist
 readonly PROJ_ROOT="$PARENT_DIR"
-
-# ---------------------------------------------
-# -- Validate
-# ---------------------------------------------
-
-# ---------------------------------------------
-# -- Test
-# ---------------------------------------------
-cd "$PROJ_ROOT/src" >/dev/null 2>&1
-$GO mod tidy
-
-echo
-echo "|-- Testing code in $PROJ_ROOT"
-
-#$GO test -short ./...
-$GO test ./...

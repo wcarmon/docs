@@ -28,14 +28,14 @@ readonly WIRE=$(which wire)
 # ---------------------------------------------
 # NOTE: all paths relative to $PROJ_ROOT
 
-readonly CMD_PACKAGE=./src/cmd/run-service
+readonly CMD_PACKAGE=./src/cmd/run-server
 readonly OUTPUT_BINARY_NAME=foo-service
 readonly OUTPUT_DIR="bin"
 
 # ---------------------------------------------
 # -- Derived
 # ---------------------------------------------
-# $PROJ_ROOT/src/go.mod file should exist
+# $PROJ_ROOT/src/go.mod file must exist
 readonly PROJ_ROOT="$PARENT_DIR"
 
 readonly GIT_COMMIT=$(
