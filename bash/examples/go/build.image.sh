@@ -54,17 +54,13 @@ echo
 echo "|-- Latest commit: $(git log -1 --format='%H at %ci')"
 
 echo
-echo "|-- Building docker image ..."
+echo "|-- Building & tagging docker image ..."
 $DOCKER build \
   --file ${DOCKERFILE} \
   --tag "${QUALIFIED_REPOSITORY_NAME}:${TAG}" \
   --tag "${QUALIFIED_REPOSITORY_NAME}:latest" \
+  --tag "${REPOSITORY_NAME}/${APP_NAME}:latest" \
   .
-
-# echo
-# echo "|-- Tagging docker image for Remote image repo ..."
-# $DOCKER tag "${QUALIFIED_REPOSITORY_NAME}:${TAG}" "${IMAGE_REPO_URI}/${QUALIFIED_REPOSITORY_NAME}:${TAG}"
-# $DOCKER tag "${QUALIFIED_REPOSITORY_NAME}:latest" "${IMAGE_REPO_URI}/${QUALIFIED_REPOSITORY_NAME}:latest"
 
 # ---------------------------------------------
 # -- Report
