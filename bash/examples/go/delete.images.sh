@@ -6,7 +6,6 @@
 # -- Assumptions:
 # -- 1. Docker installed: https://docs.docker.com/get-docker/
 # ---------------------------------------------
-
 #set -x # uncomment to debug
 set -e # exit on first error
 set -o pipefail
@@ -30,7 +29,6 @@ readonly IMAGE_PATTERN="foo-bar"
 # ---------------------------------------------
 # -- Derived
 # ---------------------------------------------
-readonly DOCKER=$(which docker)
 
 # ---------------------------------------------
 # -- Delete

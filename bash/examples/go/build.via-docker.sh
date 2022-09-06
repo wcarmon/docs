@@ -14,6 +14,10 @@ set -u # fail on unset var
 # ---------------------------------------------
 # -- Constants
 # ---------------------------------------------
+readonly CURRENT_USER=$(whoami)
+readonly CURRENT_USER_ID=$UID
+#readonly CURRENT_USER_ID=$(id -u $(whoami))
+
 readonly DOCKER=$(which docker)
 readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
 
@@ -38,8 +42,11 @@ readonly GOLANG_DEBIAN_IMAGE=golang:1.19.0-bullseye
 readonly CMD_PACKAGE=./cmd/run-server/...
 
 readonly OUTPUT_BINARY_NAME=foo-server
-readonly OUTPUT_DIR="bin"
+readonly RELATIVE_OUTPUT_DIR="bin"
 #readonly CERT_FILE=...
+
+# Ideally something that exists in both debian and alpine
+readonly GROUP_NAME_FOR_BINARY="www-data"
 
 # ---------------------------------------------
 # -- Derived
@@ -53,14 +60,25 @@ readonly GIT_COMMIT=$(
   #git rev-parse HEAD
 )
 
+readonly ABSOLUTE_OUTPUT_DIR=$(readlink -f "$PROJ_ROOT/$RELATIVE_OUTPUT_DIR")
+
 # ---------------------------------------------
 # -- Validate
 # ---------------------------------------------
 
 # ---------------------------------------------
+# -- Cleanup
+# ---------------------------------------------
+echo
+echo "|-- Clearing old binaries in $ABSOLUTE_OUTPUT_DIR"
+rm -vf "$ABSOLUTE_OUTPUT_DIR/${OUTPUT_BINARY_NAME}*.bin"
+rm -vf "$ABSOLUTE_OUTPUT_DIR/${OUTPUT_BINARY_NAME}*.app"
+rm -vf "$ABSOLUTE_OUTPUT_DIR/${OUTPUT_BINARY_NAME}*.exe"
+
+# ---------------------------------------------
 # -- Build
 # ---------------------------------------------
-mkdir -p "$PROJ_ROOT/$OUTPUT_DIR"
+mkdir -p "$ABSOLUTE_OUTPUT_DIR"
 
 cd "$PROJ_ROOT" >/dev/null 2>&1
 
@@ -68,12 +86,13 @@ cd "$PROJ_ROOT" >/dev/null 2>&1
 # -- Build for everything except Alpine
 # ---------------------------------------------
 echo
-echo "|-- Cross compiling via Debian.  sources: $PROJ_ROOT"
+echo "|-- [Debian] Cross compiling.  sources: $PROJ_ROOT"
 
 # NOTE: if you have dependency protos, mount the dir volume here
 $DOCKER run \
   --rm \
-  -v "${PROJ_ROOT}/src":/usr/src/myapp \
+  -v "${ABSOLUTE_OUTPUT_DIR}":/output:rw \
+  -v "${PROJ_ROOT}/src":/usr/src/myapp:rw \
   --workdir /usr/src/myapp \
   $GOLANG_DEBIAN_IMAGE \
   /bin/bash -c "
@@ -83,6 +102,7 @@ $DOCKER run \
 
   echo
   echo '|-- [Debian] Downloading dependencies ...'
+
   go mod download;
   go mod tidy;
   go install github.com/google/wire/cmd/wire@latest;
@@ -96,33 +116,36 @@ $DOCKER run \
 
   GOOS=linux GOARCH=amd64 \
     go build \
-    -o \"$OUTPUT_DIR/$OUTPUT_BINARY_NAME.amd64.bin\" \
+    -o \"/output/$OUTPUT_BINARY_NAME.amd64.bin\" \
     -ldflags=\"-X main.gitCommitHash=${GIT_COMMIT}\" \
     $CMD_PACKAGE;
 
   GOOS=darwin GOARCH=amd64 \
     go build \
-    -o \"$OUTPUT_DIR/$OUTPUT_BINARY_NAME.amd64.app\" \
+    -o \"/output/$OUTPUT_BINARY_NAME.amd64.app\" \
     -ldflags=\"-X main.gitCommitHash=${GIT_COMMIT}\" \
     $CMD_PACKAGE;
 
   GOOS=windows GOARCH=amd64 \
     go build \
-    -o \"$OUTPUT_DIR/$OUTPUT_BINARY_NAME.amd64.exe\" \
+    -o \"/output/$OUTPUT_BINARY_NAME.amd64.exe\" \
     -ldflags=\"-X main.gitCommitHash=${GIT_COMMIT}\" \
     $CMD_PACKAGE;
+
+  # -- Fix ownership on output
+  chown -v $CURRENT_USER_ID:$GROUP_NAME_FOR_BINARY /output/${OUTPUT_BINARY_NAME}*.bin
+  #chown -v $CURRENT_USER_ID:$GROUP_NAME_FOR_BINARY /output/${OUTPUT_BINARY_NAME}*.app
+  #chown -v $CURRENT_USER_ID:$GROUP_NAME_FOR_BINARY /output/${OUTPUT_BINARY_NAME}*.exe
   "
 
 # ---------------------------------------------
 # -- Build for Alpine
 # ---------------------------------------------
-echo
-echo "|-- Building binary for Alpine based container image"
-
 # NOTE: if you have dependency protos, mount the dir volume here
 $DOCKER run \
   --rm \
-  -v "${PROJ_ROOT}/src":/usr/src/myapp \
+  -v "${ABSOLUTE_OUTPUT_DIR}":/output:rw \
+  -v "${PROJ_ROOT}/src":/usr/src/myapp:rw \
   --workdir /usr/src/myapp \
   $GOLANG_ALPINE_IMAGE \
   /bin/ash -c "
@@ -151,15 +174,13 @@ $DOCKER run \
 
   GOOS=linux GOARCH=amd64 \
     go build \
-    -o \"$OUTPUT_DIR/$OUTPUT_BINARY_NAME.amd64.alpine.bin\" \
+    -o \"/output/$OUTPUT_BINARY_NAME.amd64.alpine.bin\" \
     -ldflags=\"-X main.gitCommitHash=${GIT_COMMIT}\" \
     $CMD_PACKAGE;
+
+  # -- Fix ownership on output
+  chown -v $CURRENT_USER_ID:$GROUP_NAME_FOR_BINARY /output/${OUTPUT_BINARY_NAME}*.alpine.bin
   "
-
-echo
-echo '|-- [Alpine] Successfully built binary:'
-ls -hlt $PROJ_ROOT/$OUTPUT_DIR/*.alpine.bin
-
 
 # NOTE: list architectures:
 #   $GO tool dist list;
@@ -168,8 +189,8 @@ ls -hlt $PROJ_ROOT/$OUTPUT_DIR/*.alpine.bin
 # -- Report
 # ---------------------------------------------
 echo
-echo "|-- See binaries in $PROJ_ROOT/$OUTPUT_DIR"
-ls -hlt "$PROJ_ROOT/$OUTPUT_DIR"
+echo "|-- Successfully built.  See binaries in $ABSOLUTE_OUTPUT_DIR"
+ls -hlt "$ABSOLUTE_OUTPUT_DIR/${OUTPUT_BINARY_NAME}*"
 
 <<'EXAMPLE_WITH_CERT'
   readonly CERT_FILE=my.crt

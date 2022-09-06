@@ -12,14 +12,14 @@
 # --
 # ---------------------------------------------
 #set -x # uncomment to debug script
-set -e
+set -e # exit on first error
 set -o pipefail
-set -u
+set -u # fail on unset var
 
 # ---------------------------------------------
 # -- Constants
 # ---------------------------------------------
-readonly DOCKER_BINARY=$(which docker)
+readonly DOCKER=$(which docker)
 readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
 
 # ---------------------------------------------
@@ -69,19 +69,19 @@ aws \
 
 echo
 echo "|-- "
-$DOCKER_BINARY image ls -a | grep ${REPOSITORY_NAME} | sort
+$DOCKER image ls -a | grep ${REPOSITORY_NAME} | sort
 
 # ---------------------------------------------
 # -- Push
 # ---------------------------------------------
 echo
 echo "|-- Pushing image to AWS ECR"
-$DOCKER_BINARY push ${IMAGE_REPO_URI}/${REPOSITORY_NAME}:${TAG}
+$DOCKER push ${IMAGE_REPO_URI}/${REPOSITORY_NAME}:${TAG}
 
 # Cleanup
-$DOCKER_BINARY rmi ${REPOSITORY_NAME}:${TAG}
+$DOCKER rmi ${REPOSITORY_NAME}:${TAG}
 
 # ---------------------------------------------
 # -- Logout
 # ---------------------------------------------
-# $DOCKER_BINARY logout
+# $DOCKER logout

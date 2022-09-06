@@ -6,8 +6,7 @@
 # -- Assumptions:
 # -- 1. Docker installed: https://docs.docker.com/get-docker/
 # ---------------------------------------------
-
-#set -x # trace commands
+#set -x # uncomment to debug
 set -e # exit on first error
 set -o pipefail
 set -u # fail on unset var
@@ -15,7 +14,7 @@ set -u # fail on unset var
 # ---------------------------------------------
 # -- Constants
 # ---------------------------------------------
-readonly DOCKER_BINARY=$(which docker)
+readonly DOCKER=$(which docker)
 
 # ---------------------------------------------
 # -- Script arguments
@@ -30,20 +29,19 @@ readonly IMAGE_PATTERN="foo-bar"
 # ---------------------------------------------
 # -- Derived
 # ---------------------------------------------
-readonly DOCKER_BINARY=$(which docker)
 
 # ---------------------------------------------
 # -- Delete
 # ---------------------------------------------
 echo
 echo "|-- Images before Delete:"
-$DOCKER_BINARY images -a
+$DOCKER images -a
 
-$DOCKER_BINARY images -a |
+$DOCKER images -a |
   grep -i $IMAGE_PATTERN |
   awk '{print $3}' |
   xargs docker rmi --force || true
 
 echo
 echo "|-- Images after Delete:"
-$DOCKER_BINARY images -a
+$DOCKER images -a

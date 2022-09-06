@@ -3,8 +3,7 @@
 # ---------------------------------------------
 # -- Runs main class via local go sdk
 # ---------------------------------------------
-
-#set -x # trace commands
+#set -x # uncomment to debug script
 set -e # exit on first error
 set -o pipefail
 set -u # fail on unset var
@@ -28,7 +27,7 @@ readonly CONFIG_FILE=./app.config.toml
 # ---------------------------------------------
 # -- Derived
 # ---------------------------------------------
-# Dir contains settings.gradle.kts, build.gradle.kts, gradlew, ...
+# Directory contains settings.gradle.kts, build.gradle.kts, gradlew, ...
 readonly PROJ_ROOT="$PARENT_DIR"
 
 readonly GRADLE="$PROJ_ROOT/gradlew"

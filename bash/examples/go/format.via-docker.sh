@@ -49,7 +49,7 @@ echo "|-- Formatting code in ${PROJ_ROOT}/src"
 
 $DOCKER run \
   --rm \
-  -v "${PROJ_ROOT}/src":/usr/src/myapp \
+  -v "${PROJ_ROOT}/src":/usr/src/myapp:rw \
   --workdir /usr/src/myapp \
   $GOLANG_IMAGE \
   gofmt -s -e -w .

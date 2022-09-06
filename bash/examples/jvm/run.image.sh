@@ -6,7 +6,7 @@
 # -- Assumptions:
 # -- 1. Docker installed: https://docs.docker.com/get-docker/
 # ---------------------------------------------
-#set -x # trace commands
+#set -x # uncomment to debug script
 set -e # exit on first error
 set -o pipefail
 set -u # fail on unset var
@@ -14,7 +14,7 @@ set -u # fail on unset var
 # ---------------------------------------------
 # -- Constants
 # ---------------------------------------------
-readonly DOCKER_BINARY=$(which docker)
+readonly DOCKER=$(which docker)
 
 # ---------------------------------------------
 # -- Script arguments
@@ -36,7 +36,7 @@ readonly IMAGE=myorg/foo:latest
 # ---------------------------------------------
 # -- Run
 # ---------------------------------------------
-$DOCKER_BINARY run \
+$DOCKER run \
   --rm \
   -it \
   $IMAGE

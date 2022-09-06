@@ -7,7 +7,7 @@
 # -- 1. (graal) native-image is installed:
 # --    https://www.graalvm.org/22.1/reference-manual/native-image/#install-native-image
 # ---------------------------------------------
-#set -x # trace commands
+#set -x # uncomment to debug script
 set -e # exit on first error
 set -o pipefail
 set -u # fail on unset var

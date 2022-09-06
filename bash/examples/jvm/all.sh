@@ -21,13 +21,26 @@ readonly APP_VERSION=1.0.0
 # -- Sub-scripts
 # ---------------------------------------------
 time (
+  echo
+  echo "|-- [Phase: Pre-build]"
   #$SCRIPTS_DIR/generate.sh
 
   $SCRIPTS_DIR/format.native.sh
 
+  echo
+  echo "|-- [Phase: Build]"
   $SCRIPTS_DIR/build.native.sh
 
   $SCRIPTS_DIR/test.native.sh
 
   $SCRIPTS_DIR/lint.native.sh
+
+  echo
+  echo "|-- [Phase: Push]"
+  # ...
+
+  echo
+  echo "|-- [Phase: Deploy]"
+  # ...
+
 )

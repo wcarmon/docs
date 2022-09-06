@@ -3,7 +3,7 @@
 # ---------------------------------------------
 # -- Auto format the java files
 # ---------------------------------------------
-#set -x # trace commands
+#set -x # uncomment to debug script
 set -e # exit on first error
 set -o pipefail
 set -u # fail on unset var
@@ -25,7 +25,7 @@ readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
 # ---------------------------------------------
 # -- Derived
 # ---------------------------------------------
-# Dir contains settings.gradle.kts, build.gradle.kts, gradlew, ...
+# Directory contains settings.gradle.kts, build.gradle.kts, gradlew, ...
 readonly PROJ_ROOT="$PARENT_DIR"
 
 # ---------------------------------------------

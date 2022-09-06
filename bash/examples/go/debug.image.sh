@@ -6,7 +6,6 @@
 # -- Assumptions:
 # -- 1. Docker installed: https://docs.docker.com/get-docker/
 # ---------------------------------------------
-
 #set -x # uncomment to debug
 set -e # exit on first error
 set -o pipefail
