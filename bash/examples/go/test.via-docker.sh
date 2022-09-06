@@ -46,6 +46,8 @@ echo
 echo "|-- Running tests in ${PROJ_ROOT}/src"
 
 # NOTE: if you have dependency protos, mount the dir volume here
+# NOTE: if you have a custom cert:
+#    -v "${CERT_FILE}":/usr/local/share/ca-certificates/extra.crt \
 $DOCKER run \
   --rm \
   -v "${PROJ_ROOT}/src":/usr/src/myapp:ro \
@@ -56,18 +58,3 @@ $DOCKER run \
     go test ./...
     #go test -short ./...
   "
-
-<<'EXAMPLE_WITH_CERT'
-  readonly CERT_FILE=my.crt
-
-  $DOCKER run \
-    --rm \
-    -v "${PROJ_ROOT}/src":/usr/src/myapp \
-    -v "${CERT_FILE}":/usr/local/share/ca-certificates/extra.crt \
-    --workdir /usr/src/myapp \
-    $GOLANG_IMAGE \
-    /bin/bash -c "
-    update-ca-certificates;
-    go test ./...;
-    "
-EXAMPLE_WITH_CERT
