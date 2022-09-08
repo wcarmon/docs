@@ -375,5 +375,10 @@ wire $DIR_CONTAINING_WIRE_DOT_GO;
 1. commit generated `wire_gen.go`
 
 
+# Gotchas
+1. **Avoid** this Goland plugin, it makes things worse (eg. auto-completion fails)
+    1. https://plugins.jetbrains.com/plugin/19395-go-wire-util
+
+
 # Other resources
 1. https://github.com/google/wire
