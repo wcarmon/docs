@@ -37,6 +37,8 @@ readonly IMAGE=myorg/foo:latest
 # ---------------------------------------------
 # -- Run
 # ---------------------------------------------
+# NOTE: mount volume for cert if required
+#  eg.  -v "${CERT_FILE}":/usr/local/share/ca-certificates/extra.crt:ro \
 $DOCKER run \
   --rm \
   -it \

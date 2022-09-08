@@ -86,7 +86,7 @@ echo "|-- [Debian] Cross compiling.  sources: $PROJ_ROOT"
 
 # NOTE: if you have dependency protos, mount the dir volume here
 # NOTE: if you have a custom certificate, mount the volume here
-#  eg.  -v "${CERT_FILE}":/usr/local/share/ca-certificates/extra.crt \
+#  eg.  -v "${CERT_FILE}":/usr/local/share/ca-certificates/extra.crt:ro \
 $DOCKER run \
   --rm \
   -v "${ABSOLUTE_OUTPUT_DIR}":/output:rw \
@@ -141,6 +141,7 @@ $DOCKER run \
 # ---------------------------------------------
 # NOTE: if you have dependency protos, mount the dir volume here
 # NOTE: mount volume for cert if required
+#  eg.  -v "${CERT_FILE}":/usr/local/share/ca-certificates/extra.crt:ro \
 $DOCKER run \
   --rm \
   -v "${ABSOLUTE_OUTPUT_DIR}":/output:rw \

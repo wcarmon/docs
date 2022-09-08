@@ -49,6 +49,8 @@ readonly PROJ_ROOT="$PARENT_DIR"
 echo
 echo "|-- Formatting code in ${PROJ_ROOT}/src"
 
+# NOTE: mount volume for cert if required
+#  eg.  -v "${CERT_FILE}":/usr/local/share/ca-certificates/extra.crt:ro \
 $DOCKER run \
   --rm \
   -v "${PROJ_ROOT}/src":/usr/src/myapp:rw \

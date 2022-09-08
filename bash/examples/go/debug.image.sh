@@ -48,6 +48,8 @@ $DOCKER images \
 
 echo
 echo "|-- Starting shell in container..."
+# NOTE: if you have a custom certificate, mount the volume here
+#  eg.  -v "${CERT_FILE}":/usr/local/share/ca-certificates/extra.crt:ro \
 $DOCKER run \
   --rm \
   -it \
