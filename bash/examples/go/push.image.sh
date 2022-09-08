@@ -141,7 +141,9 @@ $GCLOUD artifacts docker images list $IMAGE_REPO_URI/$REPOSITORY_NAME
 
 #TODO: warn if same/existing image version pushed
 
+# ---------------------------------------------
 # -- Cleanup
+# ---------------------------------------------
 #$DOCKER rmi $IMAGE_TO_PUSH
 
 # ---------------------------------------------
