@@ -12,7 +12,7 @@ import (
 	"path/filepath"
 )
 
-// structure mirrors the config yaml file
+// structure mirrors the config toml file
 type appConf struct {
 
     // GOTCHA: unexported fields are ignored by viper/mapstructure
@@ -23,7 +23,7 @@ type appConf struct {
 	InputPath  string
 	OutputPath string
 
-	// TODO: Align with yaml config file structure
+	// TODO: Align with toml config file structure
 }
 
 
@@ -46,7 +46,7 @@ func NewConfig(osArgs OSArgs) (*appConf, error) {
 		return nil, err
 	}
 
-	v.SetConfigType("yaml")
+	v.SetConfigType("toml")
 
     // -- Allow env vars to override config file
 	// -- NOTE: use v.AllKeys() to print all available keys (for 1st arg below)
@@ -136,7 +136,7 @@ func (c *appConf) setDefaults() {
 ```go
 // Entry point
 // Command line Args:
-// 1. path to app.config.yaml file
+// 1. path to app.config.toml file
 func main() {
 
 	// TODO: setup zerolog here
