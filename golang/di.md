@@ -74,7 +74,7 @@ func NewFoo(b *Bar) (*Foo, error) { ... }
 func NewBar() (*Bar, error) { ... }
 ```
 
-# in main `func`
+# In main `func`
 ```go
 func main() {
 
@@ -84,6 +84,15 @@ func main() {
     // Use appCtx.config
 }
 ```
+
+# In `go.mod` file
+- add something like
+```
+require (
+    github.com/google/wire v0.5.0
+)
+```
+- then run `go mod tidy`
 
 
 # Patterns
