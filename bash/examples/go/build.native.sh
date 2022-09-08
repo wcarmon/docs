@@ -5,6 +5,7 @@
 # --
 # -- Assumptions:
 # -- 1. Go SDK installed: https://go.dev/doc/install
+# -- 2. wire installed: https://github.com/google/wire
 # ---------------------------------------------
 #set -x # uncomment to debug script
 set -e # exit on first error
