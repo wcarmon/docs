@@ -83,7 +83,7 @@ $DOCKER run \
   --workdir /app \
   $GOLANGCI_IMAGE \
   /bin/ash -c "
-    update-ca-certificates
+    #update-ca-certificates
 
     golangci-lint run ./... \
     --color auto \
