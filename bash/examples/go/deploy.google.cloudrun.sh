@@ -106,7 +106,7 @@ $GCLOUD run deploy $SERVICE_NAME \
   --no-use-http2 \
   --platform=managed \
   --region=us-east1 \
-  --timeout=3m
+  --timeout=7m
 
 # gRPC:           --use-http2 \
 # REST over HTTP: --no-use-http2 \
