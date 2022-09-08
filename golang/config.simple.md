@@ -4,7 +4,7 @@
 
 
 # Simple Example
-1. Put this into `config.go` for each command (eg. `/foo/cmd/mycmd/config.go`)
+1. Put this into `conf.go` for each command (eg. `$PROJ_ROOT/src/cmd/run-server/conf.go`)
 ```go
 import (
 	"errors"
