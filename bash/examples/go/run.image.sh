@@ -15,6 +15,7 @@ set -u # fail on unset var
 # -- Constants
 # ---------------------------------------------
 readonly DOCKER=$(which docker)
+readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
 
 # ---------------------------------------------
 # -- Script arguments

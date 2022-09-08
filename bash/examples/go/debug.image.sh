@@ -15,6 +15,7 @@ set -u # fail on unset var
 # -- Constants
 # ---------------------------------------------
 readonly DOCKER=$(which docker)
+readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
 readonly SHELL_FOR_ALPINE=/bin/ash
 readonly SHELL_FOR_DEBIAN=/bin/bash
 
@@ -35,6 +36,15 @@ readonly IMAGE=golang:1.19-alpine
 # ---------------------------------------------
 # -- Debug
 # ---------------------------------------------
+echo "|-- interesting local images: "
+$DOCKER images \
+  | grep -v "<none>" \
+  | grep -v "golangci/golangci-lint" \
+  | grep -v "mysql" \
+  | grep -v "openapi-generator-cli" \
+  | grep -v "postgres" \
+  | grep -v "returntocorp/semgrep"
+
 echo
 echo "|-- Starting shell in container..."
 $DOCKER run \
