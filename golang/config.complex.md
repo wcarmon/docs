@@ -14,8 +14,8 @@ import (
 	"path/filepath"
 )
 
-
-const defaultConfigFilename = "app.config.toml"
+const defaultConfigFilePath = "app.config.toml"
+const configFileType = "toml"
 
 
 // Determines where to search for config file
@@ -64,7 +64,6 @@ func NewConfig(osArgs OSArgs) (*appConf, error) {
 	err := setPathConfigForViper(
 		v,
 		osArgs,
-		defaultConfigFilename,
 		configSearchDirs)
 	if err != nil {
 	    log.Error().
@@ -79,8 +78,8 @@ func NewConfig(osArgs OSArgs) (*appConf, error) {
 
 	// -- Allow env vars to override config file
 	// -- NOTE: use v.AllKeys() to print all available keys (for 1st arg below)
-	//v.BindEnv("db.user", "DB_USER")
-	//v.BindEnv("db.pass", "DB_PASS")
+	// v.BindEnv("db.user", "DB_USER")
+	// v.BindEnv("db.pass", "DB_PASS")
 
 	// -- Parse config
 	err = v.ReadInConfig()
@@ -143,28 +142,29 @@ func (c appConf) Validate() error {
 func setPathConfigForViper(
 	v *viper.Viper,
 	osArgs OSArgs,
-	defaultConfigFilename string,
 	searchDirs []string) error {
 
 	if v == nil {
 		return errors.New("viper instance is required")
 	}
 
-	if len(osArgs) > 1 {
-		// -- Set config path to passed path
-		cfgPath := osArgs[1]
+	var cfgPath string
+	if len(osArgs) <= 1 {
+		p, err := filepath.Abs(filepath.Clean(defaultConfigFilePath))
+		if err != nil {
+			panic("coding error: invalid defaultConfigFilePath: " + defaultConfigFilePath)
+		}
 
-		v.SetConfigName(filepath.Base(cfgPath))
-		v.AddConfigPath(filepath.Dir(cfgPath))
-		return nil
+		cfgPath = p
+		fmt.Printf("defaulting conf to: path=%v\n", cfgPath)
+		fmt.Printf("to override conf path, pass it as a cli argument")
+
+	} else {
+		cfgPath = osArgs[1]
 	}
 
-	// -- Invariant: No config toml passed
-	if strings.TrimSpace(defaultConfigFilename) == "" {
-		return errors.New("defaultConfigFilename is required")
-	}
-
-	v.SetConfigName(defaultConfigFilename)
+	v.SetConfigName(filepath.Base(cfgPath))
+	v.AddConfigPath(filepath.Dir(cfgPath))
 	for _, dir := range searchDirs {
 		v.AddConfigPath(dir)
 	}
