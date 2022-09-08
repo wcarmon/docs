@@ -44,6 +44,7 @@ func NewConfig(osArgs OSArgs) (*appConf, error) {
 	        Err(err).
 	        Caller().
 	        Msg("failed to init viper")
+
 		return nil, err
 	}
 
