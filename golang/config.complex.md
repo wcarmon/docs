@@ -77,7 +77,7 @@ func NewConfig(osArgs OSArgs) (*appConf, error) {
 
 	v.SetConfigType("toml")
 
-    // -- Allow env vars to override config file
+	// -- Allow env vars to override config file
 	// -- NOTE: use v.AllKeys() to print all available keys (for 1st arg below)
 	//v.BindEnv("db.user", "DB_USER")
 	//v.BindEnv("db.pass", "DB_PASS")
