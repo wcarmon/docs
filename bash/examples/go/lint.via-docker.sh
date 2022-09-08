@@ -51,7 +51,7 @@ echo "|-- Analyzing code in ${PROJ_ROOT}/src"
 
 <<'SEMGREP_EXAMPLE'
 echo
-echo "|-- Running semgrep ...";
+echo "|-- Running semgrep ..."
 $DOCKER run \
   --rm \
   -v "${PROJ_ROOT}/src:/src":ro \
@@ -80,11 +80,11 @@ $DOCKER run \
   --workdir /app \
   $GOLANGCI_IMAGE \
   /bin/ash -c "
-    update-ca-certificates;
+    update-ca-certificates
 
     golangci-lint run ./... \
     --color auto \
-    --concurrency 6 \
+    --concurrency 4 \
     --max-same-issues 5 \
     --print-linter-name \
     --sort-results \
