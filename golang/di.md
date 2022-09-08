@@ -41,6 +41,10 @@ go install github.com/google/wire/cmd/wire@latest;
 ```go
 //go:build wireinject
 
+package main
+
+import "github.com/google/wire"
+
 // wire will inject the instances
 type appObjects struct {
     config *appConfig
