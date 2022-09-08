@@ -37,6 +37,8 @@ readonly GOLANG_IMAGE=golang:1.19.0-alpine3.16
 # Dir contains go.mod file
 readonly PROJ_ROOT="$PARENT_DIR"
 
+#readonly CERT_FILE="${PARENT_DIR}/foo.crt"
+
 # ---------------------------------------------
 # -- Validate
 # ---------------------------------------------
@@ -53,18 +55,3 @@ $DOCKER run \
   --workdir /usr/src/myapp \
   $GOLANG_IMAGE \
   gofmt -s -e -w .
-
-<<'EXAMPLE_WITH_CERT'
-  readonly CERT_FILE=my.crt
-
-  $DOCKER run \
-    --rm \
-    -v "${PROJ_ROOT}/src":/usr/src/myapp \
-    -v "${CERT_FILE}":/usr/local/share/ca-certificates/extra.crt \
-    --workdir /usr/src/myapp \
-    $GOLANG_IMAGE \
-    /bin/bash -c "
-    update-ca-certificates;
-    gofmt -s -e -w .
-    "
-EXAMPLE_WITH_CERT
