@@ -62,6 +62,8 @@ func BuildAppObjects() (*appObjects, error) {
         // Allows wiring an instance
         wire.Value(FancyStr("cheese")),
 
+        // wire.Value(OSArgs(os.Args)), <-- if you inject the cli args
+
         // Injects all objects required in main func
         wire.Struct(new(appObjects), "*"),
     ))
