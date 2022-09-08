@@ -51,6 +51,7 @@ readonly PROJ_ROOT="$PARENT_DIR"
 # Final segment before the version
 readonly SHORT_IMAGE_NAME="foo"
 
+# Optional
 # Useful as a version suffix when image repo contains multiple variants
 # (eg. debian/alpine)
 readonly TAG_SUFFIX=go
