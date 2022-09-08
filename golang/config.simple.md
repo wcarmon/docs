@@ -42,6 +42,7 @@ func NewConfig(osArgs OSArgs) (*appConf, error) {
 	if err != nil {
 	    log.Error().
 	        Err(err).
+	        Caller().
 	        Msg("failed to init viper")
 		return nil, err
 	}
@@ -58,7 +59,9 @@ func NewConfig(osArgs OSArgs) (*appConf, error) {
 	if err != nil {
 	    log.Error().
 	        Err(err).
+	        Caller().
 	        Msg("failed to read config using viper")
+
 		return nil, err
 	}
 
@@ -68,7 +71,9 @@ func NewConfig(osArgs OSArgs) (*appConf, error) {
 	if err != nil {
 	    log.Error().
 	        Err(err).
+	        Caller().
 	        Msg("failed to unmarshal config")
+
 		return nil, err
 	}
 
@@ -81,8 +86,10 @@ func NewConfig(osArgs OSArgs) (*appConf, error) {
 	if err != nil {
 		log.Error().
 			Err(err).
+			Caller().
 			Str("config", fmt.Sprintf("%#v", c)).
 			Msg("Config is invalid")
+
 		return nil, err
 	}
 
