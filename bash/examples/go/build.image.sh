@@ -22,31 +22,56 @@ readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
 # ---------------------------------------------
 # semver: https://semver.org/
 # eg. "1.2.3" or "4.5"
-readonly VERSION=$1
+readonly SEMVER=$1
 
 # ---------------------------------------------
 # -- Config
 # ---------------------------------------------
-# NOTE: all paths relative to $PROJ_ROOT
-
-readonly APP_NAME=foo-service
-readonly DOCKERFILE=./Dockerfile
-readonly IMAGE_REPO_URI=ecr.us-east-1.amazonaws.com
-readonly REPOSITORY_NAME=my-github-project
-
 # Dir contains Dockerfile
 readonly PROJ_ROOT="$PARENT_DIR"
+
+# Unqualified image name
+# Final segment before the version
+readonly SHORT_IMAGE_NAME="foo"
+
+# Useful as a version suffix when image repo contains multiple variants
+# (eg. debian/alpine)
+readonly TAG_SUFFIX=go
+
+readonly DOCKERFILE=./Dockerfile
+
+# AWS Elastic Container Registry:
+#   - Format: TODO
+#   - eg. "ecr.us-east-1.amazonaws.com"
+#
+# Google Cloud Artifact Registry:
+#   - Format: HOST-NAME/PROJECT-ID
+#   - eg. "us-east1-docker.pkg.dev/my-project-id"
+#   - See https://console.cloud.google.com/artifacts
+readonly IMAGE_REPO_URI=ecr.us-east-1.amazonaws.com
+
+# AWS:  TODO
+# Google cloud: gcloud artifacts repositories list
+readonly REPOSITORY_NAME=my-github-project
 
 # ---------------------------------------------
 # -- Derived
 # ---------------------------------------------
-readonly QUALIFIED_REPOSITORY_NAME="${IMAGE_REPO_URI}/${REPOSITORY_NAME}"
-readonly TAG_LATEST="latest-${APP_NAME}"
-readonly TAG_NUMBERED="${VERSION}-${APP_NAME}"
+# Everything before the version
+readonly QUALIFIED_IMAGE_NAME="${IMAGE_REPO_URI}/${REPOSITORY_NAME}/${SHORT_IMAGE_NAME}"
+
+readonly TAG_LATEST="latest-${TAG_SUFFIX}"
+readonly TAG_NUMBERED="${SEMVER}-${TAG_SUFFIX}"
 
 # ---------------------------------------------
 # -- Validate
 # ---------------------------------------------
+# -- validate tag
+if [ "$(echo $TAG_NUMBERED)" = "" ]; then
+  echo
+  echo "Error: tag must have a value"
+  exit 10
+fi
 
 # ---------------------------------------------
 # -- Build
@@ -60,8 +85,8 @@ echo
 echo "|-- Building & tagging docker image ..."
 $DOCKER build \
   --file ${DOCKERFILE} \
-  --tag "${QUALIFIED_REPOSITORY_NAME}:${TAG_LATEST}" \
-  --tag "${QUALIFIED_REPOSITORY_NAME}:${TAG_NUMBERED}" \
+  --tag "${QUALIFIED_IMAGE_NAME}:${TAG_LATEST}" \
+  --tag "${QUALIFIED_IMAGE_NAME}:${TAG_NUMBERED}" \
   .
 
 # ---------------------------------------------
@@ -69,4 +94,4 @@ $DOCKER build \
 # ---------------------------------------------
 echo
 echo "|-- Successfully built and tagged image"
-$DOCKER images -a | grep ${QUALIFIED_REPOSITORY_NAME}
+$DOCKER images -a | grep ${QUALIFIED_IMAGE_NAME}
