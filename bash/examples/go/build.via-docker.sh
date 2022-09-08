@@ -34,6 +34,7 @@ readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
 readonly GOLANG_ALPINE_IMAGE=golang:1.19.0-alpine3.16
 readonly GOLANG_DEBIAN_IMAGE=golang:1.19.0-bullseye
 
+# Relative to dir containing go.mod file
 # GOTCHA: Leading dot is important
 readonly CMD_PACKAGE=./cmd/run-server/...
 
