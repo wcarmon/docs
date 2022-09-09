@@ -45,6 +45,7 @@ package main
 
 import "github.com/google/wire"
 
+// NOTE: this can live in another file (if it's simpler)
 // wire will inject the instances
 type appObjects struct {
     config *appConfig
@@ -53,6 +54,7 @@ type appObjects struct {
     //TODO: add field for each obj used directly in main func
 }
 
+// NOTE: this is the only func that MUST be inside the wire.go file
 func BuildAppObjects() (*appObjects, error) {
     panic(wire.Build(
         NewFoo,
