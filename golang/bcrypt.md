@@ -16,7 +16,7 @@ if err != nil {
     return err
 }
 
-fmt.Printf("success: bcryptHash=\n%s", bcHash)
+fmt.Printf("success: bcryptHash=%s", bcHash)
 ```
 
 # Verify
@@ -26,7 +26,7 @@ hashed := "$2a$08$bgMiguiN65ZF4zsGx/wjP.Xmhd2Z4hDspeW.qZIGHTgjmxH.4mII2"
 
 err := bcrypt.CompareHashAndPassword([]byte(hashed), []byte(pass))
 if err == bcrypt.ErrMismatchedHashAndPassword {
-    // Invariant: mismatch
+    // mismatch
     return false, nil
 }
 if err != nil {
@@ -34,7 +34,7 @@ if err != nil {
     return false, err
 }
 
-// Invariant: match
+// match
 return true, nil
 ```
 
