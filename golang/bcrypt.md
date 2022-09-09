@@ -38,6 +38,7 @@ if err != nil {
 return true, nil
 ```
 
+
 # Other resources
 1. https://en.wikipedia.org/wiki/Bcrypt
 1. https://en.wikipedia.org/wiki/Blowfish_(cipher)
