@@ -22,16 +22,17 @@
 1. [Verify/Parse](https://pkg.go.dev/github.com/golang-jwt/jwt/v4#example-ParseWithClaims-CustomClaimsType)
 
 
+## https://pkg.go.dev/gopkg.in/square/go-jose.v2
+1. Pro: support for arbitrary claims
+1. Pro: support for compact serialize
+
+
 ## https://github.com/kataras/jwt
 1. Pro: Actively Maintained
 1. Pro: protects against `alg=none` by default
 1. Pro: Supports alternative clocks (time provider)
 1. Pro: well documented
 1. Con: under 200 stars on Github
-
-## https://pkg.go.dev/gopkg.in/square/go-jose.v2
-1. Pro: support for arbitrary claims
-1. Pro: support for compact serialize
 
 
 # Rejected
