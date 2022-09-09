@@ -1,22 +1,42 @@
 # Overview
-- TODO ...
+- Candidate libs for [jwt](https://jwt.io/)
 
 
 # Libs
-## https://github.com/gbrlsnchs/jwt
+## https://github.com/golang-jwt/jwt
+1. Pro: Actively Maintained
+1. Pro: Easy to access standard claims (exp, iss, ...)
+1. Pro: [Many examples](https://pkg.go.dev/github.com/golang-jwt/jwt/v4#pkg-examples)
+1. Pro: Allows embedding standard claims into custom claims
+1. Pro: [Dates](https://pkg.go.dev/github.com/golang-jwt/jwt/v4#NumericDate) are compatible with `time.Time`
+1. Pro: Over 3,000 stars on Github
+1. Pro: Protects against `alg=none` by default
+1. Pro: Sources reference https://datatracker.ietf.org
+1. Pro: Support for arbitrary claims
+1. Pro: Supports alternative clocks (time provider)
+1. Pro: Well documented
+1. Con: No support for compact serialize
+
+### Examples
+1. [Sign](https://pkg.go.dev/github.com/golang-jwt/jwt/v4#example-NewWithClaims-CustomClaimsType)
+1. [Verify/Parse](https://pkg.go.dev/github.com/golang-jwt/jwt/v4#example-ParseWithClaims-CustomClaimsType)
 
 
 ## https://github.com/kataras/jwt
-
-
-## https://github.com/golang-jwt/jwt
-- Pro: support for arbitrary claims
-- Con: no support for compact serialize
-
+1. Pro: Actively Maintained
+1. Pro: protects against `alg=none` by default
+1. Pro: Supports alternative clocks (time provider)
+1. Pro: well documented
+1. Con: under 200 stars on Github
 
 ## https://pkg.go.dev/gopkg.in/square/go-jose.v2
-- Pro: support for arbitrary claims
-- Pro: support for compact serialize
+1. Pro: support for arbitrary claims
+1. Pro: support for compact serialize
+
+
+# Rejected
+## https://github.com/gbrlsnchs/jwt
+1. Con: Abandonware
 
 
 # Idioms
