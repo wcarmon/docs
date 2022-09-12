@@ -14,6 +14,8 @@ set -u # fail on unset var
 # ---------------------------------------------
 # -- Constants
 # ---------------------------------------------
+readonly FLUTTER=$(which flutter)
+readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
 
 # ---------------------------------------------
 # -- Script arguments
@@ -36,4 +38,6 @@ set -u # fail on unset var
 # ---------------------------------------------
 # -- Test
 # ---------------------------------------------
-# TODO
+cd "$PROJ_ROOT" >/dev/null 2>&1
+
+$FLUTTER test --concurrency=4
