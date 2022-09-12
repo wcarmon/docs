@@ -39,9 +39,19 @@ flutter doctor -v;
 
 
 # Mac
+1. Install via [brew](https://brew.sh/)
 ```bash
 brew install --cask flutter
 ```
+1. Install [CocoaPods](https://guides.cocoapods.org/using/getting-started.html)
+```bash
+brew install cocoapods;
+```
+1. Allow the binaries to run
+    1. Try to run `flutter` or `dart`
+    1. Apple menu > System Preferences > Security & Privacy > General
+    1. On the bottom, find the failed `protoc` execution
+    1. [Click `Allow Anyway` button](https://www.alphr.com/cannot-be-opened-because-the-developer-cannot-be-verified/)
 1. Run doctor to verify install
 ```bash
 flutter doctor;
@@ -63,7 +73,14 @@ flutter doctor -v;
 - Check `flutter devices`
 
 
+# Create an app
+```
+flutter create ...
+```
+1. https://docs.flutter.dev/get-started/codelab
+
 
 # Other resources
 1. https://docs.flutter.dev/get-started/install
 1. https://docs.flutter.dev/get-started/editor
+1. https://docs.flutter.dev/get-started/codelab
