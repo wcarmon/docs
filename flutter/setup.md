@@ -20,7 +20,8 @@ tar xf ~/Downloads/flutter_linux_*-stable.tar.xz
 ```
 1. Add flutter & dart to `PATH`
 ```bash
-ln -s $FLUTTER_SDK/bin/{flutter,dart} $HOME/bin/
+ln -s --force $FLUTTER_SDK/bin/{flutter,dart} $HOME/bin/
+ls -l $HOME/bin/ | grep flutter
 ```
 1. Verify install
 ```bash
@@ -35,7 +36,13 @@ flutter doctor -v;
 
 
 # Mac
-1. TODO
+```bash
+brew install --cask flutter
+```
+1. Run doctor to verify install
+```bash
+flutter doctor -v;
+```
 
 
 # windows
