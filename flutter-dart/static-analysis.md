@@ -1,5 +1,5 @@
 # Overview
-1. TODO
+1. How to setup & run static analysis on dart/flutter code
 
 
 # Setup
