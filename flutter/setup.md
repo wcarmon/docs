@@ -12,23 +12,21 @@ apt install -y bash curl file git unzip xz-utils zip
 apt install -y ninja-build libgtk-3-dev libglu1-mesa
 ```
 1. Download from https://docs.flutter.dev/get-started/install/linux
-1. Add to `PATH` (eg. ln -s /path/to/flutter/bin/{flutter,dart} $HOME/bin/)
+```bash
+FLUTTER_SDK=~/opt/flutter
+mkdir -p $FLUTTER_SDK
+cd $FLUTTER_SDK
+tar xf ~/Downloads/flutter_linux_*-stable.tar.xz
+```
+1. Add flutter & dart to `PATH`
+```bash
+ln -s $FLUTTER_SDK/bin/{flutter,dart} $HOME/bin/
+```
+1. Verify install
 ```bash
 flutter precache;
 flutter config --no-analytics;
 flutter doctor --android-licenses;
-```
-1. Find the path of `adb` & `sdkmanager`
-    1. eg. `$HOME/Android/Sdk/platform-tools/adb`
-    1. eg. `$HOME/Android/Sdk/tools/bin/sdkmanager`
-1. Install & Find android studio path
-- eg. Jetbrains installs into `$HOME/.local/share/JetBrains/Toolbox/apps/AndroidStudio/`
-```bash
-ANDROID_SDK_HOME=$HOME/Android/Sdk
-ANDROID_STUDIO_HOME=$HOME/.local/share/JetBrains/Toolbox/apps/AndroidStudio/ch-0/212.5712.43.2112.8609683;
-
-flutter config --android-sdk=$ANDROID_SDK_HOME;
-flutter config --android-studio-dir $ANDROID_STUDIO_HOME;
 ```
 1. Run doctor to verify install
 ```bash
