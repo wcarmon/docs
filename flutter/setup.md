@@ -2,13 +2,11 @@
 1. How to setup flutter
 
 
-# Android SDK
-1. https://developer.android.com/about/versions/12/setup-sdk#install-sdk
-1. Install command-line tools:
-    1. Android Studio > SDK Manager > SDK Tools > Android SDK Command-line Tools
+# Android
+1. see [android doc](./setup.android.md)
 
 
-# Linux
+# Linux (Desktop)
 ```bash
 apt install -y bash curl file git unzip xz-utils zip
 apt install -y ninja-build libgtk-3-dev libglu1-mesa
