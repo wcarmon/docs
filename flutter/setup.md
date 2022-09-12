@@ -31,6 +31,9 @@ flutter doctor --android-licenses;
 ```
 1. Run doctor to verify install
 ```bash
+flutter doctor;
+
+# if there are issues
 flutter doctor -v;
 ```
 
@@ -41,6 +44,9 @@ brew install --cask flutter
 ```
 1. Run doctor to verify install
 ```bash
+flutter doctor;
+
+# if there are issues
 flutter doctor -v;
 ```
 
