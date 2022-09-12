@@ -66,4 +66,4 @@ flutter doctor -v;
 
 # Other resources
 1. https://docs.flutter.dev/get-started/install
-1. https://docs.flutter.dev/get-started/editor?tab=androidstudio
+1. https://docs.flutter.dev/get-started/editor
