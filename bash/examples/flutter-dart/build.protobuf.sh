@@ -5,7 +5,9 @@
 # --
 # -- Assumptions:
 # -- 1. protoc installed:
-#       - https://developers.google.com/protocol-buffers/docs/darttutorial
+# --    - https://developers.google.com/protocol-buffers/docs/darttutorial
+# -- 2. Protobuf package installed:
+# --    - https://pub.dev/packages/protobuf/install
 # ---------------------------------------------
 #set -x # uncomment to debug script
 set -e # exit on first error
