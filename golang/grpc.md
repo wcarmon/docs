@@ -41,9 +41,16 @@ go mod tidy
 - TODO: more here
 - TODO: protoc generates `*_grpc.pb.go`
 
+
 # Server
 - TODO: embed UnimplementedFoo
 - TODO: implement methods on Foo interface
+
+# GZip Compression
+1. Import encoding/gzip package (for side effects)
+```go
+import _ "google.golang.org/grpc/encoding/gzip"
+```
 
 
 # Other resources
