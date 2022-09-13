@@ -109,6 +109,7 @@ require google.golang.org/protobuf v1.28.1
     1. `import` paths are sensitive to directory hierarchy
     1. `import` paths do **NOT** use proto package
     1. `import` paths to **NOT** support wildcard import
+    1. Import anything defined in another file (even if same package or same directory)
 1. [`protoc`](https://github.com/protocolbuffers/protobuf/releases):
     1. `mkdir -p` on the output directory first (protoc will **NOT** create output directory)
     1. Run `protoc` from any ancestor directory of the `*.proto` files
