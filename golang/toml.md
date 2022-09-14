@@ -16,7 +16,7 @@
 1. TODO: missing fields
 1. **Pro**: Has utility to lint and format `toml` files: [`tomll`](https://github.com/pelletier/go-toml#tools)
 1. **Con**: Uses [unsafe](https://github.com/pelletier/go-toml/blob/v2/internal/danger/danger.go#L12)
-1. **Con**: cannot decode [Toml array](https://toml.io/en/v1.0.0#array) into Set (`map[string]struct{}`)
+1. **Con**: cannot decode [Toml array](https://toml.io/en/v1.0.0#array) into Set (`map[string]struct{}` or `map[T]struct{}`)
 
 
 ## [BurntSushi](https://github.com/BurntSushi/toml)
