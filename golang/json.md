@@ -64,6 +64,7 @@ func (t *MyType) UnmarshalJSON(data []byte) error {
 
 
 # Preferred tools
+1. Just use nilable type (eg. `*int32`)
 1. [guregu/null.v4](https://github.com/guregu/null/tree/v4.0.0)
 1. [emvi/null](https://github.com/emvi/null)
     1. light & simple implementation
