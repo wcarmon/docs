@@ -2,11 +2,11 @@
 - How to read & write [yaml](https://yaml.org/)
 
 
-# Unmarshal (Parsing, Deserializing)
+# Unmarshal (Parse, Deserialize, Decode)
 - TODO:
 
 
-# Marshal (Writing, Serializing)
+# Marshal (Write, Serialize, Encode)
 - TODO:
 
 

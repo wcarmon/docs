@@ -14,11 +14,11 @@ XMLName xml.Name `xml:"the-root-element-name"`
 1. Better to use pointers to struct since `omitempty` fails on empty struct
 
 
-# Unmarshal (Parsing, Deserializing)
+# Unmarshal (Parse, Deserialize, Decode)
 1. TODO
 
 
-# Marshal (Writing, Serializing)
+# Marshal (Write, Serialize, Encode)
 1. Attributes are written in the order they are defined in the struct
 1. [no support for self closing tags](https://github.com/golang/go/issues/21399)
 ```go

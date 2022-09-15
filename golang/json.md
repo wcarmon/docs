@@ -2,12 +2,12 @@
 - How to read & write [json](https://www.json.org/json-en.html)
 
 
-# Unmarshal (Parsing, Deserializing)
+# Unmarshal (Parse, Deserialize, Decode)
 1. Concept: Build struct with zero value, [`json.Unmarshal`](https://pkg.go.dev/encoding/json) sets properties
 1. Recall `[]byte` <-> `string` conversion is cheap
 
 
-# Marshal (Writing, Serializing)
+# Marshal (Write, Serialize, Encode)
 1. TODO
 
 
