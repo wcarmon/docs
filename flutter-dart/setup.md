@@ -67,7 +67,13 @@ flutter doctor -v;
 
 
 # Upgrade
-1. `flutter upgrade`
+1.
+```bash
+flutter upgrade;
+dart pub outdated;
+dart pub upgrade;
+flutter clean;
+```
 
 
 # Devices setup
