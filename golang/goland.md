@@ -17,7 +17,7 @@
 
 # My Favorite plugins
 1. [Ace jump](https://plugins.jetbrains.com/plugin/7086-acejump)
-1. [CamelCase](https://plugins.jetbrains.com/plugin/7160-camelcase)
+1. [CamelCase](https://plugins.jetbrains.com/plugin/7160-camelcase) (by NetNexus IT Services)
 1. [Json Sorter](https://plugins.jetbrains.com/plugin/11104-json-sorter)
 1. [Lines Sorter](https://plugins.jetbrains.com/plugin/5919-lines-sorter)
 
