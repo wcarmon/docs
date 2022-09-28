@@ -100,6 +100,7 @@ func NewConfig(osArgs OSArgs) (*appConf, error) {
 	return &c, err
 }
 
+// maybe move to conf.validate.go
 func (c appConf) Validate() error {
 	if strings.TrimSpace(c.InputPath) == "" {
 		return errors.New("inputPath is required")
@@ -141,6 +142,7 @@ func setPathConfigForViper(v *viper.Viper, osArgs OSArgs) error {
 	return nil
 }
 
+// maybe move to conf.defaults.go
 func (c *appConf) setDefaults() {
 	if strings.TrimSpace(c.LogLevel) == "" {
 		c.LogLevel = "debug"
