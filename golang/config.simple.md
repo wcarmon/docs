@@ -69,8 +69,13 @@ func NewConfig(osArgs OSArgs) (*appConf, error) {
 		return nil, err
 	}
 
-	// -- Store into config struct
 	var c appConf
+
+	// -- Set defaults
+	// alternatively: https://github.com/spf13/viper#establishing-defaults
+	c.setDefaults()
+
+	// -- Store into config struct
 	err = v.Unmarshal(&c)
 	if err != nil {
 	    log.Error().
@@ -80,10 +85,6 @@ func NewConfig(osArgs OSArgs) (*appConf, error) {
 
 		return nil, err
 	}
-
-	// -- Set defaults
-	// alternatively: https://github.com/spf13/viper#establishing-defaults
-	c.setDefaults()
 
 	// -- Validate
 	err = c.Validate()
