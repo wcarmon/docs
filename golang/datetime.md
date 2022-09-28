@@ -93,6 +93,15 @@ TODO
 1. See [Duration](./duration.md) doc
 
 
+# Run periodically
+```go
+	go func() {
+		for range time.Tick(3 * time.Second) {
+			print("it's me again")
+		}
+	}()
+```
+
 
 # Idioms
 1. Avoid `time.Since` because it hard codes `time.Now()` (better to inject a time provider)
