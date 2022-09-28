@@ -6,7 +6,7 @@
 
 
 # General Advice
-1. [Immutability](./immutability.md), in general
+1. [Immutability](../general/immutability.md), in general
 1. [Immutability](./jvm-immutability.md) on the JVM
 1. [Importance of Sorting](./sorting.md)
 1. [Importance of Preconditions](./preconditions.md)
