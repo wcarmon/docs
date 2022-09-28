@@ -160,8 +160,8 @@ func main() {
 
 	// TODO: setup zerolog here
 
-    // TODO: if using wire, make this a provider instead
-    // and add wire.Value(OSArgs(os.Args))
+	// TODO: if using wire, make this a provider instead
+	// and add wire.Value(OSArgs(os.Args))
 	cfg, err := NewConfig(os.Args)
 	if err != nil {
 		log.Error().
