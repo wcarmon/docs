@@ -51,7 +51,7 @@ func NewConfig(osArgs OSArgs) (*appConf, error) {
 		return nil, err
 	}
 
-	v.SetConfigType("toml")
+	v.SetConfigType(configFileType)
 
 	// -- Allow env vars to override config file
 	// -- NOTE: use v.AllKeys() to print all available keys (for 1st arg below)
