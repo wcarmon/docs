@@ -12,7 +12,7 @@ import (
 	"path/filepath"
 )
 
-const defaultConfigFilePath = "app.config.toml"
+const defaultConfigFilePath = "app.conf.toml"
 const configFileType = "toml"
 
 // structure mirrors the config toml file
@@ -155,7 +155,7 @@ func (c *appConf) setDefaults() {
 ```go
 // Entry point
 // Command line Args:
-// 1. path to app.config.toml file
+// 1. path to app.conf.toml file
 func main() {
 
 	// TODO: setup zerolog here

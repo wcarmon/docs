@@ -10,7 +10,7 @@
 - Run the main **package** not the `main.go` file
     - Run kind: Package
     - Package path: `foo/cmd/bar` (assuming a module named `foo`, and a command named `bar`)
-    - Program arguments: [`/path/to/your/app.config.yaml`](./config.md)
+    - Program arguments: [`/path/to/your/app.conf.toml`](./config.md)
 
 
 # Other resources

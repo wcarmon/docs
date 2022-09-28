@@ -29,7 +29,7 @@ readonly SCRIPTS_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")")
 readonly CMD_PACKAGE=./cmd/run-server
 
 # Relative to $PROJ_ROOT
-readonly CONFIG_FILE=./app.config.toml
+readonly CONFIG_FILE=./app.conf.toml
 
 # ---------------------------------------------
 # -- Derived

@@ -22,7 +22,7 @@ readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
 # ---------------------------------------------
 # NOTE: all paths relative to $PROJ_ROOT
 
-readonly CONFIG_FILE=./app.config.toml
+readonly CONFIG_FILE=./app.conf.toml
 
 # ---------------------------------------------
 # -- Derived

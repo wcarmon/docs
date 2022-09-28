@@ -21,7 +21,7 @@ RUN cat /usr/local/share/ca-certificates/z.crt >> /etc/ssl/certs/ca-certificates
 # -- Copy binary & config
 # TODO: replace "foo" with your binary name
 COPY bin/foo.amd64.alpine.bin /app/app.bin
-COPY app.config.toml /app/app.config.toml
+COPY app.conf.toml /app/app.conf.toml
 
 # -- Make non-root user
 RUN addgroup -g 1001 gopher && \
@@ -38,4 +38,4 @@ RUN chmod 0755 /app/app.bin && \
 
 USER gopher:gopher
 
-CMD ["/app/app.bin", "app.config.toml"]
+CMD ["/app/app.bin", "app.conf.toml"]

@@ -45,7 +45,7 @@ RUN update-ca-certificates && \
 
 # -- Copy binary & config
 COPY --from=builder /app/app.bin /app/app.bin
-COPY --from=builder /app/src/app.config.toml /app/app.config.toml
+COPY --from=builder /app/src/app.conf.toml /app/app.conf.toml
 
 # -- Make non-root user
 RUN addgroup -g 1001 gopher && \
@@ -62,4 +62,4 @@ RUN chmod 0755 /app/app.bin && \
 
 USER gopher:gopher
 
-CMD ["/app/app.bin", "app.config.toml"]
+CMD ["/app/app.bin", "app.conf.toml"]
