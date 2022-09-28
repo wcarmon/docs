@@ -33,7 +33,7 @@ public class Employee {
     //builderMethodName = "newBuilder", // <-- by default lombok name is misaligned with the greater community
     toBuilder = true)
   private Employee(
-    Boolean active,  // <-- non-primitive allows you to default the value
+    Boolean active,  // <-- non-primitive allows you to default the value (see below)
     int age,
     String name,
     LocalDate startDate) {
