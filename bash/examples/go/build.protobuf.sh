@@ -67,6 +67,11 @@ readonly PROJ_ROOT="$PARENT_DIR"
 # ---------------------------------------------
 
 # ---------------------------------------------
+# -- Generate dependencies
+# ---------------------------------------------
+#TODO: if you depend on other protos, build them here
+
+# ---------------------------------------------
 # -- Generate
 # ---------------------------------------------
 mkdir -p $MODEL_GO_CODE_OUTPUT_DIR

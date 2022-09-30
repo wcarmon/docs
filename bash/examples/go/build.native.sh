@@ -55,9 +55,18 @@ readonly ABSOLUTE_OUTPUT_DIR=$(readlink -f "$PROJ_ROOT/$RELATIVE_OUTPUT_DIR")
 # ---------------------------------------------
 
 # ---------------------------------------------
+# -- Cleanup
+# ---------------------------------------------
+echo
+echo "|-- Clearing old binaries in $ABSOLUTE_OUTPUT_DIR"
+rm -vf $ABSOLUTE_OUTPUT_DIR/${OUTPUT_BINARY_NAME}*.bin
+rm -vf $ABSOLUTE_OUTPUT_DIR/${OUTPUT_BINARY_NAME}*.app
+rm -vf $ABSOLUTE_OUTPUT_DIR/${OUTPUT_BINARY_NAME}*.exe
+
+# ---------------------------------------------
 # -- Build
 # ---------------------------------------------
-mkdir -p $ABSOLUTE_OUTPUT_DIR
+mkdir -p "$ABSOLUTE_OUTPUT_DIR"
 
 cd "$PROJ_ROOT/src" >/dev/null 2>&1
 $GO mod tidy

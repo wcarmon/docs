@@ -58,6 +58,8 @@ readonly GIT_COMMIT=$(
 mkdir -p $PROJ_ROOT/$RELATIVE_OUTPUT_DIR
 readonly ABSOLUTE_OUTPUT_DIR=$(readlink -f "$PROJ_ROOT/$RELATIVE_OUTPUT_DIR")
 
+readonly MY_UID=$(id -u)
+
 # ---------------------------------------------
 # -- Validate
 # ---------------------------------------------
@@ -134,6 +136,7 @@ $DOCKER run \
 
   # -- Fix ownership on output
   chmod -v 777 /output/${OUTPUT_BINARY_NAME}*
+  chown -v $MY_UID /output/${OUTPUT_BINARY_NAME}*
   "
 
 # ---------------------------------------------
@@ -182,6 +185,7 @@ $DOCKER run \
 
   # -- Fix ownership on output
   chmod -v 777 /output/${OUTPUT_BINARY_NAME}*.alpine.bin
+  chown -v $MY_UID /output/${OUTPUT_BINARY_NAME}*.alpine.bin
   "
 
 # NOTE: list architectures:
@@ -192,4 +196,4 @@ $DOCKER run \
 # ---------------------------------------------
 echo
 echo "|-- Successfully built.  See binaries in $ABSOLUTE_OUTPUT_DIR"
-ls -hlt $ABSOLUTE_OUTPUT_DIR/"${OUTPUT_BINARY_NAME}"*
+ls -hlt "${ABSOLUTE_OUTPUT_DIR}/${OUTPUT_BINARY_NAME}"*
