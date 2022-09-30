@@ -35,17 +35,23 @@ readonly PROTOC=$(which protoc)
 # we generate *.pb.go files for each *.proto file
 readonly RELATIVE_PROTO_INPUT_DIR=proto
 
-# Root output dir for generated *.pb.go files containing "message"
-# Use a dir under the dir containing go.mod file
+# Dir, Contains *.proto with model messages
+readonly MODEL_PROTOS_DIR="${RELATIVE_PROTO_INPUT_DIR}/model"
+
+# Dir, Contains *.proto with rpc, request, response messages and services
+readonly GRPC_PROTOS_DIR="${RELATIVE_PROTO_INPUT_DIR}/rpc"
+
+# Dir to write *_gen.pb.go files for model messages
+# Use a sub directory under the dir containing go.mod file
 # "option go_package" is appended to this path, unless --go_opt=paths=source_relative
-readonly PROTO_OUTPUT_DIR="${PARENT_DIR}/src/grpc/foo/api"
+readonly MODEL_GO_CODE_OUTPUT_DIR="${PARENT_DIR}/src/serde/pb"
 
-# Root output dir for generated *.pb.go files containing "rpc"
-# Use a dir under the dir containing go.mod file
-# "option go_package" is appended to this path, unless --go-grpc_opt=paths=source_relative
-readonly GRPC_OUTPUT_DIR="${PARENT_DIR}/src/grpc/foo/api"
+# Dir to write *_gen.pb.go files for rpc, request, response messages & services
+# Use a sub directory under the dir containing go.mod file
+# "option go_package" is appended to this path, unless --go_opt=paths=source_relative
+readonly GRPC_GO_CODE_OUTPUT_DIR="${PARENT_DIR}/src/grpc/foo/api"
 
-# Paths containing *.proto files
+# Paths containing more *.proto files
 # For resolving imports in other *.proto files
 #readonly SEARCH_DIR_1=$HOME/opt/protobuf/include
 #readonly SEARCH_DIR_2=$HOME/another/path
@@ -56,8 +62,6 @@ readonly GRPC_OUTPUT_DIR="${PARENT_DIR}/src/grpc/foo/api"
 # $PROJ_ROOT/src/go.mod file must exist
 readonly PROJ_ROOT="$PARENT_DIR"
 
-readonly PROTO_INPUT_DIR=$(readlink -f "$PARENT_DIR/$RELATIVE_PROTO_INPUT_DIR")
-
 # ---------------------------------------------
 # -- Validate
 # ---------------------------------------------
@@ -65,27 +69,39 @@ readonly PROTO_INPUT_DIR=$(readlink -f "$PARENT_DIR/$RELATIVE_PROTO_INPUT_DIR")
 # ---------------------------------------------
 # -- Generate
 # ---------------------------------------------
-mkdir -p "$GRPC_OUTPUT_DIR"
-mkdir -p "$PROTO_OUTPUT_DIR"
+mkdir -p $MODEL_GO_CODE_OUTPUT_DIR
+mkdir -p $GRPC_GO_CODE_OUTPUT_DIR
 
-cd $PARENT_DIR >/dev/null 2>&1
+cd $PROJ_ROOT >/dev/null 2>&1
 
 echo
-echo "|-- Generating go code from proto files in $PROTO_INPUT_DIR"
+echo "|-- Generating go code for model protos in $MODEL_PROTOS_DIR"
+$PROTOC \
+  --go_opt=paths=source_relative \
+  --go_out="$MODEL_GO_CODE_OUTPUT_DIR" \
+  --proto_path="${MODEL_PROTOS_DIR}" \
+  $MODEL_PROTOS_DIR/*.proto
 
+echo
+echo "|-- Generating go code for rpc proto files in $GRPC_PROTOS_DIR"
 $PROTOC \
   --go-grpc_opt=paths=source_relative \
-  --go-grpc_out=$GRPC_OUTPUT_DIR \
+  --go-grpc_out="${GRPC_GO_CODE_OUTPUT_DIR}" \
   --go_opt=paths=source_relative \
-  --go_out=$PROTO_OUTPUT_DIR \
-  --proto_path="${RELATIVE_PROTO_INPUT_DIR}" \
-  --proto_path="${SEARCH_DIR_1}" \
-  $RELATIVE_PROTO_INPUT_DIR/*.proto
+  --go_out="${GRPC_GO_CODE_OUTPUT_DIR}" \
+  --proto_path="${GRPC_PROTOS_DIR}" \
+  --proto_path="${MODEL_PROTOS_DIR}" \
+  $GRPC_PROTOS_DIR/*.proto
 
 # ---------------------------------------------
 # -- Report
 # ---------------------------------------------
 echo
-echo "|-- See generated go files in $PROTO_OUTPUT_DIR"
-find $PROTO_OUTPUT_DIR -name '*.pb.go' | head -3
+echo "|-- See generated model go files in $MODEL_GO_CODE_OUTPUT_DIR"
+find $MODEL_GO_CODE_OUTPUT_DIR -name '*.pb.go' | head -5
+echo "..."
+
+echo
+echo "|-- See generated model go files in $GRPC_GO_CODE_OUTPUT_DIR"
+find $GRPC_GO_CODE_OUTPUT_DIR -name '*.pb.go' | head -5
 echo "..."
