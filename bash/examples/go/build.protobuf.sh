@@ -107,6 +107,6 @@ find $MODEL_GO_CODE_OUTPUT_DIR -name '*.pb.go' | head -5
 echo "..."
 
 echo
-echo "|-- See generated model go files in $GRPC_GO_CODE_OUTPUT_DIR"
+echo "|-- See generated rpc go files in $GRPC_GO_CODE_OUTPUT_DIR"
 find $GRPC_GO_CODE_OUTPUT_DIR -name '*.pb.go' | head -5
 echo "..."

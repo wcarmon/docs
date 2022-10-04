@@ -36,6 +36,20 @@ $KEYTOOL -import \
 # You may need to enter a keystore password here
 ```
 
+## Multiple JDKs
+```bash
+MY_CERT=$HOME/my_cert.der
+find $HOME \
+-type f
+-name keytool \
+-exec {}
+    -import \
+    -alias custom-Root-CA-keystore \
+    -cacerts \
+    -file $MY_CERT \
+    -trustcacerts;
+```
+
 
 # Other resources
 1. TODO
