@@ -47,7 +47,7 @@ find $HOME \
     -alias custom-Root-CA-keystore \
     -cacerts \
     -file $MY_CERT \
-    -trustcacerts;
+    -trustcacerts \;
 ```
 
 
