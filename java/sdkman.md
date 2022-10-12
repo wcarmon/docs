@@ -44,9 +44,7 @@ sdk install java 17.0.3-oracle
 
 sdk install java 22.2.r17-grl;
 
-sdk install java 11.0.12-open;
-
-sdk install kotlin 1.6.21;
+sdk install kotlin 1.7.20;
 ```
 
 
