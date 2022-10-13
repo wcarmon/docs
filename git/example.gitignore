@@ -22,9 +22,16 @@
 # -----------------------------------------------------------------------------
 
 
+!**/src/main/**/bin/
+!**/src/main/**/build/
+!**/src/main/**/out/
+!**/src/test/**/bin/
+!**/src/test/**/build/
+!**/src/test/**/out/
 !gradle/*.gradle
 !gradle/*.gradle.kts
 !src/vendor/manifest
+
 $RECYCLE.BIN/
 **/out/production/
 **/out/production/resources/
