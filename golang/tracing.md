@@ -2,6 +2,10 @@
 - How to use [OpenTracing](https://opentracing.io/) with golang
 
 
+# Definitions
+- Trace: distributed call stack
+
+
 # Idioms
 TODO ...
 
