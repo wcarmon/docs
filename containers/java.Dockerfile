@@ -57,7 +57,7 @@ RUN curl --silent "https://get.sdkman.io" | bash && \
 
 
 # -- Add cert to keytool (java sdk)
-RUN keytool \
+RUN $HOME/.sdkman/candidates/java/current/bin/keytool \
     -alias foo \
     -file /usr/local/share/ca-certificates/foo.crt \
     -importcert \
