@@ -85,7 +85,7 @@ RUN $HOME/.sdkman/candidates/gradle/current/bin/gradle \
     -Dorg.gradle.daemon=false \
     -Dorg.gradle.parallel=true \
     -Dorg.gradle.workers.max=2 \
-    -Dorg.gradle.jvmargs=-Xmx2048m \
+    -Dorg.gradle.jvmargs=-Xmx1024m \
     -q \
     -x check \
     -x pmd \
@@ -107,6 +107,8 @@ RUN update-ca-certificates && \
     apk --no-cache add ca-certificates
 
 COPY --from=builder /home/appbuilder/build/libs/*.jar /app/app.jar
+
+#TODO: need to copy/install java
 
 RUN groupadd -g 1001 javaapp && \
     useradd \
