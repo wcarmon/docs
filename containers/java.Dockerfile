@@ -86,6 +86,7 @@ RUN $HOME/.sdkman/candidates/gradle/current/bin/gradle \
     -Djavax.net.ssl.keyStorePassword=changeit \
     -Djavax.net.ssl.keyStoreType=KeychainStore \
     -Dorg.gradle.daemon=false \
+    -Dorg.gradle.jvmargs=-Djavax.net.ssl.keyStore="$JAVA_HOME/jre/lib/security/cacerts" \
     -Dorg.gradle.jvmargs=-Djavax.net.ssl.keyStore="/Users/myusername/certificates/my_private_company_cert.p12" \
     -Dorg.gradle.jvmargs=-Xmx1024m \
     -Dorg.gradle.parallel=true \
