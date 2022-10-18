@@ -1,5 +1,9 @@
 # syntax=docker/dockerfile:1
 
+# Assumptions
+# 1. Tests previously run
+# 1. Static analysis previously run
+
 # ---------------------------------------------
 # -- Build stage
 # ---------------------------------------------
@@ -7,27 +11,38 @@ FROM debian:bullseye AS builder
 WORKDIR /home/builder
 
 # -- TODO: copy extra ca certs here
+# - Alpine: /usr/local/share/ca-certificates/
+# - Debian: /usr/lib/ssl/certs/
 # COPY ./foo.crt /usr/local/share/ca-certificates/
 
+# -- Install dependencies
 RUN apt-get update -qq && \
     apt-get install -q -y curl zip unzip && \
     update-ca-certificates
 
+# -- Use bash
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
-RUN groupadd -g 1010 builder && \
-    useradd --gid builder --uid 1010 --home-dir /home/builder builder
+
+# -- Add user for building
+RUN groupadd -g 1010 appbuilder && \
+    useradd \
+    --gid appbuilder \
+    --home-dir /home/appbuilder  \
+    --uid 1010 \
+    appbuilder
 
 
 # -- Copy sources
-COPY --chown=builder:builder . .
-RUN chown -R builder:builder /home/builder
+# -- See also: .dockerignore
+COPY --chown=appbuilder:appbuilder . .
+RUN chown -R appbuilder:appbuilder /home/appbuilder
 
-USER builder:builder
+USER appbuilder:appbuilder
 
-# -- Install sdkman, java & gradle
-ENV JAVA_HOME=/home/builder/.sdkman/candidates/java/current
-ENV GRADLE_HOME=/home/builder/.sdkman/candidates/gradle/current
+# -- Install sdkman, java, gradle
+ENV JAVA_HOME=/home/appbuilder/.sdkman/candidates/java/current
+ENV GRADLE_HOME=/home/appbuilder/.sdkman/candidates/gradle/current
 
 RUN curl --silent https://get.sdkman.io | bash && \
     chmod a+x "$HOME/.sdkman/bin/sdkman-init.sh" && \
