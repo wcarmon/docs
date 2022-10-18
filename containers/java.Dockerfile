@@ -70,14 +70,6 @@ RUN $HOME/.sdkman/candidates/java/current/bin/keytool \
 
 # -- Build via Gradle
 RUN $HOME/.sdkman/candidates/gradle/current/bin/gradle \
-    --version \
-    -q \
-    --no-daemon \
-    -Dhttp.socketTimeout=30000 \
-    -Dhttp.connectionTimeout=30000  \
-    -Dhttp.connectionRequestTimeout=30000
-
-RUN $HOME/.sdkman/candidates/gradle/current/bin/gradle \
     clean build jar \
     --no-daemon \
     -Dhttp.connectionRequestTimeout=45000 \
