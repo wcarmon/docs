@@ -94,6 +94,7 @@ RUN gradle clean build jar \
 # -- Deploy stage
 # ---------------------------------------------
 FROM alpine:3
+USER root
 
 WORKDIR /app
 EXPOSE 3000
@@ -101,20 +102,16 @@ EXPOSE 3000
 RUN update-ca-certificates && \
     apk --no-cache add ca-certificates
 
-# TODO: copy jar
+COPY --from=builder /home/appbuilder/build/libs/*.jar /app/app.jar
 
-RUN addgroup -g 1001 javaapp && \
-    adduser \
-    -D \
-    -G javaapp \
-    -h /app \
-    -H \
-    -u 1001 \
+RUN groupadd -g 1001 javaapp && \
+    useradd \
+    --gid javaapp \
+    --home-dir /home/javaapp  \
+    --uid 1001 \
     javaapp
 
-RUN chmod 0755 /app/app.bin && \
-    chown -R javaapp:javaapp /app
+RUN chown -R javaapp:javaapp /app
 
 USER javaapp:javaapp
-
-CMD ["/path/to/java", "-jar", ""]
+CMD ["$HOME/.sdkman/candidates/java/current/bin/java", "-jar", "app.jar"]
