@@ -21,7 +21,7 @@
 1. Click `Authorize`
 1. Attempt to push to a repo on github
     1. user: `john.smith@company.com`
-    1. pass: `<the-token>`
+    1. pass: `<your-token>`
 
 
 # Other resources
