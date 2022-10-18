@@ -10,10 +10,10 @@
 1. Give it a name
 1. Expiration: ...
 1. Scopes:
-    1. Repo > *all*
-    1. workflow
-    1. admin:org > read:org
-    1. gist
+    1. `repo` > *all*
+    1. `workflow`
+    1. `admin:org` > `read:org`
+    1. `gist`
 1. Click `Generate token` button (lower left)
 1. Save the token to a local file (eg. ~/github_token.txt)
 1. Find the row for your newly created token
