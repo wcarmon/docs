@@ -1,14 +1,14 @@
 # syntax=docker/dockerfile:1
 
-# Assumptions
+# Assumptions:
 # 1. Tests previously run
-# 1. Static analysis previously run
+# 2. Static analysis previously run
 
 # ---------------------------------------------
 # -- Build stage
 # ---------------------------------------------
 FROM debian:bullseye AS builder
-WORKDIR /home/builder
+WORKDIR /home/appbuilder
 
 # -- TODO: copy extra ca certs here
 # - Alpine: /usr/local/share/ca-certificates/
@@ -17,8 +17,9 @@ WORKDIR /home/builder
 
 # -- Install dependencies
 RUN apt-get update -qq && \
-    apt-get install -q -y curl zip unzip && \
+    apt-get install -q -y curl unzip zip && \
     update-ca-certificates
+
 
 # -- Use bash
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
@@ -38,7 +39,9 @@ RUN groupadd -g 1010 appbuilder && \
 COPY --chown=appbuilder:appbuilder . .
 RUN chown -R appbuilder:appbuilder /home/appbuilder
 
+
 USER appbuilder:appbuilder
+
 
 # -- Install sdkman, java, gradle
 ENV JAVA_HOME=/home/appbuilder/.sdkman/candidates/java/current
