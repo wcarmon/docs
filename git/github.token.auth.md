@@ -15,7 +15,7 @@
     1. `admin:org` > `read:org`
     1. `gist`
 1. Click `Generate token` button (lower left)
-1. Save the token to a local file (eg. ~/github_token.txt)
+1. Save the new token to a local file (eg. `~/github_token.txt`)
 1. Find the row for your newly created token
 1. Click `Configure SSO` button
 1. Click `Authorize`
