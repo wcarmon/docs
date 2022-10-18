@@ -56,7 +56,7 @@ RUN curl --silent "https://get.sdkman.io" | bash && \
     sdk use gradle 7.5.1
 
 
-# -- Add cert to keytool
+# -- Add cert to keytool (java sdk)
 RUN keytool \
     -alias foo \
     -file /usr/local/share/ca-certificates/foo.crt \
