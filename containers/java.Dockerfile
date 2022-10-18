@@ -47,6 +47,7 @@ USER appbuilder:appbuilder
 ENV JAVA_HOME=/home/appbuilder/.sdkman/candidates/java/current
 ENV GRADLE_HOME=/home/appbuilder/.sdkman/candidates/gradle/current
 
+# NOTE: use `sdk list java` to see available versions
 RUN curl --silent "https://get.sdkman.io" | bash && \
     chmod a+x "$HOME/.sdkman/bin/sdkman-init.sh" && \
     source "$HOME/.sdkman/bin/sdkman-init.sh" && \
@@ -83,6 +84,8 @@ RUN $HOME/.sdkman/candidates/gradle/current/bin/gradle \
     -Dhttp.socketTimeout=45000 \
     -Dorg.gradle.daemon=false \
     -Dorg.gradle.parallel=true \
+    -Dorg.gradle.workers.max=2 \
+    -Dorg.gradle.jvmargs=-Xmx2048m \
     -q \
     -x check \
     -x pmd \
