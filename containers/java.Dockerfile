@@ -67,19 +67,19 @@ RUN keytool \
     -trustcacerts
 
 
-# -- Build
-RUN ./gradlew \
+# -- Build via Gradle
+RUN gradle \
     --version  \
     -q \
-    -Dhttp.socketTimeout=60000 \
-    -Dhttp.connectionTimeout=60000  \
-    -Dhttp.connectionRequestTimeout=60000
+    -Dhttp.socketTimeout=30000 \
+    -Dhttp.connectionTimeout=30000  \
+    -Dhttp.connectionRequestTimeout=30000
 
-RUN ./gradlew clean build jar \
+RUN gradle clean build jar \
     --no-daemon \
-    -Dhttp.connectionRequestTimeout=60000 \
-    -Dhttp.connectionTimeout=60000  \
-    -Dhttp.socketTimeout=60000 \
+    -Dhttp.connectionRequestTimeout=45000 \
+    -Dhttp.connectionTimeout=45000  \
+    -Dhttp.socketTimeout=45000 \
     -Dorg.gradle.daemon=false \
     -Dorg.gradle.parallel=true \
     -q \
