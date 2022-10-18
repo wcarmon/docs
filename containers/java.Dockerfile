@@ -61,7 +61,7 @@ RUN $HOME/.sdkman/candidates/java/current/bin/keytool \
     -alias foo \
     -file /usr/local/share/ca-certificates/foo.crt \
     -importcert \
-    -keystore $JAVA_HOME/lib/security/cacerts \
+    -keystore cacerts \
     -noprompt \
     -storepass changeit \
     -trustcacerts
