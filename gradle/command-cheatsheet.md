@@ -7,14 +7,24 @@
 
 
 ## Setup, Init, Upgrade
-```
+```bash
 gradle init
 gradle wrapper --gradle-version 7.4.2
 gradle wrapper
 
+
 # -- Upgrade
-./gradlew wrapper --gradle-version=7.5.2 --distribution-type=all
+./gradlew wrapper --gradle-version=7.5.1 --distribution-type=all
 ./gradlew wrapper --gradle-version=7.4.2 --distribution-type=bin
+```
+
+## Verify setup
+```bash
+gradle --version
+./gradlew --version
+
+## on a slow connection:
+./gradlew --version -Dhttp.socketTimeout=60000 -Dhttp.connectionTimeout=60000
 ```
 
 
