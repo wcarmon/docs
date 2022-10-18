@@ -25,5 +25,6 @@
 
 
 # Other resources
+1. https://www.jetbrains.com/help/idea/github.html
 1. https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token
 1. https://docs.github.com/en/enterprise-server@3.4/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token
