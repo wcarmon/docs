@@ -47,7 +47,7 @@ USER appbuilder:appbuilder
 ENV JAVA_HOME=/home/appbuilder/.sdkman/candidates/java/current
 ENV GRADLE_HOME=/home/appbuilder/.sdkman/candidates/gradle/current
 
-RUN curl --silent https://get.sdkman.io | bash && \
+RUN curl --silent "https://get.sdkman.io" | bash && \
     chmod a+x "$HOME/.sdkman/bin/sdkman-init.sh" && \
     source "$HOME/.sdkman/bin/sdkman-init.sh" && \
     sdk install java 19-amzn && \
