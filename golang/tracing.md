@@ -1,5 +1,12 @@
 # Overview
 - How to use [OpenTracing](https://opentracing.io/) with golang
+- Open telemetry
+
+
+# Definitions
+- Trace: distributed call stack
+- span: TODO
+- exporter: local sink for spans 
 
 
 # Idioms
