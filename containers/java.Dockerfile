@@ -69,7 +69,7 @@ RUN $HOME/.sdkman/candidates/java/current/bin/keytool \
 
 # -- Build via Gradle
 RUN gradle \
-    --version  \
+    --version \
     -q \
     -Dhttp.socketTimeout=30000 \
     -Dhttp.connectionTimeout=30000  \
