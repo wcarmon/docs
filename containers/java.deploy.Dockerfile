@@ -44,6 +44,7 @@ RUN addgroup -g 1001 javaapp && \
 #TODO: change fix to whatever should run
 COPY --chown=javaapp:javaapp ./target/fix.jar /home/javaapp/app.jar
 
-USER javaapp:javaapp
+RUN chown -R javaapp:javaapp /home/javaapp
 
-CMD ["java", "-jar", "app.jar"]
+USER javaapp:javaapp
+CMD ["/usr/bin/java", "-jar", "app.jar"]
