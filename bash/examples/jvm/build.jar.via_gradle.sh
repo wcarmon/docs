@@ -57,3 +57,10 @@ time $GRADLE \
   jar \
   -x test \
   --quiet
+
+# ---------------------------------------------
+# -- Report
+# ---------------------------------------------
+echo
+echo "|-- See jar(s) in $PROJ_ROOT/build/libs"
+ls -hlt $PROJ_ROOT/build/libs/*.jar
