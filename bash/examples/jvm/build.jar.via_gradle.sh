@@ -58,6 +58,7 @@ time $GRADLE \
   -x check \
   -x pmdMain \
   -x pmdTest \
+  -x spotlessApply \
   -x spotlessCheck \
   -x test \
   --quiet
