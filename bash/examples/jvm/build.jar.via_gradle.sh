@@ -28,10 +28,10 @@ readonly BINARY=build/app
 # ---------------------------------------------
 # -- Derived
 # ---------------------------------------------
-readonly GRADLE="$PROJ_ROOT/gradlew"
-
 # Dir contains settings.gradle.kts, build.gradle.kts, gradlew, ...
 readonly PROJ_ROOT="$PARENT_DIR"
+
+readonly GRADLE="$PROJ_ROOT/gradlew"
 
 # NOTE: to get project name: (might not match the jar name)
 # ./gradlew properties -q | grep name
