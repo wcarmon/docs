@@ -55,6 +55,10 @@ time $GRADLE \
   clean \
   build \
   jar \
+  -x check \
+  -x pmdMain \
+  -x pmdTest \
+  -x spotlessCheck \
   -x test \
   --quiet
 
