@@ -28,6 +28,10 @@ readonly SCRIPTS_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")")
 # ---------------------------------------------
 # -- Derived
 # ---------------------------------------------
+# Dir contains settings.gradle.kts, build.gradle.kts, gradlew, ...
+readonly PROJ_ROOT="$PARENT_DIR"
+
+readonly GRADLE="$PROJ_ROOT/gradlew"
 
 # ---------------------------------------------
 # -- Validate
@@ -36,8 +40,17 @@ readonly SCRIPTS_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")")
 # ---------------------------------------------
 # -- Build
 # ---------------------------------------------
+$GRADLE \
+  clean \
+  build \
+  check \
+  jar \
+  pmdMain \
+  pmdTest \
+  spotlessCheck \
+  test \
+  --quiet
 
-# TODO: more here: gradle clean build test check jar spotlessCheck
+$SCRIPTS_DIR/build.image.sh
 
-# TODO: $SCRIPTS_DIR/build.image.sh
-# TODO: $SCRIPTS_DIR/push.image.sh
+$SCRIPTS_DIR/push.image.sh
