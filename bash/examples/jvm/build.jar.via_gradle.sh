@@ -34,10 +34,6 @@ readonly PROJ_ROOT="$PARENT_DIR"
 
 readonly GRADLE="$PROJ_ROOT/gradlew"
 
-# NOTE: to get project name: (might not match the jar name)
-# ./gradlew properties -q | grep name
-readonly JAR_FILE=$PROJ_ROOT/build/libs/foo.1.0.0.jar
-
 # ---------------------------------------------
 # -- Validate
 # ---------------------------------------------
