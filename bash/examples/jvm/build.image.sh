@@ -20,8 +20,9 @@ readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
 # ---------------------------------------------
 # -- Script arguments
 # ---------------------------------------------
-# Format: https://docs.docker.com/engine/reference/commandline/tag/#description
-readonly TAG=$1
+# semver: https://semver.org/
+# eg. "1.2.3" or "4.5"
+readonly SEMVER=$1
 
 # ---------------------------------------------
 # -- Config
@@ -58,13 +59,13 @@ echo
 echo "|-- Building docker image ..."
 $DOCKER build \
   --file ${DOCKERFILE} \
-  --tag "${QUALIFIED_REPOSITORY_NAME}:${TAG}" \
+  --tag "${QUALIFIED_REPOSITORY_NAME}:${SEMVER}" \
   --tag "${QUALIFIED_REPOSITORY_NAME}:latest" \
   .
 
 echo
 echo "|-- Tagging docker image for Remote image repo ..."
-$DOCKER tag "${QUALIFIED_REPOSITORY_NAME}:${TAG}" "${IMAGE_REPO_URI}/${QUALIFIED_REPOSITORY_NAME}:${TAG}"
+$DOCKER tag "${QUALIFIED_REPOSITORY_NAME}:${SEMVER}" "${IMAGE_REPO_URI}/${QUALIFIED_REPOSITORY_NAME}:${SEMVER}"
 $DOCKER tag "${QUALIFIED_REPOSITORY_NAME}:latest" "${IMAGE_REPO_URI}/${QUALIFIED_REPOSITORY_NAME}:latest"
 
 # ---------------------------------------------
