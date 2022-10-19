@@ -5,7 +5,7 @@
 # --
 # -- Assumptions:
 # -- 1. Docker installed: https://docs.docker.com/get-docker/
-# -- 2. Executed by CI tool (eg. Jenkins)
+# -- 2. Executed by CI tool (eg. Jenkins, Github Actions, ...)
 # -- 3. awscli (or equivalent) is installed
 # -- 4. Previously ran `aws configure`
 # -- 5. Previously created an image repo (eg. on ECR)

@@ -2,11 +2,14 @@
 
 # ---------------------------------------------
 # -- Runs static analysis via gradle
+# --
+# -- Assumptions:
+# -- 1. gradle installed
 # ---------------------------------------------
 #set -x # uncomment to debug script
-set -e
+set -e # exit on first error
 set -o pipefail
-set -u
+set -u # fail on unset var
 
 # ---------------------------------------------
 # -- Constants
