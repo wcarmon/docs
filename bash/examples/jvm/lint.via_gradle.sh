@@ -45,4 +45,10 @@ echo "|-- Analyzing code in ${PROJ_ROOT}"
 
 cd "$PROJ_ROOT" >/dev/null 2>&1
 
-$GRADLE check --quiet
+$GRADLE \
+  check \
+  pmdMain \
+  pmdTest \
+  spotlessCheck \
+  spotlessJavaCheck \
+  -x test
