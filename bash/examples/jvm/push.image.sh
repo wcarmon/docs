@@ -29,41 +29,78 @@ set -u # fail on unset var
 # ---------------------------------------------
 # -- Constants
 # ---------------------------------------------
+readonly AWS=$(which aws)
 readonly DOCKER=$(which docker)
+readonly GCLOUD=$HOME/bin/gcloud
 readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
 
 # ---------------------------------------------
 # -- Script arguments
 # ---------------------------------------------
-# alphanumeric, dot, dash
-# eg. "1.0.0"
-# eg. "1.0.1-hotfix"
-# eg. "1.2.3-debug"
-readonly VERSION=$1
+# semver: https://semver.org/
+# eg. "1.2.3" or "4.5"
+readonly SEMVER=$1
 
 # ---------------------------------------------
 # -- Config
 # ---------------------------------------------
 # NOTE: all paths relative to $PROJ_ROOT
-readonly APP_NAME=go-rest-server
+
+# Dir contains Dockerfile
+readonly PROJ_ROOT="$PARENT_DIR"
+
+# Unqualified image name
+# Final segment before the version
+readonly SHORT_IMAGE_NAME="foo"
+
+# Optional
+# Useful as a version suffix when image repo contains multiple variants
+# (eg. debian/alpine)
+readonly TAG_SUFFIX=go
+
+# AWS (Elastic Container Registry):
+#   - Format: TODO
+#   - eg. "ecr.us-east-1.amazonaws.com"
+#
+# Google Cloud (Artifact Registry):
+#   - Format: HOST-NAME/PROJECT-ID
+#   - eg. "us-east1-docker.pkg.dev/my-project-id"
+#   - See https://console.cloud.google.com/artifacts
 readonly IMAGE_REPO_URI=ecr.us-east-1.amazonaws.com
 
-# See the name in ECR
+# AWS:
+#  - See the name in ECR
+#
+# Google cloud:
+#  - gcloud artifacts repositories list
 readonly REPOSITORY_NAME="company/example"
 
 # ---------------------------------------------
 # -- Derived
 # ---------------------------------------------
-# format: https://docs.docker.com/engine/reference/commandline/tag/#description
-readonly TAG=${VERSION}-${APP_NAME}
+# Everything before the version
+readonly QUALIFIED_IMAGE_NAME="${IMAGE_REPO_URI}/${REPOSITORY_NAME}/${SHORT_IMAGE_NAME}"
+
+readonly TAG_LATEST="latest-${TAG_SUFFIX}"
+readonly TAG_NUMBERED="${SEMVER}-${TAG_SUFFIX}"
+
+# AWS:          TODO
+# Google Cloud: HOST-NAME/PROJECT-ID/REPOSITORY/IMAGE:TAG
+readonly IMAGE_TO_PUSH="${QUALIFIED_IMAGE_NAME}:${TAG_NUMBERED}"
 
 # ---------------------------------------------
 # -- Validate
 # ---------------------------------------------
-#TODO: validate $VERSION
+# -- validate tag
+if [ "$(echo $TAG_NUMBERED)" = "" ]; then
+  echo
+  echo "Error: tag must have a value"
+  echo "See version file at $VERSION_FILE"
+  exit 10
+fi
 
 # ---------------------------------------------
-# -- Login to Image registry
+# -- Authenticate
 # ---------------------------------------------
 echo
 echo "|-- Logging into image registry thru Docker ..."
@@ -77,19 +114,40 @@ aws \
     --password-stdin \
     ${IMAGE_REPO_URI}
 
-echo
-echo "|-- "
-$DOCKER image ls -a | grep ${REPOSITORY_NAME} | sort
+#$GCLOUD auth \
+#  configure-docker \
+#  us-east1-docker.pkg.dev
 
 # ---------------------------------------------
 # -- Push
 # ---------------------------------------------
 echo
-echo "|-- Pushing image to AWS ECR"
-$DOCKER push ${IMAGE_REPO_URI}/${REPOSITORY_NAME}:${TAG}
+echo "|-- Related local images:"
+$DOCKER image ls -a | grep ${QUALIFIED_IMAGE_NAME} | sort
 
-# Cleanup
-$DOCKER rmi ${REPOSITORY_NAME}:${TAG}
+echo
+echo "|-- Pushing Image: $IMAGE_TO_PUSH"
+$DOCKER push $IMAGE_TO_PUSH
+
+# ---------------------------------------------
+# -- Report
+# ---------------------------------------------
+# AWS (ECR):
+# - TODO
+#
+# Google cloud (Artifact Registry)
+# - gcloud artifacts docker images list $IMAGE_REPO_URI/$REPOSITORY_NAME
+# - https://console.cloud.google.com/artifacts/docker/<my-project-id>/us-east1/
+echo
+echo "|-- Remote images"
+$GCLOUD artifacts docker images list $IMAGE_REPO_URI/$REPOSITORY_NAME
+
+#TODO: warn if same/existing image version pushed
+
+# ---------------------------------------------
+# -- Cleanup
+# ---------------------------------------------
+#$DOCKER rmi $IMAGE_TO_PUSH
 
 # ---------------------------------------------
 # -- Logout
