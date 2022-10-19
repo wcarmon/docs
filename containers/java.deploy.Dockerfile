@@ -1,4 +1,11 @@
-FROM amazoncorretto:19-alpine
+# syntax=docker/dockerfile:1
+
+# -- Assumptions:
+# 1. Build previously run
+# 2. Tests previously run
+# 3. Static analysis previously run
+
+FROM amazoncorretto:19-alpine-jdk
 WORKDIR /home/javaapp
 
 # Custom ca-certificate
