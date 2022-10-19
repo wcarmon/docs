@@ -42,5 +42,7 @@ cd "$PROJ_ROOT" >/dev/null 2>&1
 echo
 echo "|-- Testing code in $PROJ_ROOT"
 
-#$GRADLE test --quiet
-$GRADLE test --quiet -i
+$GRADLE test \
+  -x check \
+  --quiet \
+  --info
