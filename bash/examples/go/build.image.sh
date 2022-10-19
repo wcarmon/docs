@@ -30,6 +30,8 @@ readonly SEMVER=$1
 # Dir contains Dockerfile
 readonly PROJ_ROOT="$PARENT_DIR"
 
+readonly DOCKERFILE=./Dockerfile
+
 # Unqualified image name
 # Final segment before the version
 readonly SHORT_IMAGE_NAME="foo"
@@ -38,8 +40,6 @@ readonly SHORT_IMAGE_NAME="foo"
 # Useful as a version suffix when image repo contains multiple variants
 # (eg. debian/alpine)
 readonly TAG_SUFFIX=go
-
-readonly DOCKERFILE=./Dockerfile
 
 # AWS Elastic Container Registry:
 #   - Format: TODO
