@@ -19,6 +19,7 @@ RUN cat /usr/local/share/ca-certificates/custom.crt >> /etc/ssl/certs/ca-certifi
 
 RUN apk add --no-cache curl jq zip
 
+# -- Add cert to keytool (java sdk)
 RUN /usr/bin/keytool \
     -alias custom \
     -cacerts \
@@ -40,6 +41,7 @@ RUN addgroup -g 1001 javaapp && \
 
 
 # -- Copy jar
+#TODO: change fix to whatever should run
 COPY --chown=javaapp:javaapp ./target/fix.jar /home/javaapp/app.jar
 
 USER javaapp:javaapp
