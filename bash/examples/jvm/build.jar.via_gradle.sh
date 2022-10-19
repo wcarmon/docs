@@ -5,6 +5,7 @@
 # --
 # -- Assumptions:
 # -- 1. gradle installed
+# -- 2. lint, tests, and static analysis run separately
 # ---------------------------------------------
 #set -x # uncomment to debug script
 set -e # exit on first error
