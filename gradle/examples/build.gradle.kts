@@ -1,3 +1,333 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
+allprojects {
+  repositories {
+    mavenLocal()
+    mavenCentral()
+
+    google()
+    gradlePluginPortal()
+  }
+}
+
+
+plugins {
+  id("java") apply true
+
+  id("org.jetbrains.kotlin.jvm") version "1.6.0" apply true
+
+  /** Formatter */
+  id("com.diffplug.spotless") version "6.7.2" apply true
+
+  /** Finds updated deps */
+  id("com.github.ben-manes.versions") version "0.42.0" apply true
+
+  /** Static analysis */
+  id("io.gitlab.arturbosch.detekt") version "1.20.0" apply false
+  id("org.sonarqube") version "3.4.0.2513" apply true
+
+  /** Allows Kotlin & Spring to work together */
+  id("org.jetbrains.kotlin.plugin.allopen") version "1.6.0" apply false
+  id("org.jetbrains.kotlin.plugin.spring") version "1.6.0" apply false
+
+  /** SQL Delight */
+  id("com.squareup.sqldelight") version "1.5.3" apply false
+
+  /** Protocol buffer compiler */
+  id("com.google.protobuf") version "0.8.18" apply false
+
+  /** Fat jar */
+  id("com.github.johnrengelman.shadow") version "7.1.2" apply false
+
+  /** bootRun task */
+  id("org.springframework.boot") version "2.7.0" apply false
+
+  /** javafx */
+  id("org.openjfx.javafxplugin") version "0.0.13" apply false
+
+  id("io.freefair.lombok") version "6.4.3" apply false
+
+  /** GraalVM */
+  id("org.mikeneck.graalvm-native-image") version "1.4.1" apply false
+
+  /* PMD */
+  id("org.gradle.pmd") apply true
+}
+
+
+group = "com.wcarmon"
+
+
+subprojects {
+  apply(plugin = "java")
+  apply(plugin = "org.jetbrains.kotlin.jvm")
+
+  apply(plugin = "org.gradle.pmd")
+  apply(plugin = "com.diffplug.spotless")
+//  apply(plugin = "io.gitlab.arturbosch.detekt")
+  apply(plugin = "org.sonarqube")
+  apply<com.diffplug.gradle.spotless.SpotlessPlugin>()
+
+  group = "com.wcarmon"
+  version = "0.1.0-SNAPSHOT"
+
+  java {
+    // TODO: use 17
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+  }
+
+  val compileKotlin: KotlinCompile by tasks
+  val compileTestKotlin: KotlinCompile by tasks
+
+  compileKotlin.kotlinOptions {
+    languageVersion = "1.6"
+  }
+
+  compileTestKotlin.kotlinOptions {
+    languageVersion = "1.6"
+  }
+
+  sourceSets {
+    main {
+      java.srcDirs(
+        "build/generated/source/proto/main/grpc",
+        "build/generated/source/proto/main/java",
+        "src/gen/java",
+        "src/gen/kotlin",
+        "src/main/java",
+        "src/main/kotlin"
+      )
+    }
+
+    test {
+      java.srcDirs(
+        "build/generated/source/proto/main/grpc",
+        "build/generated/source/proto/main/java",
+        "src/gen/java",
+        "src/gen/kotlin",
+        "src/genIntTest/java",
+        "src/genIntTest/kotlin",
+        "src/genTest/java",
+        "src/genTest/kotlin",
+        "src/main/java",
+        "src/main/kotlin",
+        "src/test/java",
+        "src/test/kotlin"
+      )
+    }
+
+    create("intTest") {
+      compileClasspath += sourceSets.main.get().output
+      runtimeClasspath += sourceSets.main.get().output
+    }
+  }
+
+  // https://github.com/JetBrains/kotlin/blob/master/libraries/tools/kotlin-gradle-plugin/src/main/kotlin/org/jetbrains/kotlin/gradle/dsl/KotlinCompile.kt
+  tasks.withType<KotlinCompile>().configureEach {
+    kotlinOptions {
+      freeCompilerArgs = listOf("-Xjsr305=strict")
+//      jdkHome = java11Home
+      jvmTarget = "17"
+    }
+  }
+
+  tasks.withType<Test>().configureEach {
+
+    failFast = true
+    useJUnitPlatform { }
+
+    testLogging {
+      events("passed", "skipped", "failed", "standardOut", "standardError")
+      showExceptions = true
+      showStandardStreams = true
+    }
+  }
+
+  tasks.withType<JavaCompile>().configureEach {
+    // See -Xlint options: https://docs.oracle.com/en/java/javase/11/tools/javac.html#GUID-AEEC9F07-CB49-4E96-8BC7-BCC2C7F725C9
+
+    options.isDebug = false
+    options.isFailOnError = true
+    options.isFork = true
+    options.isIncremental = true
+    options.isVerbose = false
+//    options.compilerArgs = listOf("--add-opens=java.base/java.io=ALL-UNNAMED")
+//    options.compilerArgs = listOf("-Xlint")
+//    options.compilerArgs = listOf("-XprintProcessorInfo") // annotation info
+//    options.forkOptions.javaHome = file(java11Home)
+//    options.release.set(11)
+  }
+
+  // See https://detekt.github.io/detekt/gradle.html#kotlin-dsl-3
+  // or   detekt {...}
+//  tasks.withType<io.gitlab.arturbosch.detekt.Detekt>().configureEach {
+//    config.setFrom(files("$rootDir/detekt.yml"))
+//
+//    debug = false
+//    failFast = false
+//    jvmTarget = "17"  // Detekt cannot handle 17 :-(
+////    jvmTarget = "1.8"
+//
+//    exclude("build/")
+//    exclude("resources/")
+//    ignoreFailures = false
+//    include("**/*.kt")
+//    include("**/*.kts")
+//    parallel = true
+//
+//    reports {
+//      xml {
+//        enabled = true
+//        destination = file("build/reports/detekt.xml")
+//      }
+//      html {
+//        enabled = true
+//        destination = file("build/reports/detekt.html")
+//      }
+//    }
+//
+//    setSource(
+//      files(
+//        "src/main/java",
+//        "src/main/kotlin",
+//        "src/test/java",
+//        "src/test/kotlin"
+//      )
+//    )
+//  }
+
+  //TODO: make a groovy version of this task for debugging legacy stuff at work
+  /**
+   * Debugging helper task
+   *
+   * Prints classpath and runtime classpath for current module (gradle project)
+   */
+  task("printSourceSetInfo") {
+    doLast {
+
+      println("sourceSets.main: ${sourceSets.main::class.java}")
+
+      // sourceSets: org.gradle.api.tasks.SourceSetContainer
+      println("SourceSets: count=${sourceSets.size}")
+
+      for (sourceSet: org.gradle.api.tasks.SourceSet in sourceSets) {
+
+        // sourceSet: org.gradle.api.internal.file.collections.DefaultConfigurableFileCollection
+        println("sourceSet.name: ${sourceSet.name}")
+
+        // -- classpaths
+        println("Compile classpath: fileCount=${sourceSet.compileClasspath.files.size}")
+        for ((index, file) in sourceSet.compileClasspath.files.withIndex()) {
+          println("Compile[$index]: $file")
+        }
+
+        println("Runtime classpath: fileCount=${sourceSet.runtimeClasspath.files.size}")
+        for ((index, file) in sourceSet.runtimeClasspath.files.withIndex()) {
+          println("Runtime[$index]: $file")
+        }
+
+        // -- output
+        // DefaultSourceSetOutput
+        //  println("sourceSet.output: ${sourceSet.output}")
+
+        println("")
+      }
+    }
+  }
+
+
+  // See https://github.com/diffplug/spotless/tree/master/plugin-gradle
+//  tasks.withType<com.diffplug.gradle.spotless.SpotlessExtensionImpl>().configureEach {}
+//  tasks.withType<com.diffplug.gradle.spotless.SpotlessExtension>().configureEach {
+//    encoding("UTF-8")
+//    lineEnding = "UNIX"
+//    endWithNewline()
+//    indentWithSpaces(2)
+//    trimTrailingWhitespace()
+//
+//    groovyGradle {
+//    }
+//
+//    java {
+//      googleJavaFormat("1.8")
+//      importOrder()
+//      removeUnusedImports()
+//      target("src/*/java/**/*.java")
+//    }
+//
+//    kotlin {
+//      endWithNewline()
+//      indentWithSpaces()
+//      ktlint()
+//      targetExclude("src/test/**/*.kts")
+//      trimTrailingWhitespace()
+//    }
+//
+//    kotlinGradle {
+//      endWithNewline()
+//      indentWithSpaces()
+//      target("*.gradle.kts")
+//      targetExclude("src/test/**/*.kts")
+//      trimTrailingWhitespace()
+//    }
+//
+//    sql {
+//      prettier()
+//      target("src/main/resources/**/*.sql")
+//    }
+//  }
+
+//    tasks.jar {}
+//    tasks.withType<Jar>().configureEach {}
+
+  tasks.withType<Jar> {
+//    duplicatesStrategy = DuplicatesStrategy.FAIL
+    duplicatesStrategy = DuplicatesStrategy.WARN
+  }
+
+
+  spotless {
+    java {
+      googleJavaFormat("1.12.0").aosp().reflowLongStrings()
+      importOrder()
+      removeUnusedImports()
+
+      target(
+        "src/*/java/**/*.java"
+      )
+
+      targetExclude(
+        "src/gen/**",
+        "src/genTest/**"
+      )
+    }
+  }
+
+  pmd {
+    isConsoleOutput = true
+    toolVersion = "6.21.0"
+    rulesMinimumPriority.set(5)
+//    ruleSets = listOf("category/java/errorprone.xml", "category/java/bestpractices.xml")
+  }
+
+  defaultArtifacts {
+  }
+
+  reporting {
+  }
+
+  kotlin {
+  }
+
+  sonarqube {
+  }
+
+  testing {
+  }
+
+  configurations.all {
+    resolutionStrategy.failOnVersionConflict()
 
 //    exclude(group = "ch.qos.logback", module = "logback-classic")
 //    exclude(group = "ch.qos.logback", module = "logback-core")
