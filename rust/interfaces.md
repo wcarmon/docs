@@ -1,5 +1,1 @@
-# Overview
-
-
-
-# Other resources
+See [traits.md](./traits.md)
