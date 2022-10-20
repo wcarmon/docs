@@ -9,10 +9,10 @@
 
 # Concepts & Rules
 1. each value/resource is owned by exactly one [variable](https://doc.rust-lang.org/reference/variables.html)
-1. [value] is dropped when owner goes out of scope (rust automatically calls [drop](https://doc.rust-lang.org/rust-by-example/trait/drop.html))
+1. [value] is dropped when owner (variable) goes out of scope (rust automatically calls [drop](https://doc.rust-lang.org/rust-by-example/trait/drop.html))
     1. Scope: tell the compiler when borrows are valid, when resources can be freed, and when variables are created or destroyed.
 1. [variables](https://doc.rust-lang.org/reference/variables.html) are in charge of freeing their own resources/values
-1. Ownership Begins with Assignment
+1. Ownership Begins with assignment
 
 
 # Usage
@@ -50,3 +50,4 @@
 1. https://blog.logrocket.com/understanding-ownership-in-rust/
 1. https://www.makeuseof.com/rust-ownership/
 1. https://web.mit.edu/rust-lang_v1.25/arch/amd64_ubuntu1404/share/doc/rust/html/book/second-edition/ch04-01-what-is-ownership.html
+1. https://dev.to/cthutu/rust-2-lifetimes-owners-and-borrowers-oh-my-3fem

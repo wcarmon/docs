@@ -55,8 +55,8 @@ readonly SHORT_IMAGE_NAME="foo"
 
 # Optional
 # Useful as a version suffix when image repo contains multiple variants
-# (eg. debian/alpine)
-readonly TAG_SUFFIX=go
+# (eg. "-debian" or "-alpine")
+readonly TAG_SUFFIX="-java"
 
 # AWS (Elastic Container Registry):
 #   - Format: TODO
@@ -81,8 +81,8 @@ readonly REPOSITORY_NAME="company/example"
 # Everything before the version
 readonly QUALIFIED_IMAGE_NAME="${IMAGE_REPO_URI}/${REPOSITORY_NAME}/${SHORT_IMAGE_NAME}"
 
-readonly TAG_LATEST="latest-${TAG_SUFFIX}"
-readonly TAG_NUMBERED="${SEMVER}-${TAG_SUFFIX}"
+readonly TAG_LATEST="latest${TAG_SUFFIX}"
+readonly TAG_NUMBERED="${SEMVER}${TAG_SUFFIX}"
 
 # AWS:          TODO
 # Google Cloud: HOST-NAME/PROJECT-ID/REPOSITORY/IMAGE:TAG

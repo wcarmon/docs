@@ -38,14 +38,14 @@ readonly SHORT_IMAGE_NAME="foo"
 
 # Optional
 # Useful as a version suffix when image repo contains multiple variants
-# (eg. debian/alpine)
-readonly TAG_SUFFIX=go
+# (eg. "-debian" or "-alpine")
+readonly TAG_SUFFIX="-go"
 
-# AWS Elastic Container Registry:
+# AWS (Elastic Container Registry):
 #   - Format: TODO
 #   - eg. "ecr.us-east-1.amazonaws.com"
 #
-# Google Cloud Artifact Registry:
+# Google Cloud (Artifact Registry):
 #   - Format: HOST-NAME/PROJECT-ID
 #   - eg. "us-east1-docker.pkg.dev/my-project-id"
 #   - See https://console.cloud.google.com/artifacts
@@ -61,8 +61,8 @@ readonly REPOSITORY_NAME=my-github-project
 # Everything before the version
 readonly QUALIFIED_IMAGE_NAME="${IMAGE_REPO_URI}/${REPOSITORY_NAME}/${SHORT_IMAGE_NAME}"
 
-readonly TAG_LATEST="latest-${TAG_SUFFIX}"
-readonly TAG_NUMBERED="${SEMVER}-${TAG_SUFFIX}"
+readonly TAG_LATEST="latest${TAG_SUFFIX}"
+readonly TAG_NUMBERED="${SEMVER}${TAG_SUFFIX}"
 
 # ---------------------------------------------
 # -- Validate
