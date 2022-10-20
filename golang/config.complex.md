@@ -98,9 +98,16 @@ func NewConfig(osArgs OSArgs) (*appConf, error) {
 	// alternatively: https://github.com/spf13/viper#establishing-defaults
 	c.setDefaults()
 
+	extraViperConfig := func(config *mapstructure.DecoderConfig) {
+		// extras/unused
+		config.ErrorUnused = true
+
+		// missing/implicit
+		config.ErrorUnset = false
+	}
+
 	// -- Store into config struct
-	var c appConf
-	err = v.Unmarshal(&c)
+	err = v.Unmarshal(&c, extraViperConfig)
 	if err != nil {
 	    log.Error().
 	        Err(err).
