@@ -77,7 +77,7 @@ gradle --version
 ```
 
 
-## Static analysis
+## Static Analysis
 ```sh
 # "check" runs pmd tasks
 ./gradlew check
