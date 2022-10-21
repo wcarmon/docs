@@ -16,7 +16,8 @@
 
 
 # Valid syntax
-## Pipeline
+
+## Pipeline (Top level)
 - `pipeline.agent`
 - `pipeline.agent.node`
 - `pipeline.environment`
@@ -52,13 +53,13 @@
 - `pipeline.triggers`
 
 
-## Node (scripting, groovy code)
+## Node (Top level)
 - `node.stage[i]`
 - `node.stage[i]`.`if ...`
 - `node.stage[i]`.`try... catch ... finally ...`
 
 
-# Stage
+## Stage
 - `stage.agent`
 - `stage.agent.docker`
 - `stage.agent.label`
@@ -94,7 +95,7 @@
 - `stage.`{`steps` | `stages` | `parallel` | `matrix`}
 
 
-# Matrix
+## Matrix
 - `matrix.agent.label`
 - `matrix.axes.axis[i].name`
 - `matrix.axes.axis[i].values`
