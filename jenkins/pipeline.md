@@ -1,5 +1,5 @@
 # Overview
-1. Jenkins pipeline file syntax
+1. Summary of Jenkins pipeline file syntax
 
 
 # Concepts
