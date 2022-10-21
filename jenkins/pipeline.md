@@ -63,7 +63,7 @@
 - `stage.options.retry`
 - `stage.options.timeout`
 - `stage.options.timestamps`
-- `stage.parallel`
+- [`stage.parallel`](https://www.jenkins.io/doc/book/pipeline/syntax/#parallel)
 - `stage.parallel.stage[i]`
 - [`stage.parallel.stage[i].steps`](https://www.jenkins.io/doc/book/pipeline/syntax/#declarative-steps)
 - [`stage.post`](https://www.jenkins.io/doc/book/pipeline/syntax/#post)
@@ -75,6 +75,7 @@
 - [`stage.post.fixed`](https://www.jenkins.io/doc/book/pipeline/syntax/#post)
 - [`stage.post.success`](https://www.jenkins.io/doc/book/pipeline/syntax/#post)
 - [`stage.post.unstable`](https://www.jenkins.io/doc/book/pipeline/syntax/#post)
+- [`stage.stages.stage.parallel`](https://www.jenkins.io/doc/book/pipeline/syntax/#parallel)
 - `stage.stages.stage.parallel.stage[i]`
 - [`stage.stages.stage.parallel.stage[i].steps`](https://www.jenkins.io/doc/book/pipeline/syntax/#declarative-steps)
 - [`stage.stages.stage.steps`](https://www.jenkins.io/doc/book/pipeline/syntax/#declarative-steps)
