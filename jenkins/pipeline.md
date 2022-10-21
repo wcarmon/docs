@@ -66,20 +66,19 @@
 - `stage.parallel`
 - `stage.parallel.stage[i]`
 - [`stage.parallel.stage[i].steps`](https://www.jenkins.io/doc/book/pipeline/syntax/#declarative-steps)
-- `stage.post`
-- `stage.post.aborted`
-- `stage.post.always`
-- `stage.post.changed`
-- `stage.post.cleanup` // like finally
-- `stage.post.failure`
-- `stage.post.fixed`
-- `stage.post.success`
-- `stage.post.unstable`
+- [`stage.post`](https://www.jenkins.io/doc/book/pipeline/syntax/#post)
+- [`stage.post.aborted`](https://www.jenkins.io/doc/book/pipeline/syntax/#post)
+- [`stage.post.always`](https://www.jenkins.io/doc/book/pipeline/syntax/#post)
+- [`stage.post.changed`](https://www.jenkins.io/doc/book/pipeline/syntax/#post)
+- [`stage.post.cleanup`](https://www.jenkins.io/doc/book/pipeline/syntax/#post) // like finally
+- [`stage.post.failure`](https://www.jenkins.io/doc/book/pipeline/syntax/#post)
+- [`stage.post.fixed`](https://www.jenkins.io/doc/book/pipeline/syntax/#post)
+- [`stage.post.success`](https://www.jenkins.io/doc/book/pipeline/syntax/#post)
+- [`stage.post.unstable`](https://www.jenkins.io/doc/book/pipeline/syntax/#post)
 - `stage.stages.stage.parallel.stage[i]`
 - [`stage.stages.stage.parallel.stage[i].steps`](https://www.jenkins.io/doc/book/pipeline/syntax/#declarative-steps)
 - [`stage.stages.stage.steps`](https://www.jenkins.io/doc/book/pipeline/syntax/#declarative-steps)
 - [`stage.steps`](https://www.jenkins.io/doc/book/pipeline/syntax/#declarative-steps)
-- `stage.steps.echo`
 - `stage.steps.echo`
 - `stage.steps.junit`
 - `stage.steps.script` // groovy script
@@ -103,6 +102,10 @@
 - `matrix.when`
 - `matrix.when.anyOf`
 - `matrix.when.anyOf.expression[i]`
+
+
+# Other
+1. The `Jenkinsfile` auto updates the stored job config
 
 
 # Other resources
