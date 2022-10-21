@@ -4,8 +4,8 @@
 
 
 # Concepts
-1. `pipeline`: user-defined model of CI/CD, describes entire build process (DSL based)
-1. `node`: a jenkins machine, which executes pipeline (scripting/code based)
+1. [`pipeline`](https://www.jenkins.io/doc/book/pipeline/syntax/#declarative-pipeline): user-defined model of CI/CD, describes entire build process (DSL based)
+1. [`node`](https://www.jenkins.io/doc/book/pipeline/syntax/#flow-control): a jenkins machine, which executes pipeline (scripting/code based)
 1. `stage`: distinct subset of tasks, shows visually on status page, timed
 1. `step`: atomic task
 1. `agent`: allocate executor and workspace on a `node`
