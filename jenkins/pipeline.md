@@ -20,7 +20,7 @@
 ## Pipeline (Top level)
 - `pipeline.agent`
 - `pipeline.agent.node`
-- `pipeline.environment`
+- [`pipeline.environment`](https://www.jenkins.io/doc/book/pipeline/syntax/#environment)
 - [`pipeline.options`](https://www.jenkins.io/doc/book/pipeline/syntax/#options)
 - [`pipeline.options.buildDiscarder`](https://www.jenkins.io/doc/book/pipeline/syntax/#options)
 - [`pipeline.options.checkoutToSubdirectory`](https://www.jenkins.io/doc/book/pipeline/syntax/#options)
@@ -31,12 +31,12 @@
 - [`pipeline.options.skipDefaultCheckout`](https://www.jenkins.io/doc/book/pipeline/syntax/#options)
 - [`pipeline.options.timeout`](https://www.jenkins.io/doc/book/pipeline/syntax/#options)
 - [`pipeline.options.timestamps`](https://www.jenkins.io/doc/book/pipeline/syntax/#options)
-- `pipeline.parameters`
-- `pipeline.parameters.booleanParam`
-- `pipeline.parameters.choice`
-- `pipeline.parameters.password`
-- `pipeline.parameters.string`
-- `pipeline.parameters.text`
+- [`pipeline.parameters`](https://www.jenkins.io/doc/book/pipeline/syntax/#parameters)
+- [`pipeline.parameters.booleanParam`](https://www.jenkins.io/doc/book/pipeline/syntax/#available-parameters)
+- [`pipeline.parameters.choice`](https://www.jenkins.io/doc/book/pipeline/syntax/#available-parameters)
+- [`pipeline.parameters.password`](https://www.jenkins.io/doc/book/pipeline/syntax/#available-parameters)
+- [`pipeline.parameters.string`](https://www.jenkins.io/doc/book/pipeline/syntax/#available-parameters)
+- [`pipeline.parameters.text`](https://www.jenkins.io/doc/book/pipeline/syntax/#available-parameters)
 - [`pipeline.post`](https://www.jenkins.io/doc/book/pipeline/syntax/#post)
 - [`pipeline.post.aborted`](https://www.jenkins.io/doc/book/pipeline/syntax/#post)
 - [`pipeline.post.always`](https://www.jenkins.io/doc/book/pipeline/syntax/#post)
@@ -50,7 +50,8 @@
 - [`pipeline.stages`](https://www.jenkins.io/doc/book/pipeline/syntax/#stages)
 - [`pipeline.stages.stage[i]`](https://www.jenkins.io/doc/book/pipeline/syntax/#stages)
 - `pipeline.stages.stage[i].steps`
-- `pipeline.triggers`
+- [`pipeline.triggers`](https://www.jenkins.io/doc/book/pipeline/syntax/#triggers)
+- [`pipeline.tools`](https://www.jenkins.io/doc/book/pipeline/syntax/#tools)
 
 
 ## Node (Top level)
@@ -63,7 +64,7 @@
 - `stage.agent`
 - `stage.agent.docker`
 - `stage.agent.label`
-- `stage.environment` // key value pairs
+- [`stage.environment`](https://www.jenkins.io/doc/book/pipeline/syntax/#environment) // key value pairs
 - `stage.failFast`
 - `stage.options.retry`
 - `stage.options.timeout`
@@ -80,16 +81,16 @@
 - [`stage.post.fixed`](https://www.jenkins.io/doc/book/pipeline/syntax/#post)
 - [`stage.post.success`](https://www.jenkins.io/doc/book/pipeline/syntax/#post)
 - [`stage.post.unstable`](https://www.jenkins.io/doc/book/pipeline/syntax/#post)
-- [`stage.stages.stage.parallel`](https://www.jenkins.io/doc/book/pipeline/syntax/#parallel)
-- `stage.stages.stage.parallel.stage[i]`
-- [`stage.stages.stage.parallel.stage[i].steps`](https://www.jenkins.io/doc/book/pipeline/syntax/#declarative-steps)
-- [`stage.stages.stage.steps`](https://www.jenkins.io/doc/book/pipeline/syntax/#declarative-steps)
+- [`stage.stages.stage[i].parallel`](https://www.jenkins.io/doc/book/pipeline/syntax/#parallel)
+- `stage.stages.stage[i].parallel.stage[i]`
+- [`stage.stages.stage[i].parallel.stage[i].steps`](https://www.jenkins.io/doc/book/pipeline/syntax/#declarative-steps)
+- [`stage.stages.stage[i].steps`](https://www.jenkins.io/doc/book/pipeline/syntax/#declarative-steps)
 - [`stage.steps`](https://www.jenkins.io/doc/book/pipeline/syntax/#declarative-steps)
 - `stage.steps.echo`
 - `stage.steps.junit`
 - `stage.steps.script` // groovy script
 - `stage.steps.sh`
-- `stage.tools`
+- [`stage.tools`](https://www.jenkins.io/doc/book/pipeline/syntax/#tools)
 - `stage.when`
 - `stage.when.branch`
 - `stage.`{`steps` | `stages` | `parallel` | `matrix`}
