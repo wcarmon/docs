@@ -1,5 +1,6 @@
 # Overview
 1. Summary of Jenkins pipeline file syntax
+1. (unfortunately) uses Groovy DSL
 
 
 # Concepts
@@ -17,6 +18,7 @@
 # Valid syntax
 ## Pipeline
 - `pipeline.agent`
+- `pipeline.agent.node`
 - `pipeline.environment`
 - [`pipeline.options`](https://www.jenkins.io/doc/book/pipeline/syntax/#options)
 - [`pipeline.options.buildDiscarder`](https://www.jenkins.io/doc/book/pipeline/syntax/#options)
@@ -42,6 +44,7 @@
 - [`pipeline.post.failure`](https://www.jenkins.io/doc/book/pipeline/syntax/#post)
 - [`pipeline.post.fixed`](https://www.jenkins.io/doc/book/pipeline/syntax/#post)
 - [`pipeline.post.success`](https://www.jenkins.io/doc/book/pipeline/syntax/#post)
+- `pipeline.post.success.archiveArtifacts`
 - [`pipeline.post.unstable`](https://www.jenkins.io/doc/book/pipeline/syntax/#post)
 - [`pipeline.stages`](https://www.jenkins.io/doc/book/pipeline/syntax/#stages)
 - [`pipeline.stages.stage[i]`](https://www.jenkins.io/doc/book/pipeline/syntax/#stages)
@@ -57,6 +60,7 @@
 
 # Stage
 - `stage.agent`
+- `stage.agent.docker`
 - `stage.agent.label`
 - `stage.environment` // key value pairs
 - `stage.failFast`
@@ -111,3 +115,9 @@
 
 # Other resources
 1. https://www.jenkins.io/doc/book/pipeline/syntax/
+1. https://github.com/cherkavi/cheat-sheet/blob/master/jenkins.md
+1. https://github.com/jenkinsci/pipeline-examples/blob/master/declarative-examples/jenkinsfile-examples/mavenDocker.groovy
+1. https://github.com/jenkinsci/pipeline-examples/blob/master/docs/BEST_PRACTICES.md
+1. https://github.com/jenkinsci/pipeline-examples/blob/master/jenkinsfile-examples/android-build-flavor-from-branch/JenkinsFile
+1. https://github.com/jenkinsci/pipeline-examples/blob/master/jenkinsfile-examples/msbuild/Jenkinsfile
+1. https://github.com/jenkinsci/pipeline-examples/blob/master/pipeline-examples/archive-build-output-artifacts/ArchiveBuildOutputArtifacts.groovy
