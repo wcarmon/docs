@@ -91,8 +91,13 @@
 - `stage.steps.script` // groovy script
 - `stage.steps.sh`
 - [`stage.tools`](https://www.jenkins.io/doc/book/pipeline/syntax/#tools)
-- `stage.when`
-- `stage.when.branch`
+- [`stage.when`](https://www.jenkins.io/doc/book/pipeline/syntax/#when)
+- [`stage.when.allOf`](https://www.jenkins.io/doc/book/pipeline/syntax/#built-in-conditions)
+- [`stage.when.anyOf`](https://www.jenkins.io/doc/book/pipeline/syntax/#built-in-conditions)
+- [`stage.when.branch`](https://www.jenkins.io/doc/book/pipeline/syntax/#built-in-conditions)
+- [`stage.when.environment`](https://www.jenkins.io/doc/book/pipeline/syntax/#built-in-conditions)
+- [`stage.when.equals`](https://www.jenkins.io/doc/book/pipeline/syntax/#built-in-conditions)
+- [`stage.when.expression`](https://www.jenkins.io/doc/book/pipeline/syntax/#built-in-conditions)
 - `stage.`{`steps` | `stages` | `parallel` | `matrix`}
 
 
