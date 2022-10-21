@@ -98,7 +98,7 @@
 - [`stage.when.environment`](https://www.jenkins.io/doc/book/pipeline/syntax/#built-in-conditions)
 - [`stage.when.equals`](https://www.jenkins.io/doc/book/pipeline/syntax/#built-in-conditions)
 - [`stage.when.expression`](https://www.jenkins.io/doc/book/pipeline/syntax/#built-in-conditions)
-- `stage.`{`steps` | `stages` | `parallel` | `matrix`}
+- `stage.`{exactly one of: `steps` | `stages` | `parallel` | `matrix`}
 
 
 ## Matrix
