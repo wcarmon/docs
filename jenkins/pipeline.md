@@ -17,7 +17,7 @@
 
 # Valid syntax
 
-## Pipeline (Top level)
+## Pipeline (Top-level only)
 - `pipeline.agent`
 - `pipeline.agent.node`
 - [`pipeline.environment`](https://www.jenkins.io/doc/book/pipeline/syntax/#environment)
@@ -54,16 +54,16 @@
 - [`pipeline.tools`](https://www.jenkins.io/doc/book/pipeline/syntax/#tools)
 
 
-## Node (Top level)
+## Node (Top-level only)
 - `node.stage[i]`
 - `node.stage[i]`.`if ...`
 - `node.stage[i]`.`try... catch ... finally ...`
 
 
 ## Stage
-- `stage.agent`
-- `stage.agent.docker`
-- `stage.agent.label`
+- [`stage.agent`](https://www.jenkins.io/doc/book/pipeline/syntax/#agent)
+- [`stage.agent.docker`](https://www.jenkins.io/doc/book/pipeline/syntax/#agent-parameters)
+- [`stage.agent.label`](https://www.jenkins.io/doc/book/pipeline/syntax/#agent-parameters)
 - [`stage.environment`](https://www.jenkins.io/doc/book/pipeline/syntax/#environment) // key value pairs
 - `stage.failFast`
 - `stage.options.retry`
@@ -98,7 +98,7 @@
 - [`stage.when.environment`](https://www.jenkins.io/doc/book/pipeline/syntax/#built-in-conditions)
 - [`stage.when.equals`](https://www.jenkins.io/doc/book/pipeline/syntax/#built-in-conditions)
 - [`stage.when.expression`](https://www.jenkins.io/doc/book/pipeline/syntax/#built-in-conditions)
-- `stage.`{exactly one of: `steps` | `stages` | `parallel` | `matrix`}
+- `stage.{exactly one of: steps | stages | parallel | matrix}`
 
 
 ## Matrix
