@@ -71,6 +71,8 @@
 1. Effectively useless in the browser (compare to js, ts, rust)
 1. Hashing is hard (compare to Go, python)
     1. Mitigate with [apache commons codec](https://commons.apache.org/proper/commons-codec/apidocs/org/apache/commons/codec/digest/DigestUtils.html)
+1. No type aliases
+1. `java.nio.file.attribute.FileAttribute` permissions are complex (compare to Go)
 
 
 ## Bad news: minor
