@@ -73,6 +73,7 @@
 1. Verbose syntax (compare to python or go)
     1. Project [Amber](https://openjdk.org/projects/amber/) aims to fix
 1. No unsigned ints (compare to rust, go, c++, c#, kotlin, ...)
+1. No trailing comma (compare to go, rust, python, ts, js, kotlin)
 
 
 # Other resources
