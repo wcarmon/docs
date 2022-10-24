@@ -5,7 +5,7 @@
 
 # Good news
 1. Abstractions
-1. Actively developed
+1. Actively Developed & Improving
 1. Constants (compare to python)
 1. Cross platform (at least for desktop)
 1. Enums can have properties (compare to golang)
@@ -37,11 +37,15 @@
     1. [Loom should help](https://cr.openjdk.java.net/~rpressler/loom/Loom-Proposal.html)
 1. No value types
     1. [Project Valhalla](https://openjdk.org/projects/valhalla/) should help
+1. Primitives vs Reference types (compare to rust, go, c, python, kotlin, etc)
+    1. Generics don't work on primitive types (so boxing/unboxing required)
+    1. [JEP 402](https://openjdk.org/jeps/402) should fix
+1. Heavy runtime memory usage (compare to Rust, Go, c, c++)
+    1. Patrially mitigate with GraalVM
 1. Slow native compiler (Graal), (compare to [Go](TODO))
 1. Native Cross-compilation is HARD (compare to rust, go, c, ...)
 1. Slow build tools ([Gradle](TODO) and [Maven](TODO))
-1. Heavy runtime memory usage (compare to Rust, Go, c, c++)
-    1. Patrially mitigate with GraalVM
+    1. Build system doesn't scale (the next lib adds significant build time and memory usage)
 1. Complex [FFI](https://en.wikipedia.org/wiki/Foreign_function_interface), see [Project Panama](https://openjdk.org/projects/panama/)
 1. Records are half-baked (no builder, no inheritance, no private state) and getters are incompatible with javabean patterns
     1. Mitigate by avoiding records
@@ -52,7 +56,8 @@
 1. JDBC only supports blocking/synchronous
     1. Use non-relational databases?
     1. JDBC alternatives are not well supported
-1. Build system doesn't scale (the next lib adds significant build time and memory usage)
+1. Licensing complexities since Oracle purchased Sun
+1. Effectively useless in the browser
 
 
 ## Bad news: Minor
