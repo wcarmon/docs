@@ -48,7 +48,7 @@
 1. Slow build tools ([Gradle](TODO) and [Maven](TODO))
     1. Build system doesn't scale (the next lib adds significant build time and memory usage)
 1. Complex [FFI](https://en.wikipedia.org/wiki/Foreign_function_interface), see [Project Panama](https://openjdk.org/projects/panama/)
-1. Records are half-baked (no builder, no inheritance, no private state) and getters are incompatible with javabean patterns
+1. [Records](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Record.html) are half-baked (no builder, no inheritance, no private state) and getters are incompatible with javabean patterns
     1. Mitigate by avoiding records
 1. Modules are complicated and not widely supported
     1. Mitigate by avoiding modules
@@ -65,7 +65,7 @@
 1. No context class (compare to [go](https://pkg.go.dev/context) or [rust](https://doc.rust-lang.org/stable/std/task/struct.Context.html))
     1. So everyone has their own (eg. `io.opentelemetry.context.Context`, `javax.servlet.http.HttpServletRequest`, `io.vertx.core.Context`, ` kotlin.coroutines.CoroutineContext`)
 1. No [defer](https://gobyexample.com/defer) (compare to go)
-    1. forces try-finally with deeper nesting
+    1. forces `try-finally` with deeper nesting
 
 
 ## Bad news: Minor
