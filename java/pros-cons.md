@@ -64,6 +64,8 @@
 1. Single return value (compare to go, rust, python)
 1. No context class (compare to [go](https://pkg.go.dev/context) or [rust](https://doc.rust-lang.org/stable/std/task/struct.Context.html))
     1. So everyone has their own (eg. `io.opentelemetry.context.Context`, `javax.servlet.http.HttpServletRequest`, `io.vertx.core.Context`, ` kotlin.coroutines.CoroutineContext`)
+1. No [defer](https://gobyexample.com/defer) (compare to go)
+    1. forces try-finally with deeper nesting
 
 
 ## Bad news: Minor
