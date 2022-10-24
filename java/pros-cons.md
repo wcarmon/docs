@@ -20,6 +20,9 @@
 1. Tons of jobs in USA (compare to rust, c)
 1. [Set](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Set.html) support (compare to go)
 1. Rich [collections](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Collection.html)
+1. Method overloading (compare to go, rust, c, js, python)
+    1. Maybe it's not a good thing :-)
+    1. Rust has alternative thru traits
 
 
 # Bad news
