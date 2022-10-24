@@ -68,7 +68,7 @@
 1. Effectively useless in the browser (compare to js, ts, rust)
 
 
-## Bad news: Minor
+## Bad news: minor
 1. Auto-formatting is non-core (compare to [go](https://go.dev/blog/gofmt) or [rust](https://github.com/rust-lang/rustfmt))
     1. See [spotless](https://github.com/diffplug/spotless)
 1. No pattern matching (compare to [Rust](https://doc.rust-lang.org/book/ch18-03-pattern-syntax.html))
@@ -83,6 +83,8 @@
 1. Verbose syntax (compare to python or go)
     1. Project [Amber](https://openjdk.org/projects/amber/) aims to fix
 1. Methods cannot accept read-only receiver
+1. Explicit interface implementation (compare to go)
+    1. Forces tighter coupling than implicit interface implementation
 
 
 # Other resources
