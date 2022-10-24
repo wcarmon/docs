@@ -10,6 +10,7 @@
 1. Fast builds (compare to java, c++, rust, ...)
 1. Implicit interface implementation
 1. Light runtime memory usage (compare to java, python, c#, vb, ruby, php, ...)
+1. Multiple return values
 
 
 # Bad news

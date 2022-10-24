@@ -4,11 +4,15 @@
 
 
 # Good news
-1. TODO
+1. Light runtime memory usage (compare to java, go, python, c#, vb, ruby, php, ...)
+1. Multiple return values
+1. "Sensible" Operator overloading
+1. Set support (compare to go)
 
 
 # Bad news
-1. TODO
+1. Slow builds
+1. Syntax is dense
 
 
 # Other resources

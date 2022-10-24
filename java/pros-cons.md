@@ -58,6 +58,7 @@
     1. JDBC alternatives are not well supported
 1. Licensing complexities since Oracle purchased Sun
 1. Effectively useless in the browser
+1. Single return value (compare to go, rust, python)
 
 
 ## Bad news: Minor
