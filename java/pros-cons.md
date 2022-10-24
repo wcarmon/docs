@@ -36,7 +36,7 @@
 1. Inheritance is the only simple way to reuse (as opposed to [mixins](https://en.wikipedia.org/wiki/Mixin), [type-embedding](https://go101.org/article/type-embedding.html), ...)
 1. Correct concurrent programming is hard (compare to [go](TODO))
     1. [Loom should help](https://cr.openjdk.java.net/~rpressler/loom/Loom-Proposal.html)
-1. No value types
+1. No [value types](https://cr.openjdk.java.net/~jrose/values/values-0.html#:~:text=The%20Java%20VM%20type%20system,double%20%2C%20char%20%2C%20and%20boolean%20.)
     1. [Project Valhalla](https://openjdk.org/projects/valhalla/) should help
 1. Primitives vs Reference types (compare to rust, go, c, python, kotlin, etc)
     1. Generics don't work on primitive types (so boxing/unboxing required)
