@@ -11,14 +11,15 @@
 1. Enums can have properties (compare to golang)
 1. Generics support
 1. Huge ecosystem (compare to rust)
-1. Interfaces (compare to c or python)
-1. Multi-threaded (compare to python's GIL)
-1. Mature HTTP client
-1. Strings are simple (compare to c, c++ or Rust)
+1. Interfaces (compare to c or [python](https://docs.python.org/3/library/abc.html) or [c++](https://www.tutorialspoint.com/cplusplus/cpp_interfaces.htm))
+1. Built-in [Multi-threading](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ExecutorService.html) (compare to [python's GIL](https://wiki.python.org/moin/GlobalInterpreterLock) or c)
+1. Mature [HTTP/2 client](https://docs.oracle.com/en/java/javase/17/docs/api/java.net.http/java/net/http/HttpClient.html)
+1. [Strings](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html) are simple (compare to c, c++ or rust)
 1. Strong IDE support (compare to dart, haskel, ...)
 1. Tons of books, articles, youtube videos, etc.
 1. Tons of jobs in USA (compare to rust, c)
-1. Set support (compare to go)
+1. [Set](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Set.html) support (compare to go)
+1. Rich [collections](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Collection.html)
 
 
 # Bad news
