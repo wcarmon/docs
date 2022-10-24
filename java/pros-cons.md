@@ -42,20 +42,22 @@
 1. Slow build tools ([Gradle](TODO) and [Maven](TODO))
 1. Heavy runtime memory usage (compare to Rust, Go, c, c++)
     1. Patrially mitigate with GraalVM
-1. inconsistent naming on numberic types (compare to [Rust](TODO) or [go](TODO))
-1. Verbose syntax (compare to python or go)
 1. Complex [FFI](https://en.wikipedia.org/wiki/Foreign_function_interface), see [Project Panama](https://openjdk.org/projects/panama/)
-1. Build system doesn't scale (the next lib adds significant build time and memory usage)
 1. Records are half-baked (no builder, no inheritance, no private state) and getters are incompatible with javabean patterns
     1. Mitigate by avoiding records
 1. Modules are complicated and not widely supported
     1. Mitigate by avoiding modules
 1. Ecosystem full of bloated & overly complex libraries (J2EE, JBoss, Spring, Hibernate, xml parsers, etc)
     1. Mitigate by avoiding those libraries
+1. JDBC only supports blocking/synchronous
+    1. Use non-relational databases?
+    1. JDBC alternatives are not well supported
+1. Build system doesn't scale (the next lib adds significant build time and memory usage)
 
 
 ## Bad news: Minor
-1. Auto-formatting is non-core (See [spotless](TODO))
+1. Auto-formatting is non-core (compare to [go](https://go.dev/blog/gofmt) or [rust](https://github.com/rust-lang/rustfmt))
+    1. See [spotless](https://github.com/diffplug/spotless)
 1. No pattern matching (compare to [Rust](https://doc.rust-lang.org/book/ch18-03-pattern-syntax.html))
     1. Scheduled for [Java 20](https://openjdk.org/jeps/433)
 1. Required semicolons
@@ -63,6 +65,9 @@
 1. No context class (compare to [go](https://pkg.go.dev/context) or [rust](https://doc.rust-lang.org/stable/std/task/struct.Context.html))
 1. Reflection is expensive, and some libs abuse it (eg. Spring)
     1. Mitigate by avoiding reflection & libs that abuse it
+1. Inconsistent naming on numberic types (compare to [Rust](https://doc.rust-lang.org/reference/types/numeric.html) or [go](https://go.dev/ref/spec#Numeric_types))
+1. Verbose syntax (compare to python or go)
+    1. Project [Amber](https://openjdk.org/projects/amber/) aims to fix
 
 
 # Other resources
