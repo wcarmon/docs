@@ -73,6 +73,8 @@
     1. Mitigate with [apache commons codec](https://commons.apache.org/proper/commons-codec/apidocs/org/apache/commons/codec/digest/DigestUtils.html)
 1. No type aliases
 1. `java.nio.file.attribute.FileAttribute` permissions are complex (compare to Go)
+1. Array equality tests are unlike other comparisons (compare to go, rust, ...)
+1. primitive comparisons are different from reference comparisons (compare to go, rust, ...)
 
 
 ## Bad news: minor
