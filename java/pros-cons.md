@@ -8,7 +8,7 @@
 1. Cross platform (at least for linux, mac & windows desktops & servers)
 1. Constants (compare to python)
 1. Abstractions (compare to c)
-1. Enums can have properties (compare to golang)
+1. [Enums](https://docs.oracle.com/javase/tutorial/java/javaOO/enum.html) can have properties (compare to golang)
 1. Generics support
 1. Huge ecosystem (compare to rust)
 1. Interfaces (compare to c or [python](https://docs.python.org/3/library/abc.html) or [c++](https://www.tutorialspoint.com/cplusplus/cpp_interfaces.htm))
