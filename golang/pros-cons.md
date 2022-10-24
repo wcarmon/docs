@@ -4,11 +4,12 @@
 
 
 # Good news
-1. TODO
+1. Simple concurrency
 
 
 # Bad news
-1. TODO
+1. Verbose error handling
+1. Enums cannot have properties (but they can have methods)
 
 
 # Other resources
