@@ -69,6 +69,8 @@
 1. No [defer](https://gobyexample.com/defer) (compare to go)
     1. forces `try-finally` with deeper nesting
 1. Effectively useless in the browser (compare to js, ts, rust)
+1. Hashing is hard (compare to go, python)
+    1. Mitigate with [apache commons codec](https://commons.apache.org/proper/commons-codec/apidocs/org/apache/commons/codec/digest/DigestUtils.html)
 
 
 ## Bad news: minor
