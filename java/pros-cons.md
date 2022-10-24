@@ -34,7 +34,7 @@
     1. No pure functions (compare to rust, go, c, c++, js, ts, python, kotlin, ...)
     1. Cannot spread implementaiton across multiple files (compare to rust, go, js, c#)
 1. Inheritance is the only simple way to reuse (as opposed to [mixins](https://en.wikipedia.org/wiki/Mixin), [type-embedding](https://go101.org/article/type-embedding.html), ...)
-1. Correct concurrent programming is hard (compare to [go](TODO))
+1. Correct concurrent & parallel programming is hard (compare to [go](TODO))
     1. [Loom should help](https://cr.openjdk.java.net/~rpressler/loom/Loom-Proposal.html)
 1. No [value types](https://cr.openjdk.java.net/~jrose/values/values-0.html#:~:text=The%20Java%20VM%20type%20system,double%20%2C%20char%20%2C%20and%20boolean%20.)
     1. [Project Valhalla](https://openjdk.org/projects/valhalla/) should help
