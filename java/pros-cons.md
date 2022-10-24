@@ -57,7 +57,7 @@
     1. Use non-relational databases?
     1. JDBC alternatives are not well supported
 1. Licensing complexities since Oracle purchased Sun
-1. Effectively useless in the browser
+1. Effectively useless in the browser (compare to js, ts, rust)
 1. Single return value (compare to go, rust, python)
 1. No context class (compare to [go](https://pkg.go.dev/context) or [rust](https://doc.rust-lang.org/stable/std/task/struct.Context.html))
     1. So everyone has their own (eg. `io.opentelemetry.context.Context`, `javax.servlet.http.HttpServletRequest`, `io.vertx.core.Context`, ` kotlin.coroutines.CoroutineContext`)
