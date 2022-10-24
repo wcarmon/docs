@@ -8,6 +8,7 @@
 1. Multiple return values
 1. "Sensible" Operator overloading
 1. Set support (compare to go)
+1. Methods must declare mutability requirements
 
 
 # Bad news

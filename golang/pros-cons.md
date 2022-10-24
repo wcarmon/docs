@@ -11,6 +11,7 @@
 1. Implicit interface implementation
 1. Light runtime memory usage (compare to java, python, c#, vb, ruby, php, ...)
 1. Multiple return values
+1. Methods can declare mutable or read-only receiver
 
 
 # Bad news
