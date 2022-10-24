@@ -4,7 +4,7 @@
 
 
 # Good news
-1. Actively Developed & Improving
+1. [Actively Developed & Improving](https://en.wikipedia.org/wiki/Java_version_history)
 1. Cross platform (at least for linux, mac & windows desktops & servers)
 1. Constants (compare to [python](https://www.pythontutorial.net/python-basics/python-constants/))
 1. Abstractions (compare to c)
