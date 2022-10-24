@@ -18,6 +18,7 @@
 1. Strong IDE support (compare to dart, haskel, ...)
 1. Tons of books, articles, youtube videos, etc.
 1. Tons of jobs in USA (compare to rust, c)
+1. Set support (compare to go)
 
 
 # Bad news

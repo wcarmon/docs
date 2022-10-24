@@ -16,6 +16,7 @@
 1. Verbose error handling
 1. Enums cannot have properties (but they can have methods)
 1. Immutability is hard
+1. No Sets (must use map[T]bool)
 
 
 # Other resources
