@@ -30,8 +30,8 @@ public class Employee {
 
   @lombok.Builder(
     builderClassName = "Builder",
-    //builderMethodName = "newBuilder", // <-- by default lombok name is misaligned with the greater community
     toBuilder = true)
+    //builderMethodName = "newBuilder", // <-- by default lombok name is misaligned with the greater community
   private Employee(
     Boolean active,  // <-- non-primitive allows you to default the value (see below)
     int age,
