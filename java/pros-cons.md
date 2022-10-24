@@ -59,13 +59,13 @@
     1. Use non-relational databases?
     1. JDBC alternatives are not well adopted eg. [rdbc](https://rdbc.io/), [R2DBC](https://r2dbc.io/), [ADBA](https://blogs.oracle.com/java/post/asynchronous-database-access-api-adba) (abandonware)
     1. Project Loom might help?
-1. Licensing complexities since Oracle purchased Sun
-1. Effectively useless in the browser (compare to js, ts, rust)
+1. [Licensing complexities since Oracle purchased Sun](https://redresscompliance.com/oracle-java-licensing-changes-explaned-free/)
 1. Single return value (compare to go, rust, python)
 1. No context class (compare to [go](https://pkg.go.dev/context) or [rust](https://doc.rust-lang.org/stable/std/task/struct.Context.html))
     1. So everyone has their own (eg. `io.opentelemetry.context.Context`, `javax.servlet.http.HttpServletRequest`, `io.vertx.core.Context`, ` kotlin.coroutines.CoroutineContext`)
 1. No [defer](https://gobyexample.com/defer) (compare to go)
     1. forces `try-finally` with deeper nesting
+1. Effectively useless in the browser (compare to js, ts, rust)
 
 
 ## Bad news: Minor
