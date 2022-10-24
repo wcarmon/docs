@@ -55,7 +55,7 @@
     1. Mitigate by avoiding those libraries
 1. JDBC only supports blocking/synchronous
     1. Use non-relational databases?
-    1. JDBC alternatives are not well supported
+    1. JDBC alternatives are not well adopted eg. [rdbc](https://rdbc.io/), [R2DBC](https://r2dbc.io/), [ADBA](https://blogs.oracle.com/java/post/asynchronous-database-access-api-adba) (abandonware)
 1. Licensing complexities since Oracle purchased Sun
 1. Effectively useless in the browser (compare to js, ts, rust)
 1. Single return value (compare to go, rust, python)
