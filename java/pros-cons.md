@@ -96,6 +96,7 @@
     1. Forces tighter coupling than implicit interface implementation
 1. Recursive file delete is hard (compare to Go, Python, ...)
     1. Mitigate with [Guava](https://guava.dev/releases/31.0-jre/api/docs/com/google/common/io/MoreFiles.html#deleteDirectoryContents(java.nio.file.Path,com.google.common.io.RecursiveDeleteOption...)) or [apache commons io](https://commons.apache.org/proper/commons-io/apidocs/org/apache/commons/io/FileUtils.html#deleteDirectory-java.io.File-)
+1. `Paths.get` doesn't accept `Path` argument (so you must convert to `String` first)
 
 
 # Other resources
