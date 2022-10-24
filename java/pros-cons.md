@@ -16,7 +16,7 @@
 1. Mature [HTTP/2 client](https://docs.oracle.com/en/java/javase/17/docs/api/java.net.http/java/net/http/HttpClient.html)
 1. [Strings](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html) are simple (compare to c, c++ or rust)
 1. Strong IDE support (compare to dart, haskel, ...)
-1. Tons of books, articles, youtube videos, etc.
+1. Tons of [books](https://www.amazon.com/s?k=java&rh=n%3A283155%2Cn%3A3608&dc&ds=v1%3A1wGhkb%2BL0nPGJ%2F14qdAAXL6%2BRsQeidlMcjvVtND26Zo), articles, youtube videos, etc.
 1. Tons of jobs in USA (compare to rust, c)
 1. [Set](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Set.html) support (compare to go)
 1. Rich [collections](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Collection.html)
