@@ -52,6 +52,7 @@
     1. Mitigate by avoiding records
 1. Modules are complicated and not widely supported
     1. Mitigate by avoiding modules
+    1. eg. check support in google libs like guava & guice
 1. Ecosystem full of bloated & overly complex libraries (J2EE, JBoss, Spring, Hibernate, xml parsers, etc)
     1. Mitigate by avoiding those libraries
 1. JDBC only supports blocking/synchronous
