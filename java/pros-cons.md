@@ -6,7 +6,7 @@
 # Good news
 1. Actively Developed & Improving
 1. Cross platform (at least for linux, mac & windows desktops & servers)
-1. Constants (compare to python)
+1. Constants (compare to [python](https://www.pythontutorial.net/python-basics/python-constants/))
 1. Abstractions (compare to c)
 1. [Enums](https://docs.oracle.com/javase/tutorial/java/javaOO/enum.html) can have properties (compare to golang)
 1. Generics support
