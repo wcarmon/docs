@@ -4,21 +4,20 @@
 
 
 # Good news
-1. Abstractions
 1. Actively Developed & Improving
+1. Cross platform (at least for linux, mac & windows desktops & servers)
 1. Constants (compare to python)
-1. Cross platform (at least for desktop)
+1. Abstractions (compare to c)
 1. Enums can have properties (compare to golang)
 1. Generics support
-1. Huge ecosystem
+1. Huge ecosystem (compare to rust)
 1. Interfaces (compare to c or python)
 1. Multi-threaded (compare to python's GIL)
-1. Native mature HTTP client
-1. Sandboxed (more secure than many alternatives)
+1. Mature HTTP client
 1. Strings are simple (compare to c, c++ or Rust)
-1. Strong IDE support
+1. Strong IDE support (compare to dart, haskel, ...)
 1. Tons of books, articles, youtube videos, etc.
-1. Tons of jobs in USA
+1. Tons of jobs in USA (compare to rust, c)
 
 
 # Bad news
@@ -73,6 +72,7 @@
 1. Inconsistent naming on numberic types (compare to [Rust](https://doc.rust-lang.org/reference/types/numeric.html) or [go](https://go.dev/ref/spec#Numeric_types))
 1. Verbose syntax (compare to python or go)
     1. Project [Amber](https://openjdk.org/projects/amber/) aims to fix
+1. No unsigned ints (compare to rust, go, c++, c#, kotlin, ...)
 
 
 # Other resources
