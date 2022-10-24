@@ -73,6 +73,8 @@
     1. Mitigate with [apache commons codec](https://commons.apache.org/proper/commons-codec/apidocs/org/apache/commons/codec/digest/DigestUtils.html)
 1. No type aliases
 1. `java.nio.file.attribute.FileAttribute` permissions are complex (compare to Go)
+1. Recursive file delete is hard (compare to Go, Python, ...)
+    1. Mitigate with [Guava](https://guava.dev/releases/31.0-jre/api/docs/com/google/common/io/MoreFiles.html#deleteDirectoryContents(java.nio.file.Path,com.google.common.io.RecursiveDeleteOption...)) or [apache commons io](https://commons.apache.org/proper/commons-io/apidocs/org/apache/commons/io/FileUtils.html#deleteDirectory-java.io.File-)
 
 
 ## Bad news: minor

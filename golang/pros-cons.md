@@ -22,6 +22,7 @@
 1. functional/stream programming is hard (compare to java streams)
     1. though performance is better without streams
     1. java streams [require a special debugger](https://www.jetbrains.com/idea/guide/tips/debugging-streams/)
+1. Sorting is unintuitive
 
 
 # Other resources
