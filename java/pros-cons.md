@@ -59,6 +59,8 @@
 1. Licensing complexities since Oracle purchased Sun
 1. Effectively useless in the browser
 1. Single return value (compare to go, rust, python)
+1. No context class (compare to [go](https://pkg.go.dev/context) or [rust](https://doc.rust-lang.org/stable/std/task/struct.Context.html))
+    1. So everyone has their own (eg. `io.opentelemetry.context.Context`, `javax.servlet.http.HttpServletRequest`, `io.vertx.core.Context`, ` kotlin.coroutines.CoroutineContext`)
 
 
 ## Bad news: Minor
@@ -66,8 +68,6 @@
     1. See [spotless](https://github.com/diffplug/spotless)
 1. No pattern matching (compare to [Rust](https://doc.rust-lang.org/book/ch18-03-pattern-syntax.html))
     1. Scheduled for [Java 20](https://openjdk.org/jeps/433)
-1. No context class (compare to [go](https://pkg.go.dev/context) or [rust](https://doc.rust-lang.org/stable/std/task/struct.Context.html))
-    1. So everyone has their own (eg. `io.opentelemetry.context.Context`, `javax.servlet.http.HttpServletRequest`, `io.vertx.core.Context`, ` kotlin.coroutines.CoroutineContext`)
 1. Reflection is expensive, and some libs abuse it (eg. Spring)
     1. Mitigate by avoiding reflection & libs that abuse it
 1. No trailing comma (compare to go, rust, python, ts, js, kotlin)
