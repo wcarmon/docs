@@ -51,6 +51,8 @@
 1. Native Cross-compilation is HARD (compare to Rust, Go, c, ...)
 1. Slow build tools ([Gradle](TODO) and [Maven](TODO))
     1. Build system doesn't scale (the next lib adds significant build time and memory usage)
+1. There's a limit on how fast your code can be because of GC and the JVM (compare to Rust)
+1. There's a limit on how little memory you use because of GC and the JVM (compare to Rust, go)
 1. Complex [FFI](https://en.wikipedia.org/wiki/Foreign_function_interface), see [Project Panama](https://openjdk.org/projects/panama/)
 1. [Records](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Record.html) are half-baked (no builder, no inheritance, no private state) and getters are incompatible with javabean patterns
     1. Mitigate by avoiding records
