@@ -7,9 +7,9 @@
 1. Light runtime memory usage (compare to java, go, python, c#, vb, ruby, php, ...)
 1. Multiple return values
 1. "Sensible" Operator overloading
-1. Set support (compare to go)
+1. Set support (compare to Go)
 1. Methods must declare mutability requirements
-
+1. Struct fields support default values (compare to Go)
 
 # Bad news
 1. Slow builds

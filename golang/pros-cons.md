@@ -19,7 +19,9 @@
 1. Verbose error handling
 1. Enums cannot have properties (but they can have methods)
 1. Immutability is hard
-1. No Sets (must use map[T]bool)
+1. Struct fields don't support default values
+1. No Sets
+    1. Mitigate: use map[T]bool)
 1. functional/stream programming is hard (compare to java streams)
     1. though performance is better without streams
     1. java streams [require a special debugger](https://www.jetbrains.com/idea/guide/tips/debugging-streams/)
