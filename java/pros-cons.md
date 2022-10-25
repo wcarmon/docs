@@ -23,6 +23,7 @@
 1. Method overloading (compare to Go, Rust, c, js, python)
     1. Maybe it's not a good thing :-)
     1. Rust has alternative thru traits
+1. Class properties support default values (compare to Go)
 
 
 # Bad news
