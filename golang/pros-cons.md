@@ -12,6 +12,7 @@
 1. Light runtime memory usage (compare to java, Python, c#, vb, ruby, php, ...)
 1. Multiple return values
 1. Methods can declare mutable or read-only receiver
+1. Tests only log when they fail
 
 
 # Bad news
