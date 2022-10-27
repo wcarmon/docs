@@ -13,4 +13,5 @@
 
 
 # Case conversion
-1. https://github.com/cmoncrief/rust-morph/blob/master/Cargo.toml
+1. https://github.com/cmoncrief/rust-morph
+1. https://github.com/withoutboats/heck
