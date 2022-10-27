@@ -30,6 +30,14 @@
 1. TODO
 
 
+# DateTime
+1. TODO
+
+
+# Error handling
+1. TODO
+
+
 # gRPC
 1. TODO
 
@@ -56,7 +64,9 @@
 
 
 # Macro dev
-1. TODO
+1. (read) https://github.com/dtolnay/syn
+1. (write) https://github.com/dtolnay/quote
+1. https://github.com/dtolnay/proc-macro2
 
 
 # Observability / Metrics
