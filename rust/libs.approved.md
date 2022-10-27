@@ -50,13 +50,6 @@
 1. TODO
 
 
-# JSON
-1. https://serde.rs
-
-
-# JSON5
-1. https://serde.rs
-
 
 # JWT
 1. TODO
@@ -66,7 +59,15 @@
 1. TODO
 
 
-# Metrics
+# Observability / Metrics
+1. TODO
+
+
+# Observability / Structured Logging
+1. TODO
+
+
+# Observability / Tracing
 1. TODO
 
 
@@ -74,23 +75,29 @@
 1. TODO
 
 
-# Structured Logging
-1. TODO
+# Random
+1. https://github.com/rust-random/rand
+
+
+# Serde / JSON
+1. https://serde.rs
+
+
+# Serde / JSON5
+1. https://serde.rs
+
+
+# Serde / Toml
+1. https://serde.rs
+
+
+# Serde / URL encoding/decoding
+1. https://serde.rs
+
+
+# Serde / Yaml
+1. https://serde.rs
 
 
 # Test assertions
-
-
-# Toml
-1. https://serde.rs
-
-
-# Tracing
 1. TODO
-
-# URL encoding/decoding
-1. https://serde.rs
-
-
-# Yaml
-1. https://serde.rs
