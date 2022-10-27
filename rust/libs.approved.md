@@ -30,10 +30,16 @@
 1. TODO
 
 
+# gRPC
+1. TODO
+
+
 # Hashing
+1. TODO
 
 
 # HTTP Client
+1. TODO: reqwest
 
 
 # HTTP Server
@@ -52,7 +58,12 @@
 1. https://serde.rs
 
 
-# Log
+# JWT
+1. TODO
+
+
+# Macro dev
+1. TODO
 
 
 # Metrics
@@ -60,6 +71,10 @@
 
 
 # Protocol buffers
+1. TODO
+
+
+# Structured Logging
 1. TODO
 
 
