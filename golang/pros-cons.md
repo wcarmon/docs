@@ -16,9 +16,11 @@
 
 
 # Bad news
-1. Verbose error handling
+1. Verbose error handling (compare to Rust or Java)
 1. Enums cannot have properties (but they can have methods)
+1. Switch: compiler cannot enforce exhaustive enum cases
 1. Immutability is hard
+    1. Mitigate: struct copy is easy
 1. Struct fields don't support default values
 1. No Sets
     1. Mitigate: use map[T]bool)
