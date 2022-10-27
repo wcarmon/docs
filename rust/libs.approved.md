@@ -16,11 +16,6 @@
 1. https://github.com/tokio-rs/tokio
 
 
-# Case conversion
-1. https://github.com/cmoncrief/rust-morph
-1. https://github.com/withoutboats/heck
-
-
 # Concurrency (CPU, Data parallelism)
 1. High-level: https://github.com/rayon-rs/rayon
 1. Low-level: https://github.com/crossbeam-rs/crossbeam
@@ -47,7 +42,7 @@
 
 
 # HTTP Client
-1. TODO: reqwest
+1. https://github.com/seanmonstar/reqwest
 
 
 # HTTP Server
@@ -89,6 +84,10 @@
 1. https://github.com/rust-random/rand
 
 
+# Retry
+1. TODO
+
+
 # Serde / JSON
 1. https://serde.rs
 
@@ -109,5 +108,14 @@
 1. https://serde.rs
 
 
-# Test assertions
+# String / Case conversion
+1. https://github.com/cmoncrief/rust-morph
+1. https://github.com/withoutboats/heck
+
+
+# Test / Assertions
+1. TODO
+
+
+# Test / Fake data
 1. TODO
