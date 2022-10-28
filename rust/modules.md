@@ -19,9 +19,9 @@
 1. `src/lib.rs` (for library)
 1. `src/main.rs` (for binary)
 1. Language Comparison:
-    1. like [`cmd/foo/main.go`](https://github.com/golang-standards/project-layout#cmd) for go
-    1. like a [main class](https://docs.oracle.com/javase/tutorial/getStarted/application/index.html) for java (or whatever you set in `build.gradle.kts`)
-    1. like [`index.js`](https://docs.npmjs.com/cli/v8/configuring-npm/package-json#main) for node (or whatever you set in your [`package.json`](https://docs.npmjs.com/cli/v8/configuring-npm/package-json#main))
+    1. *Go*: like [`cmd/foo/main.go`](https://github.com/golang-standards/project-layout#cmd)
+    1. *Java*: like a [main class](https://docs.oracle.com/javase/tutorial/getStarted/application/index.html) (or whatever you set in `build.gradle.kts`)
+    1. *Node*: like [`index.js`](https://docs.npmjs.com/cli/v8/configuring-npm/package-json#main) (or whatever you set in your [`package.json`](https://docs.npmjs.com/cli/v8/configuring-npm/package-json#main))
 
 
 # Module
@@ -36,7 +36,7 @@
     1. *Node*: [no packages, only files, import files](https://nodejs.org/api/packages.html#imports)
     1. *Go*: [one package per directory, one directory per package, names can differ, import packages](https://go.dev/ref/spec#Packages)
     1. *Java*: package structure matches (a subtree of) directory structure, names match, import classes
-1. [`use`](https://doc.rust-lang.org/reference/items/use-declarations.html) has nothing to do with importing
+1. [`use`](https://doc.rust-lang.org/reference/items/use-declarations.html) has **nothing** to do with importing
 1. `mod foo;`: import/expand (copy/paste) the contents of `foo.rs` into the current file
 1. `mod foo { ... }`: put `...` into module named foo
 1. Do **not** use ~~`mod.rs`~~ [(legacy approach from pre-1.30)](https://doc.rust-lang.org/reference/items/modules.html#module-source-filenames)
