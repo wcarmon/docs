@@ -3,24 +3,25 @@
 
 
 # Package
-1. one or more crates
+1. one or more *crates*
 1. Contains one `Cargo.toml`
 
 
 # Crate
 1. A compilation unit
-1. either an executable or a library (not both)
-    1. A package can have multiple binary crates
+1. Either an executable or a library (not both)
+    1. A *Package* can have multiple binary *crates*
 
 
 ## Crate root
-1. *Crate root* is the starting file for compiler (rustc)
-1. *Crate root* is the starting file for imported modules
+1. *Crate root* is the starting **file** for compiler ([rustc](https://doc.rust-lang.org/rustc/what-is-rustc.html))
+1. *Crate root* is the starting **file** for imported modules
 1. `src/lib.rs` (for library)
 1. `src/main.rs` (for binary)
-1. like [`cmd/foo/main.go`](https://github.com/golang-standards/project-layout#cmd) for go
-1. like a [main class](https://docs.oracle.com/javase/tutorial/getStarted/application/index.html) for java (or whatever you set in `build.gradle.kts`)
-1. like [`index.js`](https://docs.npmjs.com/cli/v8/configuring-npm/package-json#main) for node (or whatever you set in your [`package.json`](https://docs.npmjs.com/cli/v8/configuring-npm/package-json#main))
+1. Language Comparison:
+    1. like [`cmd/foo/main.go`](https://github.com/golang-standards/project-layout#cmd) for go
+    1. like a [main class](https://docs.oracle.com/javase/tutorial/getStarted/application/index.html) for java (or whatever you set in `build.gradle.kts`)
+    1. like [`index.js`](https://docs.npmjs.com/cli/v8/configuring-npm/package-json#main) for node (or whatever you set in your [`package.json`](https://docs.npmjs.com/cli/v8/configuring-npm/package-json#main))
 
 
 # Module
