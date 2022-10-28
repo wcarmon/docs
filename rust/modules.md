@@ -6,6 +6,8 @@
 
 
 # Crate
+1. A compilation unit
+1. either an executable or a library
 1. TODO
 
 
@@ -16,14 +18,11 @@
 1. `src/main.rs` (for binary)
 1. like [`cmd/foo/main.go`](https://github.com/golang-standards/project-layout#cmd) for go
 1. like a [main class](https://docs.oracle.com/javase/tutorial/getStarted/application/index.html) for java (or whatever you set in `build.gradle.kts`)
-1. like `index.js` for node (or whatever you set in your `package.json`)
+1. like [`index.js`](https://docs.npmjs.com/cli/v8/configuring-npm/package-json#main) for node (or whatever you set in your [`package.json`](https://docs.npmjs.com/cli/v8/configuring-npm/package-json#main))
 
 
 # Module
 1. If you declare a module, Rust uses "a resolution algorithm" to find it
-1. Use `mod` to declare a module
-    1. `mod foo;`: import/expand (copy/paste) the contents of `foo.rs` into the current file
-    1. `mod foo { ... }`: put `...` into module named foo
 1. One file can have multiple modules, flat or nested
 1. A module can be split across multiple files <-- TODO: how
 1. Module defines visibility barrier (public, private, etc)
@@ -31,13 +30,28 @@
     1. Unlike Node, You don't import files
     1. Unlike Go, You don't import packages
     1. Unlike Java, You don't import classes
+1. `use` has nothing to do with importing
 1. Don't use ~~`mod.rs`~~ (legacy, tech debt)
+
+## Example
+1. Given a file at `src/a/b.rs`
+```
+mod c;
+```
+1. Use `mod` to declare a module
+    1. `mod foo;`: import/expand (copy/paste) the contents of `foo.rs` into the current file
+    1. `mod foo { ... }`: put `...` into module named foo
+
 
 
 # Namespace
+1. `use` has nothing to do with importing (see `mod`)
+1. `use` maps fully qualified namespace to a shorter identifier
 1. `use x::y::Z`: bring `Z` into the current namespace, so I can reference as `y::Z`
 1. `use` allow referencing items without fully qualifying
 
 
 # Other resources
-1. TODO
+1. https://stevedonovan.github.io/rust-gentle-intro/4-modules.html
+1. https://web.mit.edu/rust-lang_v1.25/arch/amd64_ubuntu1404/share/doc/rust/html/book/first-edition/crates-and-modules.html
+1. https://betterprogramming.pub/explaining-rusts-modules-420d38eed6c5
