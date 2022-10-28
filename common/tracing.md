@@ -42,7 +42,7 @@
 
 ## Context
 1. minimal data required to propagate a trace across machines/servers
-1. Includes things like [`trace_id`](https://opentelemetry.io/docs/reference/specification/logs/data-model/#field-traceid), [`span_id`](https://opentelemetry.io/docs/reference/specification/logs/data-model/#field-spanid), [trace flags]()https://opentelemetry.io/docs/reference/specification/logs/data-model/#field-traceflags, baggage, ...
+1. Includes things like [`trace_id`](https://opentelemetry.io/docs/reference/specification/logs/data-model/#field-traceid), [`span_id`](https://opentelemetry.io/docs/reference/specification/logs/data-model/#field-spanid), [trace flags]()https://opentelemetry.io/docs/reference/specification/logs/data-model/#field-traceflags, [baggage](https://opentelemetry.io/docs/reference/specification/baggage/api/), etc
 1. [Official docs](https://opentelemetry.io/docs/reference/specification/context/)
 1. Immutable
 
