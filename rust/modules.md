@@ -14,8 +14,8 @@
 1. *Crate root* is the starting file for imported modules
 1. `src/lib.rs` (for library)
 1. `src/main.rs` (for binary)
-1. like `cmd/foo/main.go` for go
-1. like a main class for java (or whatever you set in `build.gradle.kts`)
+1. like [`cmd/foo/main.go`](https://github.com/golang-standards/project-layout#cmd) for go
+1. like a [main class](https://docs.oracle.com/javase/tutorial/getStarted/application/index.html) for java (or whatever you set in `build.gradle.kts`)
 1. like `index.js` for node (or whatever you set in your `package.json`)
 
 
