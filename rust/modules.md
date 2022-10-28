@@ -3,13 +3,14 @@
 
 
 # Package
-1. TODO
+1. one or more crates
+1. Contains one `Cargo.toml`
 
 
 # Crate
 1. A compilation unit
-1. either an executable or a library
-1. TODO
+1. either an executable or a library (not both)
+    1. A package can have multiple binary crates
 
 
 ## Crate root
@@ -26,17 +27,18 @@
 1. `mod` is the closest thing rust has to `import` (golang, java, node, ts, dart, )
 1. If you declare a module, Rust uses "a resolution algorithm" to find it
 1. One file can have multiple modules, flat or nested
-1. A module can be split across multiple files <-- TODO: how
-1. Module defines visibility barrier (public, private, etc)
-1. Comparison
+1. A module can be split across multiple files
+    1. by re-exporting modules
+    1. TODO: is there another way?
+1. Module defines visibility barrier (**pub**lic, private, etc)
+1. Language Comparison
     1. *Node*: [no packages, only files, import files](https://nodejs.org/api/packages.html#imports)
     1. *Go*: [one package per directory, one directory per package, names can differ, import packages](https://go.dev/ref/spec#Packages)
     1. *Java*: package structure matches (a subtree of) directory structure, names match, import classes
 1. [`use`](https://doc.rust-lang.org/reference/items/use-declarations.html) has nothing to do with importing
-1. Don't use ~~`mod.rs`~~ [(legacy approach from pre-1.30)](https://doc.rust-lang.org/reference/items/modules.html#module-source-filenames)
 1. `mod foo;`: import/expand (copy/paste) the contents of `foo.rs` into the current file
 1. `mod foo { ... }`: put `...` into module named foo
-
+1. Do **not** use ~~`mod.rs`~~ [(legacy approach from pre-1.30)](https://doc.rust-lang.org/reference/items/modules.html#module-source-filenames)
 
 ## Submodules
 1. For submodule, create a **directory** AND matching file for the module (`foo/*.rs` and `foo.rs`)
