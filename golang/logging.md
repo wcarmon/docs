@@ -13,19 +13,22 @@
     1. Tests should cover cases where this logging would be useful
 
 
-# Best: [zerolog](https://github.com/rs/zerolog)
-1. Simple
-1. Fast
-1. Comprehensive for typical cases
-
-
-# Next Best: [zap](https://github.com/uber-go/zap)
+# Best: [zap](https://github.com/uber-go/zap)
 1. Use if zerolog doesn't meet your needs
 1. More complex than zerolog, wider scope, more features
+1. Compatible with [Opentelemetry](TODO)
 1. Avoid the sugar api
     1. uses reflection
     1. no type safety
     1. keys and values have to be paired carefully (error prone)
+
+
+# Next Best: [zerolog](https://github.com/rs/zerolog)
+1. Simple
+1. Fast
+1. Comprehensive for typical cases
+1. Con: incompatible with [OpenTelemetry](https://opentelemetry.io/)
+1. Con: seems to be unmaintained
 
 
 # Multiple loggers
