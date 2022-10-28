@@ -25,7 +25,7 @@
 
 
 # Module
-1. See working example: [example.modules](./example.modules)
+1. See a complex but working example: [example.modules](./example.modules)
 1. [`mod`](https://doc.rust-lang.org/std/keyword.mod.html) is the closest thing rust has to `import` (golang, java, node, ts, dart, )
 1. If you declare a module (using [`mod`](https://doc.rust-lang.org/std/keyword.mod.html)), Rust uses "a resolution algorithm" to find it
 1. One file can have multiple modules, flat or nested
