@@ -22,25 +22,41 @@
 
 
 # Module
+1. `mod` is the closest thing rust has to `import` (golang, java, node, ts, dart, )
 1. If you declare a module, Rust uses "a resolution algorithm" to find it
 1. One file can have multiple modules, flat or nested
 1. A module can be split across multiple files <-- TODO: how
 1. Module defines visibility barrier (public, private, etc)
 1. Comparison
-    1. Unlike Node, You don't import files
-    1. Unlike Go, You don't import packages
-    1. Unlike Java, You don't import classes
+    1. Node: no packages, only files (import files)
+    1. Go: one package per directory, one directory per package, names can differ (import packages)
+    1. Java: package structure matches (a subtree of) directory structure, names match, import classes
 1. `use` has nothing to do with importing
 1. Don't use ~~`mod.rs`~~ (legacy, tech debt)
+1. it helps to define a directory AND file for a module (`foo/*.rs` and `foo.rs`)
+1. `mod foo;`: import/expand (copy/paste) the contents of `foo.rs` into the current file
+1. `mod foo { ... }`: put `...` into module named foo
+
 
 ## Example
 1. Given a file at `src/a/b.rs`
+```rust
+mod c;  // <-- looks for a file named c.rs
+
+// everything defined here is accessible as crate::?
 ```
-mod c;
+1. in ?/?/`c.rs`
+```rust
 ```
 1. Use `mod` to declare a module
-    1. `mod foo;`: import/expand (copy/paste) the contents of `foo.rs` into the current file
-    1. `mod foo { ... }`: put `...` into module named foo
+
+|Module Path|filesystem path|contents|
+|---|---|---|
+|`crate`|`lib.rs` or `main.rs`|?|
+|`crate::a`|`src/a.rs`|??|
+|`crate::a::b`|`src/a/b.rs`|???|
+|`crate::a::b::c`|`src/a/b/c.rs`|?|
+
 
 
 
@@ -52,6 +68,8 @@ mod c;
 
 
 # Other resources
+1. https://doc.rust-lang.org/reference/items/modules.html#module-source-filenames
 1. https://stevedonovan.github.io/rust-gentle-intro/4-modules.html
 1. https://web.mit.edu/rust-lang_v1.25/arch/amd64_ubuntu1404/share/doc/rust/html/book/first-edition/crates-and-modules.html
 1. https://betterprogramming.pub/explaining-rusts-modules-420d38eed6c5
+1. https://medium.com/codex/rust-modules-and-project-structure-832404a33e2e
