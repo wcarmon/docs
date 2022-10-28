@@ -32,7 +32,7 @@
     1. *Node*: no packages, only files, import files
     1. *Go*: one package per directory, one directory per package, names can differ, import packages
     1. *Java*: package structure matches (a subtree of) directory structure, names match, import classes
-1. `use` has nothing to do with importing
+1. [`use`](https://doc.rust-lang.org/reference/items/use-declarations.html) has nothing to do with importing
 1. Don't use ~~`mod.rs`~~ [(legacy approach from pre-1.30)](https://doc.rust-lang.org/reference/items/modules.html#module-source-filenames)
 1. it helps to define a directory AND file for a module (`foo/*.rs` and `foo.rs`)
 1. `mod foo;`: import/expand (copy/paste) the contents of `foo.rs` into the current file
@@ -63,10 +63,10 @@ mod c;  // <-- looks for a file named c.rs
 
 
 # Namespace
-1. `use` has nothing to do with importing (see `mod`)
-1. `use` maps fully qualified namespace to a shorter identifier
+1. [`use`](https://doc.rust-lang.org/reference/items/use-declarations.html) has nothing to do with importing (see `mod`)
+1. [`use`](https://doc.rust-lang.org/reference/items/use-declarations.html) maps fully qualified namespace to a shorter identifier
 1. `use x::y::Z`: bring `Z` into the current namespace, so I can reference as `y::Z`
-1. `use` allow referencing items without fully qualifying
+1. [`use`](https://doc.rust-lang.org/reference/items/use-declarations.html) allow referencing items without fully qualifying
 
 
 # Other resources
