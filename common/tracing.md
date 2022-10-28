@@ -15,6 +15,7 @@
 1. Part of a [trace](https://opentelemetry.io/docs/concepts/signals/traces/)
 1. Generally has a significant duration between start and end time
 1. Mutable until `span.end()`
+1. [Data model](https://opentelemetry.io/docs/reference/specification/trace/api/#span) and [protobuf](https://github.com/open-telemetry/opentelemetry-proto/blob/main/opentelemetry/proto/trace/v1/trace.proto)
 1. [Official docs](https://opentelemetry.io/docs/concepts/signals/traces/#spans-in-opentelemetry)
 
 
@@ -23,8 +24,10 @@
 1. a "point-in-time" event
 1. May or may not be associated with a [span](https://opentelemetry.io/docs/concepts/signals/traces/#spans-in-opentelemetry)
     1. See also [span.event](https://opentelemetry.io/docs/concepts/signals/traces/#span-events)
+    1. See [span.AddEvent](https://opentelemetry.io/docs/reference/specification/trace/api/#add-events)
 1. Uses `span_id` and `trace_id` to correlate with a span
 1. OpenTelemetry considers these synonyms: Log Record, Log Event, Event, Span.Event
+1. [Data model](https://opentelemetry.io/docs/reference/specification/logs/data-model/) and [protobuf](https://github.com/open-telemetry/opentelemetry-proto/blob/main/opentelemetry/proto/logs/v1/logs.proto)
 1. [Official docs](https://opentelemetry.io/docs/concepts/signals/logs/)
 
 
@@ -49,8 +52,8 @@
 
 ## Collector
 1. Allows building pipelines
-1. Input side is called Receiver (listen on ports for thrift, grpc, http, etc)
-1. Output side is called Exporter (write to local file, send to jaeger, kafka, Prometheus, etc)
+1. Input side is called [Receiver](https://opentelemetry.io/docs/collector/configuration/#receivers) (listen on ports for thrift, grpc, http, etc)
+1. Output side is called [Exporter](https://opentelemetry.io/docs/collector/configuration/#exporters) (write to local file, send to jaeger, kafka, Prometheus, etc)
 1. "Lives" with or in your process (the observed application)
 1. [Official docs](https://opentelemetry.io/docs/collector/)
 
