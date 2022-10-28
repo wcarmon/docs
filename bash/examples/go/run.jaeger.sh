@@ -24,12 +24,11 @@ readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
 # ---------------------------------------------
 # -- Config
 # ---------------------------------------------
-readonly ES_CONTAINER_NAME=jaeger-es
+readonly ES_CONTAINER_NAME=es-for-jaeger
 
 # -- See https://hub.docker.com/_/elasticsearch/tags
 readonly ES_IMAGE="elasticsearch:7.17.7"
 #readonly ES_IMAGE="elasticsearch:8.4.3"  # not supported by jaeger yet
-
 
 readonly JAEGER_CONTAINER_NAME="jaeger"
 
@@ -38,23 +37,30 @@ readonly JAEGER_CONTAINER_NAME="jaeger"
 #readonly JAEGER_IMAGE="jaegertracing/all-in-one:latest"
 readonly JAEGER_IMAGE="jaegertracing/all-in-one:1.38"
 
-
 # ---------------------------------------------
 # -- Derived
 # ---------------------------------------------
 
-
 # ---------------------------------------------
-# -- Run ElasticSearch
+# -- Run ElasticSearch <-- very heavy & slow to start
 # ---------------------------------------------
-$DOCKER stop $ES_CONTAINER_NAME || true  &> /dev/null
-$DOCKER rm --force $ES_CONTAINER_NAME || true  &> /dev/null
+$DOCKER stop $ES_CONTAINER_NAME || true &>/dev/null
+$DOCKER rm --force $ES_CONTAINER_NAME || true &>/dev/null
 
-# docker run -d --name elasticsearch --net somenetwork -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" elasticsearch:tag
-# docker pull docker.elastic.co/elasticsearch/elasticsearch:8.4.3
+#$DOCKER run -it --rm \   <-- debugging
+$DOCKER run -d \
+  --name $ES_CONTAINER_NAME \
+  -e "discovery.type=single-node" \
+  -e "ES_JAVA_OPTS=-Xmx300m" \
+  -p 9200:9200 \
+  -p 9300:9300 \
+  $ES_IMAGE
 
-#TODO: verify I can connect to local port via chrome
-#TODO: verify jaeger can connect
+echo
+echo "|-- Waiting for ES to start"
+sleep 15
+
+#TODO: give it time to start (20 seconds)
 
 
 # ---------------------------------------------
@@ -67,17 +73,21 @@ $DOCKER rm --force $ES_CONTAINER_NAME || true  &> /dev/null
 #
 #TODO: dedupe: https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-deduplication.html
 
-
 # ---------------------------------------------
 # -- Run Jaeger
 # ---------------------------------------------
-$DOCKER stop $JAEGER_CONTAINER_NAME || true  &> /dev/null
-$DOCKER rm --force $JAEGER_CONTAINER_NAME || true  &> /dev/null
+$DOCKER stop $JAEGER_CONTAINER_NAME || true &>/dev/null
+$DOCKER rm --force $JAEGER_CONTAINER_NAME || true &>/dev/null
+
+#$DOCKER run --rm -it \   <-- debugging
 
 $DOCKER run -d \
   --name $JAEGER_CONTAINER_NAME \
   -e COLLECTOR_OTLP_ENABLED=true \
   -e COLLECTOR_ZIPKIN_HOST_PORT=:9411 \
+  -e ES_SERVER_URLS=http://localhost:9200 \
+  -e ES_USERNAME=elastic \
+  -e SPAN_STORAGE_TYPE=elasticsearch \
   -p 14250:14250 \
   -p 14268:14268 \
   -p 14269:14269 \
@@ -90,18 +100,16 @@ $DOCKER run -d \
   -p 9411:9411 \
   $JAEGER_IMAGE
 
-# -e SPAN_STORAGE_TYPE=elasticsearch \
-#  -e ES_SERVER_URLS=<...> \
-#  jaegertracing/jaeger-collector:1.38
-
 
 # ---------------------------------------------
 # -- Report
 # ---------------------------------------------
 echo
-echo "|-- Started Jaeger"
+echo "|-- Started Jaeger & ElasticSearch"
 $DOCKER ps --filter="name=$JAEGER_CONTAINER_NAME"
+$DOCKER ps --filter="name=$ES_CONTAINER_NAME"
 
 echo
 echo
 echo "|-- Jaeger UI: http://localhost:16686"
+echo "|-- ElasticSearch UI: http://localhost:9200"
