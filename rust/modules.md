@@ -49,24 +49,13 @@
 ## Module: Relation to file system
 |Module Path|filesystem path|contents|
 |---|---|---|
-|`crate`|`lib.rs` or `main.rs` (TODO: verify)|`mod a;` <br/>(meaning `src/a.rs`)|
+|`crate`|`lib.rs` or `main.rs`|`mod a;` <br/>(meaning `src/a.rs`)|
 |`crate::a`|`src/a.rs`|`mod b;`|
-|`crate::a::b`|`src/a/b.rs`|???|
-|`crate::a::b::c`|`src/a/b/c.rs`|?|
 
 
 
 ## Example
-1. Given a file at `src/a/b.rs`
-```rust
-mod c;  // <-- looks for a file named c.rs
-
-// everything defined here is accessible as crate::?
-```
-1. in ?/?/`c.rs`
-```rust
-```
-1. Use `mod` to declare a module
+1. See https://github.com/wcarmon/docs/tree/main/rust/example.modules
 
 
 # Namespace
