@@ -39,8 +39,11 @@
 
 
 ## Submodules
-1. For submodule, create a directory AND matching file for a module (`foo/*.rs` and `foo.rs`)
+1. For submodule, create a **directory** AND matching file for the module (`foo/*.rs` and `foo.rs`)
+    1. The names **MUST** match
+    1. Jetbrains rust plugin enforces this
 1. parent/super modules can only access `pub` members & modules on children
+1. Use `#[path = "path/to/file.rs"]` to get behavior like nodejs
 
 
 ## Module: Relation to file system
@@ -64,9 +67,6 @@ mod c;  // <-- looks for a file named c.rs
 ```rust
 ```
 1. Use `mod` to declare a module
-
-
-- TODO: `#[path = "foo.rs"]`
 
 
 # Namespace
