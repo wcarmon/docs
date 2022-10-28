@@ -1,16 +1,17 @@
 # Overview
-- How to use [OpenTracing](https://opentracing.io/) with golang
-- Open telemetry
+1. Golang specific tracing setup
 
 
-# Definitions
-- Trace: distributed call stack
-- span: TODO
-- exporter: local sink for spans 
+# General overview
+1. See [common/tracing doc](../common/tracing.md)
 
 
-# Idioms
-TODO ...
+# Setup
+1. TODO
+
+
+# Viewing traces
+1. TODO
 
 
 # Other resources
