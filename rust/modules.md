@@ -10,8 +10,8 @@
 
 
 ## Crate root
-1. Starting file for compiler (rustc)
-1. Starting file for imported modules
+1. *Crate root* is the starting file for compiler (rustc)
+1. *Crate root* is the starting file for imported modules
 1. `src/lib.rs` (for library)
 1. `src/main.rs` (for binary)
 1. like `cmd/foo/main.go` for go
@@ -32,6 +32,7 @@
     1. Unlike Go, You don't import packages
     1. Unlike Java, You don't import classes
 1. Don't use ~~`mod.rs`~~ (legacy, tech debt)
+
 
 # Namespace
 1. `use x::y::Z`: bring `Z` into the current namespace, so I can reference as `y::Z`
