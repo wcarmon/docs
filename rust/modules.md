@@ -1,5 +1,6 @@
 # Overview
-- TODO: https://vino.dev/blog/node-to-rust-day-11-module-system/
+1. Modules, Packages, Crates, `use`, `mod`, ...
+
 
 # Package
 1. TODO
@@ -28,11 +29,11 @@
 1. A module can be split across multiple files <-- TODO: how
 1. Module defines visibility barrier (public, private, etc)
 1. Comparison
-    1. Node: no packages, only files (import files)
-    1. Go: one package per directory, one directory per package, names can differ (import packages)
-    1. Java: package structure matches (a subtree of) directory structure, names match, import classes
+    1. *Node*: no packages, only files, import files
+    1. *Go*: one package per directory, one directory per package, names can differ, import packages
+    1. *Java*: package structure matches (a subtree of) directory structure, names match, import classes
 1. `use` has nothing to do with importing
-1. Don't use ~~`mod.rs`~~ (legacy, tech debt)
+1. Don't use ~~`mod.rs`~~ [(legacy approach from pre-1.30)](https://doc.rust-lang.org/reference/items/modules.html#module-source-filenames)
 1. it helps to define a directory AND file for a module (`foo/*.rs` and `foo.rs`)
 1. `mod foo;`: import/expand (copy/paste) the contents of `foo.rs` into the current file
 1. `mod foo { ... }`: put `...` into module named foo
@@ -74,3 +75,4 @@ mod c;  // <-- looks for a file named c.rs
 1. https://web.mit.edu/rust-lang_v1.25/arch/amd64_ubuntu1404/share/doc/rust/html/book/first-edition/crates-and-modules.html
 1. https://betterprogramming.pub/explaining-rusts-modules-420d38eed6c5
 1. https://medium.com/codex/rust-modules-and-project-structure-832404a33e2e
+1. https://vino.dev/blog/node-to-rust-day-11-module-system/
