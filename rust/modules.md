@@ -42,7 +42,7 @@
 ## Module: Relation to file system
 |Module Path|filesystem path|contents|
 |---|---|---|
-|`crate`|`lib.rs` or `main.rs` (TODO: verify)|`mod a;` (meaning `src/a.rs`)|
+|`crate`|`lib.rs` or `main.rs` (TODO: verify)|`mod a;` <br/>(meaning `src/a.rs`)|
 |`crate::a`|`src/a.rs`|`mod b;`|
 |`crate::a::b`|`src/a/b.rs`|???|
 |`crate::a::b::c`|`src/a/b/c.rs`|?|
