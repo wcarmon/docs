@@ -58,6 +58,7 @@ mod c;  // <-- looks for a file named c.rs
 |`crate::a::b::c`|`src/a/b/c.rs`|?|
 
 
+- TODO: `#[path = "foo.rs"]`
 
 
 # Namespace
