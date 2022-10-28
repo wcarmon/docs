@@ -24,26 +24,58 @@ readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
 # ---------------------------------------------
 # -- Config
 # ---------------------------------------------
+readonly ES_CONTAINER_NAME=jaeger-es
+
+# -- See https://hub.docker.com/_/elasticsearch/tags
+readonly ES_IMAGE="elasticsearch:7.17.7"
+#readonly ES_IMAGE="elasticsearch:8.4.3"  # not supported by jaeger yet
+
+
+readonly JAEGER_CONTAINER_NAME="jaeger"
 
 # -- See https://hub.docker.com/r/jaegertracing/all-in-one/tags
 #readonly JAEGER_IMAGE="jaegertracing/all-in-one:1"
 #readonly JAEGER_IMAGE="jaegertracing/all-in-one:latest"
 readonly JAEGER_IMAGE="jaegertracing/all-in-one:1.38"
 
-readonly CONTAINER_NAME="jaeger"
 
 # ---------------------------------------------
 # -- Derived
 # ---------------------------------------------
 
+
+# ---------------------------------------------
+# -- Run ElasticSearch
+# ---------------------------------------------
+$DOCKER stop $ES_CONTAINER_NAME || true  &> /dev/null
+$DOCKER rm --force $ES_CONTAINER_NAME || true  &> /dev/null
+
+# docker run -d --name elasticsearch --net somenetwork -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" elasticsearch:tag
+# docker pull docker.elastic.co/elasticsearch/elasticsearch:8.4.3
+
+#TODO: verify I can connect to local port via chrome
+#TODO: verify jaeger can connect
+
+
+# ---------------------------------------------
+# -- Run Filebeat
+# ---------------------------------------------
+#TODO:
+#output.elasticsearch.index: "customname-%{[agent.version]}"
+#setup.template.name: "customname"
+#setup.template.pattern: "customname-%{[agent.version]}"
+#
+#TODO: dedupe: https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-deduplication.html
+
+
 # ---------------------------------------------
 # -- Run Jaeger
 # ---------------------------------------------
-$DOCKER stop $CONTAINER_NAME || true  &> /dev/null
-$DOCKER rm --force $CONTAINER_NAME || true  &> /dev/null
+$DOCKER stop $JAEGER_CONTAINER_NAME || true  &> /dev/null
+$DOCKER rm --force $JAEGER_CONTAINER_NAME || true  &> /dev/null
 
 $DOCKER run -d \
-  --name $CONTAINER_NAME \
+  --name $JAEGER_CONTAINER_NAME \
   -e COLLECTOR_OTLP_ENABLED=true \
   -e COLLECTOR_ZIPKIN_HOST_PORT=:9411 \
   -p 14250:14250 \
@@ -58,12 +90,17 @@ $DOCKER run -d \
   -p 9411:9411 \
   $JAEGER_IMAGE
 
+# -e SPAN_STORAGE_TYPE=elasticsearch \
+#  -e ES_SERVER_URLS=<...> \
+#  jaegertracing/jaeger-collector:1.38
+
+
 # ---------------------------------------------
 # -- Report
 # ---------------------------------------------
 echo
 echo "|-- Started Jaeger"
-$DOCKER ps --filter="name=$CONTAINER_NAME"
+$DOCKER ps --filter="name=$JAEGER_CONTAINER_NAME"
 
 echo
 echo

@@ -3,7 +3,7 @@
 
 
 # General overview
-1. See [common/tracing doc](../common/tracing.md)
+1. See [common/tracing doc](../common/observability/tracing.md)
 
 
 # Setup
