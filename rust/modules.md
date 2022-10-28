@@ -25,8 +25,8 @@
 
 
 # Module
-1. `mod` is the closest thing rust has to `import` (golang, java, node, ts, dart, )
-1. If you declare a module, Rust uses "a resolution algorithm" to find it
+1. [`mod`](https://doc.rust-lang.org/std/keyword.mod.html) is the closest thing rust has to `import` (golang, java, node, ts, dart, )
+1. If you declare a module (using [`mod`](https://doc.rust-lang.org/std/keyword.mod.html)), Rust uses "a resolution algorithm" to find it
 1. One file can have multiple modules, flat or nested
 1. A module can be split across multiple files
     1. by re-exporting modules
