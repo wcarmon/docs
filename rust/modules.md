@@ -28,7 +28,7 @@
 1. [`mod`](https://doc.rust-lang.org/std/keyword.mod.html) is the closest thing rust has to `import` (golang, java, node, ts, dart, )
 1. If you declare a module (using [`mod`](https://doc.rust-lang.org/std/keyword.mod.html)), Rust uses "a resolution algorithm" to find it
 1. One file can have multiple modules, flat or nested
-1. A module can be split across multiple files
+1. You can split one module across multiple files
     1. by re-exporting modules
     1. TODO: is there another way?
 1. Module defines visibility barrier (**pub**lic, private, etc)
