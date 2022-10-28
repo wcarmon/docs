@@ -36,15 +36,16 @@
     1. *Node*: [no packages, only files, import files](https://nodejs.org/api/packages.html#imports)
     1. *Go*: [one package per directory, one directory per package, names can differ, import packages](https://go.dev/ref/spec#Packages)
     1. *Java*: package structure matches (a subtree of) directory structure, names match, import classes
-1. [`use`](https://doc.rust-lang.org/reference/items/use-declarations.html) has **nothing** to do with importing
 1. `mod foo;`: import/expand (copy/paste) the contents of `foo.rs` into the current file
 1. `mod foo { ... }`: put `...` into module named foo
+1. [`use`](https://doc.rust-lang.org/reference/items/use-declarations.html) has **nothing** to do with importing
 1. Do **not** use ~~`mod.rs`~~ [(legacy approach from pre-1.30)](https://doc.rust-lang.org/reference/items/modules.html#module-source-filenames)
 
-## Submodules
-1. For submodule, create a **directory** AND matching file for the module (`foo/*.rs` and `foo.rs`)
+## Sub-modules
+1. For a sub-module, create a directory **AND** matching file for the module
+    1. eg. `foo/*.rs` and `foo.rs`
     1. The names **MUST** match
-    1. Jetbrains rust plugin enforces this
+    1. Jetbrains [rust plugin](https://www.jetbrains.com/rust/) enforces this
 1. parent/super modules can only access `pub` members & modules on children
 1. Use `#[path = "path/to/file.rs"]` to get behavior like nodejs
 
