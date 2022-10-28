@@ -34,9 +34,13 @@
     1. *Java*: package structure matches (a subtree of) directory structure, names match, import classes
 1. [`use`](https://doc.rust-lang.org/reference/items/use-declarations.html) has nothing to do with importing
 1. Don't use ~~`mod.rs`~~ [(legacy approach from pre-1.30)](https://doc.rust-lang.org/reference/items/modules.html#module-source-filenames)
-1. For submodule, create a directory AND matching file for a module (`foo/*.rs` and `foo.rs`)
 1. `mod foo;`: import/expand (copy/paste) the contents of `foo.rs` into the current file
 1. `mod foo { ... }`: put `...` into module named foo
+
+
+## Submodules
+1. For submodule, create a directory AND matching file for a module (`foo/*.rs` and `foo.rs`)
+1. parent/super modules can only access `pub` members & modules on children
 
 
 ## Module: Relation to file system
