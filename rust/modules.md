@@ -25,6 +25,7 @@
 
 
 # Module
+1. See working example: [example.modules](./example.modules)
 1. [`mod`](https://doc.rust-lang.org/std/keyword.mod.html) is the closest thing rust has to `import` (golang, java, node, ts, dart, )
 1. If you declare a module (using [`mod`](https://doc.rust-lang.org/std/keyword.mod.html)), Rust uses "a resolution algorithm" to find it
 1. One file can have multiple modules, flat or nested
@@ -45,7 +46,7 @@
 1. For a sub-module, create a directory **AND** matching file for the module
     1. eg. `foo/*.rs` and `foo.rs`
     1. The names **MUST** match
-    1. Jetbrains [rust plugin](https://www.jetbrains.com/rust/) enforces this
+    1. Jetbrains [Rust plugin](https://www.jetbrains.com/rust/) enforces this
 1. parent/super modules can only access `pub` members & modules on children
 1. Use `#[path = "path/to/file.rs"]` to get behavior like nodejs
 
@@ -58,8 +59,6 @@
 
 
 
-## Example
-1. See https://github.com/wcarmon/docs/tree/main/rust/example.modules
 
 
 # Namespace
