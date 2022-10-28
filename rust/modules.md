@@ -29,12 +29,12 @@
 1. A module can be split across multiple files <-- TODO: how
 1. Module defines visibility barrier (public, private, etc)
 1. Comparison
-    1. *Node*: no packages, only files, import files
-    1. *Go*: one package per directory, one directory per package, names can differ, import packages
+    1. *Node*: [no packages, only files, import files](https://nodejs.org/api/packages.html#imports)
+    1. *Go*: [one package per directory, one directory per package, names can differ, import packages](https://go.dev/ref/spec#Packages)
     1. *Java*: package structure matches (a subtree of) directory structure, names match, import classes
 1. [`use`](https://doc.rust-lang.org/reference/items/use-declarations.html) has nothing to do with importing
 1. Don't use ~~`mod.rs`~~ [(legacy approach from pre-1.30)](https://doc.rust-lang.org/reference/items/modules.html#module-source-filenames)
-1. it helps to define a directory AND file for a module (`foo/*.rs` and `foo.rs`)
+1. For submodule, create a directory AND matching file for a module (`foo/*.rs` and `foo.rs`)
 1. `mod foo;`: import/expand (copy/paste) the contents of `foo.rs` into the current file
 1. `mod foo { ... }`: put `...` into module named foo
 
