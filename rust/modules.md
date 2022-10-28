@@ -62,7 +62,7 @@
 
 
 # Namespace
-1. [`use`](https://doc.rust-lang.org/reference/items/use-declarations.html) allow referencing items without fully qualifying
+1. [`use`](https://doc.rust-lang.org/reference/items/use-declarations.html) allows referencing items without fully qualifying
 1. [`use`](https://doc.rust-lang.org/reference/items/use-declarations.html) has **nothing** to do with importing (see `mod`)
 1. [`use`](https://doc.rust-lang.org/reference/items/use-declarations.html) maps fully qualified namespace to a shorter identifier
 1. `use w::x::y::Z` means: bring `Z` into the current namespace, so I can reference as `y::Z`
