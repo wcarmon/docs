@@ -25,6 +25,7 @@
     1. See also [span.event](https://opentelemetry.io/docs/concepts/signals/traces/#span-events)
 1. Uses `span_id` and `trace_id` to correlate with a span
 1. [Official docs](https://opentelemetry.io/docs/concepts/signals/logs/)
+1. OpenTelemetry considers these synonyms: Log Record, Log Event, Event, Span.Event
 
 
 ## Baggage
@@ -36,11 +37,12 @@
 1. "Something" which produces logs, traces or metrics (like an application, server, lambda, etc)
 1. immutable key-value pairs related to the entity producing spans
 1. [Official docs](https://opentelemetry.io/docs/reference/specification/overview/#resources)
+1. The origin of the telemetry
 
 
 ## Context
 1. minimal data required to propagate a trace across machines/servers
-1. Includes things like `trace_id`, `span_id`, baggage, ...
+1. Includes things like [`trace_id`](https://opentelemetry.io/docs/reference/specification/logs/data-model/#field-traceid), [`span_id`](https://opentelemetry.io/docs/reference/specification/logs/data-model/#field-spanid), [trace flags]()https://opentelemetry.io/docs/reference/specification/logs/data-model/#field-traceflags, baggage, ...
 1. [Official docs](https://opentelemetry.io/docs/reference/specification/context/)
 1. Immutable
 
@@ -57,10 +59,15 @@
 1. Part of the Collector (Outbound side)
 
 
+## OTLP
+1. TODO
+
+
 # Span & Log correlation
 1. OpenTelemetry doesn't provide a log API (except `Span.AddEvent`)
 1. OpenTelemetry is focused on correlating via `span_id` and `trace_id`
 1. [Official docs](https://opentelemetry.io/docs/reference/specification/logs/#log-correlation)
+
 
 
 # Other resources
