@@ -5,6 +5,8 @@
 
 # Summary of key ideas
 1. [tracing](https://docs.rs/tracing/latest/tracing) lib handles both tracing and [logging](./logging.md)
+    1. [Migration from log lib](https://docs.rs/tracing/latest/tracing/#for-log-users)
+    1. [Migration from slog](https://github.com/slog-rs/slog#slog-rs---the-logging-for-rust)
 1. [tracing](https://docs.rs/tracing/latest/tracing) API is close enough to OpenTracing
     1. [Compatiblity lib](https://crates.io/crates/tracing-opentelemetry)
         1. [tracing::`Span`](https://docs.rs/tracing/latest/tracing/struct.Span.html) -> [OpenTelemetry::`Span`](https://docs.rs/opentelemetry/latest/opentelemetry/trace/trait.Span.html)
