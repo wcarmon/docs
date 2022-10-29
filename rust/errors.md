@@ -13,7 +13,8 @@
     1. to generate a [`From`](https://doc.rust-lang.org/std/convert/trait.From.html) impl
     1. to implement [`Display`](https://doc.rust-lang.org/std/fmt/trait.Display.html) and [`Debug`](https://doc.rust-lang.org/std/fmt/trait.Debug.html) for custom error type
 1. Use [`?`](https://doc.rust-lang.org/reference/expressions/operator-expr.html#the-question-mark-operator) operator to simplify caller & chain calls
-1. Make one `Error` enum at the top of your crate (see [`thiserror`](TODO) for examples
+1. Make one `Error` enum at the top of your crate (see [`thiserror`](https://docs.rs/thiserror/latest/thiserror/#example) for examples
+    1. Examples [one](https://fettblog.eu/rust-enums-wrapping-errors/), [two](https://www.lpalmieri.com/posts/error-handling-rust/#modelling-errors-as-enums)
 1. Add extra context ...
     1. Using fields on your custom error type
     1. Using [tracing](./tracing.md) or [logging](./logging.md)
