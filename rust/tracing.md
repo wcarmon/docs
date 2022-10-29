@@ -4,6 +4,11 @@
 
 
 # Summary of key ideas
+1. [tracing](https://docs.rs/tracing/latest/tracing) lib handles both tracing and [logging](./logging.md)
+1. [tracing](https://docs.rs/tracing/latest/tracing) API is close enough to OpenTracing
+    1. [compatiblity lib](https://crates.io/crates/tracing-opentelemetry)
+    1. Differences:
+        1. OpenTelemetry spans lack level
 
 
 # Other resources
