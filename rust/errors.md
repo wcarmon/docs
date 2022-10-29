@@ -12,7 +12,7 @@
     1. to build custom error type
     1. to generate a [`From`](https://doc.rust-lang.org/std/convert/trait.From.html) impl
     1. to implement [`Display`](https://doc.rust-lang.org/std/fmt/trait.Display.html) and [`Debug`](https://doc.rust-lang.org/std/fmt/trait.Debug.html) for custom error type
-1. Use [`?`](TODO) operator to simplify caller & chain calls
+1. Use [`?`](https://doc.rust-lang.org/reference/expressions/operator-expr.html#the-question-mark-operator) operator to simplify caller & chain calls
 1. Make one `Error` enum at the top of your crate (see [`thiserror`](TODO) for examples
 1. Add extra context ...
     1. Using fields on your custom error type
@@ -20,6 +20,7 @@
     1. Using [`some_result.context("...")?`](https://docs.rs/anyhow/latest/anyhow/trait.Context.html) to add extra error details
         1. [`.with_context("...")?](https://docs.rs/anyhow/latest/anyhow/trait.Context.html#tymethod.with_context) is the lazy version
 1. Don't `panic!`
+1. No [`.unwrap()`](https://doc.rust-lang.org/std/result/enum.Result.html#method.unwrap) or [`.expect()`](https://doc.rust-lang.org/std/result/enum.Result.html#method.expect) in production code
 
 
 # [anyhow](https://docs.rs/anyhow/latest/anyhow/)
