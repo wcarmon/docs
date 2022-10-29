@@ -31,12 +31,13 @@ tracing-subscriber = "..."
 1. TODO
 
 
-# [opentelemetry](https://opentelemetry.io/docs/instrumentation/rust/) lib
+# [OpenTelemetry](https://opentelemetry.io/docs/instrumentation/rust/) lib
 1. [Concepts](../common/observability/tracing.md)
+
 
 ## Setup
 ```
-    // -- Build tracers
+    // -- Build tracers (OpenTelemetry concept)
     let tracer0 = stdout::new_pipeline().install_simple();
     let tracer1 = opentelemetry_jaeger::new_agent_pipeline()
         .with_service_name("whatever")
@@ -52,12 +53,31 @@ tracing-subscriber = "..."
         .with(layer0)
         .with(layer1);
 
+    // -- Apply globally (tracing lib concept)
     tracing::subscriber::set_global_default(subscriber);
 ```
 
-## Start Span
+
+## Span usage via tracing lib
+```rust
+TODO
 ```
-//TODO
+
+
+## Span usage via OpenTelemetry
+```
+let mut span = tracer0
+    .span_builder("some operations")
+    .start(&tracer0);
+
+// ...
+
+span.set_attribute(KeyValue::new("foo", "bar"));
+span.add_event("something happened", vec![]);
+
+// ...
+
+span.end(); // or drop(span) or let it happen automatically
 ```
 
 
