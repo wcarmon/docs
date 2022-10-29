@@ -54,7 +54,7 @@ tracing-subscriber = "..."
         .with(layer1);
 
     // -- Apply globally (tracing lib concept)
-    tracing::subscriber::set_global_default(subscriber);
+    tracing::subscriber::set_global_default(subscriber); // only in main.rs, never for a library
 ```
 
 
@@ -76,7 +76,7 @@ tracing-subscriber = "..."
 ```
     #[tracing::instrument]
     fn do_something(foo: &str) -> anyhow::Result<String> {
-        debug!("not that important");
+        debug!(aa = 7, "not that important");
         info!("interesting");
         warn!("hm...");
         error!("ooh no!");
