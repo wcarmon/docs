@@ -6,17 +6,18 @@
 # Summary or key ideas
 1. Idiomatic error handling can be verbose (without libs)
 1. Use return [`anyhow::Result<T>`](https://docs.rs/anyhow/latest/anyhow/type.Result.html) for most `fn`
-1. Use [`anyhow`](https://docs.rs/anyhow/latest/anyhow/) to ...
-    1. `fn` return value, [`anyhow::Result`](https://docs.rs/anyhow/latest/anyhow/type.Result.html)
-1. Use [`thiserror`](TODO) to ...
-    1. building custom error type
-    1. Generate a [`From`](https://doc.rust-lang.org/std/convert/trait.From.html) impl
+1. Use [`anyhow`](https://docs.rs/anyhow/latest/anyhow/) ...
+    1. [`anyhow::Result`](https://docs.rs/anyhow/latest/anyhow/type.Result.html) as return type on most `fn`
+1. Use [`thiserror`](https://docs.rs/thiserror/latest/thiserror/) ...
+    1. to build custom error type
+    1. to generate a [`From`](https://doc.rust-lang.org/std/convert/trait.From.html) impl
+    1. to implement [`Display`](https://doc.rust-lang.org/std/fmt/trait.Display.html) and `Debug`](https://doc.rust-lang.org/std/fmt/trait.Debug.html) for custom error type
 
 1. Use [`?`](TODO) operator to simplify caller & chain calls
 1. Make one `Error` enum at the top of your crate (see [`thiserror`](TODO) for examples
 1. Add extra context ...
     1. Using fields on your custom error type
-    1. Using [tracing](./tracing.md)/[logging](./logging.md)
+    1. Using [tracing](./tracing.md) or [logging](./logging.md)
     1. Using [`some_result.context("...")?`](https://docs.rs/anyhow/latest/anyhow/trait.Context.html) to add extra error details
         1. [`.with_context("...")?](https://docs.rs/anyhow/latest/anyhow/trait.Context.html#tymethod.with_context) is the lazy version
 1. Don't `panic!`
