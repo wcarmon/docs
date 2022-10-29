@@ -16,7 +16,7 @@
 1. Make one `Error` enum at the top of your crate (see [`thiserror`](https://docs.rs/thiserror/latest/thiserror/#example) for examples)
     1. Examples [one](https://fettblog.eu/rust-enums-wrapping-errors/), [two](https://www.lpalmieri.com/posts/error-handling-rust/#modelling-errors-as-enums)
 1. Add extra context ...
-    1. Using fields on your custom error type
+    1. Using [fields](https://doc.rust-lang.org/rust-by-example/custom_types/enum.html#enums) on your custom error type
     1. Using [tracing](./tracing.md) or [logging](./logging.md)
     1. Using [`some_result.context("...")?`](https://docs.rs/anyhow/latest/anyhow/trait.Context.html) to add extra error details
         1. [`.with_context("...")?`](https://docs.rs/anyhow/latest/anyhow/trait.Context.html#tymethod.with_context) is the lazy version
