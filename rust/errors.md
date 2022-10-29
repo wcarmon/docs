@@ -11,8 +11,7 @@
 1. Use [`thiserror`](https://docs.rs/thiserror/latest/thiserror/) ...
     1. to build custom error type
     1. to generate a [`From`](https://doc.rust-lang.org/std/convert/trait.From.html) impl
-    1. to implement [`Display`](https://doc.rust-lang.org/std/fmt/trait.Display.html) and `Debug`](https://doc.rust-lang.org/std/fmt/trait.Debug.html) for custom error type
-
+    1. to implement [`Display`](https://doc.rust-lang.org/std/fmt/trait.Display.html) and [`Debug`](https://doc.rust-lang.org/std/fmt/trait.Debug.html) for custom error type
 1. Use [`?`](TODO) operator to simplify caller & chain calls
 1. Make one `Error` enum at the top of your crate (see [`thiserror`](TODO) for examples
 1. Add extra context ...
