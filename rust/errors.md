@@ -3,7 +3,7 @@
 1. How to use [`anyhow`](https://docs.rs/anyhow/latest/anyhow/) and [`thiserror`](https://docs.rs/thiserror/latest/thiserror/)
 
 
-# Summary or key ideas
+# Summary of key ideas
 1. Idiomatic error handling can be verbose (without libs)
 1. Use return [`anyhow::Result<T>`](https://docs.rs/anyhow/latest/anyhow/type.Result.html) for most `fn`
 1. Use [`anyhow`](https://docs.rs/anyhow/latest/anyhow/) ...
@@ -22,6 +22,7 @@
 1. Don't `panic!`
 1. No [`.unwrap()`](https://doc.rust-lang.org/std/result/enum.Result.html#method.unwrap) or [`.expect()`](https://doc.rust-lang.org/std/result/enum.Result.html#method.expect) in production code
 1. Add logs where you handle the error, not where you propagate (`?`)
+1. [`match`](https://doc.rust-lang.org/book/ch09-02-recoverable-errors-with-result.html#matching-on-different-errors) on error if you need them for control flow
 
 
 # [anyhow](https://docs.rs/anyhow/latest/anyhow/)
