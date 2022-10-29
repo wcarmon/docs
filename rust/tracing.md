@@ -56,7 +56,7 @@ tracing-subscriber = "..."
         .with(layer1);
 
     // -- Apply globally (tracing lib concept)
-    // only in main.rs, never for a library
+    //    only in main.rs, never for a library
     tracing::subscriber::set_global_default(subscriber);
 
     ...
