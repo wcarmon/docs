@@ -27,8 +27,10 @@ tracing-subscriber = "..."
 
 # [tracing](https://docs.rs/tracing/latest/tracing/) lib
 1. Concepts
-    1. Subscriber
-1. TODO
+    1. Span: TODO
+    1. Event: TODO
+    1. Subscriber: TODO
+    1. Layer: TODO
 
 
 # [OpenTelemetry](https://opentelemetry.io/docs/instrumentation/rust/) lib
@@ -37,24 +39,27 @@ tracing-subscriber = "..."
 
 ## Setup
 ```
-    // -- Build tracers (OpenTelemetry concept)
+    // -- Build Tracers (OpenTelemetry concept)
     let tracer0 = stdout::new_pipeline().install_simple();
     let tracer1 = opentelemetry_jaeger::new_agent_pipeline()
         .with_service_name("whatever")
         .install_simple() // use batch in prod
         .expect("failed to build jaeger tracer");
 
-    // -- Build OTel Layers
+    // -- Build OpenTelemetry Layers
     let layer0 = tracing_opentelemetry::layer().with_tracer(tracer0);
     let layer1 = tracing_opentelemetry::layer().with_tracer(tracer1);
 
-    // -- Add to Subscriber (tracing lib concept)
+    // -- Add Layers to Subscriber (tracing lib concepts)
     let subscriber = Registry::default()
         .with(layer0)
         .with(layer1);
 
     // -- Apply globally (tracing lib concept)
-    tracing::subscriber::set_global_default(subscriber); // only in main.rs, never for a library
+    // only in main.rs, never for a library
+    tracing::subscriber::set_global_default(subscriber);
+
+    ...
 ```
 
 
