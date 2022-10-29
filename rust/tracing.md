@@ -60,30 +60,49 @@ tracing-subscriber = "..."
 
 ## Span usage via tracing lib
 ```rust
-TODO
+    let span = span!(Level::INFO, "my_span"); // or info_span!("my_span");
+    let guard = span.enter();
+
+    span.record("foo", "bar");
+    info!("something happened"); // or warn!(...) or error!(...) or debug!(...)
+
+    span.record("error", anyhow!("something went wrong").into());
+
+    drop(guard); // or let it happen automatically
+```
+
+
+## Wrap a function in a Span via tracing lib
+```
+    #[tracing::instrument]
+    fn do_something(foo: &str) -> anyhow::Result<String> {
+        debug!("not that important");
+        info!("interesting");
+        warn!("hm...");
+        error!("ooh no!");
+
+        Ok("output".to_owned())
+    }
 ```
 
 
 ## Span usage via OpenTelemetry
 ```
-let mut span = tracer0
-    .span_builder("some operations")
-    .start(&tracer0);
+    let mut span = tracer0
+        .span_builder("some operations")
+        .start(&tracer0);
 
-// ...
+    // ...
 
-span.set_attribute(KeyValue::new("foo", "bar"));
-span.add_event("something happened", vec![]);
+    span.set_attribute(KeyValue::new("foo", "bar"));
+    span.add_event("something happened", vec![]);
 
-// ...
+    //TODO: show error example
+    //TODO: how to associate logs via log!
 
-span.end(); // or drop(span) or let it happen automatically
-```
+    // ...
 
-
-## Wrap a function in a Span
-```
-//TODO
+    span.end(); // or drop(span) or let it happen automatically
 ```
 
 
