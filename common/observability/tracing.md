@@ -75,6 +75,10 @@
 1. eg. [Jaeger Agent](https://www.jaegertracing.io/docs/1.38/deployment/#agent)
 
 
+## Pipeline
+1. TODO
+
+
 ## OTLP
 1. TODO
 

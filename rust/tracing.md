@@ -1,5 +1,5 @@
 # Overview
-1. Idioms for Tracing
+1. Idioms for [Tracing](https://opentelemetry.io/docs/concepts/signals/traces/)
 1. How to use [tracing](https://docs.rs/tracing/latest/tracing/) and [opentelemetry](https://opentelemetry.io/docs/instrumentation/rust/)
 
 
@@ -9,6 +9,32 @@
     1. [compatiblity lib](https://crates.io/crates/tracing-opentelemetry)
     1. Differences:
         1. OpenTelemetry spans lack level
+
+
+# Dependencies (Cargo.toml)
+```toml
+[dependencies]
+opentelemetry = "..."
+tracing = "..."
+tracing-opentelemetry = "..."
+tracing-subscriber = "..."
+```
+
+
+# [tracing](https://docs.rs/tracing/latest/tracing/) lib
+1. Concepts
+    1. Subscriber
+1. TODO
+
+
+# [opentelemetry](https://opentelemetry.io/docs/instrumentation/rust/) lib
+1. [Concepts](../common/observability/tracing.md)
+
+```
+let tracer = ....
+
+.with_tracer(tracer)
+```
 
 
 # Other resources
