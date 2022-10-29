@@ -110,7 +110,7 @@ tracing-subscriber = "..."
 
     span.record_error(&anyhow!("boom").into());
 
-    //TODO: how to associate logs via log!(...)
+    //TODO: how to associate logs via log!(...) macros
 
     // ...
 
