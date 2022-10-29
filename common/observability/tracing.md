@@ -57,8 +57,8 @@
 1. Input side is called [Receiver](https://opentelemetry.io/docs/collector/configuration/#receivers) (listen on ports for thrift, grpc, http, etc)
 1. Output side is called [Exporter](https://opentelemetry.io/docs/collector/configuration/#exporters) (write to local file, send to jaeger, kafka, Prometheus, etc)
 1. "Lives" with or in your process (the observed application)
-1. [Official docs](https://opentelemetry.io/docs/collector/)
 1. Writes to local storage (eg. [ES](https://www.elastic.co/), [Kafka](https://kafka.apache.org/), [Cassandra](https://cassandra.apache.org/_/index.html), [Badger](https://github.com/dgraph-io/badger) ...
+1. [Official docs](https://opentelemetry.io/docs/collector/)
 
 
 ## Exporter
