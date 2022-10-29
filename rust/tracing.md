@@ -69,6 +69,8 @@ tracing-subscriber = "..."
     let guard = span.enter();
 
     span.record("foo", "bar");
+
+    // auto associated with span
     info!("something happened"); // or warn!(...) or error!(...) or debug!(...)
 
     span.record("error", anyhow!("something went wrong").into());
@@ -81,12 +83,14 @@ tracing-subscriber = "..."
 ```rust
     #[tracing::instrument]
     fn do_something(foo: &str) -> anyhow::Result<String> {
+
+        // these are automatically associated with the span
         debug!(aa = 7, "not that important");
         info!("interesting");
         warn!("hm...");
         error!("ooh no!");
 
-        //GOTCHA: you cannot add span attributes/fields
+        //GOTCHA: you cannot add span attributes/fields (unless you make child span)
 
         Ok("output".to_owned())
     }
@@ -101,9 +105,11 @@ tracing-subscriber = "..."
     // ...
 
     span.set_attribute(KeyValue::new("foo", "bar"));
-    span.add_event("something happened", vec![]);
 
-    //TODO: show error example
+    span.add_event("something happened", vec![]); // log
+
+    span.record_error(&anyhow!("boom").into());
+
     //TODO: how to associate logs via log!(...)
 
     // ...
