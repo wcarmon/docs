@@ -8,6 +8,7 @@
 1. Use return [`anyhow::Result<T>`](https://docs.rs/anyhow/latest/anyhow/type.Result.html) for most `fn`
 1. Use [`anyhow`](https://docs.rs/anyhow/latest/anyhow/) ...
     1. [`anyhow::Result`](https://docs.rs/anyhow/latest/anyhow/type.Result.html) as return type on most `fn`
+    1. [`anyhow::ensure!`](https://docs.rs/anyhow/latest/anyhow/macro.ensure.html) to check [preconditions](https://github.com/google/guava/wiki/PreconditionsExplained)
 1. Use [`thiserror`](https://docs.rs/thiserror/latest/thiserror/) ...
     1. to build custom error type
     1. to generate a [`From`](https://doc.rust-lang.org/std/convert/trait.From.html) impl
