@@ -40,6 +40,7 @@
 1. [`#[error]`](https://docs.rs/thiserror/latest/thiserror/#details) attribute is for [`Display`](https://doc.rust-lang.org/std/fmt/trait.Display.html)
 1. [`#[from]`](https://docs.rs/thiserror/latest/thiserror/#details) attribute is for [`From`](https://doc.rust-lang.org/std/convert/trait.From.html)
 1. [`#[source]`](https://docs.rs/thiserror/latest/thiserror/#details) attribute is for root cause (see [Error chaining](https://docs.rs/anyhow/latest/anyhow/struct.Chain.html))
+1. Alternative: [snafu](https://docs.rs/snafu/latest/snafu/index.html)
 
 
 # Unorganized/TODO
