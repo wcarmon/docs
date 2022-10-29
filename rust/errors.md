@@ -35,7 +35,9 @@
 
 # [thiserror](https://docs.rs/thiserror/latest/thiserror/)
 1. Low-level error handling lib
-
+1. [`#[source]`](TODO) attribute is for root cause (see [Error chaining](https://docs.rs/anyhow/latest/anyhow/struct.Chain.html))
+1. [`#[from]`](TODO) attribute is for [`From`](https://doc.rust-lang.org/std/convert/trait.From.html)
+1. [`#[error]`](TODO) attribute is for [`Display`](https://doc.rust-lang.org/std/fmt/trait.Display.html)
 
 - TODO: RUST_BACKTRACE=1
 - TODO:
