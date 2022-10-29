@@ -35,9 +35,10 @@
 
 # [thiserror](https://docs.rs/thiserror/latest/thiserror/)
 1. Low-level error handling lib
-1. [`#[error]`](TODO) attribute is for [`Display`](https://doc.rust-lang.org/std/fmt/trait.Display.html)
-1. [`#[from]`](TODO) attribute is for [`From`](https://doc.rust-lang.org/std/convert/trait.From.html)
-1. [`#[source]`](TODO) attribute is for root cause (see [Error chaining](https://docs.rs/anyhow/latest/anyhow/struct.Chain.html))
+1. Add [`#[derive(Error, Debug)]`](https://docs.rs/thiserror/latest/thiserror/#example) to your crate level `Error` enum
+1. [`#[error]`](https://docs.rs/thiserror/latest/thiserror/#details) attribute is for [`Display`](https://doc.rust-lang.org/std/fmt/trait.Display.html)
+1. [`#[from]`](https://docs.rs/thiserror/latest/thiserror/#details) attribute is for [`From`](https://doc.rust-lang.org/std/convert/trait.From.html)
+1. [`#[source]`](https://docs.rs/thiserror/latest/thiserror/#details) attribute is for root cause (see [Error chaining](https://docs.rs/anyhow/latest/anyhow/struct.Chain.html))
 
 
 - TODO: RUST_BACKTRACE=1
