@@ -38,7 +38,7 @@ tracing-subscriber = "..."
 
 
 ## Setup
-```
+```rust
     // -- Build Tracers (OpenTelemetry concept)
     let tracer0 = stdout::new_pipeline().install_simple();
     let tracer1 = opentelemetry_jaeger::new_agent_pipeline()
@@ -78,7 +78,7 @@ tracing-subscriber = "..."
 
 
 ## Wrap a function in a Span via tracing lib
-```
+```rust
     #[tracing::instrument]
     fn do_something(foo: &str) -> anyhow::Result<String> {
         debug!(aa = 7, "not that important");
@@ -92,7 +92,7 @@ tracing-subscriber = "..."
 
 
 ## Span usage via OpenTelemetry
-```
+```rust
     let mut span = tracer0
         .span_builder("some operations")
         .start(&tracer0);
