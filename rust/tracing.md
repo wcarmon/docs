@@ -86,16 +86,17 @@ tracing-subscriber = "..."
         warn!("hm...");
         error!("ooh no!");
 
+        //GOTCHA: you cannot add span attributes/fields
+
         Ok("output".to_owned())
     }
 ```
 
 
-## Span usage via OpenTelemetry
+## Span usage (OpenTelemetry)
 ```rust
-    let mut span = tracer0
-        .span_builder("some operations")
-        .start(&tracer0);
+    let mut span = tracer.span_builder("some operations")
+        .start(&tracer);
 
     // ...
 
