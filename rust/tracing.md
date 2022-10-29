@@ -95,7 +95,7 @@ tracing-subscriber = "..."
 
 ## Span usage (OpenTelemetry)
 ```rust
-    let mut span = tracer.span_builder("some operations")
+    let mut span = tracer.span_builder("doSomeOperation")
         .start(&tracer);
 
     // ...
@@ -104,7 +104,7 @@ tracing-subscriber = "..."
     span.add_event("something happened", vec![]);
 
     //TODO: show error example
-    //TODO: how to associate logs via log!
+    //TODO: how to associate logs via log!(...)
 
     // ...
 
@@ -113,4 +113,12 @@ tracing-subscriber = "..."
 
 
 # Other resources
-1. TODO
+1. https://docs.rs/opentelemetry/latest/opentelemetry/
+1. https://docs.rs/tracing-opentelemetry/latest/tracing_opentelemetry/
+1. https://docs.rs/tracing/latest/tracing/
+1. https://opentelemetry.io/docs/instrumentation/go/getting-started/
+1. https://opentelemetry.io/docs/instrumentation/rust/
+1. https://docs.rs/log/latest/log/
+1. https://crates.io/crates/opentelemetry-jaeger
+
+
