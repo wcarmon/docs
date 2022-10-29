@@ -42,7 +42,7 @@ tracing-subscriber = "..."
     // -- Build Tracers (OpenTelemetry concept)
     let tracer0 = stdout::new_pipeline().install_simple();
     let tracer1 = opentelemetry_jaeger::new_agent_pipeline()
-        .with_service_name("whatever")
+        .with_service_name("whatever-this-service-does")
         .install_simple() // use batch in prod
         .expect("failed to build jaeger tracer");
 
@@ -63,7 +63,7 @@ tracing-subscriber = "..."
 ```
 
 
-## Span usage via tracing lib
+## Span usage (tracing lib)
 ```rust
     let span = span!(Level::INFO, "my_span"); // or info_span!("my_span");
     let guard = span.enter();
@@ -77,7 +77,7 @@ tracing-subscriber = "..."
 ```
 
 
-## Wrap a function in a Span via tracing lib
+## Wrap a function in a Span (tracing lib)
 ```rust
     #[tracing::instrument]
     fn do_something(foo: &str) -> anyhow::Result<String> {
