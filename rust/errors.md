@@ -21,6 +21,7 @@
         1. [`.with_context("...")?](https://docs.rs/anyhow/latest/anyhow/trait.Context.html#tymethod.with_context) is the lazy version
 1. Don't `panic!`
 1. No [`.unwrap()`](https://doc.rust-lang.org/std/result/enum.Result.html#method.unwrap) or [`.expect()`](https://doc.rust-lang.org/std/result/enum.Result.html#method.expect) in production code
+1. Add logs where you handle the error, not where you propagate (`?`)
 
 
 # [anyhow](https://docs.rs/anyhow/latest/anyhow/)
