@@ -32,6 +32,8 @@
 1. Use [`Err(anyhow!("foo {}", bar))`](https://docs.rs/anyhow/latest/anyhow/macro.anyhow.html) for one-off (adhoc) error message
     1. or [`bail!("foo {}", bar)`](https://docs.rs/anyhow/latest/anyhow/macro.bail.html) shorthand
 1. [`chain()`](https://docs.rs/anyhow/latest/anyhow/struct.Chain.html) lets you iterate Error causes
+1. Use [downcasting](https://docs.rs/anyhow/1.0.4/anyhow/struct.Error.html#example-1) to get the original error type
+    1. [`anyhow::Error::downcast_ref::<io::Error>()`](https://docs.rs/anyhow/latest/anyhow/struct.Error.html#method.downcast_ref)
 
 
 # [thiserror](https://docs.rs/thiserror/latest/thiserror/)
