@@ -59,7 +59,6 @@
 1. TODO
 
 
-#
 
 # Idioms
 1. `fn` args should accept [`&str`](https://doc.rust-lang.org/std/str/index.html) as fn arg, not [`String`](https://doc.rust-lang.org/std/string/struct.String.html)
@@ -70,6 +69,10 @@
 
 # Common operations
 - [See all](../common/strings.gen.md)
+
+
+# Conversion
+- [`&str.to_string()`](https://doc.rust-lang.org/std/string/trait.ToString.html#impl-ToString-for-str) calls [String::from](https://doc.rust-lang.org/stable/std/convert/trait.From.html#impl-From%3C%26str%3E-for-String) which calls [&str.to_owned()](https://doc.rust-lang.org/stable/std/borrow/trait.ToOwned.html#impl-ToOwned-for-str), which allocates a new String
 
 
 # Other resources
