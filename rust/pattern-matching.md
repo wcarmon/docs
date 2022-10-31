@@ -16,8 +16,8 @@
 
 
 # Other resources
+1. https://doc.rust-lang.org/book/ch18-00-patterns.html
 1. https://doc.rust-lang.org/book/ch18-03-pattern-syntax.html
 1. https://doc.rust-lang.org/reference/expressions/match-expr.html
 1. https://doc.rust-lang.org/rust-by-example/flow_control/match.html
-1. https://doc.rust-lang.org/book/ch18-00-patterns.html
-
+1. https://zerotomastery.io/cheatsheets/rust-cheat-sheet/#matching-on-structures
