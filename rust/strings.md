@@ -63,7 +63,7 @@
 # Idioms
 1. `fn` args should accept [`&str`](https://doc.rust-lang.org/std/str/index.html) as fn arg, not [`String`](https://doc.rust-lang.org/std/string/struct.String.html)
     1. accepting `&str` allows caller to pass either `String` or `&str`
-1. `fn` should return [`String`](TODO), not [`&str`](TODO)
+1. `fn` should return [`String`](https://doc.rust-lang.org/std/string/struct.String.html), not [`&str`](https://doc.rust-lang.org/std/primitive.str.html)
     1. give up ownership and let the caller decide on mutability
 
 
