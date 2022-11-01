@@ -15,7 +15,7 @@
 |[`Clone`](https://doc.rust-lang.org/std/clone/trait.Clone.html)|Explicit copy using [`.clone()`](https://doc.rust-lang.org/std/clone/trait.Clone.html#tymethod.clone), make `T` from `&T`|N/A|TODO|
 |[`Copy`](https://doc.rust-lang.org/std/marker/trait.Copy.html)||Use [copy semantics](https://dev.to/werner/move-semantics-vs-copy-semantics-pkb) for a type|TODO|
 |[`Debug`](https://doc.rust-lang.org/std/fmt/trait.Debug.html)|For Programmers, Enable formatting using `{:?}`|[`assert_eq!`](https://doc.rust-lang.org/std/macro.assert_eq.html)|TODO|
-|[`Default`](https://doc.rust-lang.org/std/default/trait.Default.html)||||
+|[`Default`](https://doc.rust-lang.org/std/default/trait.Default.html)|Create empty instance with reasonable default fields||TODO|
 |[`Eq`](https://doc.rust-lang.org/std/cmp/trait.Eq.html)|||[`PartialEq`](https://doc.rust-lang.org/std/cmp/trait.PartialEq.html)|
 |[`Error`](https://doc.rust-lang.org/std/error/index.html)|||TODO|
 |[`Hash`](https://doc.rust-lang.org/std/hash/trait.Hash.html)|||[`PartialEq`](https://doc.rust-lang.org/std/cmp/trait.PartialEq.html) and [`Eq`](https://doc.rust-lang.org/std/cmp/trait.Eq.html)|
@@ -24,7 +24,7 @@
 |[`PartialOrd`](https://doc.rust-lang.org/std/cmp/trait.PartialOrd.html)|comparisons|`<`, `<=`, `>`, `>=`|[`PartialEq`](https://doc.rust-lang.org/std/cmp/trait.PartialEq.html)|
 |[`Serialize`](https://serde.rs/derive.html)|convert struct or enum to string/bytes|N/A||
 |[`Deserialize`](https://serde.rs/derive.html)|convert bytes/string to struct or enum|N/A||
-|[``](TODO)||||
+
 
 # Notable exceptions
 1. [`Display`](https://doc.rust-lang.org/std/fmt/trait.Display.html)
