@@ -32,30 +32,37 @@
 - Python equivalent: [`String`](https://docs.python.org/3/library/stdtypes.html#textseq)
 
 
+# [PathBuf](https://doc.rust-lang.org/stable/std/path/struct.PathBuf.html)
+1. `Ownership`: [Owned](./ownership.md) version of [`&Path`](https://doc.rust-lang.org/stable/std/path/struct.Path.html)
+1. TODO
+
+
+# [&Path](https://doc.rust-lang.org/stable/std/path/struct.Path.html)
+1. `Ownership`: [Borrowed](./ownership.md) version of [`PathBuf`](https://doc.rust-lang.org/stable/std/path/struct.PathBuf.html)
+1. TODO
+
 
 # [OsString](https://doc.rust-lang.org/std/ffi/struct.OsString.html)
-1. Owned
+1. `Ownership`: [Owned](./ownership.md) version of [`&OsStr`](https://doc.rust-lang.org/std/ffi/struct.OsStr.html)
+1. `Mutability`: Mutable
 1. System specific (eg. Linux, Mac, Android, win, etc)
 1. UTF-8 on Linux, Mac, Android
 1. UTF-16 strings on Windows
 
 
-# [OsStr](https://doc.rust-lang.org/std/ffi/struct.OsStr.html)
-1. Borrowed version of `OsString`
+# [&OsStr](https://doc.rust-lang.org/std/ffi/struct.OsStr.html)
+1. `Ownership`: [Borrowed](./ownership.md) version of [`OsString`](https://doc.rust-lang.org/std/ffi/struct.OsString.html)
 
 
-# CString
+# [CString](https://doc.rust-lang.org/stable/std/ffi/struct.CString.html)
+1. `Ownership`: [Owned](./ownership.md)
 1. for interacting with C
 1. NUL-terminated
 
 
-# CStr
+# [&CStr](https://doc.rust-lang.org/stable/std/ffi/struct.CStr.html)
+1. `Ownership`: [Borrowed](./ownership.md)
 1. TODO
-
-
-# PathBuf
-1. TODO
-
 
 
 # Idioms
