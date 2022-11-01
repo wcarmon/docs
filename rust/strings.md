@@ -28,6 +28,8 @@
 ### Comparison
 - Golang equivalent: [`string`](https://pkg.go.dev/builtin#string), see also [strings doc](../golang/strings.md)
 - Java equivalent: [`String`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html)
+- JavaScript equivalent: [`String`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
+- Python equivalent: [`String`](https://docs.python.org/3/library/stdtypes.html#textseq)
 
 
 # String literals
