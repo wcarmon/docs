@@ -9,7 +9,7 @@
 1. `Mutability`: Growable, Mutable (eg. truncate, extend, etc)
 1. `Length`: dynamic
 1. `Allocated`: [Heap](./memory.md)
-1. Guaranteed always valid [UTF-8](https://en.wikipedia.org/wiki/UTF-8)
+1. `Guarantees`: always valid [UTF-8](https://en.wikipedia.org/wiki/UTF-8)
 1. **Not** null terminated (compare to c & c++), `\n` is treated as newline
 
 ### Comparison
@@ -19,11 +19,11 @@
 
 ## [&str](https://doc.rust-lang.org/std/str/index.html)
 1. `Ownership`: [Borrowed](./ownership.md)
-    1. `Mutability`: Immutable and read-only
+1. `Mutability`: Immutable and read-only
 1. `Length`: fixed
 1. `Allocated`: [Heap](./memory.md) or static (TODO: be clearer)
-1. Guaranteed always valid [UTF-8](https://en.wikipedia.org/wiki/UTF-8)
-1. aka ["slice"](https://doc.rust-lang.org/book/ch04-03-slices.html#string-slices)
+1. `Guarantees`: always valid [UTF-8](https://en.wikipedia.org/wiki/UTF-8)
+1. a.k.a. ["slice"](https://doc.rust-lang.org/book/ch04-03-slices.html#string-slices)
 
 ### Comparison
 - Golang equivalent: [`string`](https://pkg.go.dev/builtin#string), see also [strings doc](../golang/strings.md)
@@ -34,6 +34,7 @@
 
 # [PathBuf](https://doc.rust-lang.org/stable/std/path/struct.PathBuf.html)
 1. `Ownership`: [Owned](./ownership.md) version of [`&Path`](https://doc.rust-lang.org/stable/std/path/struct.Path.html)
+1. `Mutability`: Mutable
 1. TODO
 
 
@@ -92,7 +93,15 @@
 |Owned|Borrowed|
 |---|---|
 |`String`|`&String`, `&str`|
+|`PathBuf`|`&PathBuf`, `&path`|
 |TODO|TODO|
+
+
+# Mutability
+|Mutable|Immutable|
+|---|---|
+|`String`, `&mut String`|`&String`, `&str`|
+|`OsString`, `&mut OsString`|`&OsString`, `&OsStr`|
 
 
 # Other resources
