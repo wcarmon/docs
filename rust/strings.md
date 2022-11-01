@@ -7,7 +7,7 @@
 ||Immutable|Mutable|
 |---|---|---|
 |Owned|`String`|`String` (`mut` on variable/argument)|
-|Borrowed|`&String`, `&str`, ~~`&mut str`~~|`&mut String` (double pointer)|
+|Borrowed|`&str`, `&String` (double pointer), <br/>~~`&mut str`~~|`&mut String` (double pointer)|
 
 
 - TODO: &mut Path
