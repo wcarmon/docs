@@ -1,14 +1,14 @@
 # Overview
-1. Key points about strings
-1. How [rust strings differ from Java, Go, C, etc](https://dev.to/loige/comment/1maa0)
+1. Key points about [strings](https://doc.rust-lang.org/rust-by-example/std/str.html)
+1. How [Rust strings differ from Java, Go, C, etc](https://dev.to/loige/comment/1maa0)
 
 
 # Types
 ## String
-1. Ownership: Owned
-1. Mutability: Growable, Mutable (eg. truncate, extend, etc)
-1. Length: dynamic
-1. Allocated: Heap
+1. `Ownership`: Owned
+1. `Mutability`: Growable, Mutable (eg. truncate, extend, etc)
+1. `Length`: dynamic
+1. `Allocated`: Heap
 1. Guaranteed always valid [UTF-8](https://en.wikipedia.org/wiki/UTF-8)
 1. **Not** null terminated (compare to c & c++), `\n` is treated as newline
 
@@ -18,10 +18,10 @@
 
 
 ## [&str](https://doc.rust-lang.org/std/str/index.html)
-1. Ownership: Borrowed
-1. Mutability: Immutable & read-only
-1. Length: fixed
-1. Allocated: Heap or static (TODO: be clearer)
+1. `Ownership`: Borrowed
+1. `Mutability`: Immutable & read-only
+1. `Length`: fixed
+1. `Allocated`: Heap or static (TODO: be clearer)
 1. Guaranteed always valid [UTF-8](https://en.wikipedia.org/wiki/UTF-8)
 1. aka "slice"
 
@@ -82,5 +82,5 @@
 1. https://locka99.gitbooks.io/a-guide-to-porting-c-to-rust/content/features_of_rust/strings.html
 1. https://cheats.rs/#strings-chars
 1. https://cheats.rs/#owned-strings
+1. https://web.mit.edu/rust-lang_v1.25/arch/amd64_ubuntu1404/share/doc/rust/html/book/first-edition/strings.html
 
-- TODO: https://www.kuniga.me/docs/rust/#string
