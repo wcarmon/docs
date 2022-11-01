@@ -3,7 +3,8 @@
 
 
 # Key Concepts
-1. [`derive` macro](https://doc.rust-lang.org/reference/procedural-macros.html#derive-macros) auto implements traits on a [struct](https://doc.rust-lang.org/book/ch05-01-defining-structs.html) or [enum](https://doc.rust-lang.org/book/ch06-01-defining-an-enum.html)
+1. [`derive`](https://doc.rust-lang.org/reference/procedural-macros.html#derive-macros) attribute macro auto implements traits on a [struct](https://doc.rust-lang.org/book/ch05-01-defining-structs.html) or [enum](https://doc.rust-lang.org/book/ch06-01-defining-an-enum.html)
+1. [`derive`](https://doc.rust-lang.org/reference/procedural-macros.html#derive-macros) attribute macro generates code
 
 
 # Traits
