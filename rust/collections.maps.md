@@ -7,11 +7,7 @@
 
 
 # Create
-1. unlike [`vec!`](TODO), There is no built-in construction macro
-```rust
-TODO
-```
-
+1. unlike [`vec!`](https://doc.rust-lang.org/std/macro.vec.html), There is no built-in construction macro
 1. Via ctor
 ```rust
 // map owns keys
@@ -23,15 +19,15 @@ let mut m: HashMap<String, &str> = HashMap::with_capacity(64);
 
 # Size
 ```rust
-TODO
+m.len()
 ```
 
 
 # Insert/Update
 ```rust
-let m1: HashMap<String, &str> = ...
+let m: HashMap<String, &str> = ...
 ...
-m1.insert(String::from("k1"), "foo");
+m.insert(String::from("k1"), "foo");
 ```
 
 
@@ -44,9 +40,9 @@ m.remove()
 # Retrieve
 1. GOTCHA: valid lookups return `Some(&Value)`, not `Some(Value)`
 ```rust
-let m1: HashMap<String, &str> = ...
+let m: HashMap<String, &str> = ...
 ...
-match m1.get("k1") {
+match m.get("k1") {
     Some(&v) => println!("value: {}", v),
     None => println!("no value"),
 }
