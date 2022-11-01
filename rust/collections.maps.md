@@ -149,7 +149,7 @@ print!("{:?}", m);
 
 
 # Custom keys
-1. Add to key struct/enum: `#[derive(PartialEq, Eq, Hash)]`
+1. Add to key struct/enum: [`#[derive(PartialEq, Eq, Hash)]`](./traits.derive.md)
 
 
 # Idioms
