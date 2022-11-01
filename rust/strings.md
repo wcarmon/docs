@@ -4,8 +4,8 @@
 
 
 # Types
-## String
-1. `Ownership`: Owned
+## [String](https://doc.rust-lang.org/std/string/struct.String.html)
+1. `Ownership`: [Owned](./ownership.md)
 1. `Mutability`: Growable, Mutable (eg. truncate, extend, etc)
 1. `Length`: dynamic
 1. `Allocated`: Heap
@@ -18,7 +18,7 @@
 
 
 ## [&str](https://doc.rust-lang.org/std/str/index.html)
-1. `Ownership`: Borrowed
+1. `Ownership`: [Borrowed](./ownership.md)
 1. `Mutability`: Immutable & read-only
 1. `Length`: fixed
 1. `Allocated`: Heap or static (TODO: be clearer)
