@@ -29,14 +29,14 @@ theSize := len(theSet)
 ```
 
 
-# Insertion/Update
+# Insert/Update
 ```go
 visited := make(map[string]bool)
 
 visited["a"] = true
 ```
 
-# Removal
+# Remove
 ```go
 delete(theSet, "foo")
 ```
@@ -53,7 +53,7 @@ if visited["a"] {
 ```
 
 
-# Iteration
+# Iterate
 1. Iteration order is random
 ```go
 for value, found := range visited {
@@ -86,7 +86,7 @@ for value, contains := range srcSet {
 1. A "set" can only structs if **all** [its fields are comparable](https://xgo.dev/ref/spec#Comparison_operators)
 
 
-# Sorting
+# Sort
 - See [sorting](./sorting.md) doc
 
 

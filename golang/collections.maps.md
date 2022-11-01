@@ -16,7 +16,7 @@
 1. Like [`HashMap`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/HashMap.html) in java
 
 
-# Creation
+# Create
 1. Via literal
 ```go
 var m = map[string]int{
@@ -37,13 +37,13 @@ theSize := len(myMap)
 ```
 
 
-# Insertion/Update
+# Insert/Update
 ```go
 myMap["foo"] = 7
 ```
 
 
-# Removal
+# Remove
 ```go
 m := map[string]int{
   "a": 7,
@@ -57,7 +57,7 @@ fmt.Println(m) // map[a:1]
 ```
 
 
-# Retrieval
+# Retrieve
 1. when value missing, returns zero-value
 ```go
 m := map[string]int{
@@ -84,7 +84,7 @@ if value, found := m["a"]; found {
 ```
 
 
-# Iteration
+# Iterate
 1. iteration order is random
 ```go
 for key, value := range someMap {
@@ -133,11 +133,11 @@ if _, exists := m[key]; !exists {
 ```
 
 
-# Sorting
+# Sort
 - See [sorting](./sorting.md) doc
 
 
-# Printing
+# Print
 ```go
 m := make(...)
 fmt.Printf("Data: %#v\n", m)

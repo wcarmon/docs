@@ -13,7 +13,7 @@
 1. Like an [`ArrayList`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/ArrayList.html) in java
 
 
-# Creation
+# Create
 1. Via literal
 ```go
 s0 := []string{"a", "b", "c"}
@@ -62,7 +62,7 @@ fmt.Println(a) // [2 3 4 5 6]
 1. Other [useful slice tricks](https://ueokande.github.io/go-slice-tricks/)
 
 
-# Iteration
+# Iterate
 ```go
 for index, value := range mySlice {
     total += value
@@ -70,7 +70,7 @@ for index, value := range mySlice {
 ```
 
 
-# Slicing
+# Slice
 1. Retrieve sub-slice
 1. [Slicing is both common and efficient](https://go.dev/blog/slices-intro)
 1. Get first `n`
@@ -107,18 +107,18 @@ copy(dest, src)
 ```
 
 
-# Sorting
+# Sort
 - See [sorting](./sorting.md) doc
 
 
-# Printing
+# Print
 ```go
 colors := make([]string, 0)
 fmt.Printf("Colors: %#v\n", colors)
 ```
 
 
-# Casting
+# Cast
 ```go
 type z string
 before := []string{"a", "b", "c"}

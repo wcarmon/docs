@@ -13,6 +13,83 @@
 1. Main implementations: [`HashMap`](https://doc.rust-lang.org/std/collections/struct.HashMap.html) (unsorted, faster) and [`BTreeMap`](https://doc.rust-lang.org/std/collections/struct.BTreeMap.html) (sorted, slower)
 
 
+# Create
+1. Via literal
+```rust
+TODO
+```
+
+# Size
+```rust
+TODO
+```
+
+
+# Insert/Update
+```rust
+TODO
+```
+
+# Remove
+```rust
+TODO
+```
+
+# Retrieve
+```rust
+TODO
+```
+
+
+# Check for key
+```rust
+TODO
+```
+
+# Iterate
+```rust
+TODO
+
+// -- keys only
+TODO
+
+// -- values only
+TODO
+```
+
+# Get Keys
+```rust
+TODO
+```
+
+# Shallow copy
+```rust
+TODO
+```
+
+# Put-if-absent
+```rust
+TODO
+```
+
+
+# Sorting
+```rust
+TODO
+```
+
+
+# Printing
+```rust
+TODO
+```
+
+# Custom keys
+1. TODO: which traits
+
+# Idioms
+1. TODO
+
 # Gotcha
 - lookups return &Value, not Value
 
