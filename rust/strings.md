@@ -89,6 +89,12 @@
 - [`&str.to_owned()`](https://doc.rust-lang.org/stable/std/borrow/trait.ToOwned.html#impl-ToOwned-for-str), which allocates a new `String`
 
 
+||Immutable|Mutable|
+|---|---|---|
+|Owned|A|B|
+|Borrowed|C|`&mut String`|
+
+
 # Ownership
 |Owned|Borrowed|
 |---|---|
