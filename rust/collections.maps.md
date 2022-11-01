@@ -145,7 +145,7 @@ write!(&mut s, "m={:?}", m)?
 
 print!("{:?}", m);
 ```
-1. For writing to [file](https://doc.rust-lang.org/std/fs/struct.File.html), use `std::io::Write`
+1. For writing to [file](https://doc.rust-lang.org/std/fs/struct.File.html), use [`std::io::Write`](https://doc.rust-lang.org/std/io/trait.Write.html)
 
 
 # Custom keys
