@@ -10,7 +10,6 @@
 |Borrowed|`&str` <br/>`&Path` <br/>`&OsStr` <br/>`&[T]` <br/>~~`&mut str`~~ (behaves like `&str`) <br/>~~`&String`~~ (double pointer) <br/>~~`&PathBuf`~~ (double pointer) |`&mut String` (double pointer)|
 
 
-
 # Types
 ## [String](https://doc.rust-lang.org/std/string/struct.String.html)
 1. `Ownership`: [Owned](./ownership.md)
