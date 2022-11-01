@@ -79,11 +79,15 @@ for (key, value) in m {
 }
 
 
-// -- keys only
-TODO
+// -- keys only (less efficient than entry iter)
+for key in map.keys() {
+    ...
+}
 
-// -- values only
-TODO
+// -- values only (less efficient than entry iter)
+for val in map.values() {
+    ...
+}
 ```
 
 
