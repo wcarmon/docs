@@ -29,7 +29,9 @@ TODO
 
 # Insert/Update
 ```rust
-TODO
+let m1: HashMap<String, &str> = ...
+...
+m1.insert(String::from("k1"), "foo");
 ```
 
 
@@ -40,9 +42,10 @@ m.remove()
 
 
 # Retrieve
+1. GOTCHA: valid lookups return `Some(&Value)`, not `Some(Value)`
 ```rust
 let m1: HashMap<String, &str> = ...
-
+...
 match m1.get("k1") {
     Some(&v) => println!("value: {}", v),
     None => println!("no value"),
@@ -109,9 +112,6 @@ TODO
 # Idioms
 1. TODO
 
-
-# Gotcha
-- lookups return &Value, not Value
 
 
 - TODO: https://doc.rust-lang.org/book/ch08-03-hash-maps.html
