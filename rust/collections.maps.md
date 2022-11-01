@@ -1,5 +1,5 @@
 # Overview
-1. How to use [Maps]()
+1. How to use [Maps](https://doc.rust-lang.org/std/iter/struct.Map.html)
 
 
 - TODO: https://doc.rust-lang.org/book/ch08-03-hash-maps.html
@@ -8,6 +8,10 @@
 - TODO: https://phaiax.github.io/rust-cheatsheet/
 - TODO: https://cheats.rs/#data-structures
 - TODO: https://www.kuniga.me/docs/rust/#hashmap
+
+# Key Concepts
+1. Main implementations: [`HashMap`](https://doc.rust-lang.org/std/collections/struct.HashMap.html) (unsorted, faster) and [`BTreeMap`](https://doc.rust-lang.org/std/collections/struct.BTreeMap.html) (sorted, slower)
+
 
 # Gotcha
 - lookups return &Value, not Value
