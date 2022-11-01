@@ -32,11 +32,6 @@
 - Python equivalent: [`String`](https://docs.python.org/3/library/stdtypes.html#textseq)
 
 
-# String literals
-1. static lifetime (guaranteed valid for duration of entire program)
-1. We only every borrow them, never own them
-1. TODO: raw strings
-
 
 # [OsString](https://doc.rust-lang.org/std/ffi/struct.OsString.html)
 1. Owned
@@ -68,6 +63,12 @@
     1. accepting `&str` allows caller to pass either `String` or `&str`
 1. `fn` should return [`String`](https://doc.rust-lang.org/std/string/struct.String.html), not [`&str`](https://doc.rust-lang.org/std/primitive.str.html)
     1. give up ownership and let the caller decide on mutability
+
+
+# String literals
+1. static lifetime (guaranteed valid for duration of entire program)
+1. We only every borrow them, never own them
+1. TODO: raw strings
 
 
 # Common operations
