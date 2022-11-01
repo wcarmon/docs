@@ -1,15 +1,21 @@
 # Overview
-1. How to use [Maps](https://doc.rust-lang.org/std/iter/struct.Map.html)
+1. How to use [maps](https://doc.rust-lang.org/std/iter/struct.Map.html)
 
 
 # Key Concepts
-1. Main implementations: [`HashMap`](https://doc.rust-lang.org/std/collections/struct.HashMap.html) (unsorted, faster) and [`BTreeMap`](https://doc.rust-lang.org/std/collections/struct.BTreeMap.html) (sorted, slower)
+1. Core implementations: [`HashMap`](https://doc.rust-lang.org/std/collections/struct.HashMap.html) (unsorted, faster) and [`BTreeMap`](https://doc.rust-lang.org/std/collections/struct.BTreeMap.html) (sorted, slower)
 
 
 # Create
 1. Via literal
 ```rust
 TODO
+```
+
+1. Via ctor
+```rust
+let mut m: HashMap<String, String> = HashMap::with_capacity(64);
+...
 ```
 
 
@@ -27,7 +33,7 @@ TODO
 
 # Remove
 ```rust
-TODO
+m.remove()
 ```
 
 # Retrieve
@@ -39,6 +45,10 @@ TODO
 # Check for key
 ```rust
 TODO
+
+// can query by reference even when owned stored
+.contains_key()
+
 ```
 
 
@@ -85,7 +95,7 @@ TODO
 
 
 # Custom keys
-1. TODO: which traits
+1. Add to key struct/enum: `#[derive(PartialEq, Eq, Hash)]`
 
 
 # Idioms
