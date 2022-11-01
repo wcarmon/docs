@@ -3,6 +3,26 @@
 1. How [Rust strings differ from Java, Go, C, etc](https://dev.to/loige/comment/1maa0)
 
 
+# Summary
+||Immutable|Mutable|
+|---|---|---|
+|Owned|`String`|`String` (`mut` on variable/argument)|
+|Borrowed|`&String`, `&str`, ~~`&mut str`~~|`&mut String` (double pointer)|
+
+
+- TODO: &mut Path
+- TODO: &mut PathBuf
+- TODO: &Path
+- TODO: &PathBuf
+- TODO: PathBuf
+
+- TODO: &mut OsStr
+- TODO: &mut OsString
+- TODO: &OsStr
+- TODO: &OsString
+- TODO: OsString
+
+
 # Types
 ## [String](https://doc.rust-lang.org/std/string/struct.String.html)
 1. `Ownership`: [Owned](./ownership.md)
@@ -87,27 +107,6 @@
 - [`&str.to_string()`](https://doc.rust-lang.org/std/string/trait.ToString.html#impl-ToString-for-str) calls [`String::from`](https://doc.rust-lang.org/stable/std/convert/trait.From.html#impl-From%3C%26str%3E-for-String)
 - [`String::from`](https://doc.rust-lang.org/stable/std/convert/trait.From.html#impl-From%3C%26str%3E-for-String) calls [`&str.to_owned()`](https://doc.rust-lang.org/stable/std/borrow/trait.ToOwned.html#impl-ToOwned-for-str), which allocates a new String
 - [`&str.to_owned()`](https://doc.rust-lang.org/stable/std/borrow/trait.ToOwned.html#impl-ToOwned-for-str), which allocates a new `String`
-
-
-||Immutable|Mutable|
-|---|---|---|
-|Owned|A|B|
-|Borrowed|C|`&mut String`|
-
-
-# Ownership
-|Owned|Borrowed|
-|---|---|
-|`String`|`&str`, `&String`, ~~`&mut String`~~|
-|`PathBuf`|`&path`, `&PathBuf`, `&mut PathBuf`|
-|`OsString`|TODO|
-
-
-# Mutability
-|Mutable|Immutable|
-|---|---|
-|`String`, `&mut String`|`&String`, `&str`|
-|`OsString`, `&mut OsString`|`&OsString`, `&OsStr`|
 
 
 # Other resources
