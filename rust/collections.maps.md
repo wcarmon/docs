@@ -6,7 +6,7 @@
 1. Core implementations: [`HashMap`](https://doc.rust-lang.org/std/collections/struct.HashMap.html) (unsorted, faster) and [`BTreeMap`](https://doc.rust-lang.org/std/collections/struct.BTreeMap.html) (sorted, slower)
 
 
-# Create
+# [Create](https://doc.rust-lang.org/std/collections/struct.HashMap.html#examples)
 1. Unlike [`vec!`](https://doc.rust-lang.org/std/macro.vec.html), There is no built-in construction macro
 1. Via ctor
 ```rust
@@ -57,7 +57,7 @@ m.clear();
 
 
 # [Retrieve](https://doc.rust-lang.org/std/collections/struct.HashMap.html#method.get)
-1. GOTCHA: valid lookups return `Some(&Value)`, not `Some(Value)`
+1. GOTCHA: valid lookups return [`Some(&Value)`](https://doc.rust-lang.org/std/option/enum.Option.html#variant.Some), not [`Some(Value)`](https://doc.rust-lang.org/std/option/enum.Option.html#variant.Some)
 1. Avoid `m[key1]` because failed lookup [panics](https://www.lurklurk.org/effective-rust/panic.html)
 ```rust
 let m: HashMap<String, &str> = ...
