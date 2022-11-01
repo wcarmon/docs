@@ -92,9 +92,9 @@
 # Ownership
 |Owned|Borrowed|
 |---|---|
-|`String`|`&String`, `&str`|
-|`PathBuf`|`&PathBuf`, `&path`|
-|TODO|TODO|
+|`String`|`&str`, `&String`, `&mut String`|
+|`PathBuf`|`&path`, `&PathBuf`, `&mut PathBuf`|
+|`OsString`|TODO|
 
 
 # Mutability
