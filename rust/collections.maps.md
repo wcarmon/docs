@@ -1,4 +1,5 @@
 # Overview
+1. TODO
 
 - TODO: https://doc.rust-lang.org/book/ch08-03-hash-maps.html
 - TODO: https://doc.rust-lang.org/stable/std/collections/struct.HashMap.html
@@ -7,4 +8,9 @@
 - TODO: https://cheats.rs/#data-structures
 - TODO: https://www.kuniga.me/docs/rust/#hashmap
 
+# Gotcha
+- lookups return &Value, not Value
+
+
 # Other resources
+1. TODO
