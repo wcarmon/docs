@@ -111,13 +111,14 @@ m.keys()
 
 # Shallow copy
 ```rust
-TODO
+TODO: try m.extend(...)
+TODO: try m.clone()
 ```
 
 
-# Put-if-absent
+# [Put-if-absent](https://doc.rust-lang.org/stable/std/collections/hash_map/enum.Entry.html#method.or_insert)
 ```rust
-let oldValue = m.entry(key1).or_insert(...);
+let oldValue = m.entry(key1).or_insert(my_dflt_val);
 ```
 
 
@@ -129,7 +130,7 @@ m.retain(|k, v| k.len() > 3);
 
 # Sorting
 ```rust
-TODO
+let sorted = BTreeMap::from_iter(m);
 ```
 
 
