@@ -16,6 +16,13 @@ let mut m: HashMap<String, &str> = HashMap::with_capacity(64);
 ...
 ```
 
+1. Via entries
+```rust
+let m = HashMap::from([
+    ("a".to_owned(), "one"),
+    ("b".to_owned(), "two")]);
+```
+
 
 # Size
 ```rust
