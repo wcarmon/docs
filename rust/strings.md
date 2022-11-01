@@ -6,8 +6,8 @@
 # Summary
 ||Immutable|Mutable|
 |---|---|---|
-|Owned|`String` <br/>`PathBuf`|`String` (`mut` on variable/argument) <br/>`PathBuf` (`mut` on variable/argument)|
-|Borrowed|`&str` <br/>`&String` (double pointer) <br/>~~`&mut str`~~ <br/>`&Path`|`&mut String` (double pointer)|
+|Owned|`String` <br/>`PathBuf` <br/>`OsString`|`String` (`mut` on variable/argument) <br/>`PathBuf` (`mut` on variable/argument) <br/>`OsString` (`mut` on variable/argument)|
+|Borrowed|`&str` <br/>`&String` (double pointer) <br/>~~`&mut str`~~ <br/>`&Path` <br/>`&OsStr`|`&mut String` (double pointer)|
 
 
 - TODO: &mut Path
@@ -16,9 +16,8 @@
 
 - TODO: &mut OsStr
 - TODO: &mut OsString
-- TODO: &OsStr
 - TODO: &OsString
-- TODO: OsString
+
 
 
 # Types
