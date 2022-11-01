@@ -1,6 +1,6 @@
 # Overview
 1. [`derive`](https://doc.rust-lang.org/reference/procedural-macros.html#derive-macros) macro
-1. Popular traits used with `derive` macro
+1. Popular traits used with `derive` attribute
 
 
 # Key Concepts
@@ -12,7 +12,7 @@
 # Traits
 |Trait|Purpose|Compiler usage|Requirements|
 |---|---|---|---|
-|[`Clone`](https://doc.rust-lang.org/std/clone/trait.Clone.html)|Explicit copy using .clone(), make `T` from `&T`|N/A|TODO|
+|[`Clone`](https://doc.rust-lang.org/std/clone/trait.Clone.html)|Explicit copy using [`.clone()`](https://doc.rust-lang.org/std/clone/trait.Clone.html#tymethod.clone), make `T` from `&T`|N/A|TODO|
 |[`Copy`](https://doc.rust-lang.org/std/marker/trait.Copy.html)||Use [copy semantics](https://dev.to/werner/move-semantics-vs-copy-semantics-pkb) for the type|TODO|
 |[`Debug`](https://doc.rust-lang.org/std/fmt/trait.Debug.html)|Enable formatting using `{:?}`|[`assert_eq!`](https://doc.rust-lang.org/std/macro.assert_eq.html)|TODO|
 |[`Default`](https://doc.rust-lang.org/std/default/trait.Default.html)||||
