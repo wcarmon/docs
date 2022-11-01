@@ -24,7 +24,7 @@ let m = HashMap::from([
 ```
 
 
-# Size
+# [Size](https://doc.rust-lang.org/std/collections/struct.HashMap.html#method.len)
 ```rust
 m.len()
 m.is_empty()
@@ -84,7 +84,7 @@ m.contains_key(&key1)
 ```
 
 
-# Iterate
+# [Iterate](https://doc.rust-lang.org/std/collections/struct.HashMap.html#method.iter)
 ```rust
 for (key, value) in m {
     ...
