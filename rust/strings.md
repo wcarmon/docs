@@ -8,7 +8,7 @@
 1. `Ownership`: [Owned](./ownership.md)
 1. `Mutability`: Growable, Mutable (eg. truncate, extend, etc)
 1. `Length`: dynamic
-1. `Allocated`: Heap
+1. `Allocated`: [Heap](./memory.md)
 1. Guaranteed always valid [UTF-8](https://en.wikipedia.org/wiki/UTF-8)
 1. **Not** null terminated (compare to c & c++), `\n` is treated as newline
 
@@ -19,9 +19,9 @@
 
 ## [&str](https://doc.rust-lang.org/std/str/index.html)
 1. `Ownership`: [Borrowed](./ownership.md)
-1. `Mutability`: Immutable & read-only
+    1. `Mutability`: Immutable and read-only
 1. `Length`: fixed
-1. `Allocated`: Heap or static (TODO: be clearer)
+1. `Allocated`: [Heap](./memory.md) or static (TODO: be clearer)
 1. Guaranteed always valid [UTF-8](https://en.wikipedia.org/wiki/UTF-8)
 1. aka "slice"
 
