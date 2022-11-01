@@ -128,7 +128,7 @@ m.retain(|k, v| k.len() > 3);
 ```
 
 
-# Sorting
+# [Sorting](https://doc.rust-lang.org/std/collections/struct.BTreeMap.html#impl-FromIterator%3C(K%2C%20V)%3E-for-BTreeMap%3CK%2C%20V%2C%20Global%3E)
 ```rust
 let sorted = BTreeMap::from_iter(m);
 ```
@@ -136,7 +136,14 @@ let sorted = BTreeMap::from_iter(m);
 
 # Printing
 ```rust
-TODO
+use std::fmt::Write;
+...
+
+let mut s = String::new();
+
+write!(&mut s, "m={:?}", m)?
+
+print!("{:?}", m);
 ```
 
 
