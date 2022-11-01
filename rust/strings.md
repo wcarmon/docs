@@ -88,6 +88,13 @@
 - [&str.to_owned()](https://doc.rust-lang.org/stable/std/borrow/trait.ToOwned.html#impl-ToOwned-for-str), which allocates a new String
 
 
+# Ownership
+|Owned|Borrowed|
+|---|---|
+|`String`|`&String`, `&str`|
+|TODO|TODO|
+
+
 # Other resources
 1. https://blog.logrocket.com/understanding-rust-string-str/
 1. https://locka99.gitbooks.io/a-guide-to-porting-c-to-rust/content/features_of_rust/strings.html
