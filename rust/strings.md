@@ -26,7 +26,8 @@
 1. aka "slice"
 
 ### Comparison
-1. TODO
+- Golang equivalent: [`string`](https://pkg.go.dev/builtin#string), see also [strings doc](../golang/strings.md)
+- Java equivalent: [`String`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html)
 
 
 # String literals
