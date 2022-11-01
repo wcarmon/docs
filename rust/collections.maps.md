@@ -20,24 +20,27 @@ let mut m: HashMap<String, &str> = HashMap::with_capacity(64);
 # Size
 ```rust
 m.len()
+m.is_empty()
 ```
 
 
-# Insert/Update
+# [Insert/Update/Put/Upsert](https://doc.rust-lang.org/std/collections/struct.HashMap.html#method.insert)
 ```rust
 let m: HashMap<String, &str> = ...
 ...
-m.insert(String::from("k1"), "foo");
+m.insert(String::from("k1"), "foo"); // put or upsert
+
+let oldValue = m.insert(String::from("k2"), "bar");
 ```
 
 
-# Remove
+# [Remove](https://doc.rust-lang.org/std/collections/struct.HashMap.html#method.remove)
 ```rust
 m.remove()
 ```
 
 
-# Retrieve
+# [Retrieve](https://doc.rust-lang.org/std/collections/struct.HashMap.html#method.get)
 1. GOTCHA: valid lookups return `Some(&Value)`, not `Some(Value)`
 ```rust
 let m: HashMap<String, &str> = ...
@@ -49,19 +52,27 @@ match m.get("k1") {
 ```
 
 
+## [Get & mutate in-place](https://doc.rust-lang.org/std/collections/struct.HashMap.html#method.get_mut)
+```rust
+// mutate in place
+m.get_mut("k1")
+ .map(|v| *v = "bar");
+```
+
+
 # Check for key
 ```rust
-TODO
-
-// can query by reference even when owned stored
-.contains_key()
-
+// can query by reference or by owned key
+m.contains_key(&key1)
 ```
 
 
 # Iterate
 ```rust
-TODO
+for (key, value) in m {
+    ...
+}
+
 
 // -- keys only
 TODO
@@ -85,7 +96,7 @@ TODO
 
 # Put-if-absent
 ```rust
-TODO
+let oldValue = m.entry(key1).or_insert(...);
 ```
 
 
