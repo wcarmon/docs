@@ -6,7 +6,7 @@
 # Summary
 ||Immutable|Mutable|
 |---|---|---|
-|Owned|`String` <br/>`PathBuf` <br/>`OsString`|`String` (`mut` on variable/argument) <br/>`PathBuf` (`mut` on variable/argument) <br/>`OsString` (`mut` on variable/argument)|
+|Owned|`String` <br/>`PathBuf` <br/>`OsString` <br/>`Vec`|`String` (`mut` on variable/argument) <br/>`PathBuf` (`mut` on variable/argument) <br/>`OsString` (`mut` on variable/argument) <br/>`Vec` (`mut` on variable/argument)|
 |Borrowed|`&str` <br/>`&String` (double pointer) <br/>~~`&mut str`~~ <br/>`&Path` <br/>`&OsStr`|`&mut String` (double pointer)|
 
 
