@@ -44,11 +44,14 @@ m.extend(m2)
 let oldValue = m.remove(key1);
 
 let oldEntry = m.remove_entry(key1);
+
+m.clear();
 ```
 
 
 # [Retrieve](https://doc.rust-lang.org/std/collections/struct.HashMap.html#method.get)
 1. GOTCHA: valid lookups return `Some(&Value)`, not `Some(Value)`
+1. avoid `m[key1]` because failed lookup [panics](https://www.lurklurk.org/effective-rust/panic.html)
 ```rust
 let m: HashMap<String, &str> = ...
 ...
@@ -108,6 +111,12 @@ TODO
 # Put-if-absent
 ```rust
 let oldValue = m.entry(key1).or_insert(...);
+```
+
+
+# [Filter/Retain](https://doc.rust-lang.org/std/collections/struct.HashMap.html#method.retain)
+```rust
+m.retain(|k, v| k.len() > 3);
 ```
 
 
