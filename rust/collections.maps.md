@@ -7,7 +7,7 @@
 
 
 # Create
-1. unlike [`vec!`](https://doc.rust-lang.org/std/macro.vec.html), There is no built-in construction macro
+1. Unlike [`vec!`](https://doc.rust-lang.org/std/macro.vec.html), There is no built-in construction macro
 1. Via ctor
 ```rust
 // map owns keys
@@ -33,7 +33,7 @@ m.insert(String::from("k1"), "foo"); // put or upsert
 let oldValue = m.insert(String::from("k2"), "bar");
 ```
 
-# Put all
+# [Put all](https://doc.rust-lang.org/std/iter/trait.Extend.html#tymethod.extend)
 ```rust
 m.extend(m2)
 ```
@@ -41,7 +41,9 @@ m.extend(m2)
 
 # [Remove](https://doc.rust-lang.org/std/collections/struct.HashMap.html#method.remove)
 ```rust
-m.remove()
+let oldValue = m.remove(key1);
+
+let oldEntry = m.remove_entry(key1);
 ```
 
 
