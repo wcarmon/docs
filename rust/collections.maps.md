@@ -1,5 +1,6 @@
 # Overview
-1. TODO
+1. How to use [Maps]()
+
 
 - TODO: https://doc.rust-lang.org/book/ch08-03-hash-maps.html
 - TODO: https://doc.rust-lang.org/stable/std/collections/struct.HashMap.html
@@ -13,4 +14,6 @@
 
 
 # Other resources
-1. TODO
+1. https://doc.rust-lang.org/std/iter/struct.Map.html
+1. https://doc.rust-lang.org/rust-by-example/std/hash.html
+1. https://cheats.rs/#other-collections
