@@ -23,7 +23,7 @@
 1. `Length`: fixed
 1. `Allocated`: [Heap](./memory.md) or static (TODO: be clearer)
 1. Guaranteed always valid [UTF-8](https://en.wikipedia.org/wiki/UTF-8)
-1. aka "slice"
+1. aka ["slice"](https://doc.rust-lang.org/book/ch04-03-slices.html#string-slices)
 
 ### Comparison
 - Golang equivalent: [`string`](https://pkg.go.dev/builtin#string), see also [strings doc](../golang/strings.md)
