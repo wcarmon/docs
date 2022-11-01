@@ -33,6 +33,11 @@ m.insert(String::from("k1"), "foo"); // put or upsert
 let oldValue = m.insert(String::from("k2"), "bar");
 ```
 
+# Put all
+```rust
+m.extend(m2)
+```
+
 
 # [Remove](https://doc.rust-lang.org/std/collections/struct.HashMap.html#method.remove)
 ```rust
