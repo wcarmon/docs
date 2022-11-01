@@ -1,9 +1,9 @@
 # Overview
-1. [derive](TODO) macro
+1. [derive](https://doc.rust-lang.org/reference/procedural-macros.html#derive-macros) macro
 
 
 # Key Concepts
-1. derive macro auto implements traits on a struct or macro
+1. [`derive` macro](https://doc.rust-lang.org/reference/procedural-macros.html#derive-macros) auto implements traits on a [struct](https://doc.rust-lang.org/book/ch05-01-defining-structs.html) or [enum](https://doc.rust-lang.org/book/ch06-01-defining-an-enum.html)
 
 
 # Traits
@@ -27,3 +27,4 @@
 
 # Other resources
 1. https://doc.rust-lang.org/rust-by-example/trait/derive.html
+1. https://www.lurklurk.org/effective-rust/std-traits.html
