@@ -6,15 +6,13 @@
 # Summary
 ||Immutable|Mutable|
 |---|---|---|
-|Owned|`String`|`String` (`mut` on variable/argument)|
-|Borrowed|`&str` <br/>`&String` (double pointer) <br/>~~`&mut str`~~|`&mut String` (double pointer)|
+|Owned|`String` <br/>`PathBuf`|`String` (`mut` on variable/argument) <br/>`PathBuf` (`mut` on variable/argument)|
+|Borrowed|`&str` <br/>`&String` (double pointer) <br/>~~`&mut str`~~ <br/>`&Path`|`&mut String` (double pointer)|
 
 
 - TODO: &mut Path
 - TODO: &mut PathBuf
-- TODO: &Path
 - TODO: &PathBuf
-- TODO: PathBuf
 
 - TODO: &mut OsStr
 - TODO: &mut OsString
