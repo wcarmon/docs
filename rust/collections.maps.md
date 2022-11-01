@@ -7,14 +7,16 @@
 
 
 # Create
-1. Via literal
+1. unlike [`vec!`](TODO), There is no built-in construction macro
 ```rust
 TODO
 ```
 
 1. Via ctor
 ```rust
-let mut m: HashMap<String, String> = HashMap::with_capacity(64);
+// map owns keys
+// map borrows values
+let mut m: HashMap<String, &str> = HashMap::with_capacity(64);
 ...
 ```
 
@@ -36,9 +38,15 @@ TODO
 m.remove()
 ```
 
+
 # Retrieve
 ```rust
-TODO
+let m1: HashMap<String, &str> = ...
+
+match m1.get("k1") {
+    Some(&v) => println!("value: {}", v),
+    None => println!("no value"),
+}
 ```
 
 
