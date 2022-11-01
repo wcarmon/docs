@@ -13,13 +13,13 @@
 |Trait|Purpose|Compiler usage|Requirements|
 |---|---|---|---|
 |[`Clone`](https://doc.rust-lang.org/std/clone/trait.Clone.html)|Explicit copy using [`.clone()`](https://doc.rust-lang.org/std/clone/trait.Clone.html#tymethod.clone), make `T` from `&T`|N/A|TODO|
-|[`Copy`](https://doc.rust-lang.org/std/marker/trait.Copy.html)||Use [copy semantics](https://dev.to/werner/move-semantics-vs-copy-semantics-pkb) for the type|TODO|
-|[`Debug`](https://doc.rust-lang.org/std/fmt/trait.Debug.html)|Enable formatting using `{:?}`|[`assert_eq!`](https://doc.rust-lang.org/std/macro.assert_eq.html)|TODO|
+|[`Copy`](https://doc.rust-lang.org/std/marker/trait.Copy.html)||Use [copy semantics](https://dev.to/werner/move-semantics-vs-copy-semantics-pkb) for a type|TODO|
+|[`Debug`](https://doc.rust-lang.org/std/fmt/trait.Debug.html)|For Programmers, Enable formatting using `{:?}`|[`assert_eq!`](https://doc.rust-lang.org/std/macro.assert_eq.html)|TODO|
 |[`Default`](https://doc.rust-lang.org/std/default/trait.Default.html)||||
 |[`Eq`](https://doc.rust-lang.org/std/cmp/trait.Eq.html)|||[`PartialEq`](https://doc.rust-lang.org/std/cmp/trait.PartialEq.html)|
 |[`Error`](https://doc.rust-lang.org/std/error/index.html)|||TODO|
 |[`Hash`](https://doc.rust-lang.org/std/hash/trait.Hash.html)|||[`PartialEq`](https://doc.rust-lang.org/std/cmp/trait.PartialEq.html) and [`Eq`](https://doc.rust-lang.org/std/cmp/trait.Eq.html)|
-|[`Ord`](https://doc.rust-lang.org/std/cmp/trait.Ord.html)|||[`Eq`](https://doc.rust-lang.org/std/cmp/trait.Eq.html)|
+|[`Ord`](https://doc.rust-lang.org/std/cmp/trait.Ord.html)|Can compare and order **All** items of the type||[`Eq`](https://doc.rust-lang.org/std/cmp/trait.Eq.html)|
 |[`PartialEq`](https://doc.rust-lang.org/std/cmp/trait.PartialEq.html)|compare any `x` and `y`, but [`x != x`](https://en.wikipedia.org/wiki/Partial_equivalence_relation) for some values, like `f64` |`==`||
 |[`PartialOrd`](https://doc.rust-lang.org/std/cmp/trait.PartialOrd.html)|comparisons|`<`, `<=`, `>`, `>=`|[`PartialEq`](https://doc.rust-lang.org/std/cmp/trait.PartialEq.html)|
 |[`Serialize`](https://serde.rs/derive.html)|convert struct or enum to string/bytes|N/A||
