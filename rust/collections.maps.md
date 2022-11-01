@@ -128,13 +128,13 @@ m.retain(|k, v| k.len() > 3);
 ```
 
 
-# [Sorting](https://doc.rust-lang.org/std/collections/struct.BTreeMap.html#impl-FromIterator%3C(K%2C%20V)%3E-for-BTreeMap%3CK%2C%20V%2C%20Global%3E)
+# [Sort](https://doc.rust-lang.org/std/collections/struct.BTreeMap.html#impl-FromIterator%3C(K%2C%20V)%3E-for-BTreeMap%3CK%2C%20V%2C%20Global%3E)
 ```rust
 let sorted = BTreeMap::from_iter(m);
 ```
 
 
-# Printing
+# [Print](https://doc.rust-lang.org/std/collections/struct.HashMap.html#method.fmt)
 ```rust
 use std::fmt::Write;
 ...
