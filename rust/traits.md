@@ -6,6 +6,7 @@
 
 # Definitions
 1. A trait is a collection of **methods** defined for an **unknown type**, called `Self`
+1. Marker trait: agreement between user and implementer for something the compiler cannot represent
 
 
 # Comparison

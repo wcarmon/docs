@@ -13,7 +13,7 @@
 |Trait|Purpose|Compiler usage|Requirements|
 |---|---|---|---|
 |[`Clone`](https://doc.rust-lang.org/std/clone/trait.Clone.html)|Explicit copy using [`.clone()`](https://doc.rust-lang.org/std/clone/trait.Clone.html#tymethod.clone), make `T` from `&T`|N/A|TODO|
-|[`Copy`](https://doc.rust-lang.org/std/marker/trait.Copy.html)||Use [copy semantics](https://dev.to/werner/move-semantics-vs-copy-semantics-pkb) for a type|TODO|
+|[`Copy`](https://doc.rust-lang.org/std/marker/trait.Copy.html)|Rarely useful|Use [copy semantics](https://dev.to/werner/move-semantics-vs-copy-semantics-pkb) for a type|TODO|
 |[`Debug`](https://doc.rust-lang.org/std/fmt/trait.Debug.html)|For Programmers, Enable formatting using `{:?}`|[`assert_eq!`](https://doc.rust-lang.org/std/macro.assert_eq.html)|TODO|
 |[`Default`](https://doc.rust-lang.org/std/default/trait.Default.html)|Create empty instance with reasonable default fields||TODO|
 |[`Eq`](https://doc.rust-lang.org/std/cmp/trait.Eq.html)|||[`PartialEq`](https://doc.rust-lang.org/std/cmp/trait.PartialEq.html)|
