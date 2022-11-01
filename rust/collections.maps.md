@@ -60,7 +60,7 @@ m.get_mut("k1")
 ```
 
 
-# Check for key
+# [Check for key](https://doc.rust-lang.org/std/collections/struct.HashMap.html#method.contains_key)
 ```rust
 // can query by reference or by owned key
 m.contains_key(&key1)
