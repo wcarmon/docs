@@ -51,7 +51,7 @@ m.clear();
 
 # [Retrieve](https://doc.rust-lang.org/std/collections/struct.HashMap.html#method.get)
 1. GOTCHA: valid lookups return `Some(&Value)`, not `Some(Value)`
-1. avoid `m[key1]` because failed lookup [panics](https://www.lurklurk.org/effective-rust/panic.html)
+1. Avoid `m[key1]` because failed lookup [panics](https://www.lurklurk.org/effective-rust/panic.html)
 ```rust
 let m: HashMap<String, &str> = ...
 ...
@@ -85,20 +85,20 @@ for (key, value) in m {
 
 
 // -- keys only (less efficient than entry iter)
-for key in map.keys() {
+for key in m.keys() {
     ...
 }
 
 // -- values only (less efficient than entry iter)
-for val in map.values() {
+for val in m.values() {
     ...
 }
 ```
 
 
-# Get Keys
+# [Get Keys](https://doc.rust-lang.org/std/collections/struct.HashMap.html#method.keys)
 ```rust
-TODO
+m.keys()
 ```
 
 
