@@ -164,14 +164,17 @@ TODO
 
 
 # Interop
-## [From Unix Seconds]()
+## [From Unix Seconds](https://docs.rs/chrono/latest/chrono/naive/struct.NaiveDateTime.html#method.from_timestamp)
 ```rust
-TODO
+let ndt = NaiveDateTime::from_timestamp(ux_sec, 0);
+let ts = DateTime::<Utc>::from_utc(ndt, Utc);
 ```
 
 ## [From Unix Millis]()
 ```rust
-TODO
+let nanos = ((ux_millis % 1000) * 1_000_000) as u32;
+let ndt = NaiveDateTime::from_timestamp(ux_millis / 1000, nanos);
+let ts = DateTime::<Utc>::from_utc(ndt, Utc);
 ```
 
 ## [To Unix Seconds](https://docs.rs/chrono/latest/chrono/struct.DateTime.html#method.timestamp)
@@ -179,9 +182,9 @@ TODO
 let ux_sec = ts.timestamp()
 ```
 
-## [To Unix Millis]()
+## [To Unix Millis](https://docs.rs/chrono/latest/chrono/struct.DateTime.html#method.timestamp_millis)
 ```rust
-TODO
+let ux_millis = ts.timestamp_millis()
 ```
 
 
