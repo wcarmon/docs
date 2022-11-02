@@ -39,7 +39,7 @@ if err != nil {
 
 
 # Current Time
-1. Better to inject a clock (`func ()`)
+1. Better to inject a clock (`func () time`)
 ```go
 type Clock func() time.Time
 ...
@@ -49,36 +49,52 @@ c := func() time.Time {
 ```
 
 
+## Inject a clock
+```go
+func DoSomething(clock func() time) {
+
+    ...
+    now := clock()
+    ...
+}
+```
+
+
 # Equality & Comparison
 1. Use [t0.Equal(t1)](https://pkg.go.dev/time#Time.Equal) because it compares the instant
     1. (normalizes to same timezone before comparing)
 1. Don't use `==` because it compares location
 ```go
+TODO
 ```
 
 
-# Parts of year
-TODO
-
-
-# Parts of day
-TODO
-
-
 # Before & After
+```go
 TODO
+```
 
 
 # Add/Subtract Durations/Periods
 - See [duration](./duration.md) doc
 
 
-# Java/JVM interop
+# Parts of year
+```go
 TODO
+```
+
+
+# Parts of day
+```go
+TODO
+```
 
 
 # Timezones
+```go
 TODO
+```
 
 
 # Months
@@ -103,6 +119,15 @@ TODO
 ```
 
 
+# Interop
+## Java/JVM
+TODO
+
+
+## Rust
+TODO
+
+
 # Idioms
 1. Avoid `time.Since` because it hard codes `time.Now()` (better to inject a time provider)
 1. Avoid `time.Until` because it hard codes `time.Now()` (better to inject a time provider)
@@ -115,7 +140,6 @@ TODO
 - TODO: t.In
 - TODO: t.UTC
 - TODO: time.After (chan)
-
 
 
 # Other resources
