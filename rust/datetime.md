@@ -146,8 +146,11 @@ TODO
 ```
 
 
-# Months
-1. January == TODO
+# [Months](https://docs.rs/chrono/latest/chrono/trait.Datelike.html#tymethod.month)
+```rust
+ts.month() // Jan=1, Feb=2, ... Dec=12
+ts.month0() // Jan=0, Feb=1, ... Dec=11
+```
 
 
 # Timing operations
