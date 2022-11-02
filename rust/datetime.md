@@ -14,7 +14,7 @@
 1. [`std::time::Duration`](https://doc.rust-lang.org/std/time/struct.Duration.html): seconds + nanoseconds
     1. Golang equivalent is [`time.Duration`](https://pkg.go.dev/time#Duration)
     1. Java equivalent is [`Duration`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Duration.html)
-1. ~~[`std::time::Instant`]~~(https://doc.rust-lang.org/std/time/struct.Instant.html): useful only for calculating durations
+1. ~~[`std::time::Instant`]~~(https://doc.rust-lang.org/std/time/struct.Instant.html): useful only for calculating [Durations](https://doc.rust-lang.org/std/time/struct.Duration.html)
 
 ## No timezone
 1. [`chrono::NaiveDate`](https://docs.rs/chrono/0.4.22/chrono/naive/struct.NaiveDate.html): date (no timezone)
