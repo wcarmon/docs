@@ -80,9 +80,10 @@ t0.Equal(t1)
 ```
 
 
-# Before & After
+# [Before](https://pkg.go.dev/time#Time.Before) & [After](https://pkg.go.dev/time#Time.After)
 ```go
-TODO
+t0.After(t1)
+t1.Before(t0)
 ```
 
 
