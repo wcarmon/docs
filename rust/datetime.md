@@ -73,21 +73,21 @@ let ts = Utc::now();
 let s = format!("{}", ts.format("%d/%m/%Y %H:%M"));
 print!("{}", s);
 ```
-1. [Official doc](https://docs.rs/chrono/0.4.22/chrono/struct.DateTime.html#method.format)
 
 
-# Parse (from string)
+# [Parse](https://docs.rs/chrono/0.4.22/chrono/struct.DateTime.html#impl-FromStr-for-DateTime%3CFixedOffset%3E) (from string)
 1. From standard [rfc3339](https://datatracker.ietf.org/doc/html/rfc3339)
 ```rust
-
 let ts0 = "2022-09-27T13:41:59Z"
         .parse::<DateTime<Utc>>()
         .map_err(anyhow::Error::msg)
 
 let ts1 =
 ```
-1. [Official doc](TODO)
-
+1. From [other formats](https://docs.rs/chrono/latest/chrono/format/strftime/index.html#specifiers)
+```rust
+TODO
+```
 
 
 # Inject a clock
