@@ -34,7 +34,7 @@
 1. [`chrono_tz`](https://github.com/chronotope/chrono-tz/) helps with more advanced timezone cases
 
 
-## No timezone
+## No Timezone
 1. [`chrono::NaiveDate`](https://docs.rs/chrono/0.4.22/chrono/naive/struct.NaiveDate.html): date (no timezone)
     1. Java equivalent is [`LocalDate`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/LocalDate.html)
 1. [`chrono::NaiveDateTime`](https://docs.rs/chrono/0.4.22/chrono/naive/struct.NaiveDateTime.html): Date and time (no timezone)
@@ -62,17 +62,16 @@ let monotonic0 = Instant::now(); // std
 
 # [Format](https://docs.rs/chrono/0.4.22/chrono/struct.DateTime.html#method.format) (to string)
 1. To standard [rfc3339](https://datatracker.ietf.org/doc/html/rfc3339)
-1. [syntax](https://docs.rs/chrono/latest/chrono/format/strftime/index.html#specifiers)
 ```rust
 let ts = Utc::now();
 let s = format!("{}", ts.format("%+")); // rfc3339
 print!("{}", s);
 ```
-1. To other formats
+1. To [other formats](https://docs.rs/chrono/latest/chrono/format/strftime/index.html#specifiers)
 ```rust
-    let ts = Utc::now();
-    let s = format!("{}", ts.format("%d/%m/%Y %H:%M"));
-    print!("{}", s);
+let ts = Utc::now();
+let s = format!("{}", ts.format("%d/%m/%Y %H:%M"));
+print!("{}", s);
 ```
 1. [Official doc](https://docs.rs/chrono/0.4.22/chrono/struct.DateTime.html#method.format)
 
