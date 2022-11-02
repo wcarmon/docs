@@ -109,7 +109,7 @@ ts0 == ts1
 ```
 
 
-# Before & After
+# [Before & After](https://docs.rs/chrono/latest/chrono/struct.DateTime.html#impl-PartialOrd%3CDateTime%3CTz2%3E%3E-for-DateTime%3CTz%3E)
 ```rust
 ts0 < ts1
 ts0 >= ts1
@@ -128,9 +128,11 @@ match ts0.cmp(&ts1){
 - See [duration](./duration.md) doc
 
 
-# Parts of day
+# Parts of day ([Hour](https://docs.rs/chrono/latest/chrono/struct.DateTime.html#method.hour), [Minute](https://docs.rs/chrono/latest/chrono/struct.DateTime.html#method.minute), [Second](https://docs.rs/chrono/latest/chrono/struct.DateTime.html#method.second))
 ```rust
-TODO
+ts.hour()   // 0-23
+ts.minute() // 0-59
+ts.second() // 0-59
 ```
 
 
