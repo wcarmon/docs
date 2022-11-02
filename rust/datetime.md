@@ -53,8 +53,10 @@ let dt = Utc.ymd(2014, 7, 8).and_hms(9, 10, 11); // `2014-07-08T09:10:11Z`
 
 # [Current Time](https://doc.rust-lang.org/std/time/struct.Instant.html#method.now)
 ```rust
-let now0 = Utc::now();      // chrono
-let now1 = SystemTime::now();  // std
+let wall0 = Utc::now();      // chrono
+let wall1 = SystemTime::now();  // std
+
+let monotonic0 = Instant::now(); // std
 ```
 
 
