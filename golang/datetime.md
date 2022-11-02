@@ -91,9 +91,14 @@ t1.Before(t0)
 - See [duration](./duration.md) doc
 
 
-# Parts of day
+# [Parts of day](https://pkg.go.dev/time#Time.Clock)
 ```go
-TODO
+h, m, s := t.Clock()
+
+// or
+t.Hour()    // 0-23
+t.Minute()  // 0-59
+t.Second()  // 0-59
 ```
 
 
