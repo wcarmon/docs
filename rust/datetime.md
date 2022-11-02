@@ -103,7 +103,7 @@ fn do_something(clock: fn() -> DateTime<Utc>) {
 ```
 
 
-# Equality
+# [Equality](https://docs.rs/chrono/latest/chrono/struct.DateTime.html#method.eq)
 ```rust
 ts0 == ts1
 ```
@@ -135,7 +135,7 @@ TODO
 
 
 # Parts of day
-```go
+```rust
 TODO
 ```
 
