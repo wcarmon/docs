@@ -134,6 +134,12 @@ TODO
 ```
 
 
+# Parts of day
+```go
+TODO
+```
+
+
 # Timezones
 ```rust
 TODO
@@ -141,7 +147,7 @@ TODO
 
 
 # Months
-TODO
+1. January == TODO
 
 
 # Timing operations
@@ -159,16 +165,16 @@ TODO
 
 
 # Interop
-## Java/JVM
+## Java/JVM interop
 TODO
 
 
-## Golang
+## Golang interop
 TODO
 
 
 # Idioms
-1. avoid [~~`elapsed`~~](https://doc.rust-lang.org/std/time/struct.Instant.html#method.elapsed) since it hard codes [`Instant::now()`](https://doc.rust-lang.org/std/time/struct.Instant.html#method.now)
+1. Avoid [~~`elapsed`~~](https://doc.rust-lang.org/std/time/struct.Instant.html#method.elapsed) since it hard codes [`Instant::now()`](https://doc.rust-lang.org/std/time/struct.Instant.html#method.now)
 
 
 # TODO/Unorganized
@@ -177,4 +183,8 @@ TODO
 
 
 # Other resources
-1. TODO
+1. https://doc.rust-lang.org/std/time/index.html
+1. https://docs.rs/chrono/latest/chrono/
+1. https://docs.rs/chrono/latest/chrono/struct.DateTime.html
+1. https://doc.rust-lang.org/std/time/struct.Instant.html
+1. https://doc.rust-lang.org/std/time/struct.SystemTime.html

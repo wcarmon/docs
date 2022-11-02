@@ -4,6 +4,10 @@
 - [JVM equivalent](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Instant.html)
 
 
+# Key Concepts
+1. TODO: more here
+
+
 # Representation
 1. Zero value is TODO
 TODO
@@ -15,7 +19,7 @@ TODO
 ```
 
 
-# Current Time
+# [Current Time](TODO)
 1. Better to inject a clock (`func () time`)
 ```go
 type Clock func() time.Time
@@ -26,7 +30,7 @@ c := func() time.Time {
 ```
 
 
-# Format (to string)
+# [Format](TODO) (to string)
 1. To standard [rfc3339](https://datatracker.ietf.org/doc/html/rfc3339)
 ```go
 t.Format(time.RFC3339)
@@ -41,7 +45,7 @@ t.Format("Mon Jan _2 15:04:05 MST 2006")
 1. https://www.practical-go-lessons.com/chap-28-dates-and-time#format-the-time
 
 
-# Parse (from string)
+# [Parse](TODO) (from string)
 1. From standard [rfc3339](https://datatracker.ietf.org/doc/html/rfc3339)
 ```go
 s := "2022-11-45T22:36:19+00:00"
@@ -67,10 +71,10 @@ func DoSomething(clock func() time) {
 ```
 
 
-# Equality & Comparison
-1. Use [t0.Equal(t1)](https://pkg.go.dev/time#Time.Equal) because it compares the instant
+# Equality
+1. Use [`t0.Equal(t1)`](https://pkg.go.dev/time#Time.Equal) because it compares the instant
     1. (normalizes to same timezone before comparing)
-1. Don't use `==` because it compares location
+1. **GOTCHA**: Don't use `==` because it compares location
 ```go
 TODO
 ```
@@ -127,17 +131,17 @@ TODO
 
 
 # Interop
-## Java/JVM
+## Java/JVM interop
 TODO
 
 
-## Rust
+## Rust interop
 TODO
 
 
 # Idioms
-1. Avoid `time.Since` because it hard codes `time.Now()` (better to inject a time provider)
-1. Avoid `time.Until` because it hard codes `time.Now()` (better to inject a time provider)
+1. Avoid [`time.Since`](TODO) because it hard codes `time.Now()` (better to inject a time provider)
+1. Avoid [`time.Until`](TODO) because it hard codes `time.Now()` (better to inject a time provider)
 
 
 - TODO: t.Before & t.After
