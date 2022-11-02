@@ -83,12 +83,14 @@ print!("{}", s);
 let ts0 = "2022-09-27T13:41:59Z"
         .parse::<DateTime<Utc>>()
         .map_err(anyhow::Error::msg)
-
-let ts1 = ...
 ```
-1. From [other formats](https://docs.rs/chrono/latest/chrono/format/strftime/index.html#specifiers)
+1. From [other formats](https://docs.rs/chrono/latest/chrono/format/strftime/index.html#specifiers) using [`parse_from_str`](https://docs.rs/chrono/latest/chrono/struct.DateTime.html#method.parse_from_str)
 ```rust
-TODO
+let ts1 = DateTime::parse_from_str(
+        "2023 Sep 21 12:39:14.294 +0000",
+        "%Y %b %d %H:%M:%S%.3f %z")
+    .map(|ts| ts.with_timezone(&Utc))
+    .map_err(anyhow::Error::msg)
 ```
 
 
