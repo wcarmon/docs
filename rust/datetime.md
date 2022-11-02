@@ -1,9 +1,24 @@
 # Overview
-- Using dates, times, zones
-- See [durations & periods](./duration.md) doc
+1. Using dates, times, zones
+1. See [durations & periods](./duration.md) doc
+1. Using [chrono](https://docs.rs/chrono/latest/chrono/) lib
 
-# Formatting (to string)
+
+# Construct
+```rust
+TODO
+```
+
+
+# [Current Time](https://doc.rust-lang.org/std/time/struct.Instant.html#method.now)
+```rust
+let now = Instant::now();
+```
+
+
+# Format (to string)
 1. To standard [rfc3339](https://datatracker.ietf.org/doc/html/rfc3339)
+1. [syntax](https://docs.rs/chrono/latest/chrono/format/strftime/index.html#specifiers)
 ```rust
 TODO
 ```
@@ -14,7 +29,7 @@ TODO
 1. [Official doc](TODO)
 
 
-# Parsing (from string)
+# Parse (from string)
 1. From standard [rfc3339](https://datatracker.ietf.org/doc/html/rfc3339)
 ```rust
 TODO
@@ -22,15 +37,13 @@ TODO
 1. [Official doc](TODO)
 
 
-# Current Time
-```rust
-TODO
-```
 
-
-## Inject a clock
+# Inject a clock
 ```rust
-TODO
+fn do_something(clock: fn() -> Instant) {
+    let now = clock();
+    ...
+}
 ```
 
 

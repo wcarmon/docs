@@ -9,7 +9,24 @@
 TODO
 
 
-# Formatting (to string)
+# Construct
+```go
+TODO
+```
+
+
+# Current Time
+1. Better to inject a clock (`func () time`)
+```go
+type Clock func() time.Time
+...
+c := func() time.Time {
+    return time.Now()
+}
+```
+
+
+# Format (to string)
 1. To standard [rfc3339](https://datatracker.ietf.org/doc/html/rfc3339)
 ```go
 t.Format(time.RFC3339)
@@ -24,7 +41,7 @@ t.Format("Mon Jan _2 15:04:05 MST 2006")
 1. https://www.practical-go-lessons.com/chap-28-dates-and-time#format-the-time
 
 
-# Parsing (from string)
+# Parse (from string)
 1. From standard [rfc3339](https://datatracker.ietf.org/doc/html/rfc3339)
 ```go
 s := "2022-11-45T22:36:19+00:00"
@@ -38,18 +55,8 @@ if err != nil {
 1. https://www.practical-go-lessons.com/chap-28-dates-and-time#how-to-parse-a-datetime-contained-in-a-string
 
 
-# Current Time
-1. Better to inject a clock (`func () time`)
-```go
-type Clock func() time.Time
-...
-c := func() time.Time {
-    return time.Now()
-}
-```
 
-
-## Inject a clock
+# Inject a clock
 ```go
 func DoSomething(clock func() time) {
 
