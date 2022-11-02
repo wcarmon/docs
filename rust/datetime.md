@@ -9,11 +9,11 @@
     1. Useful for communicating outside the process (eg. network, file, another process, etc)
     1. Machine's best-guess as to the current time of day
     1. Can jump back and forth due to many factors (eg. [NTP](https://wiki.archlinux.org/title/Network_Time_Protocol_daemon), laptop suspend, etc)
-    1. Seconds & nanos since [Epoch](https://en.wikipedia.org/wiki/Unix_time)
+    1. Seconds & nanos since [Epoch](https://doc.rust-lang.org/std/time/constant.UNIX_EPOCH.html)
     1. [Can be set/updated](https://man7.org/linux/man-pages/man3/clock_settime.3.html) by code/user
 1. [Monotonic Clock](https://doc.rust-lang.org/std/time/struct.Instant.html):
     1. Only useful/meaningful within the [process](https://en.wikipedia.org/wiki/Process_(computing))
-    1. current value not that important, only useful for comparisons
+    1. Current value not that important, only useful for comparisons (eg. [`add`](https://doc.rust-lang.org/std/time/struct.Instant.html#method.checked_add), [`sub`](https://doc.rust-lang.org/std/time/struct.Instant.html#method.sub), etc)
     1. Cannot be set by code/user
 1. [`chrono::DateTime`](https://docs.rs/chrono/0.4.22/chrono/struct.DateTime.html): Date + time + timezone
     1. Java equivalent: [`OffsetDateTime`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/OffsetDateTime.html)
@@ -140,6 +140,8 @@ TODO
 TODO
 
 
+# Idioms
+1. avoid [~~`elapsed`~~](https://doc.rust-lang.org/std/time/struct.Instant.html#method.elapsed) since it hard codes [`Instant::now()`](https://doc.rust-lang.org/std/time/struct.Instant.html#method.now)
 
 # TODO/Unorganized
 - TODO: https://docs.rs/chrono/0.4.0/chrono/struct.DateTime.html
