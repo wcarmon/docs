@@ -96,22 +96,31 @@ let ts1 = DateTime::parse_from_str(
 
 # Inject a clock
 ```rust
-fn do_something(clock: fn() -> Instant) {
+fn do_something(clock: fn() -> DateTime<Utc>) {
     let now = clock();
     ...
 }
 ```
 
 
-# Equality & Comparison
+# Equality
 ```rust
-TODO
+ts0 == ts1
 ```
 
 
 # Before & After
 ```rust
-TODO
+ts0 < ts1
+ts0 >= ts1
+
+// or
+
+match ts0.cmp(&ts1){
+    Ordering::Less => println!("Before"),
+    Ordering::Equal => println!("Same"),
+    Ordering::Greater => println!("After"),
+}
 ```
 
 
