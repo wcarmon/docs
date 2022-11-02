@@ -17,8 +17,8 @@
     1. Only useful/meaningful within the [process](https://en.wikipedia.org/wiki/Process_(computing))
     1. Current value not that important, only useful for comparisons (eg. [`add`](https://doc.rust-lang.org/std/time/struct.Instant.html#method.checked_add), [`sub`](https://doc.rust-lang.org/std/time/struct.Instant.html#method.sub), etc)
     1. User/Code cannot set/update
-1. [`chrono::DateTime`](https://docs.rs/chrono/0.4.22/chrono/struct.DateTime.html): Date + time + timezone
-    1. Implemented as [`NaiveDateTime`](https://docs.rs/chrono/0.4.22/chrono/naive/struct.NaiveDateTime.html) + [`Tz::Offset`](https://docs.rs/chrono/latest/chrono/offset/trait.Offset.html)
+1. [`chrono::DateTime`](https://docs.rs/chrono/latest/chrono/struct.DateTime.html): Date + time + timezone
+    1. Implemented as [`NaiveDateTime`](https://docs.rs/chrono/latest/chrono/naive/struct.NaiveDateTime.html) + [`Tz::Offset`](https://docs.rs/chrono/latest/chrono/offset/trait.Offset.html)
     1. [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)
     1. Golang equivalent: [`time.Time`](https://pkg.go.dev/time#Time)
     1. Java equivalent: [`OffsetDateTime`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/OffsetDateTime.html)
@@ -36,11 +36,11 @@
 
 
 ## No Timezone
-1. [`chrono::NaiveDate`](https://docs.rs/chrono/0.4.22/chrono/naive/struct.NaiveDate.html): date (no timezone)
+1. [`chrono::NaiveDate`](https://docs.rs/chrono/latest/chrono/naive/struct.NaiveDate.html): date (no timezone)
     1. Java equivalent is [`LocalDate`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/LocalDate.html)
-1. [`chrono::NaiveDateTime`](https://docs.rs/chrono/0.4.22/chrono/naive/struct.NaiveDateTime.html): Date and time (no timezone)
+1. [`chrono::NaiveDateTime`](https://docs.rs/chrono/latest/chrono/naive/struct.NaiveDateTime.html): Date and time (no timezone)
     1. Java equivalent is [`LocalDateTime`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/LocalDateTime.html)
-1. [`chrono::NaiveTime`](https://docs.rs/chrono/0.4.22/chrono/naive/struct.NaiveTime.html): time (no timezone)
+1. [`chrono::NaiveTime`](https://docs.rs/chrono/latest/chrono/naive/struct.NaiveTime.html): time (no timezone)
     1. Java equivalent is [`LocalTime`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/LocalTime.html)
 
 
@@ -61,7 +61,7 @@ let monotonic0 = Instant::now(); // std
 ```
 
 
-# [Format](https://docs.rs/chrono/0.4.22/chrono/struct.DateTime.html#method.format) (to string)
+# [Format](https://docs.rs/chrono/latest/chrono/struct.DateTime.html#method.format) (to string)
 1. To standard [rfc3339](https://datatracker.ietf.org/doc/html/rfc3339)
 ```rust
 let ts = Utc::now();
@@ -76,7 +76,7 @@ print!("{}", s);
 ```
 
 
-# [Parse](https://docs.rs/chrono/0.4.22/chrono/struct.DateTime.html#impl-FromStr-for-DateTime%3CFixedOffset%3E) (from string)
+# [Parse](https://docs.rs/chrono/latest/chrono/struct.DateTime.html#impl-FromStr-for-DateTime%3CFixedOffset%3E) (from string)
 1. From standard [rfc3339](https://datatracker.ietf.org/doc/html/rfc3339)
 ```rust
 let ts0 = "2022-09-27T13:41:59Z"
