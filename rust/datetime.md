@@ -18,6 +18,7 @@
     1. Current value not that important, only useful for comparisons (eg. [`add`](https://doc.rust-lang.org/std/time/struct.Instant.html#method.checked_add), [`sub`](https://doc.rust-lang.org/std/time/struct.Instant.html#method.sub), etc)
     1. User/Code cannot set/update
 1. [`chrono::DateTime`](https://docs.rs/chrono/0.4.22/chrono/struct.DateTime.html): Date + time + timezone
+    1. Implemented as [`NaiveDateTime`](https://docs.rs/chrono/0.4.22/chrono/naive/struct.NaiveDateTime.html) + [`Tz::Offset`](https://docs.rs/chrono/latest/chrono/offset/trait.Offset.html)
     1. [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)
     1. Golang equivalent: [`time.Time`](https://pkg.go.dev/time#Time)
     1. Java equivalent: [`OffsetDateTime`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/OffsetDateTime.html)
@@ -82,7 +83,7 @@ let ts0 = "2022-09-27T13:41:59Z"
         .parse::<DateTime<Utc>>()
         .map_err(anyhow::Error::msg)
 
-let ts1 =
+let ts1 = ...
 ```
 1. From [other formats](https://docs.rs/chrono/latest/chrono/format/strftime/index.html#specifiers)
 ```rust
