@@ -13,21 +13,24 @@
     1. Seconds & nanos since [Epoch](https://doc.rust-lang.org/std/time/constant.UNIX_EPOCH.html)
     1. User/Code can [set/updated](https://man7.org/linux/man-pages/man3/clock_settime.3.html)
 1. [Monotonic Clock](https://doc.rust-lang.org/std/time/struct.Instant.html):
+    1. Useful for calculating [Durations](https://doc.rust-lang.org/stable/std/time/struct.Duration.html)
     1. Only useful/meaningful within the [process](https://en.wikipedia.org/wiki/Process_(computing))
     1. Current value not that important, only useful for comparisons (eg. [`add`](https://doc.rust-lang.org/std/time/struct.Instant.html#method.checked_add), [`sub`](https://doc.rust-lang.org/std/time/struct.Instant.html#method.sub), etc)
     1. User/Code cannot set/update
 1. [`chrono::DateTime`](https://docs.rs/chrono/0.4.22/chrono/struct.DateTime.html): Date + time + timezone
+    1. [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)
     1. Golang equivalent: [`time.Time`](https://pkg.go.dev/time#Time)
     1. Java equivalent: [`OffsetDateTime`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/OffsetDateTime.html)
 1. [`time::SystemTime`](https://doc.rust-lang.org/std/time/struct.SystemTime.html): system clock, wall clock, realtime clock
+    1. Lacks parse & format features
     1. Golang equivalent: [`time.Now().UTC()`](https://pkg.go.dev/time#Time.UTC) (handles both [wall](https://pkg.go.dev/time) and [monotonic](https://pkg.go.dev/time#hdr-Monotonic_Clocks))
     1. Java equivalent: [`Clock.systemUTC()`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Clock.html#systemUTC())
-1. [`std::time::Duration`](https://doc.rust-lang.org/std/time/struct.Duration.html): seconds + nanoseconds
-    1. Golang equivalent: [`time.Duration`](https://pkg.go.dev/time#Duration)
-    1. Java equivalent: [`Duration`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Duration.html)
 1. [`std::time::Instant`](https://doc.rust-lang.org/std/time/struct.Instant.html): [monotonic](https://doc.rust-lang.org/std/time/struct.Instant.html#monotonicity), nondecreasing, useful only for calculating [Durations](https://doc.rust-lang.org/std/time/struct.Duration.html)
     1. Golang equivalent: [`time.Time`](https://pkg.go.dev/time#Time) (handles both [wall](https://pkg.go.dev/time) and [monotonic](https://pkg.go.dev/time#hdr-Monotonic_Clocks))
     1. Java equivalent: [time4j / SystemClock](http://time4j.net/javadoc-en/net/time4j/SystemClock.html)
+1. [`std::time::Duration`](https://doc.rust-lang.org/std/time/struct.Duration.html): seconds + nanoseconds
+    1. Golang equivalent: [`time.Duration`](https://pkg.go.dev/time#Duration)
+    1. Java equivalent: [`Duration`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Duration.html)
 1. [`chrono_tz`](https://github.com/chronotope/chrono-tz/) helps with more advanced timezone cases
 
 
