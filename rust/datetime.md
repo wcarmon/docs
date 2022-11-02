@@ -128,12 +128,6 @@ match ts0.cmp(&ts1){
 - See [duration](./duration.md) doc
 
 
-# Parts of year
-```rust
-TODO
-```
-
-
 # Parts of day
 ```rust
 TODO

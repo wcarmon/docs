@@ -90,12 +90,6 @@ TODO
 - See [duration](./duration.md) doc
 
 
-# Parts of year
-```go
-TODO
-```
-
-
 # Parts of day
 ```go
 TODO
@@ -108,8 +102,11 @@ TODO
 ```
 
 
-# Months
-1. January == 1
+# [Months](https://pkg.go.dev/time#Time.Month)
+1. [January == 1](https://pkg.go.dev/time#Month)
+```
+t.Month()
+```
 
 
 # Timing operations
