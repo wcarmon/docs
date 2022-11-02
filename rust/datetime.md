@@ -164,12 +164,26 @@ TODO
 
 
 # Interop
-## Java/JVM interop
+## [From Unix Seconds]()
+```rust
 TODO
+```
 
-
-## Golang interop
+## [From Unix Millis]()
+```rust
 TODO
+```
+
+## [To Unix Seconds](https://docs.rs/chrono/latest/chrono/struct.DateTime.html#method.timestamp)
+```rust
+let ux_sec = ts.timestamp()
+```
+
+## [To Unix Millis]()
+```rust
+TODO
+```
+
 
 
 # Idioms

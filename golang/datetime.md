@@ -134,12 +134,25 @@ t.Month()
 
 
 # Interop
-## Java/JVM interop
-TODO
+## [From Unix Seconds](https://pkg.go.dev/time#Unix)
+```go
+ts := time.Unix(uxSec, 0).UTC()
+```
 
+## [From Unix Millis](https://pkg.go.dev/time#UnixMilli)
+```go
+ts := time.UnixMilli(uxMillis).UTC()
+```
 
-## Rust interop
-TODO
+## [To Unix Seconds](https://pkg.go.dev/time#Time.Unix)
+```go
+uxSec := ts.Unix()
+```
+
+## [To Unix Millis](https://pkg.go.dev/time#Time.UnixMilli)
+```go
+uxMillis := t.UnixMilli()
+```
 
 
 # Idioms
@@ -147,7 +160,7 @@ TODO
 1. Avoid [`time.Until`](TODO) because it hard codes `time.Now()` (better to inject a time provider)
 
 
-- TODO: t.Before & t.After
+# TODO/Unorganized
 - TODO: t.AddDate
 - TODO: t.Round & t.Truncate
 - TODO: t.Sleep
