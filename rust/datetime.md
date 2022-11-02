@@ -29,8 +29,8 @@ TODO
 
 # [Current Time](https://doc.rust-lang.org/std/time/struct.Instant.html#method.now)
 ```rust
-let now0 = Utc::now();
-let now1 = Instant::now();
+let now0 = Utc::now();      // chrono
+let now1 = Instant::now();  // std
 ```
 
 
