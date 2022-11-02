@@ -58,23 +58,32 @@ let now1 = SystemTime::now();  // std
 ```
 
 
-# Format (to string)
+# [Format](https://docs.rs/chrono/0.4.22/chrono/struct.DateTime.html#method.format) (to string)
 1. To standard [rfc3339](https://datatracker.ietf.org/doc/html/rfc3339)
 1. [syntax](https://docs.rs/chrono/latest/chrono/format/strftime/index.html#specifiers)
 ```rust
-TODO
+let ts = Utc::now();
+let s = format!("{}", ts.format("%+")); // rfc3339
+print!("{}", s);
 ```
 1. To other formats
 ```rust
-TODO
+    let ts = Utc::now();
+    let s = format!("{}", ts.format("%d/%m/%Y %H:%M"));
+    print!("{}", s);
 ```
-1. [Official doc](TODO)
+1. [Official doc](https://docs.rs/chrono/0.4.22/chrono/struct.DateTime.html#method.format)
 
 
 # Parse (from string)
 1. From standard [rfc3339](https://datatracker.ietf.org/doc/html/rfc3339)
 ```rust
-TODO
+
+let ts0 = "2022-09-27T13:41:59Z"
+        .parse::<DateTime<Utc>>()
+        .map_err(anyhow::Error::msg)
+
+let ts1 =
 ```
 1. [Official doc](TODO)
 
