@@ -6,15 +6,15 @@
 
 # Key Concepts
 1. [`chrono::DateTime`](https://docs.rs/chrono/0.4.22/chrono/struct.DateTime.html): Date + time + timezone
-1. [`std::time::Duration`](https://doc.rust-lang.org/std/time/struct.Duration.html): seconds + nanoseconds
-    1. Golang equivalent is [`time.Duration`](https://pkg.go.dev/time#Duration)
-    1. Java equivalent is [`Duration`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Duration.html)
-1. [`std::time::Instant`](https://doc.rust-lang.org/std/time/struct.Instant.html): TODO
-    1. Golang equivalent is[`time.Time`](https://pkg.go.dev/time#Time)
-    1. Java equivalent is [`Instant`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Instant.html)
+    1. Java equivalent: [`OffsetDateTime`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/OffsetDateTime.html)
+    1. Golang equivalent is [`time.Time`](https://pkg.go.dev/time#Time)
 1. [`time::SystemTime`](https://doc.rust-lang.org/std/time/struct.SystemTime.html): system clock
     1. Golang equivalent is [`time.Now().UTC()`](https://pkg.go.dev/time#Time.UTC)
     1. Java equivalent is [`Clock.systemUTC()`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Clock.html#systemUTC())
+1. [`std::time::Duration`](https://doc.rust-lang.org/std/time/struct.Duration.html): seconds + nanoseconds
+    1. Golang equivalent is [`time.Duration`](https://pkg.go.dev/time#Duration)
+    1. Java equivalent is [`Duration`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Duration.html)
+1. ~~[`std::time::Instant`]~~(https://doc.rust-lang.org/std/time/struct.Instant.html): useful only for calculating durations
 
 ## No timezone
 1. [`chrono::NaiveDate`](https://docs.rs/chrono/0.4.22/chrono/naive/struct.NaiveDate.html): date (no timezone)
@@ -36,7 +36,7 @@ let dt = Utc.ymd(2014, 7, 8).and_hms(9, 10, 11); // `2014-07-08T09:10:11Z`
 # [Current Time](https://doc.rust-lang.org/std/time/struct.Instant.html#method.now)
 ```rust
 let now0 = Utc::now();      // chrono
-let now1 = Instant::now();  // std
+let now1 = SystemTime::now();  // std
 ```
 
 
