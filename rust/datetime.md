@@ -16,6 +16,9 @@
 1. [`std::time::Instant`](https://doc.rust-lang.org/std/time/struct.Instant.html): TODO
     1. Golang equivalent is[`time.Time`](https://pkg.go.dev/time#Time)
     1. Java equivalent is [`java.time.Instant`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Instant.html)
+1. [`time::SystemTime`](https://doc.rust-lang.org/std/time/struct.SystemTime.html): system clock
+    1. Golang equivalent is [`time.Now().UTC()`](https://pkg.go.dev/time#Time.UTC)
+    1. Java equivalent is [`java.time.Clock.systemUTC()`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Clock.html#systemUTC())
 
 
 # Construct
