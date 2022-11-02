@@ -130,9 +130,9 @@ match ts0.cmp(&ts1){
 
 # Parts of day ([Hour](https://docs.rs/chrono/latest/chrono/struct.DateTime.html#method.hour), [Minute](https://docs.rs/chrono/latest/chrono/struct.DateTime.html#method.minute), [Second](https://docs.rs/chrono/latest/chrono/struct.DateTime.html#method.second))
 ```rust
-ts.hour()   // 0-23
-ts.minute() // 0-59
-ts.second() // 0-59
+let h = ts.hour()   // 0-23
+let m = ts.minute() // 0-59
+let s = ts.second() // 0-59
 ```
 
 
