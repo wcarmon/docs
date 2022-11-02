@@ -23,26 +23,26 @@
     1. [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)
     1. Golang equivalent: [`time.Time`](https://pkg.go.dev/time#Time)
     1. Java equivalent: [`OffsetDateTime`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/OffsetDateTime.html)
-1. [`time::SystemTime`](https://doc.rust-lang.org/std/time/struct.SystemTime.html): system clock, wall clock, realtime clock
+1. [`std::time::SystemTime`](https://doc.rust-lang.org/std/time/struct.SystemTime.html): system clock, wall clock, realtime clock
     1. Lacks parse & format features
     1. Golang equivalent: [`time.Now().UTC()`](https://pkg.go.dev/time#Time.UTC) (handles both [wall](https://pkg.go.dev/time) and [monotonic](https://pkg.go.dev/time#hdr-Monotonic_Clocks))
     1. Java equivalent: [`Clock.systemUTC()`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Clock.html#systemUTC())
 1. [`std::time::Instant`](https://doc.rust-lang.org/std/time/struct.Instant.html): [monotonic](https://doc.rust-lang.org/std/time/struct.Instant.html#monotonicity), nondecreasing, useful only for calculating [Durations](https://doc.rust-lang.org/std/time/struct.Duration.html)
     1. Golang equivalent: [`time.Time`](https://pkg.go.dev/time#Time) (handles both [wall](https://pkg.go.dev/time) and [monotonic](https://pkg.go.dev/time#hdr-Monotonic_Clocks))
     1. Java equivalent: [time4j / SystemClock](http://time4j.net/javadoc-en/net/time4j/SystemClock.html)
-1. [`std::time::Duration`](https://doc.rust-lang.org/std/time/struct.Duration.html): seconds + nanoseconds
+1. [`std::time::Duration`](https://doc.rust-lang.org/std/time/struct.Duration.html): Seconds + nanoseconds
     1. Golang equivalent: [`time.Duration`](https://pkg.go.dev/time#Duration)
     1. Java equivalent: [`Duration`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Duration.html)
 1. [`chrono_tz`](https://github.com/chronotope/chrono-tz/) helps with more advanced timezone cases
 
 
 ## No Timezone
-1. [`chrono::NaiveDate`](https://docs.rs/chrono/latest/chrono/naive/struct.NaiveDate.html): date (no timezone)
-    1. Java equivalent is [`LocalDate`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/LocalDate.html)
 1. [`chrono::NaiveDateTime`](https://docs.rs/chrono/latest/chrono/naive/struct.NaiveDateTime.html): Date and time (no timezone)
-    1. Java equivalent is [`LocalDateTime`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/LocalDateTime.html)
-1. [`chrono::NaiveTime`](https://docs.rs/chrono/latest/chrono/naive/struct.NaiveTime.html): time (no timezone)
-    1. Java equivalent is [`LocalTime`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/LocalTime.html)
+    1. Java equivalent: [`LocalDateTime`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/LocalDateTime.html)
+1. [`chrono::NaiveDate`](https://docs.rs/chrono/latest/chrono/naive/struct.NaiveDate.html): Date (no timezone)
+    1. Java equivalent: [`LocalDate`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/LocalDate.html)
+1. [`chrono::NaiveTime`](https://docs.rs/chrono/latest/chrono/naive/struct.NaiveTime.html): Time (no timezone)
+    1. Java equivalent: [`LocalTime`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/LocalTime.html)
 
 
 # Construct
