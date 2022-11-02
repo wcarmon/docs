@@ -4,6 +4,20 @@
 1. Using [chrono](https://docs.rs/chrono/latest/chrono/) lib
 
 
+# Key Concepts
+1. [`chrono::DateTime`](TODO): Date + time + timezone)
+1. [`chrono::NaiveDate`](TODO): TODO
+1. [`chrono::NaiveDateTime`](TODO): Date and time (no timezone)
+    1. [Java equivalent is `LocalDateTime`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/LocalDateTime.html)
+1. [`chrono::NaiveTime`](TODO): TODO
+1. [`std::time::Duration`](https://doc.rust-lang.org/std/time/struct.Duration.html): seconds + nanoseconds
+    1. [Golang equivalent is `time.Duration`](https://pkg.go.dev/time#Duration)
+    1. [Java equivalent is `java.time.Duration`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Duration.html)
+1. [`std::time::Instant`](https://doc.rust-lang.org/std/time/struct.Instant.html): TODO
+    1. [Golang equivalent is `time.Time`](https://pkg.go.dev/time#Time)
+    1. [Java equivalent is `java.time.Instant`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Instant.html)
+
+
 # Construct
 ```rust
 TODO
@@ -12,7 +26,8 @@ TODO
 
 # [Current Time](https://doc.rust-lang.org/std/time/struct.Instant.html#method.now)
 ```rust
-let now = Instant::now();
+let now0 = Utc::now();
+let now1 = Instant::now();
 ```
 
 
