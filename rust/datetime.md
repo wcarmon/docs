@@ -5,11 +5,7 @@
 
 
 # Key Concepts
-1. [`chrono::DateTime`](https://docs.rs/chrono/0.4.22/chrono/struct.DateTime.html): Date + time + timezone)
-1. [`chrono::NaiveDate`](https://docs.rs/chrono/0.4.22/chrono/naive/struct.NaiveDate.html): date (no timezone)
-1. [`chrono::NaiveDateTime`](https://docs.rs/chrono/0.4.22/chrono/naive/struct.NaiveDateTime.html): Date and time (no timezone)
-    1. Java equivalent is [`LocalDateTime`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/LocalDateTime.html)
-1. [`chrono::NaiveTime`](https://docs.rs/chrono/0.4.22/chrono/naive/struct.NaiveTime.html): time (no timezone)
+1. [`chrono::DateTime`](https://docs.rs/chrono/0.4.22/chrono/struct.DateTime.html): Date + time + timezone
 1. [`std::time::Duration`](https://doc.rust-lang.org/std/time/struct.Duration.html): seconds + nanoseconds
     1. Golang equivalent is [`time.Duration`](https://pkg.go.dev/time#Duration)
     1. Java equivalent is [`java.time.Duration`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Duration.html)
@@ -20,10 +16,18 @@
     1. Golang equivalent is [`time.Now().UTC()`](https://pkg.go.dev/time#Time.UTC)
     1. Java equivalent is [`java.time.Clock.systemUTC()`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Clock.html#systemUTC())
 
+## No timezone
+1. [`chrono::NaiveDate`](https://docs.rs/chrono/0.4.22/chrono/naive/struct.NaiveDate.html): date (no timezone)
+1. [`chrono::NaiveDateTime`](https://docs.rs/chrono/0.4.22/chrono/naive/struct.NaiveDateTime.html): Date and time (no timezone)
+    1. Java equivalent is [`LocalDateTime`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/LocalDateTime.html)
+1. [`chrono::NaiveTime`](https://docs.rs/chrono/0.4.22/chrono/naive/struct.NaiveTime.html): time (no timezone)
+
 
 # Construct
 ```rust
-TODO
+// TODO: this will panic!(...) if invalid
+let dt = Utc.ymd(2014, 7, 8).and_hms(9, 10, 11); // `2014-07-08T09:10:11Z`
+
 ```
 
 
