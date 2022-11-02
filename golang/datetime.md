@@ -71,12 +71,12 @@ func DoSomething(clock func() time) {
 ```
 
 
-# Equality
+# [Equality](https://pkg.go.dev/time#Time)
 1. Use [`t0.Equal(t1)`](https://pkg.go.dev/time#Time.Equal) because it compares the instant
     1. (normalizes to same timezone before comparing)
 1. **GOTCHA**: Don't use `==` because it compares location
 ```go
-TODO
+t0.Equal(t1)
 ```
 
 
