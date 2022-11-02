@@ -96,9 +96,9 @@ t1.Before(t0)
 h, m, s := t.Clock()
 
 // or
-t.Hour()    // 0-23
-t.Minute()  // 0-59
-t.Second()  // 0-59
+h := t.Hour()    // 0-23
+m := t.Minute()  // 0-59
+s := t.Second()  // 0-59
 ```
 
 
