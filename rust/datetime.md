@@ -6,10 +6,10 @@
 
 # Key Concepts
 1. [`chrono::DateTime`](TODO): Date + time + timezone)
-1. [`chrono::NaiveDate`](TODO): TODO
-1. [`chrono::NaiveDateTime`](TODO): Date and time (no timezone)
+1. [`chrono::NaiveDate`](https://docs.rs/chrono/0.4.22/chrono/naive/struct.NaiveDate.html): date (no timezone)
+1. [`chrono::NaiveDateTime`](https://docs.rs/chrono/0.4.22/chrono/naive/struct.NaiveDateTime.html): Date and time (no timezone)
     1. Java equivalent is [`LocalDateTime`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/LocalDateTime.html)
-1. [`chrono::NaiveTime`](TODO): TODO
+1. [`chrono::NaiveTime`](https://docs.rs/chrono/0.4.22/chrono/naive/struct.NaiveTime.html): time (no timezone)
 1. [`std::time::Duration`](https://doc.rust-lang.org/std/time/struct.Duration.html): seconds + nanoseconds
     1. Golang equivalent is [`time.Duration`](https://pkg.go.dev/time#Duration)
     1. Java equivalent is [`java.time.Duration`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Duration.html)
