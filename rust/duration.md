@@ -17,9 +17,24 @@
 1. [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations)
 
 
-# [Construct](TODO) (from string)
+# Construct
+1. [Chrono](https://docs.rs/chrono/latest/chrono/struct.Duration.html#method.milliseconds)
 ```rust
-TODO
+let d = chrono::Duration::weeks(1);
+let d = chrono::Duration::days(1);
+let d = chrono::Duration::hours(1);
+let d = chrono::Duration::minutes(1);
+let d = chrono::Duration::seconds(1);
+let d = chrono::Duration::milliseconds(1);
+let d = chrono::Duration::microseconds(1);
+let d = chrono::Duration::nanoseconds(1);
+```
+1. [Standard](https://doc.rust-lang.org/stable/std/time/struct.Duration.html#method.from_millis)
+```rust
+let d = std::time::Duration::from_secs(1);
+let d = std::time::Duration::from_millis(1);
+let d = std::time::Duration::from_micros(1);
+let d = std::time::Duration::from_nanos(1);
 ```
 
 
@@ -37,7 +52,7 @@ TODO
 
 # Timing
 ```rust
-TODO
+TODO: chrono::Duration::span
 ```
 
 
@@ -58,17 +73,22 @@ TODO
 
 
 # [Round](TODO)
-1. TODO: more here
+```rust
+TODO
+```
 
 
 # [Truncate](TODO)
+```rust
+TODO
+```
 
 
 #  [`chrono::Duration`](https://docs.rs/chrono/latest/chrono/struct.Duration.html) to/from [`std::time::Duration`](https://doc.rust-lang.org/stable/std/time/struct.Duration.html)
 ```rust
 // to std
 let chr_dur = chrono::Duration::seconds(1);
-chrono::Duration::to_std(&chr_dur)
+let std_d = chrono::Duration::to_std(&chr_dur)
     .map_err(anyhow::Error::msg)
 
 
