@@ -6,8 +6,12 @@
 # Terms
 ## `Duration`
 1. represents hours, minutes, seconds, millis, microseconds and nanoseconds
-1. stored as `int64` (nanoseconds between two instants)
-1. Max value is ~290 years
+1. Max value is ~2,924,712,000 Centuries
+1. Standard [`Duration`](https://doc.rust-lang.org/stable/std/time/struct.Duration.html)
+1. Chrono [`Duration`](https://docs.rs/chrono/latest/chrono/struct.Duration.html)
+    1. They might eventually migrate to std
+    1. They have more (convenience) methods
+1. [Golang equivalent](https://pkg.go.dev/time#Duration)
 1. [JVM equivalent](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Duration.html)
 1. [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations)
 
