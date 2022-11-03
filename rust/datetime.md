@@ -49,8 +49,8 @@
 ```rust
 // TODO: this will panic!(...) if invalid
 let dt = Utc.ymd(2014, 7, 8).and_hms(9, 10, 11); // `2014-07-08T09:10:11Z`
-
 ```
+1. See also [Parse](#parse)
 
 
 # [Current Time](https://doc.rust-lang.org/std/time/struct.Instant.html#method.now)
@@ -82,6 +82,10 @@ print!("{}", s);
 ```rust
 let ts0 = "2022-09-27T13:41:59Z"
         .parse::<DateTime<Utc>>()
+        .map_err(anyhow::Error::msg)
+
+let ts1 = DateTime::parse_from_rfc3339("2022-11-19T23:39:51-07:00")
+        .map(|ts| ts.with_timezone(&Utc))
         .map_err(anyhow::Error::msg)
 ```
 1. From [other formats](https://docs.rs/chrono/latest/chrono/format/strftime/index.html#specifiers) using [`parse_from_str`](https://docs.rs/chrono/latest/chrono/struct.DateTime.html#method.parse_from_str)
