@@ -190,7 +190,7 @@ let ux_millis = ts.timestamp_millis()
 
 #  [`chrono::DateTime`](https://docs.rs/chrono/latest/chrono/struct.DateTime.html) to/from [`std::time::SystemTime`](https://doc.rust-lang.org/std/time/struct.SystemTime.html)
 ```rust
-// to standard
+// to std
 let std_ts: SystemTime = Utc::now().into();
 
 // to chrono
