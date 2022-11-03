@@ -5,9 +5,10 @@
 
 # Terms
 ## `Duration`
-1. represents hours, minutes, seconds, millis, microseconds and nanoseconds
-1. stored as `int64` (nanoseconds between two instants)
+1. Represents hours, minutes, seconds, millis, microseconds and nanoseconds
+1. [Stored as `int64`](https://cs.opensource.google/go/go/+/refs/tags/go1.19.2:src/time/time.go;l=591) (nanoseconds between two instants)
 1. Max value is ~290 years
+1. [Rust equivalent](https://doc.rust-lang.org/stable/std/time/struct.Duration.html)
 1. [JVM equivalent](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Duration.html)
 1. [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations)
 

@@ -5,7 +5,7 @@
 
 # Terms
 ## `Duration`
-1. represents hours, minutes, seconds, millis, microseconds and nanoseconds
+1. Represents hours, minutes, seconds, millis, microseconds and nanoseconds
 1. Max value is ~2,924,712,000 Centuries
 1. Standard [`Duration`](https://doc.rust-lang.org/stable/std/time/struct.Duration.html)
 1. Chrono [`Duration`](https://docs.rs/chrono/latest/chrono/struct.Duration.html)
@@ -17,7 +17,9 @@
 
 
 # [Parse](TODO) (from string)
+```rust
 
+```
 
 # [Format](TODO) (to string)
 
