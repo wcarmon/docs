@@ -47,7 +47,8 @@
 
 # Construct
 ```rust
-// TODO: this will panic!(...) if invalid
+// GOTCHA: this will panic!(...) if invalid
+// This is fine for test code, not for prod
 let dt = Utc.ymd(2014, 7, 8).and_hms(9, 10, 11); // `2014-07-08T09:10:11Z`
 ```
 1. See also [Parse](datetime.md#parse-from-string)
