@@ -18,7 +18,7 @@
 
 
 # Construct
-1. [Chrono](https://docs.rs/chrono/latest/chrono/struct.Duration.html#method.milliseconds)
+1. Chrono: [hours](https://docs.rs/chrono/latest/chrono/struct.Duration.html#method.hours), [minutes](https://docs.rs/chrono/latest/chrono/struct.Duration.html#method.minutes), [seconds](https://docs.rs/chrono/latest/chrono/struct.Duration.html#method.seconds), [millis](https://docs.rs/chrono/latest/chrono/struct.Duration.html#method.milliseconds), [micros](https://docs.rs/chrono/latest/chrono/struct.Duration.html#method.microseconds)
 ```rust
 let d = chrono::Duration::weeks(1);
 let d = chrono::Duration::days(1);
@@ -29,7 +29,7 @@ let d = chrono::Duration::milliseconds(1);
 let d = chrono::Duration::microseconds(1);
 let d = chrono::Duration::nanoseconds(1);
 ```
-1. [Standard](https://doc.rust-lang.org/stable/std/time/struct.Duration.html#method.from_millis)
+1. Standard: [seconds](https://doc.rust-lang.org/stable/std/time/struct.Duration.html#method.from_secs), [millis](https://doc.rust-lang.org/stable/std/time/struct.Duration.html#method.from_millis), [micros](https://doc.rust-lang.org/stable/std/time/struct.Duration.html#method.from_micros)
 ```rust
 let d = std::time::Duration::from_secs(1);
 let d = std::time::Duration::from_millis(1);
