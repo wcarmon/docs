@@ -44,7 +44,7 @@ TODO
 # [Sleep](https://doc.rust-lang.org/stable/std/thread/fn.sleep.html)
 1. There's usually a better way structure code than sleep (see [Rayon](https://docs.rs/rayon/latest/rayon/), See [Crossbeam](https://docs.rs/crossbeam/latest/crossbeam/), See [tokio](https://docs.rs/tokio/latest/tokio/time/fn.sleep.html))
 ```rust
-let d = Duration::from_secs(1);
+let d0 = std::time::Duration::from_secs(1);
 
 // blocking
 thread::sleep(d);
