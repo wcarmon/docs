@@ -22,6 +22,12 @@
 1. [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations)
 
 
+# [Construct](TODO) (from string)
+```rust
+TODO
+```
+
+
 # [Parse](TODO) (from string)
 1. TODO: ISO 8601
 1. Example

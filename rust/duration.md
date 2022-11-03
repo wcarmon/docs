@@ -6,25 +6,39 @@
 # Terms
 ## `Duration`
 1. Represents hours, minutes, seconds, millis, microseconds and nanoseconds
-1. Max value is ~2,924,712,000 Centuries
+1. Max value is ~1 Billion Centuries
 1. Standard [`Duration`](https://doc.rust-lang.org/stable/std/time/struct.Duration.html)
 1. Chrono [`Duration`](https://docs.rs/chrono/latest/chrono/struct.Duration.html)
     1. They might eventually migrate to std
     1. They have more (convenience) methods
+    1. Allows negative duration
 1. [Golang equivalent](https://pkg.go.dev/time#Duration)
 1. [JVM equivalent](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Duration.html)
 1. [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations)
 
 
-# [Parse](TODO) (from string)
+# [Construct](TODO) (from string)
 ```rust
-
+TODO
 ```
 
+
+# [Parse](TODO) (from string)
+```rust
+TODO
+```
+
+
 # [Format](TODO) (to string)
+```rust
+TODO
+```
 
 
-# Timing operations
+# Timing
+```rust
+TODO
+```
 
 
 # [Sleep](https://doc.rust-lang.org/stable/std/thread/fn.sleep.html)
@@ -48,6 +62,23 @@ TODO
 
 
 # [Truncate](TODO)
+
+
+#  [`chrono::Duration`](https://docs.rs/chrono/latest/chrono/struct.Duration.html) to/from [`std::time::Duration`](https://doc.rust-lang.org/stable/std/time/struct.Duration.html)
+```rust
+// to std
+let chr_dur = chrono::Duration::seconds(1);
+chrono::Duration::to_std(&chr_dur)
+    .map_err(anyhow::Error::msg)
+
+
+// to chrono
+let std_d = std::time::Duration::from_secs(1u64);
+let chr_dur = chrono::Duration::from_std(std_d)
+    .map_err(anyhow::Error::msg)
+```
+1. [`::to_std()`](https://docs.rs/chrono/latest/chrono/struct.Duration.html#method.to_std), [`::from_std()`](https://docs.rs/chrono/latest/chrono/struct.Duration.html#method.from_std)
+
 
 
 # Idioms
