@@ -163,7 +163,6 @@ uxMillis := t.UnixMilli()
 # TODO/Unorganized
 - TODO: t.AddDate
 - TODO: t.Round & t.Truncate
-- TODO: t.Sleep
 - TODO: t.In
 - TODO: t.UTC
 - TODO: time.After (chan)

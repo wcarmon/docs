@@ -188,6 +188,16 @@ let ux_millis = ts.timestamp_millis()
 ```
 
 
+#  [`chrono::DateTime`](https://docs.rs/chrono/latest/chrono/struct.DateTime.html) <--> [`std::time::SystemTime`](https://doc.rust-lang.org/std/time/struct.SystemTime.html)
+```rust
+// to standard
+let std_ts: SystemTime = Utc::now().into();
+
+// to chrono
+let chrono_ts: DateTime<Utc> = SystemTime::now().into();
+```
+1. [official doc](https://docs.rs/chrono/latest/chrono/struct.DateTime.html#impl-From%3CSystemTime%3E-for-DateTime%3CUtc%3E)
+
 
 # Idioms
 1. Avoid [~~`elapsed`~~](https://doc.rust-lang.org/std/time/struct.Instant.html#method.elapsed) since it hard codes [`Instant::now()`](https://doc.rust-lang.org/std/time/struct.Instant.html#method.now)
