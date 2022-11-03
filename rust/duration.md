@@ -69,6 +69,7 @@ let dur = Instant::now() - start;
 
 # [Sleep](https://doc.rust-lang.org/stable/std/thread/fn.sleep.html)
 1. There's usually a better way structure code than sleep (see [Rayon](https://docs.rs/rayon/latest/rayon/), See [Crossbeam](https://docs.rs/crossbeam/latest/crossbeam/), See [tokio](https://docs.rs/tokio/latest/tokio/time/fn.sleep.html))
+1. Standard
 ```rust
 let d0 = std::time::Duration::from_secs(1);
 
@@ -78,18 +79,33 @@ thread::sleep(d);
 
 
 # Add/Sub
+1. Chrono
+```rust
+TODO
+```
+1. Standard
 ```rust
 TODO
 ```
 
 
 # [Round](TODO)
+1. Chrono
+```rust
+TODO
+```
+1. Standard
 ```rust
 TODO
 ```
 
 
 # [Truncate](TODO)
+1. Chrono
+```rust
+TODO
+```
+1. Standard
 ```rust
 TODO
 ```
