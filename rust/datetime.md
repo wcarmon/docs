@@ -134,12 +134,11 @@ let h = ts.hour()   // 0-23
 let m = ts.minute() // 0-59
 let s = ts.second() // 0-59
 ```
+1. see also [`hour12()`](https://docs.rs/chrono/latest/chrono/trait.Timelike.html#method.hour12)
 
 
 # Timezones
-```rust
-TODO
-```
+1. [change timezone](https://rust-lang-nursery.github.io/rust-cookbook/datetime/duration.html#convert-a-local-time-to-another-timezone)
 
 
 # [Months](https://docs.rs/chrono/latest/chrono/trait.Datelike.html#tymethod.month)
@@ -196,7 +195,7 @@ let std_ts: SystemTime = Utc::now().into();
 // to chrono
 let chrono_ts: DateTime<Utc> = SystemTime::now().into();
 ```
-1. Official doc](https://docs.rs/chrono/latest/chrono/struct.DateTime.html#impl-From%3CSystemTime%3E-for-DateTime%3CUtc%3E)
+1. [Official doc](https://docs.rs/chrono/latest/chrono/struct.DateTime.html#impl-From%3CSystemTime%3E-for-DateTime%3CUtc%3E)
 
 
 # Idioms
@@ -204,7 +203,6 @@ let chrono_ts: DateTime<Utc> = SystemTime::now().into();
 
 
 # TODO/Unorganized
-- TODO: https://docs.rs/chrono/0.4.0/chrono/struct.DateTime.html
 - TODO: https://rust-lang-nursery.github.io/rust-cookbook/datetime.html
 
 
