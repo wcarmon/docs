@@ -1,6 +1,6 @@
 # Overview
-- Using durations & periods
-- See [datetime](./datetime.md) doc
+1. Using durations & periods
+1. See also [datetime](./datetime.md) doc
 
 
 # Terms
@@ -21,7 +21,7 @@
 1. [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations)
 
 
-# Parse (from string)
+# [Parse](TODO) (from string)
 1. TODO: ISO 8601
 1. Example
 ```go
@@ -39,33 +39,32 @@ TODO: more here
 - `ns`: nanosecond
 
 
-# Format (to string)
+# [Format](TODO) (to string)
 1. TODO: ISO 8601
 1. Produces a string which can be Parsed via [time.ParseDuration]()
 1. Example
 ```go
 dur, err := time.ParseDuration("5h4m3s2ms")
 ...
-
 fmt.Printf("dur: %v", dur.String())
 ```
 1. https://pkg.go.dev/time#Duration.String
 
 
-# Timing operations
+# [Timing](TODO)
 ```go
 start := time.Now()
 
 // ... do something ...
 
-elapsed := time.Since(start)
+elapsed := time.Now().Sub(start)
 log.Info().
     Str("elapsed", fmt.Sprintf("%v", elapsed)).
     Msg("total time")
 ```
 
 
-# Sleep
+# [Sleep](TODO)
 1. Probably better to wait for [channel]() or a [`WaitGroup`](https://pkg.go.dev/sync#WaitGroup.Wait)
 ```go
 time.Sleep(100 * time.Millisecond)
@@ -73,13 +72,18 @@ time.Sleep(20 * time.Second)
 time.Sleep(5 * time.Minute)
 ```
 
+# Add/Sub
+```go
+TODO
+```
 
-# Round
+
+# [Round](TODO)
 1. TODO: more here
 1. [Official doc](https://pkg.go.dev/time#Duration.Round)
 
 
-# Truncate
+# [Truncate](TODO)
 1. rounds down (toward zero)
 1. Can truncate to any duration (eg. previous hour, minute, second, ... 5-minutes)
 1. [Official doc](https://pkg.go.dev/time#Duration.Truncate)
@@ -92,4 +96,3 @@ time.Sleep(5 * time.Minute)
 
 # Other resources
 1. https://pkg.go.dev/time
-1.
