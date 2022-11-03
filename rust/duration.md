@@ -51,8 +51,19 @@ TODO
 
 
 # Timing
+1. Chrono
 ```rust
-TODO: chrono::Duration::span
+let start = Utc::now();
+do_something();
+let dur = Utc::now() - start;
+
+// see also chrono::Duration::span
+```
+1. Standard
+```rust
+let start = Instant::now();
+do_something();
+let dur = Instant::now() - start;
 ```
 
 
