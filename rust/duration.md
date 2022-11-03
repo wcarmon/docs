@@ -51,7 +51,7 @@ TODO
 
 
 # Timing
-1. Chrono
+1. [Chrono](https://docs.rs/chrono/latest/chrono/struct.DateTime.html#impl-Sub%3CDateTime%3CTz%3E%3E-for-DateTime%3CTz%3E)
 ```rust
 let start = Utc::now();
 do_something();
@@ -59,7 +59,7 @@ let dur = Utc::now() - start;
 
 // see also chrono::Duration::span
 ```
-1. Standard
+1. [Standard](https://doc.rust-lang.org/stable/std/time/struct.Instant.html#impl-Sub%3CInstant%3E-for-Instant)
 ```rust
 let start = Instant::now();
 do_something();
