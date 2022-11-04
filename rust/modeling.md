@@ -13,6 +13,14 @@
 
 
 # TODO/Unorganized
+- ALL/AND
+- at-least-one
+- at-most-one
+- embedding
+- enum
+- exactly one
+- OR
+- struct
 
 
 

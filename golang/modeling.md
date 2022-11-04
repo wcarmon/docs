@@ -4,7 +4,8 @@
 
 
 # Key Concepts
-1. TODO
+1. Go has relatively weak modeling tools
+    1. [Compare to rust](../rust/modeling.md)
 
 
 # Idioms
@@ -12,7 +13,14 @@
 
 
 # TODO/Unorganized
-
+- ALL/AND
+- at-least-one
+- at-most-one
+- embedding
+- enum
+- exactly one
+- OR
+- struct
 
 
 # Other resources

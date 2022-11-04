@@ -1,5 +1,7 @@
 # Overview
 1. Modules, Packages, Crates, `use`, `mod`, ...
+1. See [abstraction doc](./abstraction.md)
+1. See [modeling doc](./modeling.md)
 
 
 # Package
