@@ -103,6 +103,7 @@
 - TODO: more here
 
 
+# TODO/Unorganized
 - TODO: VPC endpoint - private connection to AWS services without internet gateway
 - TODO: debugging - TODO: "Linting" security setup
 - TODO: DHCP
@@ -110,6 +111,7 @@
 - TODO: NAT gateway belongs to subnet?
 - TODO: VPC has multiple NAT gateways?
 - TODO: can you share Internet gateways between VPCs?
+
 
 # Other Resources
 1. https://aws.amazon.com/vpc/

@@ -16,7 +16,10 @@
 |Relying on package scope is uncommon|Package scope is heavily used|
 |Packages are nested|Packages are flat|
 
-TODO: packages
+
+# TODO/Unorganized
+- TODO: packages
+
 
 # Other Resources
 1. https://www.practical-go-lessons.com/chap-40-design-recommendations#source-files
