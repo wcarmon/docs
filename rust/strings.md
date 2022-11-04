@@ -76,9 +76,16 @@
 
 # Raw strings
 ```rust
-assert_eq!(r"foo", "foo"); // foo
+assert_eq!("foo", r"foo");          // foo
+assert_eq!("\"foo\"", r#""foo""#);  // "foo"
 
-assert_eq!(r#""foo""#, "\"foo\""); // "foo"
+assert_eq!("", r#""#);          // (empty string)
+assert_eq!("\"", r#"""#);       // "
+assert_eq!("\"\"", r#""""#);    // ""
+
+assert_eq!("#", r##"#"##);          // #
+assert_eq!("\"#\"", r##""#""##);    // "#"
+
 ```
 
 
