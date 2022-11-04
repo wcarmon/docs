@@ -34,7 +34,8 @@ export const emptyPromiseAndCanceller: PromiseAndCanceller = {
  *     }, 200);
  *
  *     try {
- *       await helper.promise;
+ *       const outputOfLastTask = await helper.promise;
+ *
  *     } catch (e) {
  *       // handle error or cancellation
  *     }
@@ -42,6 +43,7 @@ export const emptyPromiseAndCanceller: PromiseAndCanceller = {
 export function doAsyncTasksWithCancellation(
   ...tasks: ((prev: any) => Promise<any>)[]
 ): PromiseAndCanceller {
+
   if (!tasks) {
     // nothing to do
     return emptyPromiseAndCanceller;
