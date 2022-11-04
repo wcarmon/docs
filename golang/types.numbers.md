@@ -1,7 +1,7 @@
 # Overview
-- Key features of numeric types
-- See also [variables](./variables.md) doc
-- See also [general types info](./types.basic.md) doc
+1. Key features of numeric types
+1. See also [variables](./variables.md) doc
+1. See also [general types info](./types.basic.md) doc
 
 
 # Literals

@@ -1,6 +1,6 @@
 # Overview
-- Key features of common collections
-- Operations on common collections
+1. Key features of typical collections
+1. Operations on collections
 
 
 # Slices

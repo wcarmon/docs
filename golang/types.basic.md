@@ -1,6 +1,6 @@
 # Overview
-- Key features of Basic types
-- See also [variables](./variables.md) doc
+1. Key features of Basic types
+1. See also [variables](./variables.md) doc
 
 
 # Numeric types

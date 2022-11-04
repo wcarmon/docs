@@ -1,6 +1,6 @@
 # Overview
-- Overview of Strings, Runes, Code-points
-- Common methods and JVM equivalents
+1. Overview of Strings, Runes, Code-points
+1. Common methods and JVM equivalents
 
 
 # Definitions
@@ -10,7 +10,7 @@
 1. **Char/Character**: TODO
 
 
-# Key features of strings
+# Key Concepts
 1. Go sources are always UTF-8
 1. Conversion between `[]byte` and `string` is cheap
 1. Strings can contain unprintable chars (can contain any bytes)
@@ -66,31 +66,6 @@ for i, c := range "foo" {
 | [String::`valueOf`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#valueOf(java.lang.Object)) |`string(foo)`|
 | [StringUtils::`join`](https://commons.apache.org/proper/commons-lang/apidocs/org/apache/commons/lang3/StringUtils.html#join-java.lang.Iterable-java.lang.String-) | [`strings.Join(slice, sep)`](https://pkg.go.dev/strings#Join) |
 | [StringUtils::containsAny](https://commons.apache.org/proper/commons-lang/apidocs/org/apache/commons/lang3/StringUtils.html#containsAny-java.lang.CharSequence-char...-) | [`strings.ContainsAny(haystack,needles)`](https://pkg.go.dev/strings#ContainsAny) |
-
-
-- TODO: StringUtils.abbreviate			TODO
-- TODO: StringUtils.appendIfMissing		...TODO: ??...
-- TODO: StringUtils.capitalize			TODO
-- TODO: StringUtils.isAlpha			    ...TODO: ??...
-- TODO: StringUtils.isNumeric			...TODO: ??...
-- TODO: StringUtils.isAsciiPrintable	...TODO: ??...
-- TODO: StringUtils.leftPad			    fmt.Printf("%06d", 12)
-- TODO: StringUtils.rightPad			fmt.Printf("%06d", 12)
-- TODO: StringUtils.prependIfMissing	...TODO: ??...
-- TODO: StringUtils.remove/Delete		...TODO: ??...
-- TODO: StringUtils.replace			    ...TODO: ??...
-- TODO: StringUtils.substringLeft		...TODO: ??...
-- TODO: StringUtils.substringRight		...TODO: ??...
-- TODO: StringUtils.substringBefore		see below
-- TODO: StringUtils.substringBeforeLast	see below
-- TODO: StringUtils.substringAfter		see below
-- TODO: StringUtils.substringAfterLast	see below
-- TODO: StringUtils.uncapitalize		see below
-
---------
-- TODO: builder - https://yourbasic.org/golang/build-append-concatenate-strings-efficiently/
-- TODO: concatenation - https://yourbasic.org/golang/build-append-concatenate-strings-efficiently/
-- TODO: strconv.Itoa
 
 
 # CaseFormat
@@ -205,6 +180,30 @@ fmt.Printf("%d (dec) == %+q (code-point) == 0x%x (hex)",
 // 128512 (dec) == '\U0001f600' (code-point) == 0x1f600 (hex)
 ```
 
+
+# TODO/Unorganized
+- TODO: StringUtils.abbreviate			TODO
+- TODO: StringUtils.appendIfMissing		...TODO: ??...
+- TODO: StringUtils.capitalize			TODO
+- TODO: StringUtils.isAlpha			    ...TODO: ??...
+- TODO: StringUtils.isNumeric			...TODO: ??...
+- TODO: StringUtils.isAsciiPrintable	...TODO: ??...
+- TODO: StringUtils.leftPad			    fmt.Printf("%06d", 12)
+- TODO: StringUtils.rightPad			fmt.Printf("%06d", 12)
+- TODO: StringUtils.prependIfMissing	...TODO: ??...
+- TODO: StringUtils.remove/Delete		...TODO: ??...
+- TODO: StringUtils.replace			    ...TODO: ??...
+- TODO: StringUtils.substringLeft		...TODO: ??...
+- TODO: StringUtils.substringRight		...TODO: ??...
+- TODO: StringUtils.substringBefore		see below
+- TODO: StringUtils.substringBeforeLast	see below
+- TODO: StringUtils.substringAfter		see below
+- TODO: StringUtils.substringAfterLast	see below
+- TODO: StringUtils.uncapitalize		see below
+
+- TODO: builder - https://yourbasic.org/golang/build-append-concatenate-strings-efficiently/
+- TODO: concatenation - https://yourbasic.org/golang/build-append-concatenate-strings-efficiently/
+- TODO: strconv.Itoa
 
 
 # Other resources

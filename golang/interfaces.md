@@ -1,9 +1,9 @@
 # Overview
-- Key features of Interfaces
+1. Key features of Interfaces
 
 
-# Key features of interfaces
-1. Define required **behavior**
+# Key Concepts
+1. Interfaces Define required **behavior**
 1. Interface implementation is implicit
     1. This is huge!  loose couping between packages/modules
     1. Avoids unnecessary dependencies

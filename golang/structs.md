@@ -1,5 +1,6 @@
 # Overview
-- Key features & operations on structs
+1. Key features & operations on structs
+
 
 # Structs
 1. [Pass-by-value](TODO)

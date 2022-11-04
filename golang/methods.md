@@ -1,6 +1,6 @@
 # Overview
-- Key features of methods
-- See also [Functions](./functions.md) doc
+1. Key features of methods
+1. See also [Functions](./functions.md) doc
 
 
 # Methods overview

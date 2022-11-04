@@ -1,8 +1,8 @@
 # Overview
-- Key features & usage idioms for a channel
+1. Key features & usage idioms for a [channel](https://go.dev/tour/concurrency/2)
 
 
-# Key features of Channels
+# Key Concepts
 1. Type-safe
 1. Thread-safe (goroutine safe)
 1. FIFO queue

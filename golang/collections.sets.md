@@ -1,9 +1,9 @@
 # Overview
-- Key features & common operations on sets
-- See [maps](./collections.maps.md) doc
+1. Key features & common operations on sets
+1. See [maps](./collections.maps.md) doc
 
 
-# Key features of Sets
+# Key Concepts
 1. Implement using `map[T]bool`
 1. Alternative: `map[T]struct{}` (empty struct as value)
     1. Set operations are a little more verbose, but consume less memory

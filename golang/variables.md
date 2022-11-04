@@ -1,5 +1,5 @@
 # Overview
-- Key features of variables & constants
+1. Key features of variables & constants
 
 
 # Basic types

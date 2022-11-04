@@ -1,5 +1,5 @@
 # Overview
-- Key features & common operations on Slices, Arrays, ...
+1. Key features & common operations on Slices, Arrays, ...
 
 
 # Slices
