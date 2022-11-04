@@ -23,7 +23,7 @@
 1. Let a file be the **default** level of abstraction for one task/concept
     1. Golang equivalent: one package
     1. Java equivalent: one class
-1. Define methods in exactly one of these two files:
+1. Define a method in exactly one of these two files:
     1. Where the type ([enum](https://doc.rust-lang.org/book/ch06-01-defining-an-enum.html), [struct](https://doc.rust-lang.org/book/ch05-01-defining-structs.html)) is defined
     1. Where the [trait](./traits.md) is defined
 
