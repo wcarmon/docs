@@ -1,7 +1,7 @@
 # Overview
 1. What are [traits](https://doc.rust-lang.org/book/ch10-02-traits.html)?
-1. How to use [traits]?
-1. Popular core [traits]?
+1. How to use [traits](TODO)?
+1. Popular core [traits](TODO)?
 
 
 # Definitions
