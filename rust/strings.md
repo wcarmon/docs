@@ -83,8 +83,8 @@ assert_eq!(r#""foo""#, "\"foo\""); // "foo"
 
 
 # Escaping
-1. Double quote (for String/str): `\"`
-1. Single quote (for char): `\'`
+1. Double quote (for `String`/`&str`): `\"`
+1. Single quote (for `char`): `\'`
 
 
 # Comparison
