@@ -1,6 +1,7 @@
 # Overview
 1. How to structure reusable code files in larger projects
 1. See [modules doc](./modules.md)
+1. See [modeling doc](./modeling.md)
 
 
 # Key Concepts
