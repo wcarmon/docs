@@ -1,5 +1,5 @@
 # Overview
-- Summary of allocation mechanisms
+- Summary of (heap) allocation mechanisms
 
 
 # `make` function
@@ -18,7 +18,7 @@
 
 
 # Idioms
-TODO ...
+1. Use `make` 90% of the time
 
 
 # Other resources

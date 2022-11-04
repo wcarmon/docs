@@ -2,7 +2,7 @@
 - Key features & common operations for Maps
 
 
-# Key features of Maps
+# Key Concepts
 1. Key-value pairs
 1. **NOT** [Thread safe](https://en.wikipedia.org/wiki/Thread_safety)
     1. [Official docs](https://go.dev/doc/faq#atomic_maps)

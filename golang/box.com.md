@@ -1,7 +1,5 @@
 # Overview
-1. Interating with [box.com](https://www.box.com/)
-
-
+1. Interacting with [box.com](https://www.box.com/)
 
 
 # Config model
@@ -37,12 +35,15 @@ type AppAuth struct {
 
 # Create JWTClaim
 ```go
+TODO
 ```
 
 # Create JsonWebSignature
 ```go
+TODO
 ```
 
 # Request access token
 ```go
+TODO
 ```
