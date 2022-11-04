@@ -3,7 +3,7 @@
 
 
 # Package
-1. one or more *crates*
+1. one or more [*Crates*](./modules.md#crate)
 1. Contains one `Cargo.toml`
 
 
@@ -58,9 +58,6 @@
 |`crate::a`|`src/a.rs`|`mod b;`|
 
 
-
-
-
 # Namespace
 1. [`use`](https://doc.rust-lang.org/reference/items/use-declarations.html) allows referencing items without fully qualifying
 1. [`use`](https://doc.rust-lang.org/reference/items/use-declarations.html) has **nothing** to do with importing (see `mod`)
@@ -69,6 +66,7 @@
 
 
 # Other resources
+1. https://doc.rust-lang.org/rust-by-example/mod.html
 1. https://doc.rust-lang.org/reference/items/modules.html#module-source-filenames
 1. https://stevedonovan.github.io/rust-gentle-intro/4-modules.html
 1. https://web.mit.edu/rust-lang_v1.25/arch/amd64_ubuntu1404/share/doc/rust/html/book/first-edition/crates-and-modules.html

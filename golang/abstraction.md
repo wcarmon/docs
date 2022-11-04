@@ -8,7 +8,7 @@
 1. Files in package work together
 
 
-## Contrast to Java
+## Compare to Java
 |Java|Golang|
 |---|---|
 |Class is unit of abstraction|Package is unit of abstraction|
