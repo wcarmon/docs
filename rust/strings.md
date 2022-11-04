@@ -43,11 +43,12 @@
 1. `Ownership`: [Owned](./ownership.md) version of [`&Path`](https://doc.rust-lang.org/stable/std/path/struct.Path.html)
 1. `Mutability`: Mutable
 1. TODO
+1. **Not** guaranteed UTF-8
 
 
 # [&Path](https://doc.rust-lang.org/stable/std/path/struct.Path.html)
 1. `Ownership`: [Borrowed](./ownership.md) version of [`PathBuf`](https://doc.rust-lang.org/stable/std/path/struct.PathBuf.html)
-1. TODO
+1. **Not** guaranteed UTF-8
 
 
 # [OsString](https://doc.rust-lang.org/std/ffi/struct.OsString.html)
@@ -71,6 +72,25 @@
 # [&CStr](https://doc.rust-lang.org/stable/std/ffi/struct.CStr.html)
 1. `Ownership`: [Borrowed](./ownership.md)
 1. TODO
+
+
+# Raw strings
+```rust
+assert_eq!(r"foo", "foo"); // foo
+
+assert_eq!(r#""foo""#, "\"foo\""); // "foo"
+```
+
+
+# Escaping
+1. Double quote (for String/str): `\"`
+1. Single quote (for char): `\'`
+
+
+# Comparison
+1. Unlike Go, Rust doesn't support [backtick strings](https://yourbasic.org/golang/multiline-string/)
+    1. [Raw strings are similar](https://rahul-thakoor.github.io/rust-raw-string-literals/), [more info](https://doc.rust-lang.org/rust-by-example/std/str.html),
+1. Unlike TS/JS, Rust doesn't support single quote strings
 
 
 # Idioms
