@@ -20,7 +20,7 @@
 
 
 # Idioms
-1. Let a file be the **default** level of abstraction for one task/concept
+1. Let a `*.rs` file be the **default** level of abstraction for one task/concept
     1. Golang equivalent: one package
     1. Java equivalent: one class
 1. Define a method in exactly one of these two files:
