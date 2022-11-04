@@ -51,6 +51,7 @@
 - TODO: https://vino.dev/blog/node-to-rust-day-10-traits/
 - TODO: https://cheats.rs/#generics-constraints
 - TODO: compiler needs to know how much space every function's return type requires
+- TODO: when is `into` required (and when is it implicit?)
 
 # Other resources
 1. https://doc.rust-lang.org/book/ch10-02-traits.html
