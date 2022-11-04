@@ -68,14 +68,14 @@ export function doAsyncTasksWithCancellation(
 
       // -- chain intermediate steps
       for (let i = 1; i < tasks.length; i++) {
-        p = p.then((prev) => tasks[i](prev));
+        p = p.then(prev => tasks[i](prev));
 
         // allow cancellation to prevent next step
         p = Promise.race([p, cancellationPromise]);
       }
 
       // -- Last step
-      p.then((prev) => resolve(prev));
+      p.then(prev => resolve(prev));
       p.catch(reject);
     }),
 
