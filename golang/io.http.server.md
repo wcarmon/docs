@@ -250,7 +250,7 @@ func MyHandler(w http.ResponseWriter, r *http.Request) {
 - TODO: limiting request body size
 
 
-# Other resources
+# Other Resources
 1. https://www.alexedwards.net/blog/which-go-router-should-i-use
 1. https://github.com/gorilla/mux
 1. https://benhoyt.com/writings/go-routing/

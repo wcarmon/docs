@@ -4,4 +4,4 @@
 - TODO: https://www.kuniga.me/docs/rust/#functions
 
 
-# Other resources
+# Other Resources

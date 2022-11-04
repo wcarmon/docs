@@ -162,7 +162,7 @@ sort.Strings(uniq)
     1. Compare index by index using `for`-`range`
 
 
-# Other resources
+# Other Resources
 1. [Really useful slice tricks](https://ueokande.github.io/go-slice-tricks/)
 1. https://www.practical-go-lessons.com/chap-21-slices
 1. https://www.practical-go-lessons.com/chap-15-pointer-type#slices

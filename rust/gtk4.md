@@ -12,4 +12,4 @@ sudo apt install -t experimental libgtk-4-1 libgtk-4-dev
 ```
 
 
-# Other resources
+# Other Resources

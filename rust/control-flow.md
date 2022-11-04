@@ -4,4 +4,4 @@
 - TODO: https://cheats.rs/#control-flow
 
 
-# Other resources
+# Other Resources

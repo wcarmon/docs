@@ -101,5 +101,5 @@ TODO
 1. Avoid `time.Until` because it hard codes `time.Now()` (better to inject a time provider)
 
 
-# Other resources
+# Other Resources
 1. https://pkg.go.dev/time

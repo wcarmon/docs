@@ -9,4 +9,4 @@
 - TODO: https://blog.logrocket.com/deep-dive-concurrency-rust-programming-language/
 
 
-# Other resources
+# Other Resources

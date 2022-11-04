@@ -229,5 +229,5 @@ func Round(n *big.Float, decimalCount uint) float64 {
 ```
 
 
-# Other resources
+# Other Resources
 1. [Predefined constants](https://pkg.go.dev/math#pkg-constants)

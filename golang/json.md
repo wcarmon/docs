@@ -97,7 +97,7 @@ func (t *MyType) UnmarshalJSON(data []byte) error {
 
 
 
-# Other resources
+# Other Resources
 1. https://pkg.go.dev/encoding/json
 1. https://gobyexample.com/json
 1. https://linuxhint.com/marshal-unmarshal-golang/

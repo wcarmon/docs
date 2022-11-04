@@ -4,4 +4,4 @@
 - TODO: https://cheats.rs/#macros-attributes
 
 
-# Other resources
+# Other Resources

@@ -9,5 +9,5 @@
 1. Prefer a helpful comment to a long package name
 
 
-# Other resources
+# Other Resources
 1. https://www.practical-go-lessons.com/chap-40-design-recommendations#package-names

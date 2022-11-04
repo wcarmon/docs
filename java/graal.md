@@ -73,5 +73,5 @@ native-image --target="linux-amd64" -jar foo.jar build/myBinary
 - TODO: Dashboard: https://www.graalvm.org/dashboard/
 
 
-# Other resources
+# Other Resources
 1. TODO

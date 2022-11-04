@@ -68,7 +68,7 @@ TODO ...
 
 
 
-# Other resources
+# Other Resources
 1. https://pkg.go.dev/regexp
 1. https://pkg.go.dev/regexp/syntax
 1. https://github.com/google/re2/wiki/Syntax

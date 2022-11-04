@@ -38,5 +38,5 @@ TODO: non-pointer receiver
 TODO ...
 
 
-# Other resources
+# Other Resources
 1. https://www.practical-go-lessons.com/chap-14-methods

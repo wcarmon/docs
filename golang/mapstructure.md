@@ -7,5 +7,5 @@
 1. Doesn't allow types to decode themselves
 
 
-# Other resources
+# Other Resources
 - TODO

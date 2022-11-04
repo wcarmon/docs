@@ -6,5 +6,5 @@
 - static: guaranteed valid for duration of entire program
 
 
-# Other resources
+# Other Resources
 1. TODO

@@ -14,7 +14,7 @@
 1. TODO
 
 
-# Other resources
+# Other Resources
 1. https://github.com/open-telemetry/opentelemetry-go (obsoletes open-tracing)
 1. https://opentelemetry.io/docs/instrumentation/go/
 1. https://opentelemetry.io/docs/reference/specification/error-handling/

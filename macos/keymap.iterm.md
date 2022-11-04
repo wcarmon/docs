@@ -24,6 +24,6 @@ PRODUCT_ID_FOR_WIN_KEYBOARD=0x07a5;
 - TODO: global hotkey like guake (F12)
 
 
-# Other resources
+# Other Resources
 1. https://www.makeuseof.com/linux-bash-terminal-shortcuts/
 1. https://www.redhat.com/sysadmin/top-10-shortcuts

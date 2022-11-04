@@ -36,7 +36,7 @@ func doSlowTask(done chan<- struct{}) {
 ```
 
 
-# Other resources
+# Other Resources
 1. [go by example](https://gobyexample.com/timeouts)
 1. [golangr](https://golangr.com/timeout)
 1. [golangbyexample](https://golangbyexample.com/select-statement-with-timeout-go)

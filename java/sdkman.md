@@ -95,7 +95,7 @@ sdk uninstall java 8.0.265-zulu;
 1. These might require login
 
 
-# Other resources
+# Other Resources
 1. https://www.oracle.com/java/technologies/javase-jdk11-downloads.html
 1. https://openjdk.java.net/
 1. https://sdkman.io/usage

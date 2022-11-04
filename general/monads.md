@@ -17,5 +17,5 @@
 1. ...
 
 
-# Other resources
+# Other Resources
 1. https://youtu.be/C2w45qRc3aU

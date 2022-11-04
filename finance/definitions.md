@@ -36,4 +36,4 @@
 - **Unallocated transfer**: transfer not applied to a Settlement
 
 
-# Other resources
+# Other Resources

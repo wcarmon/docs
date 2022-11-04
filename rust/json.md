@@ -6,4 +6,4 @@
 - TODO: https://vino.dev/blog/node-to-rust-day-22-using-json/
 
 
-# Other resources
+# Other Resources

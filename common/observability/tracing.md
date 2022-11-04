@@ -94,5 +94,5 @@
 1. Existing Log lib should send records/events to ?TODO?
 
 
-# Other resources
+# Other Resources
 1. https://opentelemetry.io/docs/reference/specification/error-handling/

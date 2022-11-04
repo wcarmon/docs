@@ -66,7 +66,7 @@ func DoSomeExpensiveIO(ctx context.Context) (FooResult, error) {
 ```
 
 
-# Other resources
+# Other Resources
 1. https://go.dev/doc/database/cancel-operations
 1. https://www.prakharsrivastav.com/posts/golang-context-and-cancellation/
 1. https://www.sohamkamani.com/golang/context-cancellation-and-values/

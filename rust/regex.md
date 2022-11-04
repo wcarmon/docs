@@ -6,4 +6,4 @@
 - TODO: https://sodocumentation.net/rust/topic/7184/regex
 - TODO: https://riptutorial.com/rust/topic/7184/regex
 
-# Other resources
+# Other Resources

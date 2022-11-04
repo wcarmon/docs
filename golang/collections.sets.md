@@ -93,5 +93,5 @@ for value, contains := range srcSet {
 - TODO: json unmarshal
 - TODO: json marshal
 
-# Other resources
+# Other Resources
 1. TODO

@@ -4,5 +4,5 @@
 
 - TODO: https://www.kuniga.me/docs/rust/#struct
 
-# Other resources
+# Other Resources
 1. TODO

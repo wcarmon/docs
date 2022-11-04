@@ -45,5 +45,5 @@
 1. Always select the algorithm to for parsing (don't let the token decide)
 
 
-# Other resources
+# Other Resources
 1. TODO ...

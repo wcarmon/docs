@@ -55,6 +55,6 @@ if err != nil {
 
 - TODO: empty tag with />
 
-# Other resources
+# Other Resources
 1. https://gobyexample.com/xml
 1. https://pkg.go.dev/encoding/xml

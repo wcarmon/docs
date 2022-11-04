@@ -54,7 +54,7 @@ func acceptPointer(p *int) {
 1. Accept non-pointer for immutability
 
 
-# Other resources
+# Other Resources
 1. https://go.dev/ref/spec#Calls
 1. https://go.dev/tour/moretypes/1
 1. https://www.practical-go-lessons.com/chap-15-pointer-type

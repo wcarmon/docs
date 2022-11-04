@@ -9,7 +9,7 @@
 1. [Click `Allow Anyway` button](https://www.alphr.com/cannot-be-opened-because-the-developer-cannot-be-verified/)
 
 
-# Other resources
+# Other Resources
 1. https://www.alphr.com/cannot-be-opened-because-the-developer-cannot-be-verified/
 1. https://support.apple.com/guide/mac-help/open-a-mac-app-from-an-unidentified-developer-mh40616/mac
 1. https://www.macworld.com/article/672947/how-to-open-a-mac-app-from-an-unidentified-developer.html

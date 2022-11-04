@@ -168,6 +168,6 @@ uxMillis := t.UnixMilli()
 - TODO: time.After (chan)
 
 
-# Other resources
+# Other Resources
 1. https://www.practical-go-lessons.com/chap-28-dates-and-time
 

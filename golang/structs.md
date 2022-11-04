@@ -63,6 +63,6 @@ b := a
 1. [Goland can build structs from json](https://www.jetbrains.com/help/go/working-with-json.html)
 
 
-# Other resources
+# Other Resources
 1. https://gobyexample.com/embedding
 1. https://www.practical-go-lessons.com/chap-15-pointer-type#pointers-to-structs

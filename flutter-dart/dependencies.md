@@ -13,7 +13,7 @@ flutter pub upgrade
 
 
 
-# Other resources
+# Other Resources
 1. https://pub.dev/
 1. https://docs.flutter.dev/development/packages-and-plugins/using-packages
 1. https://dart.dev/tools/pub/cmd/pub-upgrade

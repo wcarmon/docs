@@ -86,5 +86,5 @@ defaults read com.google.Chrome | grep -A 10 NSUserKey;
 |`SHIFT` + `space`|Move up screen|
 
 
-# Other resources
+# Other Resources
 1. https://support.google.com/chrome/answer/157179?hl=en&co=GENIE.Platform%3DDesktop

@@ -42,6 +42,6 @@ TODO: runtime checks for interfaces like Marshaler
 1. Naming: Use MixedCaps or mixedCaps
 
 
-# Other resources
+# Other Resources
 1. https://www.practical-go-lessons.com/chap-16-interfaces
 1. https://gobyexample.com/embedding

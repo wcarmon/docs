@@ -2,7 +2,7 @@
 1. TODO
 
 
-# Other resources
+# Other Resources
 1. https://www.timroes.de/kibana-search-cheatsheet
 1. https://cheatography.com/swaglord/cheat-sheets/kibana/
 1. https://cheatography.com/alasta/cheat-sheets/kibana-search-v5/

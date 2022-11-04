@@ -3,7 +3,7 @@
 
 
 
-# Other resources
+# Other Resources
 1. https://pkg.go.dev/cmd/cgo
 1. https://go.dev/blog/cgo
 1. https://github.com/golang/go/wiki/cgo

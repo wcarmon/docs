@@ -19,6 +19,6 @@ gofmt -s -w $SRC_ROOT;
     1. Arguments are different
 
 
-# Other resources
+# Other Resources
 - https://go.dev/blog/gofmt
 - https://pkg.go.dev/cmd/gofmt

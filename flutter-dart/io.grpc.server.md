@@ -16,5 +16,5 @@ which protoc-gen-dart
 ```
 
 
-# Other resources
+# Other Resources
 1. https://grpc.io/docs/languages/dart/quickstart/

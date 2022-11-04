@@ -14,6 +14,6 @@
 - TODO: https://www.kuniga.me/docs/rust/#data-structures
 
 
-# Other resources
+# Other Resources
 1. https://phaiax.github.io/rust-cheatsheet/
 1. TODO

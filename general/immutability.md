@@ -40,7 +40,7 @@
 1. [Blockchain](https://medium.com/fluree/immutability-and-the-enterprise-an-immense-value-proposition-98cd3bf900b1)
 
 
-# Other resources
+# Other Resources
 1. https://www.tiny.cloud/blog/mutable-vs-immutable-javascript/
 1. https://docs.oracle.com/javase/tutorial/essential/concurrency/immutable.html
 1. https://debugged.it/blog/why-immutability-matters/

@@ -10,4 +10,4 @@
 - TODO: https://www.cs.brandeis.edu/~cs146a/rust/rustbyexample-02-21-2015/channels.html
 
 
-# Other resources
+# Other Resources

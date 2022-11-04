@@ -83,7 +83,7 @@ TODO: copy keys into slice, sort the slice, lookup via keys
 TODO: copy into slice, sort the slice
 ```
 
-# Other resources
+# Other Resources
 1. https://gobyexample.com/sorting
 1. https://gobyexample.com/sorting-by-functions
 1. [reversing](https://pkg.go.dev/sort#Reverse)

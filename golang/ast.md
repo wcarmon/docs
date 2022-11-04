@@ -13,7 +13,7 @@
 TODO ...
 
 
-# Other resources
+# Other Resources
 1. https://github.com/dave/dst
 1. https://eli.thegreenplace.net/2021/rewriting-go-source-code-with-ast-tooling/
 1. https://medium.com/justforfunc/understanding-go-programs-with-go-parser-c4e88a6edb87

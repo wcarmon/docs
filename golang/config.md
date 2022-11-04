@@ -7,7 +7,7 @@
 1. [Feature rich Example](./config.complex.md)
 
 
-# Other resources
+# Other Resources
 1. https://github.com/spf13/viper
 1. https://blog.logrocket.com/handling-go-configuration-viper/
 1. https://medium.com/@jomzsg/the-easy-way-to-handle-configuration-file-in-golang-using-viper-6b3c88d2ee79

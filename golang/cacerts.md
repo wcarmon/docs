@@ -34,5 +34,5 @@ sudo cat $NEW_CA_CERT >> /etc/ssl/cert.pem
 ```
 
 
-# Other resources
+# Other Resources
 1. TODO

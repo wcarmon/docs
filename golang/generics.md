@@ -14,5 +14,5 @@ TODO: impact on slices
 TODO: impact on structs
 
 
-# Other resources
+# Other Resources
 1. TODO ...

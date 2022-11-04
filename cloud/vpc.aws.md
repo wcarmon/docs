@@ -111,5 +111,5 @@
 - TODO: VPC has multiple NAT gateways?
 - TODO: can you share Internet gateways between VPCs?
 
-# Other resources
+# Other Resources
 1. https://aws.amazon.com/vpc/

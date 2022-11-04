@@ -12,5 +12,5 @@ os.Getenv("HOME")
 TODO ...
 
 
-# Other resources
+# Other Resources
 1. https://yourbasic.org/golang/environment-variables/

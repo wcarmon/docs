@@ -14,5 +14,5 @@ defer os.Remove(f.Name())
 ```
 
 
-# Other resources
+# Other Resources
 1. https://www.practical-go-lessons.com/chap-29-data-storage-files-and-databases

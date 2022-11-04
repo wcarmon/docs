@@ -52,5 +52,5 @@ defer conn.close(ctx)
 # Idioms
 1. TODO
 
-# Other resources
+# Other Resources
 1. TODO

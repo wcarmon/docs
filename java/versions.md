@@ -104,7 +104,7 @@
 1. New DateTime API
 
 
-# Other resources
+# Other Resources
 1. https://en.wikipedia.org/wiki/Java_version_history
 1. https://ondro.inginea.eu/index.php/new-features-in-java-versions-since-java-8/
 1. https://advancedweb.hu/a-categorized-list-of-all-java-and-jvm-features-since-jdk-8-to-18/

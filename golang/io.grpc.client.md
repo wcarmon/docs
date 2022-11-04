@@ -8,5 +8,5 @@
 - TODO: https://dev.to/gopher/getting-started-with-go-context-l7g
 
 
-# Other resources
+# Other Resources
 1. TODO ...

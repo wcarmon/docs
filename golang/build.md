@@ -23,4 +23,4 @@ go tool dist list;
 ```
 
 
-# Other resources
+# Other Resources

@@ -156,7 +156,7 @@ fmt.Printf("Data: %#v\n", m)
 1. Gotcha: Maps are not comparable with `==`
 
 
-# Other resources
+# Other Resources
 1. [Official docs](https://go.dev/blog/maps)
 1. [practical-go-lessons](https://www.practical-go-lessons.com/chap-22-maps)
 1. [go101](https://go101.org/optimizations/6-map.html)

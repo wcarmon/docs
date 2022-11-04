@@ -206,7 +206,7 @@ fmt.Printf("%d (dec) == %+q (code-point) == 0x%x (hex)",
 - TODO: strconv.Itoa
 
 
-# Other resources
+# Other Resources
 1. [Official docs](https://go.dev/blog/strings)
 1. [Official Language spec](https://go.dev/ref/spec#String_types)
 1. [Official Language Spec for Rune literal](https://go.dev/ref/spec#Rune_literals)

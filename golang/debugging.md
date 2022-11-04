@@ -31,5 +31,5 @@ go build -gcflags "all=-N -l" -o
 TODO ...
 
 
-# Other resources
+# Other Resources
 1. TODO ...

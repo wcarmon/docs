@@ -72,6 +72,6 @@ TODO...
 TODO: ...
 
 
-# Other resources
+# Other Resources
 1. [Guava MultiMap](https://guava.dev/releases/31.0-jre/api/docs/com/google/common/collect/Multimap.html)
 1. [Apache commons :: Bag](https://commons.apache.org/proper/commons-collections/apidocs/org/apache/commons/collections4/Bag.html)

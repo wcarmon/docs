@@ -102,5 +102,5 @@
 1. `Paths.get` doesn't accept `Path` argument (so you must convert to `String` first)
 
 
-# Other resources
+# Other Resources
 1. TODO

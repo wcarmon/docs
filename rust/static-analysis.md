@@ -9,4 +9,4 @@
 # Storage profiler for Artifact
 - TODO: cargo bloat  - https://github.com/RazrFalcon/cargo-bloat
 
-# Other resources
+# Other Resources

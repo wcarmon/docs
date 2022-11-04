@@ -15,7 +15,7 @@
 - https://cheats.rs/#pattern-matching
 
 
-# Other resources
+# Other Resources
 1. https://doc.rust-lang.org/book/ch18-00-patterns.html
 1. https://doc.rust-lang.org/book/ch18-03-pattern-syntax.html
 1. https://doc.rust-lang.org/reference/expressions/match-expr.html

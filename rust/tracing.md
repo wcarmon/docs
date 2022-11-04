@@ -118,7 +118,7 @@ tracing-subscriber = "..."
 ```
 
 
-# Other resources
+# Other Resources
 1. https://docs.rs/opentelemetry/latest/opentelemetry/
 1. https://docs.rs/tracing-opentelemetry/latest/tracing_opentelemetry/
 1. https://docs.rs/tracing/latest/tracing/

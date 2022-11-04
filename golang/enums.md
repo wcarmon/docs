@@ -141,7 +141,7 @@ TODO: do I need this?
 - TODO: catching missing branches in enum switch
 
 
-# Other resources
+# Other Resources
 1. [Official docs](https://go.dev/ref/spec#Iota)
 1. https://threedots.tech/post/safer-enums-in-go/
 1. https://dlintw.github.io/gobyexample/public/constants-and-iota.html

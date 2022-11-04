@@ -20,5 +20,5 @@
 - [for android & iOS](https://developer.fyne.io/started/mobile#packaging-mobile-apps)
 
 
-# Other resources
+# Other Resources
 1. TODO

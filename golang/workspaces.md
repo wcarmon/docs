@@ -35,6 +35,6 @@ go work sync
 1. You have to add packages to `go.work` for some imports to resolve
 
 
-# Other resources
+# Other Resources
 1. https://go.dev/doc/tutorial/workspaces
 1. https://go.dev/blog/get-familiar-with-workspaces

@@ -120,7 +120,7 @@
 1. The `Jenkinsfile` auto updates the stored job config
 
 
-# Other resources
+# Other Resources
 1. https://www.jenkins.io/doc/book/pipeline/syntax/
 1. https://github.com/cherkavi/cheat-sheet/blob/master/jenkins.md
 1. https://github.com/jenkinsci/pipeline-examples/blob/master/declarative-examples/jenkinsfile-examples/mavenDocker.groovy

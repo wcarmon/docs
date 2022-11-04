@@ -79,7 +79,7 @@ go list -u -m -json all | $HOME/go/bin/go-mod-outdated;
 - TODO: mention package cycles
 
 
-# Other resources
+# Other Resources
 1. https://go.dev/ref/mod
 1. https://go.dev/doc/tutorial/create-module
 1. https://go.dev/blog/using-go-modules

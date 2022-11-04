@@ -15,5 +15,5 @@ dpkg -l "libgtk-3*" | grep ii
 ```
 
 
-# Other resources
+# Other Resources
 1. TODO

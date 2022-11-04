@@ -74,7 +74,7 @@ if err != nil {
 - TODO: only use `log.Fatalf` in main function
 
 
-# Other resources
+# Other Resources
 1. https://www.practical-go-lessons.com/chap-40-design-recommendations#error-handling
 1. https://www.practical-go-lessons.com/chap-23-errors
 1. https://go.dev/blog/go1.13-errors

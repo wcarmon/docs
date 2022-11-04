@@ -53,6 +53,6 @@
 - TODO: compiler needs to know how much space every function's return type requires
 - TODO: when is `into` required (and when is it implicit?)
 
-# Other resources
+# Other Resources
 1. https://doc.rust-lang.org/book/ch10-02-traits.html
 1. https://doc.rust-lang.org/rust-by-example/trait.html

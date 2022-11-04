@@ -6,5 +6,5 @@
 - TODO: reflect.TypeOf
 
 
-# Other resources
+# Other Resources
 - TODO

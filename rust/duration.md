@@ -137,5 +137,5 @@ let chr_dur = chrono::Duration::from_std(std_d)
 - https://rust-lang-nursery.github.io/rust-cookbook/datetime/duration.html#perform-checked-date-and-time-calculations
 
 
-# Other resources
+# Other Resources
 1. https://doc.rust-lang.org/std/time/index.html

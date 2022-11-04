@@ -14,5 +14,5 @@
 ```
 
 
-# Other resources
+# Other Resources
 - https://go.dev/doc/effective_go

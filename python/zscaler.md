@@ -25,5 +25,5 @@ export REQUESTS_CA_BUNDLE=${CERT_PATH};
     - `SSL_CERT_FILE=`
 
 
-# Other resources
+# Other Resources
 - TODO

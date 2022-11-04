@@ -30,7 +30,7 @@
 1. [`Display`](https://doc.rust-lang.org/std/fmt/trait.Display.html)
 
 
-# Other resources
+# Other Resources
 1. https://doc.rust-lang.org/rust-by-example/trait/derive.html
 1. https://www.lurklurk.org/effective-rust/std-traits.html
 1. https://dev.to/werner/move-semantics-vs-copy-semantics-pkb

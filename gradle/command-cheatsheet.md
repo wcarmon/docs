@@ -157,5 +157,5 @@ rm -rf $HOME/.gradle/caches/modules-2/files-2.1/*
 ```
 
 
-# Other resources
+# Other Resources
 1. TODO...

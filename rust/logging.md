@@ -9,5 +9,5 @@
 1. Add logs where you **handle** an [`Error`](https://docs.rs/anyhow/latest/anyhow/struct.Error.html), not where you propagate (`?`)
 
 
-# Other resources
+# Other Resources
 1. https://docs.rs/log/latest/log/

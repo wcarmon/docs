@@ -7,4 +7,4 @@ go get
 ```
 
 
-# Other resources
+# Other Resources

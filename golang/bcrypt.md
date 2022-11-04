@@ -39,7 +39,7 @@ return true, nil
 ```
 
 
-# Other resources
+# Other Resources
 1. https://en.wikipedia.org/wiki/Bcrypt
 1. https://en.wikipedia.org/wiki/Blowfish_(cipher)
 1. https://pkg.go.dev/golang.org/x/crypto

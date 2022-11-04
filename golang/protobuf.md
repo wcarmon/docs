@@ -133,7 +133,7 @@ require google.golang.org/protobuf v1.28.1
         1. *Output*: `$CWD/baz/gen/serde/bar/foo.pb.go`
 
 
-# Other resources
+# Other Resources
 1. https://grpc.io/docs/languages/go/quickstart/
 1. https://developers.google.com/protocol-buffers/docs/gotutorial
 1. https://github.com/golang/protobuf

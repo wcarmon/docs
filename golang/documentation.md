@@ -35,5 +35,5 @@ godoc -http=:6060 &
 TODO
 
 
-# Other resources
+# Other Resources
 - https://go.dev/doc/effective_go

@@ -7,5 +7,5 @@
 flutter pub add protobuf
 ```
 
-# Other resources
+# Other Resources
 1. https://pub.dev/packages/protobuf/install

@@ -18,5 +18,5 @@ flutter analyze
 ```
 
 
-# Other resources
+# Other Resources
 1. https://dart.dev/tools/linter-rules

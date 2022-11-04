@@ -207,7 +207,7 @@ let chrono_ts: DateTime<Utc> = SystemTime::now().into();
 1. Avoid [~~`elapsed`~~](https://doc.rust-lang.org/std/time/struct.Instant.html#method.elapsed) since it hard codes [`Instant::now()`](https://doc.rust-lang.org/std/time/struct.Instant.html#method.now)
 
 
-# Other resources
+# Other Resources
 1. https://doc.rust-lang.org/std/time/index.html
 1. https://docs.rs/chrono/latest/chrono/
 1. https://docs.rs/chrono/latest/chrono/struct.DateTime.html

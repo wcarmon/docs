@@ -74,7 +74,7 @@ func main() {
 ```
 
 
-# Other resources
+# Other Resources
 1. https://pkg.go.dev/github.com/rs/zerolog
 1. https://github.com/rs/zerolog
 1. https://medium.com/swlh/stop-using-prints-and-embrace-zerolog-2c4dd8e8816a

@@ -64,7 +64,7 @@ case isYellow && isAlive:
 1. Rarely use `else`, use multiple `return`s instead
 
 
-# Other resources
+# Other Resources
 1. https://gobyexample.com/if-else
 1. https://gobyexample.com/for
 

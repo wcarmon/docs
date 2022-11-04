@@ -1,3 +1,3 @@
 # Overview
 
-# Other resources
+# Other Resources

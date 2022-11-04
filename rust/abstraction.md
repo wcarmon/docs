@@ -31,7 +31,7 @@
 1. [Compare to golang](../golang/abstraction.md)
 
 
-# Other resources
+# Other Resources
 1. https://doc.rust-lang.org/book/ch07-00-managing-growing-projects-with-packages-crates-and-modules.html
 1. https://doc.rust-lang.org/rust-by-example/mod.html
 1. https://doc.rust-lang.org/book/ch14-03-cargo-workspaces.html

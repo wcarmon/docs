@@ -10,5 +10,5 @@ TODO: https://go.dev/play/
 TODO ...
 
 
-# Other resources
+# Other Resources
 1. TODO ...

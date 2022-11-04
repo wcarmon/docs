@@ -29,7 +29,7 @@ go install golang.org/x/tools/cmd/stringer
 
 - TODO: goland support
 
-# Other resources
+# Other Resources
 1. https://pkg.go.dev/golang.org/x/tools/cmd/stringer
 1. https://pkg.go.dev/fmt#Stringer
 1. https://musse.dev/stringer-golang/

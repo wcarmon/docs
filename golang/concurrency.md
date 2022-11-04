@@ -47,7 +47,7 @@ fmt.Println("%d", runtime.GOMAXPROCS(0))
 TODO: http://golang.org/doc/articles/concurrency_patterns.html
 
 
-# Other resources
+# Other Resources
 1. https://gobyexample.com/goroutines
 1. https://go.dev/tour/concurrency/1
 1. https://golangbot.com/goroutines/

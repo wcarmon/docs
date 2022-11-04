@@ -30,5 +30,5 @@ docker inspect wc-nginx-container;
 ```
 
 
-# Other resources
+# Other Resources
 1. TODO

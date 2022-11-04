@@ -39,6 +39,6 @@ func doSomeWork(taskId int) {
 1. This would be difficult with channels since you'd need to know when to `close(...)`
 
 
-# Other resources
+# Other Resources
 1. [GoByExample](https://gobyexample.com/waitgroups)
 1. [Official docs](https://pkg.go.dev/sync#WaitGroup)

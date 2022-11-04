@@ -161,7 +161,7 @@
 1. `SHIFT+SHIFT` (Search anywhere)
 
 
-# Other resources
+# Other Resources
 1. https://resources.jetbrains.com/storage/products/intellij-idea/docs/IntelliJIDEA_ReferenceCard.pdf
 1. https://www.jetbrains.com/help/idea/reference-keymap-mac-default.html
 1. https://www.jetbrains.com/help/idea/settings-keymap.html

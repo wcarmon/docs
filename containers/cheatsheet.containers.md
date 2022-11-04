@@ -25,5 +25,5 @@ docker rm $(docker ps -a -q)
 1. See [debug.md](./debug.md)
 
 
-# Other resources
+# Other Resources
 1. https://www.digitalocean.com/community/tutorials/how-to-remove-docker-images-containers-and-volumes

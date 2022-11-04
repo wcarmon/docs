@@ -62,7 +62,7 @@ func teardown() {
 - TODO: got & want  (not expected & actual)  <-- examples from official
 
 
-# Other resources
+# Other Resources
 1. [Official testing package](https://pkg.go.dev/testing)
 1. https://www.practical-go-lessons.com/chap-19-unit-tests
 1. https://go.dev/doc/tutorial/add-a-test

@@ -47,4 +47,4 @@ func ConvertNumToColString(colNum int) (string, error) {
 ```
 
 
-# Other resources
+# Other Resources

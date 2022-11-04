@@ -11,5 +11,5 @@
 1. TODO: context cancel
 
 
-# Other resources
+# Other Resources
 1. TODO

@@ -384,5 +384,5 @@ wire $DIR_CONTAINING_WIRE_DOT_GO;
     1. https://plugins.jetbrains.com/plugin/19395-go-wire-util
 
 
-# Other resources
+# Other Resources
 1. https://github.com/google/wire

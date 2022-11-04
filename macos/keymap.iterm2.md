@@ -54,7 +54,7 @@
 
 
 
-# Other resources
+# Other Resources
 1. https://stackoverflow.com/questions/6205157/how-to-set-keyboard-shortcuts-to-jump-to-beginning-end-of-line
 1. https://apple.stackexchange.com/questions/154292/iterm-going-one-word-backwards-and-forwards
 https://iterm2.com/documentation-escape-codes.html

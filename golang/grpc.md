@@ -53,5 +53,5 @@ import _ "google.golang.org/grpc/encoding/gzip"
 ```
 
 
-# Other resources
+# Other Resources
 1. https://grpc.io/docs/languages/go/basics/

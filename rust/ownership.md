@@ -44,7 +44,7 @@
 - TODO: https://cheats.rs/#memory-lifetimes
 
 
-# Other resources
+# Other Resources
 1. https://doc.rust-lang.org/book/ch04-00-understanding-ownership.html
 1. [Memory doc](./memory.md)
 1. https://blog.logrocket.com/understanding-ownership-in-rust/

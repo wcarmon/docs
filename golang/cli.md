@@ -6,7 +6,7 @@
 TODO: flags
 
 
-# Other resources
+# Other Resources
 1. https://cobra.dev/
 1. https://github.com/spf13/cobra
 1. https://github.com/spf13/viper
@@ -14,5 +14,5 @@ TODO: flags
 1. https://yourbasic.org/golang/command-line-arguments/
 
 
-# Other resources
+# Other Resources
 1. TODO ...

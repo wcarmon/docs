@@ -87,7 +87,7 @@ flutter create ...
 1. https://docs.flutter.dev/get-started/codelab
 
 
-# Other resources
+# Other Resources
 1. https://docs.flutter.dev/get-started/install
 1. https://docs.flutter.dev/get-started/editor
 1. https://docs.flutter.dev/get-started/codelab

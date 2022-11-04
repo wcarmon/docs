@@ -21,7 +21,7 @@
 1. Use `make` 90% of the time
 
 
-# Other resources
+# Other Resources
 1. https://go101.org/optimizations/0.3-memory-allocations.html
 1. [make](https://pkg.go.dev/builtin#make)
 1. [new](https://pkg.go.dev/builtin#new)

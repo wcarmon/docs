@@ -16,7 +16,7 @@
 1. All heap access happens thru a pointer
 
 
-# Other resources
+# Other Resources
 1. https://doc.rust-lang.org/rust-by-example/std/box.html
 1. https://web.mit.edu/rust-lang_v1.25/arch/amd64_ubuntu1404/share/doc/rust/html/book/first-edition/the-stack-and-the-heap.html
 1. https://nnethercote.github.io/perf-book/heap-allocations.html

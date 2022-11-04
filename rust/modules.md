@@ -67,7 +67,7 @@
 1. `use w::x::y::Z` means: bring `Z` into the current namespace, so I can reference as `y::Z`
 
 
-# Other resources
+# Other Resources
 1. https://doc.rust-lang.org/rust-by-example/mod.html
 1. https://doc.rust-lang.org/reference/items/modules.html#module-source-filenames
 1. https://stevedonovan.github.io/rust-gentle-intro/4-modules.html

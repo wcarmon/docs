@@ -156,7 +156,7 @@ print!("{:?}", m);
 1. TODO
 
 
-# Other resources
+# Other Resources
 1. https://doc.rust-lang.org/stable/std/collections/struct.HashMap.html
 1. https://doc.rust-lang.org/book/ch08-03-hash-maps.html
 1. https://phaiax.github.io/rust-cheatsheet/

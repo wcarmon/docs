@@ -83,5 +83,5 @@ echo "Add this path: " $(go env GOPATH)/bin;
 ```
 
 
-# Other resources
+# Other Resources
 1. TODO

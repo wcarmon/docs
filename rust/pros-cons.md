@@ -17,5 +17,5 @@
 1. "Sometimes" file-names and module-names are associated (eg `mod foo` must be in `foo.rs`)
 
 
-# Other resources
+# Other Resources
 1. TODO

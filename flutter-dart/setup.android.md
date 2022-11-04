@@ -35,5 +35,5 @@ flutter doctor;
 # Devices
 1. Android Studio > Device Manager >
 
-# Other resources
+# Other Resources
 1. ...

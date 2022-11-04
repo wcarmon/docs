@@ -165,7 +165,7 @@ func FromRequest(r *http.Request) (Id, bool) {
 1. See [gRPC server](./io.grpc.server.md) doc
 
 
-# Other resources
+# Other Resources
 1. https://www.practical-go-lessons.com/chap-37-context
 1. https://pkg.go.dev/context
 1. https://www.digitalocean.com/community/tutorials/how-to-use-contexts-in-go

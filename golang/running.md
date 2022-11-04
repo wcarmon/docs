@@ -13,5 +13,5 @@
     - Program arguments: [`/path/to/your/app.conf.toml`](./config.md)
 
 
-# Other resources
+# Other Resources
 1. https://www.jetbrains.com/help/go/running-applications.html

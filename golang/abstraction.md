@@ -18,5 +18,5 @@
 
 TODO: packages
 
-# Other resources
+# Other Resources
 1. https://www.practical-go-lessons.com/chap-40-design-recommendations#source-files

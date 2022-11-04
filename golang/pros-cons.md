@@ -30,5 +30,5 @@
 1. Sorting is unintuitive
 
 
-# Other resources
+# Other Resources
 1. TODO

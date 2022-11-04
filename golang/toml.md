@@ -104,5 +104,5 @@ func SprintfUndecodedKeys(keys []toml.Key) string {
 # TODO:
 - TODO: detect duplicate assignment (overwrite)?  <-- [spec says it's a parser failure](TODO)
 
-# Other resources
+# Other Resources
 1. https://github.com/pelletier/go-toml

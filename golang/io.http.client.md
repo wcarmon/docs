@@ -149,7 +149,7 @@ func CreateFoo(
 1. use [`httputil.DumpRequest(...)`](https://pkg.go.dev/net/http/httputil#DumpRequest)
 
 
-# Other resources
+# Other Resources
 1. https://www.practical-go-lessons.com/chap-35-build-an-http-client
 1. https://pkg.go.dev/net/http
 1. https://gobyexample.com/http-clients

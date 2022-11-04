@@ -288,7 +288,7 @@
 
 
 --------
-# Other resources
+# Other Resources
 1. https://docs.oracle.com/cd/E19504-01/802-5882/6i9k22elq/index.html
 1. https://www.softprayog.in/programming/interprocess-communication-using-posix-shared-memory-in-linux
 1. https://opensource.com/article/19/4/interprocess-communication-linux-storage

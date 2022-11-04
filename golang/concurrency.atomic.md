@@ -49,5 +49,5 @@ func (w *SafeWidget) AppendToState(v string) {
 
 
 
-# Other resources
+# Other Resources
 1. https://pkg.go.dev/sync#RWMutex
