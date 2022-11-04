@@ -19,6 +19,7 @@
 
 # TODO/Unorganized
 - Absence
+- Algebraic Data Types
 - ALL/AND
 - at-least-one
 - at-most-one
@@ -31,12 +32,14 @@
 - OR
 - sharability
 - struct
-- visibility/encapsulation
 - TODO: defensive copy (logic)
+- TODO: pattern matching
 - TODO: preconditions (logic)
-
+- TODO: sealed classes
 - type safety
+- visibility/encapsulation
 
 # Other Resources
 1. https://markoengelman.com/ddd-anemic-vs-rich-domain-model/
 1. https://doc.rust-lang.org/std/option/
+1.

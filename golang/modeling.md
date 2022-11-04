@@ -21,6 +21,7 @@
 
 # TODO/Unorganized
 - Absence
+- Algebraic Data Types
 - ALL/AND
 - at-least-one
 - at-most-one
@@ -33,10 +34,12 @@
 - OR
 - sharability
 - struct
-- visibility/encapsulation
 - TODO: defensive copy (logic)
+- TODO: pattern matching
 - TODO: preconditions (logic)
+- TODO: sealed classes
 - type safety
+- visibility/encapsulation
 
 
 # Other Resources
