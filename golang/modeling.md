@@ -6,7 +6,9 @@
 
 # Key Concepts
 1. Languages with **strong** modeling tools represent invariants with **types**
+    1. Compiler is responsible for enforcing invariants
 1. Languages with **weak** modeling tools represent invariants with **methods/logic**
+    1. runtime is responsible for enforcing invariants
 1. Go has relatively weak modeling tools
     1. (but still stronger than c, javascript, python, all dynamic languages, ...)
     1. [Compare to rust](../rust/modeling.md)
@@ -18,6 +20,7 @@
 
 
 # TODO/Unorganized
+- Absence
 - ALL/AND
 - at-least-one
 - at-most-one
@@ -26,8 +29,14 @@
 - exactly one
 - has-a
 - is-a
+- mutability
 - OR
+- sharability
 - struct
+- visibility/encapsulation
+- TODO: defensive copy (logic)
+- TODO: preconditions (logic)
+- type safety
 
 
 # Other Resources
