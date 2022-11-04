@@ -54,9 +54,7 @@ export function doAsyncTasksWithCancellation(
   const rejectFunctions: ((reason?: any) => void)[] = [];
 
   const cancellationPromise =
-    new Promise((_, reject) => {
-      rejectFunctions.push(reject);
-    });
+    new Promise((_, reject) => rejectFunctions.push(reject));
 
   return {
     promise: new Promise((resolve, reject) => {
