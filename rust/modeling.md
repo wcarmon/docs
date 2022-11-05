@@ -104,7 +104,7 @@ struct Employee {
 
 
 ## [Thread-safety](https://doc.rust-lang.org/nomicon/send-and-sync.html)
-1. https://doc.rust-lang.org/book/ch16-00-concurrency.html
+1. See [fearless concurrency doc](https://doc.rust-lang.org/book/ch16-00-concurrency.html)
 1. [Send](https://doc.rust-lang.org/std/marker/trait.Send.html) and [Sync](https://doc.rust-lang.org/std/sync/) marker traits apply here
 
 
