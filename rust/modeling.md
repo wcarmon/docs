@@ -74,7 +74,9 @@ let age: u8 = 30; // compiler enforced non-negative
 
 ## Semantic wrapper (user-defined primitive types)
 1. Use the "New type" pattern
-    1. [example-1](https://doc.rust-lang.org/rust-by-example/generics/new_types.html), [example-2](https://rust-unofficial.github.io/patterns/patterns/behavioural/newtype.html), [example-3](https://doc.rust-lang.org/book/ch19-04-advanced-types.html)
+    1. [example-1](https://doc.rust-lang.org/rust-by-example/generics/new_types.html)
+    1. [example-2](https://rust-unofficial.github.io/patterns/patterns/behavioural/newtype.html)
+    1. [example-3](https://doc.rust-lang.org/book/ch19-04-advanced-types.html)
 
 
 ## [Has-a](https://en.wikipedia.org/wiki/Has-a)
@@ -92,12 +94,12 @@ struct Employee {
 
 
 ## Visibility/Encapsulation
-1. Use `pub` or [`pub(crate)`](https://doc.rust-lang.org/reference/visibility-and-privacy.html#pubin-path-pubcrate-pubsuper-and-pubself) on enum, struct, fields, ...
+1. Use `pub` or [`pub(crate)`](https://doc.rust-lang.org/reference/visibility-and-privacy.html#pubin-path-pubcrate-pubsuper-and-pubself) on an `enum`, a `struct`, fields, ...
 1. Separate code into different [modules](./modules.md)
 
 
 ## Mutability
-1. Use [mut](https://doc.rust-lang.org/book/ch03-01-variables-and-mutability.html) (only when required)
+1. [Prefer immutability](../general/immutability.md), Use [mut](https://doc.rust-lang.org/book/ch03-01-variables-and-mutability.html) (only when required)
     1. [`Clone`](https://doc.rust-lang.org/std/clone/trait.Clone.html) might be applicable here too (rust's version of a [defensive copy](http://www.javapractices.com/topic/TopicAction.do?Id=15))
 
 
