@@ -9,6 +9,9 @@
     1. [Tuples](https://doc.rust-lang.org/rust-by-example/primitives/tuples.html) let us group *unnamed* fields into one data structure
 1. A `struct` is either **fully** mutable or **fully** immutable
 1. [Exterior mutability](https://doc.rust-lang.org/rust-by-example/scope/borrow/mut.html) is checked and enforced [at compile-time](https://doc.rust-lang.org/std/keyword.mut.html)
+1. There are **no** [constructors](https://en.wikipedia.org/wiki/Constructor_(object-oriented_programming))
+    1. Instantiation: [doc-1](https://doc.rust-lang.org/std/keyword.struct.html#instantiation), [doc-2](https://doc.rust-lang.org/nomicon/constructors.html),
+    1. Optionally, you can add a `pub fn new(...) -> Self { ... }`
 1. Use [`derive`](./traits.derive.md) attribute to auto-generate [common traits](./traits.derive.md)
 1. `Ownership`: Prefer to own fields in a struct ([Why?](https://www.lurklurk.org/effective-rust/lifetimes.html#lifetimes-in-data-structures))
 
