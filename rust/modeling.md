@@ -61,7 +61,7 @@ struct Employee {
 
 ## Non-negative value
 1. Use [`u8`](https://doc.rust-lang.org/std/primitive.u8.html), [`u16`](https://doc.rust-lang.org/std/primitive.u16.html), [`u32`](https://doc.rust-lang.org/std/primitive.u32.html), [`u64`](https://doc.rust-lang.org/std/primitive.u64.html), or [`u128`](https://doc.rust-lang.org/std/primitive.u128.html)
-1. [rustc](https://doc.rust-lang.org/rustc/what-is-rustc.html) will enforce range on numeric literals
+1. [rustc](https://doc.rust-lang.org/rustc/what-is-rustc.html) will enforce range on [numeric literals](https://doc.rust-lang.org/rust-by-example/primitives/literals.html)
 ```rust
 let age: u8 = 30; // compiler enforced non-negative
 ```
