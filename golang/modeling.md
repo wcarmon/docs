@@ -62,6 +62,7 @@ TODO
 
 ## Non-negative value
 1. Use [`uint8`](https://pkg.go.dev/builtin#uint8), [`uint16`](https://pkg.go.dev/builtin#uint16), [`uint32`](https://pkg.go.dev/builtin#uint32) or [`uint64`](https://pkg.go.dev/builtin#uint64)
+1. [`sql`](https://pkg.go.dev/database/sql#NullBool) package also provides nilable types
 ```go
 TODO
 ```
