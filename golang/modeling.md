@@ -38,7 +38,9 @@ type Employee struct {
 ## Zero-or-more
 1. Use a [slice](./collections.slices.md)
 ```go
-TODO
+type Employee struct {
+	PreviousEmployers []Employer // zero or more
+}
 ```
 
 
@@ -66,15 +68,12 @@ TODO
 ## Non-negative value
 1. Use [`uint8`](https://pkg.go.dev/builtin#uint8), [`uint16`](https://pkg.go.dev/builtin#uint16), [`uint32`](https://pkg.go.dev/builtin#uint32) or [`uint64`](https://pkg.go.dev/builtin#uint64)
 ```go
-TODO
+var age uint8 = 30 // compiler enforced non-negative
 ```
 
 
 ## Group of related fields ([Product Algebraic data type](https://en.wikipedia.org/wiki/Product_type))
-1. TODO
-```go
-TODO
-```
+1. Use a [`struct`](./structs.md)
 
 
 ## Semantic wrapper (user-defined primitive types)
@@ -92,13 +91,14 @@ TODO
 
 
 ## [Is-a](https://en.wikipedia.org/wiki/Is-a)
-1. TODO
-```go
-TODO
-```
+1. Implement an [interface](./interfaces.md)
+    1. REMINDER: almost any type can implement an interface (numbers, strings, structs, ...)
 
 
 ## Visibility/Encapsulation
+1. Use Upper/lower case
+1. Separate code into different [packages](./packages.md)
+    1. See [abstraction doc](./abstraction.md)
 
 
 ## Mutability

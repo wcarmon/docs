@@ -96,6 +96,7 @@ struct Employee {
 ## Visibility/Encapsulation
 1. Use `pub` or [`pub(crate)`](https://doc.rust-lang.org/reference/visibility-and-privacy.html#pubin-path-pubcrate-pubsuper-and-pubself) on an `enum`, a `struct`, fields, ...
 1. Separate code into different [modules](./modules.md)
+    1. See [abstraction doc](./abstraction.md)
 
 
 ## Mutability
