@@ -38,8 +38,11 @@
 - TODO: sealed classes
 - type safety
 - visibility/encapsulation
+- type: compiler enforces number literals are within range
+
+
 
 # Other Resources
 1. https://markoengelman.com/ddd-anemic-vs-rich-domain-model/
 1. https://doc.rust-lang.org/std/option/
-1.
+1. https://hugotunius.se/2020/05/16/making-invalid-state-unrepresentable.html
