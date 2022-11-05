@@ -103,9 +103,9 @@ struct Employee {
     1. [`Clone`](https://doc.rust-lang.org/std/clone/trait.Clone.html) might be applicable here too (rust's version of a [defensive copy](http://www.javapractices.com/topic/TopicAction.do?Id=15))
 
 
-## [Thread-safety](https://doc.rust-lang.org/nomicon/send-and-sync.html)
+## [Thread-safety](https://en.wikipedia.org/wiki/Thread_safety)
 1. See [fearless concurrency doc](https://doc.rust-lang.org/book/ch16-00-concurrency.html)
-1. [Send](https://doc.rust-lang.org/std/marker/trait.Send.html) and [Sync](https://doc.rust-lang.org/std/sync/) marker traits apply here
+1. [Send](https://doc.rust-lang.org/std/marker/trait.Send.html) and [Sync](https://doc.rust-lang.org/std/sync/) marker [traits](./traits.md) may help
 
 
 # Other Resources
