@@ -67,11 +67,6 @@ let age: u8 = 30; // compiler enforced non-negative
 ```
 
 
-## Mutability
-1. Use [mut](https://doc.rust-lang.org/book/ch03-01-variables-and-mutability.html) (only when required)
-    1. [`Clone`](https://doc.rust-lang.org/std/clone/trait.Clone.html) might be applicable here too (rust's version of a [defensive copy](http://www.javapractices.com/topic/TopicAction.do?Id=15))
-
-
 ## Group of related fields ([Product Algebraic data type](https://en.wikipedia.org/wiki/Product_type))
 1. Use a [`struct`](./structs.md)
 1. (Less common) Use a [tuple](https://doc.rust-lang.org/std/primitive.tuple.html)
@@ -80,6 +75,7 @@ let age: u8 = 30; // compiler enforced non-negative
 ## Semantic wrapper (user-defined primitive types)
 1. Use the "New type" pattern
     1. [example-1](https://doc.rust-lang.org/rust-by-example/generics/new_types.html), [example-2](https://rust-unofficial.github.io/patterns/patterns/behavioural/newtype.html), [example-3](https://doc.rust-lang.org/book/ch19-04-advanced-types.html)
+
 
 ## [Has-a](https://en.wikipedia.org/wiki/Has-a)
 1. Use a field on a [struct](./structs.md) or [enum](./enums.md)
@@ -95,14 +91,19 @@ struct Employee {
 1. Implement a [trait](./traits.md)
 
 
+## Visibility/Encapsulation
+1. Use `pub` or [`pub(crate)`](https://doc.rust-lang.org/reference/visibility-and-privacy.html#pubin-path-pubcrate-pubsuper-and-pubself) on enum, struct, fields, ...
+1. Separate code into different [modules](./modules.md)
 
-# TODO/Unorganized
-- embedding
-- sharability
-- TODO: preconditions (logic)
-- visibility/encapsulation
-- type: compiler enforces number literals are within range
 
+## Mutability
+1. Use [mut](https://doc.rust-lang.org/book/ch03-01-variables-and-mutability.html) (only when required)
+    1. [`Clone`](https://doc.rust-lang.org/std/clone/trait.Clone.html) might be applicable here too (rust's version of a [defensive copy](http://www.javapractices.com/topic/TopicAction.do?Id=15))
+
+
+## [Thread-safety](https://doc.rust-lang.org/nomicon/send-and-sync.html)
+1. https://doc.rust-lang.org/book/ch16-00-concurrency.html
+1. [Send](https://doc.rust-lang.org/std/marker/trait.Send.html) and [Sync](https://doc.rust-lang.org/std/sync/) marker traits apply here
 
 
 # Other Resources
