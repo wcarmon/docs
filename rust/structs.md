@@ -1,5 +1,5 @@
 # Overview
-1. TODO
+1. Idiomatic usage of a [`struct`](https://doc.rust-lang.org/book/ch05-01-defining-structs.html)
 1. See [traits doc](./traits.md)
 1. See [modeling doc](./modeling.md)
 
@@ -24,7 +24,7 @@
 # Idioms
 1. ~~[Builder](https://docs.rs/derive_builder/latest/derive_builder/)~~
     1. Builder is simpler than multiple constructor `fn`s
-    1. Builder doesn't help much because structs can be built by field name
+    1. Builder doesn't help much because structs [can be built by field name](https://doc.rust-lang.org/book/ch05-01-defining-structs.html#using-the-field-init-shorthand)
     1. Builder allows incremental construction (which may or may not be a good idea)
     1. If you already implement [`Default`](https://doc.rust-lang.org/std/default/trait.Default.html), builder is wasted syntax/complexity (eg. must unwrap the build result)
     1. [Tradeoffs](https://rust-unofficial.github.io/patterns/patterns/creational/builder.html)
@@ -40,6 +40,7 @@
 
 # Other Resources
 1. https://web.mit.edu/rust-lang_v1.25/arch/amd64_ubuntu1404/share/doc/rust/html/book/first-edition/structs.html
-1. https://web.mit.edu/rust-lang_v1.25/arch/amd64_ubuntu1404/share/doc/rust/html/book/first-edition/mutability.html#field-level-mutability
+1. https://doc.rust-lang.org/book/ch05-01-defining-structs.html
 1. https://ricardomartins.cc/2016/06/08/interior-mutability
+1. https://web.mit.edu/rust-lang_v1.25/arch/amd64_ubuntu1404/share/doc/rust/html/book/first-edition/mutability.html#field-level-mutability
 1. https://www.kuniga.me/docs/rust/#struct
