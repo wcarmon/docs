@@ -14,17 +14,17 @@
     1. Optionally, you can add a `pub fn new(...) -> Self { ... }`
 
 
+# Idioms
+1. Use [`derive`](./traits.derive.md) attribute to auto-generate [common traits](./traits.derive.md)
+1. `Ownership`: Prefer to own fields in a struct ([Why?](https://www.lurklurk.org/effective-rust/lifetimes.html#lifetimes-in-data-structures))
+
+
 # Destructuring
 1. TODO
 
 
 # Methods
 1. TODO
-
-
-# Idioms
-1. Use [`derive`](./traits.derive.md) attribute to auto-generate [common traits](./traits.derive.md)
-1. `Ownership`: Prefer to own fields in a struct ([Why?](https://www.lurklurk.org/effective-rust/lifetimes.html#lifetimes-in-data-structures))
 
 
 # Anti-patterns
