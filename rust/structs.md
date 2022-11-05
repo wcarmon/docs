@@ -40,6 +40,10 @@
     1. `Pro`: It's trivial [to make getter](https://docs.rs/derive-getters/0.2.0/derive_getters/)
 
 
+# TODO/Unorganized
+- TODO: https://ricardomartins.cc/2016/06/08/interior-mutability
+
+
 # Other Resources
 1. https://web.mit.edu/rust-lang_v1.25/arch/amd64_ubuntu1404/share/doc/rust/html/book/first-edition/structs.html
 1. https://doc.rust-lang.org/book/ch05-01-defining-structs.html
