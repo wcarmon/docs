@@ -34,7 +34,7 @@
     1. `Pro`: Builder is simpler than making multiple constructor functions
     1. `Pro`: Builder allows incremental construction (which may or may not be a good idea)
     1. `Pro`: It's trivial [to make a builder](https://docs.rs/derive_builder/latest/derive_builder/)
-    1. Tradeoffs: [doc-1](https://rust-unofficial.github.io/patterns/patterns/creational/builder.html), [doc-2](https://www.lurklurk.org/effective-rust/builders.html)
+    1. More tradeoffs: [doc-1](https://rust-unofficial.github.io/patterns/patterns/creational/builder.html), [doc-2](https://www.lurklurk.org/effective-rust/builders.html)
 1. ~~[Getters](https://codehs.gitbooks.io/apjava/content/Classes-And-Object-Oriented-Programming/getter-and-setter-methods.html)~~
     1. `Con`: Doesn't help much because field-level [(exterior)](https://web.mit.edu/rust-lang_v1.25/arch/amd64_ubuntu1404/share/doc/rust/html/book/first-edition/mutability.html#interior-vs-exterior-mutability) mutability is already controlled by [references & ownership](https://web.mit.edu/rust-lang_v1.25/arch/amd64_ubuntu1404/share/doc/rust/html/book/first-edition/mutability.html#field-level-mutability)
     1. `Pro`: It's trivial [to make getter](https://docs.rs/derive-getters/0.2.0/derive_getters/)
