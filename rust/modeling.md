@@ -5,19 +5,20 @@
 
 
 # Key Concepts
-1. Goal: Making illegal states in the domain model unrepresentable
+1. **Goal**: Make illegal states in the domain model unrepresentable (compiler enforced)
 1. Languages with **strong** modeling tools represent invariants with **types**
-    1. Compiler is responsible for enforcing invariants
+    1. **Compiler** is responsible for enforcing invariants
 1. Languages with **weak** modeling tools represent invariants with **methods/logic**
-    1. runtime is responsible for enforcing invariants
+    1. **Runtime** is responsible for enforcing invariants
 
 
-# Idioms
+# Patterns
 ## Absence
 1. Use [None](https://doc.rust-lang.org/std/option/enum.Option.html#variant.None)
 ```rust
 let favorite_book: Option<Book> = None;
 ```
+1. NOTE: safe rust [never allows null pointers](https://doc.rust-lang.org/std/ptr/index.html)
 
 
 ## [At-most-one, Maybe](https://en.wikipedia.org/wiki/Option_type)
