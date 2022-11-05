@@ -78,7 +78,7 @@ let age: u8 = 30; // compiler enforced non-negative
 
 
 ## [Has-a](https://en.wikipedia.org/wiki/Has-a)
-1. Use a field on a [struct](./structs.md) or [enum](./enums.md)
+1. Use a field on a [`struct`](./structs.md) or [`enum`](./enums.md)
 ```rust
 struct Employee {
     department: Department,      // has-a
