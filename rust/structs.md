@@ -10,7 +10,7 @@
 1. A `struct` is either **fully** mutable or **fully** immutable
 1. [Exterior mutability](https://doc.rust-lang.org/rust-by-example/scope/borrow/mut.html) is checked and enforced [at compile-time](https://doc.rust-lang.org/std/keyword.mut.html)
 1. There are **no** [constructors](https://en.wikipedia.org/wiki/Constructor_(object-oriented_programming))
-    1. Instantiation: [doc-1](https://doc.rust-lang.org/std/keyword.struct.html#instantiation), [doc-2](https://doc.rust-lang.org/nomicon/constructors.html),
+    1. Instantiation: [doc-1](https://doc.rust-lang.org/std/keyword.struct.html#instantiation), [doc-2](https://doc.rust-lang.org/nomicon/constructors.html)
     1. Optionally, you can add a `pub fn new(...) -> Self { ... }`
 
 
@@ -29,15 +29,15 @@
 
 # Anti-patterns
 1. ~~Builder Pattern~~
-    1. `Pro`: Builder is simpler than making multiple constructor functions
-    1. `Pro`: Builder allows incremental construction (which may or may not be a good idea)
-    1. `Pro`: It's trivial [to get a builder](https://docs.rs/derive_builder/latest/derive_builder/)
     1. `Con`: Builder doesn't help much because structs [are easily built by field name](https://doc.rust-lang.org/book/ch05-01-defining-structs.html#using-the-field-init-shorthand)
     1. `Con`: If you already implement [`Default`](https://doc.rust-lang.org/std/default/trait.Default.html), builder is wasted syntax/complexity (eg. must [`unwrap`](https://docs.rs/derive_builder/latest/derive_builder/struct.UninitializedFieldError.html) the build result)
+    1. `Pro`: Builder is simpler than making multiple constructor functions
+    1. `Pro`: Builder allows incremental construction (which may or may not be a good idea)
+    1. `Pro`: It's trivial [to make a builder](https://docs.rs/derive_builder/latest/derive_builder/)
     1. Tradeoffs: [doc-1](https://rust-unofficial.github.io/patterns/patterns/creational/builder.html), [doc-2](https://www.lurklurk.org/effective-rust/builders.html)
-1. ~~[Getters](https://docs.rs/derive-getters/0.2.0/derive_getters/)~~
-    1. Doesn't help much because field-level [(exterior)](https://web.mit.edu/rust-lang_v1.25/arch/amd64_ubuntu1404/share/doc/rust/html/book/first-edition/mutability.html#interior-vs-exterior-mutability) mutability is already controlled by [references & ownership](https://web.mit.edu/rust-lang_v1.25/arch/amd64_ubuntu1404/share/doc/rust/html/book/first-edition/mutability.html#field-level-mutability)
-
+1. ~~[Getters](https://codehs.gitbooks.io/apjava/content/Classes-And-Object-Oriented-Programming/getter-and-setter-methods.html)~~
+    1. `Con`: Doesn't help much because field-level [(exterior)](https://web.mit.edu/rust-lang_v1.25/arch/amd64_ubuntu1404/share/doc/rust/html/book/first-edition/mutability.html#interior-vs-exterior-mutability) mutability is already controlled by [references & ownership](https://web.mit.edu/rust-lang_v1.25/arch/amd64_ubuntu1404/share/doc/rust/html/book/first-edition/mutability.html#field-level-mutability)
+    1. `Pro`: It's trivial [to make getter](https://docs.rs/derive-getters/0.2.0/derive_getters/)
 
 
 # TODO/Unorganized
