@@ -5,10 +5,10 @@
 
 
 # Key Concepts
-1. Structs let us group related, named fields into one data structure
-    1. [Tuples](https://doc.rust-lang.org/rust-by-example/primitives/tuples.html) let us group **unnamed** fields into one data structure
-1. a `struct` is either fully mutable or fully immutable
-1. [Exterior mutability](https://doc.rust-lang.org/rust-by-example/scope/borrow/mut.html) is checked and enforced at compile-time
+1. A `struct` let us group related, named fields into one data structure
+    1. [Tuples](https://doc.rust-lang.org/rust-by-example/primitives/tuples.html) let us group *unnamed* fields into one data structure
+1. A `struct` is either **fully** mutable or **fully** immutable
+1. [Exterior mutability](https://doc.rust-lang.org/rust-by-example/scope/borrow/mut.html) is checked and enforced [at compile-time](https://doc.rust-lang.org/std/keyword.mut.html)
 1. Use [`derive`](./traits.derive.md) attribute to auto-generate [common traits](./traits.derive.md)
 1. `Ownership`: Prefer to own fields in a struct ([Why?](https://www.lurklurk.org/effective-rust/lifetimes.html#lifetimes-in-data-structures))
 
