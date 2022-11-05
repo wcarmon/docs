@@ -1,5 +1,13 @@
 # Overview
 1. TODO
+1. See [traits doc](./traits.md)
+
+
+# Key Concepts
+1. Structs let us group related fields in a single data structure
+1. a `struct` is either fully mutable or fully immutable
+1. [Exterior mutability](https://doc.rust-lang.org/rust-by-example/scope/borrow/mut.html) is checked and enforced at compile-time
+1. Use [`derive`](./traits.derive.md) attribute to auto-generate [common traits](TODO)
 
 
 # Idioms
@@ -10,7 +18,8 @@
     1. If you already implement [`Default`](https://doc.rust-lang.org/std/default/trait.Default.html), builder is wasted syntax/complexity (eg. must unwrap the build result)
     1. [Tradeoffs](https://rust-unofficial.github.io/patterns/patterns/creational/builder.html)
 1. ~~[Getter](https://docs.rs/derive-getters/0.2.0/derive_getters/)~~
-    1. doesn't help much because mutability is already controlled by references & ownership
+    1. doesn't help much because field-level [(exterior)](https://web.mit.edu/rust-lang_v1.25/arch/amd64_ubuntu1404/share/doc/rust/html/book/first-edition/mutability.html#interior-vs-exterior-mutability) mutability is already controlled by [references & ownership](https://web.mit.edu/rust-lang_v1.25/arch/amd64_ubuntu1404/share/doc/rust/html/book/first-edition/mutability.html#field-level-mutability)
+
 
 
 # TODO/Unorganized
@@ -18,4 +27,5 @@
 
 
 # Other Resources
-1. TODO
+1. https://web.mit.edu/rust-lang_v1.25/arch/amd64_ubuntu1404/share/doc/rust/html/book/first-edition/mutability.html#field-level-mutability
+1. https://ricardomartins.cc/2016/06/08/interior-mutability

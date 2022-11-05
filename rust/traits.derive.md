@@ -1,6 +1,7 @@
 # Overview
 1. [`derive`](https://doc.rust-lang.org/reference/procedural-macros.html#derive-macros) macro
 1. Popular traits used with `derive` attribute
+1. See [traits doc](./traits.md)
 
 
 # Key Concepts

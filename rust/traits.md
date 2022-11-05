@@ -2,6 +2,7 @@
 1. What are [traits](https://doc.rust-lang.org/book/ch10-02-traits.html)?
 1. How to use [traits](TODO)?
 1. Popular core [traits](TODO)?
+1. See [derive doc](./traits.derive.md)
 
 
 # Definitions
