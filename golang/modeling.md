@@ -36,7 +36,7 @@ type Employee struct {
 
 
 ## Zero-or-more
-1. TODO
+1. Use a [slice](./collections.slices.md)
 ```go
 TODO
 ```
