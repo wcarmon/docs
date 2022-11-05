@@ -84,7 +84,7 @@ TODO
 
 
 ## [Has-a](https://en.wikipedia.org/wiki/Has-a)
-1. TODO
+1. Use a field on a [`struct`](./structs.md)
 ```go
 TODO
 ```
@@ -102,14 +102,15 @@ TODO
 
 
 ## Mutability
+1. TODO
 
 
 ## [Thread-safety](https://en.wikipedia.org/wiki/Thread_safety)
-
+1. TODO
 
 
 # TODO/Unorganized
-- embedding
+- TODO: embedding
 - TODO: pattern matching
 - TODO: preconditions (logic)
 
