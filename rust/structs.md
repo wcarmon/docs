@@ -2,9 +2,6 @@
 1. TODO
 
 
-- TODO: https://www.kuniga.me/docs/rust/#struct
-
-
 # Idioms
 1. ~~[Builder](https://docs.rs/derive_builder/latest/derive_builder/)~~
     1. Builder is simpler than multiple constructor `fn`s
@@ -14,6 +11,10 @@
     1. [Tradeoffs](https://rust-unofficial.github.io/patterns/patterns/creational/builder.html)
 1. ~~[Getter](https://docs.rs/derive-getters/0.2.0/derive_getters/)~~
     1. doesn't help much because mutability is already controlled by references & ownership
+
+
+# TODO/Unorganized
+- TODO: https://www.kuniga.me/docs/rust/#struct
 
 
 # Other Resources
