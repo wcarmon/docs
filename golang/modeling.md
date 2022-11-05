@@ -27,9 +27,11 @@ var favoriteBook *Book = nil
 
 
 ## [At-most-one](https://en.wikipedia.org/wiki/Option_type) (aka "Maybe")
-1. TODO
+1. Use nilable type
 ```go
-TODO
+type Employee struct {
+	FavoriteBook *Book // at most one
+}
 ```
 
 
