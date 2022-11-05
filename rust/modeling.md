@@ -14,15 +14,15 @@
 
 # Patterns
 ## Absence
-1. Use [None](https://doc.rust-lang.org/std/option/enum.Option.html#variant.None)
+1. Use [`None`](https://doc.rust-lang.org/std/option/enum.Option.html#variant.None)
 ```rust
 let favorite_book: Option<Book> = None;
 ```
 1. NOTE: safe rust [never allows null pointers](https://doc.rust-lang.org/std/ptr/index.html)
 
 
-## [At-most-one, Maybe](https://en.wikipedia.org/wiki/Option_type)
-1. Use [Option](https://doc.rust-lang.org/std/option/index.html)
+## [At-most-one](https://en.wikipedia.org/wiki/Option_type) (aka "Maybe")
+1. Use [`Option`](https://doc.rust-lang.org/std/option/index.html)
 ```rust
 struct Employee {
     favorite_book: Option<Book>, // at most one
@@ -31,17 +31,17 @@ struct Employee {
 
 
 ## Zero-or-more
-1. Use [Vec](https://doc.rust-lang.org/std/vec/struct.Vec.html)
+1. Use [`Vec`](https://doc.rust-lang.org/std/vec/struct.Vec.html)
 ```rust
 struct Employee {
-    previous_jobs: Vec<Employer>, // zero or more
+    previous_employers: Vec<Employer>, // zero or more
     ...
 }
 ```
 
 
 ## Exactly-one
-1. Use a field on a [struct](./structs.md) or enum
+1. Use a field on a [`struct`](./structs.md) or [`enum`](./enums.md)
 ```rust
 struct Employee {
     id: u16,      // exactly one
@@ -51,9 +51,8 @@ struct Employee {
 ```
 
 ## Exactly-one of bounded set ([Sum Algebraic data type](https://en.wikipedia.org/wiki/Tagged_union))
-1. Use an [enum](./enums.md)
-1. Some language call this a [tagged union](https://en.wikipedia.org/wiki/Tagged_union)
-1. Use [pattern matching](https://doc.rust-lang.org/book/ch18-00-patterns.html), [more info](https://doc.rust-lang.org/book/ch18-03-pattern-syntax.html)
+1. Use an [`enum`](./enums.md)
+1. Use [Pattern matching](https://doc.rust-lang.org/book/ch18-00-patterns.html), [more info](https://doc.rust-lang.org/book/ch18-03-pattern-syntax.html)
 
 
 ## At-least-one
@@ -61,7 +60,7 @@ struct Employee {
 
 
 ## Non-negative value
-1. Use [u8](https://doc.rust-lang.org/std/primitive.u8.html), [u16](https://doc.rust-lang.org/std/primitive.u16.html), [u32](https://doc.rust-lang.org/std/primitive.u32.html), [u64](https://doc.rust-lang.org/std/primitive.u64.html), or [u128](https://doc.rust-lang.org/std/primitive.u128.html)
+1. Use [`u8`](https://doc.rust-lang.org/std/primitive.u8.html), [`u16`](https://doc.rust-lang.org/std/primitive.u16.html), [`u32`](https://doc.rust-lang.org/std/primitive.u32.html), [`u64`](https://doc.rust-lang.org/std/primitive.u64.html), or [`u128`](https://doc.rust-lang.org/std/primitive.u128.html)
 1. [rustc](https://doc.rust-lang.org/rustc/what-is-rustc.html) will enforce range on numeric literals
 ```rust
 let age: u8 = 30; // compiler enforced non-negative
