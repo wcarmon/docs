@@ -61,7 +61,7 @@ TODO
 
 
 ## Non-negative value
-1. Use [`uint`]()
+1. Use [`uint16`](https://pkg.go.dev/builtin#uint16), [`uint32`](https://pkg.go.dev/builtin#uint32), [`uint64`](https://pkg.go.dev/builtin#uint64), etc
 ```go
 TODO
 ```
