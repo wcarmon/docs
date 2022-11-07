@@ -13,7 +13,7 @@
 1. Use [`encoding.TextUnmarshaler`](https://pkg.go.dev/encoding#TextUnmarshaler) interface (standard) to [self unmarshal](https://github.com/pelletier/go-toml/blob/v2/unmarshaler.go#L70)
 1. Use [`Decoder.DisallowUnknownFields`](https://pkg.go.dev/github.com/pelletier/go-toml/v2#Decoder.DisallowUnknownFields) to prevent extra fields
     1. Aligned with [standard lib's json equivalent](https://pkg.go.dev/encoding/json#Decoder.DisallowUnknownFields)
-1. TODO: missing fields
+1. TODO: add warnings for missing fields (strict mode)
 1. **Pro**: Has utility to lint and format `toml` files: [`tomll`](https://github.com/pelletier/go-toml#tools)
 1. **Con**: Uses [unsafe](https://github.com/pelletier/go-toml/blob/v2/internal/danger/danger.go#L12)
 1. **Con**: cannot decode [Toml array](https://toml.io/en/v1.0.0#array) into Set (`map[string]struct{}` or `map[T]struct{}`)

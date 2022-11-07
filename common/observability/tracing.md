@@ -65,11 +65,19 @@
 1. [Official docs](https://opentelemetry.io/docs/collector/)
 
 
+## Processor
+1. Called at the start & end of a **Span**'s lifecycle
+1. called in the order they are registered
+1. Think middleware?
+1. Apps generally have (at least) one which builds export-friendly span data representation
+
+
 ## Exporter
 1. local sink for spans
 1. Writes to file system or some server
 1. Part of the Collector (Outbound side)
     1. Can also write to another Collector
+1. The final component in the trace export pipeline
 1. [go](https://opentelemetry.io/docs/instrumentation/go/exporting_data/), [java](https://github.com/open-telemetry/opentelemetry-java/tree/main/exporters), [js](https://opentelemetry.io/docs/instrumentation/js/exporters/), [python](https://opentelemetry.io/docs/instrumentation/python/exporters/), [c++](https://opentelemetry.io/docs/instrumentation/cpp/exporters/), [.net](https://opentelemetry.io/docs/instrumentation/net/exporters/)
 1. Examples:
     - jaeger
