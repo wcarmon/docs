@@ -20,6 +20,7 @@
 1. Avoid the sugar api
     1. uses reflection
     1. no type safety
+    1. slower than typesafe api
     1. keys and values have to be paired carefully (error prone)
 
 
