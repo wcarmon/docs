@@ -7,11 +7,15 @@
 
 ## Trace
 1. a distributed call stack
+1. one "flow" thru the system (possibly across nodes/machines)
 1. a [DAG](https://en.wikipedia.org/wiki/Directed_acyclic_graph) of *Spans*
 1. [Official docs](https://opentelemetry.io/docs/concepts/signals/traces/)
 
 
 ## Span
+1. A unit of work
+1. Has a name, start time, duration, and attributes
+1. Related to other Spans (Parent/Child, Siblings, ...)
 1. Part of a [trace](https://opentelemetry.io/docs/concepts/signals/traces/)
 1. Generally has a significant duration between start and end time
 1. Mutable until `span.end()`
@@ -63,7 +67,9 @@
 
 ## Exporter
 1. local sink for spans
+1. Writes to file system or some server
 1. Part of the Collector (Outbound side)
+    1. Can also write to another Collector
 1. [go](https://opentelemetry.io/docs/instrumentation/go/exporting_data/), [java](https://github.com/open-telemetry/opentelemetry-java/tree/main/exporters), [js](https://opentelemetry.io/docs/instrumentation/js/exporters/), [python](https://opentelemetry.io/docs/instrumentation/python/exporters/), [c++](https://opentelemetry.io/docs/instrumentation/cpp/exporters/), [.net](https://opentelemetry.io/docs/instrumentation/net/exporters/)
 1. Examples:
     - jaeger
