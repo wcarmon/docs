@@ -56,7 +56,7 @@
 
 ## Collector
 1. Optional
-    1. alternatives include writing to stdout, local file system, kafka, etc
+    1. alternatives include writing to stdout ([Console Exporter](https://opentelemetry.io/docs/instrumentation/go/getting-started/#creating-a-console-exporter)), local file system, kafka, etc
 1. Exposed Server
     1. [Jaeger Collector](https://www.jaegertracing.io/docs/1.38/architecture/#collector) listens on [many ports](https://www.jaegertracing.io/docs/1.38/deployment/#collector)
 1. Allows building pipelines
