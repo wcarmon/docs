@@ -55,6 +55,8 @@
 
 
 ## Collector
+1. Optional
+    1. alternatives include writing to stdout, local file system, kafka, etc
 1. Exposed Server
     1. [Jaeger Collector](https://www.jaegertracing.io/docs/1.38/architecture/#collector) listens on [many ports](https://www.jaegertracing.io/docs/1.38/deployment/#collector)
 1. Allows building pipelines
@@ -75,7 +77,8 @@
 ## Exporter
 1. local sink for spans
 1. Writes to file system or some server
-1. Part of the Collector (Outbound side)
+1. Exporters decouple instrumentation from the backend
+1. Part of the Collector (on the outbound side) or part of your app
     1. Can also write to another Collector
 1. The final component in the trace export pipeline
 1. [go](https://opentelemetry.io/docs/instrumentation/go/exporting_data/), [java](https://github.com/open-telemetry/opentelemetry-java/tree/main/exporters), [js](https://opentelemetry.io/docs/instrumentation/js/exporters/), [python](https://opentelemetry.io/docs/instrumentation/python/exporters/), [c++](https://opentelemetry.io/docs/instrumentation/cpp/exporters/), [.net](https://opentelemetry.io/docs/instrumentation/net/exporters/)
