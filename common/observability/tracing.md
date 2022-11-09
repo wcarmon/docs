@@ -88,6 +88,12 @@
     - zipkin
 
 
+## Tracer Provider
+1. Stateful
+1. Stores [Tracer](https://opentelemetry.io/docs/reference/specification/trace/api/#tracer) instances
+    1. Register & Lookup by string key
+1. Set the global tracer provider after building
+
 ## Agent
 1. Forwards from Resource to Collector
 1. Generally lives on the same machine as the Resource
