@@ -31,9 +31,8 @@
 1. [`mod`](https://doc.rust-lang.org/std/keyword.mod.html) is the closest thing rust has to `import` (golang, java, node, ts, dart, )
 1. If you declare a module (using [`mod`](https://doc.rust-lang.org/std/keyword.mod.html)), Rust uses "a resolution algorithm" to find it
 1. One file can have multiple modules, flat or nested
-1. You can split one module across multiple files
-    1. by re-exporting modules
-    1. TODO: is there another way?
+1. A Module CANNOT cross a file boundary
+    1. You can re-export things from other modules (`pub use crate::...`)
 1. Module defines visibility barrier (**pub**lic, private, etc)
 1. Language Comparison
     1. *Node*: [no packages, only files, import files](https://nodejs.org/api/packages.html#imports)
@@ -49,7 +48,8 @@
     1. eg. `foo/*.rs` and `foo.rs`
     1. The names **MUST** match
     1. Jetbrains [Rust plugin](https://www.jetbrains.com/rust/) enforces this
-1. parent/super modules can only access `pub` members & modules on children
+1. parent/super modules can only access `pub` members & modules on sub-module types
+1. sub-module can access private members of parent/super modules
 1. Use `#[path = "path/to/file.rs"]` to get behavior like nodejs
 
 
