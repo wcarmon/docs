@@ -67,6 +67,20 @@
 1. `use w::x::y::Z` means: bring `Z` into the current namespace, so I can reference as `y::Z`
 
 
+# Visibility/Encapsulation
+1. Use `pub` or [`pub(crate)`](https://doc.rust-lang.org/reference/visibility-and-privacy.html#pubin-path-pubcrate-pubsuper-and-pubself) on an `enum`, a `struct`, fields, ...
+1. Separate code into different [modules](./modules.md)
+    1. See [abstraction doc](./abstraction.md)
+    1. See [Visibility summary](https://aloso.github.io/2021/03/28/module-system.html#visibilities-overview)
+
+|Syntax|Meaning|
+|---|---|
+|`pub`|visible everywhere|
+|`pub(crate)`|visible in current crate|
+|`pub(super)`|visible in parent module|
+|`pub(self)`|private, visible within module (this is default) |
+
+
 # Other Resources
 1. https://doc.rust-lang.org/rust-by-example/mod.html
 1. https://doc.rust-lang.org/reference/items/modules.html#module-source-filenames
