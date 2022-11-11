@@ -56,7 +56,20 @@ struct Employee {
 
 
 ## At-least-one
-- TODO: Vec with runtime enforcement?
+- In "Algebraic type" language
+    - Product type with restrictions
+    - Sum type with combinations
+
+
+### ... of the same thing
+- non empty vec library
+- Vec with runtime enforcement
+
+
+### ... of different things
+- struct/tuple with optional fields with runtime enforcement
+- bit fields
+- builder struct + validated impl struct hidden behind pub trait
 
 
 ## Non-negative value
