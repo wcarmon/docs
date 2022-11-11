@@ -107,7 +107,7 @@ struct Employee {
 
 
 ## Visibility/Encapsulation
-- See [modules doc](./modules.md)
+- See [modules doc](./modules.md#visibilityencapsulation)
 
 
 ## Mutability
