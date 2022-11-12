@@ -41,7 +41,8 @@
 1. One file can have multiple modules, flat or nested
 1. See a complex but working example: [example.modules](./example.modules)
 1. [`mod`](https://doc.rust-lang.org/std/keyword.mod.html) is the closest thing rust has to `import` (golang, java, node, ts, dart, etc)
-1. If you declare a module (using [`mod`](https://doc.rust-lang.org/std/keyword.mod.html)), Rust uses "a resolution algorithm" to find it
+    1. `mod` declares a sub-module
+1. If you declare a sub-module (using [`mod`](https://doc.rust-lang.org/std/keyword.mod.html)), Rust uses "a resolution algorithm" to find it
 1. A Module CANNOT cross a file boundary
     1. You can re-export things from other modules (`pub use crate::...`)
 1. Module defines visibility barrier (**pub**lic, private, etc)
@@ -51,6 +52,7 @@
     1. *Java*: package structure matches (a subtree of) directory structure, names match, import classes
 1. `mod foo;`: means import/expand (copy/paste) the contents of `foo.rs` into the current file
     1. Rust automatically creates a module namespace as `foo` (matches the file name)
+    1. It also means "a sub-module exists at, called foo
 1. `mod foo { ... }`: means put `...` into module named foo
 1. [`use`](https://doc.rust-lang.org/reference/items/use-declarations.html) has **nothing** to do with importing
 1. Do **not** use ~~`mod.rs`~~ [(legacy approach from pre-1.30)](https://doc.rust-lang.org/reference/items/modules.html#module-source-filenames)
