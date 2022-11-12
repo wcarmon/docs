@@ -1,11 +1,11 @@
 # Overview
-1. Modules, Packages, Crates, `use`, `mod`, ...
+1. Packages, Crates, Modules, `use`, `mod`, ...
 1. See [abstraction doc](./abstraction.md)
 1. See [modeling doc](./modeling.md)
 
 
 # Summary
-- Package > Create > File > Module > sub-module
+- Package > Crate > File > Module > sub-module
 
 
 # Package
