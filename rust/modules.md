@@ -38,10 +38,10 @@
 # Module
 1. Every file is a module
 1. Modules can have sub-modules
-1. See a complex but working example: [example.modules](./example.modules)
-1. [`mod`](https://doc.rust-lang.org/std/keyword.mod.html) is the closest thing rust has to `import` (golang, java, node, ts, dart, )
-1. If you declare a module (using [`mod`](https://doc.rust-lang.org/std/keyword.mod.html)), Rust uses "a resolution algorithm" to find it
 1. One file can have multiple modules, flat or nested
+1. See a complex but working example: [example.modules](./example.modules)
+1. [`mod`](https://doc.rust-lang.org/std/keyword.mod.html) is the closest thing rust has to `import` (golang, java, node, ts, dart, etc)
+1. If you declare a module (using [`mod`](https://doc.rust-lang.org/std/keyword.mod.html)), Rust uses "a resolution algorithm" to find it
 1. A Module CANNOT cross a file boundary
     1. You can re-export things from other modules (`pub use crate::...`)
 1. Module defines visibility barrier (**pub**lic, private, etc)
