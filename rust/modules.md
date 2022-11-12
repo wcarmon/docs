@@ -5,12 +5,16 @@
 
 
 # Summary
-- Package > Crate > File > Module > sub-module
+- Workspace > Package > Crate > File > Module > sub-module
+
+
+# Workspace
+1. TODO
 
 
 # Package
 1. one or more [*Crates*](./modules.md#crate)
-1. Contains one `Cargo.toml`
+1. Contains one `Cargo.toml` at the root
 
 
 # Crate
