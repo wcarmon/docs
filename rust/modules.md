@@ -9,12 +9,13 @@
 
 
 # Workspace
-1. TODO
+1. one or more [Packages](TODO) which share [`Cargo.lock`](TODO) and output directory
+1. has a `Cargo.toml` at the root, containing `[workspace]`
 
 
 # Package
 1. one or more [*Crates*](./modules.md#crate)
-1. Contains one `Cargo.toml` at the root
+1. Contains one `Cargo.toml` at the root, containing `[package]`
 
 
 # Crate
