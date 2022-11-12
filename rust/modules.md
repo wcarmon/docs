@@ -4,6 +4,10 @@
 1. See [modeling doc](./modeling.md)
 
 
+# Summary
+- Package > Create > File > Module > sub-module
+
+
 # Package
 1. one or more [*Crates*](./modules.md#crate)
 1. Contains one `Cargo.toml`
@@ -27,6 +31,8 @@
 
 
 # Module
+1. Every file is a module
+1. Modules can have sub-modules
 1. See a complex but working example: [example.modules](./example.modules)
 1. [`mod`](https://doc.rust-lang.org/std/keyword.mod.html) is the closest thing rust has to `import` (golang, java, node, ts, dart, )
 1. If you declare a module (using [`mod`](https://doc.rust-lang.org/std/keyword.mod.html)), Rust uses "a resolution algorithm" to find it
@@ -51,6 +57,7 @@
 1. parent/super modules can only access `pub` members & modules on sub-module types
 1. sub-module can access private members of parent/super modules
 1. Use `#[path = "path/to/file.rs"]` to get behavior like nodejs
+    1. Use sparingly since you're fighting the ecosystem
 
 
 ## Module: Relation to file system
