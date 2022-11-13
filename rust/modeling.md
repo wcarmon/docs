@@ -116,12 +116,12 @@ struct Employee {
 ## Augmenting external types
 - adding method(s) to a type defined in another crate
 
-### Option-A: Define trait with new methods
+### Option-A: Define [Trait](./traits.md) with new methods
     1. `impl MyTrait for ExternalType`
-    1. Functions can accept/return the trait
+    1. Functions can accept/return the MyTrait
 
 ### Option-B: Wrap external types using [newtype pattern](TODO)
-    1. proxy or [shrinkwrap](TODO) external types
+    1. proxy or [shrinkwrap](https://docs.rs/shrinkwraprs/latest/shrinkwraprs/) external types
     1. [example-1](https://doc.rust-lang.org/rust-by-example/generics/new_types.html)
     1. [example-2](https://rust-unofficial.github.io/patterns/patterns/behavioural/newtype.html)
     1. [example-3](https://doc.rust-lang.org/book/ch19-04-advanced-types.html)
