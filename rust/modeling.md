@@ -85,13 +85,6 @@ let age: u8 = 30; // compiler enforced non-negative
 1. (Less common) Use a [tuple](https://doc.rust-lang.org/std/primitive.tuple.html)
 
 
-## Semantic wrapper (user-defined primitive types)
-1. Use the "New type" pattern
-    1. [example-1](https://doc.rust-lang.org/rust-by-example/generics/new_types.html)
-    1. [example-2](https://rust-unofficial.github.io/patterns/patterns/behavioural/newtype.html)
-    1. [example-3](https://doc.rust-lang.org/book/ch19-04-advanced-types.html)
-
-
 ## [Has-a](https://en.wikipedia.org/wiki/Has-a)
 1. Use a field on a [`struct`](./structs.md) or [`enum`](./enums.md)
 ```rust
@@ -118,6 +111,20 @@ struct Employee {
 ## [Thread-safety](https://en.wikipedia.org/wiki/Thread_safety)
 1. See [fearless concurrency doc](https://doc.rust-lang.org/book/ch16-00-concurrency.html)
 1. [Send](https://doc.rust-lang.org/std/marker/trait.Send.html) and [Sync](https://doc.rust-lang.org/std/sync/) marker [traits](./traits.md) may help
+
+
+## Augmenting external types
+- adding method(s) to a type defined in another crate
+
+### Option-A: Define trait with new methods
+    1. `impl MyTrait for ExternalType`
+    1. Functions can accept/return the trait
+
+### Option-B: Wrap external types using [newtype pattern](TODO)
+    1. proxy or [shrinkwrap](TODO) external types
+    1. [example-1](https://doc.rust-lang.org/rust-by-example/generics/new_types.html)
+    1. [example-2](https://rust-unofficial.github.io/patterns/patterns/behavioural/newtype.html)
+    1. [example-3](https://doc.rust-lang.org/book/ch19-04-advanced-types.html)
 
 
 # Other Resources
