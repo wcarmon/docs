@@ -119,7 +119,7 @@ struct Employee {
 
 ### Option-A: Define [Trait](./traits.md) with new methods
 1. `impl MyTrait for ExternalType`
-1. Functions can accept/return the MyTrait
+1. Functions can accept/return *MyTrait*
 
 
 ### Option-B: Wrap external types using [newtype pattern](TODO)
