@@ -3,6 +3,11 @@
 1. How to access github via the command line & Jetbrains products (Goland, IntelliJ, PyCharm, etc.)
 
 
+# Jetbrains
+1. install/enable [Github plugin](https://plugins.jetbrains.com/plugin/13115-github) (bundled)
+1. See https://www.jetbrains.com/help/idea/github.html
+
+
 # Github SSO
 1. Developer settings
 1. Personal access tokens (classic) or [https://github.com/settings/tokens](https://github.com/settings/tokens)
