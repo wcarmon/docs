@@ -14,24 +14,24 @@
 
 
 # Best: [zap](https://github.com/uber-go/zap)
-1. Use if zerolog doesn't meet your needs
 1. More complex than zerolog, wider scope, more features
-1. Compatible with [Opentelemetry](TODO)
-1. Avoid the sugar api
-    1. uses reflection
-    1. no type safety
-    1. slower than typesafe api
-    1. keys and values have to be paired carefully (error prone)
+1. More compatible with [Opentelemetry](https://opentelemetry.io/)
+1. **Avoid** the sugar api
+    1. Uses reflection
+    1. No type safety (so no refactoring)
+    1. Slower than the typesafe api
+    1. Error prone: Developer must carefully pair `keys` and `values`
 1. [zap setup examples](./logging.zap.md)
 1. [OpenTelemetry & Zap integration](https://github.com/wcarmon/otzap)
 
 
 # Next Best: [zerolog](https://github.com/rs/zerolog)
+1. Use if zap doesn't meet your needs
 1. Simple
 1. Fast
 1. Comprehensive for typical cases
-1. Con: incompatible with [OpenTelemetry](https://opentelemetry.io/)
-1. Con: seems to be unmaintained
+1. `Con`: incompatible with [OpenTelemetry](https://opentelemetry.io/)
+1. `Con`: seems to be unmaintained
 1. [zerolog setup examples](./logging.zerolog.md)
 
 
