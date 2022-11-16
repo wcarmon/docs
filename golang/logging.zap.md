@@ -15,7 +15,7 @@ func NewRollingFileCore(
 
    	rollingWriter := &lumberjack.Logger{
    		Compress:   true,
-   		Filename:   "app.zap.log",
+   		Filename:   "app.log",
    		MaxAge:     2,
    		MaxBackups: 2,
    		MaxSize:    200,
