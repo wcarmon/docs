@@ -4,7 +4,8 @@
 
 # Structs
 1. [Pass-by-value](TODO)
-    1. functions you invoke receive a copy of the struct
+    1. functions you invoke receive a **shallow copy** of the struct
+    1. nested pointer fields still point to the same place
     1. behaves like `int`, `string`, `byte`, `rune`, `bool`, ...
     1. All things pass by value
 1. No inheritance :-)
