@@ -1,5 +1,13 @@
 # Overview
-- Candidate libs for [jwt](https://jwt.io/)
+1. How to Create, Sign & verify a jwt
+1 Candidate libs for [jwt](https://jwt.io/)
+
+# Create & Sign
+- TODO
+
+
+# Verify
+- TODO
 
 
 # Libs
