@@ -1,6 +1,6 @@
 # Overview
 1. Important types related to File IO
-1. Some patterns for IO
+1. Some patterns for File IO
 
 
 # Related Types
@@ -16,6 +16,8 @@
 
 ## [`File`](https://doc.rust-lang.org/std/fs/struct.File.html)
 - Implements [`Write`](https://doc.rust-lang.org/std/fs/struct.File.html#impl-Write-for-%26File)
+- Comparison:
+    - Java: [`java.nio.file.Path`](https://docs.oracle.com/en/java/javase/18/docs/api/java.base/java/nio/file/Path.html) + methods on [`Files`](https://docs.oracle.com/en/java/javase/18/docs/api/java.base/java/nio/file/Files.html)
 
 
 ## [`Pathbuf`](https://doc.rust-lang.org/stable/std/path/struct.PathBuf.html)
