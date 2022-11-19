@@ -29,10 +29,8 @@
 - Borrowed
 - Comparison:
     - Golang: [`filepath`](https://pkg.go.dev/path/filepath)
-    - Java: [TODO](TODO)
+    - Java: [`java.nio.file.Files`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/nio/file/Files.html)
 
-
-- TODO: prune table below
 
 ||Immutable|Mutable|
 |---|---|---|
@@ -61,3 +59,6 @@ file.write_all("...".as_bytes()).unwrap();
 
 # Other Resources
 1. https://rust-lang-nursery.github.io/rust-cookbook/
+1. https://docs.rs/tempfile/latest/tempfile/struct.NamedTempFile.html
+1. https://doc.rust-lang.org/std/fs/struct.File.html
+1. https://doc.rust-lang.org/stable/std/path/struct.Path.html
