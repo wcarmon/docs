@@ -37,7 +37,7 @@
 ||Immutable|Mutable|
 |---|---|---|
 |Owned|`String` <br/>`PathBuf` <br/>|`String` (`mut` on variable/argument) <br/>`PathBuf` (`mut` on variable/argument) <br/>|
-|Borrowed|`&str` <br/>`&Path` <br/>~~`&mut str`~~ (behaves like `&str`) <br/>~~`&String`~~ (double pointer) <br/>~~`&PathBuf`~~ (double pointer) |`&mut PathBuf` (double pointer)|
+|Borrowed|`&str` <br/>`&Path` <br/>~~`&String`~~ (double pointer) <br/>~~`&PathBuf`~~ (double pointer) |`&mut PathBuf` (double pointer)|
 
 
 # [Temp dir](https://doc.rust-lang.org/std/env/fn.temp_dir.html)
