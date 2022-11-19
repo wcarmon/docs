@@ -17,20 +17,26 @@
 ## [`File`](https://doc.rust-lang.org/std/fs/struct.File.html)
 - Implements [`Write`](https://doc.rust-lang.org/std/fs/struct.File.html#impl-Write-for-%26File)
 - Comparison:
-    - Java: [`java.nio.file.Path`](https://docs.oracle.com/en/java/javase/18/docs/api/java.base/java/nio/file/Path.html) + methods on [`Files`](https://docs.oracle.com/en/java/javase/18/docs/api/java.base/java/nio/file/Files.html)
+    - Java: [`java.nio.file.Path`](https://docs.oracle.com/en/java/javase/18/docs/api/java.base/java/nio/file/Path.html) + methods on [`java.nio.file.Files`](https://docs.oracle.com/en/java/javase/18/docs/api/java.base/java/nio/file/Files.html)
 
 
-## [`Pathbuf`](https://doc.rust-lang.org/stable/std/path/struct.PathBuf.html)
-- TODO
+## [`PathBuf`](https://doc.rust-lang.org/stable/std/path/struct.PathBuf.html)
+- Owned
+- Mutable
+
 
 ## [`Path`](https://doc.rust-lang.org/stable/std/path/struct.Path.html)
-- TODO
+- Borrowed
+- Comparison:
+    - Golang: [`filepath`](https://pkg.go.dev/path/filepath)
+    - Java: [TODO](TODO)
 
 
 - TODO: prune table below
+
 ||Immutable|Mutable|
 |---|---|---|
-|Owned|`String` <br/>`PathBuf` <br/>`OsString` <br/>`Vec<T>`|`String` (`mut` on variable/argument) <br/>`PathBuf` (`mut` on variable/argument) <br/>|
+|Owned|`String` <br/>`PathBuf` <br/>|`String` (`mut` on variable/argument) <br/>`PathBuf` (`mut` on variable/argument) <br/>|
 |Borrowed|`&str` <br/>`&Path` <br/>`&OsStr` <br/>`&[T]` <br/>~~`&mut str`~~ (behaves like `&str`) <br/>~~`&String`~~ (double pointer) <br/>~~`&PathBuf`~~ (double pointer) |`&mut String` (double pointer)|
 
 
