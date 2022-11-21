@@ -1,5 +1,5 @@
 # Overview
-1. For Core Java (no lombok), [See the core Java doc](./pojos.core.java8-17.md)
+1. For Core Java (no lombok), [See the core Java doc](./pojos.core.java8_17.md)
 1. Contains simplifications when using [Lombok](https://projectlombok.org/)
 1. Building an idiomatic POJO in Java 8-17 is **non-trivial** (before [Records](https://docs.oracle.com/en/java/javase/14/language/records.html))
     1. Even with Lombok, it's non-trivial
@@ -36,8 +36,8 @@
 
 
 # Examples
-1. [Basic Lombok POJO](./pojo.example-3.md)
-1. [Jackson compatible Lombok POJO](./pojo.example-4.md)
+1. [Basic Lombok POJO](./pojo.example_3.md)
+1. [Jackson compatible Lombok POJO](./pojo.example_4.md)
 
 
 # Lombok POJO Checklist

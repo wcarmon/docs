@@ -1,8 +1,7 @@
 # Overview
-1. Example of "idiomatic", Lombok, Java 8-17 POJO
-1. See also, [detailed explanation](./pojos.lombok.java8-17.md)
-1. See also, [Jackson ready lombok POJO example](./pojo.example-4.md)
-1. See also, [core Java POJO examples](./pojos.core.java8-17.md)
+1. Example of "idiomatic", Lombok, Jackson, Java 8-17 POJO
+1. See also, [detailed explanation](./pojos.lombok.java8_17.md)
+1. See also, [core Java POJO examples](./pojos.core.java8_17.md)
 
 # POJO Example
 ```java
@@ -26,8 +25,10 @@ public class Employee {
    */
   String name;
 
+  @JsonProperty("firstDayOnTheJob")
   LocalDate startDate;
 
+  @Jacksonized
   @lombok.Builder(
     builderClassName = "Builder",
     toBuilder = true)
@@ -58,6 +59,8 @@ public class Employee {
 
 # Usage Example
 ```java
+    ObjectMapper objectMapper = ...
+
     Employee wil = Employee.newBuilder()
       .age(35)
       .name("Wil C")
@@ -65,5 +68,7 @@ public class Employee {
       .build();
 
     // NOTE: wil.active is defaulted to true
-```
 
+    System.out.println(
+      objectMapper.writeValueAsString(wil));
+```

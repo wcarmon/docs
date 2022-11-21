@@ -27,7 +27,7 @@
 
 
 # Bad news
-1. [Checked exceptions](./exceptions.no-checked.md), (compare to Go, Rust, c, c++, c#, js, ts, Kotlin, Python, ...)
+1. [Checked exceptions](./exceptions.no_checked.md), (compare to Go, Rust, c, c++, c#, js, ts, Kotlin, Python, ...)
     1. Mitigate with [Lombok](https://projectlombok.org/features/SneakyThrows)
 1. Immutability is hard and not the default (compare to [Kotlin](TODO) or [Rust](TODO))
     1. Mitigate with [Lombok](https://projectlombok.org/features/Value)

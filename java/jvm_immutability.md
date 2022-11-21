@@ -5,15 +5,15 @@
 
 # Immutable POJO Checklist
 ## Java
-1. See How to build [Core Java based POJOs](./pojos.core.java8-17.md)
-1. See How to build [Lombok based POJOs](./pojos.lombok.java8-17.md)
+1. See How to build [Core Java based POJOs](./pojos.core.java8_17.md)
+1. See How to build [Lombok based POJOs](./pojos.lombok.java8_17.md)
 
 ## [Kotlin](https://kotlinlang.org/)
 1. Use [`data class`](https://kotlinlang.org/docs/data-classes.html) with [`val`](https://kotlinlang.org/docs/basic-syntax.html#variables)
 
 
 # Non-POJO Checklist (Services, Helpers, Components, DAOs, ...)
-1. Use [Constructor injection](./dependency-injection.md)
+1. Use [Constructor injection](./dependency_injection.md)
 1. Mark **all** class `final`
     1. Composition over Inheritance: [why?](https://en.wikipedia.org/wiki/Composition_over_inheritance), [why?](https://stackoverflow.com/questions/49002/prefer-composition-over-inheritance), [why?](https://medium.com/geekculture/composition-over-inheritance-7faed1628595)
     1. **EXCEPTION**: Spring [`@Configuration`](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/Configuration.html) classes cannot be final

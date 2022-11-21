@@ -20,5 +20,5 @@
 # Key-value pairs
 | |Fixed keys|Dynamic keys|
 |---|---|---|
-|to **one** value|[POJO](./pojos.lombok.java8-17.md) or [EnumMap](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/EnumMap.html)|[HashMap](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/HashMap.html), [ConcurrentHashMap](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/ConcurrentHashMap.html)|
-|to **many** values|[POJO](./pojos.lombok.java8-17.md) or [EnumMap](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/EnumMap.html)|`Map<K, Collection<V>>` or [`MultiMap<K, V>`](https://guava.dev/releases/31.0.1-jre/api/docs/com/google/common/collect/Multimap.html)|
+|to **one** value|[POJO](./pojos.lombok.java8_17.md) or [EnumMap](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/EnumMap.html)|[HashMap](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/HashMap.html), [ConcurrentHashMap](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/ConcurrentHashMap.html)|
+|to **many** values|[POJO](./pojos.lombok.java8_17.md) or [EnumMap](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/EnumMap.html)|`Map<K, Collection<V>>` or [`MultiMap<K, V>`](https://guava.dev/releases/31.0.1-jre/api/docs/com/google/common/collect/Multimap.html)|

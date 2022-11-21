@@ -7,12 +7,12 @@
 
 # General Advice
 1. [Immutability](../general/immutability.md), in general
-1. [Immutability](./jvm-immutability.md) on the JVM
+1. [Immutability](./jvm_immutability.md) on the JVM
 1. [Importance of Sorting](./sorting.md)
 1. [Importance of Preconditions](./preconditions.md)
 1. [Choosing the correct variable types](./strings.avoid.md)
-1. [Avoid AOP](./frameworks.no-aop.md)
-1. [Avoid nesting](./control-flow.minimize-nesting.md)
+1. [Avoid AOP](./frameworks.no_aop.md)
+1. [Avoid nesting](./control_flow.minimize_nesting.md)
 
 
 # Classes
@@ -21,11 +21,11 @@
 
 # Collections
 1. [Selecting the correct collection](./collections.selecting.md)
-1. [Avoid LinkedList](./collections.no-linkedlist.md)
+1. [Avoid LinkedList](./collections.no_linkedlist.md)
 
 
 # Dependency Injection
-1. [Idioms](./dependency-injection.md)
+1. [Idioms](./dependency_injection.md)
 
 
 # Exception handling
@@ -42,8 +42,8 @@
 
 
 # POJOs
-1. [With lombok](./pojos.lombok.java8-17.md), [example](./pojo.example-3.md)
-1. [Without lombok](./pojos.core.java8-17.md), [example](./pojo.example-1.md)
+1. [With lombok](./pojos.lombok.java8_17.md), [example](./pojo.example_3.md)
+1. [Without lombok](./pojos.core.java8_17.md), [example](./pojo.example_1.md)
 
 
 # Spring

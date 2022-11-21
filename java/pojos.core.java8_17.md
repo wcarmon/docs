@@ -2,8 +2,8 @@
 1. How to build idiomatic POJOs on Java 8 thru 17
 1. Building an idiomatic POJO in Java 8-17 is **non-trivial** (before [Records](https://docs.oracle.com/en/java/javase/14/language/records.html))
 1. Lombok based pojos are simpler, but add a small penalty to the build process
-    1. For [Lombok](https://projectlombok.org/) based POJOs, see [./pojos.lombok.java8-17.md](./pojos.lombok.java8-17.md)
-1. See also [JVM Immutability](jvm-immutability.md)
+    1. For [Lombok](https://projectlombok.org/) based POJOs, see [./pojos.lombok.java8_17.md](./pojos.lombok.java8_17.md)
+1. See also [JVM Immutability](jvm_immutability.md)
 
 
 # Table of Contents
@@ -40,8 +40,8 @@
 
 
 # Examples
-1. [Basic POJO](./pojo.example-1.md)
-1. [Jackson compatible POJO](./pojo.example-2.md)
+1. [Basic POJO](./pojo.example_1.md)
+1. [Jackson compatible POJO](./pojo.example_2.md)
 
 
 # POJO Checklist
