@@ -20,7 +20,7 @@
 |        [`Cow`](https://doc.rust-lang.org/std/borrow/enum.Cow.html)     | *passthru*              | Immutable          |  [Sync](https://doc.rust-lang.org/std/marker/trait.Sync.html) (Yes)   | Compile time |                | *passthru* |
 
 # Combinations
-# [`Arc`](https://doc.rust-lang.org/std/sync/struct.Arc.html)<[`Mutex`](https://doc.rust-lang.org/std/sync/struct.Mutex.html)`<T>>`
+# [`Arc`](https://doc.rust-lang.org/std/sync/struct.Arc.html)`<`[`Mutex`](https://doc.rust-lang.org/std/sync/struct.Mutex.html)`<T>``>`
 1. [Threadsafe](https://doc.rust-lang.org/std/sync/struct.Arc.html#thread-safety), [reference counted](https://en.wikipedia.org/wiki/Reference_counting), runtime enforced, safe mutability
 1. Comparison
     1. Equivalent to golang [`sync.Mutex`](https://pkg.go.dev/sync#Mutex)
