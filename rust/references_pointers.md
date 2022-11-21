@@ -19,6 +19,7 @@
 |    [`Weak<T>`](https://doc.rust-lang.org/std/rc/struct.Weak.html)      | Not owned               | Immutable                  | !Sync (No)    | Compile time  | *passthru* | No |
 |        [`Cow`](https://doc.rust-lang.org/std/borrow/enum.Cow.html)     | *passthru*              | Immutable                  | [Sync](https://doc.rust-lang.org/std/marker/trait.Sync.html) (Yes)   | Compile time |                | *passthru* |
 
+
 # Combinations
 # `Arc<Mutex<T>>`
 1. [Threadsafe](https://doc.rust-lang.org/std/sync/struct.Arc.html#thread-safety), [reference counted](https://en.wikipedia.org/wiki/Reference_counting), runtime enforced, safe mutability
@@ -30,6 +31,47 @@
 
 # Rc<RefCell<T>>
 1. TODO
+
+
+# Tools for [Ownership](https://doc.rust-lang.org/book/ch04-00-understanding-ownership.html)
+## [`Rc`](https://doc.rust-lang.org/std/rc/struct.Rc.html)
+- Useful for TODO
+- TODO
+
+
+## [`Arc`](https://doc.rust-lang.org/std/sync/struct.Arc.html)
+- Useful for TODO
+- TODO
+
+
+## [`Weak`](https://doc.rust-lang.org/std/rc/struct.Weak.html)
+- Useful for TODO
+- Can be [upgraded](https://doc.rust-lang.org/std/rc/struct.Weak.html#method.upgrade) to [`Rc`](https://doc.rust-lang.org/std/rc/struct.Rc.html)
+
+
+# Tools for Mutability
+## [`Mutex`](https://doc.rust-lang.org/std/sync/struct.Mutex.html)
+- Useful for TODO
+- TODO
+
+## [`RwLock`](https://doc.rust-lang.org/std/sync/struct.RwLock.html)
+- TODO
+
+## [`RefCell`](https://doc.rust-lang.org/std/cell/struct.RefCell.html)
+- Useful for TODO
+- TODO
+
+## [`Cell`](https://doc.rust-lang.org/std/cell/struct.Cell.html)
+- Useful for TODO
+- TODO
+
+
+# Tools for Thread-safety
+## [`Sync`](https://doc.rust-lang.org/std/marker/trait.Sync.html) marker trait
+- Threadsafety
+
+## [`Send`](https://doc.rust-lang.org/std/marker/trait.Send.html) marker trait
+- Safe to [transfer](https://doc.rust-lang.org/nomicon/send-and-sync.html) ownership between threads
 
 
 - TODO: https://cheats.rs/#references-pointers
