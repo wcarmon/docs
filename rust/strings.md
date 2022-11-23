@@ -32,6 +32,7 @@
 1. `Allocated`: [Heap](./memory.md) or static (TODO: be clearer)
 1. `Guarantees`: always valid [UTF-8](https://en.wikipedia.org/wiki/UTF-8)
 1. a.k.a. ["slice"](https://doc.rust-lang.org/book/ch04-03-slices.html#string-slices)
+1. [`&str` is a slice (`&[u8]`)](https://doc.rust-lang.org/rust-by-example/std/str.html), always points to a valid UTF-8 sequence
 1. [String literals](https://doc.rust-lang.org/rust-by-example/std/str.html#literals-and-escapes) are `&'static str` (live forever, immutable, borrowed)
 
 
