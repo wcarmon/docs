@@ -193,10 +193,11 @@ print!("{:?}", my_str1.to_owned() + my_str2);
 print!("{:?}", "literal".to_owned() + my_str);
 
 // literal + String
+print!("{:?}", "literal".to_owned() + &owned_string);
 print!("{:?}", "literal".to_owned() + owned_string.borrow());
 
 // literal + literal
-let s: &str = concat!("a", "b"); // concat only works with literals
+let s: &str = concat!("a", "b"); // only works with literals
 print!("{:?}", "foo".to_owned() + "bar");
 ```
 
