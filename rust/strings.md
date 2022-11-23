@@ -140,6 +140,7 @@ let input: String = String::new();
 ...
 let output0 = input.as_str();
 let output1 = &input[..];
+let output2 = &input;
 ```
 
 
@@ -162,6 +163,8 @@ let output: String = input.to_owned();
 # Concatenation
 1. First part must be **owned** ([`String`](https://doc.rust-lang.org/std/string/struct.String.html))
 1. subsequent parts must be [borrowed](https://doc.rust-lang.org/std/primitive.str.html)
+1. [Why?](https://doc.rust-lang.org/std/string/struct.String.html#impl-Add%3C%26str%3E-for-String)
+
 
 ## Examples
 ```rust
@@ -171,17 +174,30 @@ print!("{:?}", owned_string + my_str);
 // String + literal
 print!("{:?}", owned_string + "literal");
 
+// String + String
+print!("{:?}", owned_string1 + &owned_string2);
+
+
 // &str + literal
 print!("{:?}", my_str.to_owned() + "literal");
 
 // &str + String
+print!("{:?}", my_str.to_owned() + &owned_string);
 print!("{:?}", my_str.to_owned() + owned_string.borrow());
+
+// &str + &str
+print!("{:?}", my_str1.to_owned() + my_str2);
+
 
 // literal + &str
 print!("{:?}", "literal".to_owned() + my_str);
 
 // literal + String
 print!("{:?}", "literal".to_owned() + owned_string.borrow());
+
+// literal + literal
+let s: &str = concat!("a", "b"); // concat only works with literals
+print!("{:?}", "foo".to_owned() + "bar");
 ```
 
 
