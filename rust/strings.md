@@ -128,34 +128,34 @@ assert_eq!("\"#\"", r##""#""##);    // "#"
 
 ## Literal to `&str`
 ```rust
-    let input: &'static str = "some literal";
-    ...
-    let output: &str = input;
+let input: &'static str = "some literal";
+...
+let output: &str = input;
 ```
 
 
 ## `String` to `&str`
 ```rust
-    let input: String = String::new();
-    ...
-    let output0 = input.as_str();
-    let output1 = &input[..];
+let input: String = String::new();
+...
+let output0 = input.as_str();
+let output1 = &input[..];
 ```
 
 
 ## Literal to `String`
 ```rust
-    let input: &'static str = "some literal";
-    ...
-    let output = input.to_owned();
+let input: &'static str = "some literal";
+...
+let output = input.to_owned();
 ```
 
 
 ## `&str` to `String`
 ```rust
-    let input: &str = "foo";
-    ...
-    let output: String = input.to_owned();
+let input: &str = "foo";
+...
+let output: String = input.to_owned();
 ```
 
 
