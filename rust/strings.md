@@ -213,4 +213,4 @@ print!("{:?}", "foo".to_owned() + "bar");
 1. https://cheats.rs/#strings-chars
 1. https://cheats.rs/#owned-strings
 1. https://web.mit.edu/rust-lang_v1.25/arch/amd64_ubuntu1404/share/doc/rust/html/book/first-edition/strings.html
-
+1. https://iq.opengenus.org/rust-string-concat/
