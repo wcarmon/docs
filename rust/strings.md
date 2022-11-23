@@ -124,6 +124,41 @@ assert_eq!("\"#\"", r##""#""##);    // "#"
 
 
 # Conversion
+
+## Literal to `&str`
+```rust
+    let input: &'static str = "some literal";
+    ...
+    let output: &str = input;
+```
+
+
+## `String` to `&str`
+```rust
+    let input: String = String::new();
+    ...
+    let output0 = input.as_str();
+    let output1 = &input[..];
+```
+
+
+## Literal to `String`
+```rust
+    let input: &'static str = "some literal";
+    ...
+    let output = input.to_owned();
+```
+
+
+## `&str` to `String`
+```rust
+    let input: &str = "foo";
+    ...
+    let output: String = input.to_owned();
+```
+
+
+## Other methods
 - [`&str.to_string()`](https://doc.rust-lang.org/std/string/trait.ToString.html#impl-ToString-for-str) calls [`String::from`](https://doc.rust-lang.org/stable/std/convert/trait.From.html#impl-From%3C%26str%3E-for-String)
 - [`String::from`](https://doc.rust-lang.org/stable/std/convert/trait.From.html#impl-From%3C%26str%3E-for-String) calls [`&str.to_owned()`](https://doc.rust-lang.org/stable/std/borrow/trait.ToOwned.html#impl-ToOwned-for-str), which allocates a new String
 - [`&str.to_owned()`](https://doc.rust-lang.org/stable/std/borrow/trait.ToOwned.html#impl-ToOwned-for-str), which allocates a new `String`
