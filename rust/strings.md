@@ -160,7 +160,7 @@ let output: String = input.to_owned();
 
 
 # Concatenation
-1. First part must be owned ([`String`](https://doc.rust-lang.org/std/string/struct.String.html))
+1. First part must be **owned** ([`String`](https://doc.rust-lang.org/std/string/struct.String.html))
 1. subsequent parts must be [borrowed](https://doc.rust-lang.org/std/primitive.str.html)
 
 ## Examples
@@ -175,7 +175,7 @@ print!("{:?}", owned_string + "literal");
 print!("{:?}", my_str.to_owned() + "literal");
 
 // &str + String
-print!("{:?}", my_ref.to_owned() + owned_string.borrow());
+print!("{:?}", my_str.to_owned() + owned_string.borrow());
 
 // literal + &str
 print!("{:?}", "literal".to_owned() + my_str);
