@@ -159,6 +159,32 @@ assert_eq!("\"#\"", r##""#""##);    // "#"
 ```
 
 
+# Concatenation
+1. First part must be owned ([`String`](https://doc.rust-lang.org/std/string/struct.String.html))
+1. subsequent parts must be [borrowed](https://doc.rust-lang.org/std/primitive.str.html)
+
+## Examples
+```rust
+// String + &str (simplest case)
+print!("{:?}", owned_string + my_str);
+
+// String + literal
+print!("{:?}", owned_string + "literal");
+
+// &str + literal
+print!("{:?}", my_str.to_owned() + "literal");
+
+// &str + String
+print!("{:?}", my_ref.to_owned() + owned_string.borrow());
+
+// literal + &str
+print!("{:?}", "literal".to_owned() + my_str);
+
+// literal + String
+print!("{:?}", "literal".to_owned() + owned_string.borrow());
+```
+
+
 ## Other methods
 - [`&str.to_string()`](https://doc.rust-lang.org/std/string/trait.ToString.html#impl-ToString-for-str) calls [`String::from`](https://doc.rust-lang.org/stable/std/convert/trait.From.html#impl-From%3C%26str%3E-for-String)
 - [`String::from`](https://doc.rust-lang.org/stable/std/convert/trait.From.html#impl-From%3C%26str%3E-for-String) calls [`&str.to_owned()`](https://doc.rust-lang.org/stable/std/borrow/trait.ToOwned.html#impl-ToOwned-for-str), which allocates a new String
