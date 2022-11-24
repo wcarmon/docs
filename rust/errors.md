@@ -15,7 +15,8 @@
     1. again, [thiserror](https://docs.rs/thiserror/latest/thiserror/derive.Error.html) makes this easy via [`#[derive(Debug, Error)]`](https://docs.rs/thiserror/latest/thiserror/derive.Error.html)
 1. Inside functions, use [`?` operator](https://doc.rust-lang.org/reference/expressions/operator-expr.html#the-question-mark-operator) to simplify caller & chain calls
 1. Don't [`panic!`](https://doc.rust-lang.org/std/macro.panic.html)
-    1. No [`.unwrap()`](https://doc.rust-lang.org/std/result/enum.Result.html#method.unwrap) or [`.expect()`](https://doc.rust-lang.org/std/result/enum.Result.html#method.expect) in production code
+    1. No [`.unwrap()`](https://doc.rust-lang.org/std/result/enum.Result.html#method.unwrap) nor [`.expect()`](https://doc.rust-lang.org/std/result/enum.Result.html#method.expect) in production code
+1. Only add [logs](./logging.md) where you **handle** the error, not where you propagate ([`?`](https://doc.rust-lang.org/reference/expressions/operator-expr.html#the-question-mark-operator))
 1. Add extra context ...
     1. Using fields on your Custom Error type variants
     1. Using [fields](https://doc.rust-lang.org/rust-by-example/custom_types/enum.html#enums) on your custom error type
@@ -33,7 +34,6 @@ if let Ok(s) = res {
   // ...
 }
 ```
-1. Add [logs](./logging.md) where you **handle** the error, not where you propagate ([`?`](https://doc.rust-lang.org/reference/expressions/operator-expr.html#the-question-mark-operator))
 
 
 # While prototyping ...
