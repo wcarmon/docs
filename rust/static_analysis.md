@@ -11,9 +11,11 @@
     - `allow`: exit code 0, no message
     - `warn`: exit code 0, warning message
     - `deny`: non-zero exit code (failure) with message
+1. Changing level
+    - Allow/permit: `#[allow(clippy::approx_constant)]`
 
 
-## Example
+## Example cli
 ```bash
 # -- Typical warnings
 cargo clippy --all
