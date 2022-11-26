@@ -74,6 +74,7 @@
 - Safe to [transfer](https://doc.rust-lang.org/nomicon/send-and-sync.html) ownership between threads
 
 
+- TODO: Pin
 - TODO: https://cheats.rs/#references-pointers
 
 # Other Resources
