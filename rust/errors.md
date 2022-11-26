@@ -23,7 +23,8 @@
     1. Using [tracing](./tracing.md) or [logging](./logging.md)
     1. Using [`some_result.context("...")?`](https://docs.rs/anyhow/latest/anyhow/trait.Context.html) to add extra error details
         1. [`.with_context("...")?`](https://docs.rs/anyhow/latest/anyhow/trait.Context.html#tymethod.with_context) is the lazy version
-1. `impl From<foreign::SomeError> for MyCustomError {` to translate foreign errors ([thiserror](https://docs.rs/thiserror/latest/thiserror/#details) can generate)
+1. `impl From<foreign::SomeError> for MyCustomError {` to translate foreign errors.
+    1. [thiserror](https://docs.rs/thiserror/latest/thiserror/#details) can generate
     1. ```rust
         #[error("io error")]
         StdIoError {
