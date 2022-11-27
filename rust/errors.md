@@ -43,6 +43,7 @@ if let Ok(s) = res {
   // ...
 }
 ```
+1. Optionally use `Result<(), anyhow::Error>` on test functions to simplify `?` usage
 
 
 # While prototyping ...
