@@ -1,12 +1,12 @@
 # Overview
-1. Setup environment for mature development
-1. Every [popular language](https://www.tiobe.com/tiobe-index/) has a set of development tools (Guard rails) to simplify writing mature code 
-1. Guard rails, (when followed), prevent developers from making common mistakes
-1. Guard rails can teach you language specific idioms
+1. Best tools for a mature development environment
+1. Every [popular language](https://www.tiobe.com/tiobe-index/) has tools (Guard rails) to simplify writing mature code 
+1. Guard rails, (when followed), prevent Developers from making common mistakes
+1. Guard rails can teach Developers to follow language specific idioms
 
 
 # Most important Guard rails
-1. Compiler
+1. [Compiler](https://www.techtarget.com/whatis/definition/compiler#:~:text=A%20compiler%20is%20a%20special,as%20Java%20or%20C%2B%2B.), [another explainer](https://dev.to/arikaturika/code-compiling-explain-like-im-five-4mkj)
 1. Static analysis (Lint)
 1. Auto-Tester
   1. Unit test, E2E test
@@ -18,17 +18,17 @@
 1. Other humans (Code reviewers)
 
 
-# Rust
+# [Rust](https://www.rust-lang.org/)
 1. Compiler: [rustc](https://doc.rust-lang.org/rustc/what-is-rustc.html) (usually invoked via `cargo build` or thru IDE)
 1. Static analysis: [clippy](https://github.com/rust-lang/rust-clippy)
-1. Automated Tester: [cargo test](https://doc.rust-lang.org/cargo/commands/cargo-test.html)
+1. Automated Tester: [`cargo test`](https://doc.rust-lang.org/cargo/commands/cargo-test.html)
 1. IDE: Most Jetbrains tools like [Goland, CLion or Intellij](https://www.jetbrains.com/rust/)
 1. AI: [tabnine](https://www.tabnine.com/), [copilot](https://github.com/features/copilot)
 1. Profiler: TODO
 1. Auto-Formatter: [rustfmt](https://github.com/rust-lang/rustfmt) (usually invoked via `cargo fmt`)
 
 
-# Go
+# [Go](https://go.dev/)
 1. Compiler: [`go build`](https://go.dev/doc/tutorial/compile-install)
 1. Static analysis: TODO
 1. Automated Tester: [`go test`](https://go.dev/doc/tutorial/add-a-test)
@@ -38,8 +38,8 @@
 1. Auto-Formatter: [`gofmt` or `go fmt`](https://pkg.go.dev/cmd/gofmt)
 
 
-# Java
-1. Compiler: [javac](https://docs.oracle.com/en/java/javase/17/docs/specs/man/javac.html) (usually invoked indirectly thru gradle or IDE)
+# [Java](https://www.oracle.com/java/technologies/downloads/)
+1. Compiler: [javac](https://docs.oracle.com/en/java/javase/17/docs/specs/man/javac.html) (usually invoked thru [gradle](https://gradle.org/) or [IDE](https://www.jetbrains.com/idea/))
 1. Static analysis: [PMD](https://pmd.github.io/)
 1. Automated Tester: [Junit](https://junit.org/junit5/)
 1. IDE: [Intellij](https://www.jetbrains.com/idea/)
@@ -49,8 +49,8 @@
 1. Auto-Formatter: [spotless] (https://github.com/diffplug/spotless)
 
 
-# Typescript
-1. Compiler: TODO
+# [Typescript](https://www.typescriptlang.org/)
+1. Compiler (Transpiler): TODO
 1. Static analysis: TODO
 1. Automated Tester: TODO 
 1. IDE: TODO
@@ -59,17 +59,17 @@
 1. Auto-Formatter: [Prettier](https://prettier.io/)
 
 
-# Python
+# [Python](https://www.python.org/)
 1. Compiler: TODO
 1. Static analysis: TODO
 1. Automated Tester: TODO
 1. IDE: TODO
 1. AI: [tabnine](https://www.tabnine.com/), [copilot](https://github.com/features/copilot) 
 1. Profiler: TODO
-1. Auto-Formatter: TODO
+1. Auto-Formatter: [Black](https://github.com/psf/black)
 
 
-# C++
+# [C++](https://en.wikipedia.org/wiki/C%2B%2B)
 1. Compiler: [clang](https://clang.llvm.org/), [gcc](https://gcc.gnu.org/)
   1. Enable all warnings, different compilers catch different bugs
 1. Static analysis: [AddressSanitizer](https://github.com/google/sanitizers/wiki/AddressSanitizer), [ThreadSanitizer](https://github.com/google/sanitizers/wiki/ThreadSanitizerCppManual), [MemorySanitizer](https://github.com/google/sanitizers/wiki/MemorySanitizer), [UndefinedBehaviorSanitizer](https://clang.llvm.org/docs/UndefinedBehaviorSanitizer.html), [LeakSanitizer](https://clang.llvm.org/docs/LeakSanitizer.html) 
@@ -81,17 +81,41 @@
 1. Auto-Formatter: TODO
 
 
-# C
-- TODO
+# [C](https://en.wikipedia.org/wiki/C_(programming_language))
+1. Compiler: TODO
+1. Static analysis: TODO
+1. Automated Tester: TODO
+1. IDE: TODO
+1. AI: [tabnine](https://www.tabnine.com/), [copilot](https://github.com/features/copilot) 
+1. Profiler: TODO
+1. Auto-Formatter: TODO
 
 
-# Kotlin
-- TODO
+# [Kotlin](https://kotlinlang.org/)
+1. Compiler: TODO
+1. Static analysis: TODO
+1. Automated Tester: TODO
+1. IDE: TODO
+1. AI: [tabnine](https://www.tabnine.com/), [copilot](https://github.com/features/copilot) 
+1. Profiler: TODO
+1. Auto-Formatter: TODO
 
 
-# Swift
-- TODO
+# [Swift](https://developer.apple.com/swift/)
+1. Compiler: TODO
+1. Static analysis: TODO
+1. Automated Tester: TODO
+1. IDE: TODO
+1. AI: [tabnine](https://www.tabnine.com/), [copilot](https://github.com/features/copilot) 
+1. Profiler: TODO
+1. Auto-Formatter: TODO
 
 
-# Dart
-- TODO
+# [Dart](https://dart.dev/)
+1. Compiler: TODO
+1. Static analysis: TODO
+1. Automated Tester: TODO
+1. IDE: TODO
+1. AI: [tabnine](https://www.tabnine.com/), [copilot](https://github.com/features/copilot) 
+1. Profiler: TODO
+1. Auto-Formatter: TODO
