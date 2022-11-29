@@ -31,24 +31,27 @@
 
 
 # [Go](https://go.dev/)
-1. Compiler: [`go build`](https://go.dev/doc/tutorial/compile-install)
-1. Static analysis: TODO
-1. Automated Tester: [`go test`](https://go.dev/doc/tutorial/add-a-test)
-1. IDE: [Goland](https://www.jetbrains.com/go/) or [vsc](https://code.visualstudio.com/)
-1. AI: [tabnine](https://www.tabnine.com/), [copilot](https://github.com/features/copilot)
-1. Profiler: [Goland CPU Profiler](https://www.jetbrains.com/help/go/cpu-profiler.html), [Goland Memory profiler](https://www.jetbrains.com/help/go/memory-profiler.html), [Goland Mutex profiler](https://www.jetbrains.com/help/go/mutex-profiler.html#InterpretingTheResults)
-1. Auto-Formatter: [`gofmt` or `go fmt`](https://pkg.go.dev/cmd/gofmt)
+|Category|Best Tools|
+|---:|:---|
+|Compiler|[`go build`](https://go.dev/doc/tutorial/compile-install)|
+|Static analysis|TODO|
+|Automated Tester|[`go test`](https://go.dev/doc/tutorial/add-a-test)|
+|IDE|[Goland](https://www.jetbrains.com/go/) or [vsc](https://code.visualstudio.com/)|
+|AI|[tabnine](https://www.tabnine.com/), [copilot](https://github.com/features/copilot)|
+|Profiler|[Goland CPU Profiler](https://www.jetbrains.com/help/go/cpu-profiler.html), [Goland Memory profiler](https://www.jetbrains.com/help/go/memory-profiler.html), [Goland Mutex profiler](https://www.jetbrains.com/help/go/mutex-profiler.html#InterpretingTheResults)|
+|Auto-Formatter|[`gofmt` or `go fmt`](https://pkg.go.dev/cmd/gofmt)|
 
 
 # [Java](https://www.oracle.com/java/technologies/downloads/)
-1. Compiler: [javac](https://docs.oracle.com/en/java/javase/17/docs/specs/man/javac.html) (usually invoked thru [gradle](https://gradle.org/) or [IDE](https://www.jetbrains.com/idea/))
-1. Static analysis: [PMD](https://pmd.github.io/)
-1. Automated Tester: [Junit](https://junit.org/junit5/)
-1. IDE: [Intellij](https://www.jetbrains.com/idea/)
-  1. [Inspections](https://www.jetbrains.com/help/idea/list-of-java-inspections.html)
-1. AI: [tabnine](https://www.tabnine.com/), [copilot](https://github.com/features/copilot)
-1. Profiler: [VisualVM](https://visualvm.github.io/download.html), [yourkit](https://www.yourkit.com/), [jprofiler](https://www.ej-technologies.com/products/jprofiler/overview.html)
-1. Auto-Formatter: [spotless] (https://github.com/diffplug/spotless)
+|Category|Best Tools|
+|---:|:---|
+|Compiler|[javac](https://docs.oracle.com/en/java/javase/17/docs/specs/man/javac.html) (usually invoked thru [gradle](https://gradle.org/) or [IDE](https://www.jetbrains.com/idea/))|
+|Static analysis|[PMD](https://pmd.github.io/)|
+|Automated Tester|[Junit](https://junit.org/junit5/)|
+|IDE|[Intellij](https://www.jetbrains.com/idea/), [Inspections](https://www.jetbrains.com/help/idea/list-of-java-inspections.html)|
+|AI|[tabnine](https://www.tabnine.com/), [copilot](https://github.com/features/copilot)|
+|Profiler|[VisualVM](https://visualvm.github.io/download.html), [yourkit](https://www.yourkit.com/), [jprofiler](https://www.ej-technologies.com/products/jprofiler/overview.html)|
+|Auto-Formatter|[spotless] (https://github.com/diffplug/spotless)|
 
 
 # [Typescript](https://www.typescriptlang.org/)
