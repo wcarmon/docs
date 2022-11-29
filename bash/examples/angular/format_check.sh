@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # ---------------------------------------------
-# -- Auto format the ts/js files
+# -- Verify auto-formatter was previously run
 # --
 # -- Assumptions:
 # -- 1. Installed prettier: npm install --save-dev prettier
@@ -27,17 +27,8 @@ readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
 readonly PROJ_ROOT="$PARENT_DIR"
 
 # ---------------------------------------------
-# -- Format
+# -- Check Format
 # ---------------------------------------------
 cd "$PROJ_ROOT" >/dev/null 2>&1
 
-# NOTE: --loglevel <silent|error|warn|log|debug>
-$NPX prettier \
-  --loglevel log \
-  --write "src/**/*.{ts,tsx,js,jsx,json}"
-
-# ---------------------------------------------
-# -- Report
-# ---------------------------------------------
-echo
-echo "|-- Successfully auto-formatted"
+$NPX prettier --check --no-color "src/**/*.{ts,tsx,js,jsx,json}"

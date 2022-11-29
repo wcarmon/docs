@@ -5,10 +5,10 @@
 #       git status --ignored
 #
 # Syntax:
-#	*If line is prefixed with !, negates the pattern
-#	*If pattern does not contain a slash, treated like a shell glob pattern (match against the pathname, relative to $REPO_HOME)
-#	*If pattern starts with /, only matches against the root directory
-# 	*If pattern ends with /, removed but will only match a directory and paths under it (will not match file or symlink)
+# *If line is prefixed with !, negates the pattern
+# *If pattern does not contain a slash, treated like a shell glob pattern (match against the pathname, relative to $REPO_HOME)
+# *If pattern starts with /, only matches against the root directory
+# *If pattern ends with /, removed but will only match a directory and paths under it (will not match file or symlink)
 # -----------------------------------------------------------------------------
 
 
@@ -20,7 +20,6 @@
 #!.vscode/settings.json
 #!.vscode/tasks.json
 # -----------------------------------------------------------------------------
-
 
 !**/src/main/**/bin/
 !**/src/main/**/build/
@@ -64,6 +63,7 @@ $RECYCLE.BIN/
 *.egg
 *.egg-info
 *.exe
+*.exe~
 *.gem
 *.gen.go
 *.gen.go.partial
@@ -129,6 +129,8 @@ $RECYCLE.BIN/
 *.xz
 *.zip
 */WEB-INF/lib/
+*_gen.pb.go
+*_gen_grpc.pb.go
 *erase*
 *~
 ._*
@@ -173,6 +175,7 @@ $RECYCLE.BIN/
 .rerun.json
 .Rhistory
 .ruby-version
+.sass-cache/
 .settings
 .settings/
 .Spotlight-V100
@@ -196,10 +199,12 @@ $RECYCLE.BIN/
 /*/*/WEB-INF/lib/
 /*/target/
 /*/WEB-INF/lib/
+/.angular/cache
 /.idea
 /.nb-gradle/
 /.sass-cache
 /bazel-out
+/connect.lock
 /coverage
 /cpp/root/build/
 /dist
