@@ -1,0 +1,7 @@
+_scratch
+build
+coverage
+dist
+docs
+node_modules
+test-support/aws/test-policy.json
