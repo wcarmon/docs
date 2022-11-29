@@ -20,7 +20,7 @@
 
 # [Rust](https://www.rust-lang.org/)
 |Category|Best Tools|
-|---|---|
+|---:|:---|
 |Compiler|[rustc](https://doc.rust-lang.org/rustc/what-is-rustc.html) (usually invoked via `cargo build` or thru IDE)|
 |Static analysis|[clippy](https://github.com/rust-lang/rust-clippy)|
 |Automated Tester|[`cargo test`](https://doc.rust-lang.org/cargo/commands/cargo-test.html)|
