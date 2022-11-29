@@ -7,8 +7,9 @@ module.exports = {
   },
   "extends": [
     "eslint:all",
+    "plugin:@angular-eslint/all",
+    "plugin:@angular-eslint/template/process-inline-templates",
     "plugin:@typescript-eslint/all",
-    "plugin:@typescript-eslint/recommended",
     "plugin:@typescript-eslint/recommended-requiring-type-checking",
     "plugin:import/errors",
     "plugin:import/warnings",
@@ -18,7 +19,20 @@ module.exports = {
     "plugin:sonarjs/recommended",
     "standard-with-typescript"
   ],
-  "overrides": [],
+  "overrides": [
+    {
+      "extends": [
+        "plugin:@angular-eslint/template/recommended"
+      ],
+      "files": [
+        "*.html"
+      ],
+      "rules": {}
+    }
+  ],
+  "ignorePatterns": [
+    "projects/**/*"
+  ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaFeatures": {
@@ -39,6 +53,24 @@ module.exports = {
     "unicorn",
   ],
   "rules": {
+    "@angular-eslint/component-selector": [
+      "error",
+      {
+        "prefix": "app",
+        "style": "kebab-case",
+        "type": "element"
+      }
+    ],
+    "@angular-eslint/directive-selector": [
+      "error",
+      {
+        "prefix": "app",
+        "style": "camelCase",
+        "type": "attribute"
+      }
+    ],
+    "@angular-eslint/prefer-on-push-component-change-detection": "warn",
+    "@angular-eslint/sort-ngmodule-metadata-arrays": "error",
     "@typescript-eslint/array-type": ["error", {default: "array-simple"}],
     "@typescript-eslint/ban-ts-comment": "warn",
     "@typescript-eslint/comma-dangle": "off",
