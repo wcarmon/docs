@@ -53,20 +53,20 @@
 1. Compiler: TODO
 1. Static analysis: TODO
 1. Automated Tester: TODO 
-1. IDE: 
+1. IDE: TODO
 1. AI: [tabnine](https://www.tabnine.com/), [copilot](https://github.com/features/copilot)
 1. Profiler: TODO
 1. Auto-Formatter: [Prettier](https://prettier.io/)
 
 
 # Python
-1. Compiler: 
-1. Static analysis:
-1. Automated Tester: 
-1. IDE: 
+1. Compiler: TODO
+1. Static analysis: TODO
+1. Automated Tester: TODO
+1. IDE: TODO
 1. AI: [tabnine](https://www.tabnine.com/), [copilot](https://github.com/features/copilot) 
-1. Profiler: 
-1. Auto-Formatter 
+1. Profiler: TODO
+1. Auto-Formatter: TODO
 
 
 # C++
@@ -77,9 +77,21 @@
 1. IDE: 
   1. [clion](https://www.jetbrains.com/clion/): [sanitizer support](https://www.jetbrains.com/help/clion/google-sanitizers.html), [inspections](https://www.jetbrains.com/help/clion/running-inspections.html), ...
 1. AI: [tabnine](https://www.tabnine.com/), [copilot](https://github.com/features/copilot) 
-1. Profiler: 
-1. Auto-Formatter 
+1. Profiler: TODO
+1. Auto-Formatter: TODO
 
 
-# Other resources
-1. TODO
+# C
+- TODO
+
+
+# Kotlin
+- TODO
+
+
+# Swift
+- TODO
+
+
+# Dart
+- TODO
