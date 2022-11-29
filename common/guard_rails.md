@@ -13,19 +13,21 @@
 1. IDE
   1. Inspections, Auto-completion, Navigation 
 1. AI coding helper (eg. [Tabnine](https://www.tabnine.com) & [Copilot](https://github.com/features/copilot))
-1. Profiler
+1. Profiler (CPU, Memory, etc)
 1. Auto-Formatter
 1. Other humans (Code reviewers)
 
 
 # [Rust](https://www.rust-lang.org/)
-1. Compiler: [rustc](https://doc.rust-lang.org/rustc/what-is-rustc.html) (usually invoked via `cargo build` or thru IDE)
-1. Static analysis: [clippy](https://github.com/rust-lang/rust-clippy)
-1. Automated Tester: [`cargo test`](https://doc.rust-lang.org/cargo/commands/cargo-test.html)
-1. IDE: Most Jetbrains tools like [Goland, CLion or Intellij](https://www.jetbrains.com/rust/)
-1. AI: [tabnine](https://www.tabnine.com/), [copilot](https://github.com/features/copilot)
-1. Profiler: TODO
-1. Auto-Formatter: [rustfmt](https://github.com/rust-lang/rustfmt) (usually invoked via `cargo fmt`)
+|Category|Best Tools|
+|---|---|
+|Compiler|[rustc](https://doc.rust-lang.org/rustc/what-is-rustc.html) (usually invoked via `cargo build` or thru IDE)|
+|Static analysis|[clippy](https://github.com/rust-lang/rust-clippy)|
+|Automated Tester|[`cargo test`](https://doc.rust-lang.org/cargo/commands/cargo-test.html)|
+|IDE|Most Jetbrains tools like [Goland, CLion or Intellij](https://www.jetbrains.com/rust/)|
+|AI|[tabnine](https://www.tabnine.com/), [copilot](https://github.com/features/copilot)|
+|Profiler|TODO|
+|Auto-Formatter|[rustfmt](https://github.com/rust-lang/rustfmt) (usually invoked via `cargo fmt`)|
 
 
 # [Go](https://go.dev/)
