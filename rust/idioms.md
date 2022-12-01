@@ -18,7 +18,7 @@
     1. Split independent parts into [separate crates](./abstraction.md)
     1. Make it compile
     1. [Add unit tests](./testing.unit.md)
-    1. Fill in some fn/method bodies
+    1. Fill in some fn/method bodies (replace `todo!()` with real code)
     1. Make it run
     1. [Make error handling more robust](./errors.md) (error `enum`, clear messages)
     1. Fix issues listed by [clippy](./static_analysis.md)
