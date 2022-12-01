@@ -1,6 +1,5 @@
 # Overview
-1. TODO
-
+1. Tips for keeping quality high and reducing frustration
 
 
 # Custom Global css

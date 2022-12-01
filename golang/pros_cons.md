@@ -28,6 +28,7 @@
     1. though performance is better without streams
     1. java streams [require a special debugger](https://www.jetbrains.com/idea/guide/tips/debugging-streams/)
 1. Sorting is unintuitive
+1. max/min/abs functions don't work on all numeric types
 
 
 # Other Resources
