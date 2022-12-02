@@ -130,6 +130,34 @@ file.write_all("...".as_bytes()).unwrap();
 ```
 
 
+## Set file permissions
+```rust
+//TODO: https://doc.rust-lang.org/std/fs/fn.set_permissions.html
+```
+
+
+## Check if file exists
+```rust
+//TODO: https://doc.rust-lang.org/std/fs/fn.try_exists.html
+//TODO: https://doc.rust-lang.org/std/path/struct.Path.html#method.exists
+``` 
+
+
+## Check file type
+```rust
+//TODO: https://doc.rust-lang.org/std/fs/struct.Metadata.html#method.is_dir
+//TODO: https://doc.rust-lang.org/std/path/struct.Path.html#method.is_dir
+
+//TODO: https://doc.rust-lang.org/std/fs/struct.Metadata.html#method.is_file
+```
+
+
+## Get file size
+```rust
+//TODO: https://doc.rust-lang.org/std/fs/struct.Metadata.html#method.len
+```
+
+
 
 # Other Resources
 1. https://rust-lang-nursery.github.io/rust-cookbook/
