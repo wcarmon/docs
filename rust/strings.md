@@ -11,11 +11,12 @@
 
 
 # Types
+
 ## [String](https://doc.rust-lang.org/std/string/struct.String.html)
 1. `Ownership`: [Owned](./ownership.md) version of [`&str`](https://doc.rust-lang.org/std/str/index.html)
 1. `Mutability`: Growable, Mutable (eg. truncate, extend, etc)
 1. `Length`: dynamic
-1. `Allocated`: [Heap](./memory.md)
+1. `Allocated`: [Heap](./memory.md) always
 1. `Guarantees`: always valid [UTF-8](https://en.wikipedia.org/wiki/UTF-8)
 1. **Not** null terminated (compare to c & c++), `\n` is treated as newline
 1. [`String`](https://doc.rust-lang.org/std/string/struct.String.html) "extends" `&str` with mutable behavior
@@ -30,7 +31,7 @@
 1. `Mutability`: Immutable and read-only
 1. `Length`: fixed
 1. `Allocated`: [Heap](./memory.md) or static (TODO: be clearer)
-1. `Guarantees`: always valid [UTF-8](https://en.wikipedia.org/wiki/UTF-8)
+1. `Guarantees`: always valid [UTF-8](https://en.wikipedia.org/wiki/UTF-8) (Unicode)
 1. a.k.a. ["slice"](https://doc.rust-lang.org/book/ch04-03-slices.html#string-slices)
 1. [`&str` is a slice (`&[u8]`)](https://doc.rust-lang.org/rust-by-example/std/str.html), always points to a valid UTF-8 sequence
 1. [String literals](https://doc.rust-lang.org/rust-by-example/std/str.html#literals-and-escapes) are `&'static str` (live forever, immutable, borrowed)
@@ -48,11 +49,16 @@
 1. `Mutability`: Mutable
 1. TODO
 1. **Not** guaranteed UTF-8
+1. For both relative and absolute paths
+1. Each individual component is a `&OsStr`
+1. Growable, Heap allocated
 
 
 # [&Path](https://doc.rust-lang.org/stable/std/path/struct.Path.html)
 1. `Ownership`: [Borrowed](./ownership.md) version of [`PathBuf`](https://doc.rust-lang.org/stable/std/path/struct.PathBuf.html)
 1. **Not** guaranteed UTF-8
+1. For both relative and absolute paths
+1. Each individual component is a `&OsStr`
 
 
 # [OsString](https://doc.rust-lang.org/std/ffi/struct.OsString.html)
@@ -61,11 +67,14 @@
 1. System specific (eg. Linux, Mac, Android, win, etc)
 1. UTF-8 on Linux, Mac, Android
 1. UTF-16 strings on Windows
+1. Superset of `String`
+1. Growable, Heap allocated
 
 
 # [&OsStr](https://doc.rust-lang.org/std/ffi/struct.OsStr.html)
 1. `Ownership`: [Borrowed](./ownership.md) version of [`OsString`](https://doc.rust-lang.org/std/ffi/struct.OsString.html)
 1. `Mutability`: Immutable
+1. Superset of `&str`
 
 
 # [CString](https://doc.rust-lang.org/stable/std/ffi/struct.CString.html)
