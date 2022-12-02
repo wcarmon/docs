@@ -11,7 +11,7 @@
 |     `&mut T` | Borrowed                                                | Mutable<br/>(Inherited) |                            | Compile time  | *passthru*    | ?*passthru*?     |
 |     [`Box<T>`](https://doc.rust-lang.org/std/boxed/struct.Box.html)    | Owned                   | *passthru*                 | *passthru*    | Compile time  | Heap | *passthru* |
 |    [`Cell<T>`](https://doc.rust-lang.org/std/cell/struct.Cell.html)    | *passthru*              |  Mutable<br/>(Interior)    | !Sync (No)    | Runtime       | *passthru* |      *passthru*      |
-| [`RefCell<T>`](https://doc.rust-lang.org/std/cell/struct.RefCell.html) | *passthru*              |  Mutable<br/>(Interior)    | !Sync (No)    | Runtime       | *passthru* |      *passthru*      |
+| [`RefCell<T>`](https://doc.rust-lang.org/std/cell/struct.RefCell.html) | Owned                   |  Mutable<br/>(Interior)    | !Sync (No)    | Runtime       | *passthru* |      *passthru*      |
 |   [`Mutex<T>`](https://doc.rust-lang.org/std/sync/struct.Mutex.html)   | Owned                   |  Mutable<br/>(Interior)    | [Sync](https://doc.rust-lang.org/std/marker/trait.Sync.html) (Yes)    | Runtime | *passthru* | Yes |
 |  [`RwLock<T>`](https://doc.rust-lang.org/std/sync/struct.RwLock.html)  | Owned                   |  Mutable<br/>(Interior)    | [Sync](https://doc.rust-lang.org/std/marker/trait.Sync.html) (Yes)    | Runtime | *passthru* |      *passthru*      |
 |      [`Rc<T>`](https://doc.rust-lang.org/std/rc/struct.Rc.html)        | Multiple Owners         | Immutable                  | !Sync (No)    | Runtime       | *passthru* | No |
