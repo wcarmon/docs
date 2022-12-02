@@ -80,7 +80,6 @@ use std::os::unix::fs::OpenOptionsExt; // for mode/perms
 use std::path::PathBuf;
 ...
 
-let data = "whatever";
 let p: PathBuf = "/tmp/path/to/foo.txt".parse()?;
 
 // -- Truncate/overwrite:
@@ -92,6 +91,7 @@ let mut f = OpenOptions::new()
 // -- Append: 
 let mut f = OpenOptions::new().append(true).open(p)?;
 
+let data = "whatever";
 write!(f, "{data}")?;
 
 
