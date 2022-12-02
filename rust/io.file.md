@@ -21,12 +21,13 @@
 
 
 ## [`PathBuf`](https://doc.rust-lang.org/stable/std/path/struct.PathBuf.html)
-- Owned
-- Mutable
+- `Ownership`: Owned
+- `Mutability`: Mutable
 
 
 ## [`Path`](https://doc.rust-lang.org/stable/std/path/struct.Path.html)
-- Borrowed
+- `Ownership`: Borrowed
+- `Mutability`: Immutable
 - Comparison:
     - Golang: [`filepath`](https://pkg.go.dev/path/filepath)
     - Java: [`java.nio.file.Files`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/nio/file/Files.html)
@@ -38,25 +39,8 @@
 |Borrowed|`&str` <br/>`&Path` <br/>~~`&String`~~ (double pointer) <br/>~~`&PathBuf`~~ (double pointer) |`&mut PathBuf` (double pointer)|
 
 
-# [Temp dir](https://doc.rust-lang.org/std/env/fn.temp_dir.html)
-```rust
-let tmp_dir = env::temp_dir();
-...
-```
-
-
-# [Temp files](https://docs.rs/tempfile/latest/tempfile/)
-```rust
-use tempfile::NamedTempFile;
-...
-
-let mut file = NamedTempFile::new().unwrap();
-file.write_all("...".as_bytes()).unwrap();
-
-// file is auto-deleted when it goes out of scope
-```
-
-# Read a file
+# Patterns
+## Read a file
 ```rust
 let data: String = fs::read_to_string("foo.txt")?;
 
@@ -77,7 +61,7 @@ println!("contents: {data}");
 
 
 
-# Iterate thru lines of a string
+## Iterate thru lines of a string
 ```rust
 for line in data.lines() {
     ...
@@ -85,7 +69,7 @@ for line in data.lines() {
 ```
 
 
-# Append or Overwrite to a file
+## Append or Overwrite to a file
 ```rust
 use std::fs::OpenOptions;
 use std::path::PathBuf;
@@ -120,6 +104,25 @@ bw.write_all(data.as_bytes())?; // or just pass any &[u8]
 // but better to flush manually to catch errors
 bw.flush()?; 
 ```
+
+## Create [Temp dir](https://doc.rust-lang.org/std/env/fn.temp_dir.html)
+```rust
+let tmp_dir: PathBuf = env::temp_dir();
+...
+```
+
+
+## Create [Temp file](https://docs.rs/tempfile/latest/tempfile/)
+```rust
+use tempfile::NamedTempFile;
+...
+
+let mut file = NamedTempFile::new().unwrap();
+file.write_all("...".as_bytes()).unwrap();
+
+// file is auto-deleted when it goes out of scope
+```
+
 
 
 # Other Resources
