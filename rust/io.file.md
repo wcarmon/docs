@@ -35,17 +35,20 @@
 
 ||Immutable|Mutable|
 |---|---|---|
-|Owned|`String` <br/>`PathBuf` <br/>|`String` (`mut` on variable/argument) <br/>`PathBuf` (`mut` on variable/argument) <br/>|
-|Borrowed|`&str` <br/>`&Path` <br/>~~`&String`~~ (double pointer) <br/>~~`&PathBuf`~~ (double pointer) |`&mut PathBuf` (double pointer)|
+|**Owned**|`String` <br/>`PathBuf` <br/>|`String` (`mut` on variable/argument) <br/>`PathBuf` (`mut` on variable/argument) <br/>|
+|**Borrowed**|`&str` <br/>`&Path` <br/>~~`&String`~~ (double pointer) <br/>~~`&PathBuf`~~ (double pointer) |`&mut PathBuf` (double pointer)|
 
 
 # Patterns
 ## Read a file
 ```rust
+// -- Simple case
 let data: String = fs::read_to_string("foo.txt")?;
 
 
-// -- longer, more configurable alternative with buffering
+// ----------------------------------------------------
+// -- More configurable alternative, with buffering
+// ----------------------------------------------------
 let p = PathBuf::from("/path/to/foo.txt").canonicalize()?;
 
 // p can be String, &str, Path, or PathBuf
@@ -61,7 +64,7 @@ println!("contents: {data}");
 
 
 
-## Iterate thru lines of a string
+## Iterate lines of a string
 ```rust
 for line in data.lines() {
     ...
@@ -69,21 +72,21 @@ for line in data.lines() {
 ```
 
 
-## Append or Overwrite to a file
+## Append or Overwrite a file
 ```rust
 use std::fs::OpenOptions;
-use std::path::PathBuf;
 use std::io::Write;
-use std::os::unix::fs::OpenOptionsExt;
+use std::os::unix::fs::OpenOptionsExt; // for mode/perms
+use std::path::PathBuf;
 ...
 
 let data = "whatever";
 let p: PathBuf = "/tmp/path/to/foo.txt".parse()?;
 
-// -- Truncate/overwrite
+// -- Truncate/overwrite:
 let mut f = OpenOptions::new()
         .create(true)
-        .write(true) // yes, this is required
+        .write(true) // yes, write is required
         .open(p)?; 
 
 // -- Append: 
@@ -91,7 +94,10 @@ let mut f = OpenOptions::new().append(true).open(p)?;
 
 write!(f, "{data}")?;
 
-// -- longer, more configurable alternative with buffering
+
+// ----------------------------------------------------
+// -- More configurable alternative, with buffering
+// ----------------------------------------------------
 let mut f = OpenOptions::new()
     .create(true)   // replace with .create_new(true) to fail on existing file
     .mode(0o640)    // must import std::os::unix::fs::OpenOptionsExt, only applied if created    
@@ -100,8 +106,8 @@ let mut f = OpenOptions::new()
 let mut bw = BufWriter::new(&mut f);
 bw.write_all(data.as_bytes())?; // or just pass any &[u8]
 
-// also happens on drop (automatically)
-// but better to flush manually to catch errors
+// Automatically flushes on drop,
+// but better manual flush helps catch errors
 bw.flush()?; 
 ```
 
