@@ -26,11 +26,13 @@
 
 
 ## [`Path`](https://doc.rust-lang.org/stable/std/path/struct.Path.html)
+- similar to `&str`
 - `Ownership`: Borrowed
 - `Mutability`: Immutable
 - Comparison:
     - Golang: [`filepath`](https://pkg.go.dev/path/filepath)
     - Java: [`java.nio.file.Files`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/nio/file/Files.html)
+- Thin wrapper around [`OsStr`](https://doc.rust-lang.org/std/ffi/struct.OsStr.html)
 
 
 ||Immutable|Mutable|
@@ -160,6 +162,7 @@ file.write_all("...".as_bytes()).unwrap();
 
 
 # Other Resources
+1. https://rust-lang-nursery.github.io/rust-cookbook/file.html
 1. https://rust-lang-nursery.github.io/rust-cookbook/
 1. https://docs.rs/tempfile/latest/tempfile/struct.NamedTempFile.html
 1. https://doc.rust-lang.org/std/fs/struct.File.html
