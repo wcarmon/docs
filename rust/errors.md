@@ -32,6 +32,7 @@
             source: std::io::Error,
             backtrace: Backtrace,
         },
+    1. The `?` operator looks for `impl From<ProducedError> for ReturnedError`
 1. Use [`if-let`](https://doc.rust-lang.org/rust-by-example/flow_control/if_let.html) or [`match`](https://doc.rust-lang.org/book/ch09-02-recoverable-errors-with-result.html#matching-on-different-errors) on error when needed for control flow
 ```
 let res = something_risky(...)
