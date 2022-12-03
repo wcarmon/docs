@@ -23,7 +23,9 @@
 ## [`PathBuf`](https://doc.rust-lang.org/stable/std/path/struct.PathBuf.html)
 - `Ownership`: Owned
 - `Mutability`: Mutable
-
+- GOTCHA: [`.ends_with(...)`](https://doc.rust-lang.org/std/path/struct.Path.html#method.ends_with) doesn't include extension 
+    - Unexpected behavior compared to Go, Java, Python, ...
+    
 
 ## [`Path`](https://doc.rust-lang.org/stable/std/path/struct.Path.html)
 - similar to `&str`
@@ -33,6 +35,8 @@
     - Golang: [`filepath`](https://pkg.go.dev/path/filepath)
     - Java: [`java.nio.file.Files`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/nio/file/Files.html)
 - Thin wrapper around [`OsStr`](https://doc.rust-lang.org/std/ffi/struct.OsStr.html)
+- GOTCHA: [`.ends_with(...)`](https://doc.rust-lang.org/std/path/struct.Path.html#method.ends_with) doesn't include extension
+    - Unexpected behavior compared to Go, Java, Python, ...
 
 
 ||Immutable|Mutable|
