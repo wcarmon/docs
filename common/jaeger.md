@@ -1,6 +1,6 @@
 # Overview
-1. How to setup Jaeger via container
-1. How to setup Jaeger manually
+1. How to setup [Jaeger]((https://www.jaegertracing.io/docs/1.8/getting-started/#all-in-one)) via container and manually
+1. How to access the [web UI](http://localhost:16686) on port `16686` 
 
 
 # [Jaeger](https://www.jaegertracing.io/docs/1.8/getting-started/#all-in-one)
