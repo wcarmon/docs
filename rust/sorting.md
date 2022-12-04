@@ -1,5 +1,1 @@
-# Overview
-
-
-
-# Other Resources
+- [Doc moved here](../common/sorting.md)

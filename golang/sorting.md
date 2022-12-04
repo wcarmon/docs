@@ -91,3 +91,5 @@ TODO: copy into slice, sort the slice
 1. [sort.SliceStable](https://pkg.go.dev/sort#SliceStable)
 1. https://www.practical-go-lessons.com/chap-16-interfaces#sort.interface
 1. https://yourbasic.org/golang/how-to-sort-in-go/
+1. [Sorting, in general](../common/sorting.md)
+
