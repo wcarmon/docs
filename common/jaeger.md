@@ -1,5 +1,5 @@
 # Overview
-1. How to setup [Jaeger]((https://www.jaegertracing.io/docs/1.8/getting-started/#all-in-one)) via container and manually
+1. How to setup [Jaeger](https://www.jaegertracing.io/docs/1.8/getting-started/#all-in-one) via container and manually
 1. How to access the [web UI](http://localhost:16686) on port `16686` 
 
 
@@ -21,6 +21,10 @@ docker pull jaegertracing/all-in-one;
 ```
 
 ```bash
+# -- cleanup from previous runs
+# docker stop jaeger || true
+# docker rm --force jaeger || true
+
 docker run -d --name jaeger \
   -e COLLECTOR_ZIPKIN_HTTP_PORT=9411 \
   -p 14268:14268 \
@@ -30,8 +34,12 @@ docker run -d --name jaeger \
   -p 6831:6831/udp \
   -p 6832:6832/udp \
   -p 9411:9411 \
-  jaegertracing/all-in-one:1.8
+  jaegertracing/all-in-one:latest
+
+# -- Verify
+docker ps | grep jaeger
 ```
+- See [Local Web UI on port 16686](http://localhost:16686)
 - See ports: https://www.jaegertracing.io/docs/1.6/getting-started/#all-in-one-docker-image
 
 

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # ---------------------------------------------
-# -- Runs Jaeger locally
+# -- Runs Jaeger locally (stateless)
 # --
 # -- Assumptions:
 # -- 1. Docker installed: https://docs.docker.com/get-docker/
