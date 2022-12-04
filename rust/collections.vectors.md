@@ -2,6 +2,9 @@
 1. TODO
 
 
+# Gotcha: 
+- `::push()` (not `.add()`, not `append`)
+
 
 # ~~TODO: Unorganized~~
 - TODO: https://doc.rust-lang.org/book/ch08-01-vectors.html
