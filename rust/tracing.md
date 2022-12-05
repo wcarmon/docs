@@ -118,6 +118,10 @@ tracing-subscriber = "..."
 ```
 
 
+- TODO: current span: https://docs.rs/tracing/latest/tracing/span/struct.Span.html#method.current
+- TODO: add attributes using record: https://docs.rs/tracing/latest/tracing/span/struct.Span.html#method.record
+
+
 # Other Resources
 1. https://docs.rs/opentelemetry/latest/opentelemetry/
 1. https://docs.rs/tracing-opentelemetry/latest/tracing_opentelemetry/
