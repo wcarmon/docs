@@ -127,6 +127,20 @@ tracing::subscriber::set_global_default(subscriber);
 ## record extra span attributes (after span created)
 - TODO: add attributes using record: https://docs.rs/tracing/latest/tracing/span/struct.Span.html#method.record
 
+
+# Associated logs with attributes
+```rust
+use tracing::{debug, error, info, info_span, warn};
+...
+
+let span = info_span!("do_something").entered();
+
+...
+debug!(message = "example debug msg", aa = 7);
+info!(message = "example info msg", b = true);
+warn!(message = "example warn log event", f = 3.2);
+```
+
     
 ## Recording errors
 1. https://opentelemetry.io/docs/reference/specification/trace/semantic_conventions/exceptions/#attributes
