@@ -66,6 +66,40 @@ tracing::subscriber::set_global_default(subscriber);
 ```
 
 
+
+## Span usage (OpenTelemetry)
+```rust
+    let mut span = tracer.span_builder("doSomeOperation")
+        .start(&tracer);
+
+    // ...
+
+    let parent_ctx = Context::current_with_span(tracer("").start("do_parent_stuff"));
+    let parent_span = parent_ctx.span();
+
+    parent_span.set_attribute(KeyValue::new("foo", true));
+
+    // maybe function boundary here: pass &parent_ctx
+    let mut child_span = tracer("").start_with_context("do_child_stuff", &parent_ctx);
+
+    child_span.set_attribute(KeyValue::new("foo", 1));
+    child_span.add_event("something happened", vec![]); // log
+    
+    parent_span.set_attribute(KeyValue::new("foo", 2));
+
+
+    // -- Error reporting requires a few steps
+    child_span.record_error(&anyhow!("boom").into());
+    child_span.set_attribute(KeyValue::new("error", true));    
+    child_span.end(); // YES, this is necessary
+
+
+    //TODO: how to associate logs via log!(...) macros
+
+    span.end(); // or drop(span) or let it happen automatically
+```
+
+
 ## Span usage (tracing lib)
 ```rust
     let span = span!(Level::INFO, "my_span"); // or better, info_span!("my_span");
@@ -102,26 +136,6 @@ tracing::subscriber::set_global_default(subscriber);
     }
 ```
 
-
-## Span usage (OpenTelemetry)
-```rust
-    let mut span = tracer.span_builder("doSomeOperation")
-        .start(&tracer);
-
-    // ...
-
-    span.set_attribute(KeyValue::new("foo", "bar"));
-
-    span.add_event("something happened", vec![]); // log
-
-    span.record_error(&anyhow!("boom").into());
-
-    //TODO: how to associate logs via log!(...) macros
-
-    // ...
-
-    span.end(); // or drop(span) or let it happen automatically
-```
 
 # Attributes
 ## record extra span attributes (after span created)
