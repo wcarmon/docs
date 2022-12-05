@@ -65,7 +65,7 @@ tracing-subscriber = "..."
 
 ## Span usage (tracing lib)
 ```rust
-    let span = span!(Level::INFO, "my_span"); // or info_span!("my_span");
+    let span = span!(Level::INFO, "my_span"); // or better, info_span!("my_span");
     let guard = span.enter();
 
     span.record("foo", "bar");
@@ -75,11 +75,14 @@ tracing-subscriber = "..."
 
     span.record("error", anyhow!("something went wrong").into());
 
+    let current_span = Span::current(); // in case you didn't have a reference
+
     drop(guard); // or let it happen automatically
 ```
 
 
 ## Wrap a function in a Span (tracing lib)
+- not as flexible as code
 ```rust
     #[tracing::instrument]
     fn do_something(foo: &str) -> anyhow::Result<String> {
@@ -117,9 +120,10 @@ tracing-subscriber = "..."
     span.end(); // or drop(span) or let it happen automatically
 ```
 
-
-- TODO: current span: https://docs.rs/tracing/latest/tracing/span/struct.Span.html#method.current
+# Attributes
+## record extra span attributes (after span created)
 - TODO: add attributes using record: https://docs.rs/tracing/latest/tracing/span/struct.Span.html#method.record
+- TODO: standard tag names: https://github.com/opentracing/specification/blob/master/semantic_conventions.md#span-tags-table
 
 
 # Other Resources
