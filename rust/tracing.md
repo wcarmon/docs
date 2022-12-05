@@ -79,8 +79,10 @@ tracing::subscriber::set_global_default(subscriber);
 
     parent_span.set_attribute(KeyValue::new("foo", true));
 
-    // maybe function boundary here: pass &parent_ctx
-    let mut child_span = tracer("").start_with_context("do_child_stuff", &parent_ctx);
+    // -- maybe a fn boundary here: pass &parent_ctx
+    let mut child_ctx =
+        Context::current_with_span(tracer("").start_with_context("do_child_stuff", &parent_ctx));
+    let child_span = child_ctx.span();
 
     child_span.set_attribute(KeyValue::new("foo", 1));
     child_span.add_event("something happened", vec![]); // log

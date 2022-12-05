@@ -15,6 +15,7 @@
 - TODO: https://cheats.rs/#data-structures
 - TODO: https://www.programming-idioms.org/cheatsheet/Rust
 - TODO: https://www.kuniga.me/docs/rust/#data-structures
+- TODO: `.iter()` (borrow), `.into_iter()` (owned)
 
 
 # Other Resources
