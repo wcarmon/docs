@@ -39,27 +39,30 @@ tracing-subscriber = "..."
 
 ## Setup
 ```rust
-    // -- Build Tracers (OpenTelemetry concept)
-    let tracer0 = stdout::new_pipeline().install_simple();
-    let tracer1 = opentelemetry_jaeger::new_agent_pipeline()
-        .with_service_name("whatever-this-service-does")
-        .install_simple() // use batch in prod
-        .expect("failed to build jaeger tracer");
+use tracing_subscriber::layer::SubscriberExt;
+...
 
-    // -- Build OpenTelemetry Layers
-    let layer0 = tracing_opentelemetry::layer().with_tracer(tracer0);
-    let layer1 = tracing_opentelemetry::layer().with_tracer(tracer1);
+// -- Build Tracers (OpenTelemetry concept)
+let tracer0 = stdout::new_pipeline().install_simple();
+let tracer1 = opentelemetry_jaeger::new_agent_pipeline()
+    .with_service_name("whatever-this-service-does")
+    .install_simple() // use batch in prod
+    .expect("failed to build jaeger tracer");
 
-    // -- Add Layers to Subscriber (tracing lib concepts)
-    let subscriber = Registry::default()
-        .with(layer0)
-        .with(layer1);
+// -- Build OpenTelemetry Layers
+let layer0 = tracing_opentelemetry::layer().with_tracer(tracer0);
+let layer1 = tracing_opentelemetry::layer().with_tracer(tracer1);
 
-    // -- Apply globally (tracing lib concept)
-    //    only in main.rs, never for a library
-    tracing::subscriber::set_global_default(subscriber);
+// -- Add Layers to Subscriber (tracing lib concepts)
+let subscriber = Registry::default()
+    .with(layer0)
+    .with(layer1);
 
-    ...
+// -- Apply globally (tracing lib concept)
+//    only in main.rs, never for a library
+tracing::subscriber::set_global_default(subscriber);
+
+...
 ```
 
 
