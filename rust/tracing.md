@@ -123,7 +123,24 @@ tracing-subscriber = "..."
 # Attributes
 ## record extra span attributes (after span created)
 - TODO: add attributes using record: https://docs.rs/tracing/latest/tracing/span/struct.Span.html#method.record
-- TODO: standard tag names: https://github.com/opentracing/specification/blob/master/semantic_conventions.md#span-tags-table
+
+    
+## Recording errors
+1. https://opentelemetry.io/docs/reference/specification/trace/semantic_conventions/exceptions/#attributes
+```
+//TODO: simplify:
+span.error = true
+span.attr[exception].type = "..."
+span.attr[exception.message] = "..."
+span.attr[exception.stacktrace] = "..."
+event.name = "exception"
+
+status = ?
+exception = ?
+
+            let attributes = vec![KeyValue::new("exception.message", err.to_string())];
+            self.add_event("exception", attributes);
+```
 
 
 # Other Resources
