@@ -28,13 +28,24 @@ tracing-subscriber = "..."
 # [tracing](https://docs.rs/tracing/latest/tracing/) lib
 1. Concepts
     1. Span: TODO
-    1. Event: TODO
-    1. Subscriber: TODO
-    1. Layer: TODO
+    1. [Event](https://docs.rs/tracing-core/0.1.30/tracing_core/struct.Event.html) struct: a log associated with a `Span`
+    1. [Subscriber trait](https://docs.rs/tracing-core/0.1.30/tracing_core/subscriber/trait.Subscriber.html): TODO
+        1. Subscriber responsible for associating spans with threads
+    1. [Layer trait](https://docs.rs/tracing-subscriber/0.3.16/tracing_subscriber/layer/trait.Layer.html): TODO
+1. Idiomatic rust
+1. Compatible with [`Future`](https://doc.rust-lang.org/nightly/core/future/trait.Future.html)s, [example](https://docs.rs/tracing/latest/tracing/trait.Instrument.html)
+1. Compatible with [tokio](https://tokio.rs/)
+1. [Has convenient macros](https://docs.rs/tracing/latest/tracing/#macros)
+1. Sometimes unintuitive
+    1. eg. https://docs.rs/tracing-core/0.1.30/tracing_core/trait.Subscriber.html#tymethod.record 
+1. Non-standard (compared to OpenTelemetry which works across coding languages)
+1. Different [span lifecycle](https://docs.rs/tracing/latest/tracing/span/index.html#the-span-lifecycle) than [OpenTelemetry](TODO)
 
 
 # [OpenTelemetry](https://opentelemetry.io/docs/instrumentation/rust/) lib
 1. [Concepts](../common/observability/tracing.md)
+1. More verbose than [`tracing`](TODO) lib
+1. Requires passing [`Context`](TODO) manually to propagate spans
 
 
 ## Setup
@@ -67,39 +78,6 @@ tracing::subscriber::set_global_default(subscriber);
 
 
 
-## Span usage (OpenTelemetry)
-```rust
-    let mut span = tracer.span_builder("doSomeOperation")
-        .start(&tracer);
-
-    // ...
-
-    let parent_ctx = Context::current_with_span(tracer("").start("do_parent_stuff"));
-    let parent_span = parent_ctx.span();
-
-    parent_span.set_attribute(KeyValue::new("foo", true));
-
-    // -- maybe a fn boundary here: pass &parent_ctx
-    let mut child_ctx =
-        Context::current_with_span(tracer("").start_with_context("do_child_stuff", &parent_ctx));
-    let child_span = child_ctx.span();
-
-    child_span.set_attribute(KeyValue::new("foo", 1));
-    child_span.add_event("something happened", vec![]); // log
-    
-    parent_span.set_attribute(KeyValue::new("foo", 2));
-
-
-    // -- Error reporting requires a few steps
-    child_span.record_error(&anyhow!("boom").into());
-    child_span.set_attribute(KeyValue::new("error", true));    
-    child_span.end(); // YES, this is necessary
-
-
-    //TODO: how to associate logs via log!(...) macros
-
-    span.end(); // or drop(span) or let it happen automatically
-```
 
 
 ## Span usage (tracing lib)
@@ -136,6 +114,41 @@ tracing::subscriber::set_global_default(subscriber);
 
         Ok("output".to_owned())
     }
+```
+
+
+## Span usage (OpenTelemetry)
+```rust
+    let mut span = tracer.span_builder("doSomeOperation")
+        .start(&tracer);
+
+    // ...
+
+    let parent_ctx = Context::current_with_span(tracer("").start("do_parent_stuff"));
+    let parent_span = parent_ctx.span();
+
+    parent_span.set_attribute(KeyValue::new("foo", true));
+
+    // -- maybe a fn boundary here: pass &parent_ctx
+    let mut child_ctx =
+        Context::current_with_span(tracer("").start_with_context("do_child_stuff", &parent_ctx));
+    let child_span = child_ctx.span();
+
+    child_span.set_attribute(KeyValue::new("foo", 1));
+    child_span.add_event("something happened", vec![]); // log
+    
+    parent_span.set_attribute(KeyValue::new("foo", 2));
+
+
+    // -- Error reporting requires a few steps
+    child_span.record_error(&anyhow!("boom").into());
+    child_span.set_attribute(KeyValue::new("error", true));    
+    child_span.end(); // YES, this is necessary
+
+
+    //TODO: how to associate logs via log!(...) macros
+
+    span.end(); // or drop(span) or let it happen automatically
 ```
 
 
