@@ -84,6 +84,8 @@ tracing::subscriber::set_global_default(subscriber);
 ```rust
     let span = span!(Level::INFO, "my_span"); // or better, info_span!("my_span");
     let guard = span.enter();
+    
+    // or: let span = span!(Level::INFO, "my_span").entered();
 
     span.record("foo", "bar");
 
