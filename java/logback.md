@@ -10,6 +10,7 @@
 
 
 # Example [`logback.xml`](https://logback.qos.ch/manual/configuration.html) config
+1. [Official docs](https://logback.qos.ch/manual/configuration.html)
 1. Store app log config at `src/main/resources/logback.xml`
     1. Store Test log configuration at `src/test/resources/logback-test.xml`
 ```xml
