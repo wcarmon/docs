@@ -12,6 +12,9 @@
 # Example [`logback.xml`](TODO) config
 
 
+exclude group: "org.slf4j", module: "slf4j-log4j12"
+exclude group: "log4j", module: "log4j"
+
 # Other resources
 1. https://docs.spring.io/spring-boot/docs/3.0.0/reference/html/features.html#features.logging
 

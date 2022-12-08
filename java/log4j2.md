@@ -37,7 +37,7 @@
         <RollingFile name="rollingFile"
                      fileName="app.log"
                      filePattern="logs/app.%d{yyyy-MM-dd}-%i.log.gz">
-            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+            <PatternLayout pattern="%d{yyyy-MM-dd'T'HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
 
             <Policies>
                 <OnStartupTriggeringPolicy/>
@@ -116,7 +116,6 @@
 # `build.gradle.kts` snippet
 ```kts
 dependencies {
-    ...
     
     // -- For the API
     implementation("org.apache.logging.log4j:log4j-api:2.19.0") // or latest
@@ -144,7 +143,7 @@ configurations.all {
 ```
 
 
-## With spring boot
+## With [spring boot](https://spring.io/projects/spring-boot)
 1. See https://docs.spring.io/spring-boot/docs/3.0.0/reference/html/features.html#features.logging
 1. See https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-log4j2
 
@@ -164,6 +163,8 @@ public final SomeClass {
     ...
 }
 ```
+- [Lombok's `@Log4j2`](https://projectlombok.org/features/log) annotation does the same
+    - tradeoff: less code, slower builds 
 
 
 # Other resources
