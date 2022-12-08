@@ -40,13 +40,20 @@
 ```kts
 dependencies {
     // -- For the API
+    implementation("org.slf4j:slf4j-api:2.0.5")
     
     // -- For the implementation
+    implementation("ch.qos.logback:logback-classic:1.4.5") // or latest
+    implementation("ch.qos.logback:logback-core:1.4.5") // or latest    
+    implementation("ch.qos.logback:logback-access:1.4.5") // or latest
 
     // -- To forward other log statements (logging bridge)
     // -- See https://logging.apache.org/log4j/2.x/faq.html#missing_core
     // -- See https://www.slf4j.org/legacy.html
-
+    implementation("org.apache.logging.log4j:log4j-to-slf4j:2.19.0") // or latest
+    implementation("")
+    implementation("")
+    implementation("")
 
     ...
 }
@@ -54,10 +61,17 @@ dependencies {
 configurations.all {
 
     // -- Exclude conflicting/redundant jars
-
-exclude group: "org.slf4j", module: "slf4j-log4j12"
-exclude group: "log4j", module: "log4j"
-
+    exclude(group = "commons-logging", module = "commons-logging")
+    exclude(group = "jboss-logging", module = "org.jboss.logging")
+    exclude(group = "log4j", module = "log4j")
+    exclude(group = "org.apache.logging.log4j", module = "log4j-core")
+    exclude(group = "org.apache.logging.log4j", module = "log4j-jcl")
+    exclude(group = "org.apache.logging.log4j", module = "log4j-jul")
+    exclude(group = "org.apache.logging.log4j", module = "log4j-slf4j-impl")
+    exclude(group = "org.slf4j", module = "slf4j-log4j12")
+    exclude(group = "org.springframework.boot", module = "spring-boot-starter-log4j2")
+    
+    ...
 }
 ```
 

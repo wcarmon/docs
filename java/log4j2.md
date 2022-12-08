@@ -147,7 +147,8 @@ configurations.all {
     exclude(group = "org.slf4j", module = "slf4j-nop")
     exclude(group = "org.slf4j", module = "slf4j-reload4j")
     exclude(group = "org.slf4j", module = "slf4j-simple")
-    exclude(group = "org.springframework.boot", module = "spring-boot-starter-logging")   
+    exclude(group = "org.springframework.boot", module = "spring-boot-starter-logging")
+       
     ...
 }
 ```
