@@ -1,5 +1,5 @@
 # Overview
-1. How to make a [fat jar/uberjar](TODO)
+1. How to make a [fat-jar, uber-jar, shaded-jar](https://imagej.net/develop/uber-jars)
 
 
 # `build.gradle.kts` snippet
@@ -32,9 +32,13 @@ tasks.withType<ShadowJar>() {
     archiveClassifier.set("")   // removes "-all" suffix from jar name
     archiveVersion.set("")      // removes version from jar name
 
+    configurations = listOf(project.configurations.compileClasspath.get())
+
     dependencies {
       exclude(dependency(group = "...", module = "..."))
     }
+ 
+    duplicatesStrategy = DuplicatesStrategy.FAIL
  
     manifest {
         attributes["Main-Class"] = "com.whatever.FooMain"
@@ -58,9 +62,12 @@ tasks.withType<ShadowJar>() {
     exclude("functions.properties")
     exclude("Log4j-charsets.properties")
     exclude("log4j2.springboot")
+    exclude("META-INF/*.DSA")
     exclude("META-INF/*.json")
     exclude("META-INF/*.kotlin_module")
     exclude("META-INF/*.properties")
+    exclude("META-INF/*.RSA")
+    exclude("META-INF/*.SF")
     exclude("META-INF/*.versions")
     exclude("META-INF/*android*")
     exclude("META-INF/*android*/**")
@@ -73,6 +80,7 @@ tasks.withType<ShadowJar>() {
     exclude("META-INF/*version*")
     exclude("META-INF/*VERSION*")
     exclude("META-INF/com.android.tools/**")
+    exclude("META-INF/INDEX.LIST")
     exclude("META-INF/MANIFEST.MF")
     exclude("META-INF/maven/**")
     exclude("META-INF/native*/**")

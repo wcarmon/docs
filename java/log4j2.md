@@ -140,6 +140,7 @@ configurations.all {
     // -- Exclude conflicting/redundant jars
     exclude(group = "ch.qos.logback", module = "logback-classic")       // alternative
     exclude(group = "ch.qos.logback", module = "logback-core")          // alternative
+    exclude(group = "ch.qos.logback", module = "logback-access")        
     exclude(group = "commons-logging", module = "commons-logging")      // legacy
     exclude(group = "jboss-logging", module = "org.jboss.logging")      // legacy
     exclude(group = "log4j", module = "log4j")                          // legacy
