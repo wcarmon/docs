@@ -1,5 +1,5 @@
 # Overview
-1. How to setup [logback](https://logback.qos.ch/) for [slf4j](TODO)
+1. How to setup [logback](https://logback.qos.ch/) for [slf4j](https://www.slf4j.org/)
 1. See alternaive: [log4j2 doc](log4j2.md) doc
 
 
@@ -40,20 +40,20 @@
 ```kts
 dependencies {
     // -- For the API
-    implementation("org.slf4j:slf4j-api:2.0.5")
+    implementation("org.slf4j:slf4j-api:2.0.5") // or latest
     
     // -- For the implementation
-    implementation("ch.qos.logback:logback-classic:1.4.5") // or latest
-    implementation("ch.qos.logback:logback-core:1.4.5") // or latest    
-    implementation("ch.qos.logback:logback-access:1.4.5") // or latest
+    implementation("ch.qos.logback:logback-classic:1.4.5")  // or latest
+    implementation("ch.qos.logback:logback-core:1.4.5")     // or latest    
+    implementation("ch.qos.logback:logback-access:1.4.5")   // or latest
 
     // -- To forward other log statements (logging bridge)
     // -- See https://logging.apache.org/log4j/2.x/faq.html#missing_core
     // -- See https://www.slf4j.org/legacy.html
-    implementation("org.apache.logging.log4j:log4j-to-slf4j:2.19.0") // or latest
-    implementation("")
-    implementation("")
-    implementation("")
+    implementation("org.apache.logging.log4j:log4j-to-slf4j:2.19.0") // log4j2 api to slf4j api
+    implementation("org.slf4j:jcl-over-slf4j:2.0.5")                 // apache commons logging to slf4j
+    implementation("org.slf4j:jul-to-slf4j:2.0.5")                   // java.util.logging to slf4j
+    implementation("org.slf4j:log4j-over-slf4j:2.0.5")               // legacy log4j to slf4j
 
     ...
 }
@@ -61,22 +61,24 @@ dependencies {
 configurations.all {
 
     // -- Exclude conflicting/redundant jars
-    exclude(group = "commons-logging", module = "commons-logging")
-    exclude(group = "jboss-logging", module = "org.jboss.logging")
-    exclude(group = "log4j", module = "log4j")
-    exclude(group = "org.apache.logging.log4j", module = "log4j-core")
-    exclude(group = "org.apache.logging.log4j", module = "log4j-jcl")
-    exclude(group = "org.apache.logging.log4j", module = "log4j-jul")
-    exclude(group = "org.apache.logging.log4j", module = "log4j-slf4j-impl")
-    exclude(group = "org.slf4j", module = "slf4j-log4j12")
+    exclude(group = "commons-logging", module = "commons-logging")              // legacy
+    exclude(group = "jboss-logging", module = "org.jboss.logging")              // legacy
+    exclude(group = "log4j", module = "log4j")                                  // legacy
+    exclude(group = "org.apache.logging.log4j", module = "log4j-core")          // log4j2 impl
+    exclude(group = "org.apache.logging.log4j", module = "log4j-jcl")           // apache commons logging to log4j2 api 
+    exclude(group = "org.apache.logging.log4j", module = "log4j-jul")           // java.util.logging to log4j2 api
+    exclude(group = "org.apache.logging.log4j", module = "log4j-slf4j-impl")    // slf4j to log4j2 impl
+    exclude(group = "org.slf4j", module = "slf4j-jcl")                          // slf4j to apache commons logging
+    exclude(group = "org.slf4j", module = "slf4j-jdk14")                        // slf4j to java.util.logging
+    exclude(group = "org.slf4j", module = "slf4j-log4j12")                      // slf4j to old 1.x log4j api
+    exclude(group = "org.slf4j", module = "slf4j-nop")                          // slf4j to nowhere
+    exclude(group = "org.slf4j", module = "slf4j-reload4j")                     // slf4j to reload4j's impl of legacy log4j
+    exclude(group = "org.slf4j", module = "slf4j-simple")                       // slf4j to stderr
     exclude(group = "org.springframework.boot", module = "spring-boot-starter-log4j2")
-    
+
     ...
 }
 ```
-
-
-## With [spring boot](https://spring.io/projects/spring-boot)
 
 
 # Example usage
@@ -95,8 +97,13 @@ public final class SomeClass {
 }
 ```
 
-- [Lombok's `@TODO`](https://projectlombok.org/features/log) annotation does the same
+- [Lombok's `@Slf4j`](https://projectlombok.org/features/log) annotation does the same
     - tradeoff: less code, slower builds 
+
+
+## With [spring boot](https://spring.io/projects/spring-boot)
+- See 1. See https://docs.spring.io/spring-boot/docs/3.0.0/reference/html/features.html#features.logging
+- See https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-logging
 
 
 # Other resources

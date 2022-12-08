@@ -143,20 +143,16 @@ configurations.all {
     exclude(group = "org.apache.logging.log4j", module = "log4j-to-slf4j")
     exclude(group = "org.slf4j", module = "jcl-over-slf4j")
     exclude(group = "org.slf4j", module = "jul-to-slf4j")
-    exclude(group = "org.slf4j", module = "slf4j-jdk14")
-    exclude(group = "org.slf4j", module = "slf4j-nop")
+    exclude(group = "org.slf4j", module = "slf4j-jcl")      // slf4j to apache commons logging
+    exclude(group = "org.slf4j", module = "slf4j-jdk14")    // slf4j to java.util.logging
+    exclude(group = "org.slf4j", module = "slf4j-nop")      // slf4j to nowhere
     exclude(group = "org.slf4j", module = "slf4j-reload4j")
-    exclude(group = "org.slf4j", module = "slf4j-simple")
+    exclude(group = "org.slf4j", module = "slf4j-simple")   // slf4j to stderr
     exclude(group = "org.springframework.boot", module = "spring-boot-starter-logging")
        
     ...
 }
 ```
-
-
-## With [spring boot](https://spring.io/projects/spring-boot)
-1. See https://docs.spring.io/spring-boot/docs/3.0.0/reference/html/features.html#features.logging
-1. See https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-log4j2
 
 
 # Example usage
@@ -177,6 +173,11 @@ public final class SomeClass {
 ```
 - [Lombok's `@Log4j2`](https://projectlombok.org/features/log) annotation does the same
     - tradeoff: less code, slower builds 
+
+
+## With [spring boot](https://spring.io/projects/spring-boot)
+1. See https://docs.spring.io/spring-boot/docs/3.0.0/reference/html/features.html#features.logging
+1. See https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-log4j2
 
 
 # Other resources
