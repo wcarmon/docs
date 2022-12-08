@@ -4,8 +4,9 @@
 
 
 # Concept
-1. API: [slf4j](TODO)
-1. Implementation: [logback](https://logback.qos.ch/)  
+1. API: [slf4j](https://www.slf4j.org/apidocs/org/slf4j/Logger.html)
+1. Implementation: [logback](https://logback.qos.ch/) 
+    1. [`Appender`](https://logback.qos.ch/apidocs/ch/qos/logback/core/AppenderBase.html) 
 
 
 # Example [`logback.xml`](TODO) config

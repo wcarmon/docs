@@ -40,6 +40,7 @@ tracing-subscriber = "..."
     1. eg. https://docs.rs/tracing-core/0.1.30/tracing_core/trait.Subscriber.html#tymethod.record 
 1. Non-standard (compared to OpenTelemetry which works across coding languages)
 1. Different [span lifecycle](https://docs.rs/tracing/latest/tracing/span/index.html#the-span-lifecycle) than [OpenTelemetry](TODO)
+1. Includes thread attributes by default
 
 
 # [OpenTelemetry](https://opentelemetry.io/docs/instrumentation/rust/) lib
@@ -54,20 +55,20 @@ use tracing_subscriber::layer::SubscriberExt;
 ...
 
 // -- Build Tracers (OpenTelemetry concept)
-let tracer0 = stdout::new_pipeline().install_simple();
-let tracer1 = opentelemetry_jaeger::new_agent_pipeline()
+let console_tracer = stdout::new_pipeline().install_simple();
+let jaeger_tracer = opentelemetry_jaeger::new_agent_pipeline()
     .with_service_name("whatever-this-service-does")
     .install_simple() // use batch in prod
     .expect("failed to build jaeger tracer");
 
-// -- Build OpenTelemetry Layers
-let layer0 = tracing_opentelemetry::layer().with_tracer(tracer0);
-let layer1 = tracing_opentelemetry::layer().with_tracer(tracer1);
+// -- Build OpenTelemetry Layers for tracing lib
+let console_layer = tracing_opentelemetry::layer().with_tracer(console_tracer);
+let jaeger_layer = tracing_opentelemetry::layer().with_tracer(jaeger_tracer);
 
 // -- Add Layers to Subscriber (tracing lib concepts)
 let subscriber = Registry::default()
-    .with(layer0)
-    .with(layer1);
+    .with(console_layer)
+    .with(jaeger_layer);
 
 // -- Apply globally (tracing lib concept)
 //    only in main.rs, never for a library

@@ -4,8 +4,8 @@
 
 
 # Concept
-1. API: log4j2
-1. Implementation: log4j2  
+1. API: [log4j2](https://logging.apache.org/log4j/2.x/log4j-api/apidocs/org/apache/logging/log4j/Logger.html)
+1. Implementation: [log4j2](https://logging.apache.org/log4j/2.x/log4j-core/apidocs/org/apache/logging/log4j/core/Appender.html)  
 
 
 # Example [`log4j2.xml`](https://logging.apache.org/log4j/2.x/manual/configuration.html) config
