@@ -113,6 +113,7 @@
 
 </Configuration>
 ```
+- For layouts: see [json](https://logging.apache.org/log4j/2.x/manual/layouts.html#JSONLayout), [pattern](https://logging.apache.org/log4j/2.x/manual/layouts.html#PatternLayout), ...
 
 
 # `build.gradle.kts` snippet
