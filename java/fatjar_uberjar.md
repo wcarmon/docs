@@ -26,22 +26,22 @@ tasks.withType<Jar>() {
 }
 
 tasks.withType<ShadowJar>() {
-    manifest {
-        attributes["Main-Class"] = "com.whatever.FooMain"
-    }
-    
-    mergeServiceFiles()
+    append("application.properties")
     
     archiveBaseName.set("app")
     archiveClassifier.set("")   // removes "-all" suffix from jar name
     archiveVersion.set("")      // removes version from jar name
 
-    append("application.properties")
-    
     dependencies {
       exclude(dependency(group = "...", module = "..."))
     }
+ 
+    manifest {
+        attributes["Main-Class"] = "com.whatever.FooMain"
+    }
     
+    mergeServiceFiles()
+       
     exclude("*.bin")
     exclude("*.css")
     exclude("*.dtd")
