@@ -125,9 +125,9 @@ dependencies {
     
     // -- For forwarding other log statements (logging bridge)
     // -- See https://www.slf4j.org/legacy.html
-    implementation("org.slf4j:jcl-over-slf4j:2.0.5")    // apache commons logging -> slf4j
-    implementation("org.slf4j:jul-to-slf4j:2.0.5")      // java.util.Logging -> slf4j    
-   
+    implementation("org.apache.logging.log4j:log4j-jcl:2.19.0") // apache commons logging -> slf4j    
+    implementation("org.apache.logging.log4j:log4j-jul:2.19.0") // java.util.Logging -> slf4j
+              
     ...
 }
 
@@ -138,6 +138,8 @@ configurations.all {
     exclude(group = "jboss-logging", module = "org.jboss.logging")
     exclude(group = "log4j", module = "log4j")
     exclude(group = "org.apache.logging.log4j", module = "log4j-to-slf4j")
+    exclude(group = "org.slf4j", module = "jcl-over-slf4j")
+    exclude(group = "org.slf4j", module = "jul-to-slf4j")
     exclude(group = "org.slf4j", module = "slf4j-jdk14")
     exclude(group = "org.slf4j", module = "slf4j-nop")
     exclude(group = "org.slf4j", module = "slf4j-reload4j")
