@@ -26,7 +26,7 @@
             <!--  <PatternLayout pattern="[%-5level] %d{yyyy-MM-dd'T'HH:mm:ss.SSS} [%t] %c{1} - %msg%n"/> -->
             <!--
                   <JsonLayout
-                      compact="false"
+                      compact="true"
                       complete="false"
                       includeStacktrace="true"
                       locationInfo="false"
@@ -37,7 +37,9 @@
         <RollingFile name="rollingFile"
                      fileName="app.log"
                      filePattern="logs/app.%d{yyyy-MM-dd}-%i.log.gz">
+                     
             <PatternLayout pattern="%d{yyyy-MM-dd'T'HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+            <!-- or use the JsonLayout example above -->
 
             <Policies>
                 <OnStartupTriggeringPolicy/>
