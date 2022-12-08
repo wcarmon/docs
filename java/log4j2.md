@@ -123,7 +123,8 @@ dependencies {
     // -- For the implementation
     implementation("org.apache.logging.log4j:log4j-core:2.19.0") // or latest
     
-    // -- For forwarding other log statements (logging bridge)
+    // -- To forward other log statements (logging bridge)
+    // -- See https://logging.apache.org/log4j/2.x/faq.html#missing_core
     // -- See https://www.slf4j.org/legacy.html
     implementation("org.apache.logging.log4j:log4j-jcl:2.19.0") // apache commons logging -> slf4j    
     implementation("org.apache.logging.log4j:log4j-jul:2.19.0") // java.util.Logging -> slf4j
@@ -132,6 +133,8 @@ dependencies {
 }
 
 configurations.all {
+    
+    // -- Exclude conflicting/redundant jars
     exclude(group = "ch.qos.logback", module = "logback-classic")
     exclude(group = "ch.qos.logback", module = "logback-core")
     exclude(group = "commons-logging", module = "commons-logging")
@@ -164,7 +167,8 @@ import org.apache.logging.log4j.Logger;
 /**
  * <brief description of purpose>
  */
-public final SomeClass {
+public final class SomeClass {
+
     private static final Logger LOG = LogManager.getLogger(SomeClass.class);
     
     ...
