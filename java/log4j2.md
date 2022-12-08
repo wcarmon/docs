@@ -126,18 +126,23 @@ dependencies {
     // -- For forwarding other log statements (logging bridge)
     // -- See https://www.slf4j.org/legacy.html
     implementation("org.slf4j:jcl-over-slf4j:2.0.5")    // apache commons logging -> slf4j
-    implementation("org.slf4j:jul-to-slf4j:2.0.5")      // java.util.Logging -> slf4j
-    implementation("org.slf4j:slf4j-reload4j:2.0.5")    // legacy apache log -> slf4j
-    
+    implementation("org.slf4j:jul-to-slf4j:2.0.5")      // java.util.Logging -> slf4j    
+   
     ...
 }
 
 configurations.all {
+    exclude(group = "ch.qos.logback", module = "logback-classic")
+    exclude(group = "ch.qos.logback", module = "logback-core")
     exclude(group = "commons-logging", module = "commons-logging")
     exclude(group = "jboss-logging", module = "org.jboss.logging")
     exclude(group = "log4j", module = "log4j")
     exclude(group = "org.apache.logging.log4j", module = "log4j-to-slf4j")
-    exclude(group = "org.springframework.boot", module = "spring-boot-starter-logging")
+    exclude(group = "org.slf4j", module = "slf4j-jdk14")
+    exclude(group = "org.slf4j", module = "slf4j-nop")
+    exclude(group = "org.slf4j", module = "slf4j-reload4j")
+    exclude(group = "org.slf4j", module = "slf4j-simple")
+    exclude(group = "org.springframework.boot", module = "spring-boot-starter-logging")   
     ...
 }
 ```
@@ -169,5 +174,6 @@ public final SomeClass {
 
 # Other resources
 1. https://logging.apache.org/log4j/2.x/
+1. https://logging.apache.org/log4j/log4j-2.11.2/faq.html
 1. https://www.callicoder.com/spring-boot-log4j-2-example/
 1. https://docs.spring.io/spring-boot/docs/3.0.0/reference/html/features.html#features.logging

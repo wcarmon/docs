@@ -17,4 +17,4 @@ exclude group: "log4j", module: "log4j"
 
 # Other resources
 1. https://docs.spring.io/spring-boot/docs/3.0.0/reference/html/features.html#features.logging
-
+1. https://www.slf4j.org/images/concrete-bindings.png
