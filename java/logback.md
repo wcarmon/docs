@@ -36,7 +36,8 @@
 </configuration>
 ```
 - For layouts: see [pattern](https://logback.qos.ch/manual/layouts.html#ClassicPatternLayout), ...
-- JSON layout requires extra dependencies (like `ch.qos.logback.contrib:logback-json-classic`, `ch.qos.logback.contrib:logback-jackson`, ...)
+- JSON layout requires extra (abandonware) dependencies (like [`ch.qos.logback.contrib:logback-json-classic`](https://mvnrepository.com/artifact/ch.qos.logback.contrib/logback-json-classic/0.1.5), [`ch.qos.logback.contrib:logback-jackson`](https://mvnrepository.com/artifact/ch.qos.logback.contrib/logback-jackson/0.1.5), ...)
+    - last updated in 2016 (abandonware)
 
 
 # `build.gradle.kts` snippet
