@@ -81,6 +81,7 @@ if let Ok(s) = res {
 
 
 # Other Resources
+1. https://nick.groenen.me/posts/rust-error-handling/
 1. https://vino.dev/blog/node-to-rust-day-14-managing-errors/
 1. https://docs.rs/anyhow/latest/anyhow/
 1. https://docs.rs/thiserror/latest/thiserror/
