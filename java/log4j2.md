@@ -135,19 +135,20 @@ dependencies {
 configurations.all {
     
     // -- Exclude conflicting/redundant jars
-    exclude(group = "ch.qos.logback", module = "logback-classic")
-    exclude(group = "ch.qos.logback", module = "logback-core")
-    exclude(group = "commons-logging", module = "commons-logging")
-    exclude(group = "jboss-logging", module = "org.jboss.logging")
-    exclude(group = "log4j", module = "log4j")
+    exclude(group = "ch.qos.logback", module = "logback-classic")       // alternative
+    exclude(group = "ch.qos.logback", module = "logback-core")          // alternative
+    exclude(group = "commons-logging", module = "commons-logging")      // legacy
+    exclude(group = "jboss-logging", module = "org.jboss.logging")      // legacy
+    exclude(group = "log4j", module = "log4j")                          // legacy
     exclude(group = "org.apache.logging.log4j", module = "log4j-to-slf4j")
-    exclude(group = "org.slf4j", module = "jcl-over-slf4j")
-    exclude(group = "org.slf4j", module = "jul-to-slf4j")
-    exclude(group = "org.slf4j", module = "slf4j-jcl")      // slf4j to apache commons logging
-    exclude(group = "org.slf4j", module = "slf4j-jdk14")    // slf4j to java.util.logging
-    exclude(group = "org.slf4j", module = "slf4j-nop")      // slf4j to nowhere
-    exclude(group = "org.slf4j", module = "slf4j-reload4j")
-    exclude(group = "org.slf4j", module = "slf4j-simple")   // slf4j to stderr
+    exclude(group = "org.slf4j", module = "jcl-over-slf4j")             // apache commons logging to slf4j
+    exclude(group = "org.slf4j", module = "jul-to-slf4j")               // java.util.logging to slf4j
+    exclude(group = "org.slf4j", module = "slf4j-jcl")                  // slf4j to apache commons logging
+    exclude(group = "org.slf4j", module = "slf4j-jdk14")                // slf4j to java.util.logging
+    exclude(group = "org.slf4j", module = "slf4j-log4j12")              // slf4j to old 1.x log4j api
+    exclude(group = "org.slf4j", module = "slf4j-nop")                  // slf4j to nowhere
+    exclude(group = "org.slf4j", module = "slf4j-reload4j")             // slf4j to reload4j's impl of legacy log4j
+    exclude(group = "org.slf4j", module = "slf4j-simple")               // slf4j to stderr
     exclude(group = "org.springframework.boot", module = "spring-boot-starter-logging")
        
     ...
