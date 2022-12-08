@@ -68,8 +68,8 @@ configurations.all {
     exclude(group = "jboss-logging", module = "org.jboss.logging")              // legacy
     exclude(group = "log4j", module = "log4j")                                  // legacy
     exclude(group = "org.apache.logging.log4j", module = "log4j-core")          // log4j2 impl
-    exclude(group = "org.apache.logging.log4j", module = "log4j-jcl")           // apache commons logging to log4j2 api 
-    exclude(group = "org.apache.logging.log4j", module = "log4j-jul")           // java.util.logging to log4j2 api
+    exclude(group = "org.apache.logging.log4j", module = "log4j-jcl")           // apache commons logging to log4j2 impl 
+    exclude(group = "org.apache.logging.log4j", module = "log4j-jul")           // java.util.logging to log4j2 impl
     exclude(group = "org.apache.logging.log4j", module = "log4j-slf4j-impl")    // slf4j to log4j2 impl
     exclude(group = "org.slf4j", module = "slf4j-jcl")                          // slf4j to apache commons logging
     exclude(group = "org.slf4j", module = "slf4j-jdk14")                        // slf4j to java.util.logging
