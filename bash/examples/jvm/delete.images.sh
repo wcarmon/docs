@@ -37,6 +37,7 @@ echo
 echo "|-- Images before Delete:"
 $DOCKER images -a
 
+
 $DOCKER images -a |
   grep -i $IMAGE_PATTERN |
   awk '{print $3}' |
@@ -45,3 +46,8 @@ $DOCKER images -a |
 echo
 echo "|-- Images after Delete:"
 $DOCKER images -a
+
+
+echo
+echo "|-- Large images"
+docker images --format "{{.ID}}\t{{.Size}}\t{{.Repository}}" | sort -k 2 -h -r | head -5

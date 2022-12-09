@@ -45,3 +45,8 @@ $DOCKER images -a |
 echo
 echo "|-- Images after Delete:"
 $DOCKER images -a
+
+
+echo
+echo "|-- Large images"
+docker images --format "{{.ID}}\t{{.Size}}\t{{.Repository}}" | sort -k 2 -h -r | head -5
