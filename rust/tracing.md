@@ -108,9 +108,10 @@ tracing::subscriber::set_global_default(subscriber);
 
 
 ## Wrap a function in a Span
-- not as flexible as code
+1. Not as flexible as code, but often convenient
+1. See https://docs.rs/tracing/latest/tracing/attr.instrument.html
 ```rust
-    #[tracing::instrument]
+    #[instrument]
     fn do_something(foo: &str) -> anyhow::Result<String> {
 
         // these are automatically associated with the span
