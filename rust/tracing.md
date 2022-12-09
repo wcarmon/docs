@@ -154,27 +154,18 @@ debug!(message = "example debug msg", aa = 7);
 info!(message = "example info msg", b = true);
 warn!(message = "example warn log event", f = 3.2);
 
+error!("ooh no!");  // This marks span as error (in Jaeger too)
+
 // -- or put the message last
 info!(cc = "cheese", "something happened");
 ```
 
     
 ## Recording errors
-1. https://opentelemetry.io/docs/reference/specification/trace/semantic_conventions/exceptions/#attributes
 ```
-//TODO: simplify:
-span.error = true
-span.attr[exception].type = "..."
-span.attr[exception.message] = "..."
-span.attr[exception.stacktrace] = "..."
-event.name = "exception"
-
-status = ?
-exception = ?
-
-            let attributes = vec![KeyValue::new("exception.message", err.to_string())];
-            self.add_event("exception", attributes);
+error!(zz = 7, "failed to ...")
 ```
+1. See also: https://opentelemetry.io/docs/reference/specification/trace/semantic_conventions/exceptions/#attributes
 
 
 # Propagation: child function
