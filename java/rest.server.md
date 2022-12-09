@@ -7,6 +7,7 @@
 # Criteria
 1. See [criteria for selecting libs](../general/libraries.md)
 
+
 # Additional Criteria
 1. Container friendly
     1. Light on memory
@@ -52,38 +53,42 @@
 # Rejected
 
 ## ~~Quarkus~~
-1. framework, not a library
-1. vertx based (see below)
-1. tied to popular frameworks (preprocesses them, integrates them)
-1. Eclipse micro profile for metrics
-1. Reactive programming (see above)
+1. Framework, not a library
+    1. If it doesn't do exactly what you want, you are out of luck (same for most frameworks)
+    1. You are locked into what they can provide (same for most frameworks)
 1. CDI for injection (cannot replace with Guice nor spring-context)
-1. If it doesn't do exactly what you want, you are out of luck (same for most frameworks)
-1. you are locked into what they can provide (same for most frameworks)
+1. vertx based (see below)
+1. Tightly coupled to popular frameworks
+    1. They manually build "adapters" (only) to popular frameworks 
+1. Reactive programming (see above)
+1. Eclipse micro profile for metrics
 1. Coroutines support isn't core
 
 
 ## ~~RestEasy~~
-1. Abandonware
+1. Abandonware (last updated 2018)
 
     
 ## ~~Restlet~~
-1. Abandonware
+1. Abandonware (last updatd 2014)
 
 
 ## ~~Spring Web~~
 1. Overly complex
-1. Heavy reflection
+1. Heavy on reflection
 1. Abandonware (They are pushing webflux instead)
 1. Lots of magic
     1. Following stack traces is hard
-    1. Reasoning about control flow is hard  
+    1. Reasoning about control flow is hard
+1. Heavy memory footprint      
 
 
 ## ~~Spring WebFlux~~
 1. Reactive programming (see above)
-1. Heavy reflection
+1. Heavy on reflection
 1. Most of the same problems as Spring Web
+1. Not graal & native-image friendly
+    1. lots of warning & error messages
 
 
 ## ~~TomEE~~
