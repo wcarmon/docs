@@ -58,11 +58,13 @@ mkdir -p $OUTPUT_DIR;
 
 
 # See options here: https://www.graalvm.org/22.0/reference-manual/native-image/Options/#options-to-native-image-builder
-$DOCKER run \
-  --rm \
-  -v "${JARS_DIR}":/jars:ro \
-  -v "${OUTPUT_DIR}":/output:rw \
-  $DOCKER_IMAGE_FOR_NATIVE_IMAGE -jar /jars/app.jar /output/${BINARY_NAME} --static --verbose -H:Log=registerResource
+#$DOCKER run \
+#  --rm \
+#  -v "${JARS_DIR}":/jars:ro \
+#  -v "${OUTPUT_DIR}":/output:rw \
+#  $DOCKER_IMAGE_FOR_NATIVE_IMAGE -jar /jars/app.jar /output/${BINARY_NAME} --static --verbose -H:Log=registerResource
+
+docker pull alpine:3.17
 
 #--target ...
 

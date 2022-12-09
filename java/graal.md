@@ -18,7 +18,7 @@ sudo apt-get install build-essential libz-dev zlib1g-dev
 
 
 # High level flow
-1. Build a `*.jar`
+1. Build an uber `*.jar`
 1. use [`native-image`](https://www.graalvm.org/22.1/reference-manual/native-image/) to convert `*.jar` into native binary
 1. Put the binary into a container via docker or similar
 

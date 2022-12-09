@@ -15,10 +15,21 @@
         1. OpenTelemetry spans lack level
 
 
-# Dependencies (Cargo.toml)
+# Dependencies for library crate (Cargo.toml)
+```toml
+[dependencies]
+opentelemetry-semantic-conventions = "..."
+tracing = "..."
+```
+
+
+# Dependencies for binary crate (Cargo.toml)
 ```toml
 [dependencies]
 opentelemetry = "..."
+opentelemetry-jaeger = "..."
+opentelemetry-semantic-conventions = "..."
+
 tracing = "..."
 tracing-opentelemetry = "..."
 tracing-subscriber = "..."
@@ -44,12 +55,10 @@ tracing-subscriber = "..."
 
 
 # [OpenTelemetry](https://opentelemetry.io/docs/instrumentation/rust/) lib
-1. [Concepts](../common/observability/tracing.md)
-1. More verbose than [`tracing`](TODO) lib
-1. Requires passing [`Context`](TODO) manually to propagate spans
+1. See [otel doc](./tracing.opentelemetry.md)
 
 
-## Setup
+## Setup (in binary crate)
 ```rust
 use tracing_subscriber::layer::SubscriberExt;
 ...
@@ -74,14 +83,10 @@ let subscriber = Registry::default()
 //    only in main.rs, never for a library
 tracing::subscriber::set_global_default(subscriber);
 
-...
 ```
 
 
-
-
-
-## Span usage (tracing lib)
+## Span usage
 ```rust
     let span = span!(Level::INFO, "my_span"); // or better, info_span!("my_span");
     let guard = span.enter();
@@ -101,7 +106,7 @@ tracing::subscriber::set_global_default(subscriber);
 ```
 
 
-## Wrap a function in a Span (tracing lib)
+## Wrap a function in a Span
 - not as flexible as code
 ```rust
     #[tracing::instrument]
@@ -120,41 +125,6 @@ tracing::subscriber::set_global_default(subscriber);
 ```
 
 
-## Span usage (OpenTelemetry)
-```rust
-    let mut span = tracer.span_builder("doSomeOperation")
-        .start(&tracer);
-
-    // ...
-
-    let parent_ctx = Context::current_with_span(tracer("").start("do_parent_stuff"));
-    let parent_span = parent_ctx.span();
-
-    parent_span.set_attribute(KeyValue::new("foo", true));
-
-    // -- maybe a fn boundary here: pass &parent_ctx
-    let mut child_ctx =
-        Context::current_with_span(tracer("").start_with_context("do_child_stuff", &parent_ctx));
-    let child_span = child_ctx.span();
-
-    child_span.set_attribute(KeyValue::new("foo", 1));
-    child_span.add_event("something happened", vec![]); // log
-    
-    parent_span.set_attribute(KeyValue::new("foo", 2));
-
-
-    // -- Error reporting requires a few steps
-    child_span.record_error(&anyhow!("boom").into());
-    child_span.set_attribute(KeyValue::new("error", true));    
-    child_span.end(); // YES, this is necessary
-
-
-    //TODO: how to associate logs via log!(...) macros
-
-    span.end(); // or drop(span) or let it happen automatically
-```
-
-
 # Attributes
 ## record extra span attributes (after span created)
 - TODO: add attributes using record: https://docs.rs/tracing/latest/tracing/span/struct.Span.html#method.record
@@ -162,7 +132,7 @@ tracing::subscriber::set_global_default(subscriber);
 - TODO: silent failure for attributes that aren't predefined
 
 
-# Associated logs with attributes
+# Associating logs with spans, adding attributes
 ```rust
 use tracing::{debug, error, info, info_span, warn};
 ...
@@ -195,11 +165,8 @@ exception = ?
 
 
 # Other Resources
-1. https://docs.rs/opentelemetry/latest/opentelemetry/
 1. https://docs.rs/tracing-opentelemetry/latest/tracing_opentelemetry/
 1. https://docs.rs/tracing/latest/tracing/
-1. https://opentelemetry.io/docs/instrumentation/go/getting-started/
-1. https://opentelemetry.io/docs/instrumentation/rust/
 1. https://docs.rs/log/latest/log/
 1. https://crates.io/crates/opentelemetry-jaeger
 
