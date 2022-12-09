@@ -133,6 +133,14 @@ tracing::subscriber::set_global_default(subscriber);
 - TODO: silent failure for attributes that aren't predefined
 
 
+# Get current span
+```rust
+info_span!("...", foo = Empty).entered();
+...
+
+Span::current().record("foo", 88);
+```
+
 # Associating logs with spans, adding attributes
 ```rust
 use tracing::{debug, error, info, info_span, warn};
@@ -162,6 +170,15 @@ exception = ?
 
             let attributes = vec![KeyValue::new("exception.message", err.to_string())];
             self.add_event("exception", attributes);
+```
+
+
+# Main fn
+1. Add a brief delay at the end of your program to report any outstanding spans
+```rust
+// -- Give the last span time to report to Jaeger
+sleep(Duration::from_millis(1000));
+
 ```
 
 
