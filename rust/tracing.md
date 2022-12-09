@@ -111,19 +111,23 @@ tracing::subscriber::set_global_default(subscriber);
 1. Not as flexible as code, but often convenient
 1. See https://docs.rs/tracing/latest/tracing/attr.instrument.html
 ```rust
-    #[instrument]
-    fn do_something(foo: &str) -> anyhow::Result<String> {
+use tracing::{instrument};
+...
 
-        // these are automatically associated with the span
-        debug!(aa = 7, "not that important");
-        info!("interesting");
-        warn!("hm...");
-        error!("ooh no!");
 
-        //GOTCHA: attributes/fields must be declared in the attribute
+#[instrument]
+fn do_something(foo: &str) -> anyhow::Result<String> {
 
-        Ok("output".to_owned())
-    }
+    // these are automatically associated with the span
+    debug!(aa = 7, "not that important");
+    info!("interesting");
+    warn!("hm...");
+    error!("ooh no!");
+
+    //GOTCHA: attributes/fields must be declared in the attribute
+
+    Ok("output".to_owned())
+}
 ```
 
 
