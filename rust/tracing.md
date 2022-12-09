@@ -134,13 +134,13 @@ fn do_something(foo: &str) -> anyhow::Result<String> {
 # Attributes
 ## record extra span attributes (after span created)
 - TODO: add attributes using record: https://docs.rs/tracing/latest/tracing/span/struct.Span.html#method.record
-- TODO: must use `Empty`: https://docs.rs/tracing/latest/tracing/#recording-fields
+- TODO: must use `tracing::field::Empty`: https://docs.rs/tracing/latest/tracing/#recording-fields
 - TODO: silent failure for attributes that aren't predefined
 
 
 # Get current span
 ```rust
-info_span!("...", foo = Empty).entered();
+info_span!("...", foo = tracing::field::Empty).entered();
 ...
 
 Span::current().record("foo", 88);
