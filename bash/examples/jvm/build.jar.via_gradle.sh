@@ -51,6 +51,7 @@ time $GRADLE \
   clean \
   build \
   jar \
+  shadowJar \
   -x check \
   -x pmdMain \
   -x pmdTest \

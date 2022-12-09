@@ -120,12 +120,15 @@
 ```kts
 dependencies {
     
+    //TODO: use latest version
+    
     // -- For the API
-    implementation("org.apache.logging.log4j:log4j-api:2.19.0") // or latest
+    implementation("org.apache.logging.log4j:log4j-api:2.19.0")
     
     // -- For the implementation
-    implementation("org.apache.logging.log4j:log4j-core:2.19.0") // or latest
-    
+    implementation("org.apache.logging.log4j:log4j-core:2.19.0")
+    implementation("org.apache.logging.log4j:log4j-slf4j-impl:2.19.0")
+
     // -- To forward other log statements (logging bridge)
     // -- See https://logging.apache.org/log4j/2.x/faq.html#missing_core
     // -- See https://www.slf4j.org/legacy.html
@@ -154,8 +157,6 @@ configurations.all {
     exclude(group = "org.slf4j", module = "slf4j-reload4j")             // slf4j to reload4j's impl of legacy log4j
     exclude(group = "org.slf4j", module = "slf4j-simple")               // slf4j to stderr
     exclude(group = "org.springframework.boot", module = "spring-boot-starter-logging")
-       
-    ...
 }
 ```
 
