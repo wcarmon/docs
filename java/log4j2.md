@@ -124,6 +124,7 @@ dependencies {
     
     // -- For the API
     implementation("org.apache.logging.log4j:log4j-api:2.19.0")
+    implementation("org.slf4j:slf4j-api:1.7.36") // avoid 2.x
     
     // -- For the implementation
     implementation("org.apache.logging.log4j:log4j-core:2.19.0")
