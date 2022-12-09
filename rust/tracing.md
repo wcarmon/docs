@@ -173,6 +173,20 @@ exception = ?
 ```
 
 
+# Propagation: child function
+1. Single-threaded: This is auto
+1. Multi-threaded: TODO
+
+
+# Propagation: HTTP client
+1. TODO
+
+
+# Propagation: HTTP server
+1. TODO
+
+
+
 # Main fn
 1. Add a brief delay at the end of your program to report any outstanding spans
 ```rust
