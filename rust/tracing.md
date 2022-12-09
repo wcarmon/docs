@@ -120,7 +120,7 @@ tracing::subscriber::set_global_default(subscriber);
         warn!("hm...");
         error!("ooh no!");
 
-        //GOTCHA: you cannot add span attributes/fields (unless you make child span)
+        //GOTCHA: attributes/fields must be declared in the attribute
 
         Ok("output".to_owned())
     }
