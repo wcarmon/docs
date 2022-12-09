@@ -25,6 +25,7 @@
     1. JDBC is still blocking so there's no value in contaminating your API
     1. [Project loom](https://wiki.openjdk.org/display/loom/Getting+started) obsoletes reactive programming
 1. HTTP/2 support
+1. [OpenTelemetry](https://opentelemetry.io/) friendly
 
 
 # Candidate libs
