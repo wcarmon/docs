@@ -149,9 +149,13 @@ use tracing::{debug, error, info, info_span, warn};
 let span = info_span!("do_something").entered();
 
 ...
+// attributes do NOT need to be declared on span first
 debug!(message = "example debug msg", aa = 7);
 info!(message = "example info msg", b = true);
 warn!(message = "example warn log event", f = 3.2);
+
+// -- or put the message last
+info!(cc = "cheese", "something happened");
 ```
 
     
