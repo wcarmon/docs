@@ -88,12 +88,12 @@ tracing::subscriber::set_global_default(subscriber);
 
 ## Span usage
 ```rust
-    let span = span!(Level::INFO, "my_span"); // or better, info_span!("my_span");
+    let span = info_span!("my_span");
     let guard = span.enter();
     
-    // or: let span = span!(Level::INFO, "my_span").entered();
+    // or: let span = info_span!("my_span").entered();
 
-    span.record("foo", "bar");
+    span.record("foo", "bar"); // must be defined in the span macro
 
     // auto associated with span
     info!("something happened"); // or warn!(...) or error!(...) or debug!(...)
@@ -104,6 +104,7 @@ tracing::subscriber::set_global_default(subscriber);
 
     drop(guard); // or let it happen automatically
 ```
+1. See https://docs.rs/tracing/latest/tracing/macro.span.html
 
 
 ## Wrap a function in a Span

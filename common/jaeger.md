@@ -22,9 +22,10 @@ docker pull jaegertracing/all-in-one;
 
 ```bash
 # -- cleanup from previous runs
-# docker stop jaeger || true
-# docker rm --force jaeger || true
+docker stop jaeger || true
+docker rm --force jaeger || true
 
+# -- run
 docker run -d --name jaeger \
   -e COLLECTOR_ZIPKIN_HTTP_PORT=9411 \
   -p 14268:14268 \
