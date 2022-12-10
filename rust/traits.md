@@ -25,10 +25,11 @@
 1. slightly smaller binary than static dispatch
 
 
-## Ownership
-1. `Box<dyn Trait>`: owned, dynamic dispatch
-1. `&dyn Trait`: borrowed, dynamic dispatch
-
+## Ownership (dynamic dispatch)
+|Ownership|syntax|
+| ---|--- |
+|Owned|`Box<dyn Trait>`|
+|Borrowed|`&dyn Trait`|
 
 
 # Language Comparison
