@@ -8,9 +8,30 @@
 # Definitions
 1. A trait is a collection of **methods** defined for an **unknown type**, called `Self`
 1. Marker trait: agreement between user and implementer for something the compiler cannot represent
+1. Traits can be used with static dispatch (generics) or with dynamic dispatch (trait objects via `dyn`)
 
 
-# Comparison
+# Static dispatch
+1. [Generics](https://doc.rust-lang.org/book/ch10-01-syntax.html), [monomorphization](https://rustwasm.github.io/twiggy/concepts/generic-functions-and-monomorphization.html)
+1. Faster than [dynamic dispatch](https://www.cs.brandeis.edu/~cs146a/rust/doc-02-21-2015/book/static-and-dynamic-dispatch.html), but slightly larger binary
+    1. Compiler generates an (separately optimizable) version for each type you call the `fn`
+
+
+# Dynamic dispatch (`dyn`)
+1. `dyn` disables some arithmetic optimizations & inlining
+1. `dyn` can make your code slower (eg. Go, Java, C# level perf)
+    1. virtual function call, vtable lookup, etc
+1. More flexible than static dispatch at runtime
+1. slightly smaller binary than static dispatch
+
+
+## Ownership
+1. `Box<dyn Trait>`: owned, dynamic dispatch
+1. `&dyn Trait`: borrowed, dynamic dispatch
+
+
+
+# Language Comparison
 
 ## Java
 1. Similar to [java interfaces](https://docs.oracle.com/javase/tutorial/java/concepts/interface.html)
@@ -39,8 +60,9 @@
     1. [Operator overloading](https://doc.rust-lang.org/rust-by-example/trait/ops.html) works via traits
 
 
-- TODO: trait implementations must be in separate `impl` block from unrelated methods
 
+# TODO/Unorganized
+- TODO: trait implementations must be in separate `impl` block from unrelated methods
 - TODO: https://doc.rust-lang.org/book/ch10-02-traits.html
 - TODO: https://doc.rust-lang.org/rust-by-example/trait.html
 - TODO: https://web.mit.edu/rust-lang_v1.25/arch/amd64_ubuntu1404/share/doc/rust/html/book/first-edition/traits.html
@@ -54,6 +76,9 @@
 - TODO: compiler needs to know how much space every function's return type requires
 - TODO: when is `into` required (and when is it implicit?)
 
+- TODO: https://miro.medium.com/max/1100/1*CCwiXyyiueRGZli1f3GCzw.webp (excellent diagram)
+
 # Other Resources
 1. https://doc.rust-lang.org/book/ch10-02-traits.html
 1. https://doc.rust-lang.org/rust-by-example/trait.html
+1. https://medium.com/digitalfrontiers/rust-dynamic-dispatching-deep-dive-236a5896e49b
