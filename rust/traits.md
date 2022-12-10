@@ -28,8 +28,8 @@
 ## Ownership (dynamic dispatch)
 |Ownership|syntax|
 | ---|--- |
-|Owned|`Box<dyn Trait>`|
-|Borrowed|`&dyn Trait`|
+|Owned|`Box<dyn MyTrait>`|
+|Borrowed|`&dyn MyTrait`|
 
 
 # Language Comparison
