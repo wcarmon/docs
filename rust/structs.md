@@ -17,6 +17,7 @@
 # Idioms
 1. Use [`derive`](./traits.derive.md) attribute to auto-generate [common traits](./traits.derive.md)
 1. `Ownership`: Prefer to own fields in a struct ([Why?](https://www.lurklurk.org/effective-rust/lifetimes.html#lifetimes-in-data-structures))
+1. Don't implement `to_string()`, implement [`Display`](https://doc.rust-lang.org/std/fmt/trait.Display.html) 
 
 
 # Destructuring

@@ -1,5 +1,9 @@
 # Overview
-1. TODO
+1. Idioms & popular use cases for enums
+
+
+# Idioms
+1. Don't implement `to_string()`, implement [`Display`](https://doc.rust-lang.org/std/fmt/trait.Display.html)
 
 
 # Pattern matching
