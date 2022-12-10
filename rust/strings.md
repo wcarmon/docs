@@ -217,6 +217,44 @@ print!("{:?}", "foo".to_owned() + "bar");
 - [`&str.to_owned()`](https://doc.rust-lang.org/stable/std/borrow/trait.ToOwned.html#impl-ToOwned-for-str) allocates a new `String`
 
 
+# Abbreviate
+```rust
+pub fn abbreviate(s: &str, max_len: usize) -> String {
+    let bound = open_upper_bound_for_chars(s.len(), max_len);
+    if bound.is_none() {
+        return s.to_string();
+    }
+
+    let bound = bound.unwrap();
+
+    let mut out = String::with_capacity(max_len);
+    out.push_str(&s[..bound]);
+    if must_add_elipses(s.len(), max_len) {
+        out.push_str("...");
+    }
+
+    out
+}
+
+fn open_upper_bound_for_chars(str_len: usize, max_output_len: usize) -> Option<usize> {
+    if str_len <= max_output_len {
+        return Some(str_len);
+    }
+
+    let suffix_len = 3; // = "...".len();
+    if max_output_len <= suffix_len {
+        return None;
+    }
+
+    Some(max_output_len - suffix_len)
+}
+
+fn must_add_elipses(str_len: usize, max_output_len: usize) -> bool {    
+    3 < max_output_len && max_output_len < str_len
+}
+```
+
+
 # Other Resources
 1. https://blog.logrocket.com/understanding-rust-string-str/
 1. https://locka99.gitbooks.io/a-guide-to-porting-c-to-rust/content/features_of_rust/strings.html
