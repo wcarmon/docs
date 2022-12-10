@@ -20,7 +20,7 @@
 # Dynamic dispatch (`dyn`)
 1. `dyn` disables some arithmetic optimizations & inlining
 1. `dyn` can make your code slower (eg. Go, Java, C# level perf)
-    1. virtual function call, vtable lookup, etc
+    1. virtual function call, [vtable](https://en.wikipedia.org/wiki/Virtual_method_table) lookup, etc
 1. More flexible than static dispatch at runtime
 1. slightly smaller binary than static dispatch
 
