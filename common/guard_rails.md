@@ -12,7 +12,7 @@
   1. Unit test, E2E test
 1. IDE
   1. Inspections, Auto-completion, Navigation 
-1. AI coding helper (eg. [Tabnine](https://www.tabnine.com) & [Copilot](https://github.com/features/copilot))
+1. AI coding helper (eg. [Tabnine](https://www.tabnine.com), [Copilot](https://github.com/features/copilot), [ChatGPT](https://openai.com/blog/chatgpt/))
 1. Profiler (CPU, Memory, etc)
 1. Auto-Formatter
 1. Other humans (Code reviewers)
