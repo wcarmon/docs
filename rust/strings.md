@@ -125,6 +125,7 @@ assert_eq!("\"#\"", r##""#""##);    // "#"
 
 # String literals
 1. static lifetime (guaranteed valid for duration of entire program)
+    1. lifetimes only every apply to references
 1. We only every borrow them, never own them
 1. TODO: raw strings
 
