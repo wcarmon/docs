@@ -133,6 +133,7 @@ fn do_something(foo: &str) -> anyhow::Result<String> {
 
 # Attributes
 ## record extra span attributes (after span created)
+1. 32 fields/attributes max 
 - TODO: add attributes using record: https://docs.rs/tracing/latest/tracing/span/struct.Span.html#method.record
 - TODO: must use `tracing::field::Empty`: https://docs.rs/tracing/latest/tracing/#recording-fields
 - TODO: silent failure for attributes that aren't predefined
@@ -163,13 +164,18 @@ error!("ooh no!");  // This marks span as error (in Jaeger too)
 
 // -- or put the message last
 info!(cc = "cheese", "something happened");
+info!(dd = %foo1, "whatever") // use fmt::Display
+info!(ee = ?foo2, "something") // use fmt::Debug
 ```
+1. `?` sigil prefix means record with [`fmt::Debug`](https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html)
+1. `%` prefix means record with [`fmt::Display`](https://doc.rust-lang.org/nightly/core/fmt/trait.Display.html)  
 
     
 ## Recording errors
 ```
-error!(zz = 7, "failed to ...")
+error!(err = ?some_err, "failed to ...")
 ```
+1. See also https://docs.rs/tracing/latest/tracing/index.html#recording-fields
 1. See also: https://opentelemetry.io/docs/reference/specification/trace/semantic_conventions/exceptions/#attributes
 
 
