@@ -102,6 +102,10 @@ tracing::subscriber::set_global_default(subscriber);
 
     let current_span = Span::current(); // in case you didn't have a reference
 
+    // manually set parent span 
+    //TODO: verify
+    let _ = info_span!(parent: span.id(), "foo_bar");
+
     drop(guard); // or let it happen automatically
 ```
 1. See https://docs.rs/tracing/latest/tracing/macro.span.html
@@ -200,6 +204,29 @@ error!(err = ?some_err, "failed to ...")
 sleep(Duration::from_millis(1000));
 
 ```
+
+
+# Flow from source to jaeger
+1. TODO
+1. [`::`](TODO)
+1. [`tracing::dispatcher::get_default(...)`](TODO) (lib: `tracing-core`)
+1. [`tracing::Span::new(...)`](TODO) (lib: `tracing`)
+1. [`tracing::Span::new_with(...)`](TODO) (lib: `tracing`)
+1. [`Dispatch::new_span(...)`](TODO)
+    1. thin wrapper around [`Subscriber`](TODO)
+    1. returns new [`tracing::Id`](TODO)    
+1. [`Subscriber::new_span(...)`](TODO)
+1. [`::new_span(...)`](TODO)
+1. [`OpenTelemetryLayer::on_new_span(...)`](TODO) as Layer (lib: tracing-opentelemetry)
+1. [`::(...)`](TODO)
+1. [`::(...)`](TODO)
+1. TODO
+1. [`SimpleSpanProcessor::on_end(...)`](TODO) as [`SimpleSpanProcessor`](TODO)
+1. [`SimpleSpanProcessor`](TODO) [`crossbeam_channel`](TODO) with [`SpanData`](TODO)
+    1. [`BatchSpanProcessor`](TODO) is similar
+1. [`Exporter::export`](TODO) as [`trace::SpanExporter`](TODO)
+1. [`convert_otel_span_into_jaeger_span(...)`](TODO)  (lib: `opentelemetry-jaeger`)
+1. [`Uploader::upload(jaeger::Batch)`](TODO) (lib: `opentelemetry-jaeger`)
 
 
 # Other Resources
