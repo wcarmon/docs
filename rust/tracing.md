@@ -212,12 +212,16 @@ sleep(Duration::from_millis(1000));
 1. [`tracing::dispatcher::get_default(...)`](TODO) (lib: `tracing-core`)
 1. [`tracing::Span::new(...)`](TODO) (lib: `tracing`)
 1. [`tracing::Span::new_with(...)`](TODO) (lib: `tracing`)
-1. [`Dispatch::new_span(...)`](TODO)
+1. [`Dispatch::new_span(...)`](TODO) (lib: `tracing-core`)
     1. thin wrapper around [`Subscriber`](TODO)
     1. returns new [`tracing::Id`](TODO)    
-1. [`Subscriber::new_span(...)`](TODO)
-1. [`::new_span(...)`](TODO)
+1. [`Subscriber::new_span(...)`](TODO) (lib: `tracing-core`)
+1. [`Layered::new_span(...)`](TODO) as Subscriber (lib: `tracing-subscriber`)
+1. [`Registry::new_span(...)`](TODO) as Subscriber (lib: `tracing-subscriber`)
+    1. Check for parent
 1. [`OpenTelemetryLayer::on_new_span(...)`](TODO) as Layer (lib: tracing-opentelemetry)
+    1. checks parent context for active span
+    1. stores extra data in [span extension](https://opentelemetry.io/docs/instrumentation/java/extensions/)
 1. [`::(...)`](TODO)
 1. [`::(...)`](TODO)
 1. TODO
