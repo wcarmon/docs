@@ -211,14 +211,16 @@ sleep(Duration::from_millis(1000));
 1. [`tracing::dispatcher::get_default(...)`](https://docs.rs/tracing/latest/tracing/dispatcher/fn.get_default.html) ([src in `tracing-core`](https://github.com/tokio-rs/tracing/blob/master/tracing-core/src/dispatch.rs#L414))
 1. [`tracing::Span::new(...)`](https://docs.rs/tracing/latest/tracing/struct.Span.html#method.new) ([src in`tracing`](https://github.com/tokio-rs/tracing/blob/master/tracing/src/span.rs#L427))
 1. `tracing::Span::new_with(...)` ([src in `tracing`](https://github.com/tokio-rs/tracing/blob/master/tracing/src/span.rs#L433))
-1. [`tracing::Dispatch::new_span(...)`](https://docs.rs/tracing/latest/tracing/struct.Dispatch.html#method.new_span) ([src in `tracing-core`](TODO))
+1. [`tracing::Dispatch::new_span(...)`](https://docs.rs/tracing/latest/tracing/struct.Dispatch.html#method.new_span) ([src in `tracing-core`](https://github.com/tokio-rs/tracing/blob/tracing-subscriber-0.3.16/tracing-core/src/dispatcher.rs#L532))
     1. thin wrapper around [`Subscriber`](https://docs.rs/tracing/latest/tracing/subscriber/trait.Subscriber.html)
     1. returns new [`tracing::Id`](TODO)    
-1. [`Subscriber::new_span(...)`](https://docs.rs/tracing/latest/tracing/trait.Subscriber.html#tymethod.new_span) ([src in`tracing-core`](TODO))
-1. `Layered::new_span(...)` as [Subscriber](https://docs.rs/tracing/latest/tracing/subscriber/trait.Subscriber.html) ([src in `tracing-subscriber`](https://github.com/tokio-rs/tracing/blob/master/tracing-subscriber/src/subscribe/layered.rs#L126))
-1. [`Registry::new_span(...)`](TODO) as [Subscriber](https://docs.rs/tracing/latest/tracing/subscriber/trait.Subscriber.html) ([src in `tracing-subscriber`](TODO))
+1. [`Subscriber::new_span(...)`](https://docs.rs/tracing/latest/tracing/trait.Subscriber.html#tymethod.new_span) ([src in`tracing-core`](https://github.com/tokio-rs/tracing/blob/tracing-subscriber-0.3.16/tracing-core/src/subscriber.rs#L807))
+    1. seems like they are renaming to "Collector"
+1. `Layered::new_span(...)` as [`Subscriber`](https://docs.rs/tracing/latest/tracing/subscriber/trait.Subscriber.html) ([src in `tracing-subscriber`](https://github.com/tokio-rs/tracing/blob/master/tracing-subscriber/src/subscribe/layered.rs#L126))
+1. [`Registry::new_span(...)`](https://docs.rs/tracing-subscriber/latest/tracing_subscriber/registry/struct.Registry.html) as [`Subscriber`](https://docs.rs/tracing/latest/tracing/subscriber/trait.Subscriber.html) ([src in `tracing-subscriber`](https://github.com/tokio-rs/tracing/blob/master/tracing-subscriber/src/registry/sharded.rs#L237))
     1. Checks for parent
-1. [`OpenTelemetryLayer::on_new_span(...)`](TODO) as Layer ([src in `tracing-opentelemetry`](TODO))
+    1. Ensures local span ids are unique
+1. [`OpenTelemetryLayer::on_new_span(...)`](https://docs.rs/tracing-subscriber/latest/tracing_subscriber/layer/trait.Layer.html#method.on_new_span) as [`Layer`](https://docs.rs/tracing-subscriber/latest/tracing_subscriber/layer/trait.Layer.html) ([src in `tracing-opentelemetry`](TODO))
     1. checks parent context for active span
     1. stores extra data in [span extension](https://opentelemetry.io/docs/instrumentation/java/extensions/)
 1. [`::(...)`](TODO)
