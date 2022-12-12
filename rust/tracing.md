@@ -211,25 +211,24 @@ sleep(Duration::from_millis(1000));
 1. [`tracing::dispatcher::get_default(...)`](https://docs.rs/tracing/latest/tracing/dispatcher/fn.get_default.html) ([src in `tracing-core`](https://github.com/tokio-rs/tracing/blob/master/tracing-core/src/dispatch.rs#L414))
 1. [`tracing::Span::new(...)`](https://docs.rs/tracing/latest/tracing/struct.Span.html#method.new) ([src in`tracing`](https://github.com/tokio-rs/tracing/blob/master/tracing/src/span.rs#L427))
 1. `tracing::Span::new_with(...)` ([src in `tracing`](https://github.com/tokio-rs/tracing/blob/master/tracing/src/span.rs#L433))
-1. [`tracing::Dispatch::new_span(...)`](https://docs.rs/tracing/latest/tracing/struct.Dispatch.html#method.new_span) (lib: `tracing-core`)
+1. [`tracing::Dispatch::new_span(...)`](https://docs.rs/tracing/latest/tracing/struct.Dispatch.html#method.new_span) ([src in `tracing-core`](TODO))
     1. thin wrapper around [`Subscriber`](https://docs.rs/tracing/latest/tracing/subscriber/trait.Subscriber.html)
     1. returns new [`tracing::Id`](TODO)    
 1. [`Subscriber::new_span(...)`](https://docs.rs/tracing/latest/tracing/trait.Subscriber.html#tymethod.new_span) ([src in`tracing-core`](TODO))
 1. `Layered::new_span(...)` as [Subscriber](https://docs.rs/tracing/latest/tracing/subscriber/trait.Subscriber.html) ([src in `tracing-subscriber`](https://github.com/tokio-rs/tracing/blob/master/tracing-subscriber/src/subscribe/layered.rs#L126))
-1. [`Registry::new_span(...)`](TODO) as [Subscriber](https://docs.rs/tracing/latest/tracing/subscriber/trait.Subscriber.html) (lib: `tracing-subscriber`)
+1. [`Registry::new_span(...)`](TODO) as [Subscriber](https://docs.rs/tracing/latest/tracing/subscriber/trait.Subscriber.html) ([src in `tracing-subscriber`](TODO))
     1. Checks for parent
-1. [`OpenTelemetryLayer::on_new_span(...)`](TODO) as Layer (lib: tracing-opentelemetry)
+1. [`OpenTelemetryLayer::on_new_span(...)`](TODO) as Layer ([src in `tracing-opentelemetry`](TODO))
     1. checks parent context for active span
     1. stores extra data in [span extension](https://opentelemetry.io/docs/instrumentation/java/extensions/)
 1. [`::(...)`](TODO)
 1. [`::(...)`](TODO)
-1. TODO
 1. [`SimpleSpanProcessor::on_end(...)`](TODO) as [`SimpleSpanProcessor`](TODO)
 1. [`SimpleSpanProcessor`](TODO) [`crossbeam_channel`](TODO) with [`SpanData`](TODO)
     1. [`BatchSpanProcessor`](TODO) is similar
 1. [`Exporter::export`](TODO) as [`trace::SpanExporter`](TODO)
-1. [`convert_otel_span_into_jaeger_span(...)`](TODO)  (lib: `opentelemetry-jaeger`)
-1. [`Uploader::upload(jaeger::Batch)`](TODO) (lib: `opentelemetry-jaeger`)
+1. [`convert_otel_span_into_jaeger_span(...)`](TODO)  ([src in `opentelemetry-jaeger`](TODO))
+1. [`Uploader::upload(jaeger::Batch)`](TODO) ([src in `opentelemetry-jaeger`](TODO))
 
 
 # Other Resources
