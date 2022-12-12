@@ -225,8 +225,8 @@ sleep(Duration::from_millis(1000));
     1. stores extra data in [span extension](https://opentelemetry.io/docs/instrumentation/java/extensions/)
 1. [`::(...)`](TODO)
 1. [`::(...)`](TODO)
-1. [`SimpleSpanProcessor::on_end(...)`](TODO) as [`SimpleSpanProcessor`](TODO)
-1. [`SimpleSpanProcessor`](TODO) [`crossbeam_channel`](TODO) with [`SpanData`](TODO)
+1. [`SimpleSpanProcessor::on_end(...)`](https://docs.rs/opentelemetry/latest/opentelemetry/sdk/trace/struct.SimpleSpanProcessor.html#method.on_end) as [`SimpleSpanProcessor`](https://docs.rs/opentelemetry/latest/opentelemetry/sdk/trace/trait.SpanProcessor.html) ([src in `opentelemetry_sdk`](https://github.com/open-telemetry/opentelemetry-rust/blob/v0.18.0/opentelemetry-sdk/src/trace/span_processor.rs#L143))
+1. [`SimpleSpanProcessor`](TODO) [`crossbeam_channel`](https://docs.rs/crossbeam-channel/latest/crossbeam_channel/) with [`SpanData`](TODO)
     1. [`BatchSpanProcessor`](TODO) is similar
 1. [`Exporter::export`](TODO) as [`trace::SpanExporter`](TODO)
 1. [`convert_otel_span_into_jaeger_span(...)`](TODO)  ([src in `opentelemetry-jaeger`](TODO))
