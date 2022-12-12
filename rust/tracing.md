@@ -207,18 +207,17 @@ sleep(Duration::from_millis(1000));
 
 
 # Flow from source to jaeger
-1. TODO
 1. [`::`](TODO)
-1. [`tracing::dispatcher::get_default(...)`](TODO) (lib: `tracing-core`)
-1. [`tracing::Span::new(...)`](TODO) (lib: `tracing`)
-1. [`tracing::Span::new_with(...)`](TODO) (lib: `tracing`)
-1. [`Dispatch::new_span(...)`](TODO) (lib: `tracing-core`)
-    1. thin wrapper around [`Subscriber`](TODO)
+1. [`tracing::dispatcher::get_default(...)`](https://docs.rs/tracing/latest/tracing/dispatcher/fn.get_default.html) ([src in `tracing-core`](https://github.com/tokio-rs/tracing/blob/master/tracing-core/src/dispatch.rs#L414))
+1. [`tracing::Span::new(...)`](https://docs.rs/tracing/latest/tracing/struct.Span.html#method.new) ([src in`tracing`](https://github.com/tokio-rs/tracing/blob/master/tracing/src/span.rs#L427))
+1. `tracing::Span::new_with(...)` ([src in `tracing`](https://github.com/tokio-rs/tracing/blob/master/tracing/src/span.rs#L433))
+1. [`tracing::Dispatch::new_span(...)`](https://docs.rs/tracing/latest/tracing/struct.Dispatch.html#method.new_span) (lib: `tracing-core`)
+    1. thin wrapper around [`Subscriber`](https://docs.rs/tracing/latest/tracing/subscriber/trait.Subscriber.html)
     1. returns new [`tracing::Id`](TODO)    
-1. [`Subscriber::new_span(...)`](TODO) (lib: `tracing-core`)
-1. [`Layered::new_span(...)`](TODO) as Subscriber (lib: `tracing-subscriber`)
-1. [`Registry::new_span(...)`](TODO) as Subscriber (lib: `tracing-subscriber`)
-    1. Check for parent
+1. [`Subscriber::new_span(...)`](https://docs.rs/tracing/latest/tracing/trait.Subscriber.html#tymethod.new_span) ([src in`tracing-core`](TODO))
+1. `Layered::new_span(...)` as [Subscriber](https://docs.rs/tracing/latest/tracing/subscriber/trait.Subscriber.html) ([src in `tracing-subscriber`](https://github.com/tokio-rs/tracing/blob/master/tracing-subscriber/src/subscribe/layered.rs#L126))
+1. [`Registry::new_span(...)`](TODO) as [Subscriber](https://docs.rs/tracing/latest/tracing/subscriber/trait.Subscriber.html) (lib: `tracing-subscriber`)
+    1. Checks for parent
 1. [`OpenTelemetryLayer::on_new_span(...)`](TODO) as Layer (lib: tracing-opentelemetry)
     1. checks parent context for active span
     1. stores extra data in [span extension](https://opentelemetry.io/docs/instrumentation/java/extensions/)
