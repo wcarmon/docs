@@ -64,15 +64,19 @@ use tracing_subscriber::layer::SubscriberExt;
 ...
 
 // -- Build Tracers (OpenTelemetry concept)
-let console_tracer = stdout::new_pipeline().install_simple();
 let jaeger_tracer = opentelemetry_jaeger::new_agent_pipeline()
     .with_service_name("whatever-this-service-does")
     .install_simple() // use batch in prod
     .expect("failed to build jaeger tracer");
 
+
 // -- Build OpenTelemetry Layers for tracing lib
-let console_layer = tracing_opentelemetry::layer().with_tracer(console_tracer);
 let jaeger_layer = tracing_opentelemetry::layer().with_tracer(jaeger_tracer);
+
+// -- Write to local console
+let console_layer = tracing_subscriber::fmt::layer() 
+    .with_writer(std::io::stderr)
+    .with_filter(LevelFilter::INFO);
 
 // -- Add Layers to Subscriber (tracing lib concepts)
 let subscriber = Registry::default()
@@ -252,8 +256,6 @@ fn outer() -> Result<(), anyhow::Error> {
 1. [`OpenTelemetryLayer::on_new_span(...)`](https://docs.rs/tracing-subscriber/latest/tracing_subscriber/layer/trait.Layer.html#method.on_new_span) as [`Layer`](https://docs.rs/tracing-subscriber/latest/tracing_subscriber/layer/trait.Layer.html) ([src in `tracing-opentelemetry`](TODO))
     1. checks parent context for active span
     1. stores extra data in [span extension](https://opentelemetry.io/docs/instrumentation/java/extensions/) (mutates extensions)
-1. [`::(...)`](TODO)
-1. [`::(...)`](TODO)
 1. [`SimpleSpanProcessor::on_end(...)`](https://docs.rs/opentelemetry/latest/opentelemetry/sdk/trace/struct.SimpleSpanProcessor.html#method.on_end) as [`SimpleSpanProcessor`](https://docs.rs/opentelemetry/latest/opentelemetry/sdk/trace/trait.SpanProcessor.html) ([src in `opentelemetry_sdk`](https://github.com/open-telemetry/opentelemetry-rust/blob/v0.18.0/opentelemetry-sdk/src/trace/span_processor.rs#L143))
 1. [`SimpleSpanProcessor`](TODO) [`crossbeam_channel`](https://docs.rs/crossbeam-channel/latest/crossbeam_channel/) with [`SpanData`](TODO)
     1. [`BatchSpanProcessor`](TODO) is similar
