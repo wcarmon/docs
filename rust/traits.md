@@ -61,6 +61,16 @@
     1. [Operator overloading](https://doc.rust-lang.org/rust-by-example/trait/ops.html) works via traits
 
 
+# Gotchas
+1. Traits + Generics are hard to use
+    1. eg. try to return `Vec<MyTrait>`
+1. Start by owning & cloning,
+    1. Use `Box` for ownership     
+    1. Use `&dyn MyTrait` for dynamic dispatch (vtable)
+    1. `impl Debug for dyn MyTrait { ... }` 
+    1. Use `Vec<Box<dyn MyTrait>>` for collection
+         
+
 
 # TODO/Unorganized
 - TODO: trait implementations must be in separate `impl` block from unrelated methods
