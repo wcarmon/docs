@@ -194,20 +194,21 @@ error!(err = ?some_err, "failed to ...")
 
 
 
-# Main fn
+# Reporting delay in main fn
 1. Add a brief delay at the end of your program to report any outstanding spans
 ```rust
 // -- Give the last span time to report to Jaeger
-sleep(Duration::from_millis(1000));
+sleep(Duration::from_millis(300));
 
 ```
 
-# Propagation: child function
+# Propagation (child function within process)
 1. Single-threaded: This is automatic
 1. Multi-threaded: (see below)
 
 
 ## Example propagating span across threads
+1. tokio::tracing [relies on thread-local](https://github.com/tokio-rs/tracing/blob/master/tracing-subscriber/src/registry/sharded.rs#L94), so we must manually propagate the span
 ```rust
 fn outer() -> Result<(), anyhow::Error> {
     info_span!("outer-fn",).entered();
