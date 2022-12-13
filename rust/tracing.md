@@ -222,7 +222,7 @@ fn outer() -> Result<(), anyhow::Error> {
 
         thread::spawn(move || {
             let inner = info_span!("inner-fn", the_index = i).entered();
-            inner.set_parent(parent_cx);
+            inner.set_parent(parent_cx); // link to parent
         })
         .join()
         .unwrap();
