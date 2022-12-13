@@ -185,11 +185,6 @@ error!(err = ?some_err, "failed to ...")
 1. See also: https://opentelemetry.io/docs/reference/specification/trace/semantic_conventions/exceptions/#attributes
 
 
-# Propagation: child function
-1. Single-threaded: This is auto
-1. Multi-threaded: TODO
-
-
 # Propagation: HTTP client
 1. TODO
 
@@ -207,7 +202,12 @@ sleep(Duration::from_millis(1000));
 
 ```
 
-# Example propagating span across threads
+# Propagation: child function
+1. Single-threaded: This is automatic
+1. Multi-threaded: (see below)
+
+
+## Example propagating span across threads
 ```rust
 fn outer() -> Result<(), anyhow::Error> {
     info_span!("outer-fn",).entered();
