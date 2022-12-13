@@ -100,7 +100,9 @@ tracing::subscriber::set_global_default(subscriber);
 
     span.record("error", anyhow!("something went wrong").into());
 
-    let current_span = Span::current(); // in case you didn't have a reference
+    // in case you didn't have a reference
+    // tracing::Span::current() has reference to last entered span (on this thread)
+    let current_span = Span::current(); 
 
     // manually set parent span 
     //TODO: verify
@@ -205,6 +207,33 @@ sleep(Duration::from_millis(1000));
 
 ```
 
+# Example propagating span across threads
+```rust
+fn outer() -> Result<(), anyhow::Error> {
+    info_span!("outer-fn",).entered();
+
+    for i in 0..3 {
+        let propagate_me = tracing::Span::current(); // current Span in current thread 
+
+        thread::spawn(move || {
+            // Activate span in new thread
+            // Must keep a reference and drop after all child usage
+            let must_manually_drop_at_end = propagate_me.enter();
+
+            info_span!("inner-fn", Foo = i).entered();
+            // use span normally
+
+            // Must reference the entered span after child usage
+            drop(must_manually_drop_at_end);
+        })
+        .join()
+        .unwrap();
+    }
+
+    Ok(())
+}
+```
+
 
 # Flow from source to jaeger
 1. [`::`](TODO)
@@ -222,7 +251,7 @@ sleep(Duration::from_millis(1000));
     1. Ensures local span ids are unique
 1. [`OpenTelemetryLayer::on_new_span(...)`](https://docs.rs/tracing-subscriber/latest/tracing_subscriber/layer/trait.Layer.html#method.on_new_span) as [`Layer`](https://docs.rs/tracing-subscriber/latest/tracing_subscriber/layer/trait.Layer.html) ([src in `tracing-opentelemetry`](TODO))
     1. checks parent context for active span
-    1. stores extra data in [span extension](https://opentelemetry.io/docs/instrumentation/java/extensions/)
+    1. stores extra data in [span extension](https://opentelemetry.io/docs/instrumentation/java/extensions/) (mutates extensions)
 1. [`::(...)`](TODO)
 1. [`::(...)`](TODO)
 1. [`SimpleSpanProcessor::on_end(...)`](https://docs.rs/opentelemetry/latest/opentelemetry/sdk/trace/struct.SimpleSpanProcessor.html#method.on_end) as [`SimpleSpanProcessor`](https://docs.rs/opentelemetry/latest/opentelemetry/sdk/trace/trait.SpanProcessor.html) ([src in `opentelemetry_sdk`](https://github.com/open-telemetry/opentelemetry-rust/blob/v0.18.0/opentelemetry-sdk/src/trace/span_processor.rs#L143))
