@@ -197,6 +197,8 @@ error!(err = ?some_err, "failed to ...")
 # Reporting delay in main fn
 1. Add a brief delay at the end of your program to report any outstanding spans
 ```rust
+root_span.exit();
+
 // -- Give the last span time to report to Jaeger
 sleep(Duration::from_millis(300));
 
