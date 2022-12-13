@@ -210,6 +210,9 @@ sleep(Duration::from_millis(300));
 ## Example propagating span across threads
 1. tokio::tracing [relies on thread-local](https://github.com/tokio-rs/tracing/blob/master/tracing-subscriber/src/registry/sharded.rs#L94), so we must manually propagate the span
 ```rust
+use tracing_opentelemetry::OpenTelemetrySpanExt;
+...
+
 fn outer() -> Result<(), anyhow::Error> {
     let parent = info_span!("outer-fn").entered();
     let parent_cx = parent.context();
