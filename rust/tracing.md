@@ -211,17 +211,18 @@ sleep(Duration::from_millis(300));
 1. tokio::tracing [relies on thread-local](https://github.com/tokio-rs/tracing/blob/master/tracing-subscriber/src/registry/sharded.rs#L94), so we must manually propagate the span
 ```rust
 fn outer() -> Result<(), anyhow::Error> {
-    info_span!("outer-fn",).entered();
+    info_span!("outer-fn").entered();
 
     for i in 0..3 {
-        let propagate_me = tracing::Span::current(); // current Span in current thread 
+        // ref to current Span in current thread
+        let propagate_me = tracing::Span::current();  
 
         thread::spawn(move || {
             // Activate span in new thread
             // Must keep a reference and drop after all child usage
             let must_manually_drop_at_end = propagate_me.enter();
 
-            info_span!("inner-fn", Foo = i).entered();
+            info_span!("inner-fn", the_index = i).entered();
             // use span normally
 
             // Must reference the entered span after child usage
