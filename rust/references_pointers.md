@@ -63,7 +63,7 @@
     let x = Quux {}; // Quux implements MyTrait
     let rc: Rc<dyn MyTrait> = Rc::new(x);
     ```
-1. `Conversion`: `Box<T>` to Rc<T> (owned-on-heap to shared-ownership-on-heap)
+1. `Conversion`: `Box<T>` to `Rc<T>` *(owned-on-heap to shared-ownership-on-heap)*
     ```rust
     let bx:Box<dyn MyTrait> = Box::new(x);  // box of trait
     let rc: Rc<dyn MyTrait> = bx.into();    // same as Rc::from(bx)
@@ -73,7 +73,7 @@
     let bx: Box<Quux> = Box::new(x);        // box of implementation
     let rc: Rc<dyn MyTrait> = Rc::new(*bx); // dereference first
     ```
-1. `Conversion`: `&x` to Rc<T> (borrowed to shared-ownership-on-heap)
+1. `Conversion`: `&x` to `Rc<T>` *(borrowed to shared-ownership-on-heap)*
     1. Harder because you don't own x
     1. Although, you can `clone`    
     ```rust
