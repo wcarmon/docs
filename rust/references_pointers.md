@@ -37,14 +37,14 @@
 ## [`Box`](https://doc.rust-lang.org/std/boxed/struct.Box.html)
 1. Useful for (compile time enforced) ownership on heap
 1. Useful for `dyn` Traits
-1. `Conversion`: `x: T` to `Box<T>` (owned-on-stack to owned-on-heap)
-```rust
-let x = Quux {}; // Quux implements MyTrait 
-let bx: Box<dyn MyTrait> = Box::new(x);
-```
-1. `Conversion`: `&x` to `Box<T>` (borrowed to owned)
-    1. Harder because you don't own x
-    1. Although, you can `clone`    
+1. `Conversion`: `x: T` to `Box<T>` *(owned-on-stack to owned-on-heap)*
+    ```rust
+    let x = Quux {}; // Quux implements MyTrait 
+    let bx: Box<dyn MyTrait> = Box::new(x);
+    ```
+1. `Conversion`: `&x` to `Box<T>` *(borrowed to owned)*
+    1. Harder because you don't own `x`
+    1. Although, you can [`clone`](https://doc.rust-lang.org/std/clone/trait.Clone.html)    
     ```rust
     let x_ref = &x; 
     let bx: Box<Quux> = Box::new(x_ref.clone());
@@ -59,20 +59,20 @@ let bx: Box<dyn MyTrait> = Box::new(x);
 1. `Intuition`: a faster, single threaded [`Arc`](https://doc.rust-lang.org/std/sync/struct.Arc.html)
 1. `Intuition`: a garbage collected ref (think Java, Golang, C#, Python, ...)
 1. `Conversion`: `x` to Rc<T> (owned-on-stack to shared-ownership-on-heap)
-```rust
-let x = Quux {}; // Quux implements MyTrait
-let rc: Rc<dyn MyTrait> = Rc::new(x);
-```
+    ```rust
+    let x = Quux {}; // Quux implements MyTrait
+    let rc: Rc<dyn MyTrait> = Rc::new(x);
+    ```
 1. `Conversion`: `Box<T>` to Rc<T> (owned-on-heap to shared-ownership-on-heap)
-```rust
-let bx:Box<dyn MyTrait> = Box::new(x);  // box of trait
-let rc: Rc<dyn MyTrait> = bx.into();    // same as Rc::from(bx)
-
-// or 
-
-let bx: Box<Quux> = Box::new(x);        // box of implementation
-let rc: Rc<dyn MyTrait> = Rc::new(*bx); // dereference first
-```
+    ```rust
+    let bx:Box<dyn MyTrait> = Box::new(x);  // box of trait
+    let rc: Rc<dyn MyTrait> = bx.into();    // same as Rc::from(bx)
+    
+    // or 
+    
+    let bx: Box<Quux> = Box::new(x);        // box of implementation
+    let rc: Rc<dyn MyTrait> = Rc::new(*bx); // dereference first
+    ```
 1. `Conversion`: `&x` to Rc<T> (borrowed to shared-ownership-on-heap)
     1. Harder because you don't own x
     1. Although, you can `clone`    
