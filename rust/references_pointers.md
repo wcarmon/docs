@@ -1,6 +1,8 @@
 # Overview
 1. Common [smart pointers](https://doc.rust-lang.org/book/ch15-00-smart-pointers.html)
 1. Typical usage patterns
+1. Relationship to other concepts
+
 
 ## Prerequisites
 1. Understand [ownership](./ownership.md)
@@ -29,13 +31,14 @@
 ## `&` and `&mut`
 1. Useful for borrowing
 1. May be on heap or stack
-1. Functions should accept this since callers can pass `&`, `Box`, `Rc`, `Arc`, ...
+1. Functions should accept either `&` or `&mut`
+    1. which allows callers to pass `T`, `&T`, `Box<T>`, `Rc<T>`, `Arc<T>`, ...
 
 
 ## [`Box`](https://doc.rust-lang.org/std/boxed/struct.Box.html)
-1. Useful for ownership
-1. Useful for heap allocation
-1. `Conversion`: `x` to Box<T> (owned-on-stack to owned-on-heap)
+1. Useful for (compile time enforced) ownership on heap
+1. Useful for `dyn` Traits
+1. `Conversion`: `x: T` to `Box<T>` (owned-on-stack to owned-on-heap)
 ```rust
 let x = Quux {}; // Quux implements MyTrait 
 let bx: Box<dyn MyTrait> = Box::new(x);
@@ -51,6 +54,7 @@ let bx: Box<dyn MyTrait> = Box::new(x);
 ## [`Rc`](https://doc.rust-lang.org/std/rc/struct.Rc.html)
 1. Useful for safely sharing ownership (immutably)
     1. *Sharing* ownership across variables, not threads :-)
+1. Useful for `dyn` Traits    
 1. Easy to upgrade from `Box`
 1. `Intuition`: a [`Box`](https://doc.rust-lang.org/std/boxed/struct.Box.html) with shared ownership
 1. `Intuition`: a faster, single threaded [`Arc`](https://doc.rust-lang.org/std/sync/struct.Arc.html)
@@ -81,6 +85,7 @@ let rc: Rc<dyn MyTrait> = Rc::new(*bx); // dereference first
 
 ## [`Arc`](https://doc.rust-lang.org/std/sync/struct.Arc.html)
 1. Useful for safely sharing ownership across threads (immutably)
+1. Useful for `dyn` Traits
 1. `Intuition`: a threadsafe [`Rc`](https://doc.rust-lang.org/std/rc/struct.Rc.html)
 1. `Intuition`: a shared, threadsafe [`Box`](https://doc.rust-lang.org/std/boxed/struct.Box.html)
 1. TODO: & -> Arc
