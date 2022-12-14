@@ -5,24 +5,23 @@
 # Summary
 |              | Ownership (`T`) |      Mutability (`T`)    | Thread-safety | Safety Enforcement | Location (`T`) |   Send   |
 |---:|:---:|:---:|:---:|:---:|:---:|:---:|
-|          `T` | Owned                                                   | *passthru*              | only if `T: Send`                 | Compile time  | Stack    | *passthru* |
-|         `&T` | Borrowed                                                | Immutable               | [Sync](https://doc.rust-lang.org/std/marker/trait.Sync.html) (Yes)   | Compile time | Stack or Heap | *passthru* |
-|     [`Box<T>`](https://doc.rust-lang.org/std/boxed/struct.Box.html)    | Owned                   | *bacon*                    | passthru    | Compile time  | Heap | *passthru* |
-|      [`Rc<T>`](https://doc.rust-lang.org/std/rc/struct.Rc.html)        | Multiple Owners         | Immutable                  | !Sync (No)    | Runtime       | Heap | No |
-|     [`Arc<T>`](https://doc.rust-lang.org/std/sync/struct.Arc.html)     | Multiple Owners         | Immutable                  | *passthru*    | Runtime       | Heap | *passthru* |
-|    [`Weak<T>`](https://doc.rust-lang.org/std/rc/struct.Weak.html)      | Not owned               | Immutable                  | !Sync (No)    | Compile time  | Heap | No |
-|        [`Cow`](https://doc.rust-lang.org/std/borrow/enum.Cow.html)     | *passthru*              | Immutable                  | [Sync](https://doc.rust-lang.org/std/marker/trait.Sync.html) (Yes)   | Compile time |      ?          | *passthru* |
+|          `T`                                                        | Owned           | *passthru*  | only if `T: Send`  | Compile time  | Stack    | *passthru* |
+|         `&T`                                                        | Borrowed        | Immutable   | [Sync](https://doc.rust-lang.org/std/marker/trait.Sync.html) (Yes)   | Compile time | Stack or Heap | *passthru* |
+|     [`Box<T>`](https://doc.rust-lang.org/std/boxed/struct.Box.html) | Owned           | ?           | only if `T: Send`  | Compile time  | Heap | *passthru* |
+|      [`Rc<T>`](https://doc.rust-lang.org/std/rc/struct.Rc.html)     | Multiple Owners | Immutable   | !Sync (No)         | Runtime       | Heap | No |
+|     [`Arc<T>`](https://doc.rust-lang.org/std/sync/struct.Arc.html)  | Multiple Owners | Immutable   | *passthru*         | Runtime       | Heap | *passthru* |
+|    [`Weak<T>`](https://doc.rust-lang.org/std/rc/struct.Weak.html)   | Not owned       | Immutable   | !Sync (No)         | Compile time  | Heap | No |
+|        [`Cow`](https://doc.rust-lang.org/std/borrow/enum.Cow.html)  | *passthru*      | Immutable   | [Sync](https://doc.rust-lang.org/std/marker/trait.Sync.html) (Yes)   | Compile time |      ?          | *passthru* |
 
 
 |              | Ownership (`T`) |      Mutability (`T`)    | Thread-safety | Safety Enforcement | Location (`T`) |   Send   |
 |---:|:---:|:---:|:---:|:---:|:---:|:---:|
-|      `mut T` | Owned                                                   | Mutable<br/>(Inherited) |                            | Compile time  | *passthru*    | Stack or Heap      |
-|     `&mut T` | Borrowed                                                | Mutable<br/>(Inherited) |                            | Compile time  | *passthru*    | ?*passthru*?     |
-|    [`Cell<T>`](https://doc.rust-lang.org/std/cell/struct.Cell.html)    | *passthru*              |  Mutable<br/>(Interior)    | !Sync (No)    | Runtime       | *passthru* |      *passthru*      |
-| [`RefCell<T>`](https://doc.rust-lang.org/std/cell/struct.RefCell.html) | Owned                   |  Mutable<br/>(Interior)    | !Sync (No)    | Runtime       | *passthru* |      *passthru*      |
-|   [`Mutex<T>`](https://doc.rust-lang.org/std/sync/struct.Mutex.html)   | Owned                   |  Mutable<br/>(Interior)    | [Sync](https://doc.rust-lang.org/std/marker/trait.Sync.html) (Yes)    | Runtime | *passthru* | Yes |
-|  [`RwLock<T>`](https://doc.rust-lang.org/std/sync/struct.RwLock.html)  | Owned                   |  Mutable<br/>(Interior)    | [Sync](https://doc.rust-lang.org/std/marker/trait.Sync.html) (Yes)    | Runtime | *passthru* |      *passthru*      |
-
+|      `mut T`                                                           | Owned         | Mutable<br/>(Inherited) |             | Compile time | *passthru* | Stack or Heap |
+|     `&mut T`                                                           | Borrowed      | Mutable<br/>(Inherited) |             | Compile time | *passthru* | ?*passthru*?  |
+|    [`Cell<T>`](https://doc.rust-lang.org/std/cell/struct.Cell.html)    | *passthru*    | Mutable<br/>(Interior)  | !Sync (No)  | Runtime      | *passthru* | *passthru*    |
+| [`RefCell<T>`](https://doc.rust-lang.org/std/cell/struct.RefCell.html) | Owned         | Mutable<br/>(Interior)  | !Sync (No)  | Runtime      | *passthru* | *passthru*    |
+|   [`Mutex<T>`](https://doc.rust-lang.org/std/sync/struct.Mutex.html)   | Owned         | Mutable<br/>(Interior)  | [Sync](https://doc.rust-lang.org/std/marker/trait.Sync.html) (Yes)  | Runtime | *passthru* | Yes        |
+|  [`RwLock<T>`](https://doc.rust-lang.org/std/sync/struct.RwLock.html)  | Owned         | Mutable<br/>(Interior)  | [Sync](https://doc.rust-lang.org/std/marker/trait.Sync.html) (Yes)  | Runtime | *passthru* | *passthru* |
 
 
 # Tools for [Ownership](https://doc.rust-lang.org/book/ch04-00-understanding-ownership.html)
