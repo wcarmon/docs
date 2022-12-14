@@ -7,8 +7,6 @@
 |---:|:---:|:---:|:---:|:---:|:---:|:---:|
 |          `T` | Owned                                                   | *passthru*              | *passthru*                 | Compile time  | *passthru*    | *passthru* |
 |         `&T` | Borrowed                                                | Immutable               | [Sync](https://doc.rust-lang.org/std/marker/trait.Sync.html) (Yes)   | Compile time | Stack or Heap | *passthru* |
-|      `mut T` | Owned                                                   | Mutable<br/>(Inherited) |                            | Compile time  | *passthru*    | Stack or Heap      |
-|     `&mut T` | Borrowed                                                | Mutable<br/>(Inherited) |                            | Compile time  | *passthru*    | ?*passthru*?     |
 |     [`Box<T>`](https://doc.rust-lang.org/std/boxed/struct.Box.html)    | Owned                   | *passthru*                 | *passthru*    | Compile time  | Heap | *passthru* |
 |      [`Rc<T>`](https://doc.rust-lang.org/std/rc/struct.Rc.html)        | Multiple Owners         | Immutable                  | !Sync (No)    | Runtime       | Heap | No |
 |     [`Arc<T>`](https://doc.rust-lang.org/std/sync/struct.Arc.html)     | Multiple Owners         | Immutable                  | *passthru*    | Runtime       | Heap | *passthru* |
@@ -18,25 +16,23 @@
 
 |              | Ownership (`T`) |      Mutability (`T`)    | Thread-safety | Safety Enforcement | Location (`T`) |   Send   |
 |---:|:---:|:---:|:---:|:---:|:---:|:---:|
+|      `mut T` | Owned                                                   | Mutable<br/>(Inherited) |                            | Compile time  | *passthru*    | Stack or Heap      |
+|     `&mut T` | Borrowed                                                | Mutable<br/>(Inherited) |                            | Compile time  | *passthru*    | ?*passthru*?     |
 |    [`Cell<T>`](https://doc.rust-lang.org/std/cell/struct.Cell.html)    | *passthru*              |  Mutable<br/>(Interior)    | !Sync (No)    | Runtime       | *passthru* |      *passthru*      |
 | [`RefCell<T>`](https://doc.rust-lang.org/std/cell/struct.RefCell.html) | Owned                   |  Mutable<br/>(Interior)    | !Sync (No)    | Runtime       | *passthru* |      *passthru*      |
 |   [`Mutex<T>`](https://doc.rust-lang.org/std/sync/struct.Mutex.html)   | Owned                   |  Mutable<br/>(Interior)    | [Sync](https://doc.rust-lang.org/std/marker/trait.Sync.html) (Yes)    | Runtime | *passthru* | Yes |
 |  [`RwLock<T>`](https://doc.rust-lang.org/std/sync/struct.RwLock.html)  | Owned                   |  Mutable<br/>(Interior)    | [Sync](https://doc.rust-lang.org/std/marker/trait.Sync.html) (Yes)    | Runtime | *passthru* |      *passthru*      |
 
 
-# Relationships
-## Ownership Tools 
+
+# Tools for [Ownership](https://doc.rust-lang.org/book/ch04-00-understanding-ownership.html)
+## Relationships
 1. `&`, `&mut`, `Box`, `Rc`, `Arc`, `Weak` are related ([so never use together on the same type](https://rust-lang.github.io/rust-clippy/master/index.html#redundant_allocation))
 1. functions should accept the most general type (eg. `&` or `&mut`)
 1. functions should return the most specific type
 1. [clippy](https://rust-lang.github.io/rust-clippy/master/index.html#redundant_allocation) can catch many of these issues
 
 
-## Mutability Tools
-1. `Cell`, `RefCell`, `Mutex`, `RwLock` are related (so never use together on the same type)  
-
-
-# Tools for [Ownership](https://doc.rust-lang.org/book/ch04-00-understanding-ownership.html)
 ## `&` and `&mut`
 1. Useful for borrowing
 1. May be on heap or stack
@@ -105,6 +101,10 @@ let rc: Rc<dyn MyTrait> = Rc::new(*bx); // dereference first
 
 
 # Tools for Mutability
+## Relationships
+1. `Cell`, `RefCell`, `Mutex`, `RwLock` are related (so never use together on the same type)  
+
+
 ## [`Mutex`](https://doc.rust-lang.org/std/sync/struct.Mutex.html)
 - Useful for safe mutation across threads
 - TODO
