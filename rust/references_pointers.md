@@ -10,16 +10,15 @@
 
 # Tools for [Ownership](./ownership.md)
 
-## Summary
 |              | Ownership (`T`) |      Mutability (`T`)    | Thread-safety | Safety Enforcement | Location (`T`) |   Send   |
 |---:|:---:|:---:|:---:|:---:|:---:|:---:|
-|          `T`                                                        | Owned           | on `let mut` or `&mut`  | only if `T: Sync`  | Compile time  | Stack    | only if `T: Send` |
-|         `&T`                                                        | Borrowed        | Immutable   | [Sync](https://doc.rust-lang.org/std/marker/trait.Sync.html) (Yes)   | Compile time | Stack or Heap | *passthru* |
+|          `T`                                                        | Owned           | on `let mut` or `&mut` | only if `T: Sync`  | Compile time  | Stack    | only if `T: Send` |
+|         `&T`                                                        | Borrowed        | Immutable              | [Sync](https://doc.rust-lang.org/std/marker/trait.Sync.html) (Yes)   | Compile time | Stack or Heap | *passthru* |
 |     [`Box<T>`](https://doc.rust-lang.org/std/boxed/struct.Box.html) | Owned           | on `let mut` or `&mut` | only if `T: Sync`  | Compile time  | Heap | only if `T: Send` |
-|      [`Rc<T>`](https://doc.rust-lang.org/std/rc/struct.Rc.html)     | Multiple Owners | Immutable   | !Sync (No)         | Runtime       | Heap | No |
-|     [`Arc<T>`](https://doc.rust-lang.org/std/sync/struct.Arc.html)  | Multiple Owners | Immutable   | *passthru*         | Runtime       | Heap | *passthru* |
-|    [`Weak<T>`](https://doc.rust-lang.org/std/rc/struct.Weak.html)   | Not owned       | Immutable   | !Sync (No)         | Compile time  | Heap | No |
-|        [`Cow`](https://doc.rust-lang.org/std/borrow/enum.Cow.html)  | *passthru*      | Immutable   | [Sync](https://doc.rust-lang.org/std/marker/trait.Sync.html) (Yes)   | Compile time |      ?          | *passthru* |
+|      [`Rc<T>`](https://doc.rust-lang.org/std/rc/struct.Rc.html)     | Multiple Owners | Immutable              | !Sync (No)         | Runtime       | Heap | No |
+|     [`Arc<T>`](https://doc.rust-lang.org/std/sync/struct.Arc.html)  | Multiple Owners | Immutable              | only if `T: Sync`  | Runtime       | Heap | *passthru* |
+|    [`Weak<T>`](https://doc.rust-lang.org/std/rc/struct.Weak.html)   | Not owned       | Immutable              | !Sync (No)         | Compile time  | Heap | No |
+|        [`Cow`](https://doc.rust-lang.org/std/borrow/enum.Cow.html)  | *passthru*      | Immutable              | [Sync](https://doc.rust-lang.org/std/marker/trait.Sync.html) (Yes)   | Compile time |      ?          | *passthru* |
 
 ## Relationships
 1. `&`, `&mut`, `Box`, `Rc`, `Arc`, `Weak` are related ([so never use together on the same type](https://rust-lang.github.io/rust-clippy/master/index.html#redundant_allocation))
@@ -100,7 +99,6 @@ let rc: Rc<dyn MyTrait> = Rc::new(*bx); // dereference first
 
 # Tools for Mutability
 
-## Summary
 |              | Ownership (`T`) |      Mutability (`T`)    | Thread-safety | Safety Enforcement | Location (`T`) |   Send   |
 |---:|:---:|:---:|:---:|:---:|:---:|:---:|
 |      `mut T`                                                           | Owned         | Mutable<br/>(Inherited) |             | Compile time | *passthru* | Stack or Heap |
