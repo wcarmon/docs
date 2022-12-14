@@ -2,7 +2,13 @@
 1. Common [smart pointers](https://doc.rust-lang.org/book/ch15-00-smart-pointers.html)
 1. Typical usage patterns
 
-# Summary
+## Prerequisites
+1. Understand [ownership](./ownership.md)
+
+
+# Tools for [Ownership](https://doc.rust-lang.org/book/ch04-00-understanding-ownership.html)
+
+## Summary
 |              | Ownership (`T`) |      Mutability (`T`)    | Thread-safety | Safety Enforcement | Location (`T`) |   Send   |
 |---:|:---:|:---:|:---:|:---:|:---:|:---:|
 |          `T`                                                        | Owned           | on `let mut` or `&mut`  | only if `T: Sync`  | Compile time  | Stack    | only if `T: Send` |
@@ -13,18 +19,6 @@
 |    [`Weak<T>`](https://doc.rust-lang.org/std/rc/struct.Weak.html)   | Not owned       | Immutable   | !Sync (No)         | Compile time  | Heap | No |
 |        [`Cow`](https://doc.rust-lang.org/std/borrow/enum.Cow.html)  | *passthru*      | Immutable   | [Sync](https://doc.rust-lang.org/std/marker/trait.Sync.html) (Yes)   | Compile time |      ?          | *passthru* |
 
-
-|              | Ownership (`T`) |      Mutability (`T`)    | Thread-safety | Safety Enforcement | Location (`T`) |   Send   |
-|---:|:---:|:---:|:---:|:---:|:---:|:---:|
-|      `mut T`                                                           | Owned         | Mutable<br/>(Inherited) |             | Compile time | *passthru* | Stack or Heap |
-|     `&mut T`                                                           | Borrowed      | Mutable<br/>(Inherited) |             | Compile time | *passthru* | ?*passthru*?  |
-|    [`Cell<T>`](https://doc.rust-lang.org/std/cell/struct.Cell.html)    | *passthru*    | Mutable<br/>(Interior)  | !Sync (No)  | Runtime      | *passthru* | *passthru*    |
-| [`RefCell<T>`](https://doc.rust-lang.org/std/cell/struct.RefCell.html) | Owned         | Mutable<br/>(Interior)  | !Sync (No)  | Runtime      | *passthru* | *passthru*    |
-|   [`Mutex<T>`](https://doc.rust-lang.org/std/sync/struct.Mutex.html)   | Owned         | Mutable<br/>(Interior)  | [Sync](https://doc.rust-lang.org/std/marker/trait.Sync.html) (Yes)  | Runtime | *passthru* | Yes        |
-|  [`RwLock<T>`](https://doc.rust-lang.org/std/sync/struct.RwLock.html)  | Owned         | Mutable<br/>(Interior)  | [Sync](https://doc.rust-lang.org/std/marker/trait.Sync.html) (Yes)  | Runtime | *passthru* | *passthru* |
-
-
-# Tools for [Ownership](https://doc.rust-lang.org/book/ch04-00-understanding-ownership.html)
 ## Relationships
 1. `&`, `&mut`, `Box`, `Rc`, `Arc`, `Weak` are related ([so never use together on the same type](https://rust-lang.github.io/rust-clippy/master/index.html#redundant_allocation))
 1. functions should accept the most general type (eg. `&` or `&mut`)
@@ -100,6 +94,18 @@ let rc: Rc<dyn MyTrait> = Rc::new(*bx); // dereference first
 
 
 # Tools for Mutability
+
+## Summary
+|              | Ownership (`T`) |      Mutability (`T`)    | Thread-safety | Safety Enforcement | Location (`T`) |   Send   |
+|---:|:---:|:---:|:---:|:---:|:---:|:---:|
+|      `mut T`                                                           | Owned         | Mutable<br/>(Inherited) |             | Compile time | *passthru* | Stack or Heap |
+|     `&mut T`                                                           | Borrowed      | Mutable<br/>(Inherited) |             | Compile time | *passthru* | ?*passthru*?  |
+|    [`Cell<T>`](https://doc.rust-lang.org/std/cell/struct.Cell.html)    | *passthru*    | Mutable<br/>(Interior)  | !Sync (No)  | Runtime      | *passthru* | *passthru*    |
+| [`RefCell<T>`](https://doc.rust-lang.org/std/cell/struct.RefCell.html) | Owned         | Mutable<br/>(Interior)  | !Sync (No)  | Runtime      | *passthru* | *passthru*    |
+|   [`Mutex<T>`](https://doc.rust-lang.org/std/sync/struct.Mutex.html)   | Owned         | Mutable<br/>(Interior)  | [Sync](https://doc.rust-lang.org/std/marker/trait.Sync.html) (Yes)  | Runtime | *passthru* | Yes        |
+|  [`RwLock<T>`](https://doc.rust-lang.org/std/sync/struct.RwLock.html)  | Owned         | Mutable<br/>(Interior)  | [Sync](https://doc.rust-lang.org/std/marker/trait.Sync.html) (Yes)  | Runtime | *passthru* | *passthru* |
+
+
 ## Relationships
 1. `Cell`, `RefCell`, `Mutex`, `RwLock` are related (so never use together on the same type)  
 

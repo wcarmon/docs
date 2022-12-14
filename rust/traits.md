@@ -1,8 +1,13 @@
 # Overview
 1. What are [traits](https://doc.rust-lang.org/book/ch10-02-traits.html)?, How to use, Popular traits, ... 
 1. See [derive doc](./traits.derive.md)
-1. Traits are hard if you don't understand [references]((./references_pointers.md)) first
-1. Traits are also hard if you don't understand [`Sized`](https://doc.rust-lang.org/std/marker/trait.Sized.html) and [`?Sized`](https://doc.rust-lang.org/std/marker/trait.Sized.html)
+1. Traits are frustrating if you don't understand the prerequisites first
+
+
+## Prerequisites
+1. Understand [ownership](./ownership.md)
+1. Understand [`Sized`](https://doc.rust-lang.org/std/marker/trait.Sized.html) and [`?Sized`](https://doc.rust-lang.org/std/marker/trait.Sized.html)
+1. Understand [references]((./references_pointers.md)) 
     
 
 # Definitions
