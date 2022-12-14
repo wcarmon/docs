@@ -113,7 +113,7 @@
     ```
 1. `Conversion`: `Rc<T>` to `Arc<T>` *(single-threaded to threadsafe)*
     1. No easy way to do since 
-        1. you don't know how many references there are
+        1. you don't know how many references (aliases) there are
         1. you'd have to replace all with the threadsafe Arc
 
 
@@ -136,12 +136,12 @@
 
 |              | Ownership (`T`) |      Mutability (`T`)    | Thread-safety | Safety Enforcement | Location (`T`) |   Send   |
 |---:|:---:|:---:|:---:|:---:|:---:|:---:|
-|      `mut T`                                                           | Owned         | Mutable<br/>(Inherited) |             | Compile time | *passthru* | Stack or Heap |
-|     `&mut T`                                                           | Borrowed      | Mutable<br/>(Inherited) |             | Compile time | *passthru* | ?*passthru*?  |
-|    [`Cell<T>`](https://doc.rust-lang.org/std/cell/struct.Cell.html)    | *passthru*    | Mutable<br/>(Interior)  | !Sync (No)  | Runtime      | *passthru* | *passthru*    |
-| [`RefCell<T>`](https://doc.rust-lang.org/std/cell/struct.RefCell.html) | Owned         | Mutable<br/>(Interior)  | !Sync (No)  | Runtime      | *passthru* | *passthru*    |
-|   [`Mutex<T>`](https://doc.rust-lang.org/std/sync/struct.Mutex.html)   | Owned         | Mutable<br/>(Interior)  | [Sync](https://doc.rust-lang.org/std/marker/trait.Sync.html) (Yes)  | Runtime | *passthru* | Yes        |
-|  [`RwLock<T>`](https://doc.rust-lang.org/std/sync/struct.RwLock.html)  | Owned         | Mutable<br/>(Interior)  | [Sync](https://doc.rust-lang.org/std/marker/trait.Sync.html) (Yes)  | Runtime | *passthru* | *passthru* |
+|      `mut T`                                                           | Owned          | Mutable<br/>(Inherited) |             | Compile time | *passthru* | Stack or Heap |
+|     `&mut T`                                                           | Borrowed       | Mutable<br/>(Inherited) |             | Compile time | *passthru* | ?*passthru*?  |
+|    [`Cell<T>`](https://doc.rust-lang.org/std/cell/struct.Cell.html)    | *passthru*     | Mutable<br/>(Interior)  | !Sync (No)  | Runtime      | *passthru* | *passthru*    |
+| [`RefCell<T>`](https://doc.rust-lang.org/std/cell/struct.RefCell.html) | Owned (shared) | Mutable<br/>(Interior)  | !Sync (No)  | Runtime      | *passthru* | *passthru*    |
+|   [`Mutex<T>`](https://doc.rust-lang.org/std/sync/struct.Mutex.html)   | Owned (shared) | Mutable<br/>(Interior)  | [Sync](https://doc.rust-lang.org/std/marker/trait.Sync.html) (Yes)  | Runtime | *passthru* | Yes        |
+|  [`RwLock<T>`](https://doc.rust-lang.org/std/sync/struct.RwLock.html)  | Owned (shared) | Mutable<br/>(Interior)  | [Sync](https://doc.rust-lang.org/std/marker/trait.Sync.html) (Yes)  | Runtime | *passthru* | *passthru* |
 
 
 ## Relationships
@@ -150,19 +150,29 @@
 
 ## [`Mutex`](https://doc.rust-lang.org/std/sync/struct.Mutex.html)
 - Useful for safe mutation across threads
-- TODO
+- Threadsafe sharable mutable container (shared across threads and variables/aliases)
+- See also [atomic types](https://doc.rust-lang.org/std/sync/atomic/index.html)
+
 
 ## [`RwLock`](https://doc.rust-lang.org/std/sync/struct.RwLock.html)
 - Useful for safe mutation across threads, with optimization for concurrent reads
+- Threadsafe sharable mutable container (shared across threads and variables)
+- See also [atomic types](https://doc.rust-lang.org/std/sync/atomic/index.html)
 
 
 ## [`RefCell`](https://doc.rust-lang.org/std/cell/struct.RefCell.html)
-- Useful for provably safe mutation within one thread
+- Useful for provably safe mutation within one thread (across aliases/variables)
+- **Single-threaded** sharable mutable container (shared across aliases/variables)
+- Move flexible version of [`Cell`](https://doc.rust-lang.org/std/cell/struct.Cell.html)
+- Runtime safety enforcement
 
 
 ## [`Cell`](https://doc.rust-lang.org/std/cell/struct.Cell.html)
-- Useful for TODO
-- TODO
+- Useful for static & thread-local variables
+- Mostly used to implement higher level types like `Rc`
+- Atomically moves values in and out (only [Copy]() types, think numbers, bool, ...)
+- **Single-threaded** sharable mutable container (shared across variables)
+- Runtime safety enforcement
 
 
 # Tools for Thread-safety
@@ -198,7 +208,6 @@
 - TODO: Box<RefCell<T>>
 - TODO: Box<RwLock<T>>
 - TODO: Rc<Cell<T>>
-- TODO: Rc<RefCell<T>>
 - TODO: Rc<RwLock<T>>
 
 ## Invalid combinations
