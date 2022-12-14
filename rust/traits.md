@@ -59,9 +59,14 @@
     ```
 
 ## Convert Trait to implementation
-```rust
-//TODO
-```
+1. Convert trait object to any: `as &dyn Any`, then use [`downcast_ref`](https://doc.rust-lang.org/std/any/trait.Any.html#method.downcast_ref)
+    ```rust
+    let my_trait_obj: &dyn MyTrait = &Quux {};
+    
+    if let Some(real) = (&my_trait_obj as &dyn Any).downcast_ref::<Quux>() {
+        // use real here
+    }
+    ```
 
 
 ## Other Pointer Conversions
