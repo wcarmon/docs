@@ -7,6 +7,7 @@
 
 # Definitions
 1. A trait is a collection of **methods** defined for an **unknown type**, called `Self`
+    1. Type can be resolved at compile time (generics) or at runtime (`dyn`)
 1. Marker trait: agreement between user and implementer for something the compiler cannot represent
 1. Traits can be used with static dispatch (generics) or with dynamic dispatch (trait objects via `dyn`)
 
@@ -15,21 +16,37 @@
 1. [Generics](https://doc.rust-lang.org/book/ch10-01-syntax.html), [monomorphization](https://rustwasm.github.io/twiggy/concepts/generic-functions-and-monomorphization.html)
 1. Faster than [dynamic dispatch](https://www.cs.brandeis.edu/~cs146a/rust/doc-02-21-2015/book/static-and-dynamic-dispatch.html), but slightly larger binary
     1. Compiler generates an (separately optimizable) version for each type you call the `fn`
+1. `impl MyTrait` is resolved at compile time
+1. Limited use
+    1. Only works with known [size](https://doc.rust-lang.org/std/marker/trait.Sized.html) types
+    1. Cannot use different implementations in the same collection
 
 
 # Dynamic dispatch (`dyn`)
-1. `dyn` disables some arithmetic optimizations & inlining
-1. `dyn` can make your code slower (eg. Go, Java, C# level perf)
+1. `dyn` is only ever useful with Traits
+1. Dynamic dispatch More flexible than static dispatch at runtime
+1. Dynamic dispatch produces slightly smaller binary than static dispatch
+1. `dyn` tells the compiler not to determine the exact type (just use a reference and deal with it at runtime, vtable)
+1. `dyn` can make parts of your code (slightly) slower (eg. at the same level as Go, Java, C#, ...)
     1. virtual function call, [vtable](https://en.wikipedia.org/wiki/Virtual_method_table) lookup, etc
-1. More flexible than static dispatch at runtime
-1. slightly smaller binary than static dispatch
+1. `dyn` disables some arithmetic optimizations & inlining
+1. Must access `dyn` behind a pointer (or smart pointer) because compiler doesn't know the type (and therefore doesn't know the size)
+    - `&dyn MyTrait`: **borrowed**, heap allocated (pointer)
+    - `Box<dyn MyTrait>`: **owned**, heap allocated (smart pointer)
+    - `Rc<dyn MyTrait>`: **shared ownership**, heap allocated (smart pointer)
 
 
-## Ownership (dynamic dispatch)
-|Ownership|syntax|
-| ---|--- |
-|Owned|`Box<dyn MyTrait>`|
-|Borrowed|`&dyn MyTrait`|
+## Conversion
+### Box to Rc (Sized or unsized)
+```rust
+let bx: Box<dyn MyTrait> = Box::from(myImpl);
+let rc: Rc<dyn MyTrait> = bx.into();
+``` 
+
+
+## With Collections
+
+- TODO: Vec
 
 
 # Language Comparison
@@ -62,6 +79,7 @@
 
 
 # Gotchas
+1. If you see error message about [object safe](https://doc.rust-lang.org/reference/items/traits.html#object-safety), add `&self` param to your trait fn
 1. Traits + Generics are hard to use
     1. eg. try to return `Vec<MyTrait>`
 1. Start by owning & cloning,
