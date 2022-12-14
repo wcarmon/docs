@@ -184,7 +184,7 @@
 
 
 # Combinations (Ownership + Mutability)
-# `Arc<Mutex<T>>`
+# `Arc<Mutex<T>>` 
 1. [Threadsafe](https://doc.rust-lang.org/std/sync/struct.Arc.html#thread-safety), [reference counted](https://en.wikipedia.org/wiki/Reference_counting), runtime enforced, safe mutability
     1. [`Arc`](https://doc.rust-lang.org/std/sync/struct.Arc.html)
     1. [`Mutex`](https://doc.rust-lang.org/std/sync/struct.Mutex.html)
@@ -192,27 +192,35 @@
     1. Equivalent to golang [`sync.Mutex`](https://pkg.go.dev/sync#Mutex)
     1. Equivalent to java [`ReentrantLock`](https://docs.oracle.com/en/java/javase/18/docs/api/java.base/java/util/concurrent/locks/ReentrantLock.html)
 
+
+# `Arc<RwLock<T>>`
+1. Multi-reader optimized version of `Arc<Mutex<T>>`
+
+
 # Rc<RefCell<T>>
 1. Useful for sharing ownership with **provably safe** mutation within **one thread**
 
 
-- TODO: &Cell<T>
-- TODO: &Mutex<T>
-- TODO: &RefCell<T>
-- TODO: &RwLock<T>
-- TODO: Arc<Cell<T>>
-- TODO: Arc<RefCell<T>>
-- TODO: Arc<RwLock<T>>
-- TODO: Box<Cell<T>>
-- TODO: Box<Mutex<T>>
-- TODO: Box<RefCell<T>>
-- TODO: Box<RwLock<T>>
-- TODO: Rc<Cell<T>>
-- TODO: Rc<RwLock<T>>
+# Rc<Cell<T>>
+1. TODO
+
+
 
 ## Invalid combinations
 - [~~`Rc<Mutex<T>>`~~](https://rust-lang.github.io/rust-clippy/master/index.html#rc_mutex)
+- [~~`Rc<RwLock<T>>`~~](https://rust-lang.github.io/rust-clippy/master/index.html#rc_mutex) 
+- ~~`Arc<Cell<T>>`~~: overly complex without thread safety
+- ~~`Arc<RefCell<T>>`~~: overly complex without thread safety
+- ~~`Box<Cell<T>>`~~: TODO
+- ~~`Box<Mutex<T>>`~~: cannot alias, so threadsafe mutation is pointless
+- ~~`Box<RefCell<T>>`~~: TODO
+- ~~`Box<RwLock<T>>`~~: cannot alias, so threadsafe mutation is pointless
 
+# TODO/Unorganized
+- TODO: combination: &Cell<T>
+- TODO: combination: &Mutex<T>
+- TODO: combination: &RefCell<T>
+- TODO: combination: &RwLock<T>
 
 
 
