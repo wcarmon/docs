@@ -40,7 +40,7 @@
     - `Box<dyn MyTrait>`: **owned**, heap allocated (smart pointer)
     - `Rc<dyn MyTrait>`: **shared ownership**, heap allocated (smart pointer)
 
-## Convert Implementation to Trait
+## Convert Implementation to Trait (upcast)
 1. With regular pointer (`&`)
     ```rust
     let my_impl = MyImpl{...};
@@ -53,18 +53,18 @@
     ```
 1. With `Box` (or other Smart pointer)
     ```rust
-    let my_impl = Box::new(MyImpl {});
+    let my_impl = Box::new(MyImpl {...});
     
     let my_trait_obj: Box<dyn MyTrait> = my_impl;
     ```
 
-## Convert Trait to implementation
+## Convert Trait to implementation (downcast)
 1. Convert trait object to any: `as &dyn Any`, then use [`downcast_ref`](https://doc.rust-lang.org/std/any/trait.Any.html#method.downcast_ref)
     ```rust
-    let my_trait_obj: &dyn MyTrait = &Quux {};
+    let my_trait_obj: &dyn MyTrait = &Quux {...};
     
-    if let Some(real) = (&my_trait_obj as &dyn Any).downcast_ref::<Quux>() {
-        // use real here
+    if let Some(real_impl) = (&my_trait_obj as &dyn Any).downcast_ref::<Quux>() {
+        // use `real_impl` here
     }
     ```
 
