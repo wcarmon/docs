@@ -6,7 +6,7 @@
 1. Understand [ownership](./ownership.md)
 
 
-# Tools for [Ownership](https://doc.rust-lang.org/book/ch04-00-understanding-ownership.html)
+# Tools for [Ownership](./ownership.md)
 
 ## Summary
 |              | Ownership (`T`) |      Mutability (`T`)    | Thread-safety | Safety Enforcement | Location (`T`) |   Send   |

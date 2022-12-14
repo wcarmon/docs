@@ -1,5 +1,5 @@
 # Overview
-1. [Ownership](https://doc.rust-lang.org/book/ch04-00-understanding-ownership.html) purpose, usage
+1. [Ownership](https://doc.rust-lang.org/book/ch04-00-understanding-ownership.html) purpose, usage    
 
 
 # Purpose
