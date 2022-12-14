@@ -5,9 +5,9 @@
 # Summary
 |              | Ownership (`T`) |      Mutability (`T`)    | Thread-safety | Safety Enforcement | Location (`T`) |   Send   |
 |---:|:---:|:---:|:---:|:---:|:---:|:---:|
-|          `T`                                                        | Owned           | *passthru*  | only if `T: Sync`  | Compile time  | Stack    | only if `T: Send` |
+|          `T`                                                        | Owned           | on `let mut` or `&mut`  | only if `T: Sync`  | Compile time  | Stack    | only if `T: Send` |
 |         `&T`                                                        | Borrowed        | Immutable   | [Sync](https://doc.rust-lang.org/std/marker/trait.Sync.html) (Yes)   | Compile time | Stack or Heap | *passthru* |
-|     [`Box<T>`](https://doc.rust-lang.org/std/boxed/struct.Box.html) | Owned           | ?           | only if `T: Sync`  | Compile time  | Heap | only if `T: Send` |
+|     [`Box<T>`](https://doc.rust-lang.org/std/boxed/struct.Box.html) | Owned           | on `let mut` or `&mut` | only if `T: Sync`  | Compile time  | Heap | only if `T: Send` |
 |      [`Rc<T>`](https://doc.rust-lang.org/std/rc/struct.Rc.html)     | Multiple Owners | Immutable   | !Sync (No)         | Runtime       | Heap | No |
 |     [`Arc<T>`](https://doc.rust-lang.org/std/sync/struct.Arc.html)  | Multiple Owners | Immutable   | *passthru*         | Runtime       | Heap | *passthru* |
 |    [`Weak<T>`](https://doc.rust-lang.org/std/rc/struct.Weak.html)   | Not owned       | Immutable   | !Sync (No)         | Compile time  | Heap | No |
