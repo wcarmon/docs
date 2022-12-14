@@ -131,6 +131,7 @@
 1. [`Weak<T>` --> `Arc<T>`](https://doc.rust-lang.org/std/sync/struct.Weak.html#method.upgrade)
 
 
+--------
 # Tools for Mutability
 
 |              | Ownership (`T`) |      Mutability (`T`)    | Thread-safety | Safety Enforcement | Location (`T`) |   Send   |
@@ -172,7 +173,7 @@
 - Safe to [transfer](https://doc.rust-lang.org/nomicon/send-and-sync.html) ownership between threads
 
 
-# Combinations
+# Combinations (Ownership + Mutability)
 # `Arc<Mutex<T>>`
 1. [Threadsafe](https://doc.rust-lang.org/std/sync/struct.Arc.html#thread-safety), [reference counted](https://en.wikipedia.org/wiki/Reference_counting), runtime enforced, safe mutability
     1. [`Arc`](https://doc.rust-lang.org/std/sync/struct.Arc.html)
@@ -184,7 +185,25 @@
 # Rc<RefCell<T>>
 1. Useful for sharing ownership with **provably safe** mutation within **one thread**
 
-- TODO: other sensible combinations of Ownership + Mutability
+
+- TODO: &Cell<T>
+- TODO: &Mutex<T>
+- TODO: &RefCell<T>
+- TODO: &RwLock<T>
+- TODO: Arc<Cell<T>>
+- TODO: Arc<RefCell<T>>
+- TODO: Arc<RwLock<T>>
+- TODO: Box<Cell<T>>
+- TODO: Box<Mutex<T>>
+- TODO: Box<RefCell<T>>
+- TODO: Box<RwLock<T>>
+- TODO: Rc<Cell<T>>
+- TODO: Rc<RefCell<T>>
+- TODO: Rc<RwLock<T>>
+
+## Invalid combinations
+- [~~`Rc<Mutex<T>>`~~](https://rust-lang.github.io/rust-clippy/master/index.html#rc_mutex)
+
 
 
 
