@@ -6,13 +6,13 @@
 |              | Ownership (`T`) |      Mutability (`T`)    | Thread-safety | Safety Enforcement | Location (`T`) |   Send   |
 |---:|:---:|:---:|:---:|:---:|:---:|:---:|
 |          `T` | Owned                                                   | *passthru*              | *passthru*                 | Compile time  | *passthru*    | *passthru* |
-|         `&T` | Borrowed                                                | Immutable               | [Sync](https://doc.rust-lang.org/std/marker/trait.Sync.html) (Yes)   | Compile time | *passthru* | *passthru* |
-|      `mut T` | Owned                                                   | Mutable<br/>(Inherited) |                            | Compile time  | *passthru*    | *passthru*      |
+|         `&T` | Borrowed                                                | Immutable               | [Sync](https://doc.rust-lang.org/std/marker/trait.Sync.html) (Yes)   | Compile time | Stack or Heap | *passthru* |
+|      `mut T` | Owned                                                   | Mutable<br/>(Inherited) |                            | Compile time  | *passthru*    | Stack or Heap      |
 |     `&mut T` | Borrowed                                                | Mutable<br/>(Inherited) |                            | Compile time  | *passthru*    | ?*passthru*?     |
 |     [`Box<T>`](https://doc.rust-lang.org/std/boxed/struct.Box.html)    | Owned                   | *passthru*                 | *passthru*    | Compile time  | Heap | *passthru* |
-|      [`Rc<T>`](https://doc.rust-lang.org/std/rc/struct.Rc.html)        | Multiple Owners         | Immutable                  | !Sync (No)    | Runtime       | *passthru* | No |
-|     [`Arc<T>`](https://doc.rust-lang.org/std/sync/struct.Arc.html)     | Multiple Owners         | Immutable                  | *passthru*    | Runtime       | *passthru* | *passthru* |
-|    [`Weak<T>`](https://doc.rust-lang.org/std/rc/struct.Weak.html)      | Not owned               | Immutable                  | !Sync (No)    | Compile time  | *passthru* | No |
+|      [`Rc<T>`](https://doc.rust-lang.org/std/rc/struct.Rc.html)        | Multiple Owners         | Immutable                  | !Sync (No)    | Runtime       | Heap | No |
+|     [`Arc<T>`](https://doc.rust-lang.org/std/sync/struct.Arc.html)     | Multiple Owners         | Immutable                  | *passthru*    | Runtime       | Heap | *passthru* |
+|    [`Weak<T>`](https://doc.rust-lang.org/std/rc/struct.Weak.html)      | Not owned               | Immutable                  | !Sync (No)    | Compile time  | Heap | No |
 |        [`Cow`](https://doc.rust-lang.org/std/borrow/enum.Cow.html)     | *passthru*              | Immutable                  | [Sync](https://doc.rust-lang.org/std/marker/trait.Sync.html) (Yes)   | Compile time |                | *passthru* |
 
 
@@ -52,7 +52,7 @@ let x = Quux {}; // Quux implements MyTrait
 let bx: Box<dyn MyTrait> = Box::new(x);
 ```
 1. `Conversion`: `&x` to `Box<T>` (borrowed to owned)
-    1. Hard to convert because you don't own it
+    1. Harder because you don't own x
     1. Although, you can `clone`    
     ```rust
     let x_ref = &x; 
@@ -82,10 +82,12 @@ let bx: Box<Quux> = Box::new(x);        // box of implementation
 let rc: Rc<dyn MyTrait> = Rc::new(*bx); // dereference first
 ```
 1. `Conversion`: `&x` to Rc<T> (borrowed to shared-ownership-on-heap)
-```rust
-let x_ref = &x;
-let rc: Rc<dyn MyTrait> = Rc::new(x_ref.clone());  // assuming x implements Clone
-```
+    1. Harder because you don't own x
+    1. Although, you can `clone`    
+    ```rust
+    let x_ref = &x;
+    let rc: Rc<dyn MyTrait> = Rc::new(x_ref.clone());  // assuming x implements Clone
+    ```
 
 
 ## [`Arc`](https://doc.rust-lang.org/std/sync/struct.Arc.html)
