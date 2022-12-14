@@ -88,9 +88,10 @@
 1. `Intuition`:
     1. a threadsafe [`Rc`](https://doc.rust-lang.org/std/rc/struct.Rc.html)
     1. a shared, threadsafe [`Box`](https://doc.rust-lang.org/std/boxed/struct.Box.html)
-1. TODO: & -> Arc
-1. TODO: Box -> Arc
-1. TODO: Rc -> Arc
+1. TODO: T -> Arc<T>
+1. TODO: &T -> Arc<T>
+1. TODO: Box<T> -> Arc<T>
+1. TODO: Rc<T> -> Arc<T>
 
 
 ## [`Weak`](https://doc.rust-lang.org/std/rc/struct.Weak.html)
