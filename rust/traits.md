@@ -3,7 +3,9 @@
 1. How to use [traits](TODO)?
 1. Popular core [traits](TODO)?
 1. See [derive doc](./traits.derive.md)
-
+1. See [References doc](./references_pointers.md)
+    1. Traits are hard if you don't understand references first
+    
 
 # Definitions
 1. A trait is a collection of **methods** defined for an **unknown type**, called `Self`

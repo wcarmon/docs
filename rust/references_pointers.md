@@ -46,8 +46,18 @@
 ## [`Box`](https://doc.rust-lang.org/std/boxed/struct.Box.html)
 1. Useful for ownership
 1. Useful for heap allocation
-1. TODO: & -> Box
-
+1. `Conversion`: `x` to Box<T> (owned-on-stack to owned-on-heap)
+```rust
+let x = Quux {}; // Quux implements MyTrait 
+let bx: Box<dyn MyTrait> = Box::new(x);
+```
+1. `Conversion`: `&x` to `Box<T>` (borrowed to owned)
+    1. Hard to convert because you don't own it
+    1. Although, you can `clone`    
+    ```rust
+    let x_ref = &x; 
+    let bx: Box<Quux> = Box::new(x_ref.clone());
+    ```
 
 ## [`Rc`](https://doc.rust-lang.org/std/rc/struct.Rc.html)
 1. Useful for safely sharing ownership (immutably)
@@ -56,8 +66,26 @@
 1. `Intuition`: a [`Box`](https://doc.rust-lang.org/std/boxed/struct.Box.html) with shared ownership
 1. `Intuition`: a faster, single threaded [`Arc`](https://doc.rust-lang.org/std/sync/struct.Arc.html)
 1. `Intuition`: a garbage collected ref (think Java, Golang, C#, Python, ...)
-1. TODO: & -> Rc
-1. TODO: Box -> Rc
+1. `Conversion`: `x` to Rc<T> (owned-on-stack to shared-ownership-on-heap)
+```rust
+let x = Quux {}; // Quux implements MyTrait
+let rc: Rc<dyn MyTrait> = Rc::new(x);
+```
+1. `Conversion`: `Box<T>` to Rc<T> (owned-on-heap to shared-ownership-on-heap)
+```rust
+let bx:Box<dyn MyTrait> = Box::new(x);  // box of trait
+let rc: Rc<dyn MyTrait> = bx.into();    // same as Rc::from(bx)
+
+// or 
+
+let bx: Box<Quux> = Box::new(x);        // box of implementation
+let rc: Rc<dyn MyTrait> = Rc::new(*bx); // dereference first
+```
+1. `Conversion`: `&x` to Rc<T> (borrowed to shared-ownership-on-heap)
+```rust
+let x_ref = &x;
+let rc: Rc<dyn MyTrait> = Rc::new(x_ref.clone());  // assuming x implements Clone
+```
 
 
 ## [`Arc`](https://doc.rust-lang.org/std/sync/struct.Arc.html)
