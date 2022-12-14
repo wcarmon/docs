@@ -5,16 +5,16 @@
 
 
 ## Prerequisites
-1. Understand [ownership](./ownership.md)
+1. Understand [Ownership](./ownership.md)
 1. Understand [`Sized`](https://doc.rust-lang.org/std/marker/trait.Sized.html) and [`?Sized`](https://doc.rust-lang.org/std/marker/trait.Sized.html)
-1. Understand [references]((./references_pointers.md)) 
+1. Understand [References]((./references_pointers.md)) 
     
 
 # Definitions
 1. A trait is a collection of **methods** defined for an **unknown type**, called `Self`
     1. Type can be resolved at compile time (generics) or at runtime (`dyn`)
-1. Marker trait: agreement between user and implementer for something the compiler cannot represent
-1. Traits can be used with static dispatch (generics) or with dynamic dispatch (trait objects via `dyn`)
+1. [Marker Trait](https://doc.rust-lang.org/std/marker/index.html): agreement between user and implementer for something the compiler cannot represent
+1. Traits can be used with [static dispatch](https://www.cs.brandeis.edu/~cs146a/rust/doc-02-21-2015/book/static-and-dynamic-dispatch.html#static-dispatch) (generics) or with [dynamic dispatch](https://www.cs.brandeis.edu/~cs146a/rust/doc-02-21-2015/book/static-and-dynamic-dispatch.html#dynamic-dispatch) (trait objects via `dyn`)
 
 
 # Static dispatch
@@ -40,8 +40,31 @@
     - `Box<dyn MyTrait>`: **owned**, heap allocated (smart pointer)
     - `Rc<dyn MyTrait>`: **shared ownership**, heap allocated (smart pointer)
 
+## Convert Implementation to Trait
+1. With regular pointer (`&`)
+    ```rust
+    let my_impl = MyImpl{...};
+    
+    let my_trait_obj: &dyn MyTrait = &my_impl; // coercion
+    
+    // or
+    
+    let my_trait_obj = &my_impl as &dyn MyTrait; // cast
+    ```
+1. With `Box` (or other Smart pointer)
+    ```rust
+    let my_impl = Box::new(MyImpl {});
+    
+    let my_trait_obj: Box<dyn MyTrait> = my_impl;
+    ```
 
-## Conversions
+## Convert Trait to implementation
+```rust
+//TODO
+```
+
+
+## Other Pointer Conversions
 1. See examples in [references doc](./references_pointers.md)
 
 

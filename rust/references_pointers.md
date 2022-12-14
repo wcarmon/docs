@@ -217,10 +217,10 @@
 - ~~`Box<RwLock<T>>`~~: cannot alias, so threadsafe mutation is pointless
 
 # TODO/Unorganized
-- TODO: combination: &Cell<T>
-- TODO: combination: &Mutex<T>
-- TODO: combination: &RefCell<T>
-- TODO: combination: &RwLock<T>
+- TODO: combination: `&Cell<T>`
+- TODO: combination: `&Mutex<T>`
+- TODO: combination: `&RefCell<T>`
+- TODO: combination: `&RwLock<T>`
 
 
 
