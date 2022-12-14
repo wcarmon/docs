@@ -52,9 +52,8 @@
 
 
 ## [`Rc`](https://doc.rust-lang.org/std/rc/struct.Rc.html)
-1. Useful for safely sharing ownership (immutably)
-    1. *Sharing* ownership across variables, not threads :-)
-1. Useful for `dyn` Traits    
+1. Useful for safely sharing ownership across variables (immutably)    
+1. Useful for [`dyn`](./traits.md) Traits    
 1. `Intuition`:
     1. a [`Box`](https://doc.rust-lang.org/std/boxed/struct.Box.html) with shared ownership and runtime safety enforcement
     1. a faster, single-threaded [`Arc`](https://doc.rust-lang.org/std/sync/struct.Arc.html)
@@ -89,6 +88,7 @@
 1. `Intuition`:
     1. a threadsafe [`Rc`](https://doc.rust-lang.org/std/rc/struct.Rc.html)
     1. a shared, threadsafe [`Box`](https://doc.rust-lang.org/std/boxed/struct.Box.html) with runtime safety enforcement
+    1. a garbage collected ref (think Java, Golang, C#, Python, ...)
 1. `Conversion`: `x: T` to `Arc<T>` (owned-on-stack to shared-ownership-on-heap)
     ```rust
     let x = Quux {}; // Quux implements MyTrait
@@ -123,7 +123,12 @@
 
 
 ## Conversion summary
-1. Box -> 
+1. [`T` --> `Box<T>`](https://doc.rust-lang.org/std/boxed/struct.Box.html#method.new)
+1. `&T` --> `Box<T>`: must `clone`
+1. [`Box<T>` --> `Rc<T>`](https://doc.rust-lang.org/std/rc/struct.Rc.html#impl-From%3CBox%3CT%2C%20Global%3E%3E-for-Rc%3CT%3E)
+1. [`Box<T>` --> `Arc<T>`](https://doc.rust-lang.org/std/sync/struct.Arc.html#impl-From%3CBox%3CT%2C%20Global%3E%3E-for-Arc%3CT%3E)
+1. [`Arc<T>` --> `Weak<T>`](https://doc.rust-lang.org/std/sync/struct.Arc.html#method.downgrade)
+1. [`Weak<T>` --> `Arc<T>`](https://doc.rust-lang.org/std/sync/struct.Weak.html#method.upgrade)
 
 
 # Tools for Mutability
