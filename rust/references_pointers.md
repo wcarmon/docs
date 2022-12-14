@@ -38,31 +38,39 @@
 
 # Tools for [Ownership](https://doc.rust-lang.org/book/ch04-00-understanding-ownership.html)
 ## `&` and `&mut`
-- Useful for borrowing
-- May be on heap or stack
-- Functions should accept this since callers can pass `&`, `Box`, `Rc`, `Arc`, ...
+1. Useful for borrowing
+1. May be on heap or stack
+1. Functions should accept this since callers can pass `&`, `Box`, `Rc`, `Arc`, ...
 
 
 ## [`Box`](https://doc.rust-lang.org/std/boxed/struct.Box.html)
-- Useful for ownership
-- Useful for heap allocation
+1. Useful for ownership
+1. Useful for heap allocation
+1. TODO: & -> Box
 
 
 ## [`Rc`](https://doc.rust-lang.org/std/rc/struct.Rc.html)
-- Useful for safely sharing ownership (immutably)
-- `Intuition`: a [`Box`](https://doc.rust-lang.org/std/boxed/struct.Box.html) with shared ownership
-- `Intuition`: a faster, single threaded [`Arc`](https://doc.rust-lang.org/std/sync/struct.Arc.html)
-- `Intuition`: a garbage collected ref (think Java, Golang, C#, Python, ...)
+1. Useful for safely sharing ownership (immutably)
+    1. *Sharing* ownership across variables, not threads :-)
+1. Easy to upgrade from `Box`
+1. `Intuition`: a [`Box`](https://doc.rust-lang.org/std/boxed/struct.Box.html) with shared ownership
+1. `Intuition`: a faster, single threaded [`Arc`](https://doc.rust-lang.org/std/sync/struct.Arc.html)
+1. `Intuition`: a garbage collected ref (think Java, Golang, C#, Python, ...)
+1. TODO: & -> Rc
+1. TODO: Box -> Rc
 
 
 ## [`Arc`](https://doc.rust-lang.org/std/sync/struct.Arc.html)
-- Useful for safely sharing ownership across threads (immutably)
-- `Intuition`: a threadsafe [`Rc`](https://doc.rust-lang.org/std/rc/struct.Rc.html)
-- `Intuition`: a shared, threadsafe [`Box`](https://doc.rust-lang.org/std/boxed/struct.Box.html)
+1. Useful for safely sharing ownership across threads (immutably)
+1. `Intuition`: a threadsafe [`Rc`](https://doc.rust-lang.org/std/rc/struct.Rc.html)
+1. `Intuition`: a shared, threadsafe [`Box`](https://doc.rust-lang.org/std/boxed/struct.Box.html)
+1. TODO: & -> Arc
+1. TODO: Box -> Arc
+1. TODO: Rc -> Arc
 
 
 ## [`Weak`](https://doc.rust-lang.org/std/rc/struct.Weak.html)
-- Useful for TODO
+- Useful for [circular references](TODO) (eg. Graphs)
 - Can be [upgraded](https://doc.rust-lang.org/std/rc/struct.Weak.html#method.upgrade) to [`Rc`](https://doc.rust-lang.org/std/rc/struct.Rc.html)
 
 
@@ -72,7 +80,7 @@
 - TODO
 
 ## [`RwLock`](https://doc.rust-lang.org/std/sync/struct.RwLock.html)
-- Useful for safe mutation across threads with optimization for concurrent reads
+- Useful for safe mutation across threads, with optimization for concurrent reads
 
 
 ## [`RefCell`](https://doc.rust-lang.org/std/cell/struct.RefCell.html)
@@ -103,6 +111,8 @@
 
 # Rc<RefCell<T>>
 1. Useful for sharing ownership with **provably safe** mutation within **one thread**
+
+- TODO: other sensible combinations of Ownership + Mutability
 
 
 
