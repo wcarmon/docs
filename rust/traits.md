@@ -1,10 +1,8 @@
 # Overview
-1. What are [traits](https://doc.rust-lang.org/book/ch10-02-traits.html)?
-1. How to use [traits](TODO)?
-1. Popular core [traits](TODO)?
+1. What are [traits](https://doc.rust-lang.org/book/ch10-02-traits.html)?, How to use, Popular traits, ... 
 1. See [derive doc](./traits.derive.md)
-1. See [References doc](./references_pointers.md)
-    1. Traits are hard if you don't understand references first
+1. Traits are hard if you don't understand [references]((./references_pointers.md)) first
+1. Traits are also hard if you don't understand [`Sized`](https://doc.rust-lang.org/std/marker/trait.Sized.html) and [`?Sized`](https://doc.rust-lang.org/std/marker/trait.Sized.html)
     
 
 # Definitions
