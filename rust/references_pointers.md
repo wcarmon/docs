@@ -54,11 +54,11 @@
 1. Useful for safely sharing ownership (immutably)
     1. *Sharing* ownership across variables, not threads :-)
 1. Useful for `dyn` Traits    
-1. Easy to upgrade from `Box`
-1. `Intuition`: a [`Box`](https://doc.rust-lang.org/std/boxed/struct.Box.html) with shared ownership
-1. `Intuition`: a faster, single threaded [`Arc`](https://doc.rust-lang.org/std/sync/struct.Arc.html)
-1. `Intuition`: a garbage collected ref (think Java, Golang, C#, Python, ...)
-1. `Conversion`: `x` to Rc<T> (owned-on-stack to shared-ownership-on-heap)
+1. `Intuition`:
+    1. a [`Box`](https://doc.rust-lang.org/std/boxed/struct.Box.html) with shared ownership
+    1. a faster, single threaded [`Arc`](https://doc.rust-lang.org/std/sync/struct.Arc.html)
+    1. a garbage collected ref (think Java, Golang, C#, Python, ...)
+1. `Conversion`: `x: T` to `Rc<T>` (owned-on-stack to shared-ownership-on-heap)
     ```rust
     let x = Quux {}; // Quux implements MyTrait
     let rc: Rc<dyn MyTrait> = Rc::new(x);
