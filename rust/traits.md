@@ -41,17 +41,19 @@
     - `Rc<dyn MyTrait>`: **shared ownership**, heap allocated (smart pointer)
 
 
-## Conversion
-### Box to Rc (Sized or unsized)
-```rust
-let bx: Box<dyn MyTrait> = Box::from(myImpl);
-let rc: Rc<dyn MyTrait> = bx.into();
-``` 
+## Conversions
+1. See examples in [references doc](./references_pointers.md)
 
 
-## With Collections
+## Relation to Collections
+# `Vec<&dyn MyTrait>`
+1. TODO
 
-- TODO: Vec
+# ~~`Vec<Box<dyn MyTrait>>`~~ (Anti-pattern)
+1. [Overly complex](https://rust-lang.github.io/rust-clippy/master/#vec_box)
+
+# `Vec<Rc<dyn MyTrait>>`
+1. TODO
 
 
 # Language Comparison
