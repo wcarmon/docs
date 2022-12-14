@@ -43,19 +43,20 @@
     let bx: Box<dyn MyTrait> = Box::new(x);
     ```
 1. `Conversion`: `&x` to `Box<T>` *(borrowed to owned)*
-    1. Harder because you don't own `x`
+    1. Hard because you don't own `x`
     1. Although, you can [`clone`](https://doc.rust-lang.org/std/clone/trait.Clone.html)    
     ```rust
     let x_ref = &x; 
     let bx: Box<Quux> = Box::new(x_ref.clone());
     ```
 
+
 ## [`Rc`](https://doc.rust-lang.org/std/rc/struct.Rc.html)
 1. Useful for safely sharing ownership (immutably)
     1. *Sharing* ownership across variables, not threads :-)
 1. Useful for `dyn` Traits    
 1. `Intuition`:
-    1. a [`Box`](https://doc.rust-lang.org/std/boxed/struct.Box.html) with shared ownership
+    1. a [`Box`](https://doc.rust-lang.org/std/boxed/struct.Box.html) with shared ownership and runtime safety enforcement
     1. a faster, single-threaded [`Arc`](https://doc.rust-lang.org/std/sync/struct.Arc.html)
     1. a garbage collected ref (think Java, Golang, C#, Python, ...)
 1. `Conversion`: `x: T` to `Rc<T>` (owned-on-stack to shared-ownership-on-heap)
@@ -87,16 +88,42 @@
 1. Useful for `dyn` Traits
 1. `Intuition`:
     1. a threadsafe [`Rc`](https://doc.rust-lang.org/std/rc/struct.Rc.html)
-    1. a shared, threadsafe [`Box`](https://doc.rust-lang.org/std/boxed/struct.Box.html)
-1. TODO: T -> Arc<T>
-1. TODO: &T -> Arc<T>
-1. TODO: Box<T> -> Arc<T>
-1. TODO: Rc<T> -> Arc<T>
+    1. a shared, threadsafe [`Box`](https://doc.rust-lang.org/std/boxed/struct.Box.html) with runtime safety enforcement
+1. `Conversion`: `x: T` to `Arc<T>` (owned-on-stack to shared-ownership-on-heap)
+    ```rust
+    let x = Quux {}; // Quux implements MyTrait
+    let arc: Arc<dyn MyTrait> = Arc::new(x);
+    ```
+1. `Conversion`: `Box<T>` to `Arc<T>` *(owned-on-heap to shared-ownership-on-heap)*
+    ```rust
+    let bx:Box<dyn MyTrait> = Box::new(x);  // box of trait
+    let arc: Arc<dyn MyTrait> = bx.into(); // same as Arc::from(bx)
+    
+    // or 
+    
+    let bx: Box<Quux> = Box::new(x);        // box of implementation
+    let arc: Arc<dyn MyTrait> = Arc::new(*bx); // dereference first since mem layout is different
+    ```
+1. `Conversion`: `&x` to `Arc<T>` *(borrowed to shared-ownership-on-heap)*
+    1. Hard because you don't own `x`
+    1. Although, you can [`clone`](https://doc.rust-lang.org/std/clone/trait.Clone.html)
+    ```rust
+    let x_ref = &x;
+    let arc: Arc<dyn MyTrait> = Arc::new(x_ref.clone());  // assuming x implements Clone
+    ```
+1. `Conversion`: `Rc<T>` to `Arc<T>` *(single-threaded to threadsafe)*
+    1. No easy way to do since 
+        1. you don't know how many references there are
+        1. you'd have to replace all with the threadsafe Arc
 
 
 ## [`Weak`](https://doc.rust-lang.org/std/rc/struct.Weak.html)
 - Useful for [circular references](TODO) (eg. Graphs)
 - Can be [upgraded](https://doc.rust-lang.org/std/rc/struct.Weak.html#method.upgrade) to [`Rc`](https://doc.rust-lang.org/std/rc/struct.Rc.html)
+
+
+## Conversion summary
+1. Box -> 
 
 
 # Tools for Mutability
