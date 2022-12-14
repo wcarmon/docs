@@ -56,7 +56,7 @@
 1. Useful for `dyn` Traits    
 1. `Intuition`:
     1. a [`Box`](https://doc.rust-lang.org/std/boxed/struct.Box.html) with shared ownership
-    1. a faster, single threaded [`Arc`](https://doc.rust-lang.org/std/sync/struct.Arc.html)
+    1. a faster, single-threaded [`Arc`](https://doc.rust-lang.org/std/sync/struct.Arc.html)
     1. a garbage collected ref (think Java, Golang, C#, Python, ...)
 1. `Conversion`: `x: T` to `Rc<T>` (owned-on-stack to shared-ownership-on-heap)
     ```rust
@@ -71,11 +71,11 @@
     // or 
     
     let bx: Box<Quux> = Box::new(x);        // box of implementation
-    let rc: Rc<dyn MyTrait> = Rc::new(*bx); // dereference first
+    let rc: Rc<dyn MyTrait> = Rc::new(*bx); // dereference first since mem layout is different
     ```
 1. `Conversion`: `&x` to `Rc<T>` *(borrowed to shared-ownership-on-heap)*
-    1. Harder because you don't own x
-    1. Although, you can `clone`    
+    1. Harder because you don't own `x`
+    1. Although, you can [`clone`](https://doc.rust-lang.org/std/clone/trait.Clone.html)
     ```rust
     let x_ref = &x;
     let rc: Rc<dyn MyTrait> = Rc::new(x_ref.clone());  // assuming x implements Clone
@@ -85,8 +85,9 @@
 ## [`Arc`](https://doc.rust-lang.org/std/sync/struct.Arc.html)
 1. Useful for safely sharing ownership across threads (immutably)
 1. Useful for `dyn` Traits
-1. `Intuition`: a threadsafe [`Rc`](https://doc.rust-lang.org/std/rc/struct.Rc.html)
-1. `Intuition`: a shared, threadsafe [`Box`](https://doc.rust-lang.org/std/boxed/struct.Box.html)
+1. `Intuition`:
+    1. a threadsafe [`Rc`](https://doc.rust-lang.org/std/rc/struct.Rc.html)
+    1. a shared, threadsafe [`Box`](https://doc.rust-lang.org/std/boxed/struct.Box.html)
 1. TODO: & -> Arc
 1. TODO: Box -> Arc
 1. TODO: Rc -> Arc
