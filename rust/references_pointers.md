@@ -80,7 +80,16 @@
     let x_ref = &x;
     let rc: Rc<dyn MyTrait> = Rc::new(x_ref.clone());  // assuming x implements Clone
     ```
+1. GOTCHA: cannot iterate directly over `Rc` since it doesn't implement [`IntoIterator`](https://doc.rust-lang.org/std/iter/trait.IntoIterator.html)
+    1. Use [`rc.iter()`](https://doc.rust-lang.org/std/primitive.slice.html#method.iter) which converts to slice
+    ```rust
+    let rc: Rc<Vec<String>> = Rc::new(vec![...]);
 
+    for s in rc.iter() {
+        // use `s` here
+    }
+    ```
+    
 
 ## [`Arc`](https://doc.rust-lang.org/std/sync/struct.Arc.html)
 1. Useful for safely sharing ownership across threads (immutably)
@@ -115,6 +124,15 @@
     1. No easy way to do since 
         1. you don't know how many references (aliases) there are
         1. you'd have to replace all with the threadsafe Arc
+1. GOTCHA: cannot iterate directly over `Arc` since it doesn't implement [`IntoIterator`](https://doc.rust-lang.org/std/iter/trait.IntoIterator.html)
+    1. Use [`rc.iter()`](https://doc.rust-lang.org/std/primitive.slice.html#method.iter) which converts to slice
+    ```rust
+    let arc: Arc<Vec<String>> = Arc::new(vec![...]);
+
+    for s in arc.iter() {
+        // use `s` here
+    }
+    ```
 
 
 ## [`Weak`](https://doc.rust-lang.org/std/rc/struct.Weak.html)

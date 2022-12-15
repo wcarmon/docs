@@ -164,6 +164,9 @@ file.write_all("...".as_bytes()).unwrap();
 ```
 
 
+# Gotcha
+- `canonicalize` fails if path doesn't already exist
+
 
 # Other Resources
 1. https://rust-lang-nursery.github.io/rust-cookbook/file.html
