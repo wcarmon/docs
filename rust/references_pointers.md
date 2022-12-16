@@ -26,6 +26,10 @@
 1. functions should return the most specific type
 1. [clippy](https://rust-lang.github.io/rust-clippy/master/index.html#redundant_allocation) can catch many of these issues
 
+1. `fn` should accept accept `&T` (not ~~`Box<T>`~~, not ~~`Rc<T>`~~, not ~~`Arc<T>`~~)
+    1. caller should pass `my_box.as_ref()`, or `rc.as_ref()` or `arc.as_ref()` 
+1. `fn` should return the most specific Pointer type (eg. TODO)
+
 
 ## `&` and `&mut`
 1. Useful for borrowing
@@ -39,7 +43,7 @@
 1. Useful for `dyn` Traits
 1. `Conversion`: `x: T` to `Box<T>` *(owned-on-stack to owned-on-heap)*
     ```rust
-    let x = Quux {}; // Quux implements MyTrait 
+    let x = MyImpl {}; // MyImpl implements MyTrait 
     let bx: Box<dyn MyTrait> = Box::new(x);
     ```
 1. `Conversion`: `&x` to `Box<T>` *(borrowed to owned)*
@@ -47,9 +51,19 @@
     1. Although, you can [`clone`](https://doc.rust-lang.org/std/clone/trait.Clone.html)    
     ```rust
     let x_ref = &x; 
-    let bx: Box<Quux> = Box::new(x_ref.clone());
+    let bx: Box<MyImpl> = Box::new(x_ref.clone());
     ```
+1. `Idiom`: `fn` should  accept `&T` and return `Rc<T>`
+    ```rust 
+    fn whatever() {    
+        let bx: Box<dyn MyTrait> = Box::new(MyImpl {});        
+        some_consumer(bx.as_ref());
+    }
 
+    fn some_consumer(t: &dyn MyTrait) {
+        ...
+    }   
+    ```
 
 ## [`Rc`](https://doc.rust-lang.org/std/rc/struct.Rc.html)
 1. Useful for safely sharing ownership across variables (immutably)    
@@ -60,17 +74,17 @@
     1. a garbage collected ref (think Java, Golang, C#, Python, ...)
 1. `Conversion`: `x: T` to `Rc<T>` (owned-on-stack to shared-ownership-on-heap)
     ```rust
-    let x = Quux {}; // Quux implements MyTrait
+    let x = MyImpl {}; // MyImpl implements MyTrait
     let rc: Rc<dyn MyTrait> = Rc::new(x);
     ```
 1. `Conversion`: `Box<T>` to `Rc<T>` *(owned-on-heap to shared-ownership-on-heap)*
     ```rust
-    let bx:Box<dyn MyTrait> = Box::new(x);  // box of trait
+    let bx: Box<dyn MyTrait> = Box::new(x);  // box of trait
     let rc: Rc<dyn MyTrait> = bx.into();    // same as Rc::from(bx)
     
     // or 
     
-    let bx: Box<Quux> = Box::new(x);        // box of implementation
+    let bx: Box<MyImpl> = Box::new(x);        // box of implementation
     let rc: Rc<dyn MyTrait> = Rc::new(*bx); // dereference first since mem layout is different
     ```
 1. `Conversion`: `&x` to `Rc<T>` *(borrowed to shared-ownership-on-heap)*
@@ -80,6 +94,17 @@
     let x_ref = &x;
     let rc: Rc<dyn MyTrait> = Rc::new(x_ref.clone());  // assuming x implements Clone
     ```
+1. `Idiom`: `fn` should  accept `&T` and return `Rc<T>`
+    ```rust 
+    fn whatever() {    
+        let rc: Rc<dyn MyTrait> = Rc::new(MyImpl {});        
+        some_consumer(rc.as_ref());
+    }
+
+    fn some_consumer(t: &dyn MyTrait) {
+        ...
+    }   
+    ``` 
 1. GOTCHA: cannot iterate directly over `Rc` since it doesn't implement [`IntoIterator`](https://doc.rust-lang.org/std/iter/trait.IntoIterator.html)
     1. Use [`rc.iter()`](https://doc.rust-lang.org/std/primitive.slice.html#method.iter) which converts to slice
     ```rust
@@ -100,7 +125,7 @@
     1. a garbage collected ref (think Java, Golang, C#, Python, ...)
 1. `Conversion`: `x: T` to `Arc<T>` (owned-on-stack to shared-ownership-on-heap)
     ```rust
-    let x = Quux {}; // Quux implements MyTrait
+    let x = MyImpl {}; // MyImpl implements MyTrait
     let arc: Arc<dyn MyTrait> = Arc::new(x);
     ```
 1. `Conversion`: `Box<T>` to `Arc<T>` *(owned-on-heap to shared-ownership-on-heap)*
@@ -110,7 +135,7 @@
     
     // or 
     
-    let bx: Box<Quux> = Box::new(x);        // box of implementation
+    let bx: Box<MyImpl> = Box::new(x);        // box of implementation
     let arc: Arc<dyn MyTrait> = Arc::new(*bx); // dereference first since mem layout is different
     ```
 1. `Conversion`: `&x` to `Arc<T>` *(borrowed to shared-ownership-on-heap)*
@@ -124,6 +149,17 @@
     1. No easy way to do since 
         1. you don't know how many references (aliases) there are
         1. you'd have to replace all with the threadsafe Arc
+1. `Idiom`: `fn` should  accept `&T` and return `Rc<T>`
+    ```rust 
+    fn whatever() {    
+        let arc: Arc<dyn MyTrait> = Arc::new(MyImpl {});
+        some_consumer(arc.as_ref());
+    }
+
+    fn some_consumer(t: &dyn MyTrait) {
+        ...
+    }   
+    ```
 1. GOTCHA: cannot iterate directly over `Arc` since it doesn't implement [`IntoIterator`](https://doc.rust-lang.org/std/iter/trait.IntoIterator.html)
     1. Use [`rc.iter()`](https://doc.rust-lang.org/std/primitive.slice.html#method.iter) which converts to slice
     ```rust

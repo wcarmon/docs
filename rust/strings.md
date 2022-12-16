@@ -119,8 +119,12 @@ assert_eq!("\"#\"", r##""#""##);    // "#"
 # Idioms
 1. `fn` args should accept [`&str`](https://doc.rust-lang.org/std/str/index.html) as fn arg, not [`String`](https://doc.rust-lang.org/std/string/struct.String.html)
     1. accepting `&str` allows caller to pass either `String` or `&str`
+    1. For the same reason, accept `&[T]` instead of `Vec<T>`
+    1. For the same reason, accept `&T` instead of `Box<T>`
 1. `fn` should return [`String`](https://doc.rust-lang.org/std/string/struct.String.html), not [`&str`](https://doc.rust-lang.org/std/primitive.str.html)
     1. give up ownership and let the caller decide on mutability
+    1. for the same reason, return `Vec<T>` instead of `&[T]`
+    1. for the same reason, return `Box<T>` instead of `&T`
 
 
 # String literals
