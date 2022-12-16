@@ -7,7 +7,7 @@
 1. Works with tracing (propagates for Jaeger)
 1. Uses [crossbeam::channel](https://docs.rs/crossbeam/latest/crossbeam/channel/index.html)
 ```rust
-fn do_something(input: &Quux) -> Result<Foo, MyError> {
+fn do_something_for_one_input(input: &Quux) -> Result<Foo, MyError> {
     // do something with the input, return result
 }
 
@@ -20,21 +20,20 @@ fn wrap_in_parallel(inputs: &Vec<Quux>) -> Result<Vec<Foo>, MyError> {
     let (results_tx, results_rx) = crossbeam::channel::bounded(input.len());
 
     //TODO: do I need prelude
-    rayon::scope(move |s| {
-        let parent_cx = parent_cx;
+    rayon::scope(move |sc| {
+        let parent_cx = parent_cx; // closure
 
         for input in inputs {
-            let results = results_tx.clone();
+            let results_tx = results_tx.clone();
             let parent_cx = parent_cx.clone();
 
-            s.spawn(move |_| {
+            sc.spawn(move |_| {
                 let span = tracing::debug_span!("parallel_thread").entered();
                 span.set_parent(parent_cx);
+                
+                let res = do_something_for_one_input(&input);
 
-                // TODO: do something interesting here
-                let res = do_something(&input);
-
-                results.send(res).expect("should not fail on send")
+                results_tx.send(res).expect("should not fail on send")
             });
         }
     });
