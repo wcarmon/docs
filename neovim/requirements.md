@@ -3,6 +3,7 @@
 1. Completion: line completion
 1. Completion: live-template
 1. Completion: postfix
+1. Edit: add missing imports/use
 1. Edit: Delete line (CTRL+Y)
 1. Edit: Find & Replace using simple text (all files in dir recursive)
 1. Edit: Find & Replace using simple text (current file)
@@ -11,6 +12,7 @@
 1. Edit: Reformat current file
 1. Edit: Sort all lines
 1. Edit: Sort select lines
+1. Execution: Compile
 1. Execution: Run current test
 1. Navigate: Search for file by name pattern
 1. Navigate: Search for symbol (property/field/...)
@@ -31,11 +33,12 @@
 1. View: Show file tree (directory tree)
 1. View: Show recent files (CTRL+E)
 1. View: Show semantic file structure (CTRL+F12)
-
+1. View: Split editor horizontally (move current file to new tab) (ALT+S)
 
 
 # Medium priority
 1. Completion: Add trait/interface implementation
+1. Conf: exclude some types from auto-import
 1. Debug: Step into
 1. Debug: Step out-of
 1. Debug: Step over
@@ -59,8 +62,10 @@
 1. Navigate: to implementations (of trait/interface)
 1. Navigate: to implemented trait/interface
 1. View: Change color scheme
+1. View: close other tabs (all except current)
 1. View: Diff directories
 1. View: Diff files
+1. View: line/column num for cursor
 1. View: see list of problems/errors to fix (from compiler)
 1. View: see list of problems/errors to fix (from static analysis)
 
