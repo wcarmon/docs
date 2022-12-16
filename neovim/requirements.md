@@ -43,6 +43,8 @@
 1. Debug: Step out-of
 1. Debug: Step over
 1. Debug: Toggle breakpoint line
+1. Edit: add missing branches to switch/case/match
+1. Edit: Add missing fields to struct initializer
 1. Edit: cycle case (camel, snake, kebab)
 1. Edit: Find & Replace using regex (all files in dir recursive)
 1. Edit: Find & Replace using regex (current file)
@@ -68,7 +70,6 @@
 1. View: line/column num for cursor
 1. View: see list of problems/errors to fix (from compiler)
 1. View: see list of problems/errors to fix (from static analysis)
-
 
 # Low priority
 1. Completion: generate getters
