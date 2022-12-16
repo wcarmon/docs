@@ -7,8 +7,11 @@
 1. fn should return `Vec<T>` (not ~~`&[T]`~~)
 
 
-# Vector
+# [Vector](TODO)
 1. contiguous growable
+1. Always heap allocated
+1. Owned (just like [`String`](TODO))
+    1. Slice is the borrowed version
 1. Comparison
     1. Similar to [slice](.//home/wcarmon/git-repos/docs/golang/collections.slices.md) in golang
     1. Similar to [ArrayList](https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/util/ArrayList.html) in java
@@ -18,14 +21,19 @@
 1. TODO: Ranges
 
 
-# Slice
-1. TODO
+# [Slice](TODO)
+1. A view into part of an array
+1. Borrowed (just like [`&str`](TODO)
+    1. Vector is the owned version
+1. allows provably safe, efficient access to sub-array (without a copy)
+1. Can be mutable or immutable (depends if variable is `mut`) 
 1. TODO: Vec to slice via [..] - https://doc.rust-lang.org/std/vec/struct.Vec.html#slicing
 1. TODO: Vec to slice via implicit Deref coercion ..
 
 
 # Array
 1. Fixed size
+1. Size is part of the type
 
 
 # Iterator
