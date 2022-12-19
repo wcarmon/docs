@@ -36,8 +36,9 @@
 1. Size is part of the type
 
 
-# Iterator
-1. TODO
+# Iterators
+1. Con: Don't work when your closure/lambda uses `?` operator
+1. Con: Often adds an extra level of indirection `&&v`
 
 
 # Gotcha: 

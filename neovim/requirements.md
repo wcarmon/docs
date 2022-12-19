@@ -60,6 +60,7 @@
 1. git: pull
 1. git: push
 1. git: show changed files
+1. Navigate: from error message file:line in console output to file
 1. Navigate: from error message file:line to file
 1. Navigate: to implementations (of trait/interface)
 1. Navigate: to implemented trait/interface
