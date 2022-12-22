@@ -15,11 +15,13 @@
 1. [`Iterators`](TODO) and [Adapters](TODO) are lazy
     1. Nothing happens until call [`.next()`](TODO)
     1. Compiler generally warns you
+    1. implies iterators can be infinite
 
 
 # Idioms
 1. If [a loop](https://doc.rust-lang.org/reference/expressions/loop-expr.html) is simpler, use a loop
 1. fn should accept [`IntoIterator`](https://doc.rust-lang.org/std/iter/trait.IntoIterator.html)
+    1. Allows passing [`Vec<T>`](TODO), [`HashSet<T>`](TODO), [`BTreeSet<T>`](TODO),
 1. fn should return [`FromtIterator`](https://doc.rust-lang.org/std/iter/trait.FromIterator.html)
 
 
@@ -64,10 +66,40 @@
 # [`TryIter`](TODO)
 
 
+# Flexible fn which accepting collection of any String
+```rust
+// works on ...
+//
+// - Vec<&'static str>
+// - Vec<&str>
+// - Vec<String>
+// - Vec<Rc<String>>
+// - Vec<Arc<String>>
+//
+// - HashSet<&'static str>
+// - HashSet<&str>
+// - HashSet<String>
+// - HashSet<Rc<String>>
+// - HashSet<Arc<String>>
+//
+// - BTreeSet<&'static str>
+// - BTreeSet<&str>
+// - BTreeSet<String>
+// - BTreeSet<Rc<String>>
+// - BTreeSet<Arc<String>>
+fn my_string_collection_consumer<I, T>(values: I)
+where
+    I: IntoIterator<Item = T>,
+    T: Borrow<String>,
+{
+    ...
+}
+```
+
+
 # ~~TODO: Unorganized~~
 1. [Iterator](https://doc.rust-lang.org/std/iter/trait.Iterator.html) borrows mutably
-- TODO: `.iter()` (borrow), `.into_iter()` (owned)
-
+1. TODO: `.cloned()`
 
 # Other Resources
 1. TODO
