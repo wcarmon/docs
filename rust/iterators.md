@@ -35,8 +35,7 @@
 1. Iterators are lazy
 1. GOTCHA: Iterators/Adapters don't work when your closure/lambda uses [`?` operator](./errors.md)
     1. Must return [`Result<T, E>`]((https://doc.rust-lang.org/std/result/)), not `T`
-1. GOTCHA: `.iter()` Often adds an extra level of indirection: like `&&v`
-
+1. GOTCHA: `.iter()` adds an extra level of indirection: like `&&v`
 
 
 # [`IntoIterator`](https://doc.rust-lang.org/std/iter/trait.IntoIterator.html) trait
@@ -60,23 +59,32 @@
 1. Adapters are lazy
 1. Similar to [RxJs](https://rxjs.dev/api/operators), [RxJava `Observable`](https://reactivex.io/RxJava/3.x/javadoc/io/reactivex/rxjava3/subjects/BehaviorSubject.html), [Reactor `Flux`](https://projectreactor.io/docs/core/release/api/reactor/core/publisher/Flux.html), [Java `Stream`](https://docs.oracle.com/en/java/javase/18/docs/api/java.base/java/util/stream/Stream.html), [lodash operators](https://lodash.com/docs/4.17.15#map) operators
     1. Visual guides: [js based](https://res.cloudinary.com/practicaldev/image/fetch/s--sYEjzdnw--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/i/sr8koff729gxcvpnoty6.jpeg), [C# based](https://csharpcorner-mindcrackerinc.netdna-ssl.com/article/simplify-map-reduce-and-filter-in-typescript/Images/map_filter_reduce.png), ...
+1. See more adapters in [itertools](https://docs.rs/itertools/latest/itertools)
 
-|fn|Purpose|Stream size after `fn`|Type after `fn`|
-|---|---|---|---|
-|[`map`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html#method.map)          |convert type or ownership          |*Same*         |Changed|
-|[`filter`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html#method.filter)    |selectively ignore/keep items      |Generally less |*Same*|
-|[`flat_map`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html#method.flat_map)|process nested<T> collection like T|Generally more |Changed|
-|[`take`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html#method.take)        |keep first n                       |Generally less |*Same*|
-|[`skip`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html#method.skip)        |ignore first n                     |Generally less |*Same*|
-
-|[`TODO`](TODO)|TODO|Same|Same|
+|Adapter/fn|Purpose|Stream size after `fn`|Type after `fn`|
+|--- |--- |---|---|
+|[`map`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html#method.map)              |Convert type or ownership               |*Same*         |Changed|
+|[`filter`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html#method.filter)        |Ignore/keep items                       |Generally less |*Same*|
+|[`flat_map`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html#method.flat_map)    |process nested`<T>` collection like `T` |Generally more |Changed|
+|[`take`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html#method.take)            |keep first n                            |Generally less |*Same*|
+|[`skip`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html#method.skip)            |ignore first n                          |Generally less |*Same*|
+|[`cloned`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html#method.cloned)        |clones items (converts to owned)        |*Same*         |Same, but owned|
+|[`enumerate`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html#method.enumerate)  |like `map`, but includes Item index     |*Same*         |Changed|
+|[`inspect`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html#method.inspect)      |debugging                               |*Same*         |*Same*
 
 
 # Terminators
-1. [`collect`](https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.collect): builds collection
-1. [`for_each`](https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.for_each): side effects (eg. printing, logging)
-1. [`reduce`](https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.reduce): *reduce* down to a single value
-1. [`fold`](https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.fold): like `reduce`, but takes starting value
+|Terminator|Purpose|
+|---|---|
+|[`collect`](https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.collect)     |builds collection|
+|[`for_each`](https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.for_each)   |side effects (eg. printing, logging)|
+|[`reduce`](https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.reduce)       |*reduce* down to a single value|
+|[`fold`](https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.fold)           |like `reduce`, but takes starting value|
+|[`all`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html#method.all)      |true when all items match predicate|
+|[`any`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html#method.any)      |true only when at least one item matches predicate|
+|[`last`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html#method.last)    |get final Item|
+|[`max`](https://doc.rust-lang.org/stable/std/iter/trait.Iterato.html#method.max)       |largest value|
+|[`min`](https://doc.rust-lang.org/stable/std/iter/trait.Iterato.html#method.min)       |smallest value|
 
 
 # [`TryIter`](TODO)
@@ -115,8 +123,8 @@ where
 
 
 # ~~TODO: Unorganized~~
-1. [Iterator](https://doc.rust-lang.org/std/iter/trait.Iterator.html) borrows mutably
-1. TODO: `.cloned()`
+- https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html#method.nth
+
 
 # Other Resources
-1. TODO
+1. https://docs.rs/itertools/latest/itertools/
