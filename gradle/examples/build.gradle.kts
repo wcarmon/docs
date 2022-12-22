@@ -60,6 +60,7 @@ group = "com.wcarmon"
 
 subprojects {
   apply(plugin = "java")
+  apply(plugin = "io.freefair.lombok") // if using lombok
   apply(plugin = "org.jetbrains.kotlin.jvm")
 
   apply(plugin = "org.gradle.pmd")
@@ -847,6 +848,13 @@ subprojects {
 
 
   dependencies {
+    // -- if using lombok
+    // compileOnly("org.projectlombok:lombok")
+    // annotationProcessor("org.projectlombok:lombok")
+    // testCompileOnly("org.projectlombok:lombok")
+    // testAnnotationProcessor("org.projectlombok:lombok")
+
+
     implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("com.lmax:disruptor")
