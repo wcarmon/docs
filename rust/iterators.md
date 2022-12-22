@@ -88,9 +88,10 @@
 
 
 # [`TryIter`](TODO)
+- TODO
 
 
-# Flexible fn which accepting collection of any String
+# Example: A `fn` which accepts "collection" of any String-like
 ```rust
 // works on ...
 //
