@@ -3,8 +3,8 @@
 
 
 # Idioms
-1. fn should accept accept `&[T]` (not ~~`Vec<T>`~~)
-1. fn should return `Vec<T>` (not ~~`&[T]`~~)
+1. `fn` should accept accept `&[T]` (not ~~`Vec<T>`~~)
+1. `fn` should return `Vec<T>` (not ~~`&[T]`~~)
 
 
 # [Vector](TODO)
@@ -36,27 +36,10 @@
 1. Size is part of the type
 
 
-# Iterators
-1. Con: Don't work when your closure/lambda uses `?` operator
-1. Con: Often adds an extra level of indirection `&&v`
-
 
 # Gotcha: 
 - `::push()` (not `.add()`, not `append`)
 
-
-# IntoIterator
-1. implementing [`IntoIterator`](https://doc.rust-lang.org/std/iter/trait.IntoIterator.html) allows your type to work with [for loops](https://doc.rust-lang.org/std/iter/index.html#for-loops-and-intoiterator) 
-
-# [Iterator](https://doc.rust-lang.org/std/iter/index.html#iterator)
-1. [Iterator](https://doc.rust-lang.org/std/iter/trait.Iterator.html) borrows mutably
-1. [`next`](https://doc.rust-lang.org/std/iter/trait.Iterator.html#tymethod.next) is the only required method, you get 75+ other methods for free
-
-
-# ~~TODO: Unorganized~~
-- [`iter()`](TODO), iterates over `&T`
-- [`into_iter()`](TODO), iterates over `T` (owned)
-- [`iter_mut()`](TODO), iterates over `&mut T`
 
 - TODO: https://doc.rust-lang.org/book/ch08-01-vectors.html
 - TODO: https://learning-rust.github.io/docs/b1.vectors.html
@@ -66,7 +49,6 @@
 - TODO: https://cheats.rs/#data-structures
 - TODO: https://www.programming-idioms.org/cheatsheet/Rust
 - TODO: https://www.kuniga.me/docs/rust/#data-structures
-- TODO: `.iter()` (borrow), `.into_iter()` (owned)
 
 
 # Other Resources
