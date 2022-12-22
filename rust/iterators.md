@@ -29,13 +29,13 @@
 1. The most important [trait](./traits.md) related to iteration
 1. Has one associated type for the [`Item`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html#associatedtype.Item)
 1. [`next`](https://doc.rust-lang.org/std/iter/trait.Iterator.html#tymethod.next) is the only required method
-1. you get 75+ other methods for free (since based on `.next()`), [See Adapters](#adapters)
+1. You get 75+ other methods for free (since based on `.next()`), [See Adapters](#adapters)
     1. Returns [`Option<Self::Item>`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html#tymethod.next)
-    1. Returning [`None`](https://doc.rust-lang.org/std/option/enum.Option.html#variant.None) is not necessarily a final state, depends on impl
-1. These are lazy
-1. Con: Don't work when your closure/lambda uses `?` operator
-    1. Must return `Result<T, E>`, not `T`
-1. Con: Often adds an extra level of indirection `&&v`
+    1. Returning [`None`](https://doc.rust-lang.org/std/option/enum.Option.html#variant.None) is not necessarily a final state, depends on the `impl`
+1. Iterators are lazy
+1. GOTCHA: Iterators/Adapters don't work when your closure/lambda uses [`?` operator](./errors.md)
+    1. Must return [`Result<T, E>`]((https://doc.rust-lang.org/std/result/)), not `T`
+1. GOTCHA: `.iter()` Often adds an extra level of indirection: like `&&v`
 
 
 
@@ -51,6 +51,7 @@
 
 
 # [`FromIterator`](https://doc.rust-lang.org/std/iter/trait.FromIterator.html)
+1. TODO
 
 
 # [Adapters](https://doc.rust-lang.org/std/iter/index.html#adapters)
