@@ -21,14 +21,15 @@
 # Idioms
 1. If [a loop](https://doc.rust-lang.org/reference/expressions/loop-expr.html) is simpler, use a loop
 1. a `fn` should *accept* [`IntoIterator`](https://doc.rust-lang.org/std/iter/trait.IntoIterator.html)
-    1. Allows passing [`Vec<T>`](https://doc.rust-lang.org/std/vec/struct.Vec.html#), [`HashSet<T>`](https://doc.rust-lang.org/std/collections/struct.HashSet.html), [`BTreeSet<T>`](https://doc.rust-lang.org/std/collections/struct.BTreeSet.html#),
+    1. Allows passing [`Vec<T>`](https://doc.rust-lang.org/std/vec/struct.Vec.html#), [`HashSet<T>`](https://doc.rust-lang.org/std/collections/struct.HashSet.html), [`BTreeSet<T>`](https://doc.rust-lang.org/std/collections/struct.BTreeSet.html#), ...
 1. a `fn` should *return* [`FromtIterator`](https://doc.rust-lang.org/std/iter/trait.FromIterator.html)
 
 
 # [`Iterator`](https://doc.rust-lang.org/std/iter/trait.Iterator.html)
-1. This is the most important [trait](./traits.md) related to iteration
-1. Has 1 associated type for the `Item`
-1. [`next`](https://doc.rust-lang.org/std/iter/trait.Iterator.html#tymethod.next) is the only required method, you get 75+ other methods for free (since based on `.next()`)
+1. The most important [trait](./traits.md) related to iteration
+1. Has one associated type for the [`Item`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html#associatedtype.Item)
+1. [`next`](https://doc.rust-lang.org/std/iter/trait.Iterator.html#tymethod.next) is the only required method
+1. you get 75+ other methods for free (since based on `.next()`), [See Adapters](#adapters)
     1. Returns [`Option<Self::Item>`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html#tymethod.next)
     1. Returning [`None`](https://doc.rust-lang.org/std/option/enum.Option.html#variant.None) is not necessarily a final state, depends on impl
 1. These are lazy
@@ -53,10 +54,16 @@
 
 
 # [Adapters](https://doc.rust-lang.org/std/iter/index.html#adapters)
-1. Chaining functions
-1. eg. [`map`](TODO), [`filter`](TODO), [`take`](TODO), [`flat_map`](TODO),
-1. Don't panic, return a [`Result`](TODO)
-1. These are lazy
+1. Adapters are "chainable" functions
+    1. [`map`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html#method.map): TODO
+    1. [`filter`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html#method.filter): TODO
+    1. [`flat_map`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html#method.flat_map): TODO
+    1. [`take`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html#method.take): TODO
+    1. [`skip`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html#method.skip): TODO
+1. Don't panic, return a [`Result`](https://doc.rust-lang.org/std/result/)
+1. Adapters are lazy
+1. Similar to [RxJs](https://rxjs.dev/api/operators), [RxJava `Observable`](https://reactivex.io/RxJava/3.x/javadoc/io/reactivex/rxjava3/subjects/BehaviorSubject.html), [Reactor `Flux`](https://projectreactor.io/docs/core/release/api/reactor/core/publisher/Flux.html), [Java `Stream`](https://docs.oracle.com/en/java/javase/18/docs/api/java.base/java/util/stream/Stream.html), [lodash operators](https://lodash.com/docs/4.17.15#map) operators
+    1. Visual guides: [js based](https://res.cloudinary.com/practicaldev/image/fetch/s--sYEjzdnw--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/i/sr8koff729gxcvpnoty6.jpeg), [C# based](https://csharpcorner-mindcrackerinc.netdna-ssl.com/article/simplify-map-reduce-and-filter-in-typescript/Images/map_filter_reduce.png), []
 
 
 # Terminators
@@ -90,6 +97,7 @@
 // - BTreeSet<String>
 // - BTreeSet<Rc<String>>
 // - BTreeSet<Arc<String>>
+// ...
 fn my_string_collection_consumer<I, T>(values: I)
 where
     I: IntoIterator<Item = T>,
