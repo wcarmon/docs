@@ -66,8 +66,8 @@
 |[`map`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html#method.map)              |Convert type or ownership               |*Same*         |Changed|
 |[`filter`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html#method.filter)        |Ignore/keep items                       |Generally less |*Same*|
 |[`flat_map`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html#method.flat_map)    |process nested`<T>` collection like `T` |Generally more |Changed|
-|[`take`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html#method.take)            |keep first n                            |Generally less |*Same*|
-|[`skip`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html#method.skip)            |ignore first n                          |Generally less |*Same*|
+|[`take`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html#method.take)            |keep first *n*                          |Generally less |*Same*|
+|[`skip`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html#method.skip)            |ignore first *n*                        |Generally less |*Same*|
 |[`cloned`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html#method.cloned)        |clones items (converts to owned)        |*Same*         |Same, but owned|
 |[`enumerate`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html#method.enumerate)  |like `map`, but includes Item index     |*Same*         |Changed|
 |[`inspect`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html#method.inspect)      |debugging                               |*Same*         |*Same*
@@ -83,8 +83,8 @@
 |[`all`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html#method.all)      |true when all items match predicate|
 |[`any`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html#method.any)      |true only when at least one item matches predicate|
 |[`last`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html#method.last)    |get final Item|
-|[`max`](https://doc.rust-lang.org/stable/std/iter/trait.Iterato.html#method.max)       |largest value|
-|[`min`](https://doc.rust-lang.org/stable/std/iter/trait.Iterato.html#method.min)       |smallest value|
+|[`max`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html#method.max)       |largest value|
+|[`min`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html#method.min)       |smallest value|
 
 
 # [`TryIter`](TODO)
