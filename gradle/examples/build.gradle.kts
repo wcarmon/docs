@@ -45,7 +45,7 @@ plugins {
   /** javafx */
   id("org.openjfx.javafxplugin") version "0.0.13" apply false
 
-  id("io.freefair.lombok") version "6.4.3" apply false
+  id("io.freefair.lombok") version "6.4.3" apply true // if using lombok
 
   /** GraalVM */
   id("org.mikeneck.graalvm-native-image") version "1.4.1" apply false
@@ -60,7 +60,6 @@ group = "com.wcarmon"
 
 subprojects {
   apply(plugin = "java")
-  apply(plugin = "io.freefair.lombok") // if using lombok
   apply(plugin = "org.jetbrains.kotlin.jvm")
 
   apply(plugin = "org.gradle.pmd")
