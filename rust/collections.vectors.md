@@ -1,5 +1,7 @@
 # Overview
 1. Vectors, Slices, Arrays, Iterators
+1. See [Generics doc](./generics.md)
+1. See [Iterators doc](./iterators.md)
 
 
 # Idioms

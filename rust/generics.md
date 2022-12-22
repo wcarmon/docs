@@ -1,5 +1,5 @@
 # Overview
-1. TODO
+1. Generics, Associated Types, Parametric polymorphism, monomorphization, ...
 
 
 # Summary of key ideas
