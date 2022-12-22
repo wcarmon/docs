@@ -94,8 +94,13 @@ tracing::subscriber::set_global_default(subscriber);
 ```rust
     let span = info_span!("my_span");
     let guard = span.enter();
-    
-    // or: let span = info_span!("my_span").entered();
+
+    /* -- alternative:
+        let span = info_span!("my_span").entered();
+        defer! { drop(span) }  // See https://github.com/rodrigocfd/defer-lite/
+    */
+
+    // let _ = info_span!(...) // GOTCHA: DON'T DO THIS, immediately drops your span, so the hierarchy breaks
 
     span.record("foo", "bar"); // must be defined in the span macro
 
@@ -112,7 +117,8 @@ tracing::subscriber::set_global_default(subscriber);
     //TODO: verify
     let _ = info_span!(parent: span.id(), "foo_bar");
 
-    drop(guard); // or let it happen automatically
+    // -- Either drop or use https://github.com/rodrigocfd/defer-lite/
+    // drop(guard); // if you don't drop, rustc might drop your span early
 ```
 1. See https://docs.rs/tracing/latest/tracing/macro.span.html
 
