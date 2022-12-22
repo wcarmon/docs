@@ -25,7 +25,7 @@
 1. a `fn` should *return* [`FromtIterator`](https://doc.rust-lang.org/std/iter/trait.FromIterator.html)
 
 
-# [`Iterator`](https://doc.rust-lang.org/std/iter/trait.Iterator.html)
+# [`Iterator`](https://doc.rust-lang.org/std/iter/trait.Iterator.html) trait
 1. The most important [trait](./traits.md) related to iteration
 1. Has one associated type for the [`Item`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html#associatedtype.Item)
 1. [`next`](https://doc.rust-lang.org/std/iter/trait.Iterator.html#tymethod.next) is the only required method
@@ -39,7 +39,7 @@
 
 
 
-# [`IntoIterator`](https://doc.rust-lang.org/std/iter/trait.IntoIterator.html)
+# [`IntoIterator`](https://doc.rust-lang.org/std/iter/trait.IntoIterator.html) trait
 1. For converting something into an [`Iterator`](https://doc.rust-lang.org/std/iter/trait.Iterator.html)
 1. Has 1 method: [`into_iter()`](https://doc.rust-lang.org/std/iter/trait.IntoIterator.html#tymethod.into_iter)
     1. Consumes/takes ownership of iterator
@@ -50,21 +50,26 @@
     1. once for mutable borrow (`&mut T`)
 
 
-# [`FromIterator`](https://doc.rust-lang.org/std/iter/trait.FromIterator.html)
+# [`FromIterator`](https://doc.rust-lang.org/std/iter/trait.FromIterator.html) trait
 1. TODO
 
 
 # [Adapters](https://doc.rust-lang.org/std/iter/index.html#adapters)
 1. Adapters are "chainable" functions
-    1. [`map`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html#method.map): TODO
-    1. [`filter`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html#method.filter): TODO
-    1. [`flat_map`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html#method.flat_map): TODO
-    1. [`take`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html#method.take): TODO
-    1. [`skip`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html#method.skip): TODO
 1. Don't panic, return a [`Result`](https://doc.rust-lang.org/std/result/)
 1. Adapters are lazy
 1. Similar to [RxJs](https://rxjs.dev/api/operators), [RxJava `Observable`](https://reactivex.io/RxJava/3.x/javadoc/io/reactivex/rxjava3/subjects/BehaviorSubject.html), [Reactor `Flux`](https://projectreactor.io/docs/core/release/api/reactor/core/publisher/Flux.html), [Java `Stream`](https://docs.oracle.com/en/java/javase/18/docs/api/java.base/java/util/stream/Stream.html), [lodash operators](https://lodash.com/docs/4.17.15#map) operators
-    1. Visual guides: [js based](https://res.cloudinary.com/practicaldev/image/fetch/s--sYEjzdnw--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/i/sr8koff729gxcvpnoty6.jpeg), [C# based](https://csharpcorner-mindcrackerinc.netdna-ssl.com/article/simplify-map-reduce-and-filter-in-typescript/Images/map_filter_reduce.png), []
+    1. Visual guides: [js based](https://res.cloudinary.com/practicaldev/image/fetch/s--sYEjzdnw--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/i/sr8koff729gxcvpnoty6.jpeg), [C# based](https://csharpcorner-mindcrackerinc.netdna-ssl.com/article/simplify-map-reduce-and-filter-in-typescript/Images/map_filter_reduce.png), ...
+
+|fn|Purpose|Stream size after `fn`|Type after `fn`|
+|---|---|---|---|
+|[`map`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html#method.map)          |convert type or ownership          |*Same*         |Changed|
+|[`filter`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html#method.filter)    |selectively ignore/keep items      |Generally less |*Same*|
+|[`flat_map`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html#method.flat_map)|process nested<T> collection like T|Generally more |Changed|
+|[`take`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html#method.take)        |keep first n                       |Generally less |*Same*|
+|[`skip`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html#method.skip)        |ignore first n                     |Generally less |*Same*|
+
+|[`TODO`](TODO)|TODO|Same|Same|
 
 
 # Terminators
