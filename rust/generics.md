@@ -10,7 +10,8 @@
 # [Associated Types](TODO)
 1. one struct/enum can only `impl` a `Trait` once
 1. Associated Types are a simplification or specialized version of Generics
-1. "Output types" <-- TODO: I don't understand enough yet
+1. "Output types"
+    1. eg. See how [`Iterator`](TODO) uses `Item` as an associated type for output of [`.next()`](TODO)
 
 
 ## Comparison
