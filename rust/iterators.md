@@ -60,7 +60,10 @@
 
 
 # Terminators
-1. [`collect`](https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.collect), [`reduce`](https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.reduce), [`for_each`](https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.for_each), [`fold`](https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.fold), [`redu`]
+1. [`collect`](https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.collect): builds collection
+1. [`for_each`](https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.for_each): side effects (eg. printing, logging)
+1. [`reduce`](https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.reduce): *reduce* down to a single value
+1. [`fold`](https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.fold): like `reduce`, but takes starting value
 
 
 # [`TryIter`](TODO)
