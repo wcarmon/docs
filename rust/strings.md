@@ -260,6 +260,15 @@ fn must_add_elipses(str_len: usize, max_output_len: usize) -> bool {
 ```
 
 
+# `Write` trait
+- [`std::io::Write`](https://doc.rust-lang.org/std/io/trait.Write.html) is for bytes
+    - like Java [`OutputStream`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/OutputStream.html)
+    - like Go [`Writer`](https://pkg.go.dev/io#Writer)
+- [`std::fmt::Write`](https://doc.rust-lang.org/std/fmt/trait.Write.html) is for text (`String`, `&str`, etc)
+    - like Java [`Writer`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/Writer.html)
+    - like Go [`StringWriter`](https://pkg.go.dev/io#StringWriter)
+
+
 # Other Resources
 1. https://blog.logrocket.com/understanding-rust-string-str/
 1. https://locka99.gitbooks.io/a-guide-to-porting-c-to-rust/content/features_of_rust/strings.html
