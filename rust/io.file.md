@@ -1,42 +1,44 @@
 # Overview
-1. Important types related to File IO
+1. Important types and traits related to File IO
 1. Some patterns for File IO
 
 
 # Related Types
 
-## [`std::fmt::Write`](https://doc.rust-lang.org/std/fmt/trait.Write.html) trait for text (`String`, `&str`, etc)
+## [`std::fmt::Write`](https://doc.rust-lang.org/std/fmt/trait.Write.html) trait, for text (`String`, `&str`, etc)
 - Comparison:
-    - Java: [`Writer`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/Writer.html)
     - Golang: [`StringWriter`](https://pkg.go.dev/io#StringWriter)
+    - Java: [`Writer`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/Writer.html)
 
-## [`std::io::Write`](https://doc.rust-lang.org/std/io/trait.Write.html) trait (for bytes)
+
+## [`std::io::Write`](https://doc.rust-lang.org/std/io/trait.Write.html) trait, for bytes
 - lower level than `std::fmt::Write`
 - Two methods: [`write`](https://doc.rust-lang.org/std/io/trait.Write.html#tymethod.write) and [`flush`](https://doc.rust-lang.org/std/io/trait.Write.html#tymethod.flush)
 - Comparison:
-    - Java: [`OutputStream`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/OutputStream.html)
     - Golang: [`Writer`](https://pkg.go.dev/io#Writer)
+    - Java: [`OutputStream`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/OutputStream.html)
 
-### [`BufWriter`](https://doc.rust-lang.org/std/io/struct.BufWriter.html)
+
+### [`std::io::BufWriter`](https://doc.rust-lang.org/std/io/struct.BufWriter.html)
 - Comparison:
-    - Golang: [`bufio.Writer`](https://pkg.go.dev/bufio#Writer)
     - Java: [`BufferedWriter`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/BufferedWriter.html)
+    - Golang: [`bufio.Writer`](https://pkg.go.dev/bufio#Writer)
 
 
-## [`File`](https://doc.rust-lang.org/std/fs/struct.File.html) struct
+## [`std::fs::File`](https://doc.rust-lang.org/std/fs/struct.File.html) struct
 - Implements [`Write`](https://doc.rust-lang.org/std/fs/struct.File.html#impl-Write-for-%26File)
 - Comparison:
     - Java: [`java.nio.file.Path`](https://docs.oracle.com/en/java/javase/18/docs/api/java.base/java/nio/file/Path.html) + methods on [`java.nio.file.Files`](https://docs.oracle.com/en/java/javase/18/docs/api/java.base/java/nio/file/Files.html)
 
 
-## [`PathBuf`](https://doc.rust-lang.org/stable/std/path/struct.PathBuf.html)
+## [`std::path::PathBuf`](https://doc.rust-lang.org/stable/std/path/struct.PathBuf.html)
 - `Ownership`: Owned
 - `Mutability`: Mutable
 - GOTCHA: [`.ends_with(...)`](https://doc.rust-lang.org/std/path/struct.Path.html#method.ends_with) doesn't include extension 
     - Unexpected behavior compared to Go, Java, Python, ...
     
 
-## [`Path`](https://doc.rust-lang.org/stable/std/path/struct.Path.html)
+## [`std::path::Path`](https://doc.rust-lang.org/stable/std/path/struct.Path.html)
 - similar to `&str`
 - `Ownership`: Borrowed
 - `Mutability`: Immutable
