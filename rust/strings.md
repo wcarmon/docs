@@ -7,7 +7,7 @@
 ||Immutable|Mutable|
 |---|---|---|
 |Owned|`String` <br/>`PathBuf` <br/>`OsString` <br/>`Vec<T>`|`String` (`mut` on variable/argument) <br/>`PathBuf` (`mut` on variable/argument) <br/>`OsString` (`mut` on variable/argument) <br/>`Vec<T>` (`mut` on variable/argument)|
-|Borrowed|`&str` <br/>`&Path` <br/>`&OsStr` <br/>`&[T]` <br/>~~`&String`~~ (double pointer) <br/>~~`&PathBuf`~~ (double pointer) |`&mut String` (double pointer)|
+|Borrowed|`&str` <br/>`&Path` <br/>`&OsStr` <br/>`&[T]` <br/>~~`&String`~~ (unnecessary double pointer) <br/>~~`&PathBuf`~~ (unnecessary double pointer) |`&mut String` (unnecessary double pointer)|
 
 
 # Types
