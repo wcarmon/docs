@@ -5,13 +5,22 @@
 
 # Related Types
 
-## [`Write`](https://doc.rust-lang.org/std/io/trait.Write.html) trait
+## [`std::fmt::Write`](https://doc.rust-lang.org/std/fmt/trait.Write.html) trait for text (`String`, `&str`, etc)
+- Comparison:
+    - Java: [`Writer`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/Writer.html)
+    - Golang: [`StringWriter`](https://pkg.go.dev/io#StringWriter)
+
+## [`std::io::Write`](https://doc.rust-lang.org/std/io/trait.Write.html) trait (for bytes)
+- lower level than `std::fmt::Write`
 - Two methods: [`write`](https://doc.rust-lang.org/std/io/trait.Write.html#tymethod.write) and [`flush`](https://doc.rust-lang.org/std/io/trait.Write.html#tymethod.flush)
+- Comparison:
+    - Java: [`OutputStream`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/OutputStream.html)
+    - Golang: [`Writer`](https://pkg.go.dev/io#Writer)
+
+### [`BufWriter`](https://doc.rust-lang.org/std/io/struct.BufWriter.html)
 - Comparison:
     - Golang: [`bufio.Writer`](https://pkg.go.dev/bufio#Writer)
     - Java: [`BufferedWriter`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/BufferedWriter.html)
-    - Python: [`io.IOBase`](https://docs.python.org/3/library/io.html#io.IOBase)
-    - C++ [`ostream`](https://cplusplus.com/reference/ostream/ostream/write/)
 
 
 ## [`File`](https://doc.rust-lang.org/std/fs/struct.File.html) struct
