@@ -23,7 +23,7 @@
 #                         rustup target add x86_64-unknown-linux-gnu;
 #                         rustup target add x86_64-unknown-linux-musl; # alpine
 #
-# -- 5: sudo apt install -y g++-aarch64-linux-gnu libc6-dev-arm64-cross
+# -- 5: sudo apt install -y g++-aarch64-linux-gnu libc6-dev-arm64-cross gcc-multilib
 # ---------------------------------------------
 
 
