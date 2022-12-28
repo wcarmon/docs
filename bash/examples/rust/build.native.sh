@@ -4,8 +4,24 @@
 # -- Builds local binary via local go sdk
 # --
 # -- Assumptions:
-# TODO: more here
+# -- 1. Rust SDK installed
+# --    TODO: more here
+#
+# -- 2. cargo installed (on PATH)
+# --    TODO: more here
+#
+# -- 3. cross compilation targets
+#
+# -- Available targets:   rustup target list
+# -- Current target:      rustc -vV
+# -- Setup targets:
+#                         rustup target add x86_64-unknown-linux-gnu;
+#                         rustup target add aarch64-apple-darwin;  # M1
+#                         rustup target add x86_64-pc-windows-gnu;
+#                         rustup target add x86_64-apple-darwin;
+#
 # ---------------------------------------------
+
 
 #set -x # uncomment to debug script
 set -e # exit on first error
@@ -44,13 +60,12 @@ readonly PROJ_ROOT="$PARENT_DIR"
 # ---------------------------------------------
 # -- Build
 # ---------------------------------------------
-# Available targets:    rustup target list
-# Current target:       rustc -vV
-# Setup targets:
-#                       rustup target add aarch64-apple-darwin;  # M1
-#                       rustup target add x86_64-pc-windows-gnu
-#                       rustup target add x86_64-apple-darwin
 
+
+# ---------------------------------------------
+# -- Docs
+# ---------------------------------------------
+# TODO: add rustdoc here
 
 # ---------------------------------------------
 # -- Report
@@ -58,3 +73,8 @@ readonly PROJ_ROOT="$PARENT_DIR"
 echo
 echo "|-- See binaries in $ABSOLUTE_OUTPUT_DIR"
 ls -hlt $ABSOLUTE_OUTPUT_DIR
+
+#echo
+#echo "|-- Size Analysis: ..."
+##cargo install cargo-bloat
+#cargo bloat --release -n 15
