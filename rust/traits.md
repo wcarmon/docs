@@ -126,6 +126,7 @@
 
 
 # TODO/Unorganized
+- `Into` for owned parameter, `AsRef` for borrowed parameter
 - TODO: trait implementations must be in separate `impl` block from unrelated methods
 - TODO: https://doc.rust-lang.org/book/ch10-02-traits.html
 - TODO: https://doc.rust-lang.org/rust-by-example/trait.html
