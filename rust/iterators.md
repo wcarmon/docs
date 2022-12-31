@@ -22,7 +22,9 @@
 1. If [a loop](https://doc.rust-lang.org/reference/expressions/loop-expr.html) is simpler, use a loop
 1. a `fn` should *accept* [`IntoIterator`](https://doc.rust-lang.org/std/iter/trait.IntoIterator.html)
     1. Allows passing [`Vec<T>`](https://doc.rust-lang.org/std/vec/struct.Vec.html#), [`HashSet<T>`](https://doc.rust-lang.org/std/collections/struct.HashSet.html), [`BTreeSet<T>`](https://doc.rust-lang.org/std/collections/struct.BTreeSet.html#), ...
-1. a `fn` should *return* [`FromtIterator`](https://doc.rust-lang.org/std/iter/trait.FromIterator.html)
+1. a `fn` should *return* [`FromIterator`](https://doc.rust-lang.org/std/iter/trait.FromIterator.html)
+1. Error handling for [`Result`](https://doc.rust-lang.org/std/result/)s in failable operations
+    1. See https://doc.rust-lang.org/rust-by-example/error/iter_result.html
 
 
 # [`Iterator`](https://doc.rust-lang.org/std/iter/trait.Iterator.html) trait
