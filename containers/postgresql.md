@@ -1,8 +1,1 @@
-# Overview
-1. TODO
-
-
-
-
-# Other resources
-1. TODO
+See [example](../bash/examples/postgresql/run.postgres.sh)

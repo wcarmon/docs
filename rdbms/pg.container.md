@@ -1,1 +1,1 @@
-See [here](../containers/postgresql.md)
+See [example](../bash/examples/postgresql/run.postgres.sh)
