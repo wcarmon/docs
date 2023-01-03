@@ -7,7 +7,7 @@
 dependencies {
 
     ...
-    implementation("io.javalin:javalin")  // 5.3.x is currently latest
+    implementation("io.javalin:javalin")  // 5.3.x is (currently) the latest
     ...
 }
 ```
@@ -35,7 +35,7 @@ public Javalin javalin(
             ctx -> {
                 ctx.result("bar");
             });
-    //...
+    // ... other routes
 
     return server;
 }
@@ -46,7 +46,7 @@ public Javalin javalin(
 ```java
 
 public static void main(String... args) {
-    var port = 8080;
+    var port = 8080; // or from args, config file, etc
 
     var server = injector.getInstance(Javalin.class);
     server.start(port);
