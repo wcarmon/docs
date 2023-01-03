@@ -45,3 +45,11 @@ include(
   "module-3"
   //... add other modules here
 )
+
+
+/*
+-- Example of how to reference local gradle project dependency:
+
+include(":my-local-only-project") // must be before the project line
+project(":my-local-only-project").projectDir = File("/home/wcarmon/git-repos/my-local-only-project")
+*/
