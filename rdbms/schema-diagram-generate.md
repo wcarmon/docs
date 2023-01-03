@@ -11,6 +11,10 @@
 1. `Pro`: Unlimited tables
 1. `Pro`: Can generate from any JDBC connection
 
+## Nice layouts
+- Layout: orthogonal > orthogonal groups, top-to-bottom
+- Layout: orthogonal > Hierarchical groups
+
 
 ## dbdiagram.io
 
