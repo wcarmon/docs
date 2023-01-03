@@ -73,3 +73,21 @@ echo "|-- See file: $COMPRESSED_ENCRYPTED"
 # NOTE for receiver:
 # 1. ensure tar, gpg and xz are installed
 #   - eg. brew install xz
+
+<<RECEIVER_SIDE
+ARCHIVE_FILE="...";
+
+mkdir -p ~/tmp/example
+cd ~/tmp/example
+gpg --decrypt \
+  --output tmp.tar.xz \
+  --pinentry-mode loopback \
+  --passphrase "..."
+   "$ARCHIVE_FILE";
+
+xz --decompress tmp.tar.xz;
+
+tar -xf tmp.tar;
+rm -f tmp.tar;
+
+RECEIVER_SIDE
