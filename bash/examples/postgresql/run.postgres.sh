@@ -1,5 +1,12 @@
 #!/bin/bash
 
+# ---------------------------------------------
+# -- Runs Postgresql in local container
+# --
+# -- Assumptions:
+# -- 1. Docker installed: https://docs.docker.com/get-docker/
+# -- 2. local *.sql file(s) with schema (SQL CREATE TABLE statements)
+# ---------------------------------------------
 #set -x # uncomment to debug script
 set -e # exit on first error
 set -o pipefail
