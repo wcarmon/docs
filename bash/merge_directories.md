@@ -3,8 +3,11 @@
 
 
 # via RSync
+- All examples use Dry-run, so you can confirm it meets your requirements
+- remove `--dry-run` to actually mutate the filesystem
 
-## Safe: Dry-run to verify it meets your requirements
+
+## Merge, make backups on conflict
 ```bash
 SRC="..." # End with trailing slash
 DEST="..." # End with trailing slash
@@ -16,27 +19,23 @@ rsync \
 --itemize-changes \
 --recursive \
 --suffix=".manual_merge" \
---verbose \
 $SRC $DEST
 ```
 
-## Safe:
+
+## Merge, overwrite on conflict
+1. This is safe if you [git commit](https://git-scm.com/docs/git-commit) first
 ```bash
 SRC="..." # End with trailing slash
 DEST="..." # End with trailing slash
 
 rsync \
---backup \
 --dry-run \
 --executability \
 --itemize-changes \
---recursive \
---suffix=".manual_merge" \
---verbose \
+--recursive
 $SRC $DEST
 ```
-
-
 
 
 # Other resources
