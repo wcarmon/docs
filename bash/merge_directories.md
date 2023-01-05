@@ -1,8 +1,10 @@
 # Overview
-1. Examples for merging directories
+1. Examples for safely merging directories
 
 
 # via RSync
+
+## Safe: Dry-run to verify it meets your requirements
 ```bash
 SRC="..." # End with trailing slash
 DEST="..." # End with trailing slash
@@ -13,10 +15,28 @@ rsync \
 --executability \
 --itemize-changes \
 --recursive \
---suffix=".bak" \
+--suffix=".manual_merge" \
 --verbose \
 $SRC $DEST
 ```
+
+## Safe:
+```bash
+SRC="..." # End with trailing slash
+DEST="..." # End with trailing slash
+
+rsync \
+--backup \
+--dry-run \
+--executability \
+--itemize-changes \
+--recursive \
+--suffix=".manual_merge" \
+--verbose \
+$SRC $DEST
+```
+
+
 
 
 # Other resources

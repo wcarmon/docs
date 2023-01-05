@@ -5,11 +5,7 @@
 
 
 # Config files
-1. https://documentation.red-gate.com/fd/configuration-files-184127472.html
+1. [Official docs](https://documentation.red-gate.com/fd/configuration-files-184127472.html)
 
 
 # [Commands/Operations](./flyway.commands.md)
-
-
-# Other resources
-1. TODO
