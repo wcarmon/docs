@@ -32,7 +32,7 @@
 1. Dynamic dispatch More flexible than static dispatch at runtime
 1. Dynamic dispatch produces slightly smaller binary than static dispatch
 1. `dyn` tells the compiler not to determine the exact type (just use a reference and deal with it at runtime, vtable)
-1. `dyn` can make parts of your code (slightly) slower (eg. at the same level as Go, Java, C#, ...)
+1. `dyn` can make parts of your code [(slightly) slower](https://stackoverflow.com/questions/28621980/what-are-the-actual-runtime-performance-costs-of-dynamic-dispatch) (eg. at the same level as Go, Java, C#, ...)
     1. virtual function call, [vtable](https://en.wikipedia.org/wiki/Virtual_method_table) lookup, etc
 1. `dyn` disables some arithmetic optimizations & inlining
 1. Must access `dyn` behind a pointer (or smart pointer) because compiler doesn't know the type (and therefore doesn't know the size)
