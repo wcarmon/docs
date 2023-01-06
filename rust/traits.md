@@ -147,3 +147,4 @@
 1. https://doc.rust-lang.org/book/ch10-02-traits.html
 1. https://doc.rust-lang.org/rust-by-example/trait.html
 1. https://medium.com/digitalfrontiers/rust-dynamic-dispatching-deep-dive-236a5896e49b
+1. https://stackoverflow.com/questions/28621980/what-are-the-actual-runtime-performance-costs-of-dynamic-dispatch
