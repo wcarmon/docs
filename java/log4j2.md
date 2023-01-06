@@ -19,7 +19,7 @@
 
     <Appenders>
         <Console name="console" target="SYSTEM_OUT">
-            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] [%-5level] %logger{24} - %msg%n"/>
             
             <!-- Some alternatives: -->            
             <!--  <PatternLayout pattern="%d{yyyy-MM-dd'T'HH:mm:ss.SSS} %5p ${hostName} --- [%15.15t] %-40.40c{1.} : %m%n%ex"/> -->
@@ -38,7 +38,7 @@
                      fileName="app.log"
                      filePattern="logs/app.%d{yyyy-MM-dd}-%i.log.gz">
                      
-            <PatternLayout pattern="%d{yyyy-MM-dd'T'HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+            <PatternLayout pattern="%d{yyyy-MM-dd'T'HH:mm:ss.SSS} [%t] [%-5level] %logger{36} - %msg%n"/>
             <!-- or use the JsonLayout example above -->
 
             <Policies>
