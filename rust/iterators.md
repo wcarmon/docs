@@ -50,6 +50,23 @@
     1. once for borrowed (`&T`)
     1. once for mutable borrow (`&mut T`)
 
+## Example
+```rust
+// in practice you can just use the BTreeSet directly
+#[derive(Clone, Debug, Default, Eq, Hash, PartialEq)]
+pub struct MyFancyStuff(BTreeSet<String>);
+
+impl IntoIterator for MyFancyStuff {
+    type Item = String;
+    type IntoIter = <BTreeSet<String> as IntoIterator>::IntoIter;
+
+    fn into_iter(self) -> Self::IntoIter {
+        self.0.into_iter()
+    }
+}
+```
+
+
 
 # [`FromIterator`](https://doc.rust-lang.org/std/iter/trait.FromIterator.html) trait
 1. TODO
