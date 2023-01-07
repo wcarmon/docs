@@ -45,10 +45,11 @@
 
 
 # [`IntoIterator`](https://doc.rust-lang.org/std/iter/trait.IntoIterator.html) trait
+1. Trait for converting *something* into an [`Iterator`](https://doc.rust-lang.org/std/iter/trait.Iterator.html)
 1. **Moves** the collection into an iterator
-1. For converting something into an [`Iterator`](https://doc.rust-lang.org/std/iter/trait.Iterator.html)
 1. Has 1 method: [`into_iter()`](https://doc.rust-lang.org/std/iter/trait.IntoIterator.html#tymethod.into_iter)
     1. Consumes/takes ownership of iterator
+1. Did I mention this takes ownership :-)
 1. implementing [`IntoIterator`](https://doc.rust-lang.org/std/iter/trait.IntoIterator.html) allows your type to work with [for loops](https://doc.rust-lang.org/std/iter/index.html#for-loops-and-intoiterator)
     1. [For loop uses `into_iter()`](https://doc.rust-lang.org/std/iter/index.html#for-loops-and-intoiterator)
     1. you cannot iterate a collection twice because the first time moves
