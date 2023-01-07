@@ -124,120 +124,165 @@ subprojects {
     }
   }
 
-  /* if using kotlin */
-  // https://github.com/JetBrains/kotlin/blob/master/libraries/tools/kotlin-gradle-plugin/src/main/kotlin/org/jetbrains/kotlin/gradle/dsl/KotlinCompile.kt
-  tasks.withType<KotlinCompile>().configureEach {
-    kotlinOptions {
-      freeCompilerArgs = listOf("-Xjsr305=strict")
-//      jdkHome = java11Home
-      jvmTarget = "17"
-    }
-  }
 
-  tasks.withType<Test>().configureEach {
+    // ------------------------------------------------------
+    // -- Java Compiler
+    // ------------------------------------------------------
+    tasks.withType<JavaCompile>().configureEach {
+        // See -Xlint options: https://docs.oracle.com/en/java/javase/11/tools/javac.html#GUID-AEEC9F07-CB49-4E96-8BC7-BCC2C7F725C9
 
-    failFast = true
-    useJUnitPlatform { }
-
-    testLogging {
-      events("passed", "skipped", "failed", "standardOut", "standardError")
-      showExceptions = true
-      showStandardStreams = true
-    }
-  }
-
-  tasks.withType<JavaCompile>().configureEach {
-    // See -Xlint options: https://docs.oracle.com/en/java/javase/11/tools/javac.html#GUID-AEEC9F07-CB49-4E96-8BC7-BCC2C7F725C9
-
-    options.isDebug = true  // -g:{lines,vars,source}, fixes Unknown Source problem
-    options.isFailOnError = true
-    options.isFork = true
-    options.isIncremental = true
-    options.isVerbose = false
+        options.isDebug = true  // -g:{lines,vars,source}, fixes Unknown Source problem
+        options.isFailOnError = true
+        options.isFork = true
+        options.isIncremental = true
+        options.isVerbose = false
 //    options.compilerArgs = listOf("--add-opens=java.base/java.io=ALL-UNNAMED")
 //    options.compilerArgs = listOf("-Xlint")
 //    options.compilerArgs = listOf("-XprintProcessorInfo") // annotation info
 //    options.forkOptions.javaHome = file(java11Home)
 //    options.release.set(17)
-  }
-
-  // See https://detekt.github.io/detekt/gradle.html#kotlin-dsl-3
-  // or   detekt {...}
-//  tasks.withType<io.gitlab.arturbosch.detekt.Detekt>().configureEach {
-//    config.setFrom(files("$rootDir/detekt.yml"))
-//
-//    debug = false
-//    failFast = false
-//    jvmTarget = "17"  // Detekt cannot handle 17 :-(
-////    jvmTarget = "1.8"
-//
-//    exclude("build/")
-//    exclude("resources/")
-//    ignoreFailures = false
-//    include("**/*.kt")
-//    include("**/*.kts")
-//    parallel = true
-//
-//    reports {
-//      xml {
-//        enabled = true
-//        destination = file("build/reports/detekt.xml")
-//      }
-//      html {
-//        enabled = true
-//        destination = file("build/reports/detekt.html")
-//      }
-//    }
-//
-//    setSource(
-//      files(
-//        "src/main/java",
-//        "src/main/kotlin",
-//        "src/test/java",
-//        "src/test/kotlin"
-//      )
-//    )
-//  }
-
-  //TODO: make a groovy version of this task for debugging legacy stuff at work
-  /**
-   * Debugging helper task
-   *
-   * Prints classpath and runtime classpath for current module (gradle project)
-   */
-  task("printSourceSetInfo") {
-    doLast {
-
-      println("sourceSets.main: ${sourceSets.main::class.java}")
-
-      // sourceSets: org.gradle.api.tasks.SourceSetContainer
-      println("SourceSets: count=${sourceSets.size}")
-
-      for (sourceSet: org.gradle.api.tasks.SourceSet in sourceSets) {
-
-        // sourceSet: org.gradle.api.internal.file.collections.DefaultConfigurableFileCollection
-        println("sourceSet.name: ${sourceSet.name}")
-
-        // -- classpaths
-        println("Compile classpath: fileCount=${sourceSet.compileClasspath.files.size}")
-        for ((index, file) in sourceSet.compileClasspath.files.withIndex()) {
-          println("Compile[$index]: $file")
-        }
-
-        println("Runtime classpath: fileCount=${sourceSet.runtimeClasspath.files.size}")
-        for ((index, file) in sourceSet.runtimeClasspath.files.withIndex()) {
-          println("Runtime[$index]: $file")
-        }
-
-        // -- output
-        // DefaultSourceSetOutput
-        //  println("sourceSet.output: ${sourceSet.output}")
-
-        println("")
-      }
     }
-  }
 
+
+    // ------------------------------------------------------
+    // -- Kotlin Compiler
+    // ------------------------------------------------------
+    /* if using kotlin */
+    // https://github.com/JetBrains/kotlin/blob/master/libraries/tools/kotlin-gradle-plugin/src/main/kotlin/org/jetbrains/kotlin/gradle/dsl/KotlinCompile.kt
+    tasks.withType<KotlinCompile>().configureEach {
+        kotlinOptions {
+            freeCompilerArgs = listOf("-Xjsr305=strict")
+    //      jdkHome = java11Home
+              jvmTarget = "17"
+        }
+    }
+
+
+    // ------------------------------------------------------
+    // -- Testing (JUnit 5)
+    // ------------------------------------------------------
+    tasks.withType<Test>().configureEach {
+        failFast = true
+        useJUnitPlatform { }
+
+        testLogging {
+            events("passed", "skipped", "failed", "standardOut", "standardError")
+            showExceptions = true
+            showStandardStreams = true
+        }
+    }
+
+
+    // ------------------------------------------------------
+    // -- JavaFX
+    // ------------------------------------------------------
+    // See https://github.com/openjfx/javafx-gradle-plugin#getting-started
+    javafx {
+      version = "19"
+      modules("javafx.controls", "javafx.fxml")
+    }
+
+
+    // ------------------------------------------------------
+    // -- Jar
+    // ------------------------------------------------------
+    tasks.withType<Jar> {
+//      duplicatesStrategy = DuplicatesStrategy.FAIL
+        duplicatesStrategy = DuplicatesStrategy.WARN
+    }
+
+    tasks.withType<ShadowJar>() {
+        append("application.properties")
+
+        archiveBaseName.set("app")
+        archiveClassifier.set("") // removes "-all" suffix from jar name
+        archiveVersion.set("")    // removes version from jar name
+
+        configurations = listOf(project.configurations.compileClasspath.get())
+
+        dependencies {
+            //      exclude(dependency(group=))
+        }
+
+        //duplicatesStrategy = DuplicatesStrategy.FAIL
+        duplicatesStrategy = DuplicatesStrategy.WARN
+
+        manifest {
+            attributes["Main-Class"] = "com.galaxy.swapdealer.EntryPoint"
+        }
+
+        mergeServiceFiles()
+
+        exclude("*.bin")
+        exclude("*.css")
+        exclude("*.dtd")
+        exclude("*.htm")
+        exclude("*.java")
+        exclude("*.proto")
+        exclude("*.xsd")
+        exclude("application-data-viz-server.properties")
+        exclude("com/sun/el/*")
+        exclude("dependencies.properties")
+        exclude("dependency-reduced-pom.xml")
+        exclude("drools.*.properties")
+        exclude("ecj.1")
+        exclude("functions.properties")
+        exclude("Log4j-charsets.properties")
+        exclude("log4j2.springboot")
+        exclude("META-INF/*.DSA")
+        exclude("META-INF/*.json")
+        exclude("META-INF/*.kotlin_module")
+        exclude("META-INF/*.properties")
+        exclude("META-INF/*.RSA")
+        exclude("META-INF/*.SF")
+        exclude("META-INF/*.versions")
+        exclude("META-INF/*android*")
+        exclude("META-INF/*android*/**")
+        exclude("META-INF/*DEPENDENCIES*")
+        exclude("META-INF/*LICENSE*")
+        exclude("META-INF/*license*")
+        exclude("META-INF/*native*")
+        exclude("META-INF/*NOTICE*")
+        exclude("META-INF/*notice*")
+        exclude("META-INF/*version*")
+        exclude("META-INF/*VERSION*")
+        exclude("META-INF/com.android.tools/**")
+        exclude("META-INF/INDEX.LIST")
+        exclude("META-INF/MANIFEST.MF")
+        exclude("META-INF/maven/**")
+        exclude("META-INF/native*/**")
+        exclude("META-INF/native/**")
+        exclude("META-INF/org/apache/**")
+        exclude("META-INF/proguard/**")
+        exclude("META-INF/versions/**")
+        exclude("module-info.class")
+        exclude("mozilla/**")
+        exclude("onnxops.json")
+        exclude("storage.v1.json")
+        exclude("XMLPULL_1_1_3_1_VERSION")
+        exclude("XPP3_1.1.4c_MIN_VERSION")
+    }
+
+
+    // ------------------------------------------------------
+    // -- Auto-formatting via Spotless
+    // ------------------------------------------------------
+    spotless {
+        java {
+            googleJavaFormat("1.12.0").aosp().reflowLongStrings()
+            importOrder()
+            removeUnusedImports()
+
+            target(
+                "src/*/java/**/*.java"
+            )
+
+            targetExclude(
+                "src/gen/**",
+                "src/genTest/**"
+            )
+        }
+    }
 
   // See https://github.com/diffplug/spotless/tree/master/plugin-gradle
 //  tasks.withType<com.diffplug.gradle.spotless.SpotlessExtensionImpl>().configureEach {}
@@ -283,28 +328,91 @@ subprojects {
 //    tasks.jar {}
 //    tasks.withType<Jar>().configureEach {}
 
-  tasks.withType<Jar> {
-//    duplicatesStrategy = DuplicatesStrategy.FAIL
-    duplicatesStrategy = DuplicatesStrategy.WARN
-  }
+
+    // ------------------------------------------------------
+    // -- Kotlin Static Analysis via Detekt
+    // ------------------------------------------------------
+    // See https://detekt.github.io/detekt/gradle.html#kotlin-dsl-3
+    // or   detekt {...}
+//  tasks.withType<io.gitlab.arturbosch.detekt.Detekt>().configureEach {
+//    config.setFrom(files("$rootDir/detekt.yml"))
+//
+//    debug = false
+//    failFast = false
+//    jvmTarget = "17"  // Detekt cannot handle 17 :-(
+////    jvmTarget = "1.8"
+//
+//    exclude("build/")
+//    exclude("resources/")
+//    ignoreFailures = false
+//    include("**/*.kt")
+//    include("**/*.kts")
+//    parallel = true
+//
+//    reports {
+//      xml {
+//        enabled = true
+//        destination = file("build/reports/detekt.xml")
+//      }
+//      html {
+//        enabled = true
+//        destination = file("build/reports/detekt.html")
+//      }
+//    }
+//
+//    setSource(
+//      files(
+//        "src/main/java",
+//        "src/main/kotlin",
+//        "src/test/java",
+//        "src/test/kotlin"
+//      )
+//    )
+//  }
 
 
-  spotless {
-    java {
-      googleJavaFormat("1.12.0").aosp().reflowLongStrings()
-      importOrder()
-      removeUnusedImports()
+    // ------------------------------------------------------
+    // -- Debugging SourceSets
+    // ------------------------------------------------------
+    //TODO: make a groovy version of this task for debugging legacy stuff at work
+    /**
+     * Debugging helper task
+     *
+     * Prints classpath and runtime classpath for current module (gradle project)
+     */
+    task("printSourceSetInfo") {
+        doLast {
 
-      target(
-        "src/*/java/**/*.java"
-      )
+            println("sourceSets.main: ${sourceSets.main::class.java}")
 
-      targetExclude(
-        "src/gen/**",
-        "src/genTest/**"
-      )
+            // sourceSets: org.gradle.api.tasks.SourceSetContainer
+            println("SourceSets: count=${sourceSets.size}")
+
+            for (sourceSet: org.gradle.api.tasks.SourceSet in sourceSets) {
+
+                // sourceSet: org.gradle.api.internal.file.collections.DefaultConfigurableFileCollection
+                println("sourceSet.name: ${sourceSet.name}")
+
+                // -- classpaths
+                println("Compile classpath: fileCount=${sourceSet.compileClasspath.files.size}")
+                for ((index, file) in sourceSet.compileClasspath.files.withIndex()) {
+                  println("Compile[$index]: $file")
+                }
+
+                println("Runtime classpath: fileCount=${sourceSet.runtimeClasspath.files.size}")
+                for ((index, file) in sourceSet.runtimeClasspath.files.withIndex()) {
+                  println("Runtime[$index]: $file")
+                }
+
+                // -- output
+                // DefaultSourceSetOutput
+                //  println("sourceSet.output: ${sourceSet.output}")
+
+                println("")
+            }
+        }
     }
-  }
+
 
   pmd {
     isConsoleOutput = true
@@ -835,79 +943,6 @@ subprojects {
   }
 
 //  apply(from = "${rootDir}/gradle/aaa.gradle.kts")
-
-    tasks.withType<ShadowJar>() {
-        append("application.properties")
-
-        archiveBaseName.set("app")
-        archiveClassifier.set("") // removes "-all" suffix from jar name
-        archiveVersion.set("")    // removes version from jar name
-
-        configurations = listOf(project.configurations.compileClasspath.get())
-
-        dependencies {
-            //      exclude(dependency(group=))
-        }
-
-        //duplicatesStrategy = DuplicatesStrategy.FAIL
-        duplicatesStrategy = DuplicatesStrategy.WARN
-
-        manifest {
-            attributes["Main-Class"] = "com.galaxy.swapdealer.EntryPoint"
-        }
-
-        mergeServiceFiles()
-
-        exclude("*.bin")
-        exclude("*.css")
-        exclude("*.dtd")
-        exclude("*.htm")
-        exclude("*.java")
-        exclude("*.proto")
-        exclude("*.xsd")
-        exclude("application-data-viz-server.properties")
-        exclude("com/sun/el/*")
-        exclude("dependencies.properties")
-        exclude("dependency-reduced-pom.xml")
-        exclude("drools.*.properties")
-        exclude("ecj.1")
-        exclude("functions.properties")
-        exclude("Log4j-charsets.properties")
-        exclude("log4j2.springboot")
-        exclude("META-INF/*.DSA")
-        exclude("META-INF/*.json")
-        exclude("META-INF/*.kotlin_module")
-        exclude("META-INF/*.properties")
-        exclude("META-INF/*.RSA")
-        exclude("META-INF/*.SF")
-        exclude("META-INF/*.versions")
-        exclude("META-INF/*android*")
-        exclude("META-INF/*android*/**")
-        exclude("META-INF/*DEPENDENCIES*")
-        exclude("META-INF/*LICENSE*")
-        exclude("META-INF/*license*")
-        exclude("META-INF/*native*")
-        exclude("META-INF/*NOTICE*")
-        exclude("META-INF/*notice*")
-        exclude("META-INF/*version*")
-        exclude("META-INF/*VERSION*")
-        exclude("META-INF/com.android.tools/**")
-        exclude("META-INF/INDEX.LIST")
-        exclude("META-INF/MANIFEST.MF")
-        exclude("META-INF/maven/**")
-        exclude("META-INF/native*/**")
-        exclude("META-INF/native/**")
-        exclude("META-INF/org/apache/**")
-        exclude("META-INF/proguard/**")
-        exclude("META-INF/versions/**")
-        exclude("module-info.class")
-        exclude("mozilla/**")
-        exclude("onnxops.json")
-        exclude("storage.v1.json")
-        exclude("XMLPULL_1_1_3_1_VERSION")
-        exclude("XPP3_1.1.4c_MIN_VERSION")
-    }
-
 
 
     dependencies {
