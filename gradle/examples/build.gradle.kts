@@ -917,15 +917,14 @@ subprojects {
         // testCompileOnly("org.projectlombok:lombok")
         // testAnnotationProcessor("org.projectlombok:lombok")
 
-
         implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310")
-        implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
         implementation("com.lmax:disruptor")
         implementation("org.apache.logging.log4j:log4j-api")
-        implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-        implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core")
 
         // -- if using kotlin
+        implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
+        implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+        implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core")
         implementation(kotlin("stdlib"))
         implementation(kotlin("stdlib-jdk8"))
 
