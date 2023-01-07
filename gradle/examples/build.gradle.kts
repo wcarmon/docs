@@ -1,3 +1,4 @@
+/* if using kotlin */
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 allprojects {
@@ -39,7 +40,7 @@ plugins {
   /** Fat jar */
   id("com.github.johnrengelman.shadow") version "7.1.2" apply false
 
-  /** bootRun task */
+  /** bootRun task, if using spring */
   id("org.springframework.boot") version "2.7.0" apply false
 
   /** javafx */
@@ -72,11 +73,11 @@ subprojects {
   version = "0.1.0-SNAPSHOT"
 
   java {
-    // TODO: use 17
     sourceCompatibility = JavaVersion.VERSION_17
     targetCompatibility = JavaVersion.VERSION_17
   }
 
+  /* if using kotlin */
   val compileKotlin: KotlinCompile by tasks
   val compileTestKotlin: KotlinCompile by tasks
 
@@ -123,6 +124,7 @@ subprojects {
     }
   }
 
+  /* if using kotlin */
   // https://github.com/JetBrains/kotlin/blob/master/libraries/tools/kotlin-gradle-plugin/src/main/kotlin/org/jetbrains/kotlin/gradle/dsl/KotlinCompile.kt
   tasks.withType<KotlinCompile>().configureEach {
     kotlinOptions {
@@ -147,7 +149,7 @@ subprojects {
   tasks.withType<JavaCompile>().configureEach {
     // See -Xlint options: https://docs.oracle.com/en/java/javase/11/tools/javac.html#GUID-AEEC9F07-CB49-4E96-8BC7-BCC2C7F725C9
 
-    options.isDebug = false
+    options.isDebug = true  // -g:{lines,vars,source}, fixes Unknown Source problem
     options.isFailOnError = true
     options.isFork = true
     options.isIncremental = true
@@ -156,7 +158,7 @@ subprojects {
 //    options.compilerArgs = listOf("-Xlint")
 //    options.compilerArgs = listOf("-XprintProcessorInfo") // annotation info
 //    options.forkOptions.javaHome = file(java11Home)
-//    options.release.set(11)
+//    options.release.set(17)
   }
 
   // See https://detekt.github.io/detekt/gradle.html#kotlin-dsl-3
@@ -834,71 +836,134 @@ subprojects {
 
 //  apply(from = "${rootDir}/gradle/aaa.gradle.kts")
 
-  tasks.withType<ShadowJar> {
+    tasks.withType<ShadowJar>() {
+        append("application.properties")
 
-    configurations = listOf(project.configurations.compileClasspath.get())
+        archiveBaseName.set("app")
+        archiveClassifier.set("") // removes "-all" suffix from jar name
+        archiveVersion.set("")    // removes version from jar name
 
-    duplicatesStrategy = DuplicatesStrategy.FAIL
+        configurations = listOf(project.configurations.compileClasspath.get())
+
+        dependencies {
+            //      exclude(dependency(group=))
+        }
+
+        //duplicatesStrategy = DuplicatesStrategy.FAIL
+        duplicatesStrategy = DuplicatesStrategy.WARN
+
+        manifest {
+            attributes["Main-Class"] = "com.galaxy.swapdealer.EntryPoint"
+        }
+
+        mergeServiceFiles()
+
+        exclude("*.bin")
+        exclude("*.css")
+        exclude("*.dtd")
+        exclude("*.htm")
+        exclude("*.java")
+        exclude("*.proto")
+        exclude("*.xsd")
+        exclude("application-data-viz-server.properties")
+        exclude("com/sun/el/*")
+        exclude("dependencies.properties")
+        exclude("dependency-reduced-pom.xml")
+        exclude("drools.*.properties")
+        exclude("ecj.1")
+        exclude("functions.properties")
+        exclude("Log4j-charsets.properties")
+        exclude("log4j2.springboot")
+        exclude("META-INF/*.DSA")
+        exclude("META-INF/*.json")
+        exclude("META-INF/*.kotlin_module")
+        exclude("META-INF/*.properties")
+        exclude("META-INF/*.RSA")
+        exclude("META-INF/*.SF")
+        exclude("META-INF/*.versions")
+        exclude("META-INF/*android*")
+        exclude("META-INF/*android*/**")
+        exclude("META-INF/*DEPENDENCIES*")
+        exclude("META-INF/*LICENSE*")
+        exclude("META-INF/*license*")
+        exclude("META-INF/*native*")
+        exclude("META-INF/*NOTICE*")
+        exclude("META-INF/*notice*")
+        exclude("META-INF/*version*")
+        exclude("META-INF/*VERSION*")
+        exclude("META-INF/com.android.tools/**")
+        exclude("META-INF/INDEX.LIST")
+        exclude("META-INF/MANIFEST.MF")
+        exclude("META-INF/maven/**")
+        exclude("META-INF/native*/**")
+        exclude("META-INF/native/**")
+        exclude("META-INF/org/apache/**")
+        exclude("META-INF/proguard/**")
+        exclude("META-INF/versions/**")
+        exclude("module-info.class")
+        exclude("mozilla/**")
+        exclude("onnxops.json")
+        exclude("storage.v1.json")
+        exclude("XMLPULL_1_1_3_1_VERSION")
+        exclude("XPP3_1.1.4c_MIN_VERSION")
+    }
+
+
 
     dependencies {
-//      exclude(dependency(group=))
-    }
-  }
+        // -- if using lombok
+        // compileOnly("org.projectlombok:lombok")
+        // annotationProcessor("org.projectlombok:lombok")
+        // testCompileOnly("org.projectlombok:lombok")
+        // testAnnotationProcessor("org.projectlombok:lombok")
 
 
-  dependencies {
-    // -- if using lombok
-    // compileOnly("org.projectlombok:lombok")
-    // annotationProcessor("org.projectlombok:lombok")
-    // testCompileOnly("org.projectlombok:lombok")
-    // testAnnotationProcessor("org.projectlombok:lombok")
+        implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310")
+        implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
+        implementation("com.lmax:disruptor")
+        implementation("org.apache.logging.log4j:log4j-api")
+        implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+        implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core")
 
+        // -- if using kotlin
+        implementation(kotlin("stdlib"))
+        implementation(kotlin("stdlib-jdk8"))
 
-    implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310")
-    implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
-    implementation("com.lmax:disruptor")
-    implementation("org.apache.logging.log4j:log4j-api")
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core")
+        testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
+        testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 
-    implementation(kotlin("stdlib"))
-    implementation(kotlin("stdlib-jdk8"))
-
-    testImplementation("com.fasterxml.jackson.module:jackson-module-kotlin")
-    testImplementation("com.github.javafaker:javafaker")
-    testImplementation("com.konghq:unirest-java")
-    testImplementation("com.konghq:unirest-objectmapper-jackson")
-    testImplementation("com.squareup.okhttp3:logging-interceptor")
-    testImplementation("com.squareup.okhttp3:okhttp")
-    testImplementation("io.javalin:javalin")
-    testImplementation("io.mockk:mockk")
-    testImplementation("io.opentracing:opentracing-mock")
-    testImplementation("io.opentracing:opentracing-noop")
-    testImplementation("jakarta.servlet:jakarta.servlet-api")
-    testImplementation("org.apache.commons:commons-compress")
-    testImplementation("org.apache.commons:commons-lang3")
-    testImplementation("org.apache.commons:commons-text")
-    testImplementation("org.apache.logging.log4j:log4j-api")
-    testImplementation("org.awaitility:awaitility")
-    testImplementation("org.awaitility:awaitility-kotlin")
-    testImplementation("org.junit.jupiter:junit-jupiter-api")
-    testImplementation("org.junit.jupiter:junit-jupiter-engine")
-    testImplementation("org.junit.jupiter:junit-jupiter-params")
-    testImplementation("org.mockito:mockito-inline")
-    testImplementation("org.springframework:spring-test")
-    testImplementation("org.testcontainers:elasticsearch")
-    testImplementation("org.testcontainers:junit-jupiter")
-    testImplementation("org.testcontainers:kafka")
-    testImplementation("org.testcontainers:mariadb")
-    testImplementation("org.testcontainers:mockserver")
-    testImplementation("org.testcontainers:mongodb")
-    testImplementation("org.testcontainers:mysql")
-    testImplementation("org.testcontainers:oracle-xe")
-    testImplementation("org.testcontainers:postgresql")
-    testImplementation("org.testcontainers:testcontainers")
-    testImplementation("org.yaml:snakeyaml")
-
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
-    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+        testImplementation("com.fasterxml.jackson.module:jackson-module-kotlin")
+        testImplementation("com.github.javafaker:javafaker")
+        testImplementation("com.konghq:unirest-java")
+        testImplementation("com.konghq:unirest-objectmapper-jackson")
+        testImplementation("com.squareup.okhttp3:logging-interceptor")
+        testImplementation("com.squareup.okhttp3:okhttp")
+        testImplementation("io.javalin:javalin")
+        testImplementation("io.mockk:mockk")
+        testImplementation("io.opentracing:opentracing-mock")
+        testImplementation("io.opentracing:opentracing-noop")
+        testImplementation("jakarta.servlet:jakarta.servlet-api")
+        testImplementation("org.apache.commons:commons-compress")
+        testImplementation("org.apache.commons:commons-lang3")
+        testImplementation("org.apache.commons:commons-text")
+        testImplementation("org.apache.logging.log4j:log4j-api")
+        testImplementation("org.awaitility:awaitility")
+        testImplementation("org.awaitility:awaitility-kotlin")
+        testImplementation("org.junit.jupiter:junit-jupiter-api")
+        testImplementation("org.junit.jupiter:junit-jupiter-engine")
+        testImplementation("org.junit.jupiter:junit-jupiter-params")
+        testImplementation("org.mockito:mockito-inline")
+        testImplementation("org.springframework:spring-test")
+        testImplementation("org.testcontainers:elasticsearch")
+        testImplementation("org.testcontainers:junit-jupiter")
+        testImplementation("org.testcontainers:kafka")
+        testImplementation("org.testcontainers:mariadb")
+        testImplementation("org.testcontainers:mockserver")
+        testImplementation("org.testcontainers:mongodb")
+        testImplementation("org.testcontainers:mysql")
+        testImplementation("org.testcontainers:oracle-xe")
+        testImplementation("org.testcontainers:postgresql")
+        testImplementation("org.testcontainers:testcontainers")
+        testImplementation("org.yaml:snakeyaml")
   }
 }
