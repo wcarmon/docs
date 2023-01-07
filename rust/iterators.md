@@ -38,13 +38,22 @@
 1. GOTCHA: Iterators/Adapters don't work when your closure/lambda uses [`?` operator](./errors.md)
     1. Must return [`Result<T, E>`]((https://doc.rust-lang.org/std/result/)), not `T`
 1. GOTCHA: `.iter()` adds an extra level of indirection: like `&&v`
+1. `.iter()` creates a new struct to iterate the collection
+    1. [BTreeSet example](https://doc.rust-lang.org/stable/src/alloc/collections/btree/set.rs.html#1156)
+    1. [HashSet example](https://doc.rust-lang.org/src/std/collections/hash/set.rs.html#198)
+    1. [Vec example](https://doc.rust-lang.org/src/core/slice/mod.rs.html#735)
 
 
 # [`IntoIterator`](https://doc.rust-lang.org/std/iter/trait.IntoIterator.html) trait
+1. **Moves** the collection into an iterator
 1. For converting something into an [`Iterator`](https://doc.rust-lang.org/std/iter/trait.Iterator.html)
 1. Has 1 method: [`into_iter()`](https://doc.rust-lang.org/std/iter/trait.IntoIterator.html#tymethod.into_iter)
     1. Consumes/takes ownership of iterator
 1. implementing [`IntoIterator`](https://doc.rust-lang.org/std/iter/trait.IntoIterator.html) allows your type to work with [for loops](https://doc.rust-lang.org/std/iter/index.html#for-loops-and-intoiterator)
+    1. [For loop uses `into_iter()`](https://doc.rust-lang.org/std/iter/index.html#for-loops-and-intoiterator)
+    1. you cannot iterate a collection twice because the first time moves
+    1. Solution-A: you can borrow the collection multiple times: `for v in &my_collection {...}`
+    1. Solution-B: you can use `.iter()`: [`for v in my_collection.iter() {`](https://doc.rust-lang.org/std/iter/index.html#iterating-by-reference)
 1. Core collections tend to impl [`IntoIterator`](https://doc.rust-lang.org/std/iter/trait.IntoIterator.html) 3 times,
     1. once for owned (`T`)
     1. once for borrowed (`&T`)
@@ -56,16 +65,30 @@
 #[derive(Clone, Debug, Default, Eq, Hash, PartialEq)]
 pub struct MyFancyStuff(BTreeSet<String>);
 
+// allow owned iteration
 impl IntoIterator for MyFancyStuff {
     type Item = String;
-    type IntoIter = <BTreeSet<String> as IntoIterator>::IntoIter;
+    type IntoIter = <BTreeSet<Self::Item> as IntoIterator>::IntoIter;
 
+    // into_iter takes ownership of the iterator
     fn into_iter(self) -> Self::IntoIter {
         self.0.into_iter()
     }
 }
-```
 
+// allow borrowed iteration
+impl<'a> IntoIterator for &'a MyFancyStuff {
+    type Item = String;
+    type IntoIter = <BTreeSet<Self::Item> as IntoIterator>::IntoIter;
+
+    // into_iter takes ownership of the iterator
+    fn into_iter(self) -> Self::IntoIter {
+        // clone is cheap, give them their own
+        self.0.clone().into_iter()
+    }
+}
+
+```
 
 
 # [`FromIterator`](https://doc.rust-lang.org/std/iter/trait.FromIterator.html) trait
@@ -74,11 +97,14 @@ impl IntoIterator for MyFancyStuff {
 
 # [Adapters](https://doc.rust-lang.org/std/iter/index.html#adapters)
 1. Adapters are "chainable" functions
+1. Adapters are Higher-order functions (functions that accept a function)
+1. In other places, these are called [Combinators](https://doc.rust-lang.org/reference/glossary.html#combinator)
 1. Don't panic, return a [`Result`](https://doc.rust-lang.org/std/result/)
 1. Adapters are lazy
 1. Similar to [RxJs](https://rxjs.dev/api/operators), [RxJava `Observable`](https://reactivex.io/RxJava/3.x/javadoc/io/reactivex/rxjava3/subjects/BehaviorSubject.html), [Reactor `Flux`](https://projectreactor.io/docs/core/release/api/reactor/core/publisher/Flux.html), [Java `Stream`](https://docs.oracle.com/en/java/javase/18/docs/api/java.base/java/util/stream/Stream.html), [lodash operators](https://lodash.com/docs/4.17.15#map) operators
     1. Visual guides: [js based](https://res.cloudinary.com/practicaldev/image/fetch/s--sYEjzdnw--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/i/sr8koff729gxcvpnoty6.jpeg), [C# based](https://csharpcorner-mindcrackerinc.netdna-ssl.com/article/simplify-map-reduce-and-filter-in-typescript/Images/map_filter_reduce.png), ...
 1. See more adapters in [itertools](https://docs.rs/itertools/latest/itertools)
+
 
 |Adapter/fn|Purpose|Stream size after `fn`|Type after `fn`|
 |--- |--- |---|---|
