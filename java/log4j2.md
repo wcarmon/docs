@@ -133,7 +133,7 @@ dependencies {
     // -- To forward other log statements (logging bridge)
     // -- See https://logging.apache.org/log4j/2.x/faq.html#missing_core
     // -- See https://www.slf4j.org/legacy.html
-    implementation("org.apache.logging.log4j:log4j-jcl:2.19.0") // apache commons logging -> log4j2 impl    
+    //implementation("org.apache.logging.log4j:log4j-jcl:2.19.0") // apache commons logging -> log4j2 impl
     implementation("org.apache.logging.log4j:log4j-jul:2.19.0") // java.util.Logging -> log4j2 impl
               
     ...
