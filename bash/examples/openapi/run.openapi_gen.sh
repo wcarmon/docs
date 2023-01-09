@@ -25,8 +25,10 @@ readonly SCRIPTS_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")")
 # ---------------------------------------------
 # -- Config
 # ---------------------------------------------
-readonly APP_CONFIG_FILE=$PARENT_DIR/docs/openapi/example.openapi.yaml
-readonly OPENAPI_IMAGE="openapitools/openapi-generator-cli:v6.2.1"
+readonly APP_CONFIG_FILE=$PARENT_DIR/docs/openapi/example.openapi.json
+
+#GOTCHA: 6.2.1 is buggy with $ref
+readonly OPENAPI_IMAGE="openapitools/openapi-generator-cli:v6.1.0"
 readonly OUTPUT_DIR=$PARENT_DIR/build/openapi
 
 # See https://openapi-generator.tech/docs/generators#documentation-generators
