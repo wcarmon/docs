@@ -12,6 +12,7 @@ for i in {1..4}
 do
 	echo "|--- Iteration #${i} of 4";
 	find . -type d -empty -exec rmdir {} \;
+done
 ```
 
 
