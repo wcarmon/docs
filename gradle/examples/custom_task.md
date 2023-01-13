@@ -5,6 +5,7 @@
 
 # Custom task
 ```kts
+// Run: ./gradlew properties -q
 
 // Run: ./gradlew printStuff -q
 tasks.register("printStuff") {
