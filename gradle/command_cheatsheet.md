@@ -157,5 +157,16 @@ rm -rf $HOME/.gradle/caches/modules-2/files-2.1/*
 ```
 
 
+# Custom task
+```kts
+// Run: ./gradlew properties -q
+
+// Run: ./gradlew printStuff -q
+tasks.register("printStuff") {
+    println(System.getProperty("java.home"))
+}
+```
+
+
 # Other Resources
 1. TODO...
