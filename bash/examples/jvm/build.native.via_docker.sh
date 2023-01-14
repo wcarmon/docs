@@ -74,10 +74,10 @@ time $DOCKER run \
   -jar input.jar \
   /app/output/app.bin
 
-<<DEBUG
+<< 'DEBUG_NATIVE_IMAGE'
 IMAGE=ghcr.io/graalvm/native-image:muslib-ol9-java17-22.3.0-b2;
-PROJECT_DIR=/home/wcarmon/git-repos/modern-jvm/chrono-javafx-v3
-NATIVE_IMAGE_INPUT_JAR=app.uber.jar
+PROJECT_DIR=/home/wcarmon/git-repos/modern-jvm/chrono-javafx-v3;
+NATIVE_IMAGE_INPUT_JAR=app.uber.jar;
 
 docker run \
   --entrypoint /bin/bash \
@@ -88,7 +88,7 @@ docker run \
   $IMAGE;
 
 docker inspect $IMAGE;
-DEBUG
+DEBUG_NATIVE_IMAGE
 
 
 # TODO: test binary on alpine (where it will run)
