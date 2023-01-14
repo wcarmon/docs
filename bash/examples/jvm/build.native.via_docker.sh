@@ -74,6 +74,17 @@ time $DOCKER run \
   -jar input.jar \
   /app/output/app.bin
 
+# -- Fix permissions
+readonly MY_UID=$(id -u)
+readonly MY_GID=$(id -g)
+
+$DOCKER run \
+  --rm \
+  -v $PROJECT_DIR/build/native_image:/tmp:rw \
+  alpine:3.17 \
+  /bin/sh -c "chown -vR $MY_UID:$MY_GID /tmp"
+
+
 << 'DEBUG_NATIVE_IMAGE'
 IMAGE=ghcr.io/graalvm/native-image:muslib-ol9-java17-22.3.0-b2;
 PROJECT_DIR=/home/wcarmon/git-repos/modern-jvm/chrono-javafx-v3;
