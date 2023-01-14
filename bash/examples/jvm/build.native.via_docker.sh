@@ -84,6 +84,10 @@ $DOCKER run \
   alpine:3.17 \
   /bin/sh -c "chown -vR $MY_UID:$MY_GID /tmp"
 
+# -- delete useless files
+rm -f $PROJECT_DIR/build/native_image/app.bin.build_artifacts.txt
+rm -f $PROJECT_DIR/build/native_image/app.bin.o
+
 
 << 'DEBUG_NATIVE_IMAGE'
 IMAGE=ghcr.io/graalvm/native-image:muslib-ol9-java17-22.3.0-b2;
