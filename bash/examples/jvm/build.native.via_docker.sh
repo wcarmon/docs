@@ -113,5 +113,9 @@ DEBUG_NATIVE_IMAGE
 # ---------------------------------------------
 # -- Report
 # ---------------------------------------------
+echo
+echo "|-- See Jars in $PROJECT_DIR/build/libs"
 ls -hlt $PROJECT_DIR/build/libs/*.jar;
+
+echo "|-- See linux binary in $PROJECT_DIR/build/native_image"
 ls -hlt $PROJECT_DIR/build/native_image/app*;
