@@ -53,7 +53,7 @@
     let x_ref = &x; 
     let bx: Box<MyImpl> = Box::new(x_ref.clone());
     ```
-1. `Idiom`: `fn` should  accept `&T` and return `Rc<T>`
+1. `Idiom`: `fn` should  accept `&T` and return `Box<T>`
     ```rust 
     fn whatever() {    
         let bx: Box<dyn MyTrait> = Box::new(MyImpl {});        
@@ -121,6 +121,7 @@
 ## [`Arc`](https://doc.rust-lang.org/std/sync/struct.Arc.html)
 1. Useful for safely sharing ownership across threads (immutably)
 1. Useful for `dyn` Traits
+1. `&` is simpler than `Arc`, but only works across threads when **All** members are Sync/Send
 1. `Intuition`:
     1. a threadsafe [`Rc`](https://doc.rust-lang.org/std/rc/struct.Rc.html)
     1. a shared, threadsafe [`Box`](https://doc.rust-lang.org/std/boxed/struct.Box.html) with runtime safety enforcement
@@ -271,6 +272,7 @@
 - ~~`Box<Mutex<T>>`~~: cannot alias, so threadsafe mutation is pointless
 - ~~`Box<RefCell<T>>`~~: TODO
 - ~~`Box<RwLock<T>>`~~: cannot alias, so threadsafe mutation is pointless
+
 
 # TODO/Unorganized
 - TODO: combination: `&Cell<T>`
