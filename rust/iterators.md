@@ -23,8 +23,36 @@
 1. a `fn` should *accept* [`IntoIterator`](https://doc.rust-lang.org/std/iter/trait.IntoIterator.html)
     1. Allows passing [`Vec<T>`](https://doc.rust-lang.org/std/vec/struct.Vec.html#), [`HashSet<T>`](https://doc.rust-lang.org/std/collections/struct.HashSet.html), [`BTreeSet<T>`](https://doc.rust-lang.org/std/collections/struct.BTreeSet.html#), ...
 1. a `fn` should *return* [`FromIterator`](https://doc.rust-lang.org/std/iter/trait.FromIterator.html)
+
+
+## Error handling idioms
 1. Error handling for [`Result`](https://doc.rust-lang.org/std/result/)s in failable operations
-    1. See https://doc.rust-lang.org/rust-by-example/error/iter_result.html
+    1. Other approaches: https://doc.rust-lang.org/rust-by-example/error/iter_result.html
+
+### Approach-1:
+1. in [`.map`](https://doc.rust-lang.org/std/iter/struct.Map.html) (or similar) return [`Result`](https://doc.rust-lang.org/std/result/)
+1. Final step in iter chain: `.collect::<Result<Vec<_>, anyhow::Error>>()?`
+    or `.collect::<Result<Vec<_>, anyhow::Error>>()?.join("...")`
+1. [`Result::collect`](https://doc.rust-lang.org/std/result/#collecting-into-result) will fail-fast on first `Err`
+```rust
+let values = vec![1, 2, 3]
+    .into_iter()
+    .map(|x| something_failable(x))
+    .collect::<Vec<_>, anyhow::Error>()?;
+```
+
+
+### Approach-2:
+1. in [`.map`](https://doc.rust-lang.org/std/iter/struct.Map.html) (or similar) return [`Result`](https://doc.rust-lang.org/std/result/)
+1. Use [`.collect()`](https://doc.rust-lang.org/std/result/#collecting-into-result) as final step to produce `Result`
+1. assign to variable with type `Result<Vec<_>, _>`
+1. Use `?` operator after assigning result
+```rust
+let result: Result<Vec<_>, anyhow::Error> = vec![1, 2, 3]
+    .into_iter()
+    .map(|x| something_failable(x))
+    .collect();
+```
 
 
 # [`Iterator`](https://doc.rust-lang.org/std/iter/trait.Iterator.html) trait
