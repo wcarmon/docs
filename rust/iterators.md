@@ -51,7 +51,7 @@ let values = vec![1, 2, 3]
 ```rust
 let result: Result<Vec<_>, anyhow::Error> = vec![1, 2, 3]
     .into_iter()
-    .map(|x| something_failable(x))
+    .map(|x| something_failable(x))  // <-- return a Result
     .collect();
 
 let values = result?;
