@@ -25,7 +25,7 @@
 1. Click `Configure SSO` button
 1. Click `Authorize`
 1. Attempt to push to a repo on github
-    1. user: `john.smith@company.com`
+    1. user: `john.smith@company.com` (or your github user name)
     1. pass: `<your-token>`
 
 
