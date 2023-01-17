@@ -29,20 +29,21 @@
 1. Error handling for [`Result`](https://doc.rust-lang.org/std/result/)s in failable operations
     1. Other approaches: https://doc.rust-lang.org/rust-by-example/error/iter_result.html
 
-### Approach-1:
+### Error handling Approach #1:
 1. in [`.map`](https://doc.rust-lang.org/std/iter/struct.Map.html) (or similar) return [`Result`](https://doc.rust-lang.org/std/result/)
-1. Final step in iter chain: `.collect::<Result<Vec<_>, anyhow::Error>>()?`
-    or `.collect::<Result<Vec<_>, anyhow::Error>>()?.join("...")`
-1. [`Result::collect`](https://doc.rust-lang.org/std/result/#collecting-into-result) will fail-fast on first `Err`
+1. Final step in `iter` chain is [`collect`](https://doc.rust-lang.org/std/result/#collecting-into-result) with [turbofish](https://techblog.tonsser.com/posts/what-is-rusts-turbofish):
+    - eg. `.collect::<Result<Vec<_>, anyhow::Error>>()?`
+    - eg. `.collect::<Result<Vec<_>, anyhow::Error>>()?.join("...")`
+    - [`Result::collect`](https://doc.rust-lang.org/std/result/#collecting-into-result) will [auto fail-fast on first `Err`](https://doc.rust-lang.org/std/result/enum.Result.html#impl-FromIterator%3CResult%3CA%2C%20E%3E%3E-for-Result%3CV%2C%20E%3E)
 ```rust
 let values = vec![1, 2, 3]
     .into_iter()
-    .map(|x| something_failable(x))
+    .map(|x| something_failable(x))  // <-- return a Result
     .collect::<Vec<_>, anyhow::Error>()?;
 ```
 
 
-### Approach-2:
+### Error handling Approach #2:
 1. in [`.map`](https://doc.rust-lang.org/std/iter/struct.Map.html) (or similar) return [`Result`](https://doc.rust-lang.org/std/result/)
 1. Use [`.collect()`](https://doc.rust-lang.org/std/result/#collecting-into-result) as final step to produce `Result`
 1. assign to variable with type `Result<Vec<_>, _>`
@@ -52,6 +53,9 @@ let result: Result<Vec<_>, anyhow::Error> = vec![1, 2, 3]
     .into_iter()
     .map(|x| something_failable(x))
     .collect();
+
+let values = result?;
+...
 ```
 
 
