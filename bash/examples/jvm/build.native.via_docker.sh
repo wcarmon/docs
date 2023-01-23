@@ -49,9 +49,10 @@ readonly PROJ_ROOT="$PARENT_DIR"
 cd "$PROJ_ROOT" >/dev/null 2>&1
 mkdir -p $OUTPUT_DIR;
 
+rm -rf $OUTPUT_DIR/*.o;
+rm -rf $OUTPUT_DIR/*.txt;
+rm -rf $OUTPUT_DIR/app*;
 
-mkdir -p ./build/native_image;
-rm -rf ./build/native_image/*;
 
 # NOTE: /bin/native-image
 # NOTE: working dir: /app
