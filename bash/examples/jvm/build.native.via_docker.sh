@@ -63,6 +63,7 @@ rm -rf $OUTPUT_DIR/app*;
 #   OpenJDK 64-Bit Server VM GraalVM CE 22.3.0 (build 17.0.5+8-jvmci-22.3-b08, mixed mode, sharing)
 #
 # See options here: https://www.graalvm.org/22.0/reference-manual/native-image/Options/#options-to-native-image-builder
+# GOTCHA: macos M1 chip requires: --platform linux/amd64
 #
 time $DOCKER run \
   --name native-image-builder \
