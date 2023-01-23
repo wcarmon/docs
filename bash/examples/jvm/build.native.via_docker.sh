@@ -6,7 +6,6 @@
 # -- Assumptions
 # -- 1. previously built uber-jar
 # -- 2. docker installed
-# --
 # ---------------------------------------------
 #set -x # uncomment to debug script
 set -e # exit on first error
