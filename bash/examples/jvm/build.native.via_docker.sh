@@ -3,8 +3,9 @@
 # ---------------------------------------------
 # -- Builds native image via docker
 # --
-# --
-# -- TODO: assumptions
+# -- Assumptions
+# -- 1. previously built uber-jar
+# -- 2. docker installed
 # --
 # ---------------------------------------------
 #set -x # uncomment to debug script
@@ -29,10 +30,10 @@ readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
 # -- See https://github.com/graalvm/container/pkgs/container/native-image
 readonly NATIVE_IMAGE_DOCKER_IMAGE=ghcr.io/graalvm/native-image:muslib-ol9-java17-22.3.0-b2
 
-# Relative to $PROJECT_DIR/build/libs/
+# Relative to $PROJ_ROOT/build/libs/
 readonly NATIVE_IMAGE_INPUT_JAR=app.uber.jar
 
-
+readonly OUTPUT_DIR="$PARENT_DIR/build/native_image"
 
 # ---------------------------------------------
 # -- Derived
@@ -66,8 +67,8 @@ rm -rf ./build/native_image/*;
 time $DOCKER run \
   --name native-image-builder \
   --rm \
-  -v $PROJECT_DIR/build/libs/$NATIVE_IMAGE_INPUT_JAR:/app/input.jar:ro \
-  -v $PROJECT_DIR/build/native_image:/app/output:rw \
+  -v $PROJ_ROOT/build/libs/$NATIVE_IMAGE_INPUT_JAR:/app/input.jar:ro \
+  -v $PROJ_ROOT/build/native_image:/app/output:rw \
   $NATIVE_IMAGE_DOCKER_IMAGE \
   --static \
   --libc=musl \
@@ -80,26 +81,25 @@ readonly MY_GID=$(id -g)
 
 $DOCKER run \
   --rm \
-  -v $PROJECT_DIR/build/native_image:/tmp:rw \
+  -v $PROJ_ROOT/build/native_image:/tmp:rw \
   alpine:3.17 \
   /bin/sh -c "chown -vR $MY_UID:$MY_GID /tmp"
 
 # -- delete useless files
-rm -f $PROJECT_DIR/build/native_image/app.bin.build_artifacts.txt
-rm -f $PROJECT_DIR/build/native_image/app.bin.o
+rm -f $PROJ_ROOT/build/native_image/app.bin.build_artifacts.txt
+rm -f $PROJ_ROOT/build/native_image/app.bin.o
 
 
 << 'DEBUG_NATIVE_IMAGE'
 IMAGE=ghcr.io/graalvm/native-image:muslib-ol9-java17-22.3.0-b2;
-PROJECT_DIR=/home/wcarmon/git-repos/modern-jvm/chrono-javafx-v3;
 NATIVE_IMAGE_INPUT_JAR=app.uber.jar;
 
 docker run \
   --entrypoint /bin/bash \
   --rm \
   -it \
-  -v $PROJECT_DIR/build/libs/$NATIVE_IMAGE_INPUT_JAR:/app/input.jar:ro \
-  -v $PROJECT_DIR/build/native_image:/app/output:rw \
+  -v $PROJ_ROOT/build/libs/$NATIVE_IMAGE_INPUT_JAR:/app/input.jar:ro \
+  -v $PROJ_ROOT/build/native_image:/app/output:rw \
   $IMAGE;
 
 docker inspect $IMAGE;
@@ -114,9 +114,9 @@ DEBUG_NATIVE_IMAGE
 # -- Report
 # ---------------------------------------------
 echo
-echo "|-- See Jars in $PROJECT_DIR/build/libs"
-ls -hlt $PROJECT_DIR/build/libs/*.jar;
+echo "|-- See Jars in $PROJ_ROOT/build/libs"
+ls -hlt $PROJ_ROOT/build/libs/*.jar;
 
 echo
-echo "|-- See linux binary in $PROJECT_DIR/build/native_image"
-ls -hlt $PROJECT_DIR/build/native_image/app*;
+echo "|-- See linux binary in $PROJ_ROOT/build/native_image"
+ls -hlt $PROJ_ROOT/build/native_image/app*;
