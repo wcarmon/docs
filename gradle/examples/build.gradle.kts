@@ -104,7 +104,10 @@ subprojects {
         create("intTest") {
             compileClasspath += sourceSets.main.get().output
             compileClasspath += sourceSets.test.get().compileClasspath
+            compileClasspath += sourceSets.test.get().output
+
             runtimeClasspath += sourceSets.main.get().output
+            runtimeClasspath += sourceSets.test.get().output
             runtimeClasspath += sourceSets.test.get().runtimeClasspath
         }
     }
