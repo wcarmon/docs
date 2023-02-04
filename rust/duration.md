@@ -15,6 +15,7 @@
 1. [Golang equivalent](https://pkg.go.dev/time#Duration)
 1. [JVM equivalent](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Duration.html)
 1. [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations)
+1. Internally stored as [seconds + nanos](https://doc.rust-lang.org/stable/src/core/time.rs.html#86)
 
 
 # Construct

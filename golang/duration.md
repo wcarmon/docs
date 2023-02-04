@@ -11,6 +11,7 @@
 1. [Rust equivalent](https://doc.rust-lang.org/stable/std/time/struct.Duration.html)
 1. [JVM equivalent](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Duration.html)
 1. [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations)
+1. Internally stored as [nanos](https://pkg.go.dev/time#Duration)
 
 
 ## `Period`
