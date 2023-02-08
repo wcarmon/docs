@@ -48,7 +48,7 @@ tracing-subscriber = "..."
 1. Compatible with [tokio](https://tokio.rs/)
 1. [Has convenient macros](https://docs.rs/tracing/latest/tracing/#macros)
 1. Sometimes unintuitive
-    1. eg. https://docs.rs/tracing-core/0.1.30/tracing_core/trait.Subscriber.html#tymethod.record 
+    1. eg. https://docs.rs/tracing-core/0.1.30/tracing_core/trait.Subscriber.html#tymethod.record
 1. Non-standard (compared to OpenTelemetry which works across coding languages)
 1. Different [span lifecycle](https://docs.rs/tracing/latest/tracing/span/index.html#the-span-lifecycle) than [OpenTelemetry](TODO)
 1. Includes thread attributes by default
@@ -74,7 +74,7 @@ let jaeger_tracer = opentelemetry_jaeger::new_agent_pipeline()
 let jaeger_layer = tracing_opentelemetry::layer().with_tracer(jaeger_tracer);
 
 // -- Write to local console
-let console_layer = tracing_subscriber::fmt::layer() 
+let console_layer = tracing_subscriber::fmt::layer()
     .with_writer(std::io::stderr)
     .with_filter(LevelFilter::INFO);
 
@@ -111,9 +111,9 @@ tracing::subscriber::set_global_default(subscriber);
 
     // in case you didn't have a reference
     // tracing::Span::current() has reference to last entered span (on this thread)
-    let current_span = Span::current(); 
+    let current_span = Span::current();
 
-    // manually set parent span 
+    // manually set parent span
     //TODO: verify
     let _ = info_span!(parent: span.id(), "foo_bar");
 
@@ -149,7 +149,7 @@ fn do_something(foo: &str) -> anyhow::Result<String> {
 
 # Attributes
 ## record extra span attributes (after span created)
-1. 32 fields/attributes max 
+1. 32 fields/attributes max
 - TODO: add attributes using record: https://docs.rs/tracing/latest/tracing/span/struct.Span.html#method.record
 - TODO: must use `tracing::field::Empty`: https://docs.rs/tracing/latest/tracing/#recording-fields
 - TODO: silent failure for attributes that aren't predefined
@@ -184,9 +184,9 @@ info!(dd = %foo1, "whatever") // use fmt::Display
 info!(ee = ?foo2, "something") // use fmt::Debug
 ```
 1. `?` sigil prefix means record with [`fmt::Debug`](https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html)
-1. `%` prefix means record with [`fmt::Display`](https://doc.rust-lang.org/nightly/core/fmt/trait.Display.html)  
+1. `%` prefix means record with [`fmt::Display`](https://doc.rust-lang.org/nightly/core/fmt/trait.Display.html)
 
-    
+
 ## Recording errors
 ```
 error!(err = ?some_err, "failed to ...")
@@ -210,8 +210,8 @@ error!(err = ?some_err, "failed to ...")
 root_span.exit();
 
 // -- Give the last span time to report to Jaeger
-sleep(Duration::from_millis(300));
-
+//sleep(Duration::from_millis(300));
+opentelemetry::global::shutdown_tracer_provider();
 ```
 
 # Propagation (child function within process)
@@ -252,7 +252,7 @@ fn outer() -> Result<(), anyhow::Error> {
 1. `tracing::Span::new_with(...)` ([src in `tracing`](https://github.com/tokio-rs/tracing/blob/master/tracing/src/span.rs#L433))
 1. [`tracing::Dispatch::new_span(...)`](https://docs.rs/tracing/latest/tracing/struct.Dispatch.html#method.new_span) ([src in `tracing-core`](https://github.com/tokio-rs/tracing/blob/tracing-subscriber-0.3.16/tracing-core/src/dispatcher.rs#L532))
     1. thin wrapper around [`Subscriber`](https://docs.rs/tracing/latest/tracing/subscriber/trait.Subscriber.html)
-    1. returns new [`tracing::Id`](TODO)    
+    1. returns new [`tracing::Id`](TODO)
 1. [`Subscriber::new_span(...)`](https://docs.rs/tracing/latest/tracing/trait.Subscriber.html#tymethod.new_span) ([src in`tracing-core`](https://github.com/tokio-rs/tracing/blob/tracing-subscriber-0.3.16/tracing-core/src/subscriber.rs#L807))
     1. seems like they are renaming to "Collector"
 1. `Layered::new_span(...)` as [`Subscriber`](https://docs.rs/tracing/latest/tracing/subscriber/trait.Subscriber.html) ([src in `tracing-subscriber`](https://github.com/tokio-rs/tracing/blob/master/tracing-subscriber/src/subscribe/layered.rs#L126))
