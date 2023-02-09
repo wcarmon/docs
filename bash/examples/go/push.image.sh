@@ -9,6 +9,7 @@
 # -- 3. This file is executed by CI tool (eg. Jenkins, GitHub Actions)
 # -- 4. Image already built locally (see ./build.image.sh)
 # -- 5. awscli or gcloud (or equivalent) is installed
+# --     - brew install awscli
 # -- 6. cli tool & docker authenticated with Image registry
 # --    AWS:
 # --      - Previously ran `aws configure`
@@ -65,7 +66,8 @@ readonly IMAGE_REPO_URI=ecr.us-east-1.amazonaws.com
 #readonly IMAGE_REPO_URI=us-east1-docker.pkg.dev/foo-bar
 
 # AWS:
-#  - See the name in ECR
+#  - See the name in ECR console
+#  - See https://console.aws.amazon.com/ecr/repositories
 #
 # Google cloud:
 #  - gcloud artifacts repositories list
