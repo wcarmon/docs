@@ -86,7 +86,7 @@ if [ "$(echo $TAG_NUMBERED)" = "" ]; then
 fi
 
 # ---------------------------------------------
-# -- Authenticate
+# -- Authenticate with Image registry
 # ---------------------------------------------
 #$GCLOUD auth \
 #  configure-docker \

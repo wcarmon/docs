@@ -25,17 +25,17 @@ readonly SCRIPTS_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")")
 # ---------------------------------------------
 # -- Config
 # ---------------------------------------------
+# $PROJ_ROOT/src/go.mod file must exist
+readonly PROJ_ROOT="$PARENT_DIR"
+
 # Relative to dir containing go.mod file
 readonly CMD_PACKAGE=./cmd/run-server/...
 
-# Relative to $PROJ_ROOT
-readonly CONFIG_FILE=./app.conf.toml
+readonly CONFIG_FILE=$PROJ_ROOT/app.conf.toml
 
 # ---------------------------------------------
 # -- Derived
 # ---------------------------------------------
-# $PROJ_ROOT/src/go.mod file must exist
-readonly PROJ_ROOT="$PARENT_DIR"
 
 # ---------------------------------------------
 # -- Validate
@@ -47,4 +47,4 @@ readonly PROJ_ROOT="$PARENT_DIR"
 cd "$PROJ_ROOT/src" >/dev/null 2>&1
 
 #TODO: pass the dir for config files
-$GO run $CMD_PACKAGE $PROJ_ROOT/$CONFIG_FILE
+$GO run $CMD_PACKAGE $CONFIG_FILE

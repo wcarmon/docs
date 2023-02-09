@@ -101,7 +101,7 @@ if [ "$(echo $TAG_NUMBERED)" = "" ]; then
 fi
 
 # ---------------------------------------------
-# -- Authenticate
+# -- Authenticate with Image registry
 # ---------------------------------------------
 echo
 echo "|-- Logging into image registry thru Docker ..."
@@ -122,6 +122,7 @@ aws \
 # ---------------------------------------------
 # -- Push
 # ---------------------------------------------
+# GOTCHA: if you re-push the same tag, the old image is marked as <Untagged>
 echo
 echo "|-- Related local images:"
 $DOCKER image ls -a | grep ${QUALIFIED_IMAGE_NAME} | sort
@@ -129,6 +130,10 @@ $DOCKER image ls -a | grep ${QUALIFIED_IMAGE_NAME} | sort
 echo
 echo "|-- Pushing Image: $IMAGE_TO_PUSH"
 $DOCKER push $IMAGE_TO_PUSH
+
+# Cleanup Jenkins images
+#$DOCKER rmi ${QUALIFIED_IMAGE_NAME}:${TAG_NUMBERED}
+#$DOCKER rmi ${QUALIFIED_IMAGE_NAME}:${TAG_LATEST}
 
 # ---------------------------------------------
 # -- Report
