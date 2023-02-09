@@ -33,6 +33,9 @@ readonly SCRIPTS_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")")
 # ---------------------------------------------
 # -- Config
 # ---------------------------------------------
+# semver: https://semver.org/
+# eg. "1.2" or "4.5.6"
+readonly SEMVER=$1
 
 # ---------------------------------------------
 # -- Derived
@@ -45,6 +48,9 @@ readonly SCRIPTS_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")")
 # ---------------------------------------------
 # -- Debug CI env
 # ---------------------------------------------
+# env
+# docker --version
+# git log -1 --format="%H at %ci"
 
 # ---------------------------------------------
 # -- Enable scripts
@@ -60,6 +66,6 @@ $SCRIPTS_DIR/test.via_docker.sh
 
 $SCRIPTS_DIR/lint.sh
 
-$SCRIPTS_DIR/build.image.sh
+$SCRIPTS_DIR/build.image.sh ${SEMVER}
 
 $SCRIPTS_DIR/push.image.sh ${SEMVER}
