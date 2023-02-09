@@ -6,6 +6,9 @@
 # -- Assumptions:
 # -- 1. protoc installed:
 #       - https://developers.google.com/protocol-buffers/docs/gotutorial#compiling-your-protocol-buffers
+# -- 2. protoc-gen-go installed:
+#     go install google.golang.org/protobuf/cmd/protoc-gen-go@v1.28
+#     go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1.2
 # ---------------------------------------------
 #set -x # uncomment to debug script
 set -e # exit on first error
