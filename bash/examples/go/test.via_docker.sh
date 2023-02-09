@@ -48,6 +48,8 @@ echo
 echo "|-- Running tests in ${PROJ_ROOT}/src"
 
 # NOTE: if you have dependency protos, mount the dir volume here
+#-v /home/wcarmon/git-repos/go/.../foo-common:/usr/foo-common:ro \
+
 # NOTE: if you have a custom cert:
 #    -v "${CERT_FILE}":/usr/local/share/ca-certificates/extra.crt \
 $DOCKER run \

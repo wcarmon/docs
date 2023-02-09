@@ -86,9 +86,12 @@ cd "$PROJ_ROOT" >/dev/null 2>&1
 echo
 echo "|-- [Debian] Cross compiling.  sources: $PROJ_ROOT"
 
+# NOTE: Add a volume for any package referenced with a `replace` in go.mod
+
 # NOTE: if you have dependency protos, mount the dir volume here
 # NOTE: if you have a custom certificate, mount the volume here
 #  eg.  -v "${CERT_FILE}":/usr/local/share/ca-certificates/extra.crt:ro \
+
 $DOCKER run \
   --rm \
   -v "${ABSOLUTE_OUTPUT_DIR}":/output:rw \
@@ -143,8 +146,11 @@ $DOCKER run \
 # -- Build for Alpine
 # ---------------------------------------------
 # NOTE: if you have dependency protos, mount the dir volume here
+# eg. -v /home/myself/git-repos/go/foo-common:/usr/foo-common:ro \
+
 # NOTE: mount volume for cert if required
 #  eg.  -v "${CERT_FILE}":/usr/local/share/ca-certificates/extra.crt:ro \
+
 $DOCKER run \
   --rm \
   -v "${ABSOLUTE_OUTPUT_DIR}":/output:rw \

@@ -29,6 +29,10 @@ time (
   #$SCRIPTS_DIR/build.protobuf.sh
 
   $SCRIPTS_DIR/format.native.sh
+
+  # For Generated Dependency (eg. codegen)
+  #$HOME/git-repos/go/.../scripts/fix-imports.native.sh
+
   #$SCRIPTS_DIR/fix-imports.native.sh
 
   echo
@@ -51,5 +55,6 @@ time (
   echo
   echo "|-- [Phase: Deploy]"
   $SCRIPTS_DIR/push.image.sh "${APP_SEMVER}"
-  # ... deploy pushed image to cloud provider
+  #$SCRIPTS_DIR/deploy.aws.ec3.sh "${APP_SEMVER}"
+  #$SCRIPTS_DIR/deploy.google.cloudrun.sh "${APP_SEMVER}"
 )

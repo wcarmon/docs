@@ -70,6 +70,10 @@ readonly PROJ_ROOT="$PARENT_DIR"
 # -- Generate dependencies
 # ---------------------------------------------
 #TODO: if you depend on other protos, build them here
+#echo ""
+#echo "|-- Building dependent protos"
+#readonly COMMON_PROTOS_BUILDER=$(readlink -f "$PARENT_DIR/../foo-common/scripts/build.protobuf.sh")
+#$COMMON_PROTOS_BUILDER
 
 # ---------------------------------------------
 # -- Generate
