@@ -6,20 +6,17 @@
 # -- Assumptions:
 # -- 1. Docker installed: https://docs.docker.com/get-docker/
 # -- 2. Docker Image repository exists (eg. AWS ECR, Google Artifact Registry)
-# -- 3. Image already built locally (see ./build.image.sh)
-# -- 4. awscli or gcloud (or equivalent) is installed
-# -- 5. cli tool authenticated with cloud provider
+# -- 3. This file is executed by CI tool (eg. Jenkins, GitHub Actions)
+# -- 4. Image already built locally (see ./build.image.sh)
+# -- 5. awscli or gcloud (or equivalent) is installed
+# -- 6. cli tool & docker authenticated with Image registry
 # --    AWS:
 # --      - Previously ran `aws configure`
 # --    GCloud:
 # --      - create `config.json` via `gcloud auth configure-docker us-east1-docker.pkg.dev`:
 # --      - https://cloud.google.com/artifact-registry/docs/docker/pushing-and-pulling
-# -- 6. Docker can login to image registry
-# --    AWS:
-# --    - TODO
-# --    GCloud:
-# --    - `gcloud components install docker-credential-gcr`
-# --    - `ln -sv ... $HOME/bin/`
+# --      - `gcloud components install docker-credential-gcr`
+# --      - `ln -sv ... $HOME/bin/`
 # ---------------------------------------------
 #set -x # uncomment to debug script
 set -e # exit on first error

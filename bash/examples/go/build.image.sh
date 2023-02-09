@@ -49,13 +49,13 @@ readonly TAG_SUFFIX="-go"
 #   - Format: HOST-NAME/PROJECT-ID
 #   - eg. "us-east1-docker.pkg.dev/my-project-id"
 #   - See https://console.cloud.google.com/artifacts
-readonly IMAGE_REPO_URI=ecr.us-east-1.amazonaws.com
-#readonly IMAGE_REPO_URI=us-east1-docker.pkg.dev/foo-bar
+readonly IMAGE_REPO_URI="ecr.us-east-1.amazonaws.com"
+#readonly IMAGE_REPO_URI="us-east1-docker.pkg.dev/foo-bar"
 
 
 # AWS:  TODO
 # Google cloud: gcloud artifacts repositories list
-readonly REPOSITORY_NAME=my-github-project
+readonly REPOSITORY_NAME="my-github-project"
 
 # ---------------------------------------------
 # -- Derived
