@@ -43,7 +43,23 @@ readonly SCRIPTS_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")")
 # ---------------------------------------------
 
 # ---------------------------------------------
-# -- Build
+# -- Debug CI env
 # ---------------------------------------------
 
-#TODO: more here
+# ---------------------------------------------
+# -- Enable scripts
+# ---------------------------------------------
+chmod +x $SCRIPTS_DIR/*.sh
+
+# ---------------------------------------------
+# -- Build & Push
+# ---------------------------------------------
+cd $PARENT_DIR >/dev/null 2>&1
+
+$SCRIPTS_DIR/test.via_docker.sh
+
+$SCRIPTS_DIR/lint.sh
+
+$SCRIPTS_DIR/build.image.sh
+
+$SCRIPTS_DIR/push.image.sh ${SEMVER}
