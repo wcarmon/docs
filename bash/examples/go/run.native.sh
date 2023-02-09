@@ -26,7 +26,7 @@ readonly SCRIPTS_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")")
 # -- Config
 # ---------------------------------------------
 # Relative to dir containing go.mod file
-readonly CMD_PACKAGE=./cmd/run-server
+readonly CMD_PACKAGE=./cmd/run-server/...
 
 # Relative to $PROJ_ROOT
 readonly CONFIG_FILE=./app.conf.toml

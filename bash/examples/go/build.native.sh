@@ -28,7 +28,7 @@ readonly WIRE=$(which wire)
 # -- Config
 # ---------------------------------------------
 # Relative to dir containing go.mod file
-readonly CMD_PACKAGE=./cmd/run-server
+readonly CMD_PACKAGE=./cmd/run-server/...
 
 readonly OUTPUT_BINARY_NAME=foo-service
 

@@ -27,7 +27,7 @@ readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
 # NOTE: all paths relative to $PROJ_ROOT
 
 # See https://hub.docker.com/_/golang?tab=tags
-readonly GOLANG_DEBIAN_IMAGE=golang:1.19.0-bullseye
+readonly GOLANG_DEBIAN_IMAGE=golang:1.20.0-bullseye
 
 # ---------------------------------------------
 # -- Derived
