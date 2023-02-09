@@ -29,13 +29,13 @@ readonly SCRIPTS_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")")
 # ---------------------------------------------
 # -- Script arguments
 # ---------------------------------------------
+# semver: https://semver.org/
+# eg. "1.2" or "4.5.6"
+readonly SEMVER=$1
 
 # ---------------------------------------------
 # -- Config
 # ---------------------------------------------
-# semver: https://semver.org/
-# eg. "1.2" or "4.5.6"
-readonly SEMVER=$1
 
 # ---------------------------------------------
 # -- Derived
