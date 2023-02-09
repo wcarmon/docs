@@ -57,7 +57,6 @@ readonly IMAGE_REPO_URI=ecr.us-east-1.amazonaws.com
 # Google cloud: gcloud artifacts repositories list
 readonly REPOSITORY_NAME=my-github-project
 
-
 # ---------------------------------------------
 # -- Derived
 # ---------------------------------------------
@@ -66,7 +65,6 @@ readonly QUALIFIED_IMAGE_NAME="${IMAGE_REPO_URI}/${REPOSITORY_NAME}/${SHORT_IMAG
 
 readonly TAG_LATEST="latest${TAG_SUFFIX}"
 readonly TAG_NUMBERED="${SEMVER}${TAG_SUFFIX}"
-
 
 # ---------------------------------------------
 # -- Validate
@@ -77,7 +75,6 @@ if [ "$(echo $TAG_NUMBERED)" = "" ]; then
   echo "Error: tag must have a value"
   exit 10
 fi
-
 
 # ---------------------------------------------
 # -- Build

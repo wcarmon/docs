@@ -15,6 +15,7 @@ set -u # fail on unset var
 # -- Constants
 # ---------------------------------------------
 readonly DOCKER=$(which docker)
+readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
 
 # ---------------------------------------------
 # -- Script arguments
@@ -36,6 +37,8 @@ readonly IMAGE=myorg/foo:latest
 # ---------------------------------------------
 # -- Run
 # ---------------------------------------------
+# NOTE: mount volume for cert if required
+#  eg.  -v "${CERT_FILE}":/usr/local/share/ca-certificates/extra.crt:ro \
 $DOCKER run \
   --rm \
   -it \

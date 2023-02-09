@@ -37,7 +37,6 @@ echo
 echo "|-- Images before Delete:"
 $DOCKER images -a
 
-
 $DOCKER images -a |
   grep -i $IMAGE_PATTERN |
   awk '{print $3}' |
