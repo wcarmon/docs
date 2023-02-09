@@ -25,7 +25,7 @@ readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
 # -- Config
 # ---------------------------------------------
 # See https://hub.docker.com/r/golangci/golangci-lint/tags
-readonly GOLANGCI_IMAGE=golangci/golangci-lint:v1.48-alpine
+readonly GOLANGCI_IMAGE=golangci/golangci-lint:v1.51-alpine
 #readonly GOLANGCI_IMAGE=golangci/golangci-lint:v1.46.2
 
 # See https://hub.docker.com/r/returntocorp/semgrep
@@ -88,6 +88,7 @@ $DOCKER run \
     golangci-lint run ./... \
     --color auto \
     --concurrency 4 \
+    --config /app/.golangci.yml \
     --max-same-issues 5 \
     --print-linter-name \
     --sort-results \
