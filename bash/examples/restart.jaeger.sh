@@ -28,7 +28,7 @@ readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
 readonly JAEGER_IMAGE="jaegertracing/all-in-one:1.42"
 
 #GOTCHA: -d is cross platform, --directory is not
-#readonly TEMP_DIR=$(mktemp -d)
+readonly TEMP_DIR=$(mktemp -d)
 
 readonly JAEGER_CONTAINER_NAME="jaeger"
 
@@ -105,4 +105,4 @@ $DOCKER ps --filter="name=$JAEGER_CONTAINER_NAME"
 echo
 echo
 echo "|-- Jaeger UI: http://localhost:16686"
-echo "|-- Badger storage: $TEMP_DIR"
+#echo "|-- Badger storage: $TEMP_DIR"
