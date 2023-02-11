@@ -4,10 +4,11 @@
 
 
 # Closures
-1. A function pointer and a **context**
+1. Closure: A function pointer and a **context**
+    - A function which captures its Environment
 1. *For contrast*: pure functions (`fn`) are just a [function pointer](https://doc.rust-lang.org/std/primitive.fn.html) (no context)
 1. Closures can steal
-    - TODO: more here
+    - TODO: more here (`move`)
 1. Closures can borrow
     - TODO: more here
 
