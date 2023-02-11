@@ -17,7 +17,7 @@ fn wrap_in_parallel(inputs: &Vec<Quux>) -> Result<Vec<Foo>, MyError> {
     let parent = tracing::info_span!("some_nice_operation").entered();
     let parent_cx = parent.context();
 
-    let (results_tx, results_rx) = crossbeam::channel::bounded(input.len());
+    let (results_tx, results_rx) = crossbeam::channel::bounded(inputs.len());
 
     //TODO: do I need prelude
     rayon::scope(move |sc| {
