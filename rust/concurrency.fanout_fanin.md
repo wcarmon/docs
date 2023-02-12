@@ -7,6 +7,10 @@
 1. Works with tracing (propagates for Jaeger)
 1. Uses [crossbeam::channel](https://docs.rs/crossbeam/latest/crossbeam/channel/index.html)
 ```rust
+// -- Required for span.context() and span.set_parent(...)
+use tracing_opentelemetry::OpenTelemetrySpanExt;
+
+
 fn do_something_for_one_input(input: &Quux) -> Result<Foo, MyError> {
     // do something with the input, return result
 }
@@ -15,6 +19,8 @@ fn do_something_for_one_input(input: &Quux) -> Result<Foo, MyError> {
 fn wrap_in_parallel(inputs: &Vec<Quux>) -> Result<Vec<Foo>, MyError> {
 
     let parent = tracing::info_span!("some_nice_operation").entered();
+
+    // -- See https://docs.rs/tracing-opentelemetry/latest/tracing_opentelemetry/trait.OpenTelemetrySpanExt.html#tymethod.context
     let parent_cx = parent.context();
 
     let (results_tx, results_rx) = crossbeam::channel::bounded(inputs.len());
@@ -29,8 +35,10 @@ fn wrap_in_parallel(inputs: &Vec<Quux>) -> Result<Vec<Foo>, MyError> {
 
             sc.spawn(move |_| {
                 let span = tracing::debug_span!("parallel_thread").entered();
+
+                // -- See https://docs.rs/tracing-opentelemetry/latest/tracing_opentelemetry/trait.OpenTelemetrySpanExt.html#tymethod.set_parent
                 span.set_parent(parent_cx);
-                
+
                 let res = do_something_for_one_input(&input);
 
                 results_tx.send(res).expect("should not fail on send")
