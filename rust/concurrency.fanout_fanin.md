@@ -27,7 +27,6 @@ fn wrap_in_parallel(inputs: &Vec<Quux>) -> Result<Vec<Foo>, MyError> {
 
     let (results_tx, results_rx) = crossbeam::channel::bounded(inputs.len());
 
-    //TODO: do I need prelude
     rayon::scope(move |sc| {
         let parent_cx = parent_cx; // closure
 
@@ -36,7 +35,7 @@ fn wrap_in_parallel(inputs: &Vec<Quux>) -> Result<Vec<Foo>, MyError> {
             let parent_cx = parent_cx.clone();
 
             sc.spawn(move |_| {
-                let span = tracing::debug_span!("parallel_thread").entered();
+                let span = debug_span!("parallel_thread").entered();
 
                 // -- See https://docs.rs/tracing-opentelemetry/latest/tracing_opentelemetry/trait.OpenTelemetrySpanExt.html#tymethod.set_parent
                 span.set_parent(parent_cx);
@@ -49,8 +48,8 @@ fn wrap_in_parallel(inputs: &Vec<Quux>) -> Result<Vec<Foo>, MyError> {
     });
 
     let mut outputs = Vec::with_capacity(inputs.len());
-    for results in results_rx {
-        match results {
+    for result in results_rx {
+        match result {
             Ok(value) => outputs.push(value),
             Err(e) => {
                 error!("failed to load ... ref: {e:?}");
