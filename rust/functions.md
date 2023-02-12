@@ -28,3 +28,6 @@
 # Other Resources
 1. https://medium.com/swlh/understanding-closures-in-rust-21f286ed1759
 1. https://doc.rust-lang.org/nomicon/hrtb.html
+1. https://teh-cmc.github.io/rust-async/html/chapter_1/closures.html
+1. https://huonw.github.io/blog/2015/05/finding-closure-in-rust/
+1. https://doc.rust-lang.org/book/ch13-01-closures.html
