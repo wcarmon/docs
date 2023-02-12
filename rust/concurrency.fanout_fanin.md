@@ -20,7 +20,9 @@ fn wrap_in_parallel(inputs: &Vec<Quux>) -> Result<Vec<Foo>, MyError> {
 
     let parent = tracing::info_span!("some_nice_operation").entered();
 
-    // -- See https://docs.rs/tracing-opentelemetry/latest/tracing_opentelemetry/trait.OpenTelemetrySpanExt.html#tymethod.context
+    // -- For Span::context, See: https://docs.rs/tracing-opentelemetry/latest/tracing_opentelemetry/trait.OpenTelemetrySpanExt.html#tymethod.context
+    // -- For opentelemetry::Context, See: https://docs.rs/opentelemetry/latest/opentelemetry/struct.Context.html
+    // --       opentelemetry::Context wraps a Map<u64, Arc<Send+Sync>>
     let parent_cx = parent.context();
 
     let (results_tx, results_rx) = crossbeam::channel::bounded(inputs.len());
