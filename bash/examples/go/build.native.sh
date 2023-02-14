@@ -69,6 +69,7 @@ rm -vf $ABSOLUTE_OUTPUT_DIR/${OUTPUT_BINARY_NAME}*.exe
 mkdir -p "$ABSOLUTE_OUTPUT_DIR"
 
 cd "$PROJ_ROOT/src" >/dev/null 2>&1
+$GO version
 $GO mod tidy
 
 # -- TODO: If you use protobuf, run build.protobuf.sh here:

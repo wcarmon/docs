@@ -110,6 +110,7 @@ $DOCKER run \
   echo
   echo '|-- [Debian] Downloading dependencies ...'
 
+  go version;
   go mod download;
   go mod tidy;
   go install github.com/google/wire/cmd/wire@latest;
