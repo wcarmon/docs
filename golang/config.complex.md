@@ -132,7 +132,7 @@ func NewConfig(osArgs OSArgs) (*appConf, error) {
 	return &c, err
 }
 
-// maybe move to conf.validate.go
+// maybe move to conf_model.go
 func (c appConf) Validate() error {
 	if strings.TrimSpace(c.InputPath) == "" {
 		return errors.New("inputPath is required")
