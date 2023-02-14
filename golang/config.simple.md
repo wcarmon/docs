@@ -38,6 +38,20 @@ type appConf struct {
 	// TODO: Align with toml config file structure
 }
 
+// maybe move to conf_model.go
+func (c appConf) Validate() error {
+	if strings.TrimSpace(c.InputPath) == "" {
+		return errors.New("inputPath is required")
+	}
+
+	if strings.TrimSpace(c.OutputPath) == "" {
+		return errors.New("outputPath is required")
+	}
+
+	// TODO: do other validation here
+
+	return nil
+}
 
 // Use os.Args
 // Simplifies dependency injection
@@ -108,20 +122,6 @@ func NewConfig(osArgs OSArgs) (*appConf, error) {
 	return &c, err
 }
 
-// maybe move to conf_model.go
-func (c appConf) Validate() error {
-	if strings.TrimSpace(c.InputPath) == "" {
-		return errors.New("inputPath is required")
-	}
-
-	if strings.TrimSpace(c.OutputPath) == "" {
-		return errors.New("outputPath is required")
-	}
-
-	// TODO: do other validation here
-
-	return nil
-}
 
 // Pass os.Args
 func setPathConfigForViper(v *viper.Viper, osArgs OSArgs) error {
