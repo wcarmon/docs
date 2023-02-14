@@ -46,6 +46,97 @@ go mod tidy
 - TODO: embed UnimplementedFoo
 - TODO: implement methods on Foo interface
 
+## Construct Objects (eg. for Dependency Injection)
+```go
+type ListenerAddr string
+
+func NewListenerAddr(defaultPort uint16) ListenerAddr {
+	// Google Cloud Run sets this
+	port := os.Getenv("PORT")
+	if strings.TrimSpace(port) == "" {
+		return ListenerAddr(fmt.Sprintf(":%d", defaultPort))
+	}
+
+	return ListenerAddr(fmt.Sprintf(":%v", port))
+}
+
+func NewListener(addr ListenerAddr) (net.Listener, error) {
+	lis, err := net.Listen("tcp", string(addr))
+	if err != nil {
+		zap.L().Error("failed to listen on address",
+			zap.Error(err),
+			zap.String("listenAddr", string(addr)),
+		)
+
+		return nil, err
+	}
+
+	return lis, nil
+}
+
+func NewServerOptions(unaryInterceptor grpc.UnaryServerInterceptor) []grpc.ServerOption {
+	var opts []grpc.ServerOption
+
+	// TODO: set timeouts here
+	// TODO: set buffer sizes here
+	// opts = append(opts, grpc.MaxRecvMsgSize(1024*1024*10))
+
+	opts = append(opts, grpc.UnaryInterceptor(unaryInterceptor))
+	return opts
+}
+
+func NewServer(opts []grpc.ServerOption) *grpc.Server {
+	return grpc.NewServer(opts...)
+}
+
+
+func NewService(
+	conf *appConf,
+	databaseClient *SomeConnection,
+) (*service.FooBarService, error) {
+	svc := &service.FooBarService{
+		UnimplementedAPIServer: api.UnimplementedAPIServer{},
+		conn:                   SomeConnection,
+		jwtConf:                conf.JWT,
+		Clock: func() time.Time {
+			return time.Now().UTC()
+		},
+	}
+
+	err := svc.Validate()
+	if err != nil {
+		zap.L().Error("failed to validate FooBar service", zap.Error(err))
+		return nil, err
+	}
+
+	return svc, nil
+}
+```
+
+
+## Example `main.go`
+```go
+package main
+
+func main() {
+
+	api.RegisterAPIServer(appObjects.server, appObjects.service)
+
+	zap.L().Info("starting grpc server",
+		zap.String("listenAddr", ":8080"),
+	)
+
+	// -- blocking
+	err = app.server.Serve(appObjects.listener) // some net.Listener
+	if err != nil {
+		zap.L().Error("failed to run server", zap.Error(err))
+		os.Exit(20)
+	}
+}
+
+```
+
+
 # GZip Compression
 1. Import encoding/gzip package (for side effects)
 ```go
