@@ -168,7 +168,7 @@ func (c *appConf) setDefaults() {
 // 1. path to app.conf.toml file
 func main() {
 
-	// TODO: setup zerolog here
+	// TODO: setup zap here
 
 	// TODO: if using wire, make this a provider instead
 	// and add wire.Value(OSArgs(os.Args))
