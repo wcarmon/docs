@@ -12,26 +12,35 @@ import (
 	"path/filepath"
 )
 
-const defaultConfigFilePath = "app.conf.toml"
-const configFileType = "toml"
+const (
+	configFileType        = "toml"
+	defaultConfigFilePath = "app.conf.toml"
+)
 
-// structure mirrors the config toml file
+// maybe move to conf_model.go
+// keep structure aligned with app.conf.toml
 type appConf struct {
 
-    // GOTCHA: unexported fields are ignored by viper/mapstructure
+	// GOTCHA: unexported fields are ignored by viper/mapstructure
 
 	// debug, info, warn, error
-	LogLevel   string
+	LogLevel string `toml:"logLevel"`
 
-	InputPath  string
-	OutputPath string
+	InputPath  string `toml:"inputPath"`
+	OutputPath string `toml:"outputPath"`
+
+	JWT struct {
+		Issuer          string `toml:"issuer"`
+		MaxAgeInMinutes int    `toml:"maxAgeInMinutes"`
+		SharedKey       string `toml:"sharedKey"`
+	} `toml:"jwt"`
 
 	// TODO: Align with toml config file structure
 }
 
 
-// os.Args
-// Helps simplify dependency injection
+// Use os.Args
+// Simplifies dependency injection
 type OSArgs []string
 
 
