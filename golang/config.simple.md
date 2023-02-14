@@ -174,10 +174,11 @@ func main() {
 	// and add wire.Value(OSArgs(os.Args))
 	cfg, err := NewConfig(os.Args)
 	if err != nil {
-		log.Error().
-			Err(err).
-			Str("cfg", fmt.Sprintf("%#v", cfg)).
-			Msg("failed to parse config")
+	    zap.L().Error("failed to parse config",
+	        zap.Err(err),
+	        zap.String("cfg", fmt.Sprintf("%#v", cfg)),
+        )
+
 		os.Exit(1)
 	}
 
