@@ -175,7 +175,7 @@ func main() {
 	cfg, err := NewConfig(os.Args)
 	if err != nil {
 	    zap.L().Error("failed to parse config",
-	        zap.Err(err),
+	        zap.Error(err),
 	        zap.String("cfg", fmt.Sprintf("%#v", cfg)),
         )
 

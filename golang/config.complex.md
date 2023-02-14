@@ -75,10 +75,7 @@ func NewConfig(osArgs OSArgs) (*appConf, error) {
 		osArgs,
 		configSearchDirs)
 	if err != nil {
-	    log.Error().
-	        Err(err).
-	        Caller().
-	        Msg("failed to init viper")
+		zap.L().Error("failed to init viper", zap.Error(err))
 
 		return nil, err
 	}
@@ -93,10 +90,7 @@ func NewConfig(osArgs OSArgs) (*appConf, error) {
 	// -- Parse config
 	err = v.ReadInConfig()
 	if err != nil {
-	    log.Error().
-	        Err(err).
-	        Caller().
-	        Msg("failed to read config using viper")
+		zap.L().Error("failed to read config using viper", zap.Error(err))
 
 		return nil, err
 	}
@@ -118,10 +112,7 @@ func NewConfig(osArgs OSArgs) (*appConf, error) {
 	// -- Store into config struct
 	err = v.Unmarshal(&c, extraViperConfig)
 	if err != nil {
-	    log.Error().
-	        Err(err).
-	        Caller().
-	        Msg("failed to unmarshal config")
+		zap.L().Error("failed to unmarshal config", zap.Error(err))
 
 		return nil, err
 	}
@@ -129,11 +120,10 @@ func NewConfig(osArgs OSArgs) (*appConf, error) {
 	// -- Validate
 	err = c.Validate()
 	if err != nil {
-		log.Error().
-			Err(err).
-			Caller().
-			Str("config", fmt.Sprintf("%#v", c)).
-			Msg("Config is invalid")
+		zap.L().Error("invalid config",
+			zap.Error(err),
+			zap.String("config", fmt.Sprintf("%#v", c)),
+		)
 
 		return nil, err
 	}
@@ -215,10 +205,11 @@ func main() {
     // and add wire.Value(OSArgs(os.Args))
 	cfg, err := NewConfig(os.Args)
 	if err != nil {
-		log.Error().
-			Err(err).
-			Str("cfg", fmt.Sprintf("%#v", cfg)).
-			Msg("failed to parse config")
+	    zap.L().Error("failed to parse config",
+	        zap.Error(err),
+	        zap.String("cfg", fmt.Sprintf("%#v", cfg)),
+        )
+
 		os.Exit(1)
 	}
 
