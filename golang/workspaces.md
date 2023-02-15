@@ -5,7 +5,8 @@
 
 
 # Key Concepts
-1. Workspaces allow code to access packages in other (local) modules
+1. Workspaces allow code to access packages in other **local** modules
+1. Only use workspaces when a local depends on another local module (eg. during development)
 1. Workspaces obsolete [replace](https://go.dev/ref/mod#go-mod-file-replace) directives in go.mod
 1. Workspaces obsolete `GOPATH`
 
