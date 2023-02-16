@@ -30,6 +30,7 @@
     1. eg. Generics and Associated Types
     1. eg. Iterators when you need [`.map`](https://doc.rust-lang.org/std/iter/struct.Map.html) returns an [`Result`](https://doc.rust-lang.org/std/result/)
     1. eg. Error handling, particularly across libraries, and when using [serde](https://serde.rs/)
+    1. eg. Traits with overlapping applicability like [`Deref`](https://doc.rust-lang.org/std/ops/trait.Deref.html), [Borrow](https://doc.rust-lang.org/std/borrow/trait.Borrow.html), and [AsRef](https://doc.rust-lang.org/std/convert/trait.AsRef.html)
 1. Too big to fit in your head all at once (Compared to Golang, Core Java, Core Python, ...)
     1. Better than c++ though :-)
 1. HTTP is very hard if you want anything more than the basics
