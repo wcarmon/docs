@@ -26,7 +26,7 @@
 1. "Sometimes" file-names and module-names are associated (eg `mod foo` must be in `foo.rs`)
 1. Not many jobs (as ov 2023), compared to Golang, Java, Python
 1. Complexity (or "nuance")
-    1. eg. Compare Rust strings to Golang, Java, Python, ...
+    1. eg. Rust strings compared to Golang, Java, Python, ...
     1. eg. Generics and Associated Types
     1. eg. Iterators when you need [`.map`](https://doc.rust-lang.org/std/iter/struct.Map.html) returns an [`Result`](https://doc.rust-lang.org/std/result/)
     1. eg. Error handling, particularly across libraries, and when using [serde](https://serde.rs/)
