@@ -42,9 +42,18 @@
     1. Example: Read thru the docs for Future & Poll
 1. [`match`](https://doc.rust-lang.org/rust-by-example/flow_control/match.html) creates excessive nesting
     1. Things like [if-let](https://doc.rust-lang.org/rust-by-example/flow_control/if_let.html) mitigate somewhat
+1. Cross compiling from linux container with target of Mac M1 chips (compare to Go, Java, Python, ...)
+    - Probably more of an issue with apple requiring xcode
+    - See https://godot-rust.github.io/book/gdnative/export/macosx.html
+    - See https://wapl.es/rust/2019/02/17/rust-cross-compile-linux-to-macos.html
 1. (Serde) custom Deserializer [is REALLY hard](https://serde.rs/impl-deserialize.html)
     1. compare with Golang [`UnmarshalJSON`](https://pkg.go.dev/encoding/json#Unmarshaler)
     1. compare with Java with [Jackson's `@JsonCreator`](https://javadoc.io/static/com.fasterxml.jackson.core/jackson-annotations/2.14.2/com/fasterxml/jackson/annotation/JsonCreator.html)
+1. [Path](https://doc.rust-lang.org/std/path/struct.Path.html) is surprisingly tedious to use in practice (see [`to_string_lossy()`](https://doc.rust-lang.org/std/ffi/struct.OsStr.html#method.to_os_string))
+    1. compare with Golang [`path/filepath`](https://pkg.go.dev/path/filepath)
+    1. compare with Java [`Path`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/nio/file/Path.html)
+1. [clion](https://www.jetbrains.com/clion/) debugger cannot help you debug Trait implementations
+    1. compare with debugging golang, java, ... interface implementations
 
 
 # Other Resources
