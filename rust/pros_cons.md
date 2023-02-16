@@ -42,6 +42,9 @@
     1. Example: Read thru the docs for Future & Poll
 1. [`match`](https://doc.rust-lang.org/rust-by-example/flow_control/match.html) creates excessive nesting
     1. Things like [if-let](https://doc.rust-lang.org/rust-by-example/flow_control/if_let.html) mitigate somewhat
+1. (Serde) custom Deserializer [is REALLY hard](https://serde.rs/impl-deserialize.html)
+    1. compare with Java with Jackson [@JsonCreator](https://javadoc.io/static/com.fasterxml.jackson.core/jackson-annotations/2.14.2/com/fasterxml/jackson/annotation/JsonCreator.html)
+    1. compare with Golang [`UnmarshalJSON`](https://pkg.go.dev/encoding/json#Unmarshaler)
 
 
 # Other Resources
