@@ -18,3 +18,5 @@ sudo sysctl -p --system
 # Other resources
 1. https://linux.die.net/man/7/inotify
 1. https://gist.github.com/ntamvl/7c41acee650d376863fd940b99da836f
+1. https://youtrack.jetbrains.com/articles/IDEA-A-2/Inotify-Watches-Limit-Linux
+
