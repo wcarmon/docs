@@ -1,0 +1,20 @@
+# Overview
+1. How to change [File Watcher]() count for Intellij
+
+
+# Check file watcher count
+```bash
+cat /proc/sys/fs/inotify/max_user_watches
+```
+
+
+# Change file watcher cound
+```bash
+echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf;
+sudo sysctl -p --system
+```
+
+
+# Other resources
+1. https://linux.die.net/man/7/inotify
+1. https://gist.github.com/ntamvl/7c41acee650d376863fd940b99da836f
