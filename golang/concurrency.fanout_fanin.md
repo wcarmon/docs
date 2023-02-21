@@ -19,55 +19,55 @@ func main() {
 
 func ProcessTasksInParallel(ctx context.Context, tasks []Task) ([]MyResult, error) {
 
-	resultsCh := make(chan MyResult, len(tasks))
-	errCh := make(chan error, len(tasks))
+    resultsCh := make(chan MyResult, len(tasks))
+    errCh := make(chan error, len(tasks))
 
     // -----------------------------------------
-	// -- Fan-out section
-	// -----------------------------------------
+    // -- Fan-out section
+    // -----------------------------------------
 
-	for _, task := range tasks {
-	    // -- Spawn a goroutine for each task
-		go processOneTask(ctx, resultsCh, errCh, task)
-	}
+    for _, task := range tasks {
+        // -- Spawn a goroutine for each task
+        go processOneTask(ctx, resultsCh, errCh, task)
+    }
 
     // -----------------------------------------
-	// -- Fan-in section
-	// -----------------------------------------
+    // -- Fan-in section
+    // -----------------------------------------
 
-	output := make([]MyResult, 0, len(tasks))
-	for i := 0; i < len(tasks); i++ {
-		select {
-		// -- wait for next result
+    output := make([]MyResult, 0, len(tasks))
+    for i := 0; i < len(tasks); i++ {
+        select {
+        // -- wait for next result
 
-		case result := <-resultsCh:
-			// -- collect the successful results
-			output = append(output, result)
-		case err := <-errCh:
-			// -- return early on first error
-			return nil, err
-		}
-	}
+        case result := <-resultsCh:
+            // -- collect the successful results
+            output = append(output, result)
+        case err := <-errCh:
+            // -- return early on first error
+            return nil, err
+        }
+    }
 
-	return output, nil
+    return output, nil
 }
 
 func processOneTask(
-	ctx context.Context,
-	resultCh chan<- MyResult,
-	errCh chan<- error,
-	task Task) {
+    ctx context.Context,
+    resultCh chan<- MyResult,
+    errCh chan<- error,
+    task Task) {
 
-	childCtx, span := otel.Tracer("").Start(ctx, "doSomething.parallel")
-	defer span.End()
+    childCtx, span := otel.Tracer("").Start(ctx, "doSomething.parallel")
+    defer span.End()
 
-	data, err := doSomething(childCtx, task)
-	if err != nil {
-		errCh <- err
-		return
-	}
+    data, err := doSomething(childCtx, task)
+    if err != nil {
+        errCh <- err
+        return
+    }
 
-	resultCh <- data
+    resultCh <- data
 }
 ```
 
