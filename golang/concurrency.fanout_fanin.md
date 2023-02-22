@@ -20,12 +20,15 @@ func main() {
 func ProcessTasksInParallel(ctx context.Context, tasks []Task) ([]MyResult, error) {
 
     resultsCh := make(chan MyResult, len(tasks))
+    defer close(resultCh)
+
     errCh := make(chan error, len(tasks))
+	defer close(errCh)
+
 
     // -----------------------------------------
     // -- Fan-out section
     // -----------------------------------------
-
     for _, task := range tasks {
         // -- Spawn a goroutine for each task
         go processOneTask(ctx, resultsCh, errCh, task)
@@ -34,7 +37,6 @@ func ProcessTasksInParallel(ctx context.Context, tasks []Task) ([]MyResult, erro
     // -----------------------------------------
     // -- Fan-in section
     // -----------------------------------------
-
     output := make([]MyResult, 0, len(tasks))
     for i := 0; i < len(tasks); i++ {
         select {
