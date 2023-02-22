@@ -1,6 +1,10 @@
 # Overview
 
 
+# Idioms & Gotchas
+
+
+# TODO
 - TODO: https://medium.com/@polyglot_factotum/rust-concurrency-patterns-natural-born-pipelines-4d599e7612fc
 - TODO: https://doc.rust-lang.org/rust-by-example/std_misc/channels.html
 - TODO: https://dhghomon.github.io/easy_rust/Chapter_50.html

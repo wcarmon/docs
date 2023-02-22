@@ -12,6 +12,8 @@
     1. If you pass a `channel` to a function/method, caller & callee are referencing the same `channel`
 1. Optionally buffered
     1. Only affects Senders (Not receivers)
+1. Go channels are designed for 1 writer, and multiple readers
+1. [`range`](TODO) will **NOT** stop recieving util channel is closed
 
 
 # Creation
@@ -38,6 +40,7 @@ c3 := make(chan string, 5)
 
 
 # Sender
+1. runtime will `panic` if you send on a **closed** channel
 1. Blocks when ...
     1. (unbounded) Unbuffered and receiver hasn't received
     1. (unbounded) writing to a full buffer (until there's buffer capacity)
@@ -53,6 +56,7 @@ responseCodeCh <- 200
     1. (unbounded) no messages available
     1. (unbounded) when buffer empty
 1. Reading from closed channel yields zero value
+1. Only receiver [can check](https://go.dev/ref/spec#Receive_operator) if channel is closed
 1. Receive:
 ```go
 //TODO
