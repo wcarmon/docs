@@ -20,10 +20,12 @@ func main() {
 func ProcessTasksInParallel(ctx context.Context, tasks []Task) ([]MyResult, error) {
 
     resultsCh := make(chan MyResult, len(tasks))
-    defer close(resultCh)
-
     errCh := make(chan error, len(tasks))
-	defer close(errCh)
+
+    defer func() {
+        close(errCh)
+        close(resultCh)
+    }()
 
     // -----------------------------------------
     // -- Fan-out section
