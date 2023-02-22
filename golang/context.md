@@ -27,6 +27,7 @@
     1. Invoking the [CancelFunc](https://pkg.go.dev/context#CancelFunc) is the **only** way to manually cancel a context
     1. Context can be cancelled **at-most-once**
     1. `context.WithDeadline(...)` can return a `ctx` with an **EARLIER** deadline (when parent expires earlier)
+    1. Don't pass around the `cancel` func, keep it local
 
 ## Purpose 2
 1. Context is for "small" request-scoped data
@@ -171,3 +172,4 @@ func FromRequest(r *http.Request) (Id, bool) {
 1. https://www.digitalocean.com/community/tutorials/how-to-use-contexts-in-go
 1. http://p.agnihotry.com/post/understanding_the_context_package_in_golang/
 1. https://github.com/golang/go/wiki/CodeReviewComments#contexts
+1. https://github.com/karanpratapsingh/learn-go#context

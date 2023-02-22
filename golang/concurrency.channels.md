@@ -45,23 +45,25 @@ c3 := make(chan string, 5)
     1. (unbounded) Unbuffered and receiver hasn't received
     1. (unbounded) writing to a full buffer (until there's buffer capacity)
     1. (briefly) writing to the non-full buffer (just long enough to commit the value)
-1. Send:
+1. Send example:
 ```go
 responseCodeCh <- 200
 ```
+1. send on `nil` channel blocks forever
 
 
 # Receiver
 1. Blocks when ...
     1. (unbounded) no messages available
     1. (unbounded) when buffer empty
-1. Reading from closed channel yields zero value
+1. Reading from closed channel yields zero value immediately
 1. Only receiver [can check](https://go.dev/ref/spec#Receive_operator) if channel is closed
 1. Receive:
 ```go
 //TODO
 ```
 1. You can also use [`select`](https://go.dev/ref/spec#Select_statements) + [`default`](https://gobyexample.com/non-blocking-channel-operations) for non-blocking
+1. receive on `nil` channel blocks forever
 
 - TODO: range
 
@@ -113,3 +115,6 @@ TODO: https://www.golang-book.com/books/intro/10
 1. [gobyexample](https://gobyexample.com/channels)
 1. [Official tour](https://go.dev/tour/concurrency/2)
 1. [yourbasic](https://yourbasic.org/golang/channels-explained/)
+1. https://go101.org/article/channel-closing.html
+1. https://github.com/karanpratapsingh/learn-go#channels
+1. https://github.com/lotusirous/go-concurrency-patterns

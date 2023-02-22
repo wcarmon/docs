@@ -79,8 +79,8 @@ echo "|-- Running golangci-lint ..."
 #  eg.  -v "${CERT_FILE}":/usr/local/share/ca-certificates/extra.crt:ro \
 $DOCKER run \
   --rm \
-  -v "${PROJ_ROOT}/src":/app:ro \
-  --workdir /app \
+  -v "${PROJ_ROOT}/":/app/:ro \
+  --workdir /app/src \
   $GOLANGCI_IMAGE \
   /bin/ash -c "
     #update-ca-certificates
