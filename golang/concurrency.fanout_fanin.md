@@ -25,7 +25,6 @@ func ProcessTasksInParallel(ctx context.Context, tasks []Task) ([]MyResult, erro
     errCh := make(chan error, len(tasks))
 	defer close(errCh)
 
-
     // -----------------------------------------
     // -- Fan-out section
     // -----------------------------------------
