@@ -64,7 +64,7 @@ responseCodeCh <- 200
 ```
 1. You can also use [`select`](https://go.dev/ref/spec#Select_statements) + [`default`](https://gobyexample.com/non-blocking-channel-operations) for non-blocking
 1. receive on `nil` channel blocks forever
-
+1. even if you read a channel using [receive-assign syntax](https://go.dev/ref/spec#Receive_operator), it will block until there's a message or channel is closed
 - TODO: range
 
 
