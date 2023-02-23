@@ -53,7 +53,7 @@ readonly IMAGE_REPO_URI="ecr.us-east-1.amazonaws.com"
 #readonly IMAGE_REPO_URI="us-east1-docker.pkg.dev/foo-bar"
 
 
-# AWS:  TODO
+# AWS:  part after the IMAGE_REPO_URI and before the SHORT_IMAGE_NAME
 # Google cloud: gcloud artifacts repositories list
 readonly REPOSITORY_NAME="my-github-project"
 
