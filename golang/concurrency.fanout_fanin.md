@@ -10,15 +10,15 @@
 # Example
 ```go
 func main() {
-
     tasks := make([]Task, 0, 10) // define the work
 
     results, err := ProcessTasksInParallel(context.Background(), tasks)
-    ...
 }
 
 func ProcessTasksInParallel(ctx context.Context, tasks []Task) ([]MyResult, error) {
 
+    //TODO: rewrite from here down
+    //TODO: add waitGroup
     resultsCh := make(chan MyResult, len(tasks))
     errCh := make(chan error, len(tasks))
 

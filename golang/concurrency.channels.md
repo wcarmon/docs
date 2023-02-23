@@ -14,6 +14,8 @@
     1. Only affects Senders (Not receivers)
 1. Go channels are designed for 1 writer, and multiple readers
 1. [`range`](TODO) will **NOT** stop recieving util channel is closed
+1. Sender is responsible for closing channel
+    1. If you have multiple senders, use a [`sync.WaitGroup`](https://pkg.go.dev/sync#WaitGroup) to close when done
 
 
 # Creation
@@ -50,6 +52,8 @@ c3 := make(chan string, 5)
 responseCodeCh <- 200
 ```
 1. send on `nil` channel blocks forever
+1. Sender side is responsible for closing the channel
+    1. If you have multiple senders, use a [`sync.WaitGroup`](https://pkg.go.dev/sync#WaitGroup) to close when done
 
 
 # Receiver
