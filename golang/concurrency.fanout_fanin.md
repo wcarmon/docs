@@ -65,50 +65,55 @@ func ProcessTasksInParallel(ctx context.Context, tasks []Task) ([]MyResult, erro
 		}()
     }
 
-//TODO: rewrite from here down
-
     // -----------------------------------------
     // -- Fan-in section
     // -----------------------------------------
-    output := make([]MyResult, 0, len(tasks))
+    results := make([]MyResult, 0, len(tasks))
     for i := 0; i < len(tasks); i++ {
-        select {
-        // -- wait for next result
 
+        // -- wait for either error or result
+        select {
         case result := <-resultsCh:
             // -- collect the successful results
-            output = append(output, result)
+            results = append(results, result)
+
         case err := <-errCh:
             // -- return early on first error
             return nil, err
         }
     }
 
-    return output, nil
+    return results, nil
 }
 
 func processOneTask(
     ctx context.Context,
-    resultCh chan<- MyResult,
-    errCh chan<- error,
-    task Task) {
+    task Task)
+(MyResult, error){
 
-    childCtx, span := otel.Tracer("").Start(ctx, "doSomething.parallel")
+    ctx, span := otel.Tracer("").Start(ctx, "doSomething.parallel")
     defer span.End()
 
-    data, err := doSomething(childCtx, task)
+    // -- Exit early when ctx cancelled
+	select {
+	case <-ctx.Done(): // blocking
+		return nil, ctx.Err()
+	default: // prevents blocking on <-ctx.Done()
+	}
+
+    result, err := doSomething(ctx, task)
     if err != nil {
-        errCh <- err
-        return
+        return nil, err
     }
 
-    resultCh <- data
+    return result, nil
 }
 ```
 
 
 # Notes
 1. [`WaitGroup`](https://pkg.go.dev/sync) is useful when you don't know how many goroutines you will spawn
+1. [`WaitGroup`](https://pkg.go.dev/sync) is useful for closing channel with multiple senders
 
 
 # Other Resources
