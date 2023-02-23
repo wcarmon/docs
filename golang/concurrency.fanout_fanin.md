@@ -17,23 +17,55 @@ func main() {
 
 func ProcessTasksInParallel(ctx context.Context, tasks []Task) ([]MyResult, error) {
 
-    //TODO: rewrite from here down
-    //TODO: add waitGroup
+    // -- To determine when to close channels
+    wg := &sync.WaitGroup{}
+
+    // -- For sending results & errors from processor goroutines
     resultsCh := make(chan MyResult, len(tasks))
     errCh := make(chan error, len(tasks))
 
-    defer func() {
-        close(errCh)
-        close(resultCh)
-    }()
+    // -- Ensure channels are eventually closed
+	defer func() {
+		// blocking, wait for all spawned goroutines to finish
+		// spawned goroutines are the senders of channels below
+		wg.Wait()
+
+		close(errCh)
+		close(resultCh)
+	}()
+
+    // -- Helps cancel goroutines if we stop early
+	parallelCtx, cancel := context.WithCancel(ctx)
+	defer cancel()
 
     // -----------------------------------------
     // -- Fan-out section
     // -----------------------------------------
     for _, task := range tasks {
+        wg.Add(1)
+        task := task // don't share reference with other goroutines
+
         // -- Spawn a goroutine for each task
-        go processOneTask(ctx, resultsCh, errCh, task)
+		go func() {
+			defer wg.Done()
+
+			result, err := processOneTask(parallelCtx, task)
+			if err == context.Canceled {
+				otzap.AddDebugEvent(span, "cancelled parallel goroutine")
+				return
+			}
+
+			if err != nil {
+				otzap.AddErrorEvent(span, "failed to do the thing", err)
+				errCh <- err
+				return
+			}
+
+			resultCh <- result
+		}()
     }
+
+//TODO: rewrite from here down
 
     // -----------------------------------------
     // -- Fan-in section
