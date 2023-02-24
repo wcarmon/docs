@@ -24,8 +24,9 @@ dlv version;
 ```bash
 find ~/.local -type f -name dlv | grep -i goland | grep -i linux
 
-# TODO: select one result and replace this line
-OLD_DLV=$HOME/.local/share/JetBrains/Toolbox/apps/Goland/ch-0/223.7571.176/plugins/go-plugin/lib/dlv/linux/dlv
+# TODO: select one find result and replace this line
+#OLD_DLV=$HOME/.local/share/JetBrains/Toolbox/apps/Goland/ch-0/223.7571.176/plugins/go-plugin/lib/dlv/linux/dlv
+OLD_DLV=$HOME/.local/share/JetBrains/Toolbox/apps/Goland/ch-0/223.8617.58/plugins/go-plugin/lib/dlv/linux/dlv
 
 NEW_DLV=$HOME/go/bin/dlv
 
