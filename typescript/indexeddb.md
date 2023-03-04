@@ -31,6 +31,10 @@
 
 
 # Alternatives
+## File System API
+- `Con`: [Chrome only](https://caniuse.com/filesystem)
+- `Con`: user must grant permission, on each session  
+
 ## ~~LocalStorage~~
 - `Con`: synchronous (blocks UI)
 - `Con`: limited to 5MB
@@ -40,10 +44,16 @@
 
 ## ~~SessionStorage~~
 - `Con`: tab specific
-- `Con`: erased when tab closed
-- `Con`: limited to 5MB
 - `Con`: more complex than just using `window` without any benefit
+- `Con`: limited to 5MB
+- `Con`: can only contain strings
+- `Con`: erased when tab closed
+- `Con`: not accessible from WebWorkers
 - `Con`: synchronous (blocks UI)
+
+## ~~WebSQL~~
+- `Con`: abandonware
+- `Con`: Chrome only
 
 
 --------
@@ -90,25 +100,23 @@
 - `Con`: ... 
 
 
-# idb-keyval
+## idb-keyval
 - `Pro`: ... 
 - `Pro`: ... 
 - `Con`: ... 
 - `Con`: ... 
 
 
-# $mol_db
+## [$mol_db](https://github.com/hyoo-ru/mam_mol/tree/master/db)
 - `Pro`: ... 
 - `Pro`: ... 
 - `Con`: ... 
 - `Con`: ... 
 
 
-# RxDB
-- `Pro`: ... 
-- `Pro`: ... 
-- `Con`: ... 
-- `Con`: ... 
+## ~~[RxDB](https://rxdb.info/)~~
+- `Pro`: reactive
+- `Con`: [IndexedDB storage requires purchase](https://rxdb.info/rx-storage-indexeddb.html) 
 
 
 # Other resources
