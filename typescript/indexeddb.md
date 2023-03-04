@@ -63,15 +63,15 @@
 - `Pro`: Light/Small
 - `Pro`: Tree-shakable
 - `Pro`: 2k+ stars on github
+- `Pro`: [Good testing](https://github.com/jakearchibald/idb-keyval/blob/main/test/index.ts)
 - `Con`: ... 
 
 ## [Dexie.js](https://dexie.org/)
 - `Pro`: reactive 
 - `Pro`: bulk operations
-- `Pro`: well documented (examples in multiple popular frameworks)
+- `Pro`: well documented (examples in multiple popular frameworks, cheatsheet, ...)
 - `Pro`: TypeScript compatible
 - `Pro`: 9k+ stars on github
-- `Con`: ... 
 
 ## [JsStore](https://jsstore.net/tutorial/get-started/)
 - `Pro`: Intuitive for people that know SQL
