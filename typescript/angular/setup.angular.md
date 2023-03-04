@@ -20,12 +20,16 @@ cd /path/to/web/projects
 APP_NAME=some-app
 
 ng new $APP_NAME
-# follow the prompts
+# follow the prompts:   eg. enable routing, use less, ...
+```
 
+## Verify
+```bash
 cd $APP_NAME
 ng serve --open
 ```
 
 
 # Other resources
-1. TODO
+1. https://angular.io/cli
+1. https://angular.io/guide/setup-local
