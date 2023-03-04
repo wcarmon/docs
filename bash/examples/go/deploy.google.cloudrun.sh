@@ -88,6 +88,7 @@ fi
 # ---------------------------------------------
 # -- Authenticate with Image registry
 # ---------------------------------------------
+# only need to do once, this stores into $HOME/.docker/config.json
 #$GCLOUD auth \
 #  configure-docker \
 #  us-east1-docker.pkg.dev

@@ -68,6 +68,9 @@ rm -vf $ABSOLUTE_OUTPUT_DIR/${OUTPUT_BINARY_NAME}*.exe
 # ---------------------------------------------
 mkdir -p "$ABSOLUTE_OUTPUT_DIR"
 
+#$SCRIPTS_DIR/fix_imports.native.sh
+#$SCRIPTS_DIR/format.native.sh
+
 cd "$PROJ_ROOT/src" >/dev/null 2>&1
 $GO version
 $GO mod tidy
@@ -82,7 +85,7 @@ $WIRE ./...
 echo
 echo "|-- Cross compiling go code for $CMD_PACKAGE"
 
-GOOS=linux GOARCH=amd64 \
+GOWORK=off GOOS=linux GOARCH=amd64 \
   $GO build \
   -o "$ABSOLUTE_OUTPUT_DIR/$OUTPUT_BINARY_NAME.amd64.bin" \
   -ldflags="-X main.gitCommitHash=${GIT_COMMIT}" \
