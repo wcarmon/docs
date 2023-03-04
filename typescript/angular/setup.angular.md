@@ -1,5 +1,5 @@
 # Overview
-1. How to setup Angular and Angular CLI
+1. How to setup [Angular](https://angular.io/) and [Angular CLI](https://angular.io/cli)
 
 
 # NodeJS
@@ -14,8 +14,13 @@ npm install -g @angular/cli
 
 # New Angular app
 ```bash
+cd /path/to/web/projects
+
+# replace the line below
 APP_NAME=some-app
+
 ng new $APP_NAME
+# follow the prompts
 
 cd $APP_NAME
 ng serve --open
