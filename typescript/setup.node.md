@@ -37,6 +37,12 @@ npm install -g npm@9.6.0
 ```
 
 
+# Outdated/Stale packages
+```bash
+npm outdated
+```
+
+
 # Other resources
 1. https://github.com/nodejs/help/wiki/Installation#how-to-install-nodejs-via-binary-archive-on-linux
 1. https://nodejs.org/en/download/package-manager/
