@@ -14,6 +14,56 @@
 1. TODO
 
 
+# Example Chi Middleware
+```go
+func TracingMiddleware(next http.Handler) http.Handler {
+
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		// -- Ensure propagator
+		propagator := otel.GetTextMapPropagator()
+		if propagator == nil {
+			propagator = propagation.TraceContext{}
+		}
+
+		// -- Build remote ctx
+		remoteCtx := context.Background()
+
+		traceParent := r.Header.Get("traceparent")
+		if strings.TrimSpace(traceParent) != "" {
+			remoteCtx = propagator.Extract(r.Context(), propagation.HeaderCarrier(r.Header))
+		}
+
+		// -- Start span
+		rootCtx, span := otel.Tracer("").
+			Start(remoteCtx, ">> http-request",
+				trace.WithSpanKind(trace.SpanKindServer))
+		defer span.End()
+
+		span.SetAttributes(
+			semconv.HTTPMethodKey.String(r.Method),
+			semconv.HTTPURLKey.String(r.URL.Path),
+		)
+
+		// -- Next handler
+		next.ServeHTTP(w, r.WithContext(rootCtx))
+	})
+}
+```
+
+## Usage
+```go
+    ...
+	r.Use(middleware.RequestID)                 // 1
+	r.Use(middleware.RealIP)                    // 2
+	r.Use(handler.TracingMiddleware)            // 3
+	r.Use(middleware.Logger)                    // 4
+	r.Use(authMiddleware.Intercept)             // 5: after tracer setup
+	r.Use(middleware.Recoverer)                 // 6
+	r.Use(middleware.Timeout(90 * time.Second)) // 7
+    ...
+```
+
+
 # Other Resources
 1. https://github.com/open-telemetry/opentelemetry-go (obsoletes open-tracing)
 1. https://opentelemetry.io/docs/instrumentation/go/
