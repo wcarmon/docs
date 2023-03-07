@@ -93,7 +93,7 @@ func TracingMiddleware(next http.Handler) http.Handler {
 		}
 
 		// -- Build remote ctx
-		remoteCtx := context.Background()
+		remoteCtx := r.Context()
 
 		// -- See https://www.w3.org/TR/trace-context/#design-overview
 		traceParent := r.Header.Get("traceparent")
@@ -135,7 +135,7 @@ func TracingMiddleware(next http.Handler) http.Handler {
 - See [../bash/examples/restart.jaeger.sh](https://github.com/wcarmon/docs/blob/main/bash/examples/restart.jaeger.sh)
       
 
---------
+
 # Viewing traces
 
 ## Jaeger
