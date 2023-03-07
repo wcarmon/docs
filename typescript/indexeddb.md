@@ -23,7 +23,7 @@
 
 
 # Gotchas
-1. API is terrible
+1. Core/native API is terrible.  There are 8+ mature 3rd party libs
 
 
 # Limits
@@ -59,19 +59,20 @@
 --------
 # High-level APIs
 
-## [idb-keyval](https://github.com/jakearchibald/idb-keyval)
-- `Pro`: Light/Small
-- `Pro`: Tree-shakable
-- `Pro`: 2k+ stars on github
-- `Pro`: [Good testing](https://github.com/jakearchibald/idb-keyval/blob/main/test/index.ts)
-- `Con`: ... 
-
 ## [Dexie.js](https://dexie.org/)
 - `Pro`: reactive 
 - `Pro`: bulk operations
 - `Pro`: well documented (examples in multiple popular frameworks, cheatsheet, ...)
 - `Pro`: TypeScript compatible
 - `Pro`: 9k+ stars on github
+
+## [idb-keyval](https://github.com/jakearchibald/idb-keyval)
+- `Pro`: Light/Small/Minimalist
+- `Pro`: Tree-shakable
+- `Pro`: 2k+ stars on github
+- `Pro`: [Good testing](https://github.com/jakearchibald/idb-keyval/blob/main/test/index.ts)
+- `Con`: building indexes is separate
+- `Con`: assumes single store with some default name
 
 ## [JsStore](https://jsstore.net/tutorial/get-started/)
 - `Pro`: Intuitive for people that know SQL
