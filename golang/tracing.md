@@ -6,19 +6,75 @@
 1. See [common/tracing doc](../common/observability/tracing.md)
 
 
-# Setup
-1. TODO
+# Dependency injection
+- Build [`jaeger.Exporter`](https://pkg.go.dev/go.opentelemetry.io/otel/exporters/jaeger#Exporter), [`trace.TracerProvider`](https://pkg.go.dev/go.opentelemetry.io/otel/trace#TracerProvider), [`ZapSpanProcessor`](https://pkg.go.dev/github.com/wcarmon/otzap#ZapSpanProcessor)
+```go
+import (
+	texporter "github.com/GoogleCloudPlatform/opentelemetry-operations-go/exporter/trace"
+	"github.com/wcarmon/otzap"
+	"go.opentelemetry.io/otel/attribute"
+	"go.opentelemetry.io/otel/exporters/jaeger"
+	"go.opentelemetry.io/otel/sdk/resource"
+	tracesdk "go.opentelemetry.io/otel/sdk/trace"
+	semconv "go.opentelemetry.io/otel/semconv/v1.12.0"
+	"go.opentelemetry.io/otel/trace"
+	"go.uber.org/zap"
+)
 
+func NewTracerProvider(
+	cfg *appConf,
+	jaegerExporter *jaeger.Exporter,
+	zapProcessor *otzap.ZapSpanProcessor,
+	// TODO: add cloudExporter here (eg. Google cloud or AWS)
+) (trace.TracerProvider, error) {
 
-# Viewing traces
-1. TODO
+	attrs := otzap.CollectResourceAttributes()
+	attrs = append(attrs, attribute.String("gitCommitHash", gitCommitHash)) // See ./git_version_info.md
+	attrs = append(attrs, semconv.ServiceNameKey.String(cfg.Tracing.ServiceName))
+
+	// Jaeger UI shows as Span.Process
+	rsc := resource.NewWithAttributes(semconv.SchemaURL, attrs...)
+
+	var realExporter tracesdk.SpanExporter = jaegerExporter
+	if otzap.IsInAWS() || otzap.IsInGoogleCloud() {		
+		realExporter = cloudExporter
+	}
+
+	opts := make([]tracesdk.TracerProviderOption, 0, 8)
+	opts = append(opts, tracesdk.WithBatcher(realExporter))
+	opts = append(opts, tracesdk.WithResource(rsc))
+	opts = append(opts, tracesdk.WithSampler(tracesdk.AlwaysSample())) // TODO: tune to meet your requirements
+	opts = append(opts, tracesdk.WithSpanProcessor(zapProcessor))
+
+	provider := tracesdk.NewTracerProvider(opts...)
+	return provider, nil
+}
+
+func NewJaegerExporter(cfg *appConf) (*jaeger.Exporter, error) {
+	// eg. http://localhost:14268/api/traces
+	url := cfg.Tracing.Jaeger.EndpointUrl
+
+	exporter, err := jaeger.New(jaeger.WithCollectorEndpoint(
+	    jaeger.WithEndpoint(url)))
+	if err != nil {
+		zap.L().Error("failed to create Jaeger exporter",
+			zap.Error(err),			
+			zap.String("url", url),
+		)
+
+		return nil, err
+	}
+
+	return exporter, nil
+}
+```
 
 
 # Register Global [TracerProvider](https://pkg.go.dev/go.opentelemetry.io/otel/trace#TracerProvider) & [TextMapPropagator](https://pkg.go.dev/go.opentelemetry.io/otel/propagation#TextMapPropagator)
 ```go
 // in main.go
 
-    ...	
+	...	
 	otel.SetTracerProvider(app.tracerProvider)
 	otel.SetTextMapPropagator(propagation.TraceContext{})
 	...
@@ -74,6 +130,24 @@ func TracingMiddleware(next http.Handler) http.Handler {
 	r.Use(middleware.Timeout(90 * time.Second)) // 7
     ...
 ```
+
+## Run Jaeger container
+- See [../bash/examples/restart.jaeger.sh](https://github.com/wcarmon/docs/blob/main/bash/examples/restart.jaeger.sh)
+      
+
+--------
+# Viewing traces
+
+## Jaeger
+1. TODO
+
+
+## Google Cloud
+1. TODO
+
+
+## AWS
+1. TODO
 
 
 # Other Resources
