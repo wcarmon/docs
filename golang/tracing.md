@@ -14,7 +14,18 @@
 1. TODO
 
 
-# Example Chi Middleware
+# Register Global [TracerProvider](https://pkg.go.dev/go.opentelemetry.io/otel/trace#TracerProvider) & [TextMapPropagator](https://pkg.go.dev/go.opentelemetry.io/otel/propagation#TextMapPropagator)
+```go
+// in main.go
+
+    ...	
+	otel.SetTracerProvider(app.tracerProvider)
+	otel.SetTextMapPropagator(propagation.TraceContext{})
+	...
+```
+
+
+# Example [Chi Middleware](https://github.com/go-chi/chi)
 ```go
 func TracingMiddleware(next http.Handler) http.Handler {
 
@@ -28,6 +39,7 @@ func TracingMiddleware(next http.Handler) http.Handler {
 		// -- Build remote ctx
 		remoteCtx := context.Background()
 
+		// -- See https://www.w3.org/TR/trace-context/#design-overview
 		traceParent := r.Header.Get("traceparent")
 		if strings.TrimSpace(traceParent) != "" {
 			remoteCtx = propagator.Extract(r.Context(), propagation.HeaderCarrier(r.Header))
