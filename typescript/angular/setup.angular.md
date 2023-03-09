@@ -68,14 +68,20 @@ ng serve --open
         ```            
 1. `tsconfig.app.json`: App specific overrides on `tsconfig.json` (eg. when you have multiple apps)
 1. `tsconfig.spec.json`: For Tests
-    - Add test files
+    - If you have extra test files, add test files here:
     ```json
       "files": [
-        "src/test.ts",
+        "src/my_extra_test.ts",
       ],
     ```
 1. `tsconfig.eslint.json`: For static analysis
     - reference in `.eslintrc.json`
+
+
+# Karma
+- [`karma.conf.js`](http://karma-runner.github.io/6.4/config/configuration-file.html)
+    - reference in `angular.json`: `projects.<projectName>.architect.test.options.karmaConfig`
+        - `"karmaConfig": "karma.conf.js",`
 
 
 # Other resources
