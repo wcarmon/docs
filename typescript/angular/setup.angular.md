@@ -48,6 +48,15 @@ ng serve --open
     - `projects.<projectName>.architect.build.options.baseHref`
 
 
+# [tsconfig](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html)
+## CI/Build time
+1. `tsconfig.json`: Global
+1. `tsconfig.app.json`: App specific (eg. when you have multiple apps)
+1. `tsconfig.spec.json`: For Tests
+1. `tsconfig.eslint.json`: For static analysis
+1. `tsconfig.worker.json`: For Service workers
+
+
 # Other resources
 1. https://angular.io/cli
 1. https://angular.io/guide/setup-local
