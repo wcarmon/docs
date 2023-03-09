@@ -48,10 +48,14 @@ ng serve --open
     - `projects.<projectName>.architect.build.options.baseHref`
 
 
-# [tsconfig](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html)
-## CI/Build time
+# tsconfig
+- See https://angular.io/config/tsconfig
+- See https://www.typescriptlang.org/docs/handbook/tsconfig-json.html
+- All are used only at CI/Build-time (not runtime) 
+
+## Files 
 1. `tsconfig.json`: Global
-1. `tsconfig.app.json`: App specific (eg. when you have multiple apps)
+1. `tsconfig.app.json`: App specific overrides on `tsconfig.json` (eg. when you have multiple apps)
 1. `tsconfig.spec.json`: For Tests
 1. `tsconfig.eslint.json`: For static analysis
 1. `tsconfig.worker.json`: For Service workers
