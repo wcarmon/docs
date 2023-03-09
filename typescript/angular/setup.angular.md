@@ -45,6 +45,7 @@ ng serve --open
 ```
 1. Change the [`prefix`](https://angular.io/guide/workspace-config#project-configuration-options) to match your app
 1. Set `baseHref`, eg. `/static/`
+    - `projects.<projectName>.architect.build.options.baseHref`
 
 
 # Other resources

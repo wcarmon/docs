@@ -9,6 +9,9 @@ indent_style = space
 insert_final_newline = true
 trim_trailing_whitespace = true
 
+[Makefile]
+indent_style = tab
+
 [*.{c,cc,css,h,groovy,htm,html,java,js,jsp,json,json5,kt,kts,less,md,properties,proto,py,sass,scss,sh,sq,sql,ts,xml,yaml,yml}]
 indent_size = 2
 indent_style = space
@@ -37,12 +40,8 @@ indent_size = 4
 indent_style = space
 indent_size = 2
 
-[*.yml]
-indent_style = space
-indent_size = 2
-
-[Makefile]
-indent_style = tab
+[*.ts]
+quote_type = single
 
 [{package.json,.travis.yml}]
 indent_style = space
