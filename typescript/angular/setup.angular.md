@@ -55,10 +55,27 @@ ng serve --open
 
 ## Files 
 1. `tsconfig.json`: Global
+    - Add any extra ES features to [`compilerOptions.lib`](https://www.typescriptlang.org/tsconfig#individual-library-components) 
+        - "ES2015.Collection",
+        - "ES2021.String",
+        - "ES2018.Promise",
+    - Add `"noImplicitAny": true,`
+    - Add typeRoots
+        ```json
+        "typeRoots": [
+          "./node_modules/@types"
+        ]
+        ```            
 1. `tsconfig.app.json`: App specific overrides on `tsconfig.json` (eg. when you have multiple apps)
 1. `tsconfig.spec.json`: For Tests
+    - Add test files
+    ```json
+      "files": [
+        "src/test.ts",
+      ],
+    ```
 1. `tsconfig.eslint.json`: For static analysis
-1. `tsconfig.worker.json`: For Service workers
+    - reference in `.eslintrc.json`
 
 
 # Other resources
