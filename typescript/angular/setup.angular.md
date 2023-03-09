@@ -30,6 +30,23 @@ ng serve --open
 ```
 
 
+# [angular.json](https://angular.io/guide/workspace-config) (Angular workspace config)
+1. The format/structure changes between versions
+1. Add your global styles 
+```js
+    // Add to:  projects.<projectName>.architect.build.options.styles
+    // Add to:  projects.<projectName>.architect.test.options.styles
+    
+    "styles": [
+        "node_modules/normalize.css/normalize.css",
+        "node_modules/toastify-js/src/toastify.css",
+    ],
+    ...
+```
+1. Change the [`prefix`](https://angular.io/guide/workspace-config#project-configuration-options) to match your app
+1. Set `baseHref`, eg. `/static/`
+
+
 # Other resources
 1. https://angular.io/cli
 1. https://angular.io/guide/setup-local
