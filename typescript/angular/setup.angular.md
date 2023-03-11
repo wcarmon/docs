@@ -82,6 +82,8 @@ ng serve --open
 - [`karma.conf.js`](http://karma-runner.github.io/6.4/config/configuration-file.html)
     - reference in `angular.json`: `projects.<projectName>.architect.test.options.karmaConfig`
         - `"karmaConfig": "karma.conf.js",`
+- WebStorm (Intellij, Goland, ...) support debugging with breakpoints
+    - https://www.jetbrains.com/help/webstorm/running-unit-tests-on-karma.html
 
 
 # Other resources
