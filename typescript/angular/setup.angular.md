@@ -85,6 +85,7 @@ ng serve --open
 - WebStorm (Intellij, Goland, ...) support debugging with breakpoints
     - https://www.jetbrains.com/help/webstorm/running-unit-tests-on-karma.html
     - Sometimes you have to add a breakpoint to force karma plugin to rebuild & deploy tests
+    - GOTCHA: compilation errors sometimes appear as test success (no tests found) 
 
 # Other resources
 1. https://angular.io/cli
