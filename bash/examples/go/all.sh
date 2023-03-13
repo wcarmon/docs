@@ -37,13 +37,13 @@ time (
 
   echo
   echo "|-- [Phase: Build]"
-  $SCRIPTS_DIR/build.via-docker.sh
+  $SCRIPTS_DIR/build.via_docker.sh
 
   echo
   echo "|-- [Phase: Verify]"
   $SCRIPTS_DIR/test.native.sh
 
-  $SCRIPTS_DIR/lint.via-docker.sh
+  $SCRIPTS_DIR/lint.via_docker.sh
 
   echo
   echo "|-- [Phase: Push]"

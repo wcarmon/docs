@@ -31,19 +31,19 @@ time (
   $SCRIPTS_DIR/format.native.sh
 
   # For Generated Dependency
-  #$OME/git-repos/go/projects/foo/scripts/fix-imports.native.sh
+  #$OME/git-repos/go/projects/foo/scripts/fix_imports.native.sh
 
-  $SCRIPTS_DIR/fix-imports.native.sh
+  $SCRIPTS_DIR/fix_imports.native.sh
 
 
 
   echo
   echo "|-- [Phase: Build]"
-  $SCRIPTS_DIR/build.via-docker.sh
+  $SCRIPTS_DIR/build.via_docker.sh
 
   echo
   echo "|-- [Phase: Verify]"
   $SCRIPTS_DIR/test.native.sh
 
-  $SCRIPTS_DIR/lint.via-docker.sh
+  $SCRIPTS_DIR/lint.via_docker.sh
 )

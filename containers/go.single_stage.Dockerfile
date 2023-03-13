@@ -1,7 +1,7 @@
 # syntax=docker/dockerfile:1
 
 # Assumptions:
-# 1. Prior to this, Run ./scripts/build.via-docker.sh to build the binary
+# 1. Prior to this, Run ./scripts/build.via_docker.sh to build the binary
 # 2. Copy the binary to the container in Deploy stage
 
 # ---------------------------------------------
