@@ -74,7 +74,7 @@ gcloud iam roles describe $ROLE_NAME --project $PROJECT_NAME
 
 ## Verify
 ```bash
-ACCT_EMAIL=later-server@wc-chrono.iam.gserviceaccount.com
+ACCT_EMAIL=my-server@my-project.iam.gserviceaccount.com
 gcloud iam service-accounts list     
 gcloud iam service-accounts describe $ACCT_EMAIL
 ```
