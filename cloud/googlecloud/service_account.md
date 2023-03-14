@@ -25,10 +25,56 @@ gcloud iam service-accounts list
 gcloud iam service-accounts describe $ACCT_EMAIL
 ```
 
-# Add/Grant/Remove/Revoke roles
-1. https://console.cloud.google.com/projectselector2/iam-admin/iam?supportedpurview=project,folder,organizationId
-    1. Resource Type: `storage.v1.bucket`
+# Add/Grant/Remove/Revoke Roles/Permissions
+1. Concepts: https://cloud.google.com/iam/docs/roles-overview
+    1. Role >|o----|< Permissions
+    1. User >|o---o|< Role
+    1. Custom roles are the only way to grant granular permissions to users
+1. [Create a (custom) role for service account](https://console.cloud.google.com/iam-admin/roles) 
+    - Alternative: `gcloud iam roles create my-server-runner --project ...`
+    - Title: `myServerRunner`
+    - Id: `myServerRunner`
+1. Add Permissions to role
+```bash
+ROLE_NAME=laterServerRunner
+PROJECT_NAME=wc-chrono
 
+PROJECT_NAME=myProject
+ROLE_NAME=myRole
+
+# See https://cloud.google.com/iam/docs/understanding-roles
+
+gcloud iam roles update $ROLE_NAME \
+--project $PROJECT_NAME \
+--add-permissions iam.serviceAccounts.signBlob;
+
+gcloud iam roles update $ROLE_NAME \
+--project $PROJECT_NAME \
+--add-permissions storage.objects.create,storage.objects.delete,storage.objects.get,storage.objects.getIamPolicy,storage.objects.list;
+
+gcloud iam roles update $ROLE_NAME \
+--project $PROJECT_NAME \
+--add-permissions logging.buckets.write,logging.logEntries.create,logging.logEntries.route;
+
+gcloud iam roles update $ROLE_NAME \
+--project $PROJECT_NAME \
+--add-permissions cloudtrace.traces.patch;
+
+gcloud iam roles update $ROLE_NAME \
+--project $PROJECT_NAME \
+--add-permissions run.jobs.run,run.routes.invoke;
+  
+# TODO: secretmanager.versions.access?     
+```
+
+
+## Verify    
+```
+PROJECT_NAME=myProject
+ROLE_NAME=myRole
+
+gcloud iam roles describe $ROLE_NAME --project $PROJECT_NAME
+```        
 
 # Use service account with Cloud Run
 1. Open console for Cloud Run
@@ -49,10 +95,19 @@ gcloud iam service-accounts describe $ACCT_EMAIL
 # Associate Secret with Cloud Run
 1. Open console for Cloud Run
 1. Go to service details
-1. Deploy    
 1. Click `Container` tab
 1. Secrets > Reference a secret
- 
+1. select the secret
+1. Mounted as volume
+    1. /etc/gcloud/secrets/creds.json 
+1. Deploy
+
+## Verify
+- TODO
+
+
+# Debug
+1. See logs for any IAM failures
 
 
 # Other resources
