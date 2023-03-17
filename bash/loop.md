@@ -10,6 +10,20 @@ do
 done
 ```
 
+
+# Loop over strings
+```bash
+SOURCES=(
+  "AA"
+  "BB"
+  "CC"
+)
+for SRC in ${SOURCES[*]}; do
+  echo "${SRC}"
+done
+```
+
+
 # Other resources
 1. https://www.cyberciti.biz/faq/bash-loop-over-file/
 1. https://www.digitalocean.com/community/tutorials/workflow-loop-through-files-in-a-directory
