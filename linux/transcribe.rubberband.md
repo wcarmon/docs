@@ -29,7 +29,7 @@ FILE_NAME=$(basename "$SRC" "$SUFFIX_TO_REPLACE");
 FILE_NAME="${FILE_NAME}.mp3";
 
 DEST="${REAL_DEST_DIR}/${FILE_NAME}";
-rm -f $DEST || true;
+  rm -fv $DEST || true;
 
 TMP_WAV=tmp.wav;
 rm -f $TMP_WAV || true;
