@@ -87,10 +87,10 @@ public final class RawJSONDeserializer extends JsonDeserializer<RawJSONIndexes> 
             new TypeReference<>() {});
 
     parsed.get("fooBars") // 'fooBars' matches the outermost property 
-        .forEach(indexPair -> {
+        .forEach(range -> {
             var currentRawJSON = exampleJSON.substring(
-                indexPair.getStart(), 
-                indexPair.getEnd());
+                range.getStart(), 
+                range.getEnd());
 
             System.out.println("currentRawJSON: " + currentRawJSON); // or persist or whatever
         });
