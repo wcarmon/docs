@@ -34,17 +34,17 @@ public final class RawJSONDeserializer extends JsonDeserializer<RawJSONIndexes> 
     @SneakyThrows
     public RawJSONIndexes deserialize(JsonParser p, DeserializationContext ctxt) {
 
-        final int startOffset = (int) p.getTokenLocation().getCharOffset();
+        final int start = (int) p.getTokenLocation().getCharOffset();
         
         // NOTE: we only care where this objects starts and ends
         // NOTE: this line handles nested objects & arrays too        
         p.skipChildren();
         
-        final int endOffset = (int) p.getCurrentLocation().getCharOffset();
+        final int end = (int) p.getCurrentLocation().getCharOffset();
 
         return RawJSONIndexes.builder()
-            .start(startOffset)
-            .end(endOffset)
+            .start(start)
+            .end(end)
             .build();
     }
 }
