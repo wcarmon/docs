@@ -53,7 +53,7 @@ public final class RawJSONDeserializer extends JsonDeserializer<RawJSONIndexes> 
 
 # Step-3: Register your custom [Deserializer](https://javadoc.io/doc/com.fasterxml.jackson.core/jackson-databind/2.14.2/com/fasterxml/jackson/databind/JsonDeserializer.html)
 ```java
-    ObjectMapper mapperForRawJSON = ... // get from Dependency Injection
+    ObjectMapper mapperForRawJSON = ... // get from Dependency Injection or clone another ObjectMapper
 
     final var module = new SimpleModule()
         .addDeserializer(
