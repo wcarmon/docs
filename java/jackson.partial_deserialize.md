@@ -9,23 +9,18 @@
 public class RawJSONIndexes {
 
     /** Inclusive */
-    int startIndex;
+    int start;
 
     /** exclusive */
-    int endIndex;
+    int end;
     
-    @lombok.Builder(
-        builderClassName = "Builder",
-        toBuilder = true)
-    private RawJSONIndexes(
-        int startIndex,
-        int endIndex
-    ) {
-        checkArgument(startIndex >= 0, "startIndex must be non-negative");
-        checkArgument(endIndex > startIndex, "endIndex must be greater than startIndex");
+    @lombok.Builder(builderClassName = "Builder")
+    private RawJSONIndexes(int start, int end) {
+        checkArgument(start >= 0, "start must be non-negative");
+        checkArgument(end > start, "end must be greater than start");
 
-        this.endIndex = endIndex;
-        this.startIndex = startIndex;
+        this.end = end;
+        this.start = start;
     }
 }
 ```
@@ -42,14 +37,14 @@ public final class RawJSONDeserializer extends JsonDeserializer<RawJSONIndexes> 
         final int startOffset = (int) p.getTokenLocation().getCharOffset();
         
         // NOTE: we only care where this objects starts and ends
-        // NOTE: this handles nested objects & arrays too        
+        // NOTE: this line handles nested objects & arrays too        
         p.skipChildren();
         
         final int endOffset = (int) p.getCurrentLocation().getCharOffset();
 
         return RawJSONIndexes.builder()
-            .startIndex(startOffset)
-            .endIndex(endOffset)
+            .start(startOffset)
+            .end(endOffset)
             .build();
     }
 }
@@ -71,11 +66,10 @@ public final class RawJSONDeserializer extends JsonDeserializer<RawJSONIndexes> 
 
 # Step-4: Make some dummy JSON to test
 ```java
-
-    // Add extra spaces, line breaks, inconsistent spacing, ... to prove the output wasn't cleaned 
+    // Add extra spaces, line breaks, inconsistent spacing, ... to prove the output wasn't auto-cleaned
     // NOTE: Nested objects and arrays also work
      
-    var exampleJSON = """
+    final var exampleJSON = """
         {
             "fooBars": [
                 { "b": true,   "n": 6, "s": "quuz",   "myObj":{"a":    3}  },
@@ -95,8 +89,8 @@ public final class RawJSONDeserializer extends JsonDeserializer<RawJSONIndexes> 
     parsed.get("fooBars") // 'fooBars' matches the outermost property 
         .forEach(indexPair -> {
             var currentRawJSON = exampleJSON.substring(
-                indexPair.getStartIndex(), 
-                indexPair.getEndIndex());
+                indexPair.getStart(), 
+                indexPair.getEnd());
 
             System.out.println("currentRawJSON: " + currentRawJSON); // or persist or whatever
         });
