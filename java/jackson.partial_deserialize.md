@@ -3,7 +3,7 @@
     (eg. to retain some raw nested JSON)
 
 
-# Step-1: Make a class for holding indexes on the original JSON 
+# Step-1: Make a class to hold indexes of the original JSON 
 ```java
 @Value
 public class RawJSONIndexes {
@@ -31,9 +31,9 @@ public class RawJSONIndexes {
 ```
 
 
-# Step-2: Make a custom deserializer
+# Step-2: Make a custom [Deserializer](https://javadoc.io/doc/com.fasterxml.jackson.core/jackson-databind/2.14.2/com/fasterxml/jackson/databind/JsonDeserializer.html)
 ```java
-class RawJSONDeserializer extends JsonDeserializer<RawJSONIndexes> {
+public final class RawJSONDeserializer extends JsonDeserializer<RawJSONIndexes> {
 
     @Override
     @SneakyThrows
@@ -41,7 +41,9 @@ class RawJSONDeserializer extends JsonDeserializer<RawJSONIndexes> {
 
         final int startOffset = (int) p.getTokenLocation().getCharOffset();
         
-        p.skipChildren();  // NOTE: this handles nested objects & arrays
+        // NOTE: we only care where this objects starts and ends
+        // NOTE: this handles nested objects & arrays too        
+        p.skipChildren();
         
         final int endOffset = (int) p.getCurrentLocation().getCharOffset();
 
@@ -54,7 +56,7 @@ class RawJSONDeserializer extends JsonDeserializer<RawJSONIndexes> {
 ```
 
 
-# Step-3: Register your custom deserializer
+# Step-3: Register your custom [Deserializer](https://javadoc.io/doc/com.fasterxml.jackson.core/jackson-databind/2.14.2/com/fasterxml/jackson/databind/JsonDeserializer.html)
 ```java
     ObjectMapper mapperForRawJSON = ... // get from DI
 
@@ -67,30 +69,30 @@ class RawJSONDeserializer extends JsonDeserializer<RawJSONIndexes> {
 ```
 
 
-# Step-4: Make some dummy json to test
+# Step-4: Make some dummy JSON to test
 ```java
 
-    // Add extra spaces & inconsistent spacing to prove the output wasn't cleaned 
+    // Add extra spaces, line breaks, inconsistent spacing, ... to prove the output wasn't cleaned 
     // NOTE: Nested objects and arrays also work
      
     var exampleJSON = """
         {
             "fooBars": [
-                { "b": true,   "n": 6, "s": "quuz",   "o":{"a":    3}  },
-                { "b": false, "n": 103, "s":  "yarp"  , "arr": ["t"] }
+                { "b": true,   "n": 6, "s": "quuz",   "myObj":{"a":    3}  },
+                { "b": false, "n": 103, "s":  "yarp"  , "myArr": ["t"] }
             ]
         }
         """.trim();           
 ```
 
-# Step-5: Parse & Use 
+# Step-5: Parse & Use the partially deserialized JSON
 ```java
     Map<String, List<RawJSONIndexes>> parsed =
         mapperForRawJSON.readValue(
             exampleJSON,
             new TypeReference<>() {});
 
-    parsed.get("fooBars")
+    parsed.get("fooBars") // 'fooBars' matches the outermost property 
         .forEach(indexPair -> {
             var currentRawJSON = exampleJSON.substring(
                 indexPair.getStartIndex(), 
@@ -104,3 +106,4 @@ class RawJSONDeserializer extends JsonDeserializer<RawJSONIndexes> {
 # Other resources
 1. https://www.javadoc.io/doc/com.fasterxml.jackson.core/jackson-core/2.14.2/com/fasterxml/jackson/core/JsonParser.html
 1. https://javadoc.io/doc/com.fasterxml.jackson.core/jackson-databind/2.14.2/com/fasterxml/jackson/databind/JsonDeserializer.html
+1. https://docs.oracle.com/en/java/javase/14/docs/specs/text-blocks-jls.html
