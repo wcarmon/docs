@@ -1,5 +1,4 @@
-# Learn from https://opentelemetry.io/docs/collector/configuration/
-
+# Useful for collecting spans from browser
 
 # ---------------------
 # -- Input side
@@ -20,6 +19,8 @@ receivers:
           allowed_headers:
             - "*"
           max_age: 7200  # seconds
+
+# TODO: verify
 # Access-Control-Allow-Origin
 # Access-Control-Allow-Methods
 # Access-Control-Allow-Headers
