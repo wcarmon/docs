@@ -2,6 +2,8 @@
 
 # ---------------------------------------------
 # -- Runs an OTEL Collector locally (stateless)
+# -- Useful for collecting spans from browser
+# --
 # -- See https://opentelemetry.io/docs/collector/configuration/
 # -- See https://opentelemetry.io/docs/collector/
 # --
