@@ -1,4 +1,7 @@
 # Useful for collecting spans from browser
+#
+# See official example:
+# https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/examples/tracing/otel-collector-config.yml
 
 # ---------------------
 # -- Input side
@@ -31,12 +34,27 @@ receivers:
 # ---------------------
 # See https://github.com/open-telemetry/opentelemetry-collector/blob/main/exporter/otlpexporter/cfg-schema.yaml
 exporters:
-#  otlp:
-#    endpoint: otelcol:4317
   jaeger:
     endpoint: localhost:14250
     tls:
       insecure: true
-#  logging:
-#    loglevel: debug
-#    verbosity: detailed
+  logging:
+    verbosity: detailed
+
+
+# ---------------------
+# -- Internal
+# ---------------------
+processors:
+  batch:
+
+extensions:
+  health_check:
+
+service:
+  extensions: [health_check]
+  pipelines:
+    traces:
+      receivers: [otlp]
+      exporters: [jaeger, logging]
+      processors: [batch]

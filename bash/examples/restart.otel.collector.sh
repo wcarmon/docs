@@ -48,11 +48,12 @@ $DOCKER rm --force $COLLECTOR_CONTAINER_NAME || true &>/dev/null
 # port 13133:   Health check
 $DOCKER run -d \
 --name $COLLECTOR_CONTAINER_NAME \
--v $SCRIPTS_DIR/otel.collector.yaml:/etc/otelcol-contrib/config.yaml:ro \
+-v $SCRIPTS_DIR/otel.collector.yaml:/etc/otelcol/config.yaml:ro \
 -p 4318:4318 \
 -p 13133:13133 \
 $COLLECTOR_IMAGE
 
+# /etc/otelcol/config.yaml
 
 # ---------------------------------------------
 # -- Report
