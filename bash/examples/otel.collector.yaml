@@ -12,7 +12,7 @@
 # CORS: see https://github.com/open-telemetry/opentelemetry-collector/tree/main/receiver/otlpreceiver#cors-cross-origin-resource-sharing
 # Port 4318 for http
 receivers:
-  otlp:
+  otlphttp:
     protocols:
       http:
         endpoint: "localhost:4318"
@@ -34,13 +34,12 @@ receivers:
 # ---------------------
 # See https://github.com/open-telemetry/opentelemetry-collector/blob/main/exporter/otlpexporter/cfg-schema.yaml
 exporters:
-  jaeger:
-    endpoint: localhost:14250
+  otlp:
+    endpoint: localhost:4317
     tls:
       insecure: true
   logging:
     verbosity: detailed
-
 
 # ---------------------
 # -- Internal
@@ -55,6 +54,6 @@ service:
   extensions: [health_check]
   pipelines:
     traces:
-      receivers: [otlp]
-      exporters: [jaeger, logging]
+      receivers: [otlphttp]
+      exporters: [otlp, logging]
       processors: [batch]
