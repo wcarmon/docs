@@ -12,22 +12,16 @@
 # CORS: see https://github.com/open-telemetry/opentelemetry-collector/tree/main/receiver/otlpreceiver#cors-cross-origin-resource-sharing
 # Port 4318 for http
 receivers:
-  otlphttp:
+  otlp:
     protocols:
       http:
-        endpoint: "localhost:4318"
+        endpoint: localhost:4318
         cors:
           allowed_origins:
             - "*"
           allowed_headers:
             - "*"
           max_age: 7200  # seconds
-
-# TODO: verify
-# Access-Control-Allow-Origin
-# Access-Control-Allow-Methods
-# Access-Control-Allow-Headers
-
 
 # ---------------------
 # -- Output side
@@ -54,6 +48,6 @@ service:
   extensions: [health_check]
   pipelines:
     traces:
-      receivers: [otlphttp]
+      receivers: [otlp]
       exporters: [otlp, logging]
       processors: [batch]
