@@ -16,12 +16,11 @@ receivers:
     protocols:
       http:
         endpoint: localhost:4318
+        include_metadata: true
         cors:
-          allowed_origins:
-            - "*"
-          allowed_headers:
-            - "*"
-          max_age: 7200  # seconds
+          allowed_origins: ["*"]
+          allowed_headers: ["*"]
+          max_age: 7200
 
 # ---------------------
 # -- Output side
@@ -40,6 +39,11 @@ exporters:
 # ---------------------
 processors:
   batch:
+  attributes:
+    actions:
+      - key: http.client_ip
+        from_context: X-Forwarded-For
+        action: upsert
 
 extensions:
   health_check:
