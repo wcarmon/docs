@@ -9,6 +9,8 @@
 
 # Why
 1. Simplifies working with Spreadsheets, SQL, ...
+1. Helps with timeseries & window functions
+1. Simplifies `NaN` handling
 
 
 # Key Concepts
@@ -23,8 +25,15 @@
 ## DataFrame
 1. 2D structure, like a spreadsheet (columns and rows)
 
-# Usage
+
+# Usage (Mostly DataFrame) 
 1. TODO
+
+## Print
+```python
+df.dtypes
+df.describe(include='all')
+```
 
 ## Create
 
@@ -39,19 +48,42 @@
 
 
 ## Update
+1. TODO: map
 
 ### Rename columns
 1. TODO
 
+## Dedupe
+```python
+df.drop_duplicates(['col_1', 'col_2'], inplace=True)
+```
+
 ## Delete
 
-## Get
+## Add column
+- TODO
+
+## Remove column
+- TODO
+
+## Get Duplicates
+```python
+duplicates = df[df.duplicated(keep=False)]
+```
+
+## Filter
+1. TODO
 
 ### head (first n-rows)
 - TODO
 
-## Filter
-1. TODO
+### Missing values
+1. TODO: `df.isnull(...)`
+1. TODO: `df.dropna(...)`
+1. TODO: `df.fillna(...)`
+
+
+## Join
 
 
 ## Export/Save
@@ -72,3 +104,18 @@
 
 # Other resources
 1. https://pandas.pydata.org/docs/user_guide/index.html#user-guide
+
+
+
+- TODO: SELECT
+- TODO: AS (rename)
+- TODO: JOIN
+- TODO: ORDER BY
+- TODO: LIMIT
+- TODO: GROUP BY
+- TODO: HAVING
+- TODO: IN
+- TODO: Window functions
+- TODO: AND
+- TODO: OR
+- TODO: UNION
