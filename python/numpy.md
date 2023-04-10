@@ -1,5 +1,5 @@
 # Overview
-1. Key points about [numpy](https://numpy.org/)
+1. Key ideas in [numpy](https://numpy.org/)
 
 
 # What
@@ -15,7 +15,7 @@
 1. Useful for Linear Algebra, Machine Learning, Statistics, etc.
 
 
-# Key Terms/Ideas
+# Key Concepts
 1. `ndarray` == `array` (alias)
 1. Fixed size (cannot grow)
     1. changing the size deletes the original
@@ -97,7 +97,23 @@ TODO
 1. TODO
 
 ## Broadcast
+1. Allows operations on arrays of different shapes
+1. Numpy has [rules about which shapes are compatible](TODO)
 1. TODO: https://numpy.org/doc/stable/user/basics.broadcasting.html
+
+# Utility functions
+- [`abs`](TODO)  
+- [`add`](TODO)  
+- [`all`](TODO)  
+- [`any`](TODO)  
+- [`ceil`](TODO)  
+- [`floor`](TODO)  
+- [`max`](TODO)  
+- [`min`](TODO)  
+- [`multiply`](TODO)  
+- [`round`](TODO)  
+- [`sort`](TODO)  
+
 
 # Relation to other tools
 1. The foundation for OpenCV
@@ -109,4 +125,4 @@ TODO
 # Other resources
 1. https://numpy.org/
 1. https://github.com/numpy/numpy-tutorials
-
+1. https://numpy.org/doc/1.23/numpy-ref.pdf
