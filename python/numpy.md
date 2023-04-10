@@ -31,6 +31,7 @@
         1. `np.float32`
         1. `np.float64`
 
+
 # Usage
 ## [Create](https://numpy.org/doc/stable/user/basics.creation.html)
 1. [Conversion from other Python structures](https://numpy.org/doc/stable/reference/generated/numpy.array.html#numpy.array) (i.e. lists and tuples)
@@ -38,8 +39,12 @@
 a1D = np.array([1, 2, 3, 4], dtype=np.int8)
 a2D = np.array([[1, 2], [3, 4]])
 ```
-1. Intrinsic NumPy array creation functions (e.g. arange, ones, zeros, etc.)
+1. Intrinsic NumPy array creation functions 
+- [`.arange`](TODO)
+- [`.ones`](TODO)
+- [`.zeros`](TODO)
 ```python
+TODO
 ```
 1. Replicating, joining, or mutating existing arrays
 ```python
