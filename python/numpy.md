@@ -93,6 +93,9 @@ TODO
 1. `my_array.size`: total element count
 - TODO: indexing and slicing
 
+## Slice
+1. TODO
+
 ## Delete
 1. TODO
 
