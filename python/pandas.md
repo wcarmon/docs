@@ -119,3 +119,8 @@ duplicates = df[df.duplicated(keep=False)]
 - TODO: AND
 - TODO: OR
 - TODO: UNION
+
+- TODO: df.columns = x
+- TODO: df.reset_index(...)
+- TODO: np.cumsum(...)
+- TODO: df.insert(0, 'foo', ...)
