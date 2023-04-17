@@ -7,6 +7,11 @@
 ```sh
 ZSCALER_CERT_PATH=/path/to/ZscalerRootCertificate-2048-SHA256.crt;
 
+sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain $ZSCALER_CERT_PATH;
+sudo cat $ZSCALER_CERT_PATH >> /usr/local/etc/openssl/cert.pem;
+
+# -- Reboot
+
 # Activate venv
 source /path/to/venv/bin/activate;
 
@@ -22,6 +27,8 @@ export CERT_PATH=$(python3 -m certifi);
 export SSL_CER_FILE=${CERT_PATH};
 export REQUESTS_CA_BUNDLE=${CERT_PATH};
 ```
+
+- Now you can use pip to install packages
 
 
 # Making pip work in PyCharm
