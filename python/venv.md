@@ -15,8 +15,28 @@
 ```bash
 # any 3.x is fine for bootstrapping
 sudo apt-get install python3;
-sudo apt-get install -y libbz2-dev libsqlite3-dev python3-tk;
-# TODO: openssl xz zlib(zlib1g-dev) readline
+
+sudo apt-get install -y \
+build-essential \
+curl \
+libbz2-dev \
+libffi-dev \
+liblzma-dev \
+libncurses5-dev \
+libncursesw5-dev \
+libreadline-dev \
+libsqlite3-dev \
+libssl-dev \
+llvm \
+python-openssl \
+python3-tk \
+tk-dev \
+wget \
+xz-utils \
+zlib1g-dev;
+
+sudo apt-get install -y python3.11-tk;
+sudo apt-get install -y python3.10-tk;
 ```
 
 ## Install [pyenv](https://github.com/pyenv/pyenv)
@@ -54,6 +74,8 @@ exec "$SHELL"
 pyenv virtualenv --version
 ```
 
+- TODO: pyenv-doctor
+
 
 # MacOS setup steps
 ```
@@ -65,6 +87,8 @@ brew install pyenv-virtualenv;
 python3 --version
 pyenv --version
 ```
+
+- TODO: pyenv-doctor
 
 
 # Windows steps
@@ -111,4 +135,5 @@ source ...TODO
 
 
 # Other Resources
-1. TODO
+1. https://realpython.com/python-virtual-environments-a-primer/
+1. https://realpython.com/intro-to-pyenv/
