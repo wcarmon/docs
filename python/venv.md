@@ -106,8 +106,8 @@ pyenv install 3.11;
 ```
 1. Verify
 ```bash
-find $HOME/.pyenv/versions -name python
-# eg. '/home/myself/.pyenv/versions/3.11.3/bin/python'
+find $HOME/.pyenv/versions -name python | grep "bin/python"
+find $HOME/.pyenv/versions -name pip | grep "bin/pip"
 ```
 
 # Create virtual environments
