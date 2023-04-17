@@ -6,7 +6,8 @@
 
 # Idioms
 1. Let [`pyenv`](https://github.com/pyenv/pyenv) manage multiple python versions
-1. Let [`pyenv-virtualenv` plugin](https://github.com/pyenv/pyenv-virtualenv) create [virtual environments](TODO)
+1. Let [`pyenv-virtualenv` plugin](https://github.com/pyenv/pyenv-virtualenv) create [virtual environments](https://docs.python.org/3/tutorial/venv.html)
+    1. Internally, it uses [`python -m venv`](https://docs.python.org/3/library/venv.html) when available, falls back to [`virtualenv`](https://virtualenv.pypa.io/en/latest/)
 1. Avoid ~~`pipenv`~~
 
 
@@ -14,6 +15,8 @@
 ```bash
 # any 3.x is fine for bootstrapping
 sudo apt-get install python3;
+sudo apt-get install -y libbz2-dev libsqlite3-dev python3-tk;
+# TODO: openssl xz zlib(zlib1g-dev) readline
 ```
 
 ## Install [pyenv](https://github.com/pyenv/pyenv)
@@ -46,9 +49,8 @@ echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.bashrc
 
 # restart shell
 exec "$SHELL"
-```
-1. Verify
-```bash
+
+# -- verify
 pyenv virtualenv --version
 ```
 
@@ -80,11 +82,33 @@ pyenv install --list | grep 3.11;
 pyenv install 3.11;
 #pyenv install 3.10;
 ```
+1. Verify
+```bash
+find $HOME/.pyenv/versions -name python
+```
 
 # Create virtual environments
+```bash
+pyenv virtualenv 3.11 wc_3.11
+
+# -- verify
+pyenv virtualenvs
+```
+
+# Activate/Deactivate virtual environment
+
+```
+# Using pyenv
+pyenv activate <name>
+pyenv deactivate
+
+# Using pure bash
+source ...TODO
+```
+
+# Uninstall/Delete
+- [https://github.com/pyenv/pyenv-virtualenv#delete-existing-virtualenv](https://github.com/pyenv/pyenv-virtualenv#delete-existing-virtualenv)
 
 
 # Other Resources
 1. TODO
-
-- TODO: deactivate venv
