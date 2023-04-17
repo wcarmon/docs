@@ -104,9 +104,10 @@ pyenv install --list | grep 3.11;
 
 pyenv install 3.11;
 #pyenv install 3.10;
-```
-1. Verify
-```bash
+
+# -- verify
+pyenv versions;
+
 find $HOME/.pyenv/versions -name python | grep "bin/python"
 find $HOME/.pyenv/versions -name pip | grep "bin/pip"
 ```
@@ -136,6 +137,7 @@ pyenv deactivate
 
 # Other commands
 ```bash
+pyenv versions
 pyenv commands
 ```
 
