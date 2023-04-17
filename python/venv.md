@@ -107,6 +107,7 @@ pyenv install 3.11;
 1. Verify
 ```bash
 find $HOME/.pyenv/versions -name python
+# eg. '/home/myself/.pyenv/versions/3.11.3/bin/python'
 ```
 
 # Create virtual environments
@@ -120,12 +121,15 @@ pyenv virtualenvs
 
 # Activate/Deactivate virtual environment
 ```
-# Using pyenv
-pyenv activate <name>
-pyenv deactivate
-
 # Using pure bash
-source ...TODO
+find "$HOME/.pyenv/versions" -type f -name activate | grep envs
+
+PY_ENV_ACTIVATE=$HOME/.pyenv/versions/3.11.3/envs/wc_3.11/bin/activate
+source $PY_ENV_ACTIVATE;
+
+# Using pyenv
+pyenv activate wc_3.11
+pyenv deactivate
 ```
 
 
