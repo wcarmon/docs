@@ -34,9 +34,6 @@ tk-dev \
 wget \
 xz-utils \
 zlib1g-dev;
-
-sudo apt-get install -y python3.11-tk;
-sudo apt-get install -y python3.10-tk;
 ```
 
 ## Install [pyenv](https://github.com/pyenv/pyenv)
@@ -100,6 +97,7 @@ pyenv --version
 # Install desired Python versions
 ```bash
 # -- see latest available
+pyenv update;
 pyenv install --list | grep 3.12;
 pyenv install --list | grep 3.11;
 
@@ -119,8 +117,8 @@ pyenv virtualenv 3.11 wc_3.11
 pyenv virtualenvs
 ```
 
-# Activate/Deactivate virtual environment
 
+# Activate/Deactivate virtual environment
 ```
 # Using pyenv
 pyenv activate <name>
@@ -129,6 +127,13 @@ pyenv deactivate
 # Using pure bash
 source ...TODO
 ```
+
+
+# Other commands
+```bash
+pyenv commands
+```
+
 
 # Uninstall/Delete
 - [https://github.com/pyenv/pyenv-virtualenv#delete-existing-virtualenv](https://github.com/pyenv/pyenv-virtualenv#delete-existing-virtualenv)
