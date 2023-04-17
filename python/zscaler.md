@@ -1,5 +1,5 @@
 # Overview
-- TODO
+- Setup for python package manager for ZScaler
 
 
 # Making pip work in venv
