@@ -29,7 +29,7 @@
 
 
 # Alignment with Linux/win
-1. Try copying [my keymap xml file](./wc-win-keyboard-on-macos-keymap.xml) into the dir above
+1. Try copying [my keymap xml file](./wc_win_keyboard_on_macos_keymap.xml) into the dir above
     1. Assuming you remapped the modifiers as described in [keymap](./keymap.md) doc
     1. `"alt"` in `<keyboard-shortcut>` means **TODO**
     1. `"back_space"` in `<keyboard-shortcut>` means **TODO**
