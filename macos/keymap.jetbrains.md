@@ -19,7 +19,7 @@
 1. Move keymap xml to ...
     1. `~/Library/Application Support/JetBrains/GoLand<version>/keymaps/*.xml`
     1. `~/Library/Application Support/JetBrains/IntellijIdea<version>/keymaps/*.xml`
-    1. TODO: pycharm
+    1. `~/Library/Application Support/JetBrains/PyCharm<version>/keymaps/*.xml`
 1. Restart GoLand (or IDEA or PyCharm)
 1. Enable Sync ...
     1. Click **`Keep and Sync Local Settings`**
