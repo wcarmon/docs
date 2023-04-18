@@ -87,6 +87,10 @@ ng serve --open
     - Sometimes you have to add a breakpoint to force karma plugin to rebuild & deploy tests
     - GOTCHA: compilation errors sometimes appear as test success (no tests found) 
 
+# Gotchas
+- [`app.module.ts`](https://angular.io/guide/architecture-modules) cannot import forms from a [barrel file](https://basarat.gitbook.io/typescript/main-1/barrel)
+
+
 # Other resources
 1. https://angular.io/cli
 1. https://angular.io/guide/setup-local
