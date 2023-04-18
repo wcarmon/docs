@@ -22,12 +22,12 @@
 1. `GoLand2022.1`
 1. `IntelliJIdea2021.3`
 1. `IntelliJIdea2022.1`
-1. `PyCharm2021.3`
 1. `PyCharm2022.1`
+1. `PyCharm2023.1`
 
 
 # Jetbrains shortcuts
-- See [jetbrains-shortcuts](../../macos/jetbrains-shortcuts.md) doc
+- See [jetbrains-shortcuts](../../macos/keymap.jetbrains.md) doc
 
 
 # Other Resources
