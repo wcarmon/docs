@@ -36,5 +36,9 @@
 - TODO
 
 
+# Gotchas
+1. Angular material doesn't work with html tables, must use CSS Flex
+    1. eg. MatSelect
+
 # Other resources
 1. TODO
