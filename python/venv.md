@@ -34,6 +34,12 @@ tk-dev \
 wget \
 xz-utils \
 zlib1g-dev;
+
+sudo apt install -y \
+libgdbm-dev \
+libnss3-dev \
+software-properties-common \
+;
 ```
 
 ## Install [pyenv](https://github.com/pyenv/pyenv)
