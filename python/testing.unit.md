@@ -24,6 +24,7 @@ pytest --version;
 - TODO: ch 12 - scripts
 - TODO: ch 13 - debugging
 - TODO: ch 14 - plugins
+- TODO: improvements between v7.0 (when book written) and v7.3 (today) <-- first 8 pages of changelog
 
 
 # Idioms
