@@ -47,10 +47,11 @@ vi ~/.profile
 ```
 1. Add this:
 ```sh
-PYENV_BINARY=$HOME/.pyenv/bin/pyenv;
 export PYENV_ROOT="$HOME/.pyenv"
-command -v $PYENV_BINARY >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$($PYENV_BINARY init -)"
+export PATH="$PYENV_ROOT/bin:$PATH"
+
+export PYENV_BINARY=$HOME/.pyenv/bin/pyenv;
+eval "$(pyenv init -)"
 ```
 1. Restart
 1. Verify
