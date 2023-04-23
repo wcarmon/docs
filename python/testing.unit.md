@@ -16,8 +16,6 @@ pytest --version;
 - File | Settings | Tools | Python Integrated Tools
     - Set pytest as the default runner
 
-- TODO: ch 2
-- TODO: ch 3
 - TODO: ch 4
 - TODO: ch 5 - paramters
 - TODO: ch 6 - markers
@@ -49,17 +47,24 @@ pytest ./ --tb=no --verbose;
 # [Fixtures](https://docs.pytest.org/en/6.2.x/reference.html#fixtures-api)
 1. "Fixture" means a function which runs before or after a test
     1. Think beforeEach/afterEach in JUnit
-1. use `@pytest.fixture`    
-1. [`yield <some_optional_value>`](TODO) in fixture function to do 'before' & 'after' each test
-1. [`return`](TODO) in the fixture function to do 'before' only 
+1. Use [`@pytest.fixture`](https://docs.pytest.org/en/6.2.x/fixture.html) to define
+1. [`yield <some_optional_value>`](https://docs.pytest.org/en/6.2.x/fixture.html#yield-fixtures-recommended) in fixture function to do 'before' & 'after' each test
 the or return
-1. Scopes: 
-    - "function" (default):
-    - "class":
-    - "module":
-    - "package":
-    - "session":
+1. [Scopes](https://docs.pytest.org/en/6.2.x/fixture.html#scope-sharing-fixtures-across-classes-modules-packages-or-session): lifetime/sharing of fixture
+    - "function" (default): once per `test_` function
+    - "class": once per test class (shared by all `test_` methods in class)
+    - "module": TODO
+    - "package": once per test directory
+    - "session": once per test process
+1. Pass fixture (function) name into the test function (as an argument)
 1. [Pycharm support](https://www.jetbrains.com/help/pycharm/pytest.html#pytest-fixtures)
+1. on cli, use [`--setup-show`](TODO) flag to debug fixture order
+1. Define fixture in [`conftest.py`](https://docs.pytest.org/en/6.2.x/fixture.html#scope-sharing-fixtures-across-classes-modules-packages-or-session) to share/reuse
+1. `autouse=True` fixtures might be useful for observability
+    1. these can make code harder to reason about
+1. Built-in fixtures
+    1. TODO: temp dirs
+    1. TODO: temp files
 
 
 # parametrize
@@ -74,6 +79,8 @@ the or return
     def test_foo():
         assert 1==1
     ```
+1. use standard [`assert`](https://docs.python.org/3/reference/simple_stmts.html#the-assert-statement)
+    1. [pytest rewrites asserts](https://docs.pytest.org/en/7.1.x/how-to/assert.html#assertion-introspection-details) to make messages clearer
 1. works with [attr](https://www.attrs.org/en/stable/) and [dataclass](https://docs.python.org/3/library/dataclasses.html)
 1. use [multiprocessing](https://docs.python.org/3/library/multiprocessing.html) to run tests in parallel
     1. See [Pycharm docs](https://www.jetbrains.com/help/pycharm/performing-tests.html#test-mutliprocessing)
