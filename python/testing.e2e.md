@@ -24,6 +24,9 @@ mkdir -p $HOME/.selenium/drivers
 # TODO: unzip
 # TODO: move all files to $HOME/.selenium/drivers
 
+rm -fv $HOME/bin/chromedriver
+rm -fv $HOME/bin/geckodriver
+
 ln -s $HOME/.selenium/drivers/chromedriver $HOME/bin;
 ln -s $HOME/.selenium/drivers/geckodriver $HOME/bin;
 
