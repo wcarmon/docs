@@ -6,7 +6,6 @@
 1. Build the tasks first (into a map or slice)
 
 
-
 # Example
 ```go
 func main() {
