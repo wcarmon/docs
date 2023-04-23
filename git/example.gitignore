@@ -172,6 +172,7 @@ $RECYCLE.BIN/
 .project
 .push-*
 .pydevproject
+.pytest_cache/
 .rerun.json
 .Rhistory
 .ruby-version
