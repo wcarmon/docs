@@ -57,10 +57,19 @@ gh repo list $ORG_NAME --limit 250 --json name | jq -r -c '.[] | select(.name) |
 
 # Clone all org repos
 ```bash
-cd ROOT_FOR_ALL_ORG_REPOS;
+cd $ROOT_FOR_ALL_ORG_REPOS;
 
 gh repo list $ORG_NAME --limit 250 | while read -r repo _; do
-  gh repo clone "$repo" "$repo"
+  
+  # -- Clone if absent
+  gh repo clone "$repo" "$repo" || true
+  
+  # -- Refresh
+  cd $repo >/dev/null 2>&1
+  git fetch --all;
+  git pull;
+
+  cd - >/dev/null 2>&1
 done
 ```
 
