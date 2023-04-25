@@ -55,11 +55,18 @@ gh repo list $ORG_NAME --limit 250 --json name | jq -r -c '.[] | select(.name) |
 ```
 
 
+# Clone all org repos
+```bash
+cd ROOT_FOR_ALL_ORG_REPOS;
+
+gh repo list $ORG_NAME --limit 250 | while read -r repo _; do
+  gh repo clone "$repo" "$repo"
+done
+```
+
+
 # Setup
 1. [http://localhost:7080](http://localhost:7080)
-1. Generate a classic [Personal access token](./github.token.auth.md)
-    1. Permission: `repo`
-1. 
-1. All repos from selected organizations 
+1. TODO 
 
 # Other resources
