@@ -23,6 +23,8 @@ sourcegraph/server:5.0.0;
 # -- Verify
 docker ps | grep sourcegraph;
 docker logs sourcegraph;
+
+# navigate to http://localhost:7080
 ```
 
 
