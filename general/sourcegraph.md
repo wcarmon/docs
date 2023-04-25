@@ -45,12 +45,12 @@ sourcegraph/server:5.0.0;
 ```
 
 
-# listing all repos in your organization
+# MacOS: Listing all repos in your organization
 ```bash
 brew install gh;
 
 ORG_NAME=foo
-gh list repos $ORG_NAME --limit 250 
+gh list repos $ORG_NAME --limit 250 --json name; 
 ```
 
 # Other resources
