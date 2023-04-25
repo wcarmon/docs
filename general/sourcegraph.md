@@ -31,8 +31,17 @@ docker logs sourcegraph;
 # MacOS specific
 1. TODO: https://docs.sourcegraph.com/admin/deploy/docker-single-container#file-system-performance-on-docker-for-mac
 ```
---platform linux/amd64
---volume ~/.sourcegraph/data:/var/opt/sourcegraph:delegated
+# TODO: clone the repos locally first
+
+docker run -d \
+--name sourcegraph \
+--platform linux/amd64 \
+--publish 127.0.0.1:3370:3370 \
+--publish 7080:7080 \
+--volume $HOME/.sourcegraph/config:/etc/sourcegraph \
+--volume $HOME/.sourcegraph/data:/var/opt/sourcegraph:delegated \
+-e DISABLE_OBSERVABILITY=true \
+sourcegraph/server:5.0.0;
 ```
 
 
