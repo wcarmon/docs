@@ -51,7 +51,7 @@ brew install jq;
 brew install gh;
 
 ORG_NAME=foo
-gh repo list $ORG_NAME --limit 250 --json name | jq -r -c '.[] | select(.name) | .name'; 
+gh repo list $ORG_NAME --limit 250 --json name | jq -r -c '.[] | select(.name) | .name' | sort > all_repos.txt;
 ```
 
 
