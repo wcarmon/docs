@@ -47,10 +47,19 @@ sourcegraph/server:5.0.0;
 
 # MacOS: Listing all repos in your organization
 ```bash
+brew install jq;
 brew install gh;
 
 ORG_NAME=foo
-gh list repos $ORG_NAME --limit 250 --json name; 
+gh list repos $ORG_NAME --limit 250 --json name | jq -r -c '.[] | select(.name) | .name'; 
 ```
+
+
+# Setup
+1. [http://localhost:7080](http://localhost:7080)
+1. Generate a classic [Personal access token](./github.token.auth.md)
+    1. Permission: `repo`
+1. 
+1. All repos from selected organizations 
 
 # Other resources
