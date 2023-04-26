@@ -37,8 +37,6 @@ readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
 # Dir contains pyproject.toml file
 readonly PROJ_ROOT="$PARENT_DIR"
 
-#readonly CERT_FILE="${PROJ_ROOT}/foo.crt"
-
 # ---------------------------------------------
 # -- Validate
 # ---------------------------------------------
