@@ -22,7 +22,8 @@ sudo netstat -pant | grep -i 45484
 
 
 # Pycharm
-1. See [plugin](https://plugins.jetbrains.com/plugin/14321-blackconnect)
+1. See ~~[plugin](https://plugins.jetbrains.com/plugin/14321-blackconnect)~~
+    1. GOTCHA: **blackconnect breaks pycharm debugger and breakpoints**
 
 
 # Other resources
