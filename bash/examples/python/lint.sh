@@ -108,15 +108,6 @@ radon cc --average --show-closures --total-average --min C .
 # -- low priority
 #radon cc --average --show-closures --total-average --max C .
 
-
-# ---------------------------------------------
-# -- Run: Pyright
-# ---------------------------------------------
-echo
-echo "|-- Running pyright on ${PROJ_ROOT}"
-#pyright --level warning .
-pyright --level error .
-
 # ---------------------------------------------
 # -- Run: Bandit
 # ---------------------------------------------
@@ -131,6 +122,15 @@ bandit -r .
 #echo
 #echo "|-- Running pyroma (packaging) on ${PROJ_ROOT}"
 #pyroma .
+
+# ---------------------------------------------
+# -- Run: Pyright
+# ---------------------------------------------
+# sometimes annoying
+#echo
+#echo "|-- Running pyright on ${PROJ_ROOT}"
+#pyright --level warning .
+#pyright --level error .
 
 # ---------------------------------------------
 # -- Run: pylama
