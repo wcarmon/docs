@@ -1,8 +1,10 @@
 # Overview
 1. Pros & cons of using [airflow](TODO)
 
+
 # Facts
 1. Python based
+
 
 # Pros
 1. Can put jobs into version control (eg. git)
