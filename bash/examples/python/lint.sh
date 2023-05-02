@@ -64,8 +64,10 @@ echo "|-- Using Virtual environment: $VIRTUAL_ENV"
 # ---------------------------------------------
 echo
 echo "|-- Running mypy on ${PROJ_ROOT}"
-mypy --install-types
 mypy .
+
+# GOTCHA: only works after first run
+mypy --install-types
 
 # ---------------------------------------------
 # -- Run: Flake8
