@@ -68,7 +68,7 @@ echo "|-- Using Virtual environment: $VIRTUAL_ENV"
 # ---------------------------------------------
 echo
 echo "|-- Running mypy on ${PROJ_ROOT}"
-mypy .
+mypy src --explicit-package-bases
 
 # GOTCHA: only works after first run
 mypy --install-types
