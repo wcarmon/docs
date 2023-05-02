@@ -1,5 +1,5 @@
 # Overview
-1. TODO
+1. How to setup logging
 
 
 # Login to console and file
@@ -31,6 +31,11 @@ logger.info(...)
 
 
 # Rolling file
+1. TODO
+
+
+# OpenTelemetry forwarding
+1. TODO
 
 
 # Other Resources
