@@ -56,6 +56,10 @@ set -u
 # ---------------------------------------------
 cd "$PROJ_ROOT" >/dev/null 2>&1
 
+PYTHONPATH="${PYTHONPATH:=}"
+export PYTHONPATH="${PROJ_ROOT}/src:${PYTHONPATH}"
+export MYPYPATH="${PYTHONPATH}"
+
 echo
 echo "|-- Using Virtual environment: $VIRTUAL_ENV"
 

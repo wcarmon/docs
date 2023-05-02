@@ -169,6 +169,7 @@ $RECYCLE.BIN/
 .idea/workspace.xml
 .LSOverride
 .mtj.tmp/
+.mypy_cache/
 .project
 .push-*
 .pydevproject
