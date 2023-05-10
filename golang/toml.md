@@ -85,12 +85,12 @@ SprintfUndecodedKeys(md.Undecoded())
 ...
 
 func SprintfUndecodedKeys(keys []toml.Key) string {
-	out := make([]string, 0, len(keys))
-	for _, k := range keys {
-		out = append(out, strings.Join(k, "."))
-	}
+    out := make([]string, 0, len(keys))
+    for _, k := range keys {
+        out = append(out, strings.Join(k, "."))
+    }
 
-	return strings.Join(out, "\n")
+    return strings.Join(out, "\n")
 }
 ```
 

@@ -36,15 +36,15 @@
 # Pointer func args
 ```go
 func acceptValue(p int) {
-	// changes have zero impact on caller
-	p = 10
+    // changes have zero impact on caller
+    p = 10
 }
 
 func acceptPointer(p *int) {
-	// mutate value at p, affects caller
-	*p = 10
+    // mutate value at p, affects caller
+    *p = 10
 
-	// CANNOT make caller's pointers point somewhere else
+    // CANNOT make caller's pointers point somewhere else
 }
 ```
 

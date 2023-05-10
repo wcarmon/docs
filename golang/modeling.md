@@ -30,7 +30,7 @@ var favoriteBook *Book = nil
 1. Use nilable type
 ```go
 type Employee struct {
-	FavoriteBook *Book // at most one
+    FavoriteBook *Book // at most one
 }
 ```
 
@@ -39,7 +39,7 @@ type Employee struct {
 1. Use a [slice](./collections.slices.md)
 ```go
 type Employee struct {
-	PreviousEmployers []Employer // zero or more
+    PreviousEmployers []Employer // zero or more
 }
 ```
 

@@ -6,10 +6,10 @@
 # Setup & Teardown
 ```go
 func TestMain(m *testing.M) {
-	setup()
-	code := m.Run()
-	teardown()
-	os.Exit(code)
+    setup()
+    code := m.Run()
+    teardown()
+    os.Exit(code)
 }
 
 func setup() {
