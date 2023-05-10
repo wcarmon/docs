@@ -9,10 +9,10 @@
 1. Examples
 ```go
 n := -7
-n := 3e4		// 30,000  (4 zeros)
+n := 3e4        // 30,000  (4 zeros)
 n := 1e+7 == 10_000_000 (7 zeros)
-n := 30_000		// 30,000
-n := 0xFF		// 255
+n := 30_000        // 30,000
+n := 0xFF        // 255
 ```
 
 
@@ -141,16 +141,16 @@ isNegative := new(big.Float).Cmp(n) > 0
 ## Close enough (small delta)
 ```go
 func IsCloseEnough(
-	want, got *big.Float,
-	tolerance float64,
+    want, got *big.Float,
+    tolerance float64,
 ) bool {
     if want == nil && got == nil {
         return true
     }
 
-	delta := new(big.Float).Sub(got, want)
+    delta := new(big.Float).Sub(got, want)
 
-	return delta.Abs(delta).Cmp(big.NewFloat(tolerance)) < 0
+    return delta.Abs(delta).Cmp(big.NewFloat(tolerance)) < 0
 }
 ```
 
@@ -203,28 +203,28 @@ TODO
 ```go
 func Round(n *big.Float, decimalCount uint) float64 {
 
-	if n == nil {
-		return 0.0
-	}
+    if n == nil {
+        return 0.0
+    }
 
-	var mult float64
-	switch decimalCount {
-	case 0:
-		mult = 1.0
-	case 1:
-		mult = 10.0
-	case 2:
-		mult = 100.0
-	case 3:
-		mult = 1000.0
-	case 4:
-		mult = 10000.0
-	default:
-		mult = math.Pow(10, float64(decimalCount))
-	}
+    var mult float64
+    switch decimalCount {
+    case 0:
+        mult = 1.0
+    case 1:
+        mult = 10.0
+    case 2:
+        mult = 100.0
+    case 3:
+        mult = 1000.0
+    case 4:
+        mult = 10000.0
+    default:
+        mult = math.Pow(10, float64(decimalCount))
+    }
 
-	out, _ := n.Float64()
-	return math.Round(out*mult) / mult
+    out, _ := n.Float64()
+    return math.Round(out*mult) / mult
 }
 ```
 
