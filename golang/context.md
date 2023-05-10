@@ -77,17 +77,17 @@
 1. Example without hard-coding clock:
 ```go
 func ShowTimeoutUsage(
-	ctx context.Context,
-	clock func() time.Time,
-	timeout time.Duration) {
+    ctx context.Context,
+    clock func() time.Time,
+    timeout time.Duration) {
 
-	childCtx, cancel := context.WithDeadline(
-		ctx,
-		clock().Add(timeout))
-	defer cancel()
+    childCtx, cancel := context.WithDeadline(
+        ctx,
+        clock().Add(timeout))
+    defer cancel()
 
-	r, err := DoSomeExpensiveIO(childCtx)
-	...
+    r, err := DoSomeExpensiveIO(childCtx)
+    ...
 }
 ```
 1. [Official example](https://pkg.go.dev/context#example-WithTimeout) (hard-codes `time.Now()`)
@@ -109,31 +109,31 @@ type Id string
 type key int
 
 const (
-	userUuidKey key = iota
-	// other related context keys go here
+    userUuidKey key = iota
+    // other related context keys go here
 )
 
 // NewContext returns new context with passed userUuid
 func NewContext(ctx context.Context, u Id) context.Context {
-	// TODO: validate u here
+    // TODO: validate u here
 
-	return context.WithValue(ctx, userUuidKey, u)
+    return context.WithValue(ctx, userUuidKey, u)
 }
 
 // FromContext returns userUuid in a context
 // ok==true when returned userUuid is usable
 func FromContext(ctx context.Context) (u Id, ok bool) {
 
-	// NOTE: ctx.Value returns nil for missing value
-	// NOTE: type assertion allows nil arg
-	u, ok = ctx.Value(userUuidKey).(Id)
-	return
+    // NOTE: ctx.Value returns nil for missing value
+    // NOTE: type assertion allows nil arg
+    u, ok = ctx.Value(userUuidKey).(Id)
+    return
 }
 
 // FromRequest returns userUuid in http.Request
 // 2nd return value is true when ok to use
 func FromRequest(r *http.Request) (Id, bool) {
-	return FromContext(r.Context())
+    return FromContext(r.Context())
 }
 ```
 

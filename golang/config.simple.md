@@ -7,50 +7,50 @@
 1. Put this into `conf.go` for each command (eg. `$PROJ_ROOT/src/cmd/run-server/conf.go`)
 ```go
 import (
-	"errors"
-	"github.com/spf13/viper"
-	"path/filepath"
+    "errors"
+    "github.com/spf13/viper"
+    "path/filepath"
 )
 
 const (
-	configFileType        = "toml"
-	defaultConfigFilePath = "app.conf.toml"
+    configFileType        = "toml"
+    defaultConfigFilePath = "app.conf.toml"
 )
 
 // maybe move to conf_model.go
 // keep structure aligned with app.conf.toml
 type appConf struct {
 
-	// GOTCHA: unexported fields are ignored by viper/mapstructure
+    // GOTCHA: unexported fields are ignored by viper/mapstructure
 
-	// debug, info, warn, error
-	LogLevel string `toml:"logLevel"`
+    // debug, info, warn, error
+    LogLevel string `toml:"logLevel"`
 
-	InputPath  string `toml:"inputPath"`
-	OutputPath string `toml:"outputPath"`
+    InputPath  string `toml:"inputPath"`
+    OutputPath string `toml:"outputPath"`
 
-	JWT struct {
-		Issuer          string `toml:"issuer"`
-		MaxAgeInMinutes int    `toml:"maxAgeInMinutes"`
-		SharedKey       string `toml:"sharedKey"`
-	} `toml:"jwt"`
+    JWT struct {
+        Issuer          string `toml:"issuer"`
+        MaxAgeInMinutes int    `toml:"maxAgeInMinutes"`
+        SharedKey       string `toml:"sharedKey"`
+    } `toml:"jwt"`
 
-	// TODO: Align with toml config file structure
+    // TODO: Align with toml config file structure
 }
 
 // maybe move to conf_model.go
 func (c appConf) Validate() error {
-	if strings.TrimSpace(c.InputPath) == "" {
-		return errors.New("inputPath is required")
-	}
+    if strings.TrimSpace(c.InputPath) == "" {
+        return errors.New("inputPath is required")
+    }
 
-	if strings.TrimSpace(c.OutputPath) == "" {
-		return errors.New("outputPath is required")
-	}
+    if strings.TrimSpace(c.OutputPath) == "" {
+        return errors.New("outputPath is required")
+    }
 
-	// TODO: do other validation here
+    // TODO: do other validation here
 
-	return nil
+    return nil
 }
 
 // Use os.Args
@@ -61,57 +61,57 @@ type OSArgs []string
 // Load reads from config file, env vars, ...
 // Pass os.Args
 func NewConfig(osArgs OSArgs) (*appConf, error) {
-	v := viper.New()
+    v := viper.New()
 
-	// -- Set paths for config file
-	err := setPathConfigForViper(v, osArgs)
-	if err != nil {
-		zap.L().Error("failed to init viper", zap.Error(err))
+    // -- Set paths for config file
+    err := setPathConfigForViper(v, osArgs)
+    if err != nil {
+        zap.L().Error("failed to init viper", zap.Error(err))
 
-		return nil, err
-	}
+        return nil, err
+    }
 
-	v.SetConfigType(configFileType)
+    v.SetConfigType(configFileType)
 
-	// -- Allow env vars to override config file
-	// -- NOTE: use v.AllKeys() to print all available keys (for 1st arg below)
-	// v.BindEnv("db.user", "DB_USER")
-	// v.BindEnv("db.pass", "DB_PASS")
+    // -- Allow env vars to override config file
+    // -- NOTE: use v.AllKeys() to print all available keys (for 1st arg below)
+    // v.BindEnv("db.user", "DB_USER")
+    // v.BindEnv("db.pass", "DB_PASS")
 
-	// -- Parse config
-	err = v.ReadInConfig()
-	if err != nil {
-		zap.L().Error("failed to read config using viper", zap.Error(err))
+    // -- Parse config
+    err = v.ReadInConfig()
+    if err != nil {
+        zap.L().Error("failed to read config using viper", zap.Error(err))
 
-		return nil, err
-	}
+        return nil, err
+    }
 
-	var c appConf
+    var c appConf
 
-	extraViperConfig := func(config *mapstructure.DecoderConfig) {
-		// extras/unused
-		config.ErrorUnused = true
+    extraViperConfig := func(config *mapstructure.DecoderConfig) {
+        // extras/unused
+        config.ErrorUnused = true
 
-		// missing/implicit
-		config.ErrorUnset = false
-	}
+        // missing/implicit
+        config.ErrorUnset = false
+    }
 
-	// -- Store into config struct
-	err = v.Unmarshal(&c, extraViperConfig)
-	if err != nil {
-		zap.L().Error("failed to unmarshal config", zap.Error(err))
+    // -- Store into config struct
+    err = v.Unmarshal(&c, extraViperConfig)
+    if err != nil {
+        zap.L().Error("failed to unmarshal config", zap.Error(err))
 
-		return nil, err
-	}
+        return nil, err
+    }
 
-	// -- Set defaults
-	// alternatively: https://github.com/spf13/viper#establishing-defaults
-	c.setDefaults()
+    // -- Set defaults
+    // alternatively: https://github.com/spf13/viper#establishing-defaults
+    c.setDefaults()
 
-	// -- Validate
-	err = c.Validate()
-	if err != nil {
-		zap.L().Error("invalid config",
+    // -- Validate
+    err = c.Validate()
+    if err != nil {
+        zap.L().Error("invalid config",
 			zap.Error(err),
 			zap.String("config", fmt.Sprintf("%#v", c)),
 		)

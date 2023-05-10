@@ -104,32 +104,32 @@ require (
 - Use provider + [`wire.Bind`](https://github.com/google/wire/blob/main/wire.go#L113)
 ```go
 type Cheese interface {
-	// ... methods here ...
+    // ... methods here ...
 }
 
 // Implements Cheese
 type brie struct {
-	// ... fields here ...
+    // ... fields here ...
 }
 
 // Provider func
 func NewBrie() *brie {
-	return ...
+    return ...
 }
 ```
 In `wire.go`:
 ```go
 ...
-	panic(wire.Build(
-		// Provider for impl
-		NewBrie,
+    panic(wire.Build(
+        // Provider for impl
+        NewBrie,
 
-		// Bind impl to interface
-		wire.Bind(new(Cheese), new(*brie)),
+        // Bind impl to interface
+        wire.Bind(new(Cheese), new(*brie)),
 
-		// appObjects references Cheese (interface)
-		wire.Struct(new(appObjects), "*"),
-	))
+        // appObjects references Cheese (interface)
+        wire.Struct(new(appObjects), "*"),
+    ))
 ```
 
 
@@ -137,23 +137,23 @@ In `wire.go`:
 - Use [`wire.InterfaceValue`](https://github.com/google/wire/blob/0675cdc9191c85b3aeb6bc2529e7e28263d7e202/wire.go#L142)
 ```go
 type Cheese interface {
-	// ... methods here ...
+    // ... methods here ...
 }
 
 // Implements Cheese
 type brie struct {
-	// ... fields here ...
+    // ... fields here ...
 }
 ```
 In `wire.go`:
 ```go
 ...
-	panic(wire.Build(
-		wire.InterfaceValue(new(Cheese), new(*brie)),
+    panic(wire.Build(
+        wire.InterfaceValue(new(Cheese), new(*brie)),
 
-		// appObjects references Cheese (interface)
-		wire.Struct(new(appObjects), "*"),
-	))
+        // appObjects references Cheese (interface)
+        wire.Struct(new(appObjects), "*"),
+    ))
 ```
 
 
@@ -161,28 +161,28 @@ In `wire.go`:
 - Just use Provider
 ```go
 type Cheese interface {
-	// ... methods here ...
+    // ... methods here ...
 }
 
 // Implements Cheese
 type brie struct {
-	// ... fields here ...
+    // ... fields here ...
 }
 
 // interface builder func
 func NewCheese() (Cheese, error) {
-	return &brie{}, nil
+    return &brie{}, nil
 }
 ```
 In `wire.go`:
 ```go
 ...
-	panic(wire.Build(
-		NewCheese,
+    panic(wire.Build(
+        NewCheese,
 
-		// appObjects references Cheese (interface)
-		wire.Struct(new(appObjects), "*"),
-	))
+        // appObjects references Cheese (interface)
+        wire.Struct(new(appObjects), "*"),
+    ))
 ```
 
 
@@ -190,71 +190,71 @@ In `wire.go`:
 - Use [`wire.Value`](https://github.com/google/wire/blob/main/wire.go#L130) + [`wire.Bind`](https://github.com/google/wire/blob/main/wire.go#L113)
 ```go
 type Cheese interface {
-	// ... methods here ...
+    // ... methods here ...
 }
 
 // Implements Cheese
 type brie struct {
-	// ... fields here ...
+    // ... fields here ...
 }
 ```
 In `wire.go`:
 ```go
 ...
-	panic(wire.Build(
-		// Provider for impl
-		wire.Value(
-		    brie{ /* ...fields here... */ }),
+    panic(wire.Build(
+        // Provider for impl
+        wire.Value(
+            brie{ /* ...fields here... */ }),
 
-		// Bind impl to interface
-		wire.Bind(new(Cheese), &b),
+        // Bind impl to interface
+        wire.Bind(new(Cheese), &b),
 
-		// appObjects references Cheese (interface)
-		wire.Struct(new(appObjects), "*"),
-	))
+        // appObjects references Cheese (interface)
+        wire.Struct(new(appObjects), "*"),
+    ))
 ```
 
 
 ## Inject: Concrete type pointer, Given: Provider func
 ```go
 type brie struct {
-	// ... fields here ...
+    // ... fields here ...
 }
 
 // Provider func
 func NewBrie() (*brie, error) {
-	return ...
+    return ...
 }
 ```
 In `wire.go`:
 ```go
 ...
-	panic(wire.Build(
-		NewBrie,
+    panic(wire.Build(
+        NewBrie,
 
-		// appObjects references *brie
-		wire.Struct(new(appObjects), "*"),
-	))
+        // appObjects references *brie
+        wire.Struct(new(appObjects), "*"),
+    ))
 ```
 
 
 ## Inject: Concrete type pointer, Given: Concrete instance
 ```go
 type brie struct {
-	// ... fields here ...
+    // ... fields here ...
 }
 ```
 In `wire.go`:
 ```go
 ...
-	panic(wire.Build(
-		wire.Value(&brie{
-			// ... fields here ...
-		}),
+    panic(wire.Build(
+        wire.Value(&brie{
+            // ... fields here ...
+        }),
 
-		// appObjects references *brie
-		wire.Struct(new(appObjects), "*"),
-	))
+        // appObjects references *brie
+        wire.Struct(new(appObjects), "*"),
+    ))
 ```
 
 
@@ -269,23 +269,23 @@ type DbUrl url.URL
 
 // provider func
 func NewDbUrl() (DbUrl, error) {
-	u, err := url.Parse("...")
-	if err != nil {
-		...
-	}
+    u, err := url.Parse("...")
+    if err != nil {
+        ...
+    }
 
-	return DbUrl(*u), nil
+    return DbUrl(*u), nil
 }
 ```
 In `wire.go`:
 ```go
 ...
-	panic(wire.Build(
-		NewDbUrl,
+    panic(wire.Build(
+        NewDbUrl,
 
-		// appObjects references DbUrl (not a pointer)
-		wire.Struct(new(appObjects), "*"),
-	))
+        // appObjects references DbUrl (not a pointer)
+        wire.Struct(new(appObjects), "*"),
+    ))
 ```
 
 ## Inject: Concrete type, Given: Concrete instance
@@ -295,12 +295,12 @@ type DbUser string
 In `wire.go`:
 ```go
 ...
-	panic(wire.Build(
-		wire.Value(DbUser("dbUser1")),
+    panic(wire.Build(
+        wire.Value(DbUser("dbUser1")),
 
-		// appObjects references DbUser (not a pointer)
-		wire.Struct(new(appObjects), "*"),
-	))
+        // appObjects references DbUser (not a pointer)
+        wire.Struct(new(appObjects), "*"),
+    ))
 ```
 
 
@@ -312,25 +312,25 @@ In `wire.go`:
 ## Inject: func (literal), Given: Provider func
 ```go
 func NewTimeProvider() func() time.Time {
-	return func() time.Time {
-		return time.Now()
-	}
+    return func() time.Time {
+        return time.Now()
+    }
 }
 
 type appObjects struct {
-	Clock func() time.Time
-	...
+    Clock func() time.Time
+    ...
 }
 ```
 In `wire.go`:
 ```go
 ...
-	panic(wire.Build(
-		NewTimeProvider,
+    panic(wire.Build(
+        NewTimeProvider,
 
-		// appObjects references: func() time.Time
-		wire.Struct(new(appObjects), "*"),
-	))
+        // appObjects references: func() time.Time
+        wire.Struct(new(appObjects), "*"),
+    ))
 ```
 
 
@@ -339,25 +339,25 @@ In `wire.go`:
 type TimeProvider func() time.Time
 
 func NewTimeProvider() TimeProvider {
-	return func() time.Time {
-		return time.Now()
-	}
+    return func() time.Time {
+        return time.Now()
+    }
 }
 
 type appObjects struct {
-	Clock TimeProvider
-	...
+    Clock TimeProvider
+    ...
 }
 ```
 In `wire.go`:
 ```go
 ...
-	panic(wire.Build(
-		NewTimeProvider,
+    panic(wire.Build(
+        NewTimeProvider,
 
-		// appObjects references TimeProvider
-		wire.Struct(new(appObjects), "*"),
-	))
+        // appObjects references TimeProvider
+        wire.Struct(new(appObjects), "*"),
+    ))
 ```
 
 ## Inject: func (literal or custom type), Given: Concrete instance (literal)

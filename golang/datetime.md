@@ -125,11 +125,11 @@ t.Month()
 
 # Run periodically
 ```go
-	go func() {
-		for range time.Tick(3 * time.Second) {
-			print("it's me again")
-		}
-	}()
+    go func() {
+        for range time.Tick(3 * time.Second) {
+            print("it's me again")
+        }
+    }()
 ```
 
 
@@ -170,4 +170,3 @@ uxMillis := t.UnixMilli()
 
 # Other Resources
 1. https://www.practical-go-lessons.com/chap-28-dates-and-time
-
