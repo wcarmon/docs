@@ -100,6 +100,28 @@ func NewZapSpanEventProcessor(cfg *appConf) (*otzap.ZapSpanProcessor, error) {
 }
 ```
 
+# Graceful shutdown
+```go
+    // ... setup & register tracer here
+
+	// https://opentelemetry.io/docs/instrumentation/go/manual/#initializing-a-new-tracer
+	defer func() {
+		type canShutdown interface {
+			Shutdown(ctx context.Context) error
+		}
+
+		tp, ok := app.tracerProvider.(canShutdown)
+		if ok {
+			_ = tp.Shutdown(context.Background())
+		} else {
+			zap.L().Error("failed to shutdown tracer, lacks Shutdown() method")
+		}
+	}()
+
+	// ... business logic here
+}
+```
+
 
 # Example [Chi Middleware](https://github.com/go-chi/chi)
 ```go
