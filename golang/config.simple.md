@@ -88,10 +88,6 @@ func NewConfig(osArgs OSArgs) (*appConf, error) {
 
 	var c appConf
 
-	// -- Set defaults
-	// alternatively: https://github.com/spf13/viper#establishing-defaults
-	c.setDefaults()
-
 	extraViperConfig := func(config *mapstructure.DecoderConfig) {
 		// extras/unused
 		config.ErrorUnused = true
@@ -107,6 +103,10 @@ func NewConfig(osArgs OSArgs) (*appConf, error) {
 
 		return nil, err
 	}
+
+	// -- Set defaults
+	// alternatively: https://github.com/spf13/viper#establishing-defaults
+	c.setDefaults()
 
 	// -- Validate
 	err = c.Validate()
