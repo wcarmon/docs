@@ -81,6 +81,26 @@ func NewJaegerExporter(cfg *appConf) (*jaeger.Exporter, error) {
 ```
 
 
+# If using [zap](./logging.zap.md) ...
+```go
+func NewZapSpanEventProcessor(cfg *appConf) (*otzap.ZapSpanProcessor, error) {
+    p := &otzap.ZapSpanProcessor{
+        // ... set fields here from cfg
+    }
+
+	err := p.Validate()
+	if err != nil {
+		zap.L().Error("failed to validate ZapSpanProcessor",
+			zap.Error(err))
+
+		return nil, err
+	}
+
+	return p, nil
+}
+```
+
+
 # Example [Chi Middleware](https://github.com/go-chi/chi)
 ```go
 func TracingMiddleware(next http.Handler) http.Handler {
