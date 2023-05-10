@@ -37,15 +37,15 @@ func main() {
 }
 
 func printAppInfo() {
-	binPath, _ := os.Executable()
-	cwd, _ := os.Getwd()
+    binPath, _ := os.Executable()
+    cwd, _ := os.Getwd()
 
-	log.Info().
-		Int("cpuCount", runtime.NumCPU()).
-		Str("binary", binPath).
-		Str("cwd", cwd).
-		Str("gitCommitHash", gitCommitHash).
-		Str("goVersion", runtime.Version()).
+    log.Info().
+        Int("cpuCount", runtime.NumCPU()).
+        Str("binary", binPath).
+        Str("cwd", cwd).
+        Str("gitCommitHash", gitCommitHash).
+    	Str("goVersion", runtime.Version()).
 		Str("tempDir", os.TempDir()).
 		Msg("appInfo")
 }

@@ -13,25 +13,25 @@
 ```go
 // -- Define your custom error
 type ErrInvalidHTTPRequest struct {
-	Received     time.Time
-	ResponseCode int32
-	UserUuid     string
+    Received     time.Time
+    ResponseCode int32
+    UserUuid     string
 }
 
 // -- Implement the interface
 func (e ErrInvalidHTTPRequest) Error() string {
-	return fmt.Sprintf("Invalid HTTP request: %#v", e)
+    return fmt.Sprintf("Invalid HTTP request: %#v", e)
 }
 
 func doWhatever() error {
-	// ...
+    // ...
 
     // -- Example: Build your custom error
-	return &ErrInvalidHTTPRequest{
-		Received:     time.Now(),
-		ResponseCode: 400,
-		UserUuid:     userUuid,
-	}
+    return &ErrInvalidHTTPRequest{
+        Received:     time.Now(),
+        ResponseCode: 400,
+        UserUuid:     userUuid,
+    }
 }
 ```
 

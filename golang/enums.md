@@ -21,23 +21,23 @@
 type GameDirection uint8
 
 const (
-	UnknownDirection = GameDirection(iota)
-	Up
-	Down
-	Left
-	Right
+    UnknownDirection = GameDirection(iota)
+    Up
+    Down
+    Left
+    Right
 )
 
 // Helper method example
 func (d GameDirection) IsHorizontal() bool {
-	switch d {
-	case Left, Right:
-		return true
+    switch d {
+    case Left, Right:
+        return true
 
-	default:
-		//NOTE: Unknown case is here
-		return false
-	}
+    default:
+        //NOTE: Unknown case is here
+        return false
+    }
 }
 ```
 
@@ -50,21 +50,21 @@ func (d GameDirection) IsHorizontal() bool {
 1. Con: Indirect lookups
 ```go
 var directionLabels = map[GameDirection]string{
-	Down:  "Down",
-	Left:  "Left",
-	Right: "Right",
-	Up:    "Up",
+    Down:  "Down",
+    Left:  "Left",
+    Right: "Right",
+    Up:    "Up",
 }
 
 // NOTE: You can also generate these via stringer program
 // signature matches fmt.Stringer interface
 func (d GameDirection) String() string {
-	s, ok := directionLabels[d]
-	if !ok {
-		return "N/A"
-	}
+    s, ok := directionLabels[d]
+    if !ok {
+        return "N/A"
+    }
 
-	return s
+    return s
 }
 ```
 
@@ -76,18 +76,18 @@ func (d GameDirection) String() string {
 ```go
 // signature matches fmt.Stringer interface
 func (d GameDirection) String() string {
-	switch d {
-	case Down:
-		return "Down"
-	case Left:
-		return "Left"
-	case Right:
-		return "Right"
-	case Up:
-		return "Up"
-	default:
-		return "N/A"
-	}
+    switch d {
+    case Down:
+        return "Down"
+    case Left:
+        return "Left"
+    case Right:
+        return "Right"
+    case Up:
+        return "Up"
+    default:
+        return "N/A"
+    }
 }
 ```
 
@@ -95,31 +95,31 @@ func (d GameDirection) String() string {
 # Lookup Function Examples
 ```go
 func FromLabel(label string) GameDirection {
-	candidate := strings.TrimSpace(label)
+    candidate := strings.TrimSpace(label)
 
-	for key, lbl := range directionLabels {
-		if strings.EqualFold(lbl, candidate) {
-			return key
-		}
-	}
+    for key, lbl := range directionLabels {
+        if strings.EqualFold(lbl, candidate) {
+            return key
+        }
+    }
 
-	return Unknown
+    return Unknown
 }
 
 func FromValue(value uint8) GameDirection {
-	switch GameDirection(value) {
-	case Down:
-		return Down
-	case Left:
-		return Left
-	case Right:
-		return Right
-	case Up:
-		return Up
+    switch GameDirection(value) {
+    case Down:
+        return Down
+    case Left:
+        return Left
+    case Right:
+        return Right
+    case Up:
+        return Up
 
-	default:
-		return Unknown
-	}
+    default:
+        return Unknown
+    }
 }
 ```
 

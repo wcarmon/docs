@@ -14,7 +14,7 @@
 type FooId string
 
 type Foo struct {
-	Id FooId
+    Id FooId
 }
 
 // Previously initialized
@@ -31,53 +31,53 @@ var client = http.Client{
 // ListFoos makes HTTP GET call to REST endpoint
 // Service returns slice of entities (possibly nil)
 func ListFoos(
-	ctx context.Context,
-	baseURI string) ([]Foo, error) {
+    ctx context.Context,
+    baseURI string) ([]Foo, error) {
 
-	// -- Build req
-	req, err := http.NewRequestWithContext(
-		ctx,
-		http.MethodGet,
-		// NOTE: Append any other url params here
-		baseURI+"/foo",
-		nil)
-	if err != nil {
-		// TODO: log extra details here
-		return nil, err
-	}
+    // -- Build req
+    req, err := http.NewRequestWithContext(
+        ctx,
+        http.MethodGet,
+        // NOTE: Append any other url params here
+        baseURI+"/foo",
+        nil)
+    if err != nil {
+        // TODO: log extra details here
+        return nil, err
+    }
 
-	// -- Req headers
-	// TODO: set Auth/Bearer header here
+    // -- Req headers
+    // TODO: set Auth/Bearer header here
 
-	// -- Call
-	resp, err := client.Do(req) // Auto-handles context cancellation
-	if err != nil {
-		// TODO: log extra details here
-		// NOTE: timeouts come here
-		return nil, err
-	}
-	defer resp.Body.Close()
+    // -- Call
+    resp, err := client.Do(req) // Auto-handles context cancellation
+    if err != nil {
+        // TODO: log extra details here
+        // NOTE: timeouts come here
+        return nil, err
+    }
+    defer resp.Body.Close()
 
-	// -- Parse resp
-	if resp.StatusCode != http.StatusOK {
-		// TODO: log extra details here
-		return nil, fmt.Errorf("unexpected statusCode=%v", resp.StatusCode)
-	}
+    // -- Parse resp
+    if resp.StatusCode != http.StatusOK {
+        // TODO: log extra details here
+        return nil, fmt.Errorf("unexpected statusCode=%v", resp.StatusCode)
+    }
 
-	b, err := io.ReadAll(resp.Body)
-	if err != nil {
-		// TODO: log extra details here
-		return nil, err
-	}
+    b, err := io.ReadAll(resp.Body)
+    if err != nil {
+        // TODO: log extra details here
+        return nil, err
+    }
 
-	output := make([]Foo, 0, 64)
-	err = json.Unmarshal(b, &output)
-	if err != nil {
-		// TODO: log extra details here
-		return nil, err
-	}
+    output := make([]Foo, 0, 64)
+    err = json.Unmarshal(b, &output)
+    if err != nil {
+        // TODO: log extra details here
+        return nil, err
+    }
 
-	return output, nil
+    return output, nil
 }
 ```
 
@@ -87,22 +87,22 @@ func ListFoos(
 // CreateFoo makes HTTP POST call to REST endpoint
 // Service persists and returns generated ID for new entity
 func CreateFoo(
-	ctx context.Context,
-	foo Foo,
-	baseURI string) (FooId, error) {
+    ctx context.Context,
+    foo Foo,
+    baseURI string) (FooId, error) {
 
-	// -- Build req body
-	reqBody, err := json.Marshal(foo)
-	if err != nil {
-		// TODO: log extra details here
-		return "", err
-	}
+    // -- Build req body
+    reqBody, err := json.Marshal(foo)
+    if err != nil {
+        // TODO: log extra details here
+        return "", err
+    }
 
-	// -- Build req
-	req, err := http.NewRequestWithContext(
-		ctx,
-		http.MethodPost,
-		baseURI+"/foo",
+    // -- Build req
+    req, err := http.NewRequestWithContext(
+        ctx,
+        http.MethodPost,
+    	baseURI+"/foo",
 		bytes.NewBuffer(reqBody))
 	if err != nil {
 		// TODO: log extra details here
