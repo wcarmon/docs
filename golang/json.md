@@ -28,17 +28,17 @@ func (t *MyType) MarshalJSON() ([]byte, error) {
 ```go
 func (t *MyType) UnmarshalJSON(data []byte) error {
 
-	var raw interface{}
-	//var raw []interface{} <-- if you expect a list/array/slice
-	if err := json.Unmarshal(data, &raw); err != nil {
-		return err
-	}
+    var raw interface{}
+    //var raw []interface{} <-- if you expect a list/array/slice
+    if err := json.Unmarshal(data, &raw); err != nil {
+        return err
+    }
 
-	//TODO: type assertion or switch on type
+    //TODO: type assertion or switch on type
 
-	t.Foo = ...
+    t.Foo = ...
 
-	return nil
+    return nil
 }
 ```
 

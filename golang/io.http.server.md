@@ -26,26 +26,26 @@
 ## Example: Named func
 ```go
 func myHandler(w http.ResponseWriter, r *http.Request) {
-	io.WriteString(w, "Hi\n")
+    io.WriteString(w, "Hi\n")
 }
 
 func main() {
-	svr := &http.Server{
-		// -- See net.Dial for Addr syntax
-		Addr:    ":8080",
+    svr := &http.Server{
+        // -- See net.Dial for Addr syntax
+        Addr:    ":8080",
 
-		// -- Adapter converts your func to a http.Handler
-		Handler: http.HandlerFunc(myHandler),
-	}
+        // -- Adapter converts your func to a http.Handler
+        Handler: http.HandlerFunc(myHandler),
+    }
 
-	log.Info().
-		Str("addr", svr.Addr).
-		Msg("Server listening")
+    log.Info().
+        Str("addr", svr.Addr).
+        Msg("Server listening")
 
-	log.Fatal().
-		// -- This line blocks goroutine while server runs
-		Err(svr.ListenAndServe()).
-		Msg("Server terminated")
+    log.Fatal().
+        // -- This line blocks goroutine while server runs
+        Err(svr.ListenAndServe()).
+        Msg("Server terminated")
 }
 ```
 
@@ -53,26 +53,26 @@ func main() {
 ```go
 func main() {
 
-	fn := func(w http.ResponseWriter, r *http.Request) {
-		io.WriteString(w, "Hi\n")
-	}
+    fn := func(w http.ResponseWriter, r *http.Request) {
+        io.WriteString(w, "Hi\n")
+    }
 
-	svr := &http.Server{
-		// -- See net.Dial for Addr syntax
-		Addr:    ":8080",
+    svr := &http.Server{
+        // -- See net.Dial for Addr syntax
+        Addr:    ":8080",
 
-		// -- Adapter converts your func to a http.Handler
-		Handler: http.HandlerFunc(fn),
-	}
+        // -- Adapter converts your func to a http.Handler
+        Handler: http.HandlerFunc(fn),
+    }
 
-	log.Info().
-		Str("addr", svr.Addr).
-		Msg("Server listening")
+    log.Info().
+        Str("addr", svr.Addr).
+        Msg("Server listening")
 
-	log.Fatal().
-	    // -- This line blocks goroutine while server runs
-	    Err(svr.ListenAndServe()).
-	    Msg("Server terminated")
+    log.Fatal().
+        // -- This line blocks goroutine while server runs
+        Err(svr.ListenAndServe()).
+        Msg("Server terminated")
 }
 ```
 
@@ -82,15 +82,15 @@ type Foo int32
 
 // -- Implements http.Handler
 func (n *Foo) ServeHTTP(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Value is: %v\n", *n)
+    fmt.Fprintf(w, "Value is: %v\n", *n)
 }
 
 func main () {
-	foo := Foo(34)
+    foo := Foo(34)
 
-	svr := &http.Server{
-		Addr:    ":8080",
-		Handler: &foo,
+    svr := &http.Server{
+        Addr:    ":8080",
+        Handler: &foo,
 	}
 
 	log.Info().
