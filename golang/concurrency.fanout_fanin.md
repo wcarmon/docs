@@ -24,18 +24,18 @@ func ProcessTasksInParallel(ctx context.Context, tasks []Task) ([]MyResult, erro
     errCh := make(chan error, len(tasks))
 
     // -- Ensure channels are eventually closed
-	defer func() {
-		// blocking, wait for all spawned goroutines to finish
-		// spawned goroutines are the senders of channels below
-		wg.Wait()
+    defer func() {
+        // blocking, wait for all spawned goroutines to finish
+        // spawned goroutines are the senders of channels below
+        wg.Wait()
 
-		close(errCh)
-		close(resultCh)
-	}()
+        close(errCh)
+        close(resultCh)
+    }()
 
     // -- Helps cancel goroutines if we stop early
-	parallelCtx, cancel := context.WithCancel(ctx)
-	defer cancel()
+    parallelCtx, cancel := context.WithCancel(ctx)
+    defer cancel()
 
     // -----------------------------------------
     // -- Fan-out section
@@ -45,23 +45,23 @@ func ProcessTasksInParallel(ctx context.Context, tasks []Task) ([]MyResult, erro
         task := task // don't share reference with other goroutines
 
         // -- Spawn a goroutine for each task
-		go func() {
-			defer wg.Done()
+        go func() {
+            defer wg.Done()
 
-			result, err := processOneTask(parallelCtx, task)
-			if err == context.Canceled {
-				otzap.AddDebugEvent(span, "cancelled parallel goroutine")
-				return
-			}
+            result, err := processOneTask(parallelCtx, task)
+            if err == context.Canceled {
+                otzap.AddDebugEvent(span, "cancelled parallel goroutine")
+                return
+            }
 
-			if err != nil {
-				otzap.AddErrorEvent(span, "failed to do the thing", err)
-				errCh <- err
-				return
-			}
+            if err != nil {
+                otzap.AddErrorEvent(span, "failed to do the thing", err)
+                errCh <- err
+                return
+            }
 
-			resultCh <- result
-		}()
+            resultCh <- result
+        }()
     }
 
     // -----------------------------------------
@@ -94,11 +94,11 @@ func processOneTask(
     defer span.End()
 
     // -- Exit early when ctx cancelled
-	select {
-	case <-ctx.Done(): // blocking
-		return nil, ctx.Err()
-	default: // prevents blocking on <-ctx.Done()
-	}
+    select {
+    case <-ctx.Done(): // blocking
+        return nil, ctx.Err()
+    default: // prevents blocking on <-ctx.Done()
+    }
 
     result, err := doSomething(ctx, task)
     if err != nil {
