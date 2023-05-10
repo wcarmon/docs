@@ -10,62 +10,62 @@
 - Build [`jaeger.Exporter`](https://pkg.go.dev/go.opentelemetry.io/otel/exporters/jaeger#Exporter), [`trace.TracerProvider`](https://pkg.go.dev/go.opentelemetry.io/otel/trace#TracerProvider), [`ZapSpanProcessor`](https://pkg.go.dev/github.com/wcarmon/otzap#ZapSpanProcessor)
 ```go
 import (
-	texporter "github.com/GoogleCloudPlatform/opentelemetry-operations-go/exporter/trace"
-	"github.com/wcarmon/otzap"
-	"go.opentelemetry.io/otel/attribute"
-	"go.opentelemetry.io/otel/exporters/jaeger"
-	"go.opentelemetry.io/otel/sdk/resource"
-	tracesdk "go.opentelemetry.io/otel/sdk/trace"
-	semconv "go.opentelemetry.io/otel/semconv/v1.12.0"
-	"go.opentelemetry.io/otel/trace"
-	"go.uber.org/zap"
+    texporter "github.com/GoogleCloudPlatform/opentelemetry-operations-go/exporter/trace"
+    "github.com/wcarmon/otzap"
+    "go.opentelemetry.io/otel/attribute"
+    "go.opentelemetry.io/otel/exporters/jaeger"
+    "go.opentelemetry.io/otel/sdk/resource"
+    tracesdk "go.opentelemetry.io/otel/sdk/trace"
+    semconv "go.opentelemetry.io/otel/semconv/v1.12.0"
+    "go.opentelemetry.io/otel/trace"
+    "go.uber.org/zap"
 )
 
 func NewTracerProvider(
-	cfg *appConf,
-	jaegerExporter *jaeger.Exporter,
-	zapProcessor *otzap.ZapSpanProcessor,
-	// TODO: add cloudExporter here (eg. Google cloud or AWS)
+    cfg *appConf,
+    jaegerExporter *jaeger.Exporter,
+    zapProcessor *otzap.ZapSpanProcessor,
+    // TODO: add cloudExporter here (eg. Google cloud or AWS)
 ) (trace.TracerProvider, error) {
 
-	attrs := otzap.CollectResourceAttributes()
-	attrs = append(attrs, attribute.String("gitCommitHash", gitCommitHash)) // See ./git_version_info.md
-	attrs = append(attrs, semconv.ServiceNameKey.String(cfg.Tracing.ServiceName))
+    attrs := otzap.CollectResourceAttributes()
+    attrs = append(attrs, attribute.String("gitCommitHash", gitCommitHash)) // See ./git_version_info.md
+    attrs = append(attrs, semconv.ServiceNameKey.String(cfg.Tracing.ServiceName))
 
-	// Jaeger UI shows as Span.Process
-	rsc := resource.NewWithAttributes(semconv.SchemaURL, attrs...)
+    // Jaeger UI shows as Span.Process
+    rsc := resource.NewWithAttributes(semconv.SchemaURL, attrs...)
 
-	var realExporter tracesdk.SpanExporter = jaegerExporter
-	if otzap.IsInAWS() || otzap.IsInGoogleCloud() {		
-		realExporter = cloudExporter
-	}
+    var realExporter tracesdk.SpanExporter = jaegerExporter
+    if otzap.IsInAWS() || otzap.IsInGoogleCloud() {
+        realExporter = cloudExporter
+    }
 
-	opts := make([]tracesdk.TracerProviderOption, 0, 8)
-	opts = append(opts, tracesdk.WithBatcher(realExporter))
-	opts = append(opts, tracesdk.WithResource(rsc))
-	opts = append(opts, tracesdk.WithSampler(tracesdk.AlwaysSample())) // TODO: tune to meet your requirements
-	opts = append(opts, tracesdk.WithSpanProcessor(zapProcessor))
+    opts := make([]tracesdk.TracerProviderOption, 0, 8)
+    opts = append(opts, tracesdk.WithBatcher(realExporter))
+    opts = append(opts, tracesdk.WithResource(rsc))
+    opts = append(opts, tracesdk.WithSampler(tracesdk.AlwaysSample())) // TODO: tune to meet your requirements
+    opts = append(opts, tracesdk.WithSpanProcessor(zapProcessor))
 
-	provider := tracesdk.NewTracerProvider(opts...)
-	return provider, nil
+    provider := tracesdk.NewTracerProvider(opts...)
+    return provider, nil
 }
 
 func NewJaegerExporter(cfg *appConf) (*jaeger.Exporter, error) {
-	// eg. http://localhost:14268/api/traces
-	url := cfg.Tracing.Jaeger.EndpointUrl
+    // eg. http://localhost:14268/api/traces
+    url := cfg.Tracing.Jaeger.EndpointUrl
 
-	exporter, err := jaeger.New(jaeger.WithCollectorEndpoint(
-	    jaeger.WithEndpoint(url)))
-	if err != nil {
-		zap.L().Error("failed to create Jaeger exporter",
-			zap.Error(err),			
-			zap.String("url", url),
-		)
+    exporter, err := jaeger.New(jaeger.WithCollectorEndpoint(
+        jaeger.WithEndpoint(url)))
+    if err != nil {
+        zap.L().Error("failed to create Jaeger exporter",
+            zap.Error(err),
+            zap.String("url", url),
+        )
 
-		return nil, err
-	}
+        return nil, err
+    }
 
-	return exporter, nil
+    return exporter, nil
 }
 ```
 
@@ -74,10 +74,10 @@ func NewJaegerExporter(cfg *appConf) (*jaeger.Exporter, error) {
 ```go
 // in main.go
 
-	...	
-	otel.SetTracerProvider(app.tracerProvider)
-	otel.SetTextMapPropagator(propagation.TraceContext{})
-	...
+    ...
+    otel.SetTracerProvider(app.tracerProvider)
+    otel.SetTextMapPropagator(propagation.TraceContext{})
+    ...
 ```
 
 
@@ -88,15 +88,15 @@ func NewZapSpanEventProcessor(cfg *appConf) (*otzap.ZapSpanProcessor, error) {
         // ... set fields here from cfg
     }
 
-	err := p.Validate()
-	if err != nil {
-		zap.L().Error("failed to validate ZapSpanProcessor",
-			zap.Error(err))
+    err := p.Validate()
+    if err != nil {
+        zap.L().Error("failed to validate ZapSpanProcessor",
+            zap.Error(err))
 
-		return nil, err
-	}
+        return nil, err
+    }
 
-	return p, nil
+    return p, nil
 }
 ```
 
@@ -105,32 +105,32 @@ func NewZapSpanEventProcessor(cfg *appConf) (*otzap.ZapSpanProcessor, error) {
 ```go
 func TracingMiddleware(next http.Handler) http.Handler {
 
-	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		// -- Ensure propagator
-		propagator := otel.GetTextMapPropagator()
-		if propagator == nil {
-			propagator = propagation.TraceContext{}
-		}
+    return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+        // -- Ensure propagator
+        propagator := otel.GetTextMapPropagator()
+        if propagator == nil {
+            propagator = propagation.TraceContext{}
+        }
 
-		// -- Build remote ctx
-		remoteCtx := r.Context()
+        // -- Build remote ctx
+        remoteCtx := r.Context()
 
-		// -- See https://www.w3.org/TR/trace-context/#design-overview
-		traceParent := r.Header.Get("traceparent")
-		if strings.TrimSpace(traceParent) != "" {
-			remoteCtx = propagator.Extract(r.Context(), propagation.HeaderCarrier(r.Header))
-		}
+        // -- See https://www.w3.org/TR/trace-context/#design-overview
+        traceParent := r.Header.Get("traceparent")
+        if strings.TrimSpace(traceParent) != "" {
+            remoteCtx = propagator.Extract(r.Context(), propagation.HeaderCarrier(r.Header))
+        }
 
-		// -- Start span
-		rootCtx, span := otel.Tracer("").
-			Start(remoteCtx, ">> http-request",
-				trace.WithSpanKind(trace.SpanKindServer))
-		defer span.End()
+        // -- Start span
+        rootCtx, span := otel.Tracer("").
+            Start(remoteCtx, ">> http-request",
+                trace.WithSpanKind(trace.SpanKindServer))
+        defer span.End()
 
-		span.SetAttributes(
-			semconv.HTTPMethodKey.String(r.Method),
-			semconv.HTTPURLKey.String(r.URL.Path),
-		)
+        span.SetAttributes(
+            semconv.HTTPMethodKey.String(r.Method),
+            semconv.HTTPURLKey.String(r.URL.Path),
+    	)
 
 		// -- Next handler
 		next.ServeHTTP(w, r.WithContext(rootCtx))
@@ -153,7 +153,7 @@ func TracingMiddleware(next http.Handler) http.Handler {
 
 ## Run Jaeger container
 - See [../bash/examples/restart.jaeger.sh](https://github.com/wcarmon/docs/blob/main/bash/examples/restart.jaeger.sh)
-      
+
 
 
 # Viewing traces
