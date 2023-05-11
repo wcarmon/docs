@@ -30,7 +30,7 @@ func ProcessTasksInParallel(ctx context.Context, tasks []Task) ([]MyResult, erro
         wg.Wait()
 
         close(errCh)
-        close(resultCh)
+        close(resultsCh)
     }()
 
     // -- Helps cancel goroutines if we stop early
