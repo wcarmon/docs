@@ -50,6 +50,11 @@ n := 0xFF        // 255
 1. Use `string` in json, `"3.1e+08"` syntax works
 1. Prefer pointer for for fields in structs: ``Foo *big.Float `json:"foo"` ``
     1. simplifies json & printing
+1. Parsing:
+```go
+s := "1.23E-7"
+value, _, err := big.ParseFloat(s, 10, 256, big.ToZero())
+```
 
 ## Print
 ```go
