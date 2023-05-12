@@ -35,6 +35,7 @@ sdk list visualvm;
 ```sh
 sdk install gradle 8.1.1;
 sdk install visualvm 2.1.6;
+sdk install kotlin 1.8.20;
 
 # v20 based
 sdk install java 20-open;
@@ -44,10 +45,8 @@ sdk install java 20-oracle;
 sdk install java 22.3.1.r19-grl;
 
 # v17 based
-sdk install java 22.3.2.r17-grl;
 sdk install java 17.0.7-oracle;
-
-sdk install kotlin 1.8.20;
+sdk install java 22.3.2.r17-grl;
 ```
 
 
