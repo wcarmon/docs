@@ -9,13 +9,13 @@
 ## Setup, Init, Upgrade
 ```bash
 gradle init
-gradle wrapper --gradle-version 7.4.2
+gradle wrapper --gradle-version 8.1.1
 gradle wrapper
 
 
 # -- Upgrade
 ./gradlew wrapper --gradle-version=7.6 --distribution-type=bin
-./gradlew wrapper --gradle-version=7.5.1 --distribution-type=all
+./gradlew wrapper --gradle-version=8.1.1 --distribution-type=all
 ```
 
 ## Verify setup
@@ -59,7 +59,6 @@ gradle --version
 
 # -- List outdated/old deps
 ./gradlew dependencyUpdates -q
-./gradlew dependencyUpdates
 ./gradlew dependencyUpdates --refresh-dependencies --quiet
 
 
