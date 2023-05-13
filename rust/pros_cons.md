@@ -63,7 +63,9 @@
     1. compare with Golang [`path/filepath`](https://pkg.go.dev/path/filepath)
     1. compare with Java [`Path`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/nio/file/Path.html)
     1. Clion debugger cannot print `Path` nor `PathBuf`
-1. [clion](https://www.jetbrains.com/clion/) debugger 
+1. [clion](https://www.jetbrains.com/clion/) Editor
+    1. Relatively slow error checker (compare to Intellij, Goland or WebStorm with eslint)
+1. [clion](https://www.jetbrains.com/clion/) Debugger 
     1. Cannot help you debug `Trait` implementations
         1. Compare with debugging golang, java, ... interface implementations
     1. Cannot print strings sometimes (eg. alias a type to a string)    
