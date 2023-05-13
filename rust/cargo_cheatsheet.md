@@ -15,6 +15,8 @@ cargo update --workspace --verbose;
 cargo outdated;
 cargo tree;
 ```
+1. Also, [clion has an inspection for this](https://www.jetbrains.com/help/clion/running-inspections.html) called `New crate version available`
+
 
 # Dependency version conflicts
 ```bash
