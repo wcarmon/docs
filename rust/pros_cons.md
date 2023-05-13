@@ -37,7 +37,9 @@
     1. eg. Error messages are generally helpful, but complex (more helpful than c, c++, java, python, php, ruby)
     1. Many popular libs don't value simplicity (Compare to Go & Python ecosystems)
         1. Increasingly, Java has this problem (eg. look at Spring Web & WebFlux)
-        1. c++ has always had this problem  
+        1. c++ has always had this problem
+    1. Generalizing collection fn arguments is hard.  eg. try to pass `Vec<PathBuf>` into a fn which accepts `&[&Path]`)
+        1. root cause: statically sized vs dynamically sized
 1. Too big to fit in your head all at once (Compared to Golang, Core Java, Core Python, ...)
     1. Better than c++ though :-)
     1. Constantly thinking about ownership & borrowing
