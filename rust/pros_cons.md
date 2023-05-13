@@ -74,4 +74,7 @@
     1. OpenTelemetry api is FAR TOO complex to use directly (compare to Go, Python, Java, ...)
     1. Tokio tracing lib helps a lot, but there are still gotchas (minefields)
         1. eg. must define all fields into `info_span!` before usage, else fails silently
+    1. Tracing makes Rayon usage very complex
+        1. eg. https://github.com/rayon-rs/rayon/issues/1018
+        1. Root cause is probably ownership handling in opentelemetry/tokio-tracing
 
