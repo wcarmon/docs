@@ -24,15 +24,25 @@
 1. Slow builds
 1. Syntax is dense
 1. "Sometimes" file-names and module-names are associated (eg `mod foo` must be in `foo.rs`)
-1. Not many jobs (as ov 2023), compared to Golang, Java, Python
+1. Not many jobs (as of 2023), compared to Golang, Java, Python
+1. [Strings are hard](./strings.md) compared to Go, Python, Java, ...
+    1. But rust strings are simple and safe compared to c & c++
 1. Complexity (or "nuance")
     1. eg. Rust strings compared to Golang, Java, Python, ...
     1. eg. Generics and Associated Types
-    1. eg. Iterators when you need [`.map`](https://doc.rust-lang.org/std/iter/struct.Map.html) returns an [`Result`](https://doc.rust-lang.org/std/result/)
+    1. eg. Iterators when you need [`.map`](https://doc.rust-lang.org/std/iter/struct.Map.html) returns a [`Result`](https://doc.rust-lang.org/std/result/)
+        1. You end up using things like: `collect::<Result<Vec<_>, anyhow::Error>>()?`
     1. eg. Error handling, particularly across libraries, and when using [serde](https://serde.rs/)
     1. eg. Traits with overlapping applicability like [`Deref`](https://doc.rust-lang.org/std/ops/trait.Deref.html), [Borrow](https://doc.rust-lang.org/std/borrow/trait.Borrow.html), and [AsRef](https://doc.rust-lang.org/std/convert/trait.AsRef.html)
+    1. eg. Error messages are generally helpful, but complex (more helpful than c, c++, java, python, php, ruby)
+    1. Many popular libs don't value simplicity (Compare to Go & Python ecosystems)
+        1. Increasingly, Java has this problem (eg. look at Spring Web & WebFlux)
+        1. c++ has always had this problem  
 1. Too big to fit in your head all at once (Compared to Golang, Core Java, Core Python, ...)
     1. Better than c++ though :-)
+    1. Constantly thinking about ownership & borrowing
+        1. Generally two version of **everything** (Owned version, Borrowed version)
+        1. `clone` can be an escape hatch
 1. HTTP is very hard if you want anything more than the basics
     1. The frameworks built on hyper are complex when you need to customize (axum, warp, rocket)
         1. eg. custom error on json body parse failure
@@ -52,9 +62,10 @@
 1. [Path](https://doc.rust-lang.org/std/path/struct.Path.html) is surprisingly tedious to use in practice (see [`to_string_lossy()`](https://doc.rust-lang.org/std/ffi/struct.OsStr.html#method.to_os_string))
     1. compare with Golang [`path/filepath`](https://pkg.go.dev/path/filepath)
     1. compare with Java [`Path`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/nio/file/Path.html)
-1. [clion](https://www.jetbrains.com/clion/) debugger cannot help you debug Trait implementations
-    1. compare with debugging golang, java, ... interface implementations
-
+1. [clion](https://www.jetbrains.com/clion/) debugger cannot help you debug `Trait` implementations
+    1. Compare with debugging golang, java, ... interface implementations
+1. popular url lib is non-standard
+    1. https://github.com/servo/rust-url/issues/808
 
 # Other Resources
 1. TODO
