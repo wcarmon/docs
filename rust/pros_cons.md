@@ -70,6 +70,8 @@
     1. Cannot pretty print `Path` and `PathBuf` variables
 1. popular url lib is non-standard
     1. https://github.com/servo/rust-url/issues/808
+1. Tracing
+    1. OpenTelemetry api is FAR TOO complex to use directly (compare to Go, Python, Java, ...)
+    1. Tokio tracing lib helps a lot, but there are still gotchas (minefields)
+        1. eg. must define all fields into `info_span!` before usage, else fails silently
 
-# Other Resources
-1. TODO
