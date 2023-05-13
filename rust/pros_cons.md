@@ -64,6 +64,7 @@
     1. compare with Java [`Path`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/nio/file/Path.html)
 1. [clion](https://www.jetbrains.com/clion/) debugger cannot help you debug `Trait` implementations
     1. Compare with debugging golang, java, ... interface implementations
+    1. [Step into](https://www.jetbrains.com/help/clion/stepping-through-the-program.html#step-into) doesn't always work
 1. popular url lib is non-standard
     1. https://github.com/servo/rust-url/issues/808
 
