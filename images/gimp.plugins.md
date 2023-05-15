@@ -17,7 +17,8 @@ sudo apt install -y python-cairo python-gobject-2
 
 # Plugins (Python)
 1. Built in: `/usr/lib/gimp/2.0/plug-ins`
-1. Personal: `$HOME/.gimp-2.10/plug-ins`
+1. Personal: `$HOME/.config/GIMP/2.10/plug-ins`
+    1. See Preferences > Folders > (double click to expand) > Plug-ins 
 
 
 # Debugging
