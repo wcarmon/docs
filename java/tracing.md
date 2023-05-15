@@ -93,5 +93,8 @@
 ## Run Jaeger container
 - See [../bash/examples/restart.jaeger.sh](https://github.com/wcarmon/docs/blob/main/bash/examples/restart.jaeger.sh)
 
+
 # Other Resources
-1. TODO
+1. https://github.com/open-telemetry/opentelemetry-java-docs#java-opentelemetry-examples
+1. https://github.com/open-telemetry/opentelemetry-java
+1. https://opentelemetry.io/docs/instrumentation/java/#status-and-releases
