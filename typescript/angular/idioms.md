@@ -36,6 +36,33 @@
 - TODO
 
 
+# Testing
+
+## Components
+1. mock dependent components
+1. See https://braydoncoyer.dev/blog/mocking-components-in-angular
+1. Example
+```ts
+  @Component({
+    selector: 'sub-component',
+    template: '',
+  })
+  class MockTestHelperComponent {}
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [RouterTestingModule],
+      declarations: [
+        AppComponent,
+        MockSubComponent,  // AppComponent uses <sub-component> in template
+      ],
+    }).compileComponents();
+
+    fixture = TestBed.createComponent(AppComponent);
+  });
+```
+
+
 # Gotchas
 1. Angular material doesn't work with html tables, must use CSS Flex
     1. eg. MatSelect

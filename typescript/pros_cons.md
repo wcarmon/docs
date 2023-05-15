@@ -33,6 +33,8 @@
     1. Process lingers
     1. `debugger` doesn't work
     1. fortunately `console.log` does work
+    1. line numbers are useless
+1. Misleading error messages
 
 
 # Other Resources
