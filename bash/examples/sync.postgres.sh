@@ -36,7 +36,6 @@ readonly SOURCE_TABLE="my_schema.my_table"
 
 readonly DEST_DB_HOST="sink-db.bar.com"
 readonly DEST_DB_NAME="postgres"
-readonly DEST_DB_PASS="foobar"
 readonly DEST_DB_PORT=5432
 readonly DEST_DB_USER="postgres"
 
