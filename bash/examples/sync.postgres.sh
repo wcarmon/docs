@@ -5,6 +5,7 @@
 # --
 # -- Assumptions:
 # -- 1. Docker installed: https://docs.docker.com/get-docker/
+# -- 2. Caller exports or sets SOURCE_DB_PASS and DEST_DB_PASS before calling
 # ---------------------------------------------
 #set -x # uncomment to debug script
 set -e # exit on first error
