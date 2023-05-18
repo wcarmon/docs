@@ -104,17 +104,17 @@ func MergeChannels[T any](
 
 1. Example usage of merge func
 ```go
-	chs := []<-chan Foo{
-		make(chan Foo),
-		make(chan Foo),
-		...		
+    chs := []<-chan Foo{
+        make(chan Foo),
+        make(chan Foo),
+        ...        
     }
 
-	mergedCh := MergeChannels(ctx, chs, 0)
+    mergedCh := MergeChannels(ctx, chs, 0)
 
-	for foo := range mergedCh {
+    for foo := range mergedCh {
         ...use foo here...
-	}
+    }
 ```
 
 
