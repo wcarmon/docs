@@ -121,3 +121,4 @@ func processOneTask(
 # Other Resources
 1. [GoByExample](https://gobyexample.com/waitgroups)
 1. [Official docs](https://pkg.go.dev/sync#WaitGroup)
+1. https://go.dev/blog/pipelines
