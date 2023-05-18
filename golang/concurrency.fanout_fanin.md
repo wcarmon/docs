@@ -6,7 +6,7 @@
 1. Build the tasks first (into a map or slice)
 
 
-# Example
+# Example (Imperative approach)
 ```go
 func main() {
     tasks := make([]Task, 0, 10) // define the work
@@ -108,6 +108,9 @@ func processOneTask(
     return result, nil
 }
 ```
+
+
+# Example (Pipeline/Stream approach)
 
 
 # Notes
