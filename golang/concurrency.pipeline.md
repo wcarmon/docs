@@ -15,11 +15,27 @@
     1. Return `error` only when channel setup fails
     1. Message processing errors go into the `Result` (on output channel)     
 1. `defer close` the returned/output channel
-1. Only use [`ctx.Done`](TODO) to exit early (eg. cancellation, timeout, pipeline terminal errors)
-1. Get [`SpanContext`](TODO) in-band (from input messages on the channel, not from `ctx` argument)
+1. Only use [`ctx.Done`](https://pkg.go.dev/context#Context) to exit early (eg. cancellation, timeout, pipeline terminal errors)
 1. Only use [buffering](TODO) on the output channel, (to avoid exhausting memory)
+1. Tracing
+    1. Start the [SpanContext](TODO)
 
 # Sink `func`
+1. Accept ... 
+    1. [`context.Context`](./context.md) argument
+    1. Exactly-one channel argument
+    1. `maxParallel uint` argument
+1. Return `(<-chan MyResult, error)` or just `<-chan MyResult`
+    1. Return `error` only when channel setup fails
+    1. Message processing errors go into the `Result` (on output channel)     
+1. `defer close` the returned/output channel
+1. Start at least one goroutine to consume the input channel (in a for loop)
+    1. at most `maxParallel` goroutines
+1. Only use [`ctx.Done`](https://pkg.go.dev/context#Context) to exit early (eg. cancellation, timeout, pipeline terminal errors)
+1. Only use [buffering](TODO) on the output channel, (to avoid exhausting memory)
+1. Tracing
+    1. TODO ...
+
 
 # Processor `func`s
 1. Accept ... 
@@ -32,12 +48,13 @@
 1. `defer close` the returned/output channel
 1. Start at least one goroutine to consume the input channel (in a for loop)
     1. at most `maxParallel` goroutines
-1. Only use [`ctx.Done`](TODO) to exit early (eg. cancellation, timeout, pipeline terminal errors)
+1. Only use [`ctx.Done`](https://pkg.go.dev/context#Context) to exit early (eg. cancellation, timeout, pipeline terminal errors)
 1. Only use [buffering](TODO) on the output channel, (to avoid exhausting memory)
 1. Tracing
-    1. Get [`SpanContext`](TODO) in-band (from input messages on the channel, not from `ctx` argument)
-    1. If you create a span, [Link](TODO) output messages to input message [SpanContext](TODO)
-    1. If not, just propagate [SpanContext](TODO) to output messages
+    1. Get [`SpanContext`](https://pkg.go.dev/go.opentelemetry.io/otel/trace#SpanContext) in-band (from input messages on the channel, not from `ctx` argument)
+    1. If you create a span, [Link](https://pkg.go.dev/go.opentelemetry.io/otel/trace#WithLinks) output messages to input message [SpanContext](https://pkg.go.dev/go.opentelemetry.io/otel/trace#SpanContext)
+    1. End any spans you create (they have a link relationship, not parent-child)    
+    1. If you don't create a span, just propagate [SpanContext](https://pkg.go.dev/go.opentelemetry.io/otel/trace#SpanContext) in the request [`context.Context`](https://pkg.go.dev/context#Context) to output messages
 
     
 ## Example merge Processor `func`
