@@ -111,6 +111,7 @@ func processOneTask(
 
 
 # Example (Pipeline/Stream approach)
+- See [concurrency.pipeline.md](./concurrency.pipeline.md)
 
 
 # Notes
