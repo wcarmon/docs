@@ -174,7 +174,7 @@ try {
     legacyMethod(); // throws Checked Exception
 
 } catch ( SomeCheckedException ex ) { 
-	ex.printStackTrace(); // <--- this is the Error hiding anti-pattern
+    ex.printStackTrace(); // <--- this is the Error hiding anti-pattern
                           // Notice the caller never has a chance to handle
 }
 ```
@@ -195,7 +195,7 @@ try {
     legacyMethod(); // throws Checked Exception
 
 } catch ( SomeCheckedException ex ) { 
-	// this is the error hiding anti-pattern
+    // this is the error hiding anti-pattern
 }
 ```
 
@@ -216,7 +216,7 @@ try {
     legacyMethod(); // throws Checked Exception
 
 } catch ( SomeCheckedException ex ) { 
- 	throw new RuntimeException(ex); // wraping
+     throw new RuntimeException(ex); // wraping
 }
 ```
 

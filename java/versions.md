@@ -7,12 +7,12 @@
 
 
 # Java 19: Sept 2022
-1. [JEP 405](https://openjdk.org/jeps/405):	Record Patterns
-1. [JEP 427](https://openjdk.org/jeps/427):	Pattern Matching for switch (Third Preview)
-1. [JEP 426](https://openjdk.org/jeps/426):	Vector API Improvements
-1. [JEP 425](https://openjdk.org/jeps/425):	UNFINISHED: Virtual Threads
-1. [JEP 428](https://openjdk.org/jeps/428):	UNFINISHED: Structured Concurrency
-1. [JEP 424](https://openjdk.org/jeps/424):	UNFINISHED: Foreign Function & Memory API progress
+1. [JEP 405](https://openjdk.org/jeps/405):    Record Patterns
+1. [JEP 427](https://openjdk.org/jeps/427):    Pattern Matching for switch (Third Preview)
+1. [JEP 426](https://openjdk.org/jeps/426):    Vector API Improvements
+1. [JEP 425](https://openjdk.org/jeps/425):    UNFINISHED: Virtual Threads
+1. [JEP 428](https://openjdk.org/jeps/428):    UNFINISHED: Structured Concurrency
+1. [JEP 424](https://openjdk.org/jeps/424):    UNFINISHED: Foreign Function & Memory API progress
 
 
 # Java 18: Mar 2022

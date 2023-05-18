@@ -102,39 +102,39 @@ func CreateFoo(
     req, err := http.NewRequestWithContext(
         ctx,
         http.MethodPost,
-    	baseURI+"/foo",
-		bytes.NewBuffer(reqBody))
-	if err != nil {
-		// TODO: log extra details here
-		return "", err
-	}
+        baseURI+"/foo",
+        bytes.NewBuffer(reqBody))
+    if err != nil {
+        // TODO: log extra details here
+        return "", err
+    }
 
-	// -- Req headers
-	req.Header.Set("Content-Type", "application/json")
-	// TODO: set Auth/Bearer header here
+    // -- Req headers
+    req.Header.Set("Content-Type", "application/json")
+    // TODO: set Auth/Bearer header here
 
-	// -- Call
-	resp, err := client.Do(req) // Auto-handles context cancellation
-	if err != nil {
-		// TODO: log extra details here
-		// NOTE: timeouts come here
-		return "", err
-	}
-	defer resp.Body.Close()
+    // -- Call
+    resp, err := client.Do(req) // Auto-handles context cancellation
+    if err != nil {
+        // TODO: log extra details here
+        // NOTE: timeouts come here
+        return "", err
+    }
+    defer resp.Body.Close()
 
-	// -- Parse resp
-	if resp.StatusCode != http.StatusOK {
-		// TODO: log extra details here
-		return nil, fmt.Errorf("unexpected statusCode=%v", resp.StatusCode)
-	}
+    // -- Parse resp
+    if resp.StatusCode != http.StatusOK {
+        // TODO: log extra details here
+        return nil, fmt.Errorf("unexpected statusCode=%v", resp.StatusCode)
+    }
 
-	b, err := io.ReadAll(resp.Body)
-	if err != nil {
-		// TODO: log extra details here
-		return "", err
-	}
+    b, err := io.ReadAll(resp.Body)
+    if err != nil {
+        // TODO: log extra details here
+        return "", err
+    }
 
-	return FooId(b), nil
+    return FooId(b), nil
 }
 ```
 

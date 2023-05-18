@@ -104,21 +104,21 @@ func NewZapSpanEventProcessor(cfg *appConf) (*otzap.ZapSpanProcessor, error) {
 ```go
     // ... setup & register tracer here
 
-	// https://opentelemetry.io/docs/instrumentation/go/manual/#initializing-a-new-tracer
-	defer func() {
-		type canShutdown interface {
-			Shutdown(ctx context.Context) error
-		}
+    // https://opentelemetry.io/docs/instrumentation/go/manual/#initializing-a-new-tracer
+    defer func() {
+        type canShutdown interface {
+            Shutdown(ctx context.Context) error
+        }
 
-		tp, ok := app.tracerProvider.(canShutdown)
-		if ok {
-			_ = tp.Shutdown(context.Background())
-		} else {
-			zap.L().Error("failed to shutdown tracer, lacks Shutdown() method")
-		}
-	}()
+        tp, ok := app.tracerProvider.(canShutdown)
+        if ok {
+            _ = tp.Shutdown(context.Background())
+        } else {
+            zap.L().Error("failed to shutdown tracer, lacks Shutdown() method")
+        }
+    }()
 
-	// ... business logic here
+    // ... business logic here
 }
 ```
 
@@ -152,24 +152,24 @@ func TracingMiddleware(next http.Handler) http.Handler {
         span.SetAttributes(
             semconv.HTTPMethodKey.String(r.Method),
             semconv.HTTPURLKey.String(r.URL.Path),
-    	)
+        )
 
-		// -- Next handler
-		next.ServeHTTP(w, r.WithContext(rootCtx))
-	})
+        // -- Next handler
+        next.ServeHTTP(w, r.WithContext(rootCtx))
+    })
 }
 ```
 
 ## Usage
 ```go
     ...
-	r.Use(middleware.RequestID)                 // 1
-	r.Use(middleware.RealIP)                    // 2
-	r.Use(handler.TracingMiddleware)            // 3
-	r.Use(middleware.Logger)                    // 4
-	r.Use(authMiddleware.Intercept)             // 5: after tracer setup
-	r.Use(middleware.Recoverer)                 // 6
-	r.Use(middleware.Timeout(90 * time.Second)) // 7
+    r.Use(middleware.RequestID)                 // 1
+    r.Use(middleware.RealIP)                    // 2
+    r.Use(handler.TracingMiddleware)            // 3
+    r.Use(middleware.Logger)                    // 4
+    r.Use(authMiddleware.Intercept)             // 5: after tracer setup
+    r.Use(middleware.Recoverer)                 // 6
+    r.Use(middleware.Timeout(90 * time.Second)) // 7
     ...
 ```
 

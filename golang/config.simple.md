@@ -112,51 +112,51 @@ func NewConfig(osArgs OSArgs) (*appConf, error) {
     err = c.Validate()
     if err != nil {
         zap.L().Error("invalid config",
-			zap.Error(err),
-			zap.String("config", fmt.Sprintf("%#v", c)),
-		)
+            zap.Error(err),
+            zap.String("config", fmt.Sprintf("%#v", c)),
+        )
 
-		return nil, err
-	}
+        return nil, err
+    }
 
-	return &c, err
+    return &c, err
 }
 
 
 // Pass os.Args
 func setPathConfigForViper(v *viper.Viper, osArgs OSArgs) error {
 
-	if v == nil {
-		return errors.New("viper instance is required")
-	}
+    if v == nil {
+        return errors.New("viper instance is required")
+    }
 
-	var cfgPath string
-	if len(osArgs) <= 1 {
-		p, err := filepath.Abs(filepath.Clean(defaultConfigFilePath))
-		if err != nil {
-			panic("coding error: invalid defaultConfigFilePath: " + defaultConfigFilePath)
-		}
+    var cfgPath string
+    if len(osArgs) <= 1 {
+        p, err := filepath.Abs(filepath.Clean(defaultConfigFilePath))
+        if err != nil {
+            panic("coding error: invalid defaultConfigFilePath: " + defaultConfigFilePath)
+        }
 
-		cfgPath = p
-		fmt.Printf("defaulting conf to: path=%v\n", cfgPath)
-		fmt.Printf("to override conf path, pass it as a cli argument")
+        cfgPath = p
+        fmt.Printf("defaulting conf to: path=%v\n", cfgPath)
+        fmt.Printf("to override conf path, pass it as a cli argument")
 
-	} else {
-		cfgPath = osArgs[1]
-	}
+    } else {
+        cfgPath = osArgs[1]
+    }
 
-	v.SetConfigName(filepath.Base(cfgPath))
-	v.AddConfigPath(filepath.Dir(cfgPath))
-	return nil
+    v.SetConfigName(filepath.Base(cfgPath))
+    v.AddConfigPath(filepath.Dir(cfgPath))
+    return nil
 }
 
 // maybe move to conf.defaults.go
 func (c *appConf) setDefaults() {
-	if strings.TrimSpace(c.LogLevel) == "" {
-		c.LogLevel = "debug"
-	}
+    if strings.TrimSpace(c.LogLevel) == "" {
+        c.LogLevel = "debug"
+    }
 
-	//TODO: set other defaults here (for blank/nil field)
+    //TODO: set other defaults here (for blank/nil field)
 }
 ```
 
@@ -168,20 +168,20 @@ func (c *appConf) setDefaults() {
 // 1. path to app.conf.toml file
 func main() {
 
-	// TODO: setup zap here
+    // TODO: setup zap here
 
-	// TODO: if using wire, make this a provider instead
-	// and add wire.Value(OSArgs(os.Args))
-	cfg, err := NewConfig(os.Args)
-	if err != nil {
-	    zap.L().Error("failed to parse config",
-	        zap.Error(err),
-	        zap.String("cfg", fmt.Sprintf("%#v", cfg)),
+    // TODO: if using wire, make this a provider instead
+    // and add wire.Value(OSArgs(os.Args))
+    cfg, err := NewConfig(os.Args)
+    if err != nil {
+        zap.L().Error("failed to parse config",
+            zap.Error(err),
+            zap.String("cfg", fmt.Sprintf("%#v", cfg)),
         )
 
-		os.Exit(1)
-	}
+        os.Exit(1)
+    }
 
-	// TODO: use cfg here
+    // TODO: use cfg here
 }
 ```

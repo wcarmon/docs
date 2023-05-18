@@ -91,15 +91,15 @@ func main () {
     svr := &http.Server{
         Addr:    ":8080",
         Handler: &foo,
-	}
+    }
 
-	log.Info().
-		Str("addr", svr.Addr).
-		Msg("Server listening")
+    log.Info().
+        Str("addr", svr.Addr).
+        Msg("Server listening")
 
-	log.Fatal().
-	    Err(svr.ListenAndServe()).
-	    Msg("Server terminated")
+    log.Fatal().
+        Err(svr.ListenAndServe()).
+        Msg("Server terminated")
 }
 ```
 
@@ -198,29 +198,29 @@ func FooHandler(w http.ResponseWriter, r *http.Request) {
 // publicMsg is sent to the client (No sensitive/server info)
 // privateMsg is logged (can contain server info)
 func SendPlainTextError(
-	w http.ResponseWriter,
-	respCode int,
-	publicMsg string,
-	privateMsg string,
-	cause error) {
+    w http.ResponseWriter,
+    respCode int,
+    publicMsg string,
+    privateMsg string,
+    cause error) {
 
-	w.Header().Set("Content-Type", "text/plain; charset=utf-8")
-	w.Header().Set("X-Content-Type-Options", "nosniff")
-	w.WriteHeader(respCode)
+    w.Header().Set("Content-Type", "text/plain; charset=utf-8")
+    w.Header().Set("X-Content-Type-Options", "nosniff")
+    w.WriteHeader(respCode)
 
-	log.Warn().
-		Err(cause).
-		Str("publicMessage", publicMsg).
-		Str("privateMessage", privateMsg).
-		Msg("Sending error to client")
+    log.Warn().
+        Err(cause).
+        Str("publicMessage", publicMsg).
+        Str("privateMessage", privateMsg).
+        Msg("Sending error to client")
 
-	_, err := fmt.Fprintln(w, cause)
-	if err != nil {
-		log.Error().
-			Caller().
-			Err(err).
-			Msg("Failed to send error to client")
-	}
+    _, err := fmt.Fprintln(w, cause)
+    if err != nil {
+        log.Error().
+            Caller().
+            Err(err).
+            Msg("Failed to send error to client")
+    }
 }
 ```
 

@@ -10,23 +10,23 @@
 1. Example
 ```go
 type SafeWidget struct {
-	mu             sync.Mutex // guards stateToProtect
-	stateToProtect []string
+    mu             sync.Mutex // guards stateToProtect
+    stateToProtect []string
 }
 
 // Return a defensive copy
 func (w SafeWidget) StateToProtect() []string {
-	shallowCopy := make([]string, len(w.stateToProtect))
-	copy(shallowCopy, w.stateToProtect)
+    shallowCopy := make([]string, len(w.stateToProtect))
+    copy(shallowCopy, w.stateToProtect)
 
-	return shallowCopy
+    return shallowCopy
 }
 
 func (w *SafeWidget) AppendToState(v string) {
-	w.mu.Lock()
-	defer w.mu.Unlock()
+    w.mu.Lock()
+    defer w.mu.Unlock()
 
-	w.stateToProtect = append(w.stateToProtect, v)
+    w.stateToProtect = append(w.stateToProtect, v)
 }
 ```
 

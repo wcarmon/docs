@@ -42,26 +42,26 @@ type FooResult int // or a struct with both result & error
 
 func DoSomeExpensiveIO(ctx context.Context) (FooResult, error) {
 
-	// result of "real" call goes into channel
-	// sender not blocked since buffer is 1
-	resultCh := make(chan FooResult, 1)
+    // result of "real" call goes into channel
+    // sender not blocked since buffer is 1
+    resultCh := make(chan FooResult, 1)
 
-	go func() {
-		// send returned result to channel
-		resultCh <- doRealIOWork()
+    go func() {
+        // send returned result to channel
+        resultCh <- doRealIOWork()
 
-		// -- alternative: func writes result to channel (instead of returning)
-		// doRealIOWork(resultCh)
-	}()
+        // -- alternative: func writes result to channel (instead of returning)
+        // doRealIOWork(resultCh)
+    }()
 
-	// wait for first of [a result] or [cancellation/timeout]
-	select {
-	case <-ctx.Done():
-		return 0, ctx.Err()
+    // wait for first of [a result] or [cancellation/timeout]
+    select {
+    case <-ctx.Done():
+        return 0, ctx.Err()
 
-	case out := <-resultCh:
-		return out, nil
-	}
+    case out := <-resultCh:
+        return out, nil
+    }
 }
 ```
 

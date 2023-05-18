@@ -28,18 +28,18 @@ func initLoggers(level zerolog.Level) *os.File {
     )
 
     log.Logger = zerolog.
-    	New(multi).
-		Level(level).
-		With().
-		Timestamp().
-		Logger()
+        New(multi).
+        Level(level).
+        With().
+        Timestamp().
+        Logger()
 
-	return logFile
+    return logFile
 }
 
 func main() {
 
-	defer initLoggers(zerolog.DebugLevel).Close()
+    defer initLoggers(zerolog.DebugLevel).Close()
 
     ...
 }

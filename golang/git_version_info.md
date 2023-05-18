@@ -45,8 +45,8 @@ func printAppInfo() {
         Str("binary", binPath).
         Str("cwd", cwd).
         Str("gitCommitHash", gitCommitHash).
-    	Str("goVersion", runtime.Version()).
-		Str("tempDir", os.TempDir()).
-		Msg("appInfo")
+        Str("goVersion", runtime.Version()).
+        Str("tempDir", os.TempDir()).
+        Msg("appInfo")
 }
 ```

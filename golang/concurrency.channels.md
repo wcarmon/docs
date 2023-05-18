@@ -81,8 +81,8 @@ TODO
 1. Example
 ```go
 func myReceiver(source <-chan bool) {
-	current := <-source
-	fmt.Println("I read this: %v", current)
+    current := <-source
+    fmt.Println("I read this: %v", current)
 }
 ```
 TODO: more here

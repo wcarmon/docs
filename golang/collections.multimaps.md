@@ -5,8 +5,8 @@
 # Creation
 ```go
 type bagEntry[T any] struct {
-	count int
-	value T
+    count int
+    value T
 }
 
 // key:   string
@@ -21,18 +21,18 @@ TODO: what do Guava MultiMaps do?
 # Insertion/Update
 ```go
 func AddToBag[K comparable, V any](
-	bag map[K]*bagEntry[V],
-	key K,
-	value V) {
+    bag map[K]*bagEntry[V],
+    key K,
+    value V) {
 
-	if entry, found := bag[key]; found {
+    if entry, found := bag[key]; found {
             entry.count++
             return
-	}
+    }
 
-	bag[key] = &bagEntry[V]{
-		count: 1,
-		value: value}
+    bag[key] = &bagEntry[V]{
+        count: 1,
+        value: value}
 }
 ```
 
@@ -40,18 +40,18 @@ func AddToBag[K comparable, V any](
 # Removal
 ```go
 func RemoveFromBag[K comparable, V any](
-	bag map[K]*bagEntry[V],
-	key K) {
+    bag map[K]*bagEntry[V],
+    key K) {
 
-	entry, found := bag[key]
-	if !found {
-		return
-	}
+    entry, found := bag[key]
+    if !found {
+        return
+    }
 
-	entry.count--
-	if entry.count <= 0 {
-		delete(bag, key)
-	}
+    entry.count--
+    if entry.count <= 0 {
+        delete(bag, key)
+    }
 }
 ```
 

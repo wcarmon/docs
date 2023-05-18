@@ -6,7 +6,7 @@
 ```bash
 for F in ./*.txt
 do
-	echo "current: $F"
+    echo "current: $F"
 done
 ```
 
