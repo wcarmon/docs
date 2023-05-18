@@ -8,6 +8,7 @@
 1. One Sink `func`
 1. Multiple processor `func`s
 
+
 # Source `func`
 1. Accept ... 
     1. [`context.Context`](./context.md) argument
@@ -16,25 +17,23 @@
     1. Message processing errors go into the `Result` (on output channel)     
 1. `defer close` the returned/output channel
 1. Only use [`ctx.Done`](https://pkg.go.dev/context#Context) to exit early (eg. cancellation, timeout, pipeline terminal errors)
-1. Only use [buffering](TODO) on the output channel, (to avoid exhausting memory)
+1. Only use [buffering](https://go.dev/tour/concurrency/3) on the output channel, (to avoid exhausting memory)
 1. Tracing
-    1. Start the [SpanContext](TODO)
+    1. Start the [SpanContext](https://pkg.go.dev/go.opentelemetry.io/otel/trace#SpanContext)
+
 
 # Sink `func`
 1. Accept ... 
     1. [`context.Context`](./context.md) argument
     1. Exactly-one channel argument
     1. `maxParallel uint` argument
-1. Return `(<-chan MyResult, error)` or just `<-chan MyResult`
-    1. Return `error` only when channel setup fails
-    1. Message processing errors go into the `Result` (on output channel)     
-1. `defer close` the returned/output channel
+1. Return at most one result or just error
 1. Start at least one goroutine to consume the input channel (in a for loop)
     1. at most `maxParallel` goroutines
 1. Only use [`ctx.Done`](https://pkg.go.dev/context#Context) to exit early (eg. cancellation, timeout, pipeline terminal errors)
-1. Only use [buffering](TODO) on the output channel, (to avoid exhausting memory)
 1. Tracing
-    1. TODO ...
+    1. End any spans created internally 
+    1. End any spans in the request context
 
 
 # Processor `func`s
