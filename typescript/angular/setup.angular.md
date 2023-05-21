@@ -88,7 +88,11 @@ ng serve --open
     - GOTCHA: compilation errors sometimes appear as test success (no tests found) 
 
 # Gotchas
-- [`app.module.ts`](https://angular.io/guide/architecture-modules) cannot import forms from a [barrel file](https://basarat.gitbook.io/typescript/main-1/barrel)
+1. Angular material doesn't work with html tables, must use [CSS Flex](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
+    1. eg. [MatSelect](TODO)
+1. When there's an error in `app.module.ts`, most of the errors are misleading
+1. [`app.module.ts`](https://angular.io/guide/architecture-modules) cannot import forms from a [barrel file](https://basarat.gitbook.io/typescript/main-1/barrel)
+1. Components and Services need [`autoBind(this);`](https://www.npmjs.com/package/auto-bind)
 
 
 # Other resources
