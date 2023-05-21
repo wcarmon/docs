@@ -66,6 +66,9 @@
 # Gotchas
 1. Angular material doesn't work with html tables, must use CSS Flex
     1. eg. MatSelect
+1. When there's an error in app.module.ts, most of the errors are misleading
+1. app.module.ts cannot import components from barrel file
+
 
 # Other resources
 1. TODO
