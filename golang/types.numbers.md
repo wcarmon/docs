@@ -54,7 +54,15 @@ n := 0xFF        // 255
 ```go
 s := "1.23E-7"
 value, _, err := big.ParseFloat(s, 10, 256, big.ToZero())
+
+// Alternative ...
+f := new(big.Float)
+_, ok := f.SetString(str)
+if !ok {
+    ...
+}
 ```
+1. Use the parsing strategy above with [`sql.NullString`](https://pkg.go.dev/database/sql#NullString) for SQL row mapping (with [rows.Scan()](https://pkg.go.dev/database/sql#Rows.Scan))
 
 ## Print
 ```go
@@ -63,14 +71,6 @@ fmt.Printf("%s\n", myBigFloat.Text('f', 20)) // <-- 20 decimal places
 fmt.Printf("%g\n", myBigFloat)
 ```
 
-## Parse string
-```go
-f := new(big.Float)
-_, ok := f.SetString(str)
-if !ok {
-    ...
-}
-```
 
 ## Addition
 - [`.Add`](https://pkg.go.dev/math/big#Float.Add) will replace the value on the receiver (thing before the dot)
