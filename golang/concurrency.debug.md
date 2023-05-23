@@ -14,7 +14,7 @@
 1. ~~Adding locks/mutexes~~
 
 
-# Solution-1: Run locally 
+# Solution-1: Run locally
 1. Set env var: [`GOTRACEBACK="all"`](https://pkg.go.dev/runtime#pkg-overview)
 1. Run the program
 1. Get your [process id](https://pkg.go.dev/os#Getpid)
@@ -52,5 +52,6 @@
 1. Some anti-patterns cause concurrency issues, others make it harder to solve them
 
 
-
-# Other resources
+# Solution-7: Use the tools correctly
+1. [Channels](./concurrency.channels.md), Goroutines, [`select` blocks](TODO) and [mutexes](TODO) all have a few gotchas related to correct usage
+1. Use your resources to learn idiomatic usage (books, articles, youtube videos, ai tools, Goland docs, ...)
