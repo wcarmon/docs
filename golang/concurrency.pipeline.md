@@ -117,6 +117,15 @@ func MergeChannels[T any](
     }
 ```
 
+# Debugging
+1. eg. for Hanging goroutines (your program should end but some goroutines are stuck) 
+    1. set env var: [`GOTRACEBACK="all"`](https://pkg.go.dev/runtime#pkg-overview)
+    1. run the program
+    1. get your [process id](https://pkg.go.dev/os#Getpid)
+    1. run [`kill -3 <pid>`](https://man7.org/linux/man-pages/man1/kill.1.html)
+    1. See the live goroutines in the console
+    1. [ag](https://github.com/ggreer/the_silver_searcher)/[ripgrep](https://github.com/BurntSushi/ripgrep)/[grep](https://man7.org/linux/man-pages/man1/grep.1.html) for your source directory
+
 
 # Other resources
 1. https://go.dev/blog/pipelines
