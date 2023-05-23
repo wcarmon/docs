@@ -64,7 +64,7 @@ if !ok {
 ```
 1. Use the parsing strategy above with [`sql.NullString`](https://pkg.go.dev/database/sql#NullString) for SQL row mapping (with [rows.Scan()](https://pkg.go.dev/database/sql#Rows.Scan))
 
-## Print
+## Print/Format
 ```go
 fmt.Printf("%s\n", myBigFloat.Text('f', 20)) // <-- 20 decimal places
 
