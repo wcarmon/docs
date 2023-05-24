@@ -39,7 +39,7 @@
         }()
         ```
     1. Most of your functions should be "regular" go functions 
-        1. meaning they neither accept nor return a channel
+        1. meaning they *neither* accept nor return a channel
         1. Counter-examples:
             1. functions that produce values **slowly** (meaning slow IO)
             1. functions that produce too many values to keep in memory
