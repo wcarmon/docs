@@ -132,17 +132,15 @@ func NewErrGroup(parent context.Context) (*errgroup.Group, context.Context) {
 // merges messages into single output channel
 //
 // use ctx for timeout, cancellation, pipeline termination
-// use outputBufSize=0 for unbuffered output ch
 func MergeChannels[T any](
     ctx context.Context,
-    chs []<-chan T,    
-    outputBufSize uint,
+    chs []<-chan T,        
     outCh chan<- T,
 ) {
     g := ErrGroupFromContext(ctx)
 
     taskCount := len(chs)
-    doneWriting := make(chan struct{}, taskCount)
+    done := make(chan struct{}, taskCount)
 
     for _, current := range chs {
         ch := current // exclusive ref
@@ -153,7 +151,7 @@ func MergeChannels[T any](
                 outCh <- req
             }
 
-            doneWriting <- struct{}{}
+            done <- struct{}{}
             return nil
         })
     }
@@ -164,7 +162,7 @@ func MergeChannels[T any](
         defer close(outCh)
 
         for i := 0; i < taskCount; i++ {
-            <-doneWriting // one for each subtask
+            <-done // wait for signal on each subtask
         }
 
         // -- Invariant: consumed all input channels
