@@ -126,7 +126,7 @@ func NewErrGroup(parent context.Context) (*errgroup.Group, context.Context) {
 ```
      
     
-# Example func to Merge channels
+# Example: Merge channels
 ```go
 // MergeChannels consumes all input channels,
 // merges messages into single output channel
