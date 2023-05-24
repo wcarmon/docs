@@ -4,13 +4,13 @@
 
 
 # Idioms for frustration-free pipelines 
-1. **Debugging**: 
+1. **Debugging** 
     1. See the [debugging](/home/wcarmon/git-repos/docs/golang/concurrency.debug.md) guide
-1. High level Architecture:
+1. High-level Architecture
     1. Use One Source (streams data out to a channel)
     1. Use One Sink (consumes final results from a channel)
     1. Use multiple intermediate processors connected via channels
-1. **Tools**:
+1. **Tools**
     1. Use [errgroup](https://pkg.go.dev/golang.org/x/sync/errgroup) official library
         1. ...because it gives you functionality like [coroutine scope](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-coroutine-scope/)
             1. Otherwise you need to manage your own [WaitGroups](https://pkg.go.dev/sync#WaitGroup)        
@@ -18,7 +18,8 @@
             1. Otherwise you need to add `error` channels and `if` blocks or `select` blocks everywhere
         1. ...because it handles context **cancellation** for the whole group of tasks
         1. ...because it handles [rate limiting](https://pkg.go.dev/golang.org/x/sync/errgroup#Group.SetLimit)
-1. Spawn tasks using [`g.Go(...)`](https://pkg.go.dev/golang.org/x/sync/errgroup#Group.Go), not [~~`go`~~](https://go.dev/ref/spec#Go_statements)
+1. **Subtasks**
+    1. Spawn tasks using [`g.Go(...)`](https://pkg.go.dev/golang.org/x/sync/errgroup#Group.Go), not [~~`go`~~](https://go.dev/ref/spec#Go_statements)
     1. The only counter-case is when you `Wait()` on the errGroup, like this:
     ```go
     go func() {
@@ -35,27 +36,27 @@
         1. functions that **slowly** produce values
         1. functions that produce too many values to keep in memory
         1. These functions should accept the `outCh` and `errCh` as parameters
-1. **Context**: 
+1. **Context**
     1. Propagate the errGroup to subtasks using [`context.Context`](https://pkg.go.dev/context)
     1. See example below
     1. Pass `context` parameter into subtasks (not errGroup parameter)    
     1. Subtasks can get the current errGroup from `context`
         1. eg. `g := ErrGroupFromContext(ctx)`
-1. **Channels**: 
+1. **Channels** 
     1. Ensure every channel has a closing strategy
     1. Only Sender closes the channel
     1. Only close when completely done writing
     1. Use [buffering](https://gobyexample.com/channel-buffering) so channels aren't blocked and to avoid exhausting memory
-1. **Waiting**: 
+1. **Waiting**
     1. Let [errgroup](https://pkg.go.dev/golang.org/x/sync/errgroup#Group.Wait) manage waiting for you
     1. Do **NOT** use your own ~~[WaitGroup](https://pkg.go.dev/sync#WaitGroup)~~,     
-1. **Errors**: 
+1. **Errors**
     1. Let the errGroup mange errors, just check `err := g.Wait()`
     1. you can call `err := g.Wait()` multiple times 
     1. Useful if you need to `Wait()` and handle errors in different goroutines
-1. **Cancellation**: 
+1. **Cancellation** 
     1. Let the errGroup manage cancellation
-1. **Tracing**:
+1. **Tracing**
     1. Create spans inside, at the start of (some) subtasks 
     1. See [tracing doc](./tracing.md)
     1. Use [`context.Context`](https://pkg.go.dev/context) to propagate [`SpanContext`](https://pkg.go.dev/go.opentelemetry.io/otel/trace#SpanContext) 
