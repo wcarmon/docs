@@ -30,14 +30,14 @@
     1. See [example below](#example-subtask)
     1. Spawn tasks using [`g.Go(...)`](https://pkg.go.dev/golang.org/x/sync/errgroup#Group.Go), not [~~`go`~~](https://go.dev/ref/spec#Go_statements)
     1. The only counter-case is when you `Wait()` on the errGroup, like this:
-    ```go
-    go func() {  // <-- only time you must use 'go' keyword directly
-        err := g.Wait()
-        // ... either handle the error here, or call g.Wait() again outside this goroutine
-        
-        close(finalChannelWhichSinkReads)
-    }()
-    ```
+        ```go
+        go func() {  // <-- only time you must use 'go' keyword directly
+            err := g.Wait()
+            // ... either handle the error here, or call g.Wait() again outside this goroutine
+            
+            close(finalChannelWhichSinkReads)
+        }()
+        ```
     1. Most of your functions should be "regular" go functions 
         1. meaning they neither accept nor return a channel
         1. Counter-examples:
