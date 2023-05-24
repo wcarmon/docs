@@ -80,7 +80,7 @@ g.Go(func() error {
     ctx, span := otel.Tracer("").Start(ctx, "doSomethingInteresing")
     defer span.End()
 
-    // -- sender responsible for closing channel
+    // -- sender (me) responsible for closing outCh channel
     defer close(outCh)
     
     // -- do a subtask, subtask might start sub-subtasks using g.Go(...)
