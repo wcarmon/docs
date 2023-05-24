@@ -75,6 +75,7 @@
 # Example Subtask
 ```go
 g.Go(func() error {
+
     // -- start a span (for tracing)
     ctx, span := otel.Tracer("").Start(ctx, "doSomethingInteresing")
     defer span.End()
