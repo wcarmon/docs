@@ -61,7 +61,7 @@
 1. **Errors**
     1. Let the errGroup mange errors, just check `err := g.Wait()`
     1. you can call `err := g.Wait()` multiple times 
-    1. Useful if you need to `Wait()` and handle errors in different goroutines
+        1. Useful if you need to `Wait()` and handle errors in different goroutines
 1. **Cancellation** 
     1. Let the errGroup manage cancellation
     1. You can [bind the errGroup to a context with a deadline](./concurrency.timeout.md)
