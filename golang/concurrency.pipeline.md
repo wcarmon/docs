@@ -52,8 +52,8 @@
     1. See [example below](#example-subtask)
 1. **Channels** 
     1. Ensure every channel has a closing strategy
-    1. Only Sender closes the channel
-    1. Only close when completely done writing
+    1. Only Sender closes the channel (never the reader/consumer)
+    1. Only `close` when completely done writing, use `defer`
     1. Use [buffering](https://gobyexample.com/channel-buffering) so channels aren't blocked and to avoid exhausting memory
 1. **Waiting**
     1. Let [errgroup](https://pkg.go.dev/golang.org/x/sync/errgroup#Group.Wait) manage waiting for you
@@ -64,6 +64,7 @@
     1. Useful if you need to `Wait()` and handle errors in different goroutines
 1. **Cancellation** 
     1. Let the errGroup manage cancellation
+    1. You can [bind the errGroup to a context with a deadline](./concurrency.timeout.md)
 1. **Tracing**
     1. Create spans inside, at the start of (some) subtasks 
     1. See [tracing doc](./tracing.md)
@@ -73,30 +74,31 @@
 # Example Subtask
 ```go
 g.Go(func() error {
-    // -- Start a span (for tracing)
-    ctx, span := otel.Tracer("").Start(ctx, "doSomething")
+    // -- start a span (for tracing)
+    ctx, span := otel.Tracer("").Start(ctx, "doSomethingInteresing")
     defer span.End()
 
     // -- sender responsible for closing channel
     defer close(outCh)
     
     // -- do a subtask, subtask might start sub-subtasks using g.Go(...)
-    result, err := doSomething(ctx, arg1, arg2)
+    result, err := doASubtaskHere(ctx, arg1, arg2, ...)
     if err != nil {
+
         // -- add helpful messages for tracing errors to their source
         otzap.AddErrorEvent(span, "failed to doSomething because Foo", err)
         
-        // -- propagate error thru errGroup (group will handle cancellation)
+        // -- propagate error thru errGroup (group handles cancellation)
         return err
     }
     
-    // -- send the subtask result out on some channel
+    // -- send the subtask result out
     outCh <- result
 })
 ```
 
 
-# Example of errGroup propagation thru [`context.Context`](https://pkg.go.dev/context)
+# Example: propagation errGroup thru `context.Context`
 ```go
 type errGroupContextKeyType int
 
