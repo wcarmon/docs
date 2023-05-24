@@ -32,9 +32,11 @@
         close(finalChannelWhichSinkReads)
     }()
     ```
-1. **Control** Make one control-flow-managing `func`
+1. **Control**
+    1. Make **one** control-flow-managing `func`
     1. Construct & setup the errGroup here
     1. Use [`g.Go(...)`](https://pkg.go.dev/golang.org/x/sync/errgroup#Group.Go) to start and to wait for subtasks
+    1. See [example below](#example-subtask)
 1. Most of your functions should be "regular" go functions 
     1. meaning they neither accept nor return a channel
     1. Counter-examples:
@@ -42,11 +44,11 @@
         1. functions that produce too many values to keep in memory
         1. These functions should accept the `outCh` and `errCh` as parameters
 1. **Context**
-    1. Propagate the errGroup to subtasks using [`context.Context`](https://pkg.go.dev/context)
-    1. See example below
+    1. Propagate the errGroup to subtasks using [`context.Context`](https://pkg.go.dev/context)    
     1. Pass `context` parameter into subtasks (not errGroup parameter)    
-    1. Subtasks can get the current errGroup from `context`
+    1. Subtasks get the current errGroup from the `context` argument
         1. eg. `g := ErrGroupFromContext(ctx)`
+    1. See [example below](#example-subtask)
 1. **Channels** 
     1. Ensure every channel has a closing strategy
     1. Only Sender closes the channel
