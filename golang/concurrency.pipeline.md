@@ -66,9 +66,10 @@
     1. Let the errGroup manage cancellation
     1. You can [bind the errGroup to a context with a deadline](./concurrency.timeout.md)
 1. **Tracing**
-    1. Create spans inside, at the start of (some) subtasks 
+    1. Create spans inside, at the start of (some) subtasks     
+    1. Use [`context.Context`](https://pkg.go.dev/context) to propagate [`SpanContext`](https://pkg.go.dev/go.opentelemetry.io/otel/trace#SpanContext)
     1. See [tracing doc](./tracing.md)
-    1. Use [`context.Context`](https://pkg.go.dev/context) to propagate [`SpanContext`](https://pkg.go.dev/go.opentelemetry.io/otel/trace#SpanContext) 
+    1. See [example below](#example-subtask) 
 
 
 # Example Subtask
