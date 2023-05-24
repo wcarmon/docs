@@ -25,16 +25,18 @@
     1. Spawn tasks using [`g.Go(...)`](https://pkg.go.dev/golang.org/x/sync/errgroup#Group.Go), not [~~`go`~~](https://go.dev/ref/spec#Go_statements)
     1. The only counter-case is when you `Wait()` on the errGroup, like this:
     ```go
-    go func() {
+    go func() {  // <-- only time you need to use 'go' keyword directly
         err := g.Wait()
+        // ... either handle the error here, or call g.Wait() again outside this goroutine
         
-        close(finalChannelWhichFeedsSink)
+        close(finalChannelWhichSinkReads)
     }()
     ```
-1. Make one control-flow-managing function
-    1. Setup the errGroup
-    1. use [`g.Go(...)`](https://pkg.go.dev/golang.org/x/sync/errgroup#Group.Go) to spawn and wait for subtasks
-1. Most of your functions should be "regular" (meaning the don't produce nor accept channels)
+1. **Control** Make one control-flow-managing `func`
+    1. Construct & setup the errGroup here
+    1. Use [`g.Go(...)`](https://pkg.go.dev/golang.org/x/sync/errgroup#Group.Go) to start and to wait for subtasks
+1. Most of your functions should be "regular" go functions 
+    1. meaning they neither accept nor return a channel
     1. Counter-examples:
         1. functions that **slowly** produce values
         1. functions that produce too many values to keep in memory
