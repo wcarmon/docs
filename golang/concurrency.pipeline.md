@@ -1,6 +1,6 @@
 # Overview
-1. Idioms for go channel pipelines 
-    1. including context, error handling, timeouts, OpenTelemetry, etc.
+1. Idioms for frustration-free go channel pipelines 
+    1. including [context](https://pkg.go.dev/context), error handling, timeouts, [OpenTelemetry](https://opentelemetry.io/docs/instrumentation/go/), etc.
 
 
 # Idioms for frustration-free pipelines 
