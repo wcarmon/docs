@@ -5,7 +5,7 @@
 
 # Idioms for frustration-free pipelines 
 1. **Debugging** 
-    1. See the [debugging](/home/wcarmon/git-repos/docs/golang/concurrency.debug.md) guide
+    1. See the [debugging](./concurrency.debug.md) guide
 1. High-level Architecture
     1. One Source (streams data out to a channel)
     1. One Sink (consumes final results from a channel)
