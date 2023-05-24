@@ -27,6 +27,7 @@
     1. Use [`g.Go(...)`](https://pkg.go.dev/golang.org/x/sync/errgroup#Group.Go) to start and to wait for subtasks
     1. See [example below](#example-subtask)
 1. **Subtasks**
+    1. See [example below](#example-subtask)
     1. Spawn tasks using [`g.Go(...)`](https://pkg.go.dev/golang.org/x/sync/errgroup#Group.Go), not [~~`go`~~](https://go.dev/ref/spec#Go_statements)
     1. The only counter-case is when you `Wait()` on the errGroup, like this:
     ```go
@@ -103,31 +104,27 @@ const currentErrGroupKey errGroupContextKeyType = iota
 
 // ErrGroupFromContext returns the errGroup associated with the context, or nil.
 func ErrGroupFromContext(ctx context.Context) *errgroup.Group {
-	if g, ok := ctx.Value(currentErrGroupKey).(*errgroup.Group); ok {
-		return g
-	}
+    if g, ok := ctx.Value(currentErrGroupKey).(*errgroup.Group); ok {
+        return g
+    }
 
-	return nil
+    return nil
 }
 
 // WithErrGroup returns a new context containing the given errgroup.Group.
 func WithErrGroup(parent context.Context, g *errgroup.Group) context.Context {
-	return context.WithValue(parent, currentErrGroupKey, g)
+    return context.WithValue(parent, currentErrGroupKey, g)
 }
 
 // NewErrGroup simplifies linking the errGroup and context.
 func NewErrGroup(parent context.Context) (*errgroup.Group, context.Context) {
-	g, ctx := errgroup.WithContext(parent)
-	return g, WithErrGroup(ctx, g)
+    g, ctx := errgroup.WithContext(parent)
+    return g, WithErrGroup(ctx, g)
 }
 ```
      
-
-# ======================----===----====
-
     
-## Example func to Merge channels
-1. Useful for fan-in, fan-out across channels
+# Example func to Merge channels
 ```go
 // MergeChannels consumes all input channels,
 // merges messages into single output channel
@@ -135,42 +132,42 @@ func NewErrGroup(parent context.Context) (*errgroup.Group, context.Context) {
 // use ctx for timeout, cancellation, pipeline termination
 // use outputBufSize=0 for unbuffered output ch
 func MergeChannels[T any](
-	ctx context.Context,
-	chs []<-chan T,	
-	outputBufSize uint,
-	outCh chan<- T,
+    ctx context.Context,
+    chs []<-chan T,    
+    outputBufSize uint,
+    outCh chan<- T,
 ) {
-	g := ErrGroupFromContext(ctx)
+    g := ErrGroupFromContext(ctx)
 
-	taskCount := len(chs)
-	doneWriting := make(chan struct{}, taskCount)
+    taskCount := len(chs)
+    doneWriting := make(chan struct{}, taskCount)
 
-	for _, current := range chs {
-		ch := current // exclusive ref
-		g.Go(func() error {
+    for _, current := range chs {
+        ch := current // exclusive ref
+        g.Go(func() error {
 
-			// -- consume channel
-			for req := range ch {
-				outCh <- req
-			}
+            // -- consume channel
+            for req := range ch {
+                outCh <- req
+            }
 
-			doneWriting <- struct{}{}
-			return nil
-		})
-	}
+            doneWriting <- struct{}{}
+            return nil
+        })
+    }
 
-	// -- Cleanup
-	g.Go(func() error {
-		defer close(doneWriting)
+    // -- Cleanup
+    g.Go(func() error {
+        defer close(doneWriting)
         defer close(outCh)
 
-		for i := 0; i < taskCount; i++ {
-			<-doneWriting // one for each subtask
-		}
+        for i := 0; i < taskCount; i++ {
+            <-doneWriting // one for each subtask
+        }
 
-		// -- Invariant: consumed all input channels
-		return nil
-	})
+        // -- Invariant: consumed all input channels
+        return nil
+    })
 }
 ```
 
