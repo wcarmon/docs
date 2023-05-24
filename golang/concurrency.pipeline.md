@@ -4,16 +4,20 @@
 
 
 # Idioms for frustration-free pipelines 
-1. See the [debugging](/home/wcarmon/git-repos/docs/golang/concurrency.debug.md) guide
-1. Use One Source (streams data out to a channel)
-1. Use One Sink (consumes final results from a channel)
-1. Use multiple intermediate processors connected via channels
-1. Use [errgroup](https://pkg.go.dev/golang.org/x/sync/errgroup) official library
-    1. ...because it gives you functionality like [coroutine scope](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-coroutine-scope/)
-        1. Otherwise you need to manage your own [WaitGroups](TODO)        
-    1. ...because it propagates errors up to the [`group.Wait()`](https://pkg.go.dev/golang.org/x/sync/errgroup#Group.Wait)
-        1. Otherwise you need to add `error` channels and `if` blocks or `select` blocks everywhere
-    1. ...because it handles context **cancellation** for the whole group of tasks
+1. **Debugging**: 
+    1. See the [debugging](/home/wcarmon/git-repos/docs/golang/concurrency.debug.md) guide
+1. High level Architecture:
+    1. Use One Source (streams data out to a channel)
+    1. Use One Sink (consumes final results from a channel)
+    1. Use multiple intermediate processors connected via channels
+1. **Tools**:
+    1. Use [errgroup](https://pkg.go.dev/golang.org/x/sync/errgroup) official library
+        1. ...because it gives you functionality like [coroutine scope](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-coroutine-scope/)
+            1. Otherwise you need to manage your own [WaitGroups](https://pkg.go.dev/sync#WaitGroup)        
+        1. ...because it propagates errors up to the [`group.Wait()`](https://pkg.go.dev/golang.org/x/sync/errgroup#Group.Wait)
+            1. Otherwise you need to add `error` channels and `if` blocks or `select` blocks everywhere
+        1. ...because it handles context **cancellation** for the whole group of tasks
+        1. ...because it handles [rate limiting](https://pkg.go.dev/golang.org/x/sync/errgroup#Group.SetLimit)
 1. Spawn tasks using [`g.Go(...)`](https://pkg.go.dev/golang.org/x/sync/errgroup#Group.Go), not [~~`go`~~](https://go.dev/ref/spec#Go_statements)
     1. The only counter-case is when you `Wait()` on the errGroup, like this:
     ```go
@@ -31,26 +35,60 @@
         1. functions that **slowly** produce values
         1. functions that produce too many values to keep in memory
         1. These functions should accept the `outCh` and `errCh` as parameters
-1. **Context**: Propagate the errGroup to subtasks using [`context.Context`](https://pkg.go.dev/context)
+1. **Context**: 
+    1. Propagate the errGroup to subtasks using [`context.Context`](https://pkg.go.dev/context)
     1. See example below
     1. Pass `context` parameter into subtasks (not errGroup parameter)    
     1. Subtasks can get the current errGroup from `context`
         1. eg. `g := ErrGroupFromContext(ctx)`
-1. **Close**: Make sure every channel has a closing strategy
+1. **Channels**: 
+    1. Ensure every channel has a closing strategy
     1. Only Sender closes the channel
     1. Only close when completely done writing
-1. **Waiting**: Do **NOT** use your own ~~[WaitGroup](https://pkg.go.dev/sync#WaitGroup)~~, let [errgroup](https://pkg.go.dev/golang.org/x/sync/errgroup#Group.Wait) manage waiting for you
-1. **Errors**: Let the errGroup mange errors, just check `err := g.Wait()`
+    1. Use [buffering](https://gobyexample.com/channel-buffering) so channels aren't blocked and to avoid exhausting memory
+1. **Waiting**: 
+    1. Let [errgroup](https://pkg.go.dev/golang.org/x/sync/errgroup#Group.Wait) manage waiting for you
+    1. Do **NOT** use your own ~~[WaitGroup](https://pkg.go.dev/sync#WaitGroup)~~,     
+1. **Errors**: 
+    1. Let the errGroup mange errors, just check `err := g.Wait()`
     1. you can call `err := g.Wait()` multiple times 
     1. Useful if you need to `Wait()` and handle errors in different goroutines
-1. **Cancellation**: Let the errGroup manage cancellation
-1. **Tracing**: Create spans
+1. **Cancellation**: 
+    1. Let the errGroup manage cancellation
+1. **Tracing**:
+    1. Create spans inside, at the start of (some) subtasks 
+    1. See [tracing doc](./tracing.md)
+    1. Use [`context.Context`](https://pkg.go.dev/context) to propagate [`SpanContext`](https://pkg.go.dev/go.opentelemetry.io/otel/trace#SpanContext) 
 
+
+# Example Subtask
+```go
+g.Go(func() error {
+    // -- Start a span (for tracing)
+    ctx, span := otel.Tracer("").Start(ctx, "doSomething")
+    defer span.End()
+
+    // -- sender responsible for closing channel
+    defer close(outCh)
+    
+    // -- do a subtask, subtask might start sub-subtasks using g.Go(...)
+    result, err := doSomething(ctx, arg1, arg2)
+    if err != nil {
+        // -- add helpful messages for tracing errors to their source
+        otzap.AddErrorEvent(span, "failed to doSomething because Foo", err)
+        
+        // -- propagate error thru errGroup (group will handle cancellation)
+        return err
+    }
+    
+    // -- send the subtask result out on some channel
+    outCh <- result
+})
+```
 
 
 # Example of errGroup propagation thru [`context.Context`](https://pkg.go.dev/context)
 ```go
-
 type errGroupContextKeyType int
 
 const currentErrGroupKey errGroupContextKeyType = iota
@@ -79,55 +117,8 @@ func NewErrGroup(parent context.Context) (*errgroup.Group, context.Context) {
 
 # ======================----===----====
 
-
-# Source `func`
-1. Accept ... 
-    1. [`context.Context`](./context.md) argument
-1. Return `(<-chan MyResult, error)` or just `<-chan MyResult`  
-    1. Return `error` only when channel setup fails
-    1. Message processing errors go into the `Result` (on output channel)     
-1. `defer close` the returned/output channel
-1. Only use [`ctx.Done`](https://pkg.go.dev/context#Context) to exit early (eg. cancellation, timeout, pipeline terminal errors)
-1. Only use [buffering](https://go.dev/tour/concurrency/3) on the output channel, (to avoid exhausting memory)
-1. Tracing
-    1. Start the [SpanContext](https://pkg.go.dev/go.opentelemetry.io/otel/trace#SpanContext)
-
-
-# Sink `func`
-1. Accept ... 
-    1. [`context.Context`](./context.md) argument
-    1. Exactly-one channel argument
-    1. `maxParallel uint` argument
-1. Return at most one result or just error
-1. Start at least one goroutine to consume the input channel (in a for loop)
-    1. at most `maxParallel` goroutines
-1. Only use [`ctx.Done`](https://pkg.go.dev/context#Context) to exit early (eg. cancellation, timeout, pipeline terminal errors)
-1. Tracing
-    1. End any spans created internally 
-    1. End any spans in the request context
-
-
-# Processor `func`s
-1. Accept ... 
-    1. [`context.Context`](./context.md) argument
-    1. Exactly-one channel argument
-    1. `maxParallel uint` argument
-1. Return `(<-chan MyResult, error)` or just `<-chan MyResult`
-    1. Return `error` only when channel setup fails
-    1. Message processing errors go into the `Result` (on output channel)     
-1. `defer close` the returned/output channel
-1. Start at least one goroutine to consume the input channel (in a for loop)
-    1. at most `maxParallel` goroutines
-1. Only use [`ctx.Done`](https://pkg.go.dev/context#Context) to exit early (eg. cancellation, timeout, pipeline terminal errors)
-1. Only use [buffering](TODO) on the output channel, (to avoid exhausting memory)
-1. Tracing
-    1. Get [`SpanContext`](https://pkg.go.dev/go.opentelemetry.io/otel/trace#SpanContext) in-band (from input messages on the channel, not from `ctx` argument)
-    1. If you create a span, [Link](https://pkg.go.dev/go.opentelemetry.io/otel/trace#WithLinks) output messages to input message [SpanContext](https://pkg.go.dev/go.opentelemetry.io/otel/trace#SpanContext)
-    1. End any spans you create (they have a link relationship, not parent-child)    
-    1. If you don't create a span, just propagate [SpanContext](https://pkg.go.dev/go.opentelemetry.io/otel/trace#SpanContext) in the request [`context.Context`](https://pkg.go.dev/context#Context) to output messages
-
     
-## Example merge Processor `func`
+## Example func to Merge channels
 1. Useful for fan-in, fan-out across channels
 ```go
 // MergeChannels consumes all input channels,
@@ -136,62 +127,46 @@ func NewErrGroup(parent context.Context) (*errgroup.Group, context.Context) {
 // use ctx for timeout, cancellation, pipeline termination
 // use outputBufSize=0 for unbuffered output ch
 func MergeChannels[T any](
-    ctx context.Context,
-    chs []<-chan T,
-    outputBufSize uint,
-) <-chan T {
+	ctx context.Context,
+	chs []<-chan T,	
+	outputBufSize uint,
+	outCh chan<- T,
+) {
+	g := ErrGroupFromContext(ctx)
 
-    wg := &sync.WaitGroup{}
-    wg.Add(len(chs))
+	taskCount := len(chs)
+	doneWriting := make(chan struct{}, taskCount)
 
-    out := make(chan T, outputBufSize)
+	for _, current := range chs {
+		ch := current // exclusive ref
+		g.Go(func() error {
 
-    for _, current := range chs {
-        ch := current // exclusive ref
-        go func() {
-            defer wg.Done()
+			// -- consume channel
+			for req := range ch {
+				outCh <- req
+			}
 
-            // -- Consume channel
-            for req := range ch {
-                select {
-                case out <- req: // -- merge
-                case <-ctx.Done(): // -- leave early
-                    return
-                }
-            }
-        }()
-    }
+			doneWriting <- struct{}{}
+			return nil
+		})
+	}
 
-    // -- Cleanup
-    go func() {
-        wg.Wait()
-        // -- Invariant: consumed all input channels
-        close(out)
-    }()
+	// -- Cleanup
+	g.Go(func() error {
+		defer close(doneWriting)
+        defer close(outCh)
 
-    return out
+		for i := 0; i < taskCount; i++ {
+			<-doneWriting // one for each subtask
+		}
+
+		// -- Invariant: consumed all input channels
+		return nil
+	})
 }
 ```
-
-1. Example usage of merge func
-```go
-    chs := []<-chan Foo{
-        make(chan Foo),
-        make(chan Foo),
-        ...        
-    }
-
-    mergedCh := MergeChannels(ctx, chs, 0)
-
-    for foo := range mergedCh {
-        ...use foo here...
-    }
-```
-
-
-# Debugging
-1. See [concurrency.debug.md](./concurrency.debug.md)
 
 
 # Other resources
 1. https://go.dev/blog/pipelines
+1. See [concurrency.debug.md](./concurrency.debug.md)
