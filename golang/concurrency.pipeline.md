@@ -38,7 +38,7 @@
 1. Most of your functions should be "regular" go functions 
     1. meaning they neither accept nor return a channel
     1. Counter-examples:
-        1. functions that **slowly** produce values
+        1. functions that produce values **slowly** (meaning slow IO)
         1. functions that produce too many values to keep in memory
         1. These functions should accept the `outCh` and `errCh` as parameters
 1. **Context**
