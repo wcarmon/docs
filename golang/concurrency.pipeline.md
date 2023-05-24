@@ -7,13 +7,14 @@
 1. **Debugging** 
     1. See the [debugging](/home/wcarmon/git-repos/docs/golang/concurrency.debug.md) guide
 1. High-level Architecture
-    1. Use One Source (streams data out to a channel)
-    1. Use One Sink (consumes final results from a channel)
-    1. Use multiple intermediate processors connected via channels
+    1. One Source (streams data out to a channel)
+    1. One Sink (consumes final results from a channel)
+    1. Multiple intermediate processors connected via channels
+    1. Everything running at the same time :-)
 1. **Tools**
-    1. Use [errgroup](https://pkg.go.dev/golang.org/x/sync/errgroup) official library
+    1. Use [errgroup](https://pkg.go.dev/golang.org/x/sync/errgroup) (an Official library)
         1. ...because it gives you functionality like [coroutine scope](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-coroutine-scope/)
-            1. Otherwise you need to manage your own [WaitGroups](https://pkg.go.dev/sync#WaitGroup)        
+            1. Otherwise, you must manage your own ~~[WaitGroups](https://pkg.go.dev/sync#WaitGroup)~~        
         1. ...because it propagates errors up to the [`group.Wait()`](https://pkg.go.dev/golang.org/x/sync/errgroup#Group.Wait)
             1. Otherwise you need to add `error` channels and `if` blocks or `select` blocks everywhere
         1. ...because it handles context **cancellation** for the whole group of tasks
