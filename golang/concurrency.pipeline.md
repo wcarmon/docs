@@ -98,7 +98,7 @@ g.Go(func() error {
 ```
 
 
-# Example: propagation errGroup thru `context.Context`
+# Example: Propagate errGroup thru `context.Context`
 ```go
 type errGroupContextKeyType int
 
