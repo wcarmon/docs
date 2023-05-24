@@ -90,11 +90,11 @@ g.Go(func() error {
         // -- add helpful messages for tracing errors to their source
         otzap.AddErrorEvent(span, "failed to doSomething because Foo", err)
         
-        // -- propagate error thru errGroup (group handles cancellation)
+        // -- propagate error thru errGroup (errGroup handles cancellation)
         return err
     }
     
-    // -- send the subtask result out
+    // -- send the subtask result
     outCh <- result
 })
 ```
