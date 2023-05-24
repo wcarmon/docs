@@ -19,7 +19,8 @@
             1. Otherwise you need to add `error` channels and `if` blocks or `select` blocks everywhere
         1. ...because it handles context **cancellation** for the whole group of tasks
         1. ...because it handles [rate limiting](https://pkg.go.dev/golang.org/x/sync/errgroup#Group.SetLimit)
-        1. ...because the source code is simple, correct, tested, well documented, recommended in several books ([like this](https://www.amazon.com/Mastering-Go-professional-utilities-concurrent/dp/1801079315) and [like this](https://www.amazon.com/100-Mistakes-How-Avoid-Them/dp/1617299596/))
+        1. ...because the source code is simple, correct, tested, well documented, recommended in several books 
+            1. [like this](https://www.amazon.com/Mastering-Go-professional-utilities-concurrent/dp/1801079315) and [this](https://www.amazon.com/100-Mistakes-How-Avoid-Them/dp/1617299596/)
 1. **Subtasks**
     1. Spawn tasks using [`g.Go(...)`](https://pkg.go.dev/golang.org/x/sync/errgroup#Group.Go), not [~~`go`~~](https://go.dev/ref/spec#Go_statements)
     1. The only counter-case is when you `Wait()` on the errGroup, like this:
