@@ -7,8 +7,8 @@
 1. **Debugging** 
     1. See the [debugging](./concurrency.debug.md) guide
 1. High-level Architecture
-    1. One Source (streams data out to a channel)
-    1. One Sink (consumes final results from a channel)
+    1. One Source (first step/stage, streams data out to a channel)
+    1. One Sink (last step/stage, consumes final results from a channel)
     1. Multiple intermediate processors connected via channels
     1. Everything running at the same time :-)
 1. **Tools**
