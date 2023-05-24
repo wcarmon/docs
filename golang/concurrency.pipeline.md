@@ -16,33 +16,33 @@
         1. ... because it gives you functionality like Kotlin's [coroutine scope](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-coroutine-scope/)
             1. Otherwise, you must manage your own ~~[WaitGroups](https://pkg.go.dev/sync#WaitGroup)~~        
         1. ... because it propagates `error`s up to [`group.Wait()`](https://pkg.go.dev/golang.org/x/sync/errgroup#Group.Wait)
-            1. Otherwise you need to add `error` channels and `if` blocks or `select` blocks everywhere
+            1. Otherwise you must add `error` channels and `if` blocks or `select` blocks everywhere
         1. ... because it handles context [**cancellation**](./concurrency.cancellation.md) for the whole group of tasks
         1. ... because it handles [rate limiting](https://pkg.go.dev/golang.org/x/sync/errgroup#Group.SetLimit)
         1. ... because the source code is simple, correct, tested, well documented, recommended in several books 
             1. [like this](https://www.amazon.com/Mastering-Go-professional-utilities-concurrent/dp/1801079315) and [this](https://www.amazon.com/100-Mistakes-How-Avoid-Them/dp/1617299596/)
+1. **Control**
+    1. Make **one** control-flow-managing `func`
+    1. Construct & setup the errGroup here
+    1. Use [`g.Go(...)`](https://pkg.go.dev/golang.org/x/sync/errgroup#Group.Go) to start and to wait for subtasks
+    1. See [example below](#example-subtask)
 1. **Subtasks**
     1. Spawn tasks using [`g.Go(...)`](https://pkg.go.dev/golang.org/x/sync/errgroup#Group.Go), not [~~`go`~~](https://go.dev/ref/spec#Go_statements)
     1. The only counter-case is when you `Wait()` on the errGroup, like this:
     ```go
-    go func() {  // <-- only time you need to use 'go' keyword directly
+    go func() {  // <-- only time you must use 'go' keyword directly
         err := g.Wait()
         // ... either handle the error here, or call g.Wait() again outside this goroutine
         
         close(finalChannelWhichSinkReads)
     }()
     ```
-1. **Control**
-    1. Make **one** control-flow-managing `func`
-    1. Construct & setup the errGroup here
-    1. Use [`g.Go(...)`](https://pkg.go.dev/golang.org/x/sync/errgroup#Group.Go) to start and to wait for subtasks
-    1. See [example below](#example-subtask)
-1. Most of your functions should be "regular" go functions 
-    1. meaning they neither accept nor return a channel
-    1. Counter-examples:
-        1. functions that produce values **slowly** (meaning slow IO)
-        1. functions that produce too many values to keep in memory
-        1. These functions should accept the `outCh` and `errCh` as parameters
+    1. Most of your functions should be "regular" go functions 
+        1. meaning they neither accept nor return a channel
+        1. Counter-examples:
+            1. functions that produce values **slowly** (meaning slow IO)
+            1. functions that produce too many values to keep in memory
+            1. These functions should accept the `outCh` and `errCh` as parameters
 1. **Context**
     1. Propagate the errGroup to subtasks using [`context.Context`](https://pkg.go.dev/context)    
     1. Pass `context` parameter into subtasks (not errGroup parameter)    
