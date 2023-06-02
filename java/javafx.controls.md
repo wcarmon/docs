@@ -25,15 +25,17 @@
 
 
 # Definitions
-1. [`Scene`](https://openjfx.io/javadoc/18/javafx.graphics/javafx/scene/package-summary.html): a window
-1. [`Stage`](https://openjfx.io/javadoc/18/javafx.graphics/javafx/stage/Stage.html): TODO
-    1. [Modality](https://openjfx.io/javadoc/18/javafx.graphics/javafx/stage/Modality.html) managed here
-1. [`Popup`](https://openjfx.io/javadoc/18/javafx.graphics/javafx/stage/Popup.html): TODO
+1. [`Scene`](https://openjfx.io/javadoc/19/javafx.graphics/javafx/scene/package-summary.html): a window
+1. [`Stage`](https://openjfx.io/javadoc/19/javafx.graphics/javafx/stage/Stage.html): TODO
+    1. [Modality](https://openjfx.io/javadoc/19/javafx.graphics/javafx/stage/Modality.html) managed here
+1. [`Popup`](https://openjfx.io/javadoc/19/javafx.graphics/javafx/stage/Popup.html): TODO
 
 
 # Gotchas
 1. Avoid dialogs unless they fit your use case perfectly.
-    1. Alternative: just make another [`Scene`](https://openjfx.io/javadoc/18/javafx.graphics/javafx/scene/package-summary.html), you'll have much more control over behavior, modality, etc
+    1. Alternative: just make another [`Scene`](https://openjfx.io/javadoc/19/javafx.graphics/javafx/scene/package-summary.html), you'll have much more control over behavior, modality, etc
+1. ControlsFX [`SearchableComboBox`](https://controlsfx.github.io/javadoc/11.0.3/org.controlsfx.controls/org/controlsfx/control/SearchableComboBox.html) barely has any value over the core [`ComboBox`](https://openjfx.io/javadoc/19/javafx.controls/javafx/scene/control/ComboBox.html)
+    1. [Proof](https://github.com/controlsfx/controlsfx/blob/master/controlsfx/src/main/java/org/controlsfx/control/SearchableComboBox.java)
 
 
 # Other resources
