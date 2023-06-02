@@ -21,7 +21,7 @@
 # [MaterialFX](https://github.com/palexdev/MaterialFX/tree/main)
 1. [Visual guide](https://github.com/palexdev/MaterialFX/wiki)
 1. [Maven repo](https://mvnrepository.com/artifact/io.github.palexdev/materialfx/11.16.1)
-1. [javadoc](TODO)
+1. [javadoc](https://javadoc.io/doc/io.github.palexdev/materialfx/latest/MaterialFX/module-summary.html)
 
 
 # Definitions
@@ -36,6 +36,3 @@
     1. Alternative: just make another [`Scene`](https://openjfx.io/javadoc/19/javafx.graphics/javafx/scene/package-summary.html), you'll have much more control over behavior, modality, etc
 1. ControlsFX [`SearchableComboBox`](https://controlsfx.github.io/javadoc/11.0.3/org.controlsfx.controls/org/controlsfx/control/SearchableComboBox.html) barely has any value over the core [`ComboBox`](https://openjfx.io/javadoc/19/javafx.controls/javafx/scene/control/ComboBox.html)
     1. [Proof](https://github.com/controlsfx/controlsfx/blob/master/controlsfx/src/main/java/org/controlsfx/control/SearchableComboBox.java)
-
-
-# Other resources
