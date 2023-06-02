@@ -24,9 +24,16 @@
 1. [javadoc](TODO)
 
 
+# Definitions
+1. [`Scene`](https://openjfx.io/javadoc/18/javafx.graphics/javafx/scene/package-summary.html): a window
+1. [`Stage`](https://openjfx.io/javadoc/18/javafx.graphics/javafx/stage/Stage.html): TODO
+    1. [Modality](https://openjfx.io/javadoc/18/javafx.graphics/javafx/stage/Modality.html) managed here
+1. [`Popup`](https://openjfx.io/javadoc/18/javafx.graphics/javafx/stage/Popup.html): TODO
+
+
 # Gotchas
 1. Avoid dialogs unless they fit your use case perfectly.
-    1. Alternative: just make another [`Scene`](https://openjfx.io/javadoc/18/javafx.graphics/javafx/scene/package-summary.html), you'll have much more control over behavior
+    1. Alternative: just make another [`Scene`](https://openjfx.io/javadoc/18/javafx.graphics/javafx/scene/package-summary.html), you'll have much more control over behavior, modality, etc
 
 
 # Other resources
