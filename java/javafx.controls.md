@@ -36,3 +36,4 @@
     1. Alternative: just make another [`Scene`](https://openjfx.io/javadoc/19/javafx.graphics/javafx/scene/package-summary.html), you'll have much more control over behavior, modality, etc
 1. ControlsFX [`SearchableComboBox`](https://controlsfx.github.io/javadoc/11.0.3/org.controlsfx.controls/org/controlsfx/control/SearchableComboBox.html) barely has any value over the core [`ComboBox`](https://openjfx.io/javadoc/19/javafx.controls/javafx/scene/control/ComboBox.html)
     1. [Proof](https://github.com/controlsfx/controlsfx/blob/master/controlsfx/src/main/java/org/controlsfx/control/SearchableComboBox.java)
+1. Use [`MOUSE_PRESSED`](https://openjfx.io/javadoc/19/javafx.graphics/javafx/scene/input/MouseEvent.html#MOUSE_PRESSED), not ~~[`MOUSE_CLICKED`](https://openjfx.io/javadoc/19/javafx.graphics/javafx/scene/input/MouseEvent.html#MOUSE_CLICKED)~~
