@@ -2,9 +2,16 @@
 1. TODO
 
 
+# High level nodes guide
+1. See [nodes doc](./javafx.nodes.md)
+
+
+# Containers
+1. See [containers doc](./javafx.containers.md) doc
+
+
 # Core controls
 1. [visual guide](https://docs.oracle.com/javafx/2/ui_controls/overview.htm)
-
 
 
 # [ControlsFX](https://controlsfx.github.io/)
@@ -22,13 +29,6 @@
 1. [Visual guide](https://github.com/palexdev/MaterialFX/wiki)
 1. [Maven repo](https://mvnrepository.com/artifact/io.github.palexdev/materialfx/11.16.1)
 1. [javadoc](https://javadoc.io/doc/io.github.palexdev/materialfx/latest/MaterialFX/module-summary.html)
-
-
-# Definitions
-1. [`Scene`](https://openjfx.io/javadoc/19/javafx.graphics/javafx/scene/package-summary.html): a window
-1. [`Stage`](https://openjfx.io/javadoc/19/javafx.graphics/javafx/stage/Stage.html): TODO
-    1. [Modality](https://openjfx.io/javadoc/19/javafx.graphics/javafx/stage/Modality.html) managed here
-1. [`Popup`](https://openjfx.io/javadoc/19/javafx.graphics/javafx/stage/Popup.html): TODO
 
 
 # Gotchas
