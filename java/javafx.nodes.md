@@ -16,6 +16,17 @@
 1. TODO
 
 
+# [`Node`](https://javadoc.io/static/org.openjfx/javafx-fxml/19/javafx.graphics/javafx/scene/Node.html)
+1. TODO
+
+
+# [`Parent`](https://javadoc.io/static/org.openjfx/javafx-fxml/19/javafx.graphics/javafx/scene/Parent.html)
+1. TODO
+
+
+# [`Group`](https://javadoc.io/static/org.openjfx/javafx-fxml/19/javafx.graphics/javafx/scene/Group.html)
+1. TODO
+
 
 # Other Resources
 1. TODO
