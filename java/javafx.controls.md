@@ -31,6 +31,10 @@
 1. [javadoc](https://javadoc.io/doc/io.github.palexdev/materialfx/latest/MaterialFX/module-summary.html)
 
 
+# Debugging layout
+1. [https://github.com/JonathanGiles/scenic-view](https://github.com/JonathanGiles/scenic-view)
+
+
 # Gotchas
 1. Avoid dialogs unless they fit your use case perfectly.
     1. Alternative: just make another [`Scene`](https://openjfx.io/javadoc/19/javafx.graphics/javafx/scene/package-summary.html), you'll have much more control over behavior, modality, etc
