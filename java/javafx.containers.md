@@ -4,40 +4,66 @@
 1. See high-level [nodes doc](./javafx.nodes.md)
 
 
-# [`AnchorPane`](TOOD)
+# [`AnchorPane`](https://openjfx.io/javadoc/20/javafx.graphics/javafx/scene/layout/AnchorPane.html)
 1. TODO
 
 
-# [`BorderPane`](TOOD)
+# [`BorderPane`](https://openjfx.io/javadoc/20/javafx.graphics/javafx/scene/layout/BorderPane.html)
+1. 5-regions: top, left, right, bottom, and center
+
+
+# [`DialogPane`](https://openjfx.io/javadoc/20/javafx.controls/javafx/scene/control/DialogPane.html)
 1. TODO
 
 
-# [`DialogPane`](TOOD)
+# [`FlowPane`](https://openjfx.io/javadoc/20/javafx.graphics/javafx/scene/layout/FlowPane.html)
+1. Horizontal or Vertical
+1. **Wraps** children at specified width (or height)
+
+
+# [`GridPane`](https://openjfx.io/javadoc/20/javafx.graphics/javafx/scene/layout/GridPane.html)
+1. a "Grid"
+1. rows can have different heights (columns can have different widths)
+1. children can span rows or columns
+1. children can overlap (z-order determined by [`getChildren()`](https://openjfx.io/javadoc/20/javafx.graphics/javafx/scene/layout/Pane.html#getChildren()) index)
+1. Similar to HTML table
+
+
+# [`Group`](https://openjfx.io/javadoc/20/javafx.graphics/javafx/scene/Group.html)
 1. TODO
 
 
-# [`FlowPane`](TOOD)
-1. TODO
+# [`HBox`](https://openjfx.io/javadoc/20/javafx.graphics/javafx/scene/layout/HBox.html)
+1. Single (horizontal) row
 
 
-# [`GridPane`](TOOD)
-1. TODO
+# [`Pane`](https://openjfx.io/javadoc/20/javafx.graphics/javafx/scene/layout/Pane.html)
+1. Absolute positioning
 
 
-# [`HBox`](TOOD)
-1. TODO
+# [`SplitPane`](https://openjfx.io/javadoc/20/javafx.controls/javafx/scene/control/SplitPane.html)
+1. Two or more sides, separated by divider
+1. Can drag dividers or position programmatically
+1. Horizontal or Vertical
 
 
-# [`StackPane`](TOOD)
-1. TODO
+# [`StackPane`](https://openjfx.io/javadoc/20/javafx.graphics/javafx/scene/layout/StackPane.html)
+1. Arranges children back-to-front (overlapping)
+1. z-order determined by [`getChildren()`](https://openjfx.io/javadoc/20/javafx.graphics/javafx/scene/layout/Pane.html#getChildren()) index)
+1. first child on bottom, last child on top
 
 
-# [`TextFlow`](TOOD)
-1. TODO
+# [`TextFlow`](https://openjfx.io/javadoc/20/javafx.graphics/javafx/scene/text/TextFlow.html)
+1. For rich text
+1. Can contain multiple text nodes
+1. Supports multiple fonts
+1. Wraps text
 
 
-# [`TilePane`](TOOD)
-1. TODO
+# [`TilePane`](https://openjfx.io/javadoc/20/javafx.graphics/javafx/scene/layout/TilePane.html)
+1. a "Grid"
+1. All children same size (uniform size)
+1. **Wraps** children at specified width (or height)
 
 
 # [`Toolbar`](https://openjfx.io/javadoc/19/javafx.controls/javafx/scene/control/ToolBar.html)
@@ -45,8 +71,8 @@
 1. When there are too many, Toobar provides an overflow button
 
 
-# [`VBox`](TOOD)
-1. TODO
+# [`VBox`](https://openjfx.io/javadoc/20/javafx.graphics/javafx/scene/layout/VBox.html)
+1. Single (vertical) column
 
 
 # Debugging layout
