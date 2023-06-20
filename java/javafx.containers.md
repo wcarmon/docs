@@ -5,7 +5,8 @@
 
 
 # [`AnchorPane`](https://openjfx.io/javadoc/20/javafx.graphics/javafx/scene/layout/AnchorPane.html)
-1. TODO
+1. Children anchored to one or more edges
+1. Useful for stretching children on resize
 
 
 # [`BorderPane`](https://openjfx.io/javadoc/20/javafx.graphics/javafx/scene/layout/BorderPane.html)
@@ -45,6 +46,7 @@
 1. Two or more sides, separated by divider
 1. Can drag dividers or position programmatically
 1. Horizontal or Vertical
+1. GOTCHA: add nodes to [`getItems()`](https://openjfx.io/javadoc/20/javafx.controls/javafx/scene/control/SplitPane.html#getItems()) not ~~`getChildren()`~~
 
 
 # [`StackPane`](https://openjfx.io/javadoc/20/javafx.graphics/javafx/scene/layout/StackPane.html)
