@@ -6,7 +6,7 @@
 # Example SelectableLabel class
 ```java
 /**
- * Behaves like a javafx.scene.control.Label, but user can select the.
+ * Behaves like a javafx.scene.control.Label, but user can select text.
  *
  * <p>User experience is more like text in a browser
  */
