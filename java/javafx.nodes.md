@@ -14,6 +14,8 @@
 # [`Scene`](https://openjfx.io/javadoc/19/javafx.graphics/javafx/scene/package-summary.html)
 1. Owned by at-most one `Stage`
 1. Not recognized by the OS
+1. Owns the stylesheets
+1. Has exactly-one child Node (the root)
 
 
 # [`Popup`](https://openjfx.io/javadoc/19/javafx.graphics/javafx/stage/Popup.html)
