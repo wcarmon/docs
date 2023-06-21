@@ -28,6 +28,8 @@
 1. children can span rows or columns
 1. children can overlap (z-order determined by [`getChildren()`](https://openjfx.io/javadoc/20/javafx.graphics/javafx/scene/layout/Pane.html#getChildren()) index)
 1. Similar to HTML table
+1. Stores row/col/span attributes in [`Node.getProperties()`](https://openjfx.io/javadoc/20/javafx.graphics/javafx/scene/Node.html#getProperties())
+    1. This works because a [`Node`](https://openjfx.io/javadoc/20/javafx.graphics/javafx/scene/Node.html) can only appear in the Scene graph at-most once
 
 
 # [`Group`](https://openjfx.io/javadoc/20/javafx.graphics/javafx/scene/Group.html)
