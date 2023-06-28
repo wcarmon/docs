@@ -50,7 +50,19 @@ n := 0xFF        // 255
 1. Use `string` in json, `"3.1e+08"` syntax works
 1. Prefer pointer for for fields in structs: ``Foo *big.Float `json:"foo"` ``
     1. simplifies json & printing
-1. Parsing:
+    1. Saves on memory
+1. Start from a `new(big.Float)` or `big.NewFloat(3.14)` so you don't accidentally mutate other values
+1. `float64` can only represent about 15 decimal places
+1. `big.Float` can be a tedious API
+    1. comparison is hard
+    1. must deal with null
+    1. much more verbose than `float64`
+    1. large precision can be slow
+    1. hard to use in Goland debugger
+    1. deep copy required to avoid unintended mutation (see example below)
+
+
+## Parsing
 ```go
 s := "1.23E-7"
 value, _, err := big.ParseFloat(s, 10, 256, big.ToZero())
@@ -101,6 +113,15 @@ b := big.NewFloat(4.4)
 
 //NOTE: to invert, multiply by -1
 product := new(big.Float).Mul(a, b) // -5.720000000000001
+```
+
+## Deep copy
+```go
+orig := big.NewFloat(3.14)
+
+cp := new(big.Float).Set(orig)
+
+// cp and orig are independent, but have the same numeric value
 ```
 
 
