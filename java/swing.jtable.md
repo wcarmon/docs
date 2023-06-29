@@ -2,17 +2,19 @@
 1. Notes on [`JTable`](https://docs.oracle.com/en/java/javase/20/docs/api/java.desktop/javax/swing/JTable.html)
 
 
-# High level
-1. JTable uses
+# [`JTable`](https://docs.oracle.com/en/java/javase/20/docs/api/java.desktop/javax/swing/JTable.html)
+1.  uses
 1. Supports sorting & filtering via [`RowSorter`](https://docs.oracle.com/en/java/javase/20/docs/api/java.desktop/javax/swing/RowSorter.html)
 1. Supports headers
 1. Supports custom header rendering
 1. Supports custom cell rendering
 1. Supports editing values in cells
-1. Width: JTable adjusts its own width to fit into container
-    1. See [`AUTO_RESIZE_OFF`](https://docs.oracle.com/en/java/javase/20/docs/api/java.desktop/javax/swing/JTable.html#AUTO_RESIZE_OFF)
 1. `JTable` address rows and columns only by `int`, zero based
 1. Column rearranging does *NOT* affect the model
+
+## Width: `JTable` adjusts its own width to fit into container
+1. See [`AUTO_RESIZE_OFF`](https://docs.oracle.com/en/java/javase/20/docs/api/java.desktop/javax/swing/JTable.html#AUTO_RESIZE_OFF)
+1. GOTCHA: You cannot set just one column width, you must set **all** [`getColumnModel().getColumn(i).setPreferredWidth(...)`](https://docs.oracle.com/en/java/javase/20/docs/api/java.desktop/javax/swing/table/TableColumn.html#setPreferredWidth(int))
 
 
 # Idioms
@@ -32,16 +34,23 @@
 1. Column rearranging does *NOT* affect the model
     1. Only a view/presentation trick
     1. [No need to listen for column reorder events](https://docs.oracle.com/en/java/javase/20/docs/api/java.desktop/javax/swing/JTable.html)
+1. `RowSorter` sorting & filtering does *NOT* affect the model
 
 
 # [`TableColumnModel`](https://docs.oracle.com/en/java/javase/20/docs/api/java.desktop/javax/swing/table/TableColumnModel.html)
 1. Manages column count, total width, selectability, etc
-1.
+1. TODO: ...more here
+
 
 # [`RowSorter`](https://docs.oracle.com/en/java/javase/20/docs/api/java.desktop/javax/swing/RowSorter.html)
 1. Maps between "coordinates" of rows in the model and rows in the UI
 1. to programmatically sort (eg. default sort on init), call [`sort()`](https://docs.oracle.com/en/java/javase/20/docs/api/java.desktop/javax/swing/DefaultRowSorter.html#sort())
 1. Apply sorter to table via [`table.setRowSorter(...)`](https://docs.oracle.com/en/java/javase/20/docs/api/java.desktop/javax/swing/JTable.html#setRowSorter(javax.swing.RowSorter))
+1. Row Selection uses the visible index, so convert using [`convertRowIndexToView(...)`](https://docs.oracle.com/en/java/javase/20/docs/api/java.desktop/javax/swing/DefaultRowSorter.html#convertRowIndexToView(int)) or [`convertRowIndexToModel(...)`](https://docs.oracle.com/en/java/javase/20/docs/api/java.desktop/javax/swing/DefaultRowSorter.html#convertRowIndexToModel(int))
+
+
+# Cell Renderer
+1. TODO: more here
 
 
 # Other resources
