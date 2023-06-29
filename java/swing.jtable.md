@@ -3,14 +3,20 @@
 
 
 # [`JTable`](https://docs.oracle.com/en/java/javase/20/docs/api/java.desktop/javax/swing/JTable.html)
-1.  uses
+1. Does not store its own data, uses [`TableModel`](https://docs.oracle.com/en/java/javase/20/docs/api/java.desktop/javax/swing/table/TableModel.html) (see below)
 1. Supports sorting & filtering via [`RowSorter`](https://docs.oracle.com/en/java/javase/20/docs/api/java.desktop/javax/swing/RowSorter.html)
 1. Supports headers
+1. Supports column resizing
 1. Supports custom header rendering
 1. Supports custom cell rendering
 1. Supports editing values in cells
 1. `JTable` address rows and columns only by `int`, zero based
 1. Column rearranging does *NOT* affect the model
+1. Layout: https://docs.oracle.com/en/java/javase/20/docs/api/java.desktop/javax/swing/JTable.html#doLayout()
+    1. Columns resize to respond to change in containing parent
+1. When you put `JTable` into a `JScrollPane`, the header stays on top
+    1. If you don’t wrap the `JTable` in a `JScrollPane`, you must explicitly add the header
+
 
 ## Width: `JTable` adjusts its own width to fit into container
 1. See [`AUTO_RESIZE_OFF`](https://docs.oracle.com/en/java/javase/20/docs/api/java.desktop/javax/swing/JTable.html#AUTO_RESIZE_OFF)
