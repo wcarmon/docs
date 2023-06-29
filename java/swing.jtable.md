@@ -16,6 +16,7 @@
     1. Columns resize to respond to change in containing parent
 1. When you put `JTable` into a `JScrollPane`, the header stays on top
     1. If you don’t wrap the `JTable` in a `JScrollPane`, you must explicitly add the header
+1. Managing rows is very different from managing columns
 
 
 ## Width: `JTable` adjusts its own width to fit into container
@@ -73,7 +74,9 @@
 
 # [`TableColumnModel`](https://docs.oracle.com/en/java/javase/20/docs/api/java.desktop/javax/swing/table/TableColumnModel.html)
 1. Manages column count, total width, selectability, etc
-1. TODO: ...more here
+1. Useful for dynamically adding/removing columns
+1. [`TableColumns`](https://docs.oracle.com/en/java/javase/20/docs/api/java.desktop/javax/swing/table/TableColumn.html) belong to the [ColumnModel](https://docs.oracle.com/en/java/javase/20/docs/api/java.desktop/javax/swing/table/TableColumnModel.html) (not the `JTable`)
+1. Column gaps defined here
 
 
 # [`RowSorter`](https://docs.oracle.com/en/java/javase/20/docs/api/java.desktop/javax/swing/RowSorter.html)
