@@ -15,6 +15,34 @@
 ## Width: `JTable` adjusts its own width to fit into container
 1. See [`AUTO_RESIZE_OFF`](https://docs.oracle.com/en/java/javase/20/docs/api/java.desktop/javax/swing/JTable.html#AUTO_RESIZE_OFF)
 1. GOTCHA: You cannot set just one column width, you must set **all** [`getColumnModel().getColumn(i).setPreferredWidth(...)`](https://docs.oracle.com/en/java/javase/20/docs/api/java.desktop/javax/swing/table/TableColumn.html#setPreferredWidth(int))
+1. GOTCHA: ~~`col.setWidth`~~ does NOT work
+```java
+    public static void setColumnWidths(
+            JTable table,
+            int totalTableWidth,
+            int... percentages) {
+
+        Objects.requireNonNull(table, "table is required and null.");
+        Objects.requireNonNull(percentages, "percentages is required and null.");
+        checkArgument(totalTableWidth > 0, "totalTableWidth must be positive > 0");
+        checkArgument(percentages.length == table.getColumnCount(),
+                "percentages must have the same length as the table columns");
+        Arrays.stream(percentages).forEach(p -> {
+            checkArgument(p >= 0, "percentages must be positive > 0");
+            checkArgument(p <= 100, "percentages must be <= 100");
+        });
+
+        final var pctSum = Arrays.stream(percentages).sum();
+
+        for (int i = 0; i < table.getColumnModel().getColumnCount(); i++) {
+            var w = (percentages[i] / pctSum) * totalTableWidth;
+            table.getColumnModel()
+                    .getColumn(i)
+                    .setPreferredWidth(w);
+        }
+    }
+```
+
 
 
 # Idioms
