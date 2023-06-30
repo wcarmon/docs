@@ -17,6 +17,7 @@
 1. When you put `JTable` into a `JScrollPane`, the header stays on top
     1. If you don’t wrap the `JTable` in a `JScrollPane`, you must explicitly add the header
 1. Managing rows is very different from managing columns
+1. `JTable` -> [`TableColumnModel`](https://docs.oracle.com/en/java/javase/20/docs/api/java.desktop/javax/swing/table/TableColumnModel.html) -> [`TableColumn`](https://docs.oracle.com/en/java/javase/20/docs/api/java.desktop/javax/swing/table/TableColumn.html) -> [`TableCellRenderer`](https://docs.oracle.com/en/java/javase/20/docs/api/java.desktop/javax/swing/table/TableCellRenderer.html)
 
 
 ## Width: `JTable` adjusts its own width to fit into container
@@ -65,7 +66,8 @@
 1. Don't use [~~`DefaultTableModel`~~](TODO) because it uses Vector and does some unnecessary lookups
 1. Your model should be mutable (to avoid reconnecting the model to Table & Sorter repeatedly)
     1. Allow replacement, adding, clearing of `Collection<YourRowType>`
-    1. [`fireTableDataChanged();`](https://docs.oracle.com/en/java/javase/20/docs/api/java.desktop/javax/swing/table/AbstractTableModel.html#fireTableDataChanged()) and [`fireTableStructureChanged();`](https://docs.oracle.com/en/java/javase/20/docs/api/java.desktop/javax/swing/table/AbstractTableModel.html#fireTableStructureChanged()) after changing data
+    1. [`fireTableDataChanged();`](https://docs.oracle.com/en/java/javase/20/docs/api/java.desktop/javax/swing/table/AbstractTableModel.html#fireTableDataChanged()) after changing data
+        1. GOTCHA: [`fireTableStructureChanged();`](https://docs.oracle.com/en/java/javase/20/docs/api/java.desktop/javax/swing/table/AbstractTableModel.html#fireTableStructureChanged()) replaces `TableColumn`s  and `TableCellRenderer`s
 1. Column rearranging does *NOT* affect the model
     1. Only a view/presentation trick
     1. [No need to listen for column reorder events](https://docs.oracle.com/en/java/javase/20/docs/api/java.desktop/javax/swing/JTable.html)
