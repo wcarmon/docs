@@ -23,14 +23,19 @@
 1. `JTable` -> [`TableModel`](https://docs.oracle.com/en/java/javase/20/docs/api/java.desktop/javax/swing/table/TableModel.html)
 
 
-## Resizing Columns
-1. See [`setAutoResizeMode(...)`](https://docs.oracle.com/en/java/javase/20/docs/api/java.desktop/javax/swing/JTable.html#setAutoResizeMode(int))
-    1. [`AUTO_RESIZE_SUBSEQUENT_COLUMNS`](https://docs.oracle.com/en/java/javase/20/docs/api/java.desktop/javax/swing/JTable.html#AUTO_RESIZE_SUBSEQUENT_COLUMNS): (default) Resize all subsequent columns equally, preserve total width
-    1. [`AUTO_RESIZE_OFF`](https://docs.oracle.com/en/java/javase/20/docs/api/java.desktop/javax/swing/JTable.html#AUTO_RESIZE_OFF): Don’t resize columns; change the table width when parent size changes
-    1. ... other options aren't as useful
+## Rows
+1. Resizing: [`setRowHeight(...)`](https://docs.oracle.com/en/java/javase/20/docs/api/java.desktop/javax/swing/JTable.html#setRowHeight(int)) and [row specific version](https://docs.oracle.com/en/java/javase/20/docs/api/java.desktop/javax/swing/JTable.html#setRowHeight(int,int))
+1. Space between rows: [`setRowMargin(margin)`](https://docs.oracle.com/en/java/javase/20/docs/api/java.desktop/javax/swing/JTable.html#setRowMargin(int))
 
-## Resizing Rows
-1. [`setRowHeight(...)`](https://docs.oracle.com/en/java/javase/20/docs/api/java.desktop/javax/swing/JTable.html#setRowHeight(int))
+
+## Columns
+1. Resizing
+    1. See [`setAutoResizeMode(...)`](https://docs.oracle.com/en/java/javase/20/docs/api/java.desktop/javax/swing/JTable.html#setAutoResizeMode(int))
+        1. [`AUTO_RESIZE_SUBSEQUENT_COLUMNS`](https://docs.oracle.com/en/java/javase/20/docs/api/java.desktop/javax/swing/JTable.html#AUTO_RESIZE_SUBSEQUENT_COLUMNS): (default) Resize all subsequent columns equally, preserve total width
+        1. [`AUTO_RESIZE_OFF`](https://docs.oracle.com/en/java/javase/20/docs/api/java.desktop/javax/swing/JTable.html#AUTO_RESIZE_OFF): Don’t resize columns; change the table width when parent size changes
+        1. ... other options aren't as useful
+1. Space between columns
+    1. TODO ...
 
 
 ## Width: `JTable` adjusts its own width to fit into container
