@@ -70,7 +70,6 @@
 ```
 
 
-
 # Idioms
 1. Put the [`JTable`](https://docs.oracle.com/en/java/javase/20/docs/api/java.desktop/javax/swing/JTable.html) into a [`JScrollPane`](https://docs.oracle.com/en/java/javase/20/docs/api/java.desktop/javax/swing/JScrollPane.html)
 1. **DON'T** set preferred size on JTable, set [`table.setFillsViewportHeight(true);`](https://docs.oracle.com/en/java/javase/20/docs/api/java.desktop/javax/swing/JTable.html#setFillsViewportHeight(boolean))
