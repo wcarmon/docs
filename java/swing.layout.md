@@ -12,8 +12,11 @@
 
 
 # [`SpringLayout`](https://docs.oracle.com/en/java/javase/20/docs/api/java.desktop/javax/swing/SpringLayout.html)
-1. Reactive
+1. Reactive, can think in one dimension at a time
+1. Supports configurable spacing
 1. Similar to [Android Constraint layout](https://developer.android.com/develop/ui/views/layout/constraint-layout)
+1. [Official guide](https://docs.oracle.com/javase/tutorial/uiswing/layout/spring.html)
+1. Con: If you replace a component, you must redefine some constraints
 
 
 # [MigLayout](https://www.miglayout.com/)
