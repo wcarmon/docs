@@ -17,7 +17,10 @@
 1. When you put `JTable` into a `JScrollPane`, the header stays on top
     1. If you don’t wrap the `JTable` in a `JScrollPane`, you must explicitly add the header
 1. Managing rows is very different from managing columns
+
+## Relationships
 1. `JTable` -> [`TableColumnModel`](https://docs.oracle.com/en/java/javase/20/docs/api/java.desktop/javax/swing/table/TableColumnModel.html) -> [`TableColumn`](https://docs.oracle.com/en/java/javase/20/docs/api/java.desktop/javax/swing/table/TableColumn.html) -> [`TableCellRenderer`](https://docs.oracle.com/en/java/javase/20/docs/api/java.desktop/javax/swing/table/TableCellRenderer.html)
+1. `JTable` -> [`TableModel`](https://docs.oracle.com/en/java/javase/20/docs/api/java.desktop/javax/swing/table/TableModel.html)
 
 
 ## Width: `JTable` adjusts its own width to fit into container
