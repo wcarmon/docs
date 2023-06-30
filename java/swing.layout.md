@@ -16,6 +16,7 @@
 
 
 # [MigLayout](https://www.miglayout.com/)
+1. [Quickstart guide](http://www.miglayout.com/QuickStart.pdf)
 1. TODO
 
 
