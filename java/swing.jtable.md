@@ -1,5 +1,7 @@
 # Overview
 1. Notes on [`JTable`](https://docs.oracle.com/en/java/javase/20/docs/api/java.desktop/javax/swing/JTable.html)
+1. JTable has a lot of legacy baggage
+1. Probably simpler to use [`SpringLayout`](https://docs.oracle.com/en/java/javase/20/docs/api/java.desktop/javax/swing/Spring.html) or [`GroupLayout`](https://docs.oracle.com/en/java/javase/20/docs/api/java.desktop/javax/swing/GroupLayout.html) or [`MigLayout`](http://www.migcalendar.com/miglayout/mavensite/docs/whitepaper.html) to build a "Table"
 
 
 # [`JTable`](https://docs.oracle.com/en/java/javase/20/docs/api/java.desktop/javax/swing/JTable.html)
@@ -18,6 +20,9 @@
     1. If you don’t wrap the `JTable` in a `JScrollPane`, you must explicitly add the header
 1. Managing rows is very different from managing columns
 1. **GOTCHA**: `JButton` doesn't work in a `JTable` row
+1. **GOTCHA**: Hard to control spacing
+1. **GOTCHA**: Layout is overly complex and not so useful
+1. **GOTCHA**: Cells cannot contain arbitrary components (eg. no `JButton`)
 
 
 ## Relationships
