@@ -2,6 +2,7 @@
 1. Notes on [`JTable`](https://docs.oracle.com/en/java/javase/20/docs/api/java.desktop/javax/swing/JTable.html)
 1. JTable has a lot of legacy baggage
 1. Probably simpler to use [`SpringLayout`](https://docs.oracle.com/en/java/javase/20/docs/api/java.desktop/javax/swing/Spring.html) or [`GroupLayout`](https://docs.oracle.com/en/java/javase/20/docs/api/java.desktop/javax/swing/GroupLayout.html) or [`MigLayout`](http://www.migcalendar.com/miglayout/mavensite/docs/whitepaper.html) to build a "Table"
+    1. Resizing might be tough
 1. Still a good idea to separate model afrom presentation
 
 
