@@ -59,8 +59,16 @@ sdk current visualvm;
 ```
 
 
-# List installed versions
+# Set current version
+1. `use` sets version temporarily (for current shell)
+1. `default` sets globally
+```bash
+sdk default java 20.0.1-oracle;
 ```
+
+
+# List installed versions
+```bash
 ls -hl $HOME/.sdkman/candidates/java;
 ```
 
