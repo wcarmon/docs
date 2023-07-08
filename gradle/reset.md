@@ -31,7 +31,3 @@ mkdir -p src/{main,test}/{java,resources}
 gradle init;
 gradle wrapper;
 ```
-
-
-# Other resources
-1. TODO
