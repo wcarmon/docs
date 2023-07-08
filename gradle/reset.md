@@ -3,9 +3,16 @@
 
 # Clear global cache
 ```bash
-gradle stop
-rm -rf $HOME/.gradle/caches
-rm -rf $HOME/.gradle/jdks
+gradle stop;
+
+rm -rf $HOME/.gradle/.tmp;
+rm -rf $HOME/.gradle/caches;
+rm -rf $HOME/.gradle/daemon;
+rm -rf $HOME/.gradle/jdks;
+rm -rf $HOME/.gradle/native;
+rm -rf $HOME/.gradle/notifications;
+rm -rf $HOME/.gradle/workers;
+rm -rf $HOME/.gradle/wrapper;
 ```
 
 
