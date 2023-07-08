@@ -6,6 +6,8 @@
 # -- Assumptions:
 # -- 1. Go SDK installed: https://go.dev/doc/install
 # -- 2. wire installed: https://github.com/google/wire
+# --     go install github.com/google/wire/cmd/wire@latest;
+# --     ln -sv $HOME/go/bin/wire $HOME/bin/
 # ---------------------------------------------
 #set -x # uncomment to debug script
 set -e # exit on first error
@@ -53,6 +55,12 @@ readonly ABSOLUTE_OUTPUT_DIR=$(readlink -f "$PROJ_ROOT/$RELATIVE_OUTPUT_DIR")
 # ---------------------------------------------
 # -- Validate
 # ---------------------------------------------
+if [ -z "$WIRE" ]; then
+  echo "Error: WIRE binary path unset"
+  exit 2
+fi
+
+
 
 # ---------------------------------------------
 # -- Cleanup

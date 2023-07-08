@@ -4,8 +4,9 @@
 # -- Auto format the go files
 # --
 # -- Assumptions:
-# -- 1. gofmt is on your PATH: https://golang.org/cmd/gofmt/
-# --    see $GO_SDK/bin/gofmt
+# -- 1. go installed
+# -- 2. gofmt is on your PATH: https://golang.org/cmd/gofmt/
+# --    ln -sv $HOME/sdk/go1.20.5/bin/gofmt $HOME/bin/
 # ---------------------------------------------
 #set -x # uncomment to debug script
 set -e # exit on first error
@@ -36,6 +37,11 @@ readonly PROJ_ROOT="$PARENT_DIR"
 # ---------------------------------------------
 # -- Validate
 # ---------------------------------------------
+if [ -z "$GOFMT" ]; then
+  echo "Error: GOFMT unset"
+  exit 2
+fi
+
 
 # ---------------------------------------------
 # -- Format

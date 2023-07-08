@@ -5,8 +5,10 @@
 # -- eg. remove unused, add missing
 # --
 # -- Assumptions:
-# -- 1. goimports is on your PATH: https://pkg.go.dev/golang.org/x/tools/cmd/goimports
+# -- 1. go installed
+# -- 2. goimports is on your PATH: https://pkg.go.dev/golang.org/x/tools/cmd/goimports
 # --    go install golang.org/x/tools/cmd/goimports@latest
+# --    ln -sv $HOME/go/bin/goimports $HOME/bin/
 # ---------------------------------------------
 #set -x # uncomment to debug script
 set -e # exit on first error
@@ -37,6 +39,11 @@ readonly PROJ_ROOT="$PARENT_DIR"
 # ---------------------------------------------
 # -- Validate
 # ---------------------------------------------
+if [ -z "$GOIMPORTS" ]; then
+  echo "Error: GOIMPORTS unset"
+  exit 2
+fi
+
 
 # ---------------------------------------------
 # -- Fix
