@@ -45,6 +45,8 @@
     1. Constantly thinking about ownership & borrowing
         1. Generally two version of **everything** (Owned version, Borrowed version)
         1. `clone` can be an escape hatch
+1. Must actively code in rust frequently to keep it in mind (compare to Java or Go)
+1. Hard to keep code looking current, modern syntax evolves quickly (same as JavaScript)
 1. HTTP is very hard if you want anything more than the basics
     1. The frameworks built on hyper are complex when you need to customize (axum, warp, rocket)
         1. eg. custom error on json body parse failure
