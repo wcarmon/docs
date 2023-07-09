@@ -51,6 +51,7 @@
     1. The frameworks built on hyper are complex when you need to customize (axum, warp, rocket)
         1. eg. custom error on json body parse failure
     1. [Hyper](https://hyper.rs/) can be difficult to use directly due to ownership issues (eg. routing with database connection)
+1. `match` adds nesting
 1. Non-blocking code is complex (compared to Golang)
     1. although [Tokio](https://tokio.rs/) and Rayon are simpler to use correctly than Java 18 or c++ concurrency
     1. Example: Read thru the docs for Future & Poll
