@@ -19,7 +19,16 @@
 1. `*.gradle.kt`: Kotlin buildscript  
 1. `*.gradle`: Groovy buildscript  
 1. most top level parts of `build.gradle.kts` are functions which accept a lambda
-    1. eg. [`plugins { ... }`](TODO), [`application { ... }`](TODO),  [`dependencies { ... }`](TODO)
+    1. eg. [`plugins { ... }`](TODO), 
+    1. eg. [`application { ... }`](TODO),
+    1. eg. [`dependencies { ... }`](TODO)
+    1. eg. [`repositories { ... }`](TODO)
+
+
+## Configuration
+1. Each configuration has a set of dependencies
+1. controls where dependency is used
+1. like [Maven scope](TODO)
 
 
 ## Plugin
