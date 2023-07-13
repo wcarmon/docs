@@ -6,6 +6,7 @@
 
 ## Project
 1. TODO
+1. List Projects: `./gradlew projects --info -q` 
 
 
 ## Task
@@ -14,7 +15,7 @@
 1. can depend on other tasks
 1. can be configured via scripting 
 1. can be added thru plugins 
-1. List tasks: `./gradlew tasks -q`
+1. List Tasks: `./gradlew tasks -q`
 1. eg. [`assemble`](TODO) task compiles and packages code into jar
 
 
@@ -34,6 +35,22 @@
 1. controls where dependency is used
 1. like [Maven scope](TODO)
 1. Can extend other configurations
+1. List:  
+    1. add this to `build.gradle.kts`: `configurations.forEach(::println)`
+    1. run any gradle command (eg. `./gradlew projects -q`)
+1. Common configurations include
+    1. [`api`](TODO): dependency is part of the public API of the current project
+    1. [`implementation`](TODO): available at compile time and runtime, extends api
+    1. [`runtimeOnly`](TODO): available only at runtime (not compile time)
+    1. [`annotationProcessor`](TODO): TODO 
+    1. [`compileOnly`](TODO): TODO
+    1. [`testCompileOnly`](TODO): TODO
+    1. [`testRuntimeOnly`](TODO): TODO
+    1. [`testImplementation`](TODO): TODO
+
+## Dependencies
+1. TODO
+    
 
 
 ## Plugin
@@ -42,15 +59,12 @@
 1. Plugins can add tasks
 1. eg. [`application`](TODO) compiles and runs java apps (`./gradlew run`)
 1. Can define new [`Configurations`](TODO)
+1. List: TODO
 
-
-## Dependencies
-1. `implementation`: available at compile time and runtime
-1. `runtimeOnly`: available only at runtime (not compile time)
-1. `api`: dependency is part of the public API of the current project
 
 
 ## Repository
+1. TODO
 
 
 # -----------------------------------------
