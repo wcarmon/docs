@@ -56,7 +56,9 @@
 1. Plugins can add tasks
 1. Plugins can define new [`Configurations`](TODO)
 1. Two types: [binary plugins](https://docs.gradle.org/current/userguide/plugins.html#sec:binary_plugins) and [script plugins](https://docs.gradle.org/current/userguide/plugins.html#sec:script_plugins)
-1. Binary plugins can be in a buildscript, in the project hierarchy or in a plugin jar (external)
+1. Binary plugins 
+    1. Where?: can be in a buildscript, in the project hierarchy or in a plugin jar (external)
+    1. What?: any class that implements [`Plugin`](https://docs.gradle.org/current/javadoc/org/gradle/api/Plugin.html) interface
 1. Plugins are **resolved** first, then **applied** to a `Project`
 1. Resolve:
     1. Resolve: find correct version of jar containing plugin, and add jar to script classpath
@@ -65,12 +67,12 @@
 1. Apply:  
     1. idempotent (can apply multiple times)
 1. The [`plugin { ... }`](https://docs.gradle.org/current/userguide/plugins.html#sec:plugins_block) block resolves and applies to current project 
+1. Plugins have an `id`, core plugins have a short-id like `java`.  All others use fully qualified 
 1. Gradle ships with a few plugins
 1. Java support comes from the [`java-library`](TODO) plugin
-
 1. eg. [`application`](TODO) plugin compiles and runs java apps (`./gradlew run`)
 1. List: TODO
-
+1. buildscript blocks: TODO: https://docs.gradle.org/current/userguide/plugins.html#sec:old_plugin_application
 
 
 ## Dependencies
