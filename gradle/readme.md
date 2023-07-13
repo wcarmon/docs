@@ -2,10 +2,11 @@
 1. Gradle overview
 
 
-# Model
+# Domain Model (Mental Model)
 
 ## Project
 1. TODO
+
 
 ## Task
 1. Unit of work
@@ -32,6 +33,7 @@
 1. Each configuration has a set of dependencies
 1. controls where dependency is used
 1. like [Maven scope](TODO)
+1. Can extend other configurations
 
 
 ## Plugin
@@ -48,19 +50,12 @@
 1. `api`: dependency is part of the public API of the current project
 
 
+## Repository
+
+
 # -----------------------------------------
 # TODO
 
-## Mental model
-1. Task
-    1. 
-    
-1. Plugin    
-
-1. Project    
-
-1. Repository
-    
 
 ## dependency configuration
 1. dependency configurations group dependencies
