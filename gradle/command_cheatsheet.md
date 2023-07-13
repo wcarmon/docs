@@ -15,7 +15,7 @@ gradle wrapper
 
 # -- Upgrade
 ./gradlew wrapper --gradle-version=7.6 --distribution-type=bin
-./gradlew wrapper --gradle-version=8.1.1 --distribution-type=all
+./gradlew wrapper --gradle-version=8.2.1 --distribution-type=all
 ```
 
 ## Verify setup
