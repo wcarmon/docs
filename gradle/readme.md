@@ -54,11 +54,20 @@
 ## [Plugin](https://docs.gradle.org/current/userguide/plugins.html)
 1. Plugins extend a project
 1. Plugins can add tasks
+1. All plugins are written in JVM code (eg. java, groovy, kotlin)
 1. Plugins can define new [`Configurations`](TODO)
 1. Two types: [binary plugins](https://docs.gradle.org/current/userguide/plugins.html#sec:binary_plugins) and [script plugins](https://docs.gradle.org/current/userguide/plugins.html#sec:script_plugins)
 1. Binary plugins 
-    1. Where?: can be in a buildscript, in the project hierarchy or in a plugin jar (external)
+    1. Where?:         
+        1. [Plugin portal](https://plugins.gradle.org/)
+        1. [external jar, declared in `buildscript.dependency.classpath`](https://docs.gradle.org/current/userguide/plugins.html#sec:applying_plugins_buildscript)
+        1. [Custom repository](https://docs.gradle.org/current/userguide/plugins.html#sec:custom_plugin_repositories)        
+        1. can be in a buildscript, in the project hierarchy or in a plugin jar (external)
+        1. `$PROJECT_ROOT/buildSrc/src/main/java` (cannot share outside the project unless symlnk, can only share with sub-projects)
+        1. can be inline class declaration inside a buildscript
     1. What?: any class that implements [`Plugin`](https://docs.gradle.org/current/javadoc/org/gradle/api/Plugin.html) interface
+1. Script plugins
+    1. Path is relative to `$PROJECT_ROOT`
 1. Plugins are **resolved** first, then **applied** to a `Project`
 1. Resolve:
     1. Resolve: find correct version of jar containing plugin, and add jar to script classpath
@@ -104,3 +113,4 @@
 
 # Other resources
 1. https://docs.gradle.org/current/userguide/variant_model.html#gradle_component_model
+1. https://docs.gradle.org/current/userguide/custom_plugins.html
