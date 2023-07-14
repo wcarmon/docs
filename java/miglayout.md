@@ -11,7 +11,7 @@
     1. Layout constraints are set when constructing the [`MigLayout`](http://www.migcalendar.com/miglayout/mavensite/apidocs/net/miginfocom/swing/MigLayout.html)
 1. Replace `BorderLayout` using [Docking](http://www.migcalendar.com/miglayout/mavensite/apidocs/net/miginfocom/layout/CC.html#dockEast())
 1. Replace `FlowLayout` using [`nogrid`](http://www.migcalendar.com/miglayout/mavensite/apidocs/net/miginfocom/layout/AC.html#noGrid())
-    1. MigLayout can also flow vertically unlike `FlowLayout`
+    1. MigLayout can also flow vertically (via [`flowy`](https://www.formdev.com/jformdesigner/doc/layouts/miglayout-whitepaper/#layout_cons_flowy)) unlike `FlowLayout`
 1. comes with helpful debug features
 
 
