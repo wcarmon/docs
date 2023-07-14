@@ -10,6 +10,8 @@
 1. Unlike [`SpringLayout`](https://docs.oracle.com/en/java/javase/20/docs/api/java.desktop/javax/swing/SpringLayout.html) and [`GroupLayout`](https://docs.oracle.com/en/java/javase/20/docs/api/java.desktop/javax/swing/GroupLayout.html), component constraints are set using [`.add(component, ...)`](https://docs.oracle.com/en/java/javase/20/docs/api/java.desktop/java/awt/Container.html#add(java.awt.Component,java.lang.Object))
     1. Layout constraints are set when constructing the [`MigLayout`](http://www.migcalendar.com/miglayout/mavensite/apidocs/net/miginfocom/swing/MigLayout.html)
 1. Replace `BorderLayout` using [Docking](http://www.migcalendar.com/miglayout/mavensite/apidocs/net/miginfocom/layout/CC.html#dockEast())
+1. Replace `FlowLayout` using [`nogrid`](http://www.migcalendar.com/miglayout/mavensite/apidocs/net/miginfocom/layout/AC.html#noGrid())
+    1. MigLayout can also flow vertically unlike `FlowLayout`
 1. comes with helpful debug features
 
 
