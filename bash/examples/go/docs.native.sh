@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # ---------------------------------------------
-# -- Runs godoc server binary via local go sdk
+# -- Runs godoc server binary
 # --
 # -- Assumes godoc installed:
-# --   go install golang.org/x/tools/cmd/godoc
+# --   go install golang.org/x/tools/cmd/godoc@latest
 # --   Verify: See `$HOME/go/bin/godoc`
 # ---------------------------------------------
 #set -x # uncomment to debug script
