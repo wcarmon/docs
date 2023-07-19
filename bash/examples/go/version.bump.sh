@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # ---------------------------------------------
-# -- Builds local binary via local go sdk
+# -- Bumps version
 # --
 # -- Assumptions:
 # -- 1. version file exists

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # ---------------------------------------------
-# -- Builds local binary via local go sdk
+# -- Runs godoc server binary via local go sdk
 # --
 # -- Assumes godoc installed:
 # --   go install golang.org/x/tools/cmd/godoc
