@@ -131,6 +131,7 @@ rm -rf $HOME/.gradle/caches/modules-2/files-2.1/*
 
 
 ## Debugging gradle
+1. See also [properties doc](gradle.properties.md)
 ```sh
 # Print current gradle version (and java, kotlin, groovy, ant, OS, ...)
 # See https://docs.gradle.org/current/userguide/compatibility.html#java
@@ -144,9 +145,6 @@ rm -rf $HOME/.gradle/caches/modules-2/files-2.1/*
 
 # Print your subprojects
 ./gradlew projects -q
-
-# Print variables/properties availble for use in scripts
-./gradlew properties -q | sort
 
 # Print executable tasks
 ./gradlew tasks --all -q
