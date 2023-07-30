@@ -5,7 +5,7 @@
 --------
 # [SwingExplorer](https://github.com/swingexplorer/swingexplorer)
 
-1. Download
+1. Clone repo
 ```bash
 mkdir -p $HOME/git-repos/external;
 cd $HOME/git-repos/external;
@@ -20,7 +20,9 @@ MAIN_CLASS=com.wc.FooApp
 #TODO: classpath
 swexpl $MAIN_CLASS
 ```
-1. See also: [Jetbrains plugin](https://plugins.jetbrains.com/plugin/8385-swingexplorer-integration-v2)
+1. See also [git repo](https://github.com/swingexplorer/swingexplorer/tree/master)
+1. See also [maven repo](https://mvnrepository.com/artifact/org.swingexplorer/swingexplorer-core/1.7.0)
+1. See also: [Jetbrains plugin](https://plugins.jetbrains.com/plugin/8385-swingexplorer-integration-v2) (I don't know how to use)
 
 
 --------
