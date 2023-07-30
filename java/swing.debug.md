@@ -20,6 +20,7 @@ MAIN_CLASS=com.wc.FooApp
 #TODO: classpath
 swexpl $MAIN_CLASS
 ```
+1. See also: [Jetbrains plugin](https://plugins.jetbrains.com/plugin/8385-swingexplorer-integration-v2)
 
 
 --------
