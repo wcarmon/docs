@@ -74,6 +74,7 @@
 1. Add [`@lombok.Builder(builderClassName = "Builder", builderMethodName = "newBuilder", toBuilder = true)`](https://projectlombok.org/features/Builder) to the constructor.
     1. These two re-names align with other standard builders
     1. TODO: they have a bug [("cannot find symbol")](https://github.com/projectlombok/lombok/wiki/LOMBOK-CONCEPT:-Resolution) when you set `builderMethodName`
+    1. If you add `@Builder` to the constructor, any class level generics may not work
 
 ## Constructor
 12. Do defensive copy on collections
