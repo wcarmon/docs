@@ -2,14 +2,6 @@
 1. How to Create, Sign & verify a jwt
 1 Candidate libs for [jwt](https://jwt.io/)
 
-# Create & Sign
-- TODO
-
-
-# Verify
-- TODO
-
-
 # Libs
 ## https://github.com/golang-jwt/jwt
 1. Pro: Well documented
