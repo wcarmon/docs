@@ -37,7 +37,7 @@
 
 
 # Rejected
-## https://github.com/gbrlsnchs/jwt
+## ~~https://github.com/gbrlsnchs/jwt~~
 1. Con: Abandonware
 
 
