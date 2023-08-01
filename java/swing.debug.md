@@ -41,6 +41,3 @@ ln -sv $(readlink -f ./swexpl) $HOME/bin/
 1. Run the app
 1. CTRL + SHIFT + Click
 
-
-# Other resources
-1. TODO
