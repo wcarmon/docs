@@ -13,16 +13,19 @@
 # New abilities
 1. Hiding packages from other modules
 1. Fine grained control over access at runtime (Reflection too)
+1. Granular JVM
+1. Faster startup
 
 
 # Gotchas
 1. Split packages
     1. eg. jsr305, replace with jetbrains annotations package
     1. Sometimes split package issues manifest with unrelated error messages
-1. Granular JVM
-1. Faster startup
+1. Google libs tend not to have module-info.java
+    1. eg. [google.cloud.storage](https://mvnrepository.com/artifact/com.google.cloud/google-cloud-storage)
 
 
+# TODO:
 - TODO: "legacy" jars
 - TODO: classpath
 - TODO: jdeps
