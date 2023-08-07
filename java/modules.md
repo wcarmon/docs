@@ -19,5 +19,17 @@
 1. Faster startup
 
 
+- TODO: "legacy" jars
+- TODO: classpath
+- TODO: jdeps
+- TODO: gradle
+- TODO: modulepath
+- TODO: naming
+- TODO: unused required (Intellij)
+- TODO: open
+- TODO: opens
+- TODO: transitive
+
+
 # Other resources
 1. TODO
