@@ -16,6 +16,7 @@
 # Gotchas
 1. Split packages
     1. eg. jsr305, replace with jetbrains annotations package
+    1. Sometimes split package issues manifest with unrelated error messages
 1. Granular JVM
 1. Faster startup
 
