@@ -28,7 +28,7 @@
 - TODO: jdeps
 - TODO: gradle
 - TODO: modulepath
-- TODO: naming
+- TODO: naming (chars, length, ...)
 - TODO: unused required (Intellij)
 - TODO: open
 - TODO: opens
