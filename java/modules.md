@@ -6,6 +6,8 @@
 1. a module contains one or more packages
 1. a module [`exports`](TODO) packages
 1. a module depends on other modules via [`requires`](TODO)
+1. (unlike packages) modules have no hierarchy
+    1. names are just names (similar to golang packages)
 
 
 # New abilities
