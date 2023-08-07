@@ -3,6 +3,7 @@
 
 
 # Key points
+1. Modules always end up being a waste of time because popular 3rd party libs haven't adopted them (eg. Netty, Google, ...).
 1. a module contains one or more packages
 1. a module [`exports`](TODO) packages
 1. a module depends on other modules via [`requires`](TODO)
