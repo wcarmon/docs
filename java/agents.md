@@ -16,18 +16,37 @@
     1. Approach-2: Attach to running JVM
     1. Approach-3: Bundled/Packaged with the application (into same Jar)
 
+
 # Approach-1: Command line
+```bash
+java -javaagent:/path/to/jar ...
+
+java -javaagent:/path/to/jar=option1 ...   <-- TODO: better example
+```
+1. `MANIFEST.MF` must contain [`Premain-Class` attribute](https://docs.oracle.com/en/java/javase/20/docs/api/java.instrument/java/lang/instrument/package-summary.html#manifest-attributes-heading)
+1. `Premain-Class` attribute must point to a class with `public static void premain(String agentArgs, Instrumentation inst) {` method
+    1. Intellij will enforce
+1. Any code which is legal for `public static void main(...)` is legal for `public static void premain(...)`
+
 
 # Approach-2: Attach to running JVM
+1. TODO
+
 
 # Approach-3: Bundled/Packaged with the application
+1. `MANIFEST.MF` must contain [`Launcher-Agent-Class` attribute](https://docs.oracle.com/en/java/javase/20/docs/api/java.instrument/java/lang/instrument/package-summary.html#manifest-attributes-heading)
+1. `Launcher-Agent-Class` attribute must point to a class with `public static void agentmain(String agentArgs, Instrumentation inst) {` method
+    1. Intellij will enforce
+1. JVM invokes `agentmain(...)` method before `main(...)` method
 
 
-
-# Classloaders
-1. BootstrapClassLoader
+# [Classloaders](https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/lang/ClassLoader.html)
+1. [BootstrapClassLoader](https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/lang/ClassLoader.html)
+    1. has no parent
 1. PlatformClassLoader
-1. AppClassLoader
+    1. Loads JDK
+1. [System Class loader == AppClassLoader](https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/lang/ClassLoader.html#getSystemClassLoader())
+    1. Loads your application classes
 
 
 # Errors/Exceptions
