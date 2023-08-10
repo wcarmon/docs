@@ -9,8 +9,8 @@
 1. a module depends on other modules via [`requires`](TODO)
 1. (unlike packages) modules have no hierarchy
     1. names are just names (similar to golang packages)
-1. `--add-exports`: only public members accessible
-1. `--add-opens`:
+1. [`--add-exports`](https://docs.oracle.com/en/java/javase/20/docs/specs/man/java.html): only public members accessible
+1. [`--add-opens`](https://docs.oracle.com/en/java/javase/20/docs/specs/man/java.html):
     1. even private members accessible thru reflection (eg. `Field::setAccessible(true)`)
     1. Runtime concern, not compile time
 1. `--patch-module`: merges all classes from an artifact into a module (helps fix split packages)
