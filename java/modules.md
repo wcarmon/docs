@@ -3,7 +3,10 @@
 
 
 # Key points
-1. Modules always end up being a waste of time because popular 3rd party libs haven't adopted them (eg. Netty, Google, ...).
+1. Modules can be annoying because some popular 3rd party libs haven't adopted them (eg. Netty, Google, ...).
+1. Use a bottom-up approach
+    1. Start with simple relatively independent (gradle) modules
+    1. Unnamed/automatic modules can access modular code, but not the inverse
 1. a module contains one or more packages
 1. a module [`exports`](TODO) packages
 1. a module depends on other modules via [`requires`](TODO)
@@ -14,6 +17,7 @@
     1. even private members accessible thru reflection (eg. `Field::setAccessible(true)`)
     1. Runtime concern, not compile time
 1. `--patch-module`: merges all classes from an artifact into a module (helps fix split packages)
+
 
 # New abilities
 1. Hiding packages from other modules
