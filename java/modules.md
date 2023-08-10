@@ -9,7 +9,11 @@
 1. a module depends on other modules via [`requires`](TODO)
 1. (unlike packages) modules have no hierarchy
     1. names are just names (similar to golang packages)
-
+1. `--add-exports`: only public members accessible
+1. `--add-opens`:
+    1. even private members accessible thru reflection (eg. `Field::setAccessible(true)`)
+    1. Runtime concern, not compile time
+1. `--patch-module`: merges all classes from an artifact into a module (helps fix split packages)
 
 # New abilities
 1. Hiding packages from other modules
@@ -19,10 +23,14 @@
 
 
 # Gotchas
-1. Split packages
-    1. eg. jsr305, replace with jetbrains annotations package
-    1. Sometimes split package issues manifest with unrelated error messages
-1. Google libs tend not to have module-info.java
+## Split packages
+1. eg. jsr305, replace with jetbrains annotations package
+1. Sometimes split package issues manifest with unrelated error messages
+1. `--patch-module name.of.module=path/to/my.jar` might help
+    1. also requires an `--add-modules` step
+1. `--upgrade-module-path` might help
+
+## Google libs tend not to have `module-info.java`
     1. eg. [google.cloud.storage](https://mvnrepository.com/artifact/com.google.cloud/google-cloud-storage)
 
 
