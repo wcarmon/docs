@@ -10,9 +10,6 @@
  * TODO: if this POJO aligns with a DB table, mention that here
  */
 @Value
-@lombok.Builder(
-    builderClassName = "Builder",
-    toBuilder = true)
 public class Employee {
 
   boolean active;
@@ -32,6 +29,9 @@ public class Employee {
   LocalDate startDate;
 
   @Jacksonized
+  @lombok.Builder(
+    builderClassName = "Builder",
+    toBuilder = true)
   private Employee(
     Boolean active,  // <-- non-primitive allows you to default the value (see below)
     int age,
