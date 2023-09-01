@@ -26,7 +26,9 @@ docker stop jaeger || true
 docker rm --force jaeger || true
 
 # -- run
-docker run -d --name jaeger \
+docker run -d \
+  --name jaeger \
+  --restart always \
   -e COLLECTOR_ZIPKIN_HTTP_PORT=9411 \
   -p 14268:14268 \
   -p 16686:16686 \

@@ -58,6 +58,7 @@ $DOCKER rm --force $JAEGER_CONTAINER_NAME || true &>/dev/null
 #TODO: change user to non-root
 $DOCKER run -d \
   --name $JAEGER_CONTAINER_NAME \
+  --restart always \
   -e COLLECTOR_ZIPKIN_HOST_PORT=:9411 \
   -e COLLECTOR_OTLP_ENABLED=true \
   -p 14250:14250 \
@@ -74,6 +75,7 @@ $DOCKER run -d \
 <<'EXAMPLE_WITH_BADGER'
 $DOCKER run -d \
   --name $JAEGER_CONTAINER_NAME \
+  --restart always \
   -e BADGER_DIRECTORY_KEY=/badger/key \
   -e BADGER_DIRECTORY_VALUE=/badger/data \
   -e BADGER_EPHEMERAL=false \

@@ -42,8 +42,9 @@ docker rm $CONTAINER_NAME || true
 # NOTE: scripts run in alphabetical order
 
 docker run \
-  --name $CONTAINER_NAME \
   --detach \
+  --name $CONTAINER_NAME \
+  --restart always \
   -e POSTGRES_DB="$DB_NAME" \
   -e POSTGRES_PASSWORD="$DB_PASS" \
   -e POSTGRES_USER="$DB_USER" \
