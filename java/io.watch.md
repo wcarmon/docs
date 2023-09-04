@@ -11,12 +11,15 @@
     final var watchService = FileSystems.getDefault().newWatchService();
     dirToWatch.register(
             watchService,
+            // TODO: Remove any operations you don't care about
             StandardWatchEventKinds.ENTRY_CREATE,
             StandardWatchEventKinds.ENTRY_DELETE,
             StandardWatchEventKinds.ENTRY_MODIFY);
 
-    // TODO: run in separate thread, (eg. in ExecutorService)
+    // TODO: run this part in a separate thread, (eg. in ExecutorService)
+
     while (true) {
+
         // NOTE: WatchService::take is blocking
         final var key = watchService.take();
 
