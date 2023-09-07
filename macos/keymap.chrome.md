@@ -76,14 +76,17 @@ defaults read com.google.Chrome | grep -A 10 NSUserKey;
 # Checklist to verify keyboard shortcuts
 |win Keyboard Shortcut|Action|
 |---|---|
+|`ALT` + `f`|Open chrome menu|
+|`ALT` + `SHIFT` + i|Open feedback form|
+|`ALT` + Home|Open home page|
 |`CTRL` + `+`|Zoom in|
-|`CTRL` + `-`|Zoom out|
 |`CTRL` + `f`|Find|
 |`CTRL` + `l`|Select Address bar|
 |`CTRL` + `SHIFT` + `i`|Open developer tools|
+|`CTRL` + `SHIFT` + `j`|Open developer tools|
 |`CTRL` + `t`|Open new tab|
 |`CTRL` + `w`|Close current tab|
-|`SHIFT` + `space`|Move up screen|
+|`SHIFT` + `space`|Scroll up|
 
 
 # Other Resources
