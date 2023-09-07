@@ -55,6 +55,7 @@ hidutil property \
 - See [keymap.os](./keymap.os.md#resetundo) doc
 
 
+--------
 # Checklist to verify keyboard shortcuts
 |win Keyboard Shortcut|Action|
 |---|---|
