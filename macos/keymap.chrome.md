@@ -73,6 +73,7 @@ defaults write com.google.Chrome NSUserKeyEquivalents -dict-add "New Tab" "^t";
 defaults read com.google.Chrome | grep -A 10 NSUserKey;
 ```
 
+
 # Checklist to verify keyboard shortcuts
 |win Keyboard Shortcut|Action|
 |---|---|
@@ -86,6 +87,8 @@ defaults read com.google.Chrome | grep -A 10 NSUserKey;
 |`CTRL` + `SHIFT` + `j`|Open developer tools|
 |`CTRL` + `t`|Open new tab|
 |`CTRL` + `w`|Close current tab|
+|`CTRL` + left|(in text) Jump to start of previous word|
+|`CTRL` + right|(in text) Jump to end of current word|
 |`SHIFT` + `space`|Scroll up|
 
 

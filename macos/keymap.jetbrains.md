@@ -145,16 +145,17 @@
 1. Add [explicit key mappings](https://www.jetbrains.com/help/idea/configuring-keyboard-and-mouse-shortcuts.html)
 
 
+--------
 # Quick checklist to verify keyboard shortcuts
-## Triads
+## Key triads
 1. `CTRL+ALT+SHIFT+N` (go to symbol)
 
-## Pairs
+## Key pairs
 1. `ALT+SHIFT+L` (Edit > Sort lines)
 1. `CTRL+ALT+L` (Code > Reformat Code)
 1. `CTRL+SHIFT+A` (go to action)
 
-## Single
+## Single modifier key
 1. `ALT+1` (Tool Window > Project)
 1. `CTRL+J` (Insert Live Template...)
 1. `SHIFT+F6` (Refactor > Rename...)
