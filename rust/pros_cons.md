@@ -21,11 +21,11 @@
 
 
 # Bad news
-1. Slow builds
-1. Syntax is dense
+1. Slow builds (Compared to Go, Java, TS, ...)
+1. Syntax is dense, especially with lifetimes 
 1. "Sometimes" file-names and module-names are associated (eg `mod foo` must be in `foo.rs`)
-1. Not many jobs (as of 2023), compared to Golang, Java, Python
-1. [Strings are hard](./strings.md) compared to Go, Python, Java, ...
+1. Not many jobs (as of 2023), compared to Golang, C++, Java, Python
+1. [Strings are overly complex](./strings.md) compared to Go, Python, Java, ...
     1. But rust strings are simple and safe compared to c & c++
 1. Complexity (or "nuance")
     1. eg. Rust strings compared to Golang, Java, Python, ...
