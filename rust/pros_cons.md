@@ -13,6 +13,13 @@
 1. Evolves quickly
     1. compare to Java, Go, Python, C#, vb, ruby, php, ...
     1. Sometimes this is a con :-)
+1. Safety
+    1. Compare with C & C++
+1. Many C++ idioms are the default
+    1. Ownership model
+    1. Mutability model
+    1. Explicit lifetimes
+    1. References, Smart pointers
 1. Multiple return values (compared to Java, Python, C, ...)
 1. "Sensible" Operator overloading
 1. [Set](https://doc.rust-lang.org/std/collections/struct.HashSet.html) support
