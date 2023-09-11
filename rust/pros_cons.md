@@ -21,11 +21,11 @@
 
 
 # Bad news
-1. Slow builds
-1. Syntax is dense
+1. Slow builds (Compared to Go, Java, TS, ...)
+1. Syntax is dense, especially with lifetimes
 1. "Sometimes" file-names and module-names are associated (eg `mod foo` must be in `foo.rs`)
-1. Not many jobs (as of 2023), compared to Golang, Java, Python
-1. [Strings are hard](./strings.md) compared to Go, Python, Java, ...
+1. Not many jobs (as of 2023), compared to Golang, C++, Java, Python
+1. [Strings are overly complex](./strings.md) compared to Go, Python, Java, ...
     1. But rust strings are simple and safe compared to c & c++
 1. Complexity (or "nuance")
     1. eg. Rust strings compared to Golang, Java, Python, ...
@@ -76,6 +76,7 @@
     1. Cannot pretty print `Path` and `PathBuf` variables
 1. popular url lib is non-standard
     1. https://github.com/servo/rust-url/issues/808
+1. Idiomatic testing guidance bloats source files
 1. `use`ing the wrong `Write`: see [`std::fmt::Write`](https://doc.rust-lang.org/std/fmt/trait.Write.html) and [`std::io::Write`](https://doc.rust-lang.org/std/io/trait.Write.html)
     1. Maybe a clion issue
 1. Tracing
@@ -85,4 +86,7 @@
     1. Tracing makes Rayon usage very complex
         1. eg. https://github.com/rayon-rs/rayon/issues/1018
         1. Root cause is probably ownership handling in opentelemetry/tokio-tracing
+1. Module setup is unintuitive
+    1. need an extra file and have to reference in parent directory
+    1. Compare to Go or Java or Python or C++ or C or TS or Kotlin or ...
 
