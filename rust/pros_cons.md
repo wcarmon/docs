@@ -76,6 +76,8 @@
     1. Cannot pretty print `Path` and `PathBuf` variables
 1. popular url lib is non-standard
     1. https://github.com/servo/rust-url/issues/808
+1. `use`ing the wrong `Write`: see [`std::fmt::Write`](https://doc.rust-lang.org/std/fmt/trait.Write.html) and [`std::io::Write`](https://doc.rust-lang.org/std/io/trait.Write.html)
+    1. Maybe a clion issue
 1. Tracing
     1. OpenTelemetry api is FAR TOO complex to use directly (compare to Go, Python, Java, ...)
     1. Tokio tracing lib helps a lot, but there are still gotchas (minefields)
