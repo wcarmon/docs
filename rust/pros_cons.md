@@ -4,12 +4,19 @@
 
 
 # Good news
-1. Light runtime memory usage (compare to java, go, python, c#, vb, ruby, php, ...)
-1. Extremely **fast** at runtime (compare to java, go, python, c#, vb, ruby, php, ...)
-1. Evolves quickly (compare to java, go, python, c#, vb, ruby, php, ...)
+1. Light runtime memory usage
+    1. compare to java, go, python, c#, vb, ruby, php, ...
+    1. On par with C & C++
+1. Extremely **fast** at runtime
+    1. compare to java, go, python, c#, vb, ruby, php, ...
+    1. On par with C & C++
+1. Evolves quickly
+    1. compare to Java, Go, Python, C#, vb, ruby, php, ...
+    1. Sometimes this is a con :-)
 1. Multiple return values (compared to Java, Python, C, ...)
 1. "Sensible" Operator overloading
-1. [Set](https://doc.rust-lang.org/std/collections/struct.HashSet.html) support (compare to Go)
+1. [Set](https://doc.rust-lang.org/std/collections/struct.HashSet.html) support
+    1. compare to Go which lacks them
 1. Methods must declare mutability requirements/assumptions
 1. Struct fields support default values (compare to Go)
 1. Good attribute macros tend to simplify what would be boilerplate in other languages
