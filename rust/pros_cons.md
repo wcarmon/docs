@@ -107,4 +107,4 @@
 1. Module setup is unintuitive
     1. need an extra file and have to reference in parent directory
     1. Compare to Go or Java or Python or C++ or C or TS or Kotlin or ...
-
+1. CLion: cannot exclude directories
