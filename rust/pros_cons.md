@@ -46,6 +46,7 @@
     1. eg. Generics and Associated Types
     1. eg. Iterators when you need [`.map`](https://doc.rust-lang.org/std/iter/struct.Map.html) returns a [`Result`](https://doc.rust-lang.org/std/result/)
         1. You end up using things like: `collect::<Result<Vec<_>, anyhow::Error>>()?`
+        2. maybe [`try_collect`](https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.try_collect) helps?
     1. eg. Error handling, particularly across libraries, and when using [serde](https://serde.rs/)
     1. eg. Traits with overlapping applicability like [`Deref`](https://doc.rust-lang.org/std/ops/trait.Deref.html), [Borrow](https://doc.rust-lang.org/std/borrow/trait.Borrow.html), and [AsRef](https://doc.rust-lang.org/std/convert/trait.AsRef.html)
     1. eg. Error messages are generally helpful, but complex (more helpful than c, c++, java, python, php, ruby)
@@ -107,4 +108,4 @@
 1. Module setup is unintuitive
     1. need an extra file and have to reference in parent directory
     1. Compare to Go or Java or Python or C++ or C or TS or Kotlin or ...
-
+1. CLion: cannot exclude directories
