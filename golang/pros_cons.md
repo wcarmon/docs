@@ -16,19 +16,20 @@
 
 
 # Bad news
-1. Verbose error handling (compare to Rust or Java)
+1. Verbose error handling (compare to Rust, Python or Java)
 1. Enums cannot have properties (but they can have methods)
-1. Switch: compiler cannot enforce exhaustive enum cases
+1. Switch: compiler cannot enforce exhaustive enum cases (compare to Java, Rust)
 1. Immutability is hard
     1. Mitigate: struct copy is easy
     2. But struct copy "fails" when structs has pointer/reference field
-1. Struct fields don't support default values
+1. Struct fields don't support default values (compare to Rust, Java)
 1. structs don't provide a way to enforce invariants (unlike java, C++)
     1. Rust has same problem, but can make builder via macro
+    2. C++ & java have constructors & builders
 1. No Sets
-    1. Mitigate: use map[T]bool)
-1. functional/stream programming is hard (compare to java streams)
-    1. though performance is better without streams
+    1. Mitigate: use `map[T]bool`
+1. functional/stream programming is hard (compare to java streams or rust Iterator or JS array)
+    1. although performance is often better without streams
     1. java streams [require a special debugger](https://www.jetbrains.com/idea/guide/tips/debugging-streams/)
 1. [atomics lack encapsulation, since you must pass raw pointer](https://pkg.go.dev/sync/atomic#AddInt64)
 1. Sorting is unintuitive
