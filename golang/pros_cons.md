@@ -9,6 +9,8 @@
 1. [defer](https://go.dev/tour/flowcontrol/12)
 1. Fast builds (compare to java, c++, rust, ...)
 1. Implicit interface implementation
+   1. Impossible in Java without reflection or hacks
+   2. Rust can get close using "Orphan rule" and default impl
 1. Light runtime memory usage (compare to java, Python, c#, vb, ruby, php, ...)
 1. Multiple return values
 1. Methods can declare mutable or read-only receiver
