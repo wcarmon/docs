@@ -21,6 +21,7 @@
 1. Switch: compiler cannot enforce exhaustive enum cases
 1. Immutability is hard
     1. Mitigate: struct copy is easy
+    2. But struct copy "fails" when structs has pointer/reference field
 1. Struct fields don't support default values
 1. structs don't provide a way to enforce invariants (unlike java, C++)
     1. Rust has same problem, but can make builder via macro
