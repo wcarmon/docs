@@ -22,12 +22,16 @@
 1. Immutability is hard
     1. Mitigate: struct copy is easy
 1. Struct fields don't support default values
+1. structs don't provide a way to enforce invariants (unlike java, C++)
+    1. Rust has same problem, but can make builder via macro
 1. No Sets
     1. Mitigate: use map[T]bool)
 1. functional/stream programming is hard (compare to java streams)
     1. though performance is better without streams
     1. java streams [require a special debugger](https://www.jetbrains.com/idea/guide/tips/debugging-streams/)
+1. [atomics lack encapsulation, since you must pass raw pointer](https://pkg.go.dev/sync/atomic#AddInt64)
 1. Sorting is unintuitive
+2.     1. might be fixed in v20+
 1. max/min/abs functions don't work on all numeric types
 
 
