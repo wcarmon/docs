@@ -4,6 +4,26 @@
 1. [Architecture](https://www.graalvm.org/22.1/docs/introduction/)
 
 
+# Docker based
+1. GraalVM
+```bash
+JDK_IMAGE=ghcr.io/graalvm/jdk-community:21
+docker run -it --rm $JDK_IMAGE bash
+
+env
+java -version
+```
+1. Native Image
+```bash
+NATIVE_IMAGE=ghcr.io/graalvm/native-image-community:21
+docker pull $NATIVE_IMAGE
+# docker pull --platform linux/aarch64 $NATIVE_IMAGE
+# docker pull --platform linux/amd64 $NATIVE_IMAGE
+
+docker run -it --rm $NATIVE_IMAGE native-image --version
+```
+
+
 # Install
 1. [via sdkman](https://sdkman.io/jdks)
     1. `sdk install java 22.1.0.r17-grl`
