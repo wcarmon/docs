@@ -9,10 +9,10 @@
 |Owned|`String` <br/>`PathBuf` <br/>`OsString` <br/>`Vec<T>`|`String` (`mut` on variable/argument) <br/>`PathBuf` (`mut` on variable/argument) <br/>`OsString` (`mut` on variable/argument) <br/>`Vec<T>` (`mut` on variable/argument)|
 |Borrowed|`&str` <br/>`&Path` <br/>`&OsStr` <br/>`&[T]` <br/>~~`&String`~~ (unnecessary double pointer) <br/>~~`&PathBuf`~~ (unnecessary double pointer) |`&mut String` (unnecessary double pointer)|
 
-
 # Types
 
 ## [String](https://doc.rust-lang.org/std/string/struct.String.html)
+
 1. `Ownership`: [Owned](./ownership.md) version of [`&str`](https://doc.rust-lang.org/std/str/index.html)
 1. `Mutability`: Growable, Mutable (eg. truncate, extend, etc)
 1. `Length`: dynamic
@@ -22,11 +22,12 @@
 1. [`String`](https://doc.rust-lang.org/std/string/struct.String.html) "extends" `&str` with mutable behavior
 
 ### Comparison
+
 - Golang equivalent: [`strings.Builder`](https://pkg.go.dev/strings#Builder)
 - Java equivalent: [`StringBuilder`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/StringBuilder.html)
 
-
 ## [&str](https://doc.rust-lang.org/std/str/index.html)
+
 1. `Ownership`: [Borrowed](./ownership.md) version of [`String`](https://doc.rust-lang.org/std/string/struct.String.html)
 1. `Mutability`: Immutable and read-only
 1. `Length`: fixed
@@ -36,15 +37,15 @@
 1. [`&str` is a slice (`&[u8]`)](https://doc.rust-lang.org/rust-by-example/std/str.html), always points to a valid UTF-8 sequence
 1. [String literals](https://doc.rust-lang.org/rust-by-example/std/str.html#literals-and-escapes) are `&'static str` (live forever, immutable, borrowed)
 
-
 ### Comparison
+
 - Golang equivalent: [`string`](https://pkg.go.dev/builtin#string), see also [strings doc](../golang/strings.md)
 - Java equivalent: [`String`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html)
 - JavaScript equivalent: [`String`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
 - Python equivalent: [`String`](https://docs.python.org/3/library/stdtypes.html#textseq)
 
-
 # [PathBuf](https://doc.rust-lang.org/stable/std/path/struct.PathBuf.html)
+
 1. `Ownership`: [Owned](./ownership.md) version of [`&Path`](https://doc.rust-lang.org/stable/std/path/struct.Path.html)
 1. `Mutability`: Mutable
 1. TODO
@@ -53,15 +54,15 @@
 1. Each individual component is a `&OsStr`
 1. Growable, Heap allocated
 
-
 # [&Path](https://doc.rust-lang.org/stable/std/path/struct.Path.html)
+
 1. `Ownership`: [Borrowed](./ownership.md) version of [`PathBuf`](https://doc.rust-lang.org/stable/std/path/struct.PathBuf.html)
 1. **Not** guaranteed UTF-8
 1. For both relative and absolute paths
 1. Each individual component is a `&OsStr`
 
-
 # [OsString](https://doc.rust-lang.org/std/ffi/struct.OsString.html)
+
 1. `Ownership`: [Owned](./ownership.md) version of [`&OsStr`](https://doc.rust-lang.org/std/ffi/struct.OsStr.html)
 1. `Mutability`: Mutable
 1. System specific (eg. Linux, Mac, Android, win, etc)
@@ -70,28 +71,28 @@
 1. Superset of `String`
 1. Growable, Heap allocated
 
-
 # [&OsStr](https://doc.rust-lang.org/std/ffi/struct.OsStr.html)
+
 1. `Ownership`: [Borrowed](./ownership.md) version of [`OsString`](https://doc.rust-lang.org/std/ffi/struct.OsString.html)
 1. `Mutability`: Immutable
 1. Superset of `&str`
 
-
 # [CString](https://doc.rust-lang.org/stable/std/ffi/struct.CString.html)
+
 1. `Ownership`: [Owned](./ownership.md)
 1. `Mutability`: Mutable
 1. For interacting with [C](https://en.wikipedia.org/wiki/C_(programming_language))
 1. NUL-terminated
 
-
 # [&CStr](https://doc.rust-lang.org/stable/std/ffi/struct.CStr.html)
+
 1. `Ownership`: [Borrowed](./ownership.md)
 1. For interacting with [C](https://en.wikipedia.org/wiki/C_(programming_language))
 1. `Mutability`: Immutable
 1. TODO
 
-
 # Raw strings
+
 ```rust
 assert_eq!("foo", r"foo");          // foo
 assert_eq!("\"foo\"", r#""foo""#);  // "foo"
@@ -104,19 +105,19 @@ assert_eq!("#", r##"#"##);          // #
 assert_eq!("\"#\"", r##""#""##);    // "#"
 ```
 
-
 # Escaping
+
 1. Double quote (for `String`/`&str`): `\"`
 1. Single quote (for `char`): `\'`
 
-
 # Comparison
+
 1. Unlike Go, Rust doesn't support [backtick strings](https://yourbasic.org/golang/multiline-string/)
     1. [Raw strings are similar](https://rahul-thakoor.github.io/rust-raw-string-literals/), [more info](https://doc.rust-lang.org/rust-by-example/std/str.html),
 1. Unlike TS/JS, Rust doesn't support single quote strings
 
-
 # Idioms
+
 1. `fn` args should accept [`&str`](https://doc.rust-lang.org/std/str/index.html) as fn arg, not [`String`](https://doc.rust-lang.org/std/string/struct.String.html)
     1. accepting `&str` allows caller to pass either `String` or `&str`
     1. For the same reason, accept `&[T]` instead of `Vec<T>`
@@ -126,29 +127,29 @@ assert_eq!("\"#\"", r##""#""##);    // "#"
     1. for the same reason, return `Vec<T>` instead of `&[T]`
     1. for the same reason, return `Box<T>` instead of `&T`
 
-
 # String literals
+
 1. static lifetime (guaranteed valid for duration of entire program)
     1. lifetimes only every apply to references
 1. We only every borrow them, never own them
 1. TODO: raw strings
 
-
 # Common operations
-- [See all](../common/strings.gen.md)
 
+- [See all](../common/strings.gen.md)
 
 # Conversion
 
 ## Literal to `&str`
+
 ```rust
 let input: &'static str = "some literal";
 ...
 let output: &str = input;
 ```
 
-
 ## `String` to `&str`
+
 ```rust
 let input: String = String::new();
 ...
@@ -157,30 +158,30 @@ let output1 = &input[..];
 let output2 = &input;
 ```
 
-
 ## Literal to `String`
+
 ```rust
 let input: &'static str = "some literal";
 ...
 let output = input.to_owned();
 ```
 
-
 ## `&str` to `String`
+
 ```rust
 let input: &str = "foo";
 ...
 let output: String = input.to_owned();
 ```
 
-
 # Concatenation
+
 1. First part must be **owned** ([`String`](https://doc.rust-lang.org/std/string/struct.String.html))
 1. subsequent parts must be [borrowed](https://doc.rust-lang.org/std/primitive.str.html)
 1. [Why?](https://doc.rust-lang.org/std/string/struct.String.html#impl-Add%3C%26str%3E-for-String)
 
-
 ## Examples
+
 ```rust
 // String + &str (simplest case)
 print!("{:?}", owned_string + my_str);
@@ -215,14 +216,14 @@ let s: &str = concat!("a", "b"); // only works with literals
 print!("{:?}", "foo".to_owned() + "bar");
 ```
 
-
 ## Other methods
+
 - [`&str.to_string()`](https://doc.rust-lang.org/std/string/trait.ToString.html#impl-ToString-for-str) calls [`String::from`](https://doc.rust-lang.org/stable/std/convert/trait.From.html#impl-From%3C%26str%3E-for-String)
 - [`String::from`](https://doc.rust-lang.org/stable/std/convert/trait.From.html#impl-From%3C%26str%3E-for-String) calls [`&str.to_owned()`](https://doc.rust-lang.org/stable/std/borrow/trait.ToOwned.html#impl-ToOwned-for-str)
 - [`&str.to_owned()`](https://doc.rust-lang.org/stable/std/borrow/trait.ToOwned.html#impl-ToOwned-for-str) allocates a new `String`
 
-
 # Abbreviate
+
 ```rust
 pub fn abbreviate(s: &str, max_len: usize) -> String {
     let bound = open_upper_bound_for_chars(s.len(), max_len);
@@ -259,8 +260,8 @@ fn must_add_elipses(str_len: usize, max_output_len: usize) -> bool {
 }
 ```
 
-
 # `Write` traits
+
 - [`std::io::Write`](https://doc.rust-lang.org/std/io/trait.Write.html) is for bytes
     - like Java [`OutputStream`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/OutputStream.html)
     - like Go [`Writer`](https://pkg.go.dev/io#Writer)
@@ -270,8 +271,8 @@ fn must_add_elipses(str_len: usize, max_output_len: usize) -> bool {
 - convert from `fmt::Write` to `io::Write` using a `String` and [`buffer.write_fmt(s)`](https://doc.rust-lang.org/std/io/trait.Write.html#method.write_fmt)
     - the `write!(...)` macros do this automatically
 
-
 # Other Resources
+
 1. https://blog.logrocket.com/understanding-rust-string-str/
 1. https://locka99.gitbooks.io/a-guide-to-porting-c-to-rust/content/features_of_rust/strings.html
 1. https://cheats.rs/#strings-chars
