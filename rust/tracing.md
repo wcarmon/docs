@@ -1,9 +1,10 @@
 # Overview
+
 1. Idioms for [Tracing](https://opentelemetry.io/docs/concepts/signals/traces/) (and associated Logging)
 1. How to use [tracing](https://docs.rs/tracing/latest/tracing/) and [OpenTelemetry](https://opentelemetry.io/docs/instrumentation/rust/)
 
-
 # Summary of key ideas
+
 1. [tracing](https://docs.rs/tracing/latest/tracing) lib handles both tracing and [logging](./logging.md)
     1. [Migration from log lib](https://docs.rs/tracing/latest/tracing/#for-log-users)
     1. [Migration from slog](https://github.com/slog-rs/slog#slog-rs---the-logging-for-rust)
@@ -14,16 +15,16 @@
     1. Differences:
         1. OpenTelemetry spans lack level
 
-
 # Dependencies for library crate (Cargo.toml)
+
 ```toml
 [dependencies]
 opentelemetry-semantic-conventions = "..."
 tracing = "..."
 ```
 
-
 # Dependencies for binary crate (Cargo.toml)
+
 ```toml
 [dependencies]
 opentelemetry = "..."
@@ -35,8 +36,8 @@ tracing-opentelemetry = "..."
 tracing-subscriber = "..."
 ```
 
-
 # [tracing](https://docs.rs/tracing/latest/tracing/) lib
+
 1. Concepts
     1. Span: TODO
     1. [Event](https://docs.rs/tracing-core/0.1.30/tracing_core/struct.Event.html) struct: a log associated with a `Span`
@@ -53,12 +54,12 @@ tracing-subscriber = "..."
 1. Different [span lifecycle](https://docs.rs/tracing/latest/tracing/span/index.html#the-span-lifecycle) than [OpenTelemetry](TODO)
 1. Includes thread attributes by default
 
-
 # [OpenTelemetry](https://opentelemetry.io/docs/instrumentation/rust/) lib
+
 1. See [otel doc](./tracing.opentelemetry.md)
 
-
 ## Setup (in binary crate)
+
 ```rust
 use tracing_subscriber::layer::SubscriberExt;
 ...
@@ -89,8 +90,8 @@ tracing::subscriber::set_global_default(subscriber);
 
 ```
 
-
 ## Span usage
+
 ```rust
     let span = info_span!("my_span");
     let guard = span.enter();
@@ -120,12 +121,14 @@ tracing::subscriber::set_global_default(subscriber);
     // -- Either drop or use https://github.com/rodrigocfd/defer-lite/
     // drop(guard); // if you don't drop, rustc might drop your span early
 ```
+
 1. See https://docs.rs/tracing/latest/tracing/macro.span.html
 
-
 ## Wrap a function in a Span
+
 1. Not as flexible as code, but often convenient
 1. See https://docs.rs/tracing/latest/tracing/attr.instrument.html
+
 ```rust
 use tracing::{instrument};
 ...
@@ -146,16 +149,18 @@ fn do_something(foo: &str) -> anyhow::Result<String> {
 }
 ```
 
-
 # Attributes
+
 ## record extra span attributes (after span created)
+
 1. 32 fields/attributes max
+
 - TODO: add attributes using record: https://docs.rs/tracing/latest/tracing/span/struct.Span.html#method.record
 - TODO: must use `tracing::field::Empty`: https://docs.rs/tracing/latest/tracing/#recording-fields
 - TODO: silent failure for attributes that aren't predefined
 
-
 # Get current span
+
 ```rust
 info_span!("...", foo = tracing::field::Empty).entered();
 ...
@@ -164,6 +169,7 @@ Span::current().record("foo", 88);
 ```
 
 # Associating logs with spans, adding attributes
+
 ```rust
 use tracing::{debug, error, info, info_span, warn};
 ...
@@ -183,29 +189,31 @@ info!(cc = "cheese", "something happened");
 info!(dd = %foo1, "whatever") // use fmt::Display
 info!(ee = ?foo2, "something") // use fmt::Debug
 ```
+
 1. `?` sigil prefix means record with [`fmt::Debug`](https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html)
 1. `%` prefix means record with [`fmt::Display`](https://doc.rust-lang.org/nightly/core/fmt/trait.Display.html)
 
-
 ## Recording errors
+
 ```
 error!(err = ?some_err, "failed to ...")
 ```
+
 1. See also https://docs.rs/tracing/latest/tracing/index.html#recording-fields
 1. See also: https://opentelemetry.io/docs/reference/specification/trace/semantic_conventions/exceptions/#attributes
 
-
 # Propagation: HTTP client
-1. TODO
 
+1. TODO
 
 # Propagation: HTTP server
+
 1. TODO
 
-
-
 # Reporting delay in main fn
+
 1. Add a brief delay at the end of your program to report any outstanding spans
+
 ```rust
 root_span.exit();
 
@@ -215,12 +223,14 @@ opentelemetry::global::shutdown_tracer_provider();
 ```
 
 # Propagation (child function within process)
+
 1. Single-threaded: This is automatic
 1. Multi-threaded: (see below)
 
-
 ## Example propagating span across threads
+
 1. tokio::tracing [relies on thread-local](https://github.com/tokio-rs/tracing/blob/master/tracing-subscriber/src/registry/sharded.rs#L94), so we must manually propagate the span
+
 ```rust
 use tracing_opentelemetry::OpenTelemetrySpanExt;
 ...
@@ -244,8 +254,8 @@ fn outer() -> Result<(), anyhow::Error> {
 }
 ```
 
-
 # Flow from source to jaeger
+
 1. [`::`](TODO)
 1. [`tracing::dispatcher::get_default(...)`](https://docs.rs/tracing/latest/tracing/dispatcher/fn.get_default.html) ([src in `tracing-core`](https://github.com/tokio-rs/tracing/blob/master/tracing-core/src/dispatch.rs#L414))
 1. [`tracing::Span::new(...)`](https://docs.rs/tracing/latest/tracing/struct.Span.html#method.new) ([src in`tracing`](https://github.com/tokio-rs/tracing/blob/master/tracing/src/span.rs#L427))
@@ -269,8 +279,8 @@ fn outer() -> Result<(), anyhow::Error> {
 1. [`convert_otel_span_into_jaeger_span(...)`](TODO)  ([src in `opentelemetry-jaeger`](TODO))
 1. [`Uploader::upload(jaeger::Batch)`](TODO) ([src in `opentelemetry-jaeger`](TODO))
 
-
 # Other Resources
+
 1. https://docs.rs/tracing-opentelemetry/latest/tracing_opentelemetry/
 1. https://docs.rs/tracing/latest/tracing/
 1. https://docs.rs/log/latest/log/

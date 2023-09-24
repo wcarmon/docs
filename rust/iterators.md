@@ -1,8 +1,9 @@
 # Overview
+
 1. [Iterators](https://doc.rust-lang.org/stable/std/iter/index.html), [`IntoIterator`](https://doc.rust-lang.org/std/iter/trait.IntoIterator.html), [`FromtIterator`](https://doc.rust-lang.org/std/iter/trait.FromIterator.html)
 
-
 # Key Concepts
+
 1. There are 3 forms of iteration
     - `iter()`, iterates over `&T` *(borrowed item ref)*
     - `iter_mut()`, iterates over `&mut T` *(borrowed mutable item ref)*
@@ -17,24 +18,26 @@
     1. Compiler generally warns you
     1. implies iterators can be infinite
 
-
 # Idioms
+
 1. If [a loop](https://doc.rust-lang.org/reference/expressions/loop-expr.html) is simpler, use a loop
 1. a `fn` should *accept* [`IntoIterator`](https://doc.rust-lang.org/std/iter/trait.IntoIterator.html)
     1. Allows passing [`Vec<T>`](https://doc.rust-lang.org/std/vec/struct.Vec.html#), [`HashSet<T>`](https://doc.rust-lang.org/std/collections/struct.HashSet.html), [`BTreeSet<T>`](https://doc.rust-lang.org/std/collections/struct.BTreeSet.html#), ...
 1. a `fn` should *return* [`FromIterator`](https://doc.rust-lang.org/std/iter/trait.FromIterator.html)
 
-
 ## Error handling idioms
+
 1. Error handling for [`Result`](https://doc.rust-lang.org/std/result/)s in failable operations
     1. Other approaches: https://doc.rust-lang.org/rust-by-example/error/iter_result.html
 
 ### Error handling Approach #1:
+
 1. in [`.map`](https://doc.rust-lang.org/std/iter/struct.Map.html) (or similar) return [`Result`](https://doc.rust-lang.org/std/result/)
 1. Final step in `iter` chain is [`collect`](https://doc.rust-lang.org/std/result/#collecting-into-result) with [turbofish](https://techblog.tonsser.com/posts/what-is-rusts-turbofish):
     - eg. `.collect::<Result<Vec<_>, anyhow::Error>>()?`
     - eg. `.collect::<Result<Vec<_>, anyhow::Error>>()?.join("...")`
     - [`Result::collect`](https://doc.rust-lang.org/std/result/#collecting-into-result) will [auto fail-fast on first `Err`](https://doc.rust-lang.org/std/result/enum.Result.html#impl-FromIterator%3CResult%3CA%2C%20E%3E%3E-for-Result%3CV%2C%20E%3E)
+
 ```rust
 let values = vec![1, 2, 3]
     .into_iter()
@@ -42,12 +45,13 @@ let values = vec![1, 2, 3]
     .collect::<Vec<_>, anyhow::Error>()?;
 ```
 
-
 ### Error handling Approach #2:
+
 1. in [`.map`](https://doc.rust-lang.org/std/iter/struct.Map.html) (or similar) return [`Result`](https://doc.rust-lang.org/std/result/)
 1. Use [`.collect()`](https://doc.rust-lang.org/std/result/#collecting-into-result) as final step to produce `Result`
 1. assign to variable with type `Result<Vec<_>, _>`
 1. Use `?` operator after assigning result
+
 ```rust
 let result: Result<Vec<_>, anyhow::Error> = vec![1, 2, 3]
     .into_iter()
@@ -58,8 +62,8 @@ let values = result?;
 ...
 ```
 
-
 # [`Iterator`](https://doc.rust-lang.org/std/iter/trait.Iterator.html) trait
+
 1. The most important [trait](./traits.md) related to iteration
 1. Has one associated type for the [`Item`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html#associatedtype.Item)
 1. [`next`](https://doc.rust-lang.org/std/iter/trait.Iterator.html#tymethod.next) is the only required method
@@ -75,8 +79,8 @@ let values = result?;
     1. [HashSet example](https://doc.rust-lang.org/src/std/collections/hash/set.rs.html#198)
     1. [Vec example](https://doc.rust-lang.org/src/core/slice/mod.rs.html#735)
 
-
 # [`IntoIterator`](https://doc.rust-lang.org/std/iter/trait.IntoIterator.html) trait
+
 1. Trait for converting *something* into an [`Iterator`](https://doc.rust-lang.org/std/iter/trait.Iterator.html)
 1. **Moves** the collection into an iterator
 1. Has 1 method: [`into_iter()`](https://doc.rust-lang.org/std/iter/trait.IntoIterator.html#tymethod.into_iter)
@@ -93,6 +97,7 @@ let values = result?;
     1. once for mutable borrow (`&mut T`)
 
 ## Example
+
 ```rust
 // in practice you can just use the BTreeSet directly
 #[derive(Clone, Debug, Default, Eq, Hash, PartialEq)]
@@ -123,12 +128,12 @@ impl<'a> IntoIterator for &'a MyFancyStuff {
 
 ```
 
-
 # [`FromIterator`](https://doc.rust-lang.org/std/iter/trait.FromIterator.html) trait
+
 1. TODO
 
-
 # [Adapters](https://doc.rust-lang.org/std/iter/index.html#adapters)
+
 1. Adapters are "chainable" functions
 1. Adapters are Higher-order functions (functions that accept a function)
 1. In other places, these are called [Combinators](https://doc.rust-lang.org/reference/glossary.html#combinator)
@@ -138,38 +143,37 @@ impl<'a> IntoIterator for &'a MyFancyStuff {
     1. Visual guides: [js based](https://res.cloudinary.com/practicaldev/image/fetch/s--sYEjzdnw--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/i/sr8koff729gxcvpnoty6.jpeg), [C# based](https://csharpcorner-mindcrackerinc.netdna-ssl.com/article/simplify-map-reduce-and-filter-in-typescript/Images/map_filter_reduce.png), ...
 1. See more adapters in [itertools](https://docs.rs/itertools/latest/itertools)
 
-
-|Adapter/fn|Purpose|Stream size after `fn`|Type after `fn`|
-|--- |--- |---|---|
-|[`map`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html#method.map)              |Convert type or ownership               |*Same*         |Changed|
-|[`filter`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html#method.filter)        |Ignore/keep items                       |Generally less |*Same*|
-|[`flat_map`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html#method.flat_map)    |process nested`<T>` collection like `T` |Generally more |Changed|
-|[`take`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html#method.take)            |keep first *n*                          |Generally less |*Same*|
-|[`skip`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html#method.skip)            |ignore first *n*                        |Generally less |*Same*|
-|[`cloned`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html#method.cloned)        |clones items (converts to owned)        |*Same*         |Same, but owned|
-|[`enumerate`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html#method.enumerate)  |like `map`, but includes Item index     |*Same*         |Changed|
-|[`inspect`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html#method.inspect)      |debugging                               |*Same*         |*Same*
-
+| Adapter/fn                                                                                    | Purpose                                 | Stream size after `fn` | Type after `fn` |
+|-----------------------------------------------------------------------------------------------|-----------------------------------------|------------------------|-----------------|
+| [`map`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html#method.map)             | Convert type or ownership               | *Same*                 | Changed         |
+| [`filter`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html#method.filter)       | Ignore/keep items                       | Generally less         | *Same*          |
+| [`flat_map`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html#method.flat_map)   | process nested`<T>` collection like `T` | Generally more         | Changed         |
+| [`take`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html#method.take)           | keep first *n*                          | Generally less         | *Same*          |
+| [`skip`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html#method.skip)           | ignore first *n*                        | Generally less         | *Same*          |
+| [`cloned`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html#method.cloned)       | clones items (converts to owned)        | *Same*                 | Same, but owned |
+| [`enumerate`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html#method.enumerate) | like `map`, but includes Item index     | *Same*                 | Changed         |
+| [`inspect`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html#method.inspect)     | debugging                               | *Same*                 | *Same*          
 
 # Terminators
-|Terminator|Purpose|
-|---|---|
-|[`collect`](https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.collect)     |builds collection|
-|[`for_each`](https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.for_each)   |side effects (eg. printing, logging)|
-|[`reduce`](https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.reduce)       |*reduce* down to a single value|
-|[`fold`](https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.fold)           |like `reduce`, but takes starting value|
-|[`all`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html#method.all)      |true when all items match predicate|
-|[`any`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html#method.any)      |true only when at least one item matches predicate|
-|[`last`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html#method.last)    |get final Item|
-|[`max`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html#method.max)       |largest value|
-|[`min`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html#method.min)       |smallest value|
 
+| Terminator                                                                           | Purpose                                            |
+|--------------------------------------------------------------------------------------|----------------------------------------------------|
+| [`collect`](https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.collect)   | builds collection                                  |
+| [`for_each`](https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.for_each) | side effects (eg. printing, logging)               |
+| [`reduce`](https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.reduce)     | *reduce* down to a single value                    |
+| [`fold`](https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.fold)         | like `reduce`, but takes starting value            |
+| [`all`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html#method.all)    | true when all items match predicate                |
+| [`any`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html#method.any)    | true only when at least one item matches predicate |
+| [`last`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html#method.last)  | get final Item                                     |
+| [`max`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html#method.max)    | largest value                                      |
+| [`min`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html#method.min)    | smallest value                                     |
 
 # [`TryIter`](TODO)
+
 - TODO
 
-
 # Example: A `fn` which accepts "collection" of any String-like
+
 ```rust
 // works on ...
 //
@@ -200,10 +204,10 @@ where
 }
 ```
 
-
 # ~~TODO: Unorganized~~
+
 - https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html#method.nth
 
-
 # Other Resources
+
 1. https://docs.rs/itertools/latest/itertools/

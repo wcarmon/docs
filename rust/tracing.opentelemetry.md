@@ -1,22 +1,23 @@
 # Overview
+
 1. Rust OpenTelemetry support (Using OpenTelemetry API directly)
 1. See first: [tracing doc](./tracing.md)
 
-
 # Summary of key ideas
+
 1. Using the [tracing api](https://docs.rs/tracing/latest/tracing) is simpler and more idiomatic for rust
     1. See macro usage
-    1. See span/context propagation, both single and multi-threaded   
+    1. See span/context propagation, both single and multi-threaded
 1. tracing api can forward spans to OpenTelemetry
 
-
 # [OpenTelemetry](https://opentelemetry.io/docs/instrumentation/rust/) lib
+
 1. [Concepts](../common/observability/tracing.md)
 1. More verbose than [`tracing`](https://docs.rs/tracing/latest/tracing) lib
 1. Requires passing [`Context`](https://docs.rs/opentelemetry/latest/opentelemetry/struct.Context.html) manually to propagate spans
 
-
 ## Span usage (OpenTelemetry)
+
 ```rust
     let mut span = tracer.span_builder("doSomeOperation")
         .start(&tracer);
@@ -50,8 +51,8 @@
     span.end(); // or drop(span) or let it happen automatically
 ```
 
-
 # Other resources
+
 1. https://docs.rs/opentelemetry/
 1. https://opentelemetry.io/
 1. https://docs.rs/opentelemetry/latest/opentelemetry/

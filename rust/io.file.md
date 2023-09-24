@@ -1,44 +1,45 @@
 # Overview
+
 1. Important types and traits related to File IO
 1. Some patterns for File IO
-
 
 # Related Types
 
 ## [`std::fmt::Write`](https://doc.rust-lang.org/std/fmt/trait.Write.html) trait, for text (`String`, `&str`, etc)
+
 - Comparison:
     - Golang: [`StringWriter`](https://pkg.go.dev/io#StringWriter)
     - Java: [`Writer`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/Writer.html)
 
-
 ## [`std::io::Write`](https://doc.rust-lang.org/std/io/trait.Write.html) trait, for bytes
+
 - lower level than `std::fmt::Write`
 - Two methods: [`write`](https://doc.rust-lang.org/std/io/trait.Write.html#tymethod.write) and [`flush`](https://doc.rust-lang.org/std/io/trait.Write.html#tymethod.flush)
 - Comparison:
     - Golang: [`Writer`](https://pkg.go.dev/io#Writer)
     - Java: [`OutputStream`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/OutputStream.html)
 
-
 ### [`std::io::BufWriter`](https://doc.rust-lang.org/std/io/struct.BufWriter.html)
+
 - Comparison:
     - Java: [`BufferedWriter`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/BufferedWriter.html)
     - Golang: [`bufio.Writer`](https://pkg.go.dev/bufio#Writer)
 
-
 ## [`std::fs::File`](https://doc.rust-lang.org/std/fs/struct.File.html) struct
+
 - Implements [`Write`](https://doc.rust-lang.org/std/fs/struct.File.html#impl-Write-for-%26File)
 - Comparison:
     - Java: [`java.nio.file.Path`](https://docs.oracle.com/en/java/javase/18/docs/api/java.base/java/nio/file/Path.html) + methods on [`java.nio.file.Files`](https://docs.oracle.com/en/java/javase/18/docs/api/java.base/java/nio/file/Files.html)
 
-
 ## [`std::path::PathBuf`](https://doc.rust-lang.org/stable/std/path/struct.PathBuf.html)
+
 - `Ownership`: Owned
 - `Mutability`: Mutable
-- GOTCHA: [`.ends_with(...)`](https://doc.rust-lang.org/std/path/struct.Path.html#method.ends_with) doesn't include extension 
+- GOTCHA: [`.ends_with(...)`](https://doc.rust-lang.org/std/path/struct.Path.html#method.ends_with) doesn't include extension
     - Unexpected behavior compared to Go, Java, Python, ...
-    
 
 ## [`std::path::Path`](https://doc.rust-lang.org/stable/std/path/struct.Path.html)
+
 - similar to `&str`
 - `Ownership`: Borrowed
 - `Mutability`: Immutable
@@ -49,15 +50,15 @@
 - GOTCHA: [`.ends_with(...)`](https://doc.rust-lang.org/std/path/struct.Path.html#method.ends_with) doesn't include extension
     - Unexpected behavior compared to Go, Java, Python, ...
 
-
-||Immutable|Mutable|
-|---|---|---|
-|**Owned**|`String` <br/>`PathBuf` <br/>|`String` (`mut` on variable/argument) <br/>`PathBuf` (`mut` on variable/argument) <br/>|
-|**Borrowed**|`&str` <br/>`&Path` <br/>~~`&String`~~ (double pointer) <br/>~~`&PathBuf`~~ (double pointer) |`&mut PathBuf` (double pointer)|
-
+|              | Immutable                                                                                    | Mutable                                                                                 |
+|--------------|----------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------|
+| **Owned**    | `String` <br/>`PathBuf` <br/>                                                                | `String` (`mut` on variable/argument) <br/>`PathBuf` (`mut` on variable/argument) <br/> |
+| **Borrowed** | `&str` <br/>`&Path` <br/>~~`&String`~~ (double pointer) <br/>~~`&PathBuf`~~ (double pointer) | `&mut PathBuf` (double pointer)                                                         |
 
 # Patterns
+
 ## Read a file
+
 ```rust
 // -- Simple case
 let data: String = fs::read_to_string("foo.txt")?;
@@ -79,17 +80,16 @@ println!("contents: {data}");
 // file & buffer handles auto closed when they go out of scope
 ```
 
-
-
 ## Iterate lines of a string
+
 ```rust
 for line in data.lines() {
     ...
 }
 ```
 
-
 ## Append or Overwrite a file
+
 ```rust
 use std::fs::OpenOptions;
 use std::io::Write;
@@ -129,13 +129,14 @@ bw.flush()?;
 ```
 
 ## Create [Temp dir](https://doc.rust-lang.org/std/env/fn.temp_dir.html)
+
 ```rust
 let tmp_dir: PathBuf = env::temp_dir();
 ...
 ```
 
-
 ## Create [Temp file](https://docs.rs/tempfile/latest/tempfile/)
+
 ```rust
 use tempfile::NamedTempFile;
 ...
@@ -146,21 +147,21 @@ file.write_all("...".as_bytes()).unwrap();
 // file is auto-deleted when it goes out of scope
 ```
 
-
 ## Set file permissions
+
 ```rust
 //TODO: https://doc.rust-lang.org/std/fs/fn.set_permissions.html
 ```
 
-
 ## Check if file exists
+
 ```rust
 //TODO: https://doc.rust-lang.org/std/fs/fn.try_exists.html
 //TODO: https://doc.rust-lang.org/std/path/struct.Path.html#method.exists
 ``` 
 
-
 ## Check file type
+
 ```rust
 //TODO: https://doc.rust-lang.org/std/fs/struct.Metadata.html#method.is_dir
 //TODO: https://doc.rust-lang.org/std/path/struct.Path.html#method.is_dir
@@ -168,18 +169,18 @@ file.write_all("...".as_bytes()).unwrap();
 //TODO: https://doc.rust-lang.org/std/fs/struct.Metadata.html#method.is_file
 ```
 
-
 ## Get file size
+
 ```rust
 //TODO: https://doc.rust-lang.org/std/fs/struct.Metadata.html#method.len
 ```
 
-
 # Gotcha
+
 - `canonicalize` fails if path doesn't already exist
 
-
 # Other Resources
+
 1. https://rust-lang-nursery.github.io/rust-cookbook/file.html
 1. https://rust-lang-nursery.github.io/rust-cookbook/
 1. https://docs.rs/tempfile/latest/tempfile/struct.NamedTempFile.html

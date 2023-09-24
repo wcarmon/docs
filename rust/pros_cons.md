@@ -1,9 +1,10 @@
 # Overview
+
 1. Things that are excellent about Rust
 1. Things that are terrible about Rust
 
-
 # Good news
+
 1. Light runtime memory usage
     1. compare to java, go, python, c#, vb, ruby, php, ...
     1. On par with C & C++
@@ -33,8 +34,8 @@
 1. [Feature flags](https://doc.rust-lang.org/cargo/reference/features.html) are excellent
 1. Rich enums (compare to Go)
 
-
 # Bad news
+
 1. Slow builds (Compared to Go, Java, TS, ...)
 1. Syntax is dense, especially with lifetimes
 1. "Sometimes" file-names and module-names are associated (eg `mod foo` must be in `foo.rs`)
@@ -53,7 +54,7 @@
     1. Many popular libs don't value simplicity (Compare to Go & Python ecosystems)
         1. Increasingly, Java has this problem (eg. look at Spring Web & WebFlux)
         1. c++ has always had this problem
-    1. Generalizing collection fn arguments is hard.  eg. try to pass `Vec<PathBuf>` into a fn which accepts `&[&Path]`)
+    1. Generalizing collection fn arguments is hard. eg. try to pass `Vec<PathBuf>` into a fn which accepts `&[&Path]`)
         1. root cause: statically sized vs dynamically sized
 1. Too big to fit in your head all at once (Compared to Golang, Core Java, Core Python, ...)
     1. Better than c++ though :-)
@@ -88,10 +89,10 @@
     1. Clion debugger cannot print `Path` nor `PathBuf`
 1. [clion](https://www.jetbrains.com/clion/) Editor
     1. Relatively slow error checker (compare to Intellij, Goland or WebStorm with eslint)
-1. [clion](https://www.jetbrains.com/clion/) Debugger 
+1. [clion](https://www.jetbrains.com/clion/) Debugger
     1. Cannot help you debug `Trait` implementations
         1. Compare with debugging golang, java, ... interface implementations
-    1. Cannot print strings sometimes (eg. alias a type to a string)    
+    1. Cannot print strings sometimes (eg. alias a type to a string)
     1. Cannot pretty print `Path` and `PathBuf` variables
 1. popular url lib is non-standard
     1. https://github.com/servo/rust-url/issues/808
