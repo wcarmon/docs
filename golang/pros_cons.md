@@ -73,8 +73,9 @@
 1. `big.Float` is hard to use correctly
     1. [setter methods tend to mutate in the interest of saving memory](https://pkg.go.dev/math/big)
     1. The API is VERY different from most of golang types
-    1. Compare to [Java BigDecimal](https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/math/BigDecimal.html#%3Cinit%3E(java.math.BigInteger)), which is sometimes verbose, but easier to use correctly
-    1. TODO: Rust
+    1. Compare to [Java BigDecimal](https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/math/BigDecimal.html#%3Cinit%3E(java.math.BigInteger)), which is equally verbose, but easier to use correctly
+    1. Rust [relies on 3rd party](https://github.com/rust-num/num) lib
+    1. C++ [relies on 3rd party](https://gmplib.org/) lib
     1. Mitigate: Learn from [this abandoned library](https://github.com/sdcoffey/big)   
     1. Requires extra **manual** coding discipline (eg. always create a new big.Float or be careful about reuse)
 1. Enums cannot have properties
