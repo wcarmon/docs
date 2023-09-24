@@ -1,23 +1,37 @@
 # Overview
+
 1. Things that are excellent about Golang
 1. Things that are terrible about Golang
 
-
 # Good news
-1. Simple concurrency (compare to java, Python, c, c++, js/ts, php)
-1. Optimized for readers (compare to rust, c++, c, java, js, ts, ruby, php, Python, perl, etc)
+
+1. Optimized for readers
+    1. Expressive, but more concise than rust, c++, c, java, ts
+    1. Less ways to do things than other languages (eg. loops)
+    1. Roughly as concise, but easier to refactor & comprehend than unfamiliar Python, js, ruby, php, perl, etc
 1. [defer](https://go.dev/tour/flowcontrol/12)
 1. Fast builds (compare to java, c++, rust, ...)
-1. Implicit interface implementation
-   1. Impossible in Java without reflection or hacks
-   2. Rust can get close using "Orphan rule" and default impl
-1. Light runtime memory usage (compare to java, Python, c#, vb, ruby, php, ...)
+1. Cross compilation is very easy
+    1. Same is true for Java (except maybe GraalVM) and dynamic languages like python
+    1. Partly because they built [their own linker](https://github.com/golang/go/blob/master/src/cmd/link/internal/ld/macho.go) for mac
+    1. This is mostly difficult in other languages because of xcode (part of apple's "vendor lock-in" strategy)
+        1. [Learn more](https://en.wikipedia.org/wiki/Mach-O)
+    1. Compare to c++ [via clang](https://clang.llvm.org/docs/CrossCompilation.html)
+    1. Compare to [Rust](https://wapl.es/rust/2019/02/17/rust-cross-compile-linux-to-macos.html/)
+1. Light runtime memory usage
+    1. Compare to java, Python, c#, vb, ruby, php, etc
+    1. Same for Rust, C++, C
+1. Implicit interface implementation (reduces dependencies)
+    1. Impossible in Java without reflection or hacks
+    1. Rust can get close using "Orphan rule" and default impl
 1. Multiple return values
-1. Methods can declare mutable or read-only receiver
-1. Tests only log when they fail
-
+    1. Same for Rust (as implicit [tuples](https://doc.rust-lang.org/rust-by-example/primitives/tuples.html))
+1. Methods can declare mutable (pointer) or read-only (copy) receiver
+    1. Same for Rust
+1. Tests can only log when they fail
 
 # Bad news
+
 1. Verbose error handling & error propagation
     1. Compare to [Rust](https://doc.rust-lang.org/rust-by-example/std/result/question_mark.html), [Python](https://docs.python.org/3/library/exceptions.html), [C++](https://cplusplus.com/doc/tutorial/exceptions/) or [Java](https://docs.oracle.com/javase/tutorial/essential/exceptions/index.html)
 1. [Immutability](../general/immutability.md) is hard
@@ -29,8 +43,8 @@
     1. Compare to Java [`record`](https://docs.oracle.com/en/java/javase/17/language/records.html#GUID-6699E26F-4A9B-4393-A08B-1E47D4B2D263)s or `final` class props or lombok [`@Value`](https://projectlombok.org/features/Value)
     1. Compare to Rust [`mut`](https://doc.rust-lang.org/std/keyword.mut.html)
     1. Compare to Python [`@dataclass(frozen=True, kw_only=True, slots=True)`](https://docs.python.org/3/library/dataclasses.html)
-    1. Compare to C++ (class with `private fields` and `const` getter member functions) 
-1. `struct` provides no way to enforce invariants 
+    1. Compare to C++ (class with `private fields` and `const` getter member functions)
+1. `struct` provides no way to enforce invariants
     1. compare to Java, C++, or any language with constructors
     1. Rust has same problem, but compiler can generate builder [via macro](https://docs.rs/derive_builder/latest/derive_builder/)
     1. Requires extra **manual** coding discipline
