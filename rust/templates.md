@@ -1,12 +1,15 @@
 # Overview
 
+1. Rust Template engines
 
-# [Handlebars](https://docs.rs/handlebars/latest/handlebars/)
+# Leading candidates (2023)
 
-# [Tera](https://docs.rs/tera/latest/tera/)
+## [Handlebars](https://docs.rs/handlebars/latest/handlebars/)
 
+## [Tera](https://docs.rs/tera/latest/tera/)
 
 # Rejected
+
 - ~~ammonia~~
 - ~~comrak~~
     - verbose, complex
@@ -20,4 +23,3 @@
     - html focus
 - ~~maud~~
 - ~~tinytemplate~~
-
