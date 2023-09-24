@@ -20,7 +20,7 @@
 # Bad news
 1. Verbose error handling & error propagation
     1. Compare to [Rust](https://doc.rust-lang.org/rust-by-example/std/result/question_mark.html), [Python](https://docs.python.org/3/library/exceptions.html), [C++](https://cplusplus.com/doc/tutorial/exceptions/) or [Java](https://docs.oracle.com/javase/tutorial/essential/exceptions/index.html)
-1. Immutability is hard
+1. [Immutability](../general/immutability.md) is hard
     1. Mitigate: `struct` copy is easy
     1. But struct copy "fails" when structs has pointer/reference field
     1. eg. `struct` often use `*big.Float` in finance
