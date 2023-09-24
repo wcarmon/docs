@@ -37,20 +37,18 @@
 1. `struct` fields don't support default values (compare to [Rust](https://doc.rust-lang.org/std/default/trait.Default.html), Java, C++)
     1. normally, you'd mitigate with a constructor, but Golang lacks those
     1. Requires extra **manual** coding discipline (eg. remember to invoke a defaulter or remember to set manually when not already set)
-1. `switch` statement: compiler cannot enforce exhaustive enum cases
-    1. compare to Java, Rust, etc
-    1. Requires extra **manual** coding discipline (eg. remember to add missing statements, add a default case)
 1. [atomics lack encapsulation, since you must pass raw pointer](https://pkg.go.dev/sync/atomic#AddInt64)
     1. Compare to [Java atomics](https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/util/concurrent/atomic/package-summary.html) or [Rust atomics](https://doc.rust-lang.org/std/sync/atomic/) or [c++ atomics](https://en.cppreference.com/w/cpp/atomic/atomic)
     1. Requires extra **manual** coding discipline
-1. structured concurrency is hard to use correctly
-    1. eg. when to close channels for fan-in fan-out pattern
+1. [structured concurrency](https://en.wikipedia.org/wiki/Structured_concurrency) is hard to use correctly
+    1. eg. [when to close channels](https://udhos.github.io/golang-concurrency-tricks/) for fan-in fan-out pattern, error handling, etc.
     1. Mitigate: https://pkg.go.dev/golang.org/x/sync/errgroup
     1. [Learn more](https://vorpus.org/blog/notes-on-structured-concurrency-or-go-statement-considered-harmful/)
     1. Requires extra **manual** coding discipline
-    1. Compare to [Kotlin](TODO)
-    1. Compare to [Java](TODO)
-    1. Compare to [Rust](TODO)
+    1. Compare to [Kotlin](https://kotlinlang.org/docs/coroutines-basics.html#scope-builder-and-concurrency)
+    1. Compare to [Java](https://openjdk.org/jeps/453)
+    1. Compare to [Rust](https://rust-lang.github.io/async-book/03_async_await/01_chapter.html) or [Rayon Scope](https://docs.rs/rayon/latest/rayon/fn.scope.html)
+    1. Compare to [Python's Trio](https://github.com/python-trio/trio)
 1. `big.Float` is hard to use correctly
     1. [setter methods tend to mutate in the interest of saving memory](https://pkg.go.dev/math/big)
     1. API is VERY different from most of golang
@@ -65,6 +63,9 @@
     1. Mitigate: use `map[T]bool` for "HashSet"
     1. Compare to [Rust](https://doc.rust-lang.org/std/collections/struct.HashSet.html) or [Java](https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/util/Set.html) or [c++](https://cplusplus.com/reference/unordered_set/unordered_set/)
     1. Also, no `SortedSet` either, Compare to [Java](https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/util/SortedSet.html) or [Rust](https://doc.rust-lang.org/stable/std/collections/struct.BTreeSet.html) or [C++](https://en.cppreference.com/w/cpp/container/set)
+1. `switch` statement: compiler cannot enforce **exhaustive** `enum` cases
+    1. compare to Java, Rust, etc
+    1. Requires extra **manual** coding discipline (eg. remember to add missing statements, add a default case)
 1. `switch` is not an expression
     1. Compare to [Java 17+](https://docs.oracle.com/en/java/javase/17/language/switch-expressions.html)
     1. Compare to [Rust match expression](https://doc.rust-lang.org/reference/expressions/match-expr.html)
