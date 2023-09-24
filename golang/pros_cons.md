@@ -41,14 +41,14 @@
     1. Compare to [Java atomics](https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/util/concurrent/atomic/package-summary.html) or [Rust atomics](https://doc.rust-lang.org/std/sync/atomic/) or [c++ atomics](https://en.cppreference.com/w/cpp/atomic/atomic)
     1. Requires extra **manual** coding discipline
 1. [structured concurrency](https://en.wikipedia.org/wiki/Structured_concurrency) is hard to use correctly
-    1. eg. [when to close channels](https://udhos.github.io/golang-concurrency-tricks/) for fan-in fan-out pattern, error handling, etc.
+    1. eg. [when to close channels](https://udhos.github.io/golang-concurrency-tricks/) for fan-in fan-out pattern, error handling, cancellation, timeouts, etc.
     1. Mitigate: https://pkg.go.dev/golang.org/x/sync/errgroup
     1. [Learn more](https://vorpus.org/blog/notes-on-structured-concurrency-or-go-statement-considered-harmful/)
     1. Requires extra **manual** coding discipline
     1. Compare to [Kotlin](https://kotlinlang.org/docs/coroutines-basics.html#scope-builder-and-concurrency)
     1. Compare to [Java](https://openjdk.org/jeps/453)
-    1. Compare to [Rust](https://rust-lang.github.io/async-book/03_async_await/01_chapter.html) or [Rayon Scope](https://docs.rs/rayon/latest/rayon/fn.scope.html)
     1. Compare to [Python's Trio](https://github.com/python-trio/trio)
+    1. Compare to [Rust](https://rust-lang.github.io/async-book/03_async_await/01_chapter.html) or [Rayon Scope](https://docs.rs/rayon/latest/rayon/fn.scope.html), although it's still pretty hard in Rust
 1. `big.Float` is hard to use correctly
     1. [setter methods tend to mutate in the interest of saving memory](https://pkg.go.dev/math/big)
     1. API is VERY different from most of golang
@@ -70,7 +70,7 @@
     1. Compare to [Java 17+](https://docs.oracle.com/en/java/javase/17/language/switch-expressions.html)
     1. Compare to [Rust match expression](https://doc.rust-lang.org/reference/expressions/match-expr.html)
     1. Same problem in C, C++, ...
-    1. Mitigate: use a map/dict/hashmap/ etc
+    1. Mitigate: use a map, hashmap, etc
 1. functional/stream programming is hard
     1. compare to [Java streams](https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/util/stream/Stream.html) or [rust Iterator](https://doc.rust-lang.org/std/iter/trait.Iterator.html) or JS array or [C++ algorithms](https://en.cppreference.com/w/cpp/algorithm)
     1. although performance is sometimes often better without streams
