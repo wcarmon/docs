@@ -10,19 +10,19 @@
     1. Less ways to do things than other languages (eg. loops)
     1. Roughly as concise, but easier to refactor & comprehend than unfamiliar Python, js, ruby, php, perl, etc
 1. [defer](https://go.dev/tour/flowcontrol/12) statement
-    1. Rust is about as good using implicit `drop` at the end of scope
-    1. C++ has RAII, with destruction at end of scope
+    1. Rust is about as good using [implicit `drop`](https://doc.rust-lang.org/std/ops/trait.Drop.html) at the end of scope
     1. Java has [try-with-resources](https://docs.oracle.com/javase/tutorial/essential/exceptions/tryResourceClose.html), which is almost as good, but increases [code nesting](https://miro.medium.com/v2/resize:fit:720/1*g4NuK2wpgB5hn_46bvzPmQ.png)
-1. Fast builds
-    1. Compare to java (even worse with Kotlin)
-    1. Compare to c++, rust (macro complexity, optimization complexity). Both move processing from runtime to compile-type
+    1. C++ has [RAII](https://en.cppreference.com/w/cpp/language/raii), with destruction at end of scope
+1. Very fast builds
+    1. Compare to Java (even worse with Kotlin alone or hybrid Java+Kotlin)
+    1. Compare to c++, rust (macro complexity, optimization complexity). Both move "overhead" from runtime to compile-type
 1. Cross compilation is very easy
     1. Same is true for Java (except maybe GraalVM) and dynamic languages like python
     1. Partly because they built [their own linker](https://github.com/golang/go/blob/master/src/cmd/link/internal/ld/macho.go) for mac
         1. That decision has [pros & cons](https://www.uber.com/blog/fixing-gos-linker/) too
     1. This is mostly difficult in other languages because of xcode (part of apple's "vendor lock-in" strategy)
         1. [Learn more](https://en.wikipedia.org/wiki/Mach-O)
-    1. Compare to c++ [via clang](https://clang.llvm.org/docs/CrossCompilation.html), Zip might help
+    1. Compare to c++ [via clang](https://clang.llvm.org/docs/CrossCompilation.html), [Zig might help](https://andrewkelley.me/post/zig-cc-powerful-drop-in-replacement-gcc-clang.html)
     1. Compare to [Rust](https://wapl.es/rust/2019/02/17/rust-cross-compile-linux-to-macos.html/)
 1. Light runtime memory usage
     1. Compare to java, Python, c#, vb, ruby, php, etc
@@ -85,7 +85,7 @@
     1. Compare to [Rust](https://doc.rust-lang.org/std/collections/struct.HashSet.html) or [Java](https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/util/Set.html) or [c++](https://cplusplus.com/reference/unordered_set/unordered_set/)
     1. Also, no `SortedSet` either, Compare to [Java](https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/util/SortedSet.html) or [Rust](https://doc.rust-lang.org/stable/std/collections/struct.BTreeSet.html) or [C++](https://en.cppreference.com/w/cpp/container/set)
 1. `switch` statement: compiler cannot enforce **exhaustive** `enum` cases
-    1. compare to [Java](https://docs.oracle.com/en/java/javase/17/language/switch-expressions.html), [Rust](https://rustc-dev-guide.rust-lang.org/pat-exhaustive-checking.html), etc
+    1. compare to [Java](https://docs.oracle.com/en/java/javase/17/language/switch-expressions.html), [Rust](https://rustc-dev-guide.rust-lang.org/pat-exhaustive-checking.html), [C++](https://abseil.io/tips/147),  etc
     1. Requires extra **manual** coding discipline (eg. remember to add missing statements, add a default case)
 1. `switch` is not an expression
     1. Compare to [Java 17+](https://docs.oracle.com/en/java/javase/17/language/switch-expressions.html)
