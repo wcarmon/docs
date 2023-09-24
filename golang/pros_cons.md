@@ -14,9 +14,10 @@
 1. Cross compilation is very easy
     1. Same is true for Java (except maybe GraalVM) and dynamic languages like python
     1. Partly because they built [their own linker](https://github.com/golang/go/blob/master/src/cmd/link/internal/ld/macho.go) for mac
+        1. That decision has [pros & cons](https://www.uber.com/blog/fixing-gos-linker/) too
     1. This is mostly difficult in other languages because of xcode (part of apple's "vendor lock-in" strategy)
         1. [Learn more](https://en.wikipedia.org/wiki/Mach-O)
-    1. Compare to c++ [via clang](https://clang.llvm.org/docs/CrossCompilation.html)
+    1. Compare to c++ [via clang](https://clang.llvm.org/docs/CrossCompilation.html), Zip might help
     1. Compare to [Rust](https://wapl.es/rust/2019/02/17/rust-cross-compile-linux-to-macos.html/)
 1. Light runtime memory usage
     1. Compare to java, Python, c#, vb, ruby, php, etc
@@ -78,7 +79,7 @@
     1. Compare to [Rust](https://doc.rust-lang.org/std/collections/struct.HashSet.html) or [Java](https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/util/Set.html) or [c++](https://cplusplus.com/reference/unordered_set/unordered_set/)
     1. Also, no `SortedSet` either, Compare to [Java](https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/util/SortedSet.html) or [Rust](https://doc.rust-lang.org/stable/std/collections/struct.BTreeSet.html) or [C++](https://en.cppreference.com/w/cpp/container/set)
 1. `switch` statement: compiler cannot enforce **exhaustive** `enum` cases
-    1. compare to Java, Rust, etc
+    1. compare to [Java](https://docs.oracle.com/en/java/javase/17/language/switch-expressions.html), [Rust](https://rustc-dev-guide.rust-lang.org/pat-exhaustive-checking.html), etc
     1. Requires extra **manual** coding discipline (eg. remember to add missing statements, add a default case)
 1. `switch` is not an expression
     1. Compare to [Java 17+](https://docs.oracle.com/en/java/javase/17/language/switch-expressions.html)
