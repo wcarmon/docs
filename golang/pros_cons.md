@@ -96,8 +96,8 @@
     1. Same problem in C, C++, ...
     1. Mitigate: use a map, hashmap, etc
 1. functional/stream programming is hard
-    1. compare to [Java streams](https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/util/stream/Stream.html) or [Rust Iterator](https://doc.rust-lang.org/std/iter/trait.Iterator.html) or JS array or [C++ algorithms](https://en.cppreference.com/w/cpp/algorithm)
-    1. although performance is sometimes often better without streams
+    1. compare to [Java streams](https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/util/stream/Stream.html) or [Rust Iterator](https://doc.rust-lang.org/std/iter/trait.Iterator.html) or [JS array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) or [C++ algorithms](https://en.cppreference.com/w/cpp/algorithm)
+    1. Although, performance can be faster without streams
     1. Java streams [require a special debugger](https://www.jetbrains.com/idea/guide/tips/debugging-streams/)
     1. [Golang 1.21 improved this](https://pkg.go.dev/slices)
 1. `max`/`min`/`abs` ~~functions don't work on all numeric types~~
