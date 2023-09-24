@@ -6,7 +6,7 @@
 # Good news
 
 1. Optimized for readers
-    1. Expressive, but more concise than rust, C++, c, java, ts
+    1. Expressive, but more concise than rust, C++, C, Java, Typescript
     1. Less ways to do things than other languages (eg. loops)
     1. Roughly as concise, but easier to refactor & comprehend than unfamiliar Python, js, ruby, php, perl, etc
 1. [defer](https://go.dev/tour/flowcontrol/12) statement
@@ -98,7 +98,7 @@
     1. compare to [Java streams](https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/util/stream/Stream.html) or [Rust Iterator](https://doc.rust-lang.org/std/iter/trait.Iterator.html) or JS array or [C++ algorithms](https://en.cppreference.com/w/cpp/algorithm)
     1. although performance is sometimes often better without streams
     1. Java streams [require a special debugger](https://www.jetbrains.com/idea/guide/tips/debugging-streams/)
-    1. [go 1.21 improved this](https://pkg.go.dev/slices)
+    1. [Golang 1.21 improved this](https://pkg.go.dev/slices)
 1. `max`/`min`/`abs` ~~functions don't work on all numeric types~~
     1. Fixed in 1.21 - https://tip.golang.org/ref/spec#Min_and_max
 1. ~~Sorting is unintuitive~~
