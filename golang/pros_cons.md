@@ -25,7 +25,7 @@
     1. But struct copy "fails" when structs has pointer/reference field
     1. eg. `struct` often use `*big.Float` in finance
     1. Also `*big.Float` API favors memory reuse over immutability
-    1. Requires extra manual coding discipline
+    1. Requires extra **manual** coding discipline
     1. Compare to Java [`record`](https://docs.oracle.com/en/java/javase/17/language/records.html#GUID-6699E26F-4A9B-4393-A08B-1E47D4B2D263)s or `final` class props or lombok [`@Value`](https://projectlombok.org/features/Value)
     1. Compare to Rust [`mut`](https://doc.rust-lang.org/std/keyword.mut.html)
     1. Compare to Python [`@dataclass(frozen=True, kw_only=True, slots=True)`](https://docs.python.org/3/library/dataclasses.html)
@@ -33,24 +33,30 @@
 1. `struct` provides no way to enforce invariants 
     1. compare to Java, C++, or any language with constructors
     1. Rust has same problem, but compiler can generate builder [via macro](https://docs.rs/derive_builder/latest/derive_builder/)
-    1. Requires extra manual coding discipline
+    1. Requires extra **manual** coding discipline
 1. `struct` fields don't support default values (compare to [Rust](https://doc.rust-lang.org/std/default/trait.Default.html), Java, C++)
     1. normally, you'd mitigate with a constructor, but Golang lacks those
+    1. Requires extra **manual** coding discipline (eg. remember to invoke a defaulter or remember to set manually when not already set)
 1. `switch` statement: compiler cannot enforce exhaustive enum cases
     1. compare to Java, Rust, etc
-    1. Requires extra manual coding discipline
+    1. Requires extra **manual** coding discipline (eg. remember to add missing statements, add a default case)
 1. [atomics lack encapsulation, since you must pass raw pointer](https://pkg.go.dev/sync/atomic#AddInt64)
     1. Compare to [Java atomics](https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/util/concurrent/atomic/package-summary.html) or [Rust atomics](https://doc.rust-lang.org/std/sync/atomic/) or [c++ atomics](https://en.cppreference.com/w/cpp/atomic/atomic)
-    1. Requires extra manual coding discipline
+    1. Requires extra **manual** coding discipline
 1. structured concurrency is hard to use correctly
     1. eg. when to close channels for fan-in fan-out pattern
     1. Mitigate: https://pkg.go.dev/golang.org/x/sync/errgroup
     1. [Learn more](https://vorpus.org/blog/notes-on-structured-concurrency-or-go-statement-considered-harmful/)
-    1. Requires extra manual coding discipline
+    1. Requires extra **manual** coding discipline
+    1. Compare to [Kotlin](TODO)
+    1. Compare to [Java](TODO)
+    1. Compare to [Rust](TODO)
 1. `big.Float` is hard to use correctly
     1. [setter methods tend to mutate in the interest of saving memory](https://pkg.go.dev/math/big)
     1. API is VERY different from most of golang
-    1. Requires extra manual coding discipline
+    1. Requires extra **manual** coding discipline
+    1. Compare to [Java BigDecimal](https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/math/BigDecimal.html#%3Cinit%3E(java.math.BigInteger)), which is sometimes verbose, but easier to use correctly
+    1. TODO: rust
 1. Enums cannot have properties
     1. But they can have methods
     1. Compare to [Rust enums](https://doc.rust-lang.org/book/ch06-01-defining-an-enum.html) or [Java enums](https://docs.oracle.com/javase/tutorial/java/javaOO/enum.html) or Java [sealed classes](https://docs.oracle.com/en/java/javase/20/language/sealed-classes-and-interfaces.html)
@@ -59,6 +65,11 @@
     1. Mitigate: use `map[T]bool` for "HashSet"
     1. Compare to [Rust](https://doc.rust-lang.org/std/collections/struct.HashSet.html) or [Java](https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/util/Set.html) or [c++](https://cplusplus.com/reference/unordered_set/unordered_set/)
     1. Also, no `SortedSet` either, Compare to [Java](https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/util/SortedSet.html) or [Rust](https://doc.rust-lang.org/stable/std/collections/struct.BTreeSet.html) or [C++](https://en.cppreference.com/w/cpp/container/set)
+1. `switch` is not an expression
+    1. Compare to [Java 17+](https://docs.oracle.com/en/java/javase/17/language/switch-expressions.html)
+    1. Compare to [Rust match expression](https://doc.rust-lang.org/reference/expressions/match-expr.html)
+    1. Same problem in C, C++, ...
+    1. Mitigate: use a map/dict/hashmap/ etc
 1. functional/stream programming is hard
     1. compare to [Java streams](https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/util/stream/Stream.html) or [rust Iterator](https://doc.rust-lang.org/std/iter/trait.Iterator.html) or JS array or [C++ algorithms](https://en.cppreference.com/w/cpp/algorithm)
     1. although performance is sometimes often better without streams
@@ -68,7 +79,3 @@
     1. Fixed in 1.21 - https://tip.golang.org/ref/spec#Min_and_max
 1. ~~Sorting is unintuitive~~
     1. Fixed in 1.21 - https://pkg.go.dev/slices#Sort
-
-
-# Other Resources
-1. TODO
