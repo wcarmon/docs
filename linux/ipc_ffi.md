@@ -11,9 +11,10 @@
 |Same host, Different [process](https://en.wikipedia.org/wiki/Process_(computing))|[gRPC](https://grpc.io/) over [UDS](https://en.wikipedia.org/wiki/Unix_domain_socket) or <br/> [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) over [UDS](https://en.wikipedia.org/wiki/Unix_domain_socket) or <br/>shared local [File System](https://en.wikipedia.org/wiki/File_system)|
 |Different host (implies different process)|[gRPC](https://grpc.io/) over [HTTP/2](https://en.wikipedia.org/wiki/HTTP/2) or <br/>[REST](https://en.wikipedia.org/wiki/Representational_state_transfer) over [HTTP/2](https://en.wikipedia.org/wiki/HTTP/2)|
 
-
 --------
+
 # [FFI](https://en.wikipedia.org/wiki/Foreign_function_interface)
+
 1. Garbage collected languages are better for calling foreign functions. (eg. Go, Java, Kotlin, Python, Dart, Typescript, Javascript, C#, Ruby, ...)
 1. Non-garbage collected languages are better for exporting foreign functions. (eg. C, Rust, C++, ...)
 1. Library formats
@@ -22,6 +23,7 @@
     1. **windows**: Dynamic/Shared lib: [`.dll`](https://docs.microsoft.com/en-us/troubleshoot/windows-client/deployment/dynamic-link-library), Static lib: [`.lib`](TODO)
 
 ## Exporting
+
 1. Rust:
     1. [Official docs](https://doc.rust-lang.org/nomicon/ffi.html#calling-rust-code-from-c)
     1. Example:
@@ -38,6 +40,7 @@
     ```
 
 ## Calling foreign functions
+
 1. Dart:
     1. [Official docs](https://dart.dev/guides/libraries/c-interop)
     1. Generator: [`ffigen`](https://pub.dev/packages/ffigen)
@@ -61,9 +64,10 @@
     }
     ```
 
-
 --------
+
 # Shared memory
+
 1. `Domain`: same host machine
 1. `Impl`: Kernel places page-table entries in in each process point to same RAM pages
 1. `Read`: Reads are non-destructive (i.e. can be read multiple times)
@@ -74,8 +78,8 @@
 1. `Sync`: synchronization requirement can offset speed advantage over other IPC mechanisms
 1. `Sync`: Use a semaphore to synchronize access to shared memory
 
-
 ## POSIX Shared memory
+
 1. `Header`: [`sys/mman.h`](TODO)
 1. `Reference`: IPC pathname? TODO
 1. `Reference`: file descriptor (TODO: more here)
@@ -83,25 +87,26 @@
 1. `Name`: 255 chars max
 1. `Linking`: requires [`librt`](TODO)
 
-
 ## ~~System V Shared memory~~ (legacy)
+
 1. Similar to above
 
 ## Memory Mapped file
+
 1. `IO`: any store to the mapped file segment results in implicit I/O
 1. `Lifetime`: lives in file system, across system reboots
 1. `Lifetime`: must be explicitly deleted
 1. `Reference`: pathname or file descriptor
 1. `Tradeoffs`: https://en.wikipedia.org/wiki/Memory-mapped_file#Drawbacks
 
-
 ## Fileless Memory Mapping
+
 1. TODO
 
-
-
 --------
+
 # Net (Sockets)
+
 1. `Access`: determined by file permissions
 1. `Domain`: Sockets are the ONLY option for IPC across host machines
 1. `Lifetime`: Both sender and receiver need a Socket (Server binds to known address/name)
@@ -110,8 +115,8 @@
 1. `Connection`: Operate in pairs
 1. `Def`: AF == [Address Family](https://man7.org/linux/man-pages/man7/address_families.7.html) == Domain
 
-
 ## ~~Datagram~~
+
 1. eg. [UDP](TODO) - OSI Layer 4
 1. `Delim`: Delimited messages
 1. `Delim`: Message boundaries preserved
@@ -120,8 +125,8 @@
 1. `Reliability`:  duplicated, or no-delivery possible
 1. `Reliability`: delivery NOT guaranteed/reliable
 
-
 ## Unix Domain Socket (non-networked)
+
 1. `Domain`: communication on same host machine
 1. `Languages`: C: [`sockaddr_un`](https://man7.org/linux/man-pages/man7/unix.7.html#DESCRIPTION)
 1. `Languages`: C#: [`UnixDomainSocketEndPoint`](https://docs.microsoft.com/en-us/dotnet/api/system.net.sockets.unixdomainsocketendpoint?view=net-6.0)
@@ -166,8 +171,8 @@
 1. `Speed`: faster than Internet domain sockets
 1. `Examples`: PostgreSQL, docker, MySQL, MariaDB
 
-
 ## Internet Domain Socket / TCP (networked)
+
 1. `Concept`: IP layer adds IP address header (connectionless, unreliable)
 1. `Concept`: TCP layer adds ports, sequence #, ack, checksums, flow-control, congestion-control, ... headers
 1. `Domain`: same or different host machines
@@ -176,8 +181,8 @@
 1. `Security`: handled in higher-level protocol
 1. `Speed`: TCP ([OSI Layer 4](https://en.wikipedia.org/wiki/Transport_layer)) and IP ([OSI Layer 3](https://en.wikipedia.org/wiki/Network_layer)) are in kernel space
 
-
 ## WebSockets
+
 1. [RFC 6455](https://datatracker.ietf.org/doc/html/rfc6455)
 1. `Reach`: Not nearly as well supported as REST or gRPC
 1. `Reach`: Better support in browser than gRPC (Chrome 4+, Firefox 11+, Edge 12+, IE 10+)
@@ -192,22 +197,23 @@
 1. `Pros`: might be better than gRPC or REST when server data keeps changing
 1. Multiplexed (just like gRPC)
 
-
 --------
+
 # Local Data transfer (Non-socket)
+
 1. `Direction`: One direction
 1. `Read`: Readers block until data available
 1. `Speed`: Requires copying data twice between user-space and kernel-space
 1. `Sync`: reader/writer synchronization is not required (automatic, by kernel)
 
-
 ## FIFO == Named Pipe
+
 1. `Access`: determined by file permissions
 1. `Compatible` with epoll (simultaneous monitoring of multiple file descriptors)
 1. `Concept`: data queues with file names
 1. `Delim`: Undelimited byte stream
 1. `Delim`: use delim chars, message headers containing length or fixed-length messages
-1. `Domain`: same host machine  TODO: even more restrictive than this
+1. `Domain`: same host machine TODO: even more restrictive than this
 1. `Lifetime`: FIFO is dropped when no process has it open
 1. `Lifetime`: name/identifier lives in file system
 1. `Priority`: roll your own
@@ -215,8 +221,8 @@
 1. `Reference`: named in a directory
 1. `Reference`: Use pathname or file descriptor
 
-
 ## Pipe (Anonymous)
+
 1. `Concept`: anonymous data queues
 1. `Delim`: framing challenges, messages can be intermingled
 1. `Delim`: Undelimited byte stream
@@ -225,8 +231,8 @@
 1. `Read`: reads are destructive
 1. `Reference`: Use file descriptor to reference
 
-
 ## POSIX Message Queues
+
 1. `API`: [`mq_open`](TODO), [`mq_close`](TODO), [`mq_send`](TODO), [`mq_receive`](TODO)
 1. `Async`: allows async notification
 1. `Delim`: Delimited messages
@@ -245,16 +251,18 @@
 1. `Reference`: IPC pathname? TODO
 1. `Reference`: message queue descriptor is per-process (same as file-descriptors)
 
-
 ## ~~System V Message Queues~~ (legacy)
+
 1. Similar to newer POSIX message queues
 
-
 --------
+
 # Synchronization
+
 1. Required for shared memory coordination
 
 ## File lock
+
 1. Coordinates access to a single file
 1. 2-types:
     1. Read lock (shared, multiple readers)
@@ -263,8 +271,8 @@
 1. see [`fcntl`](https://man7.org/linux/man-pages/man2/fcntl.2.html)
 1. `Access`: access to lock requires read access to file
 
-
 ## POSIX semaphores (named)
+
 1. `API`: [`sem_open`](TODO), [`sem_close`](TODO), [`sem_post`](TODO), [`sem_wait`](TODO)
 1. `Header`: [`semaphore.h`](TODO)
 1. `Header`: [`sys/mman.h`](https://man7.org/linux/man-pages/man0/semaphore.h.0p.html)
@@ -275,20 +283,22 @@
 1. `Reference`: IPC pathname? TODO
 1. `Useful` for coordinating access to shared memory
 
-
 ## ~~System V semaphores~~ (legacy)
+
 1. similar to above
 
-
 --------
+
 # Small notifications
 
 ## Signals
+
 1. TODO
 
-
 --------
+
 # Other Resources
+
 1. https://docs.oracle.com/cd/E19504-01/802-5882/6i9k22elq/index.html
 1. https://www.softprayog.in/programming/interprocess-communication-using-posix-shared-memory-in-linux
 1. https://opensource.com/article/19/4/interprocess-communication-linux-storage

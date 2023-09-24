@@ -1,21 +1,24 @@
 # Overview
+
 1. How to remap keys
 1. How to use linux/windows keyboard with MacOS
 1. Challenges of remapping keys
 
-
 # Linux/windows keyboard on mac machine
+
 ## Keys worth remapping
+
 1. Matching physical order relative to space bar
 
-|windows Keyboard Button|Default Behavior|Desired behavior (based on location)|
-|---|---|---|
-|`ALT`|`option` (⌥) button|`command` (⌘)|
-|`CTRL`|`control` (⌃) button|`option` (⌥)|
-|`windows`|`command` (⌘) button|`control` (⌃)|
-|`Insert`|Help button|TODO|
+| windows Keyboard Button | Default Behavior     | Desired behavior (based on location) |
+|-------------------------|----------------------|--------------------------------------|
+| `ALT`                   | `option` (⌥) button  | `command` (⌘)                        |
+| `CTRL`                  | `control` (⌃) button | `option` (⌥)                         |
+| `windows`               | `command` (⌘) button | `control` (⌃)                        |
+| `Insert`                | Help button          | TODO                                 |
 
 ## Keys which are (roughly) the same location and functionality
+
 1. `enter` button -> `return` (⏎)
 1. `esc` button
 1. `shift` button (⇧)
@@ -23,12 +26,14 @@
 1. `Backspace` -> `delete` (⌫)
 1. `Delete` -> `delete` (Fn + ⌫)
 
-
 # Remapping MacOS keys
+
 1. Most cross platform apps have OS specific key maps (eg. Chrome, IDEA, Outlook, ...)
 
 ## Steps: Via command line
+
 1. Get relevant [keycodes](https://www.freebsddiary.org/APC/usb_hid_usages.php)
+
 ```
 readonly DEFAULT_MAC_KEYBOARD_CONTROL=0x7000000e0;
 readonly DEFAULT_MAC_KEYBOARD_DELETE=0x70000002a;
@@ -54,10 +59,12 @@ readonly DEFAULT_WIN_KEYBOARD_RIGHT_ALT=0x7000000e6;
 readonly DEFAULT_WIN_KEYBOARD_RIGHT_CTRL=0x7000000e4;
 readonly DEFAULT_WIN_KEYBOARD_RIGHT_SHIFT=0x7000000e5;
 ```
+
 2. Get keyboard `Product id`
     1. Apple icon > `About This Mac` > `System Report` button > `Hardware` > `USB` > ...
     1. or `hidutil list | grep -i microso` (or some unique string to identify your keyboad)
         1. See the **2nd** column
+
 ```sh
 PRODUCT_ID_FOR_WIN_KEYBOARD=0x07a5;
 
@@ -104,11 +111,13 @@ hidutil property \
 ```
 
 ### Verify
+
 ```sh
 hidutil property \
 --matching "{\"ProductID\":$PRODUCT_ID_FOR_WIN_KEYBOARD}" \
 --get "UserKeyMapping";
 ```
+
 1. `ALT+CTRL+?`: TODO
 1. `ALT+SHIFT+?`: TODO
 1. `ALT+Tab`: switch window
@@ -120,8 +129,8 @@ hidutil property \
 1. TODO: Quit an app
 1. TODO: Spotlight
 
-
 ### Reset/Undo
+
 ```sh
 # -- Reset just one keyboard
 hidutil property \
@@ -131,27 +140,29 @@ hidutil property \
 # -- Reset all keyboards
 hidutil property --set '{"UserKeyMapping":[]}';
 ```
+
 - *or just restart the machine*
 
-
 # Disable greek letters for option key
+
 1. `System Preferences` > `Keyboard` > `Input Sources` Tab
 1. click `+` at bottom left
 1. add and select `Other` > `Unicode Hex Input`
 1. In top menu, on right, change input source to `U+`
 
-
 # Other keyboard settings
+
 1. `System Preferences` > `Keyboard` > `Text` tab
     1. uncheck `Use smart quotes and dashes`
     1. remove any replacements
 
 # Disable VoiceOver
+
 1. `System Preferences` > `Keyboard` > `Shortcuts` > `Accessibility` > `Turn VoiceOver on or off`
     1. Conflicts with some jetbrains shortcuts
 
-
 # Other Resources
+
 1. https://9to5mac.com/2016/03/17/how-to-remap-windows-keyboard-buttons-match-mac-layout/
 1. https://www.lifewire.com/what-are-windows-keyboard-equivalents-to-mac-2260203
 1. https://defkey.com/what-means
@@ -162,9 +173,10 @@ hidutil property --set '{"UserKeyMapping":[]}';
 1. https://developer.apple.com/library/archive/technotes/tn2450/_index.html
 1. https://rakhesh.com/mac/using-hidutil-to-map-macos-keyboard-keys/
 
-
 --------
+
 # TODO: organize
+
 - `~/Library/LaunchAgents/local.hidutilKeyMapping.plist`
 - `launchctl load`
 - IOHIDKeyboardFilter

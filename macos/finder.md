@@ -1,6 +1,6 @@
 # Overview
-1. Making finder more developer friendly
 
+1. Making finder more developer friendly
 
 # Library dir, Path in title, Hidden dirs
 
@@ -19,23 +19,25 @@ killall Dock;
 killall Finder;
 ```
 
-
 # Exposing `~/Library` directory
+
 1. Most apps try to hide `~/Library`
 1. Create a symlink so can always access:
+
 ```sh
 ln -s ~/Library ~/lib;
 ```
-1. Alternative: Use: `command` + `shift` + dot
 
+1. Alternative: Use: `command` + `shift` + dot
 
 # Open file dialog
 
 ## Show hidden directories (like ~/Library)
+
 1. `command` + `shift` + dot == `⌘ ⇧ .`
 
 ## Paste url into open dialog
-- `command` + `shift` + `g` == `⌘ ⇧ g`
 
+- `command` + `shift` + `g` == `⌘ ⇧ g`
 
 # Other Resources

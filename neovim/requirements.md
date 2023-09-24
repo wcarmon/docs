@@ -1,4 +1,5 @@
 # High priority
+
 1. Completion: copilot
 1. Completion: line completion
 1. Completion: live-template
@@ -35,8 +36,8 @@
 1. View: Show semantic file structure (CTRL+F12)
 1. View: Split editor horizontally (move current file to new tab) (ALT+S)
 
-
 # Medium priority
+
 1. Completion: Add trait/interface implementation
 1. Conf: exclude some types from auto-import
 1. Debug: Step into
@@ -73,6 +74,7 @@
 1. View: see list of problems/errors to fix (from static analysis)
 
 # Low priority
+
 1. Completion: generate getters
 1. Completion: tabnine
 1. Edit: Reformat all files in directory

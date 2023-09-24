@@ -1,9 +1,10 @@
 # Overview
+
 1. Summary of Jenkins pipeline file syntax
 1. (unfortunately) uses Groovy DSL
 
-
 # Concepts
+
 1. [`pipeline`](https://www.jenkins.io/doc/book/pipeline/syntax/#declarative-pipeline): user-defined model of CI/CD, describes entire build process (DSL based)
 1. [`node`](https://www.jenkins.io/doc/book/pipeline/syntax/#flow-control): a jenkins machine, which executes pipeline (scripting/code based)
 1. [`stage`](https://www.jenkins.io/doc/book/pipeline/syntax/#stage): distinct subset of tasks, shows visually on status page, timed
@@ -14,10 +15,10 @@
 1. `matrix`: ?
 1. `stages`: sequential (not parallel)
 
-
 # Valid syntax
 
 ## Pipeline (Top-level only)
+
 - `pipeline.agent`
 - `pipeline.agent.node`
 - [`pipeline.environment`](https://www.jenkins.io/doc/book/pipeline/syntax/#environment)
@@ -53,14 +54,14 @@
 - [`pipeline.triggers`](https://www.jenkins.io/doc/book/pipeline/syntax/#triggers)
 - [`pipeline.tools`](https://www.jenkins.io/doc/book/pipeline/syntax/#tools)
 
-
 ## Node (Top-level only)
+
 - `node.stage[i]`
 - `node.stage[i]`.`if ...`
 - `node.stage[i]`.`try... catch ... finally ...`
 
-
 ## Stage
+
 - [`stage.agent`](https://www.jenkins.io/doc/book/pipeline/syntax/#agent)
 - [`stage.agent.docker`](https://www.jenkins.io/doc/book/pipeline/syntax/#agent-parameters)
 - [`stage.agent.label`](https://www.jenkins.io/doc/book/pipeline/syntax/#agent-parameters)
@@ -100,8 +101,8 @@
 - [`stage.when.expression`](https://www.jenkins.io/doc/book/pipeline/syntax/#built-in-conditions)
 - `stage.{exactly one of: steps | stages | parallel | matrix}`
 
-
 ## Matrix
+
 - `matrix.agent.label`
 - `matrix.axes.axis[i].name`
 - `matrix.axes.axis[i].values`
@@ -115,12 +116,12 @@
 - `matrix.when.anyOf`
 - `matrix.when.anyOf.expression[i]`
 
-
 # Other
+
 1. The `Jenkinsfile` auto updates the stored job config
 
-
 # Other Resources
+
 1. https://www.jenkins.io/doc/book/pipeline/syntax/
 1. https://github.com/cherkavi/cheat-sheet/blob/master/jenkins.md
 1. https://github.com/jenkinsci/pipeline-examples/blob/master/declarative-examples/jenkinsfile-examples/mavenDocker.groovy

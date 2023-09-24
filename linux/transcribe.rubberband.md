@@ -1,13 +1,15 @@
 # Overview
+
 - How to transcribe music via [rubberband](https://breakfastquay.com/rubberband/) and [ffmpeg](https://ffmpeg.org/)
 
-
 # Setup
+
 ```bash
 sudo apt-get install -y rubberband-cli ffmpeg;
 ```
 
 # Transcribe
+
 ```bash
 
 # ---------------------------------------------
@@ -51,13 +53,14 @@ echo
 echo "|-- See ${DEST}"
 ```
 
-
 # Slow-down
+
 ```bash
 # TODO: --tempo
 ```
 
 # Other resources
+
 1. https://manpages.debian.org/unstable/rubberband-cli/rubberband.1.en.html
 1. https://breakfastquay.com/rubberband/
 1. https://pypi.org/project/rubberband/

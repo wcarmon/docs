@@ -1,8 +1,9 @@
 # Overview
+
 1. Frequently used developer apps installable via [brew](TODO)
 
-
 # Utils to install
+
 ```bash
 brew install ag;
 brew install awscli;
@@ -20,13 +21,13 @@ brew install bash-completion;
 # [[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"
 ```
 
-
 # GUI utils to install
+
 ```bash
 brew install drawio --cask;
 brew install gimp --cask;
 ```
 
-
 # Other Resources
+
 1. TODO
