@@ -1,9 +1,10 @@
 # Overview
-1. How to partially deserialize JSON with [Jackson](https://github.com/FasterXML/jackson) 
+
+1. How to partially deserialize JSON with [Jackson](https://github.com/FasterXML/jackson)
     - eg. To retain some raw nested JSON
 
+# Step-1: Make a class to hold indexes of the original JSON
 
-# Step-1: Make a class to hold indexes of the original JSON 
 ```java
 @Value
 public class RawJSONIndexes {
@@ -25,8 +26,8 @@ public class RawJSONIndexes {
 }
 ```
 
-
 # Step-2: Make a custom [Deserializer](https://javadoc.io/doc/com.fasterxml.jackson.core/jackson-databind/2.14.2/com/fasterxml/jackson/databind/JsonDeserializer.html)
+
 ```java
 public final class RawJSONDeserializer extends JsonDeserializer<RawJSONIndexes> {
 
@@ -50,8 +51,8 @@ public final class RawJSONDeserializer extends JsonDeserializer<RawJSONIndexes> 
 }
 ```
 
-
 # Step-3: Register your custom [Deserializer](https://javadoc.io/doc/com.fasterxml.jackson.core/jackson-databind/2.14.2/com/fasterxml/jackson/databind/JsonDeserializer.html)
+
 ```java
     ObjectMapper mapperForRawJSON = ... // get from Dependency Injection or clone another ObjectMapper
 
@@ -63,8 +64,8 @@ public final class RawJSONDeserializer extends JsonDeserializer<RawJSONIndexes> 
     mapperForRawJSON.registerModule(module);
 ```
 
-
 # Step-4: Make some dummy JSON to test
+
 ```java
     // Add extra spaces, line breaks, inconsistent spacing, ... to prove the output wasn't auto-cleaned
     // NOTE: Nested objects and arrays also work
@@ -80,6 +81,7 @@ public final class RawJSONDeserializer extends JsonDeserializer<RawJSONIndexes> 
 ```
 
 # Step-5: Parse & Use the partially deserialized JSON
+
 ```java
     Map<String, List<RawJSONIndexes>> parsed =
         mapperForRawJSON.readValue(
@@ -96,8 +98,8 @@ public final class RawJSONDeserializer extends JsonDeserializer<RawJSONIndexes> 
         });
 ```
 
-
 # Other resources
+
 1. https://www.javadoc.io/doc/com.fasterxml.jackson.core/jackson-core/2.14.2/com/fasterxml/jackson/core/JsonParser.html
 1. https://javadoc.io/doc/com.fasterxml.jackson.core/jackson-databind/2.14.2/com/fasterxml/jackson/databind/JsonDeserializer.html
 1. https://docs.oracle.com/en/java/javase/14/docs/specs/text-blocks-jls.html

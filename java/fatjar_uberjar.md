@@ -1,8 +1,9 @@
 # Overview
+
 1. How to make a [fat-jar, uber-jar, shaded-jar](https://imagej.net/develop/uber-jars)
 
-
 # `build.gradle.kts` snippet
+
 ```kts
 import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
 ...
@@ -99,6 +100,6 @@ tasks.withType<ShadowJar>() {
 }
 ```
 
-
 # Other resources
+
 1. TODO

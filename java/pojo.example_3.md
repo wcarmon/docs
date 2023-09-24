@@ -1,10 +1,12 @@
 # Overview
+
 1. Example of "idiomatic", Lombok, Java 8-17 POJO
 1. See also, [detailed explanation](./pojos.lombok.java8_17.md)
 1. See also, [Jackson ready lombok POJO example](./pojo.example_4.md)
 1. See also, [core Java POJO examples](./pojos.core.java8_17.md)
 
 # POJO Example
+
 ```java
 /**
  * TODO: add a BRIEF description of purpose
@@ -56,6 +58,7 @@ public class Employee {
 ```
 
 # Usage Example
+
 ```java
     Employee wil = Employee.newBuilder()
       .age(35)

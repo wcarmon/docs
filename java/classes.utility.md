@@ -1,12 +1,14 @@
 # Overview
+
 1. How to build a proper utility class in Java 8+
 
-
 # **Item-0480**: Don't reinvent the wheel
+
 1. You are probably reinventing the wheel :-)
 1. Verify [Core Java](https://docs.oracle.com/en/java/javase/11/docs/api/), [Apache Commons](https://commons.apache.org/), [Guava](https://javadoc.io/doc/com.google.guava/guava/latest/index.html) & [Spring](https://docs.spring.io/spring-framework/docs/current/javadoc-api/) lack what you're building
 
 ## Core Java
+
 1. [`Arrays`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Arrays.html)
 1. [`Base64`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Base64.html)
 1. [`Collections`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Collections.html)
@@ -19,8 +21,8 @@
 1. [`Spliterators`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Spliterators.html)
 1. [`TimeUnit`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/TimeUnit.html)
 
-
 ## Apache Commons
+
 1. [`ArithmeticUtils`](https://commons.apache.org/proper/commons-math/javadocs/api-3.6.1/org/apache/commons/math3/util/ArithmeticUtils.html)
 1. [`BagUtils`](https://commons.apache.org/proper/commons-collections/javadocs/api-4.4/org/apache/commons/collections4/BagUtils.html)
 1. [`BeanUtils`](https://commons.apache.org/proper/commons-beanutils/javadocs/v1.9.4/apidocs/org/apache/commons/beanutils/BeanUtils.html)
@@ -51,6 +53,7 @@
 1. [`WordUtils`](https://commons.apache.org/proper/commons-text/apidocs/org/apache/commons/text/WordUtils.html)
 
 ## Guava
+
 1. [`Atomics`](https://javadoc.io/static/com.google.guava/guava/31.0.1-jre/com/google/common/util/concurrent/Atomics.html)
 1. [`Booleans`](https://javadoc.io/static/com.google.guava/guava/31.0.1-jre/com/google/common/primitives/Booleans.html)
 1. [`ByteStreams`](https://javadoc.io/static/com.google.guava/guava/31.0.1-jre/com/google/common/io/ByteStreams.html)
@@ -85,6 +88,7 @@
 1. [`UrlEscapers`](https://javadoc.io/static/com.google.guava/guava/31.0.1-jre/com/google/common/net/UrlEscapers.html)
 
 ## Spring (Prefer Apache Commons & Guava over Spring utils)
+
 1. [`AnnotationUtils`](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/core/annotation/AnnotationUtils.html)
 1. [`Base64Utils`](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/util/Base64Utils.html)
 1. [`BeanUtils`](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/BeanUtils.html)
@@ -98,21 +102,23 @@
 1. [`UriUtils`](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/util/UriUtils.html)
 1. [`ValidationUtils`](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/validation/ValidationUtils.html)
 
-
-
 # **Item-0482**: Javadoc
+
 1. Add **brief** javadoc, with a summary of purpose
 1. Document who is responsible for closing resources (like [IO Streams](https://docs.oracle.com/javase/tutorial/essential/io/streams.html))
     1. `Caller is responsible` or `callee is responsible`
 
 # **Item-0483**: Final
+
 1. Mark the utility class `final`
 
 # **Item-0484**: Stateless
+
 1. No instance properties on the utility class
     1. `static final` constants are acceptable (at top of file)
 
 # **Item-0485**: Naming
+
 1. Package name: ends with `.util;` (Eg. `com.abc.util`)
 1. Class name: ends with `Utils` (eg. see Apache commons examples above)
     1. Core Java & [Guava](https://github.com/google/guava) tend to name utils after a Type (eg. `Foos` contains methods to simplify using `Foo`)
@@ -120,28 +126,30 @@
     1. Avoid naming collisions by using the `Utils` suffix (and not reinventing the wheel)
 
 # **Item-0486**: Constructor
+
 1. `private` constructor
 1. Exactly one constructor
 1. constructor accepts zero arguments
 
-
 # **Item-0487**: Methods
+
 1. **Length**: Less than 75-lines per method
 1. **Args**: Add [Preconditions](./preconditions.md) on method args (unless they are nullable)
 1. All methods must be `static`
 1. Use method signatures consistent with other popular utilities (Apache Commons, Guava, ...)
 1. Ensure all methods are Stateless
 1. Ensure all methods are [threadsafe](https://en.wikipedia.org/wiki/Thread_safety)
-1. Three arguments max.  Accept a POJO if you need mor args.
+1. Three arguments max. Accept a POJO if you need mor args.
 1. Never mutate method Arguments
 
-
 # **Item-0488**: Tests
+
 1. Add "enough" tests to exercise both positive and negative cases
 
-
 --------
+
 # TODO: Find a home for these
+
 - Lenient in args, Strict on output
 - Use modern types
 - no hard coded dates, pass clock

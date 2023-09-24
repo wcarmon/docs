@@ -1,8 +1,9 @@
 # Overview
+
 1. How to standup [Javalin](https://javalin.io/) server quickly
 
-
 # build.gradle.kts
+
 ```kts
 dependencies {
 
@@ -12,11 +13,12 @@ dependencies {
 }
 ```
 
-
 # Routes
+
 - [Handler info](https://javadoc.io/doc/io.javalin/javalin/latest/io/javalin/http/Handler.html)
 - [Route info](https://javadoc.io/doc/io.javalin/javalin/latest/io/javalin/apibuilder/ApiBuilder.html)
 - [server config info](https://javadoc.io/doc/io.javalin/javalin/latest/io/javalin/config/JavalinConfig.html)
+
 ```java
 @Provides
 @Singleton
@@ -41,8 +43,8 @@ public Javalin javalin(
 }
 ```
 
-
 # main method
+
 ```java
 
 public static void main(String... args) {
@@ -54,11 +56,12 @@ public static void main(String... args) {
 ```
 
 # Interceptors
+
 1. TODO: Auth
 1. TODO: logging
 1. TODO: global error handler
 1. TODO: tracing propagation
 
-
 # Other resources
+
 1. TODO

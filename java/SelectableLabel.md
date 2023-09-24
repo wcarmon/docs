@@ -1,9 +1,10 @@
 # Overview
+
 1. Users cannot select text on a [JavaFx Label](https://openjfx.io/javadoc/20/javafx.controls/javafx/scene/control/Label.html)
 1. Solution below
 
-
 # Example SelectableLabel class
+
 ```java
 /**
  * Behaves like a javafx.scene.control.Label, but user can select text.
@@ -39,7 +40,7 @@ public class SelectableLabel extends TextField {
 }
 ```
 
-
 # Other resources
+
 1. https://openjfx.io/javadoc/19/javafx.graphics/javafx/scene/doc-files/cssref.html
 1. https://github.com/openjdk/jfx/blob/jfx20/modules/javafx.controls/src/main/resources/com/sun/javafx/scene/control/skin/caspian/caspian.css

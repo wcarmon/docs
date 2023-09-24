@@ -1,8 +1,9 @@
 # Overview
+
 1. How to debug Java compiler & Annotation processor
 
-
 # Run compiler via IDEA
+
 1. Enable `Debug Build Process`
 1. File | Settings | Build, Execution, Deployment | Build Tools | Gradle
     1. Build and run using: `IDEA`
@@ -15,6 +16,7 @@
     1. eg. `lombok.launch.AnnotationProcessorHider.AnnotationProcessor::init`
 1. Build (`CTRL`+`F9`)
     1. The console shows a message like:
+
 ```
 Executing pre-compile tasks…
 Build: waiting for debugger connection on port 44355

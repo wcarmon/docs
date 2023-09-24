@@ -1,19 +1,22 @@
 # Overview
+
 1. How to setup [logback](https://logback.qos.ch/) for [slf4j](https://www.slf4j.org/)
 1. See alternaive: [log4j2 doc](log4j2.md) doc
 
-
 # Concept
-1. API: [slf4j](https://www.slf4j.org/apidocs/org/slf4j/Logger.html)
-1. Implementation: [logback](https://logback.qos.ch/) 
-    1. [`Appender`](https://logback.qos.ch/apidocs/ch/qos/logback/core/AppenderBase.html) 
 
+1. API: [slf4j](https://www.slf4j.org/apidocs/org/slf4j/Logger.html)
+1. Implementation: [logback](https://logback.qos.ch/)
+    1. [`Appender`](https://logback.qos.ch/apidocs/ch/qos/logback/core/AppenderBase.html)
 
 # Example [`logback.xml`](https://logback.qos.ch/manual/configuration.html) config
+
 1. [Official docs](https://logback.qos.ch/manual/configuration.html)
 1. Store app log config at `src/main/resources/logback.xml`
     1. Store Test log configuration at `src/test/resources/logback-test.xml`
+
 ```xml
+
 <configuration>
 
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
@@ -35,12 +38,13 @@
 
 </configuration>
 ```
+
 - For layouts: see [pattern](https://logback.qos.ch/manual/layouts.html#ClassicPatternLayout), ...
 - JSON layout requires extra (abandonware) dependencies (like [`ch.qos.logback.contrib:logback-json-classic`](https://mvnrepository.com/artifact/ch.qos.logback.contrib/logback-json-classic/0.1.5), [`ch.qos.logback.contrib:logback-jackson`](https://mvnrepository.com/artifact/ch.qos.logback.contrib/logback-jackson/0.1.5), ...)
     - last updated in 2016 (abandonware)
 
-
 # `build.gradle.kts` snippet
+
 ```kts
 dependencies {
     // -- For the API
@@ -84,8 +88,8 @@ configurations.all {
 }
 ```
 
-
 # Example usage
+
 ```java
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -102,14 +106,14 @@ public final class SomeClass {
 ```
 
 - [Lombok's `@Slf4j`](https://projectlombok.org/features/log) annotation does the same
-    - tradeoff: less code, slower builds 
-
+    - tradeoff: less code, slower builds
 
 ## With [spring boot](https://spring.io/projects/spring-boot)
+
 - See 1. See https://docs.spring.io/spring-boot/docs/3.0.0/reference/html/features.html#features.logging
 - See https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-logging
 
-
 # Other resources
+
 1. https://docs.spring.io/spring-boot/docs/3.0.0/reference/html/features.html#features.logging
 1. https://www.slf4j.org/images/concrete-bindings.png

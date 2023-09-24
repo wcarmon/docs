@@ -1,20 +1,24 @@
 # Overview
+
 TODO
 
 # Table of Contents
+
 TODO
 
 
 --------
+
 # Definitions
+
 1. Parallelism:
     1. Executing multiple tasks **simultaneously**
 1. Concurrency:
     1. How you structure/organize code
     1. Avoiding the challenges below
 
-
 # Challenges
+
 1. [Deadlock](https://en.wikipedia.org/wiki/Deadlock)
     1. Mutual/Circular hold-and-wait
     1. No [preemption](https://en.wikipedia.org/wiki/Preemption_(computing))
@@ -27,12 +31,12 @@ TODO
 1. Starvation
     1. a task can never a resoruce
 
-
 # Tradeoffs
+
 1. How much parallelism?
     1. Too much: performance degrades due to thread management overhead
     1. Not enough: performance degrades due to unused resources
 
-
 # More info
+
 TODO

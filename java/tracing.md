@@ -1,11 +1,13 @@
 # Overview
+
 1. Java specific tracing setup (Java 17+)
 
 # General overview
+
 1. See [common/tracing doc](../common/observability/tracing.md)
 
-
 # build.gradle.kts
+
 ```build.gradle.kts
         ...
         implementation("io.opentelemetry:opentelemetry-api")
@@ -19,8 +21,8 @@
         ...
 ```
 
-
 # Depencency Injection
+
 ```java
     private static final String DEFAULT_JAEGER_ENDPOINT = "http://localhost:4317";
     
@@ -65,11 +67,12 @@
     }
 ```
 
-
 # Register Global
+
 1. TODO
 
 # If using OkHTTP
+
 ```java
     @Provides
     @Singleton
@@ -89,12 +92,12 @@
     }
 ```
 
-
 ## Run Jaeger container
+
 - See [../bash/examples/restart.jaeger.sh](https://github.com/wcarmon/docs/blob/main/bash/examples/restart.jaeger.sh)
 
-
 # Other Resources
+
 1. https://github.com/open-telemetry/opentelemetry-java-docs#java-opentelemetry-examples
 1. https://github.com/open-telemetry/opentelemetry-java
 1. https://opentelemetry.io/docs/instrumentation/java/#status-and-releases

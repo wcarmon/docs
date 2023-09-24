@@ -1,21 +1,22 @@
 # Overview
+
 1. Why Strings are problematic?
 1. How can we do better?
 
-
 # Strings make bad properties
+
 1. `String` is ambiguous, because it can represent anything
 1. `String` type provides zero information about structure
-1. `String` is not self documenting.  Future readers have no way of finding all possible values
-1. `String` is not self verifying.  The compiler & runtime don't have a way to enforce correct values
+1. `String` is not self documenting. Future readers have no way of finding all possible values
+1. `String` is not self verifying. The compiler & runtime don't have a way to enforce correct values
 1. `String` properties discard all the benefits of type safety
 1. `String` properties prevent JVM optimization
 1. `String` properties prevent refactoring
 1. `String` properties hinder code maintenance
 1. `String` properties hinder code comprehension
 
-
 # Making a `String` useful
+
 1. Always prefer a better type [(examples below)](./strings.avoid.md#replace-string-with-)
 1. Include Javadoc with structure assumptions
     1. Document acceptable characters, including case (eg. use regex)
@@ -26,8 +27,8 @@
 1. Use a clear variable name
 1. Add a link to any authoritative documentation that would help future readers/maintainers
 
-
 # Examples of Useful Strings
+
 ```java
 /**
  * Full US Postal zip code:
@@ -82,8 +83,8 @@ final String hexColorCode;
 final String phoneNumber;
 ```
 
-
 # Replace String with ...
+
 1. [`boolean`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Boolean.html) for Strings like `"Y"` & `"N"` or `"T"` & `"F"`
 1. [`Duration`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/Duration.html) or [`Period`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/Period.html) for Strings that look like time periods/durations
 1. [`Google LibPhoneNumber`](https://github.com/google/libphonenumber) for Strings containing phone numbers (or just a really clear Javadoc & regex [Pattern](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/regex/Pattern.html))

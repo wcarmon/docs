@@ -1,9 +1,10 @@
 # Overview
+
 1. Things that are excellent about java 17+
 1. Things that are terrible about java 17+
 
-
 # Good news
+
 1. [Actively Developed & Improving](https://en.wikipedia.org/wiki/Java_version_history)
 1. Cross platform (at least for linux, mac & windows desktops & servers)
 1. Constants (compare to [python](https://www.pythontutorial.net/python-basics/python-constants/))
@@ -25,8 +26,8 @@
     1. Rust has alternative thru traits
 1. Class properties support default values (compare to Go)
 
-
 # Bad news
+
 1. [Checked exceptions](./exceptions.no_checked.md), (compare to Go, Rust, c, c++, c#, js, ts, Kotlin, Python, ...)
     1. Mitigate with [Lombok](https://projectlombok.org/features/SneakyThrows)
 1. Immutability is hard and not the default (compare to [Kotlin](TODO) or [Rust](TODO))
@@ -79,8 +80,8 @@
 1. Array equality tests are unlike other comparisons (compare to go, rust, ...)
 1. primitive comparisons are different from reference comparisons (compare to go, rust, ...)
 
-
 ## Bad news: minor
+
 1. Auto-formatting is non-core (compare to [go](https://go.dev/blog/gofmt) or [rust](https://github.com/rust-lang/rustfmt))
     1. See [spotless](https://github.com/diffplug/spotless)
 1. No pattern matching (compare to [Rust](https://doc.rust-lang.org/book/ch18-03-pattern-syntax.html))
@@ -101,6 +102,6 @@
     1. Mitigate with [Guava](https://guava.dev/releases/31.0-jre/api/docs/com/google/common/io/MoreFiles.html#deleteDirectoryContents(java.nio.file.Path,com.google.common.io.RecursiveDeleteOption...)) or [apache commons io](https://commons.apache.org/proper/commons-io/apidocs/org/apache/commons/io/FileUtils.html#deleteDirectory-java.io.File-)
 1. `Paths.get` doesn't accept `Path` argument (so you must convert to `String` first)
 
-
 # Other Resources
+
 1. TODO

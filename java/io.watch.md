@@ -1,8 +1,9 @@
 # Overview
+
 1. How to efficiently watch a directory for modified, added, removed files
 
-
 # Example (Java 11+)
+
 ```java
     final var dirToWatch = ...;
 
@@ -42,7 +43,7 @@
     }
 ```
 
-
 # Other resources
+
 1. [Official JDK 20](https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/nio/file/WatchService.html)
 1. [Official JDK 17](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/nio/file/WatchService.html)
