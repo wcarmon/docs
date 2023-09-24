@@ -9,8 +9,13 @@
     1. Expressive, but more concise than rust, c++, c, java, ts
     1. Less ways to do things than other languages (eg. loops)
     1. Roughly as concise, but easier to refactor & comprehend than unfamiliar Python, js, ruby, php, perl, etc
-1. [defer](https://go.dev/tour/flowcontrol/12)
-1. Fast builds (compare to java, c++, rust, ...)
+1. [defer](https://go.dev/tour/flowcontrol/12) statement
+    1. Rust is about as good using implicit `drop` at the end of scope
+    1. C++ has RAII, with destruction at end of scope
+    1. Java has [try-with-resources](https://docs.oracle.com/javase/tutorial/essential/exceptions/tryResourceClose.html), which is almost as good, but increases [code nesting](https://miro.medium.com/v2/resize:fit:720/1*g4NuK2wpgB5hn_46bvzPmQ.png)
+1. Fast builds
+    1. Compare to java (even worse with Kotlin)
+    1. Compare to c++, rust (macro complexity, optimization complexity). Both move processing from runtime to compile-type
 1. Cross compilation is very easy
     1. Same is true for Java (except maybe GraalVM) and dynamic languages like python
     1. Partly because they built [their own linker](https://github.com/golang/go/blob/master/src/cmd/link/internal/ld/macho.go) for mac
@@ -21,14 +26,15 @@
     1. Compare to [Rust](https://wapl.es/rust/2019/02/17/rust-cross-compile-linux-to-macos.html/)
 1. Light runtime memory usage
     1. Compare to java, Python, c#, vb, ruby, php, etc
-    1. Same for Rust, C++, C
+    1. Same benefit in Rust, C++, C
 1. Implicit interface implementation (reduces dependencies)
     1. Impossible in Java without reflection or hacks
     1. Rust can get close using "Orphan rule" and default impl
 1. Multiple return values
-    1. Same for Rust (as implicit [tuples](https://doc.rust-lang.org/rust-by-example/primitives/tuples.html))
+    1. Compare to Java (you must make extra `record`), or C++ (must make extra struct or class), etc
+    1. Same benefit in Rust (due to implicit [tuples](https://doc.rust-lang.org/rust-by-example/primitives/tuples.html))
 1. Methods can declare mutable (pointer) or read-only (copy) receiver
-    1. Same for Rust
+    1. Same benefit in Rust
 1. Tests can only log when they fail
 
 # Bad news
