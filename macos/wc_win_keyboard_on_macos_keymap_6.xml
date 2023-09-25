@@ -1,3 +1,7 @@
+<!--
+NOTE: ensure this plugin is installed:
+      https://plugins.jetbrains.com/plugin/18443-default-for-xwin-keymap
+-->
 <keymap version="1" name="wc-win-keyboard-macos-6" parent="Default for XWin">
     <action id="$Copy">
         <keyboard-shortcut first-keystroke="alt c"/>
