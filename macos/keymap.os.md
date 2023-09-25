@@ -52,7 +52,7 @@
 
 ## Steps: Via command line
 
-1. Get relevant [keycodes](https://www.freebsddiary.org/APC/usb_hid_usages.php)
+1. Make constants for each relevant [keycode](https://www.freebsddiary.org/APC/usb_hid_usages.php)
 
 ```
 readonly DEFAULT_MAC_KEYBOARD_CONTROL=0x7000000e0;
@@ -82,11 +82,12 @@ readonly DEFAULT_WIN_KEYBOARD_RIGHT_SHIFT=0x7000000e5;
 
 2. Get keyboard `Product id`
     1. Apple icon > `About This Mac` > `System Report` button > `Hardware` > `USB` > ...
-    1. or `hidutil list | grep -i microso` (or some unique string to identify your keyboad)
+    1. or `hidutil list | grep -i microso` (or some unique string to identify your keyboard)
         1. See the **2nd** column
 
 ```sh
-PRODUCT_ID_FOR_WIN_KEYBOARD=0x07a5;
+# TODO: replace the value below
+readonly PRODUCT_ID_FOR_WIN_KEYBOARD=0x07a5;
 
 # -- remap just one keyboard
 hidutil property \
