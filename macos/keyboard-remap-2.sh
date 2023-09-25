@@ -3,7 +3,8 @@
 # ---------------------------------------------
 # -- Remaps the keyboard to align with Linux/windows users
 # --
-# -- Works better with the OS (eg. text selection, app switching, etc)
+# -- Works better with the MacOS (eg. text selection, app switching, etc),
+# -- but not as well with popular applications like Chrome & Slack
 # ---------------------------------------------
 
 

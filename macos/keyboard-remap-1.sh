@@ -3,6 +3,7 @@
 # ---------------------------------------------
 # -- Remaps the keyboard to align with Linux/windows users
 # --
+# -- Works better with popular applications, but not MacOS
 # ---------------------------------------------
 
 
