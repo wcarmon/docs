@@ -99,8 +99,11 @@ defaults read com.google.Chrome | grep -A 10 NSUserKey;
 | `CTRL` + `w`           | `⌘` + `w`                 | Close current tab                        |
 | `CTRL` + left          | `⌥` + left                | (in text) Jump to start of previous word |
 | `CTRL` + right         | `⌥` + right               | (in text) Jump to end of current word    |
+| Home                   | `⌘` + left                | (in text) Jump to start of text          |
+| End                    | `⌘` + right               | (in text) Jump to end of text            |
 | `SHIFT` + `space`      | (same)                    | Scroll up                                |
 
 # Other Resources
 
 1. [Linux, win, Mac keyboard shortcuts](https://support.google.com/chrome/answer/157179?hl=en&co=GENIE.Platform%3DDesktop)
+1. https://www.edorozco.com/making-the-most-out-of-google-chrome/
