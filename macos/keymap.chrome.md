@@ -80,23 +80,27 @@ defaults read com.google.Chrome | grep -A 10 NSUserKey;
 # Checklist to verify keyboard shortcuts
 
 - The list below uses at-least-one of each special key combinations
+- Mac:
+    - `⌃`: control
+    - `⌘`: command
+    - `⌥`: option
 
-| Linux/win Keyboard Shortcut | Action                                   |
-|-----------------------------|------------------------------------------|
-| `ALT` + `f`                 | Open chrome menu                         |
-| `ALT` + `SHIFT` + i         | Open feedback form                       |
-| `ALT` + Home                | Open home page                           |
-| `CTRL` + `+`                | Zoom in                                  |
-| `CTRL` + `f`                | Find                                     |
-| `CTRL` + `l`                | Select Address bar                       |
-| `CTRL` + `SHIFT` + `i`      | Open developer tools                     |
-| `CTRL` + `SHIFT` + `j`      | Open developer tools                     |
-| `CTRL` + `t`                | Open new tab                             |
-| `CTRL` + `w`                | Close current tab                        |
-| `CTRL` + left               | (in text) Jump to start of previous word |
-| `CTRL` + right              | (in text) Jump to end of current word    |
-| `SHIFT` + `space`           | Scroll up                                |
+| Linux/win shortcut     | Mac shortcut    | Action                                   |
+|------------------------|-----------------|------------------------------------------|
+| `ALT` + `f`            |                 | Open chrome menu                         |
+| `ALT` + `SHIFT` + i    |                 | Open feedback form                       |
+| `ALT` + Home           |                 | Open home page                           |
+| `CTRL` + `+`           |                 | Zoom in                                  |
+| `CTRL` + `f`           | `⌘` + `f`       | Find                                     |
+| `CTRL` + `l`           | `⌘` + `l`       | Select Address bar                       |
+| `CTRL` + `SHIFT` + `i` | `⌘` + `⌥` + `i` | Open developer tools                     |
+| `CTRL` + `SHIFT` + `j` |                 | Open developer tools                     |
+| `CTRL` + `t`           |                 | Open new tab                             |
+| `CTRL` + `w`           |                 | Close current tab                        |
+| `CTRL` + left          |                 | (in text) Jump to start of previous word |
+| `CTRL` + right         |                 | (in text) Jump to end of current word    |
+| `SHIFT` + `space`      |                 | Scroll up                                |
 
 # Other Resources
 
-1. https://support.google.com/chrome/answer/157179?hl=en&co=GENIE.Platform%3DDesktop
+1. [Linux, win, Mac keyboard shortcuts](https://support.google.com/chrome/answer/157179?hl=en&co=GENIE.Platform%3DDesktop)

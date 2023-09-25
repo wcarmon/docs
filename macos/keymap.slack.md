@@ -62,7 +62,7 @@ hidutil property \
 
 - The list below uses at-least-one of each special key combinations
 
-| win Keyboard Shortcut        | Action                         |
+| linux/win Keyboard Shortcut  | Action                         |
 |------------------------------|--------------------------------|
 | `ALT` + `CTRL` + `SHIFT` + c | Format selection as code block |
 | `ALT` + `left`               | Move cursor to previous word   |
