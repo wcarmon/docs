@@ -1,11 +1,11 @@
 #!/bin/bash
 
 # ---------------------------------------------
+# -- NOT RECOMMENDED (see ./keyboard-remap-2.sh)
 # -- Remaps the keyboard to align with Linux/windows users
 # --
 # -- Works better with popular applications, but not MacOS
 # ---------------------------------------------
-
 
 #set -x # uncomment to debug script
 set -e # exit on first error
