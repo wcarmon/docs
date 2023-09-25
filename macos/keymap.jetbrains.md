@@ -151,27 +151,33 @@
 
 # Quick checklist to verify keyboard shortcuts
 
+- The lists below use at-least-one of each special key combinations
+
 ## Key triads
 
 1. `CTRL+ALT+SHIFT+N` (go to symbol)
 
 ## Key pairs
 
-1. `ALT+SHIFT+L` (Edit > Sort lines)
-1. `CTRL+ALT+L` (Code > Reformat Code)
-1. `CTRL+SHIFT+A` (go to action)
+| Keymap             | Purpose              |
+|--------------------|----------------------|
+| `ALT + CTRL + L`   | Code > Reformat Code |
+| `ALT + SHIFT + L`  | Edit > Sort lines    |
+| `CTRL + SHIFT + A` | go to action         |
 
 ## Single modifier key
 
-1. `ALT+1` (Tool Window > Project)
-1. `CTRL+J` (Insert Live Template...)
-1. `SHIFT+F6` (Refactor > Rename...)
-1. `SHIFT+SHIFT` (Search anywhere)
+| Keymap          | Purpose                 |
+|-----------------|-------------------------|
+| `ALT + 1`       | Tool Window > Project   |
+| `CTRL + J`      | Insert Live Template... |
+| `SHIFT + F6`    | Refactor > Rename...    |
+| `SHIFT + SHIFT` | Search anywhere         |
 
 # Other Resources
 
+1. https://defkey.com/what-means
+1. https://resources.jetbrains.com/storage/products/intellij-idea/docs/IntelliJIDEA_ReferenceCard.pdf
 1. https://resources.jetbrains.com/storage/products/intellij-idea/docs/IntelliJIDEA_ReferenceCard.pdf
 1. https://www.jetbrains.com/help/idea/reference-keymap-mac-default.html
 1. https://www.jetbrains.com/help/idea/settings-keymap.html
-1. https://resources.jetbrains.com/storage/products/intellij-idea/docs/IntelliJIDEA_ReferenceCard.pdf
-1. https://defkey.com/what-means

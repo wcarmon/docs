@@ -1,11 +1,13 @@
 # Overview
+
 - Configuring win keyboard shortcuts for [slack](https://slack.com/) on MacOS
 
-
 # Changing Keyboard shortcuts via hidutil
+
 1. Open terminal
 1. Define the key constants in [keymap.os](./keymap.os.md#steps-via-command-line) doc
 1. Remap keyboard:
+
 ```sh
 PRODUCT_ID_FOR_WIN_KEYBOARD=0x07a5;
 
@@ -50,31 +52,34 @@ hidutil property \
 }"
 ```
 
-
 ## Reset/Undo
+
 - See [keymap.os](./keymap.os.md#resetundo) doc
 
-
 --------
-# Checklist to verify keyboard shortcuts
-|win Keyboard Shortcut|Action|
-|---|---|
-|`ALT` + `CTRL` + `SHIFT` + c|Format selection as code block|
-|`ALT` + `left`|Move cursor to previous word|
-|`ALT` + `right`|Move cursor to next word|
-|`CTRL` + `+`|Increase font size|
-|`CTRL` + `-`|Decrease font size|
-|`CTRL` + `/`|Show shortcuts|
-|`CTRL` + `end`|Move cursor to end of line|
-|`CTRL` + `home`|Move cursor to start of line|
-|`CTRL` + `meta` + `f`|Toggle full screen|
-|`CTRL` + `n`|New message|
-|`CTRL` + `SHIFT` + `k`|All DMs|
-|`CTRL` + `SHIFT` + `t`|All Threads|
-|`CTRL` + `z`|Undo|
-|`SHIFT` + enter|Start new line (same message)|
 
+# Checklist to verify keyboard shortcuts
+
+- The list below uses at-least-one of each special key combinations
+
+| win Keyboard Shortcut        | Action                         |
+|------------------------------|--------------------------------|
+| `ALT` + `CTRL` + `SHIFT` + c | Format selection as code block |
+| `ALT` + `left`               | Move cursor to previous word   |
+| `ALT` + `right`              | Move cursor to next word       |
+| `CTRL` + `+`                 | Increase font size             |
+| `CTRL` + `-`                 | Decrease font size             |
+| `CTRL` + `/`                 | Show shortcuts                 |
+| `CTRL` + `end`               | Move cursor to end of line     |
+| `CTRL` + `home`              | Move cursor to start of line   |
+| `CTRL` + `meta` + `f`        | Toggle full screen             |
+| `CTRL` + `n`                 | New message                    |
+| `CTRL` + `SHIFT` + `k`       | All DMs                        |
+| `CTRL` + `SHIFT` + `t`       | All Threads                    |
+| `CTRL` + `z`                 | Undo                           |
+| `SHIFT` + enter              | Start new line (same message)  |
 
 # Other Resources
+
 1. https://slack.com/help/articles/201374536-Slack-keyboard-shortcuts
 1. https://www.howtogeek.com/670384/every-slack-keyboard-shortcut-and-how-to-use-them/

@@ -39,12 +39,12 @@
 
 | Linux/win   | Mac               |
 |-------------|-------------------|
+| `Backspace` | `delete` (⌫)      |
+| `Delete`    | `delete` (Fn + ⌫) |
 | `enter`     | `return` (⏎)      |
 | `esc`       |                   |
 | `shift`     | (⇧)               |
 | `tab`       |                   |
-| `Backspace` | `delete` (⌫)      |
-| `Delete`    | `delete` (Fn + ⌫) |
 
 # Remapping MacOS keys
 
