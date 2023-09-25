@@ -85,51 +85,10 @@ readonly DEFAULT_WIN_KEYBOARD_RIGHT_SHIFT=0x7000000e5;
     1. or `hidutil list | grep -i microso` (or some unique string to identify your keyboard)
         1. See the **2nd** column
 
-```sh
-# TODO: replace the value below
-readonly PRODUCT_ID_FOR_WIN_KEYBOARD=0x07a5;
+3. Remap
+    1. See [example-1](./keyboard-remap-1.sh)
+    1. See [example-2](./keyboard-remap-2.sh)
 
-# -- remap just one keyboard
-hidutil property \
---matching "{\"ProductID\":$PRODUCT_ID_FOR_WIN_KEYBOARD}" \
---set "{\"UserKeyMapping\":
-  [
-    {
-      \"HIDKeyboardModifierMappingSrc\":$DEFAULT_WIN_KEYBOARD_LEFT_CTRL,
-      \"HIDKeyboardModifierMappingDst\":$DEFAULT_MAC_KEYBOARD_LEFT_COMMAND
-    },
-    {
-      \"HIDKeyboardModifierMappingSrc\":$DEFAULT_WIN_KEYBOARD_RIGHT_CTRL,
-      \"HIDKeyboardModifierMappingDst\":$DEFAULT_MAC_KEYBOARD_RIGHT_COMMAND
-    },
-    {
-      \"HIDKeyboardModifierMappingSrc\":$DEFAULT_MAC_KEYBOARD_LEFT_COMMAND,
-      \"HIDKeyboardModifierMappingDst\":$DEFAULT_WIN_KEYBOARD_LEFT_CTRL
-    },
-    {
-      \"HIDKeyboardModifierMappingSrc\":$DEFAULT_MAC_KEYBOARD_RIGHT_COMMAND,
-      \"HIDKeyboardModifierMappingDst\":$DEFAULT_WIN_KEYBOARD_RIGHT_CTRL
-    },
-
-    {
-      \"HIDKeyboardModifierMappingSrc\":$DEFAULT_WIN_KEYBOARD_LEFT_ALT,
-      \"HIDKeyboardModifierMappingDst\":$DEFAULT_MAC_KEYBOARD_LEFT_OPTION
-    },
-    {
-      \"HIDKeyboardModifierMappingSrc\":$DEFAULT_WIN_KEYBOARD_RIGHT_ALT,
-      \"HIDKeyboardModifierMappingDst\":$DEFAULT_MAC_KEYBOARD_RIGHT_OPTION
-    },
-    {
-      \"HIDKeyboardModifierMappingSrc\":$DEFAULT_MAC_KEYBOARD_LEFT_OPTION,
-      \"HIDKeyboardModifierMappingDst\":$DEFAULT_WIN_KEYBOARD_LEFT_ALT
-    },
-    {
-      \"HIDKeyboardModifierMappingSrc\":$DEFAULT_MAC_KEYBOARD_RIGHT_OPTION,
-      \"HIDKeyboardModifierMappingDst\":$DEFAULT_WIN_KEYBOARD_RIGHT_ALT
-    }
-  ]
-}"
-```
 
 ### Verify
 
