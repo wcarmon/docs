@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# ---------------------------------------------
+# -- Remaps the keyboard to align with Linux/windows users
+# --
+# ---------------------------------------------
+
+
 #set -x # uncomment to debug script
 set -e # exit on first error
 set -o pipefail
