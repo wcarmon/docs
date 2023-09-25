@@ -81,9 +81,9 @@ defaults read com.google.Chrome | grep -A 10 NSUserKey;
 
 - The list below uses at-least-one of each special key combinations
 - Mac:
-    - `⌃`: control
-    - `⌘`: command
+    - `⌃`: control (only one, on the left, furthest from space bar)
     - `⌥`: option
+    - `⌘`: command (closest to space bar)
 
 | Linux/win shortcut     | Mac shortcut              | Action                                   |
 |------------------------|---------------------------|------------------------------------------|

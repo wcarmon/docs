@@ -26,12 +26,12 @@
 
 1. Matching physical order (relative to space bar)
 
-| Linux/windows Keyboard Button | Default Behavior     | Desired behavior (based on location) |
-|-------------------------------|----------------------|--------------------------------------|
-| `ALT`                         | `option` (⌥) button  | `command` (⌘)                        |
-| `CTRL`                        | `control` (⌃) button | `option` (⌥)                         |
-| `windows` key                 | `command` (⌘) button | `control` (⌃)                        |
-| `Insert`                      | Help button          | TODO                                 |
+| Linux/windows Keyboard Button | Default Behavior     | Desired behavior (based on location) | Location                     |
+|-------------------------------|----------------------|--------------------------------------|------------------------------|
+| `ALT`                         | `option` (⌥) button  | `command` (⌘)                        | Closest pair to space bar    |
+| `CTRL`                        | `control` (⌃) button | `option` (⌥)                         | Furthest pair from space bar |
+| `windows` key                 | `command` (⌘) button | `control` (⌃)                        | Only on, on the left         |
+| `Insert`                      | Help button          | TODO                                 |                              |
 
 - Unfortunately popular applications have different shortcuts for different OS (eg. Chrome, Slack, etc)
 
