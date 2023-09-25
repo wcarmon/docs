@@ -5,6 +5,8 @@
 # --
 # -- Works better with the MacOS (eg. text selection, app switching, etc),
 # -- but not as well with popular applications like Chrome & Slack
+# --
+# -- Fix app shortcuts using BetterTouchTool: https://folivora.ai/
 # ---------------------------------------------
 
 
