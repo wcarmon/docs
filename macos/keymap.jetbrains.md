@@ -3,14 +3,18 @@
 1. Making Jetbrains shortcuts more like Linux/windows (IDEA, Goland, WebStorm, ...)
 1. See [keymap](../java/intellij/keymaps.md) doc first
 
-# Jetbrains user-defined keymap files
 
-- Linux: `$HOME/.config/JetBrains/IntelliJIdea<version>/keymaps/*.xml`
-    1. or ``
-- MacOS: `~/Library/Application Support/JetBrains/IntelliJIdea<version>/jba_config/mac.keymaps/*.xml`
-    1. **NOT** `~/Library/Application Support/JetBrains/IntelliJIdea<version>/keymaps/*.xml`
-- win: `%APPDATA%\JetBrains\IntelliJIdea<version>\keymaps\*.xml`
-- (You can replace `IntelliJIdea` with other products like `GoLand`, `IdeaIC`, `PyCharm`, or `DataGrip`)
+# TL;DR;
+1. Download [./jetbrains-keymaps/win_keyboard_macos_5.xml](./jetbrains-keymaps/win_keyboard_macos_5.xml)
+1. Copy into ...
+    1. Linux: `$HOME/.config/JetBrains/IntelliJIdea<version>/keymaps/` 
+    1. Mac: `$HOME/Library/Application Support/JetBrains/IntelliJIdea<version>/keymaps/`
+    1. win: `%APPDATA%\JetBrains\IntelliJIdea<version>\keymaps\`
+    1. You can replace `IntelliJIdea` with other products like `GoLand`, `IdeaIC`, `PyCharm`, or `DataGrip`
+1. Restart IDE
+1. Select & use keymap
+
+
 
 ## Load your custom keymap
 
