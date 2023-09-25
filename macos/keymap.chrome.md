@@ -65,5 +65,5 @@ defaults read com.google.Chrome | grep -A 10 NSUserKey;
 
 # Other Resources
 
-1. [Linux, win, Mac keyboard shortcuts](https://support.google.com/chrome/answer/157179?hl=en&co=GENIE.Platform%3DDesktop)
+1. Official Linux, win, Mac [keyboard shortcuts](https://support.google.com/chrome/answer/157179?hl=en&co=GENIE.Platform%3DDesktop)
 1. https://www.edorozco.com/making-the-most-out-of-google-chrome/
