@@ -14,17 +14,20 @@
 - See [keymap.os](./keymap.os.md#resetundo) doc
 
 # Changing Keyboard shortcuts from Chrome (not recommended)
-
+1. NOTE: Affects all keyboards
 1. MacOS manages app shortcuts via System Preferences app
 1. `System Preferences` > `Keyboard` > `Shortcuts` tab > `App Shortcuts` > `All Applications` > `+` button > `Google Chrome`
     1. `New Tab`: `^T`
     1. etc (see below)
 1. Setting via terminal/shell/command-line:
 
+- `~` means `option` or `⌥` key
+- `@` means `command` or `⌘` key
+- `^` means `control` or `^` key
 ```sh
 defaults write com.google.Chrome NSUserKeyEquivalents {};
-defaults write com.google.Chrome NSUserKeyEquivalents -dict-add "Close Tag" "^w";
-defaults write com.google.Chrome NSUserKeyEquivalents -dict-add "New Tab" "^t";
+defaults write com.google.Chrome NSUserKeyEquivalents -dict-add "Close Tab" "^w";
+defaults write com.google.Chrome NSUserKeyEquivalents -dict-add "New Tab" "⌘t";
 # TODO more here
 ```
 
