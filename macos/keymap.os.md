@@ -30,7 +30,7 @@
 |-------------------------------|----------------------|--------------------------------------|
 | `ALT`                         | `option` (⌥) button  | `command` (⌘)                        |
 | `CTRL`                        | `control` (⌃) button | `option` (⌥)                         |
-| `windows`                     | `command` (⌘) button | `control` (⌃)                        |
+| `windows` key                 | `command` (⌘) button | `control` (⌃)                        |
 | `Insert`                      | Help button          | TODO                                 |
 
 - Unfortunately popular applications have different shortcuts for different OS (eg. Chrome, Slack, etc)

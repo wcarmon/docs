@@ -85,21 +85,21 @@ defaults read com.google.Chrome | grep -A 10 NSUserKey;
     - `⌘`: command
     - `⌥`: option
 
-| Linux/win shortcut     | Mac shortcut    | Action                                   |
-|------------------------|-----------------|------------------------------------------|
-| `ALT` + `f`            |                 | Open chrome menu                         |
-| `ALT` + `SHIFT` + i    |                 | Open feedback form                       |
-| `ALT` + Home           |                 | Open home page                           |
-| `CTRL` + `+`           |                 | Zoom in                                  |
-| `CTRL` + `f`           | `⌘` + `f`       | Find                                     |
-| `CTRL` + `l`           | `⌘` + `l`       | Select Address bar                       |
-| `CTRL` + `SHIFT` + `i` | `⌘` + `⌥` + `i` | Open developer tools                     |
-| `CTRL` + `SHIFT` + `j` |                 | Open developer tools                     |
-| `CTRL` + `t`           |                 | Open new tab                             |
-| `CTRL` + `w`           |                 | Close current tab                        |
-| `CTRL` + left          |                 | (in text) Jump to start of previous word |
-| `CTRL` + right         |                 | (in text) Jump to end of current word    |
-| `SHIFT` + `space`      |                 | Scroll up                                |
+| Linux/win shortcut     | Mac shortcut              | Action                                   |
+|------------------------|---------------------------|------------------------------------------|
+| `ALT` + `f`            |                           | Open chrome menu                         |
+| `ALT` + `SHIFT` + `i`  | `⌘` + `⌥` + `shift` + `i` | Open feedback form                       |
+| `ALT` + Home           | `⌘` + `shift` + `h`       | Open home page                           |
+| `CTRL` + `+`           | `⌘` + `+`                 | Zoom in                                  |
+| `CTRL` + `f`           | `⌘` + `f`                 | Find                                     |
+| `CTRL` + `l`           | `⌘` + `l`                 | Select Address bar                       |
+| `CTRL` + `SHIFT` + `i` | `⌘` + `⌥` + `i`           | Open developer tools                     |
+| `CTRL` + `SHIFT` + `j` |                           | Open developer tools                     |
+| `CTRL` + `t`           | `⌘` + `t`                 | Open new tab                             |
+| `CTRL` + `w`           | `⌘` + `w`                 | Close current tab                        |
+| `CTRL` + left          | `⌥` + left                | (in text) Jump to start of previous word |
+| `CTRL` + right         | `⌥` + right               | (in text) Jump to end of current word    |
+| `SHIFT` + `space`      | (same)                    | Scroll up                                |
 
 # Other Resources
 
