@@ -6,25 +6,45 @@
 
 # Linux/windows keyboard on mac machine
 
+# Keyboard Layout
+
+## Linux/windows layout
+
+| 0          | 1        | 2     | 3         | 4           |
+|------------|----------|-------|-----------|-------------|
+| left SHIFT |          |       |           | right SHIFT |
+| left CTRL  | left ALT | SPACE | rigth ALT | right CTRL  |
+
+## Apple layout
+
+| 0            | 1           | 2            | 3     | 4             | 5            |
+|--------------|-------------|--------------|-------|---------------|--------------|
+| left shift   |             |              |       |               | right shift  |
+| left control | left option | left command | space | right command | right option |
+
 ## Keys worth remapping
 
-1. Matching physical order relative to space bar
+1. Matching physical order (relative to space bar)
 
-| windows Keyboard Button | Default Behavior     | Desired behavior (based on location) |
-|-------------------------|----------------------|--------------------------------------|
-| `ALT`                   | `option` (⌥) button  | `command` (⌘)                        |
-| `CTRL`                  | `control` (⌃) button | `option` (⌥)                         |
-| `windows`               | `command` (⌘) button | `control` (⌃)                        |
-| `Insert`                | Help button          | TODO                                 |
+| Linux/windows Keyboard Button | Default Behavior     | Desired behavior (based on location) |
+|-------------------------------|----------------------|--------------------------------------|
+| `ALT`                         | `option` (⌥) button  | `command` (⌘)                        |
+| `CTRL`                        | `control` (⌃) button | `option` (⌥)                         |
+| `windows`                     | `command` (⌘) button | `control` (⌃)                        |
+| `Insert`                      | Help button          | TODO                                 |
+
+- Unfortunately popular applications have different shortcuts for different OS (eg. Chrome, Slack, etc)
 
 ## Keys which are (roughly) the same location and functionality
 
-1. `enter` button -> `return` (⏎)
-1. `esc` button
-1. `shift` button (⇧)
-1. `tab` button
-1. `Backspace` -> `delete` (⌫)
-1. `Delete` -> `delete` (Fn + ⌫)
+| Linux/win   | Mac               |
+|-------------|-------------------|
+| `enter`     | `return` (⏎)      |
+| `esc`       |                   |
+| `shift`     | (⇧)               |
+| `tab`       |                   |
+| `Backspace` | `delete` (⌫)      |
+| `Delete`    | `delete` (Fn + ⌫) |
 
 # Remapping MacOS keys
 
