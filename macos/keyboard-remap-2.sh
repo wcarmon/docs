@@ -9,7 +9,6 @@
 # -- Fix app shortcuts using BetterTouchTool: https://folivora.ai/
 # ---------------------------------------------
 
-
 #set -x # uncomment to debug script
 set -e # exit on first error
 set -o pipefail
