@@ -81,5 +81,5 @@ hidutil property \
 
 # Other Resources
 
-1. https://slack.com/help/articles/201374536-Slack-keyboard-shortcuts
+1. Official Linux, win, MacOS [keyboard shortcuts](https://slack.com/help/articles/201374536-Slack-keyboard-shortcuts)
 1. https://www.howtogeek.com/670384/every-slack-keyboard-shortcut-and-how-to-use-them/
