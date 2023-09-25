@@ -59,7 +59,11 @@ readonly PRODUCT_ID_FOR_WIN_KEYBOARD=0x07a5;
 # ---------------------------------------------
 # -- Remap
 # ---------------------------------------------
-# TODO: redo this
+# ALT   -> command
+# CTRL  -> option
+# SHIFT -> shift (no change, no remap)
+
+# TODO: rewrite things below
 hidutil property \
 --matching "{\"ProductID\":$PRODUCT_ID_FOR_WIN_KEYBOARD}" \
 --set "{\"UserKeyMapping\":
