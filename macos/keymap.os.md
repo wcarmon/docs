@@ -136,6 +136,9 @@ hidutil property --set '{"UserKeyMapping":[]}';
     1. uncheck `Use smart quotes and dashes`
     1. remove any replacements
 
+1. `System Preferences` > `Keyboard` > `Keyboard shortcuts` > `Keyboard`
+    1. Uncheck all the ones related to `Move focus *`
+
 # Disable VoiceOver
 
 1. `System Preferences` > `Keyboard` > `Shortcuts` > `Accessibility` > `Turn VoiceOver on or off`
