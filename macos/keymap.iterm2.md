@@ -15,8 +15,6 @@
 
 | win Keyboard Shortcut | Action                         |
 |-----------------------|--------------------------------|
-| `ALT` + `b`           | Move cursor **back** 1 word    | Send escape sequence | `b`|
-| `ALT` + `f`           | Move cursor **forward** 1 word | Send escape sequence | `f`|
 | `end`                 | Move cursor to end of line     |
 | `home`                | Move cursor to start of line   |
 
@@ -33,6 +31,9 @@
 | `CTRL` + `z`          | Move process to background       | Send Hex Code        | `0x1a`                        |
 | `CTRL` + `left`       | Move cursor to previous word     | Send escape sequence | `b`                           |
 | `CTRL` + `right`      | Move cursor to next word         | Send escape sequence | `f`                           |
+| `CTRL` + `SHIFT` + V  | Paste                            | Pasteboard > Paste   | N/A                           |
+| `ALT` + `b`           | Move cursor **back** 1 word      | Send escape sequence | `b`                           |
+| `ALT` + `f`           | Move cursor **forward** 1 word   | Send escape sequence | `f`                           |
 | TODO                  | Undo                             | Send Hex Code        | `0x1f`                        |
 
 ## Paste
