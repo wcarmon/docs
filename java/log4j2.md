@@ -126,18 +126,18 @@ dependencies {
     //TODO: use latest version
     
     // -- For the API
-    implementation("org.apache.logging.log4j:log4j-api:2.19.0")
+    implementation("org.apache.logging.log4j:log4j-api:2.20.0")
     implementation("org.slf4j:slf4j-api:1.7.36") // avoid 2.x
     
     // -- For the implementation
-    implementation("org.apache.logging.log4j:log4j-core:2.19.0")
-    implementation("org.apache.logging.log4j:log4j-slf4j-impl:2.19.0")
+    implementation("org.apache.logging.log4j:log4j-core:2.20.0")
+    implementation("org.apache.logging.log4j:log4j-slf4j-impl:2.20.0")
 
     // -- To forward other log statements (logging bridge)
     // -- See https://logging.apache.org/log4j/2.x/faq.html#missing_core
     // -- See https://www.slf4j.org/legacy.html
-    //implementation("org.apache.logging.log4j:log4j-jcl:2.19.0") // apache commons logging -> log4j2 impl
-    implementation("org.apache.logging.log4j:log4j-jul:2.19.0") // java.util.Logging -> log4j2 impl
+    //implementation("org.apache.logging.log4j:log4j-jcl:2.20.0") // apache commons logging -> log4j2 impl
+    implementation("org.apache.logging.log4j:log4j-jul:2.20.0") // java.util.Logging -> log4j2 impl
               
     ...
 }
