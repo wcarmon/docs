@@ -5,8 +5,9 @@
 # --
 # -- See sister file at ./encrypt_file.sh
 # --
-# -- Example:
+# -- Examples:
 # -- SECRET_KEY="foo" $HOME/bin/decrypt_file.sh ./my-file.tar.gz.warp
+# -- SECRET_KEY="foo" OUTPUT_FILE=zzz.tar.gz $HOME/bin/decrypt_file.sh ./my-file.tar.gz.warp
 # --
 # -- Assumptions:
 # -- 1. openssl installed: https://linux.die.net/man/1/openssl
@@ -49,8 +50,14 @@ fi
 set -u
 
 readonly ENCRYPTED_OUTPUT_FILE="${INPUT_FILE%.*}$UNWARPED_FILE_EXTENSION"
-readonly OUTPUT_FILE="${INPUT_FILE%.*}"
 
+set +u
+if [ -z "$OUTPUT_FILE" ]; then
+  OUTPUT_FILE="${INPUT_FILE%.*}"
+fi
+set -u
+
+readonly OUTPUT_PARENT_DIR=$(readlink -f "$(dirname "${OUTPUT_FILE}")")
 
 # ---------------------------------------------
 # -- Validate
@@ -104,7 +111,10 @@ openssl enc \
 # ---------------------------------------------
 echo
 echo "|-- See decrypted file: $(readlink -f $OUTPUT_FILE)"
-ls -l $OUTPUT_PARENT_DIR | grep $ENCRYPTED_FILE_EXTENSION
+ls -lt $OUTPUT_PARENT_DIR | \
+grep -v $UNWARPED_FILE_EXTENSION | \
+grep -v $WARPED_FILE_EXTENSION | \
+head -2
 
 echo
 echo "|-- File info:"
