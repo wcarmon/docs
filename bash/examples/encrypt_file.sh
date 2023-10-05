@@ -1,13 +1,14 @@
 #!/bin/bash
 
 # ---------------------------------------------
-# -- Encrypt and "mungle" a file
+# -- Encrypts and "warpes" (recoverably) a file
 # --
 # -- See sister file at ./decrypt_file.sh
 # --
 # -- Assumptions:
 # -- 1. openssl installed: https://linux.die.net/man/1/openssl
 # -- 2. dd installed: https://man7.org/linux/man-pages/man1/dd.1.html
+# -- 3. tac installed:
 # ---------------------------------------------
 #set -x # uncomment to debug script
 set -e # exit on first error
@@ -31,7 +32,8 @@ set -u
 # ---------------------------------------------
 # -- Config
 # ---------------------------------------------
-readonly ENCRYPTED_FILE_EXTENSION=".foo"
+readonly ENCRYPTED_FILE_EXTENSION=".enc"
+readonly WARPED_FILE_EXTENSION=".warp"
 
 
 # ---------------------------------------------
@@ -45,9 +47,10 @@ fi
 set -u
 
 
-readonly OUTPUT_FILE="${INPUT_FILE}${ENCRYPTED_FILE_EXTENSION}"
+readonly ENCRYPTED_OUTPUT_FILE="${INPUT_FILE}${ENCRYPTED_FILE_EXTENSION}"
+readonly WARPED_OUTPUT_FILE="${INPUT_FILE}${WARPED_FILE_EXTENSION}"
 
-readonly OUTPUT_PARENT_DIR=$(readlink -f "$(dirname "${OUTPUT_FILE}")")
+readonly OUTPUT_PARENT_DIR=$(readlink -f "$(dirname "${WARPED_OUTPUT_FILE}")")
 
 
 # ---------------------------------------------
@@ -66,7 +69,8 @@ fi
 # ---------------------------------------------
 # -- Encrypt
 # ---------------------------------------------
-rm -vf "$OUTPUT_FILE"
+rm -vf "$ENCRYPTED_OUTPUT_FILE" || true
+rm -vf "$WARPED_OUTPUT_FILE" || true
 
 echo
 echo "|-- Encrypting file: $INPUT_FILE"
@@ -76,20 +80,29 @@ openssl enc \
 -in "$INPUT_FILE" \
 -iter 10000 \
 -k "$SECRET_KEY" \
--out "$OUTPUT_FILE" \
+-out "$ENCRYPTED_OUTPUT_FILE" \
 -salt
 
-# -- Reverse the bytes using dd
-#dd if="$OUTPUT_FILE" of="$OUTPUT_FILE" conv=swab
+echo
+echo "|-- Warping file: $ENCRYPTED_OUTPUT_FILE"
+
+# -- Reverse the first N bytes of the file
+dd if="$ENCRYPTED_OUTPUT_FILE" \
+of="$WARPED_OUTPUT_FILE" \
+bs=1 \
+conv=swab
 
 
 # ---------------------------------------------
 # -- Report
 # ---------------------------------------------
 echo
-echo "|-- See encrypted file: $OUTPUT_FILE in $OUTPUT_PARENT_DIR"
+echo "|-- See encrypted file: $WARPED_OUTPUT_FILE in $OUTPUT_PARENT_DIR"
 ls -l $OUTPUT_PARENT_DIR | grep $ENCRYPTED_FILE_EXTENSION
+ls -l $OUTPUT_PARENT_DIR | grep $WARPED_FILE_EXTENSION
+
 
 echo
 echo "|-- File info:"
-file $OUTPUT_FILE
+file $ENCRYPTED_OUTPUT_FILE
+file $WARPED_OUTPUT_FILE
