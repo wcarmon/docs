@@ -41,6 +41,14 @@ SECRET_KEY="foo"
 # ---------------------------------------------
 # -- Validate
 # ---------------------------------------------
+if [ ! -e "$INPUT_FILE" ]; then
+    echo "Error: input file must exist: $INPUT_FILE"
+    exit 10
+
+elif [ ! -f "$INPUT_FILE" ]; then
+    echo "Error: input file must be a regular file: $INPUT_FILE"
+    exit 11
+fi
 
 
 # ---------------------------------------------
