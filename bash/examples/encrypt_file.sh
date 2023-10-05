@@ -66,15 +66,18 @@ fi
 # ---------------------------------------------
 # -- Encrypt
 # ---------------------------------------------
+rm -vf "$OUTPUT_FILE"
+
 echo
 echo "|-- Encrypting file: $INPUT_FILE"
 
 openssl enc \
 -aes-256-cbc \
--salt \
 -in "$INPUT_FILE" \
+-iter 10000 \
+-k "$SECRET_KEY" \
 -out "$OUTPUT_FILE" \
--k "$SECRET_KEY"
+-salt
 
 # -- Reverse the bytes using dd
 #dd if="$OUTPUT_FILE" of="$OUTPUT_FILE" conv=swab
@@ -86,3 +89,7 @@ openssl enc \
 echo
 echo "|-- See encrypted file: $OUTPUT_FILE in $OUTPUT_PARENT_DIR"
 ls -l $OUTPUT_PARENT_DIR | grep $ENCRYPTED_FILE_EXTENSION
+
+echo
+echo "|-- File info:"
+file $OUTPUT_FILE
