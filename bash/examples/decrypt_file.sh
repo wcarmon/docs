@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # ---------------------------------------------
-# -- Decrypt and "demungle" a file
+# -- Decrypts and "de-warps" a file
 # --
 # -- See sister file at ./encrypt_file.sh
 # --
@@ -29,7 +29,8 @@ set -u
 # ---------------------------------------------
 # -- Config
 # ---------------------------------------------
-readonly ENCRYPTED_FILE_EXTENSION=".foo"
+readonly ENCRYPTED_FILE_EXTENSION=".enc"
+readonly WARPED_FILE_EXTENSION=".warp"
 
 
 # ---------------------------------------------
@@ -41,6 +42,8 @@ if [ -z "$SECRET_KEY" ]; then
   exit 30
 fi
 set -u
+
+#readonly DECRYPTED_OUTPUT_FILE="${INPUT_FILE}${ENCRYPTED_FILE_EXTENSION}"
 
 #TODO: decide on OUTPUT_FILE
 
@@ -55,8 +58,8 @@ elif [ ! -f "$INPUT_FILE" ]; then
     echo "Error: input file must be a regular file: $INPUT_FILE"
     exit 101
 
-elif [[ ! "$INPUT_FILE" =~ \Q$ENCRYPTED_FILE_EXTENSION\E$ ]]; then
-    echo "Error: INPUT_FILE must end with '$ENCRYPTED_FILE_EXTENSION'"
+elif [[ ! "$INPUT_FILE" =~ \Q$WARPED_FILE_EXTENSION\E$ ]]; then
+    echo "Error: INPUT_FILE must end with '$WARPED_FILE_EXTENSION'"
     exit 102
 fi
 
@@ -65,7 +68,11 @@ fi
 # ---------------------------------------------
 #rm -vf "$OUTPUT_FILE"
 
-dd if="$INPUT_FILE" of="$INPUT_FILE" conv=swab
+# -- Reverse all bytes
+dd if="$INPUT_FILE" \
+of="$ENCRYPTED_OUTPUT_FILE" \
+bs=1 \
+conv=swab
 
 openssl enc -d -aes-256-cbc \
 -in "$INPUT_FILE" \

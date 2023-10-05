@@ -8,7 +8,6 @@
 # -- Assumptions:
 # -- 1. openssl installed: https://linux.die.net/man/1/openssl
 # -- 2. dd installed: https://man7.org/linux/man-pages/man1/dd.1.html
-# -- 3. tac installed:
 # ---------------------------------------------
 #set -x # uncomment to debug script
 set -e # exit on first error
@@ -86,7 +85,7 @@ openssl enc \
 echo
 echo "|-- Warping file: $ENCRYPTED_OUTPUT_FILE"
 
-# -- Reverse the first N bytes of the file
+# -- Reverse all bytes
 dd if="$ENCRYPTED_OUTPUT_FILE" \
 of="$WARPED_OUTPUT_FILE" \
 bs=1 \
