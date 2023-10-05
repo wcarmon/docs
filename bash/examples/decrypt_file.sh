@@ -11,6 +11,7 @@
 # -- Assumptions:
 # -- 1. openssl installed: https://linux.die.net/man/1/openssl
 # -- 2. dd installed: https://man7.org/linux/man-pages/man1/dd.1.html
+# --
 # ---------------------------------------------
 #set -x # uncomment to debug script
 set -e # exit on first error
@@ -71,24 +72,21 @@ fi
 # ---------------------------------------------
 # -- Decrypt
 # ---------------------------------------------
-rm -vf "$ENCRYPTED_OUTPUT_FILE"
+rm -vf "$ENCRYPTED_OUTPUT_FILE" || true
 #rm -vf "$OUTPUT_FILE"  # TODO: uncomment me
 
-# -- Reverse all bytes
 echo
-echo "|-- Unwarping $(readlink -f $INPUT_FILE)"
+echo "|-- Unwarping file: $(readlink -f $INPUT_FILE)"
 
+# -- Reverse all bytes
 dd if="$INPUT_FILE" \
 of="$ENCRYPTED_OUTPUT_FILE" \
 bs=1 \
 conv=swab
 
-set -x # <-- TODO: delete me
-exit
-
 
 echo
-echo "|-- Decrypting $(readlink -f $ENCRYPTED_OUTPUT_FILE)"
+echo "|-- Decrypting file: $(readlink -f $ENCRYPTED_OUTPUT_FILE)"
 
 openssl enc \
 -d \
@@ -100,14 +98,12 @@ openssl enc \
 -salt
 
 
-set -x # <-- TODO: delete me
-
 
 # ---------------------------------------------
 # -- Report
 # ---------------------------------------------
 echo
-echo "|-- See decrypted file: $OUTPUT_FILE in $OUTPUT_PARENT_DIR"
+echo "|-- See decrypted file: $(readlink -f $OUTPUT_FILE)"
 ls -l $OUTPUT_PARENT_DIR | grep $ENCRYPTED_FILE_EXTENSION
 
 echo
