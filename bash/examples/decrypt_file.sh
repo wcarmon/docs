@@ -49,15 +49,17 @@ if [ -z "$SECRET_KEY" ]; then
 fi
 set -u
 
-readonly ENCRYPTED_OUTPUT_FILE="${INPUT_FILE%.*}$UNWARPED_FILE_EXTENSION"
 
+# -- Allow user to override OUTPUT_FILE
 set +u
 if [ -z "$OUTPUT_FILE" ]; then
   OUTPUT_FILE="${INPUT_FILE%.*}"
 fi
 set -u
 
+readonly ENCRYPTED_OUTPUT_FILE="${INPUT_FILE%.*}$UNWARPED_FILE_EXTENSION"
 readonly OUTPUT_PARENT_DIR=$(readlink -f "$(dirname "${OUTPUT_FILE}")")
+
 
 # ---------------------------------------------
 # -- Validate
