@@ -9,7 +9,7 @@
 # -- 1. openssl installed: https://linux.die.net/man/1/openssl
 # -- 2. dd installed: https://man7.org/linux/man-pages/man1/dd.1.html
 # ---------------------------------------------
-set -x # uncomment to debug script
+#set -x # uncomment to debug script
 set -e # exit on first error
 set -o pipefail
 set -u # fail on unset var
@@ -21,7 +21,9 @@ set -u # fail on unset var
 # ---------------------------------------------
 # -- Script arguments
 # ---------------------------------------------
+set +u
 INPUT_FILE="$1"
+set -u
 
 # ---------------------------------------------
 # -- Config
@@ -43,17 +45,20 @@ SECRET_KEY="foo"
 # ---------------------------------------------
 if [ ! -e "$INPUT_FILE" ]; then
     echo "Error: input file must exist: $INPUT_FILE"
-    exit 10
+    exit 100
 
 elif [ ! -f "$INPUT_FILE" ]; then
     echo "Error: input file must be a regular file: $INPUT_FILE"
-    exit 11
+    exit 101
 fi
 
 
 # ---------------------------------------------
 # -- Encrypt
 # ---------------------------------------------
+echo
+echo "|-- Encrypting file: $INPUT_FILE"
+
 openssl enc \
 -aes-256-cbc \
 -salt \
@@ -68,3 +73,5 @@ dd if="$OUTPUT_FILE" of="$OUTPUT_FILE" conv=swab
 # ---------------------------------------------
 # -- Report
 # ---------------------------------------------
+echo
+echo "|-- See encrypted file: $OUTPUT_FILE"
