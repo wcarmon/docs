@@ -14,9 +14,11 @@ set -e # exit on first error
 set -o pipefail
 set -u # fail on unset var
 
+
 # ---------------------------------------------
 # -- Constants
 # ---------------------------------------------
+
 
 # ---------------------------------------------
 # -- Script arguments
@@ -25,19 +27,27 @@ set +u
 INPUT_FILE="$1"
 set -u
 
+
 # ---------------------------------------------
 # -- Config
 # ---------------------------------------------
+readonly ENCRYPTED_FILE_EXTENSION=".foo"
 
-# TODO: generate from input file
-#OUTPUT_FILE="$2"
-
-# TODO: require env var
-#SECRET_KEY="foo"
 
 # ---------------------------------------------
 # -- Derived
 # ---------------------------------------------
+set +u
+if [ -z "$SECRET_KEY" ]; then
+  echo "Error: pass env variable: SECRET_KEY"
+  exit 30
+fi
+set -u
+
+
+readonly OUTPUT_FILE="${INPUT_FILE}${ENCRYPTED_FILE_EXTENSION}"
+
+readonly OUTPUT_PARENT_DIR=$(readlink -f "$(dirname "${OUTPUT_FILE}")")
 
 
 # ---------------------------------------------
@@ -67,11 +77,12 @@ openssl enc \
 -k "$SECRET_KEY"
 
 # -- Reverse the bytes using dd
-dd if="$OUTPUT_FILE" of="$OUTPUT_FILE" conv=swab
+#dd if="$OUTPUT_FILE" of="$OUTPUT_FILE" conv=swab
 
 
 # ---------------------------------------------
 # -- Report
 # ---------------------------------------------
 echo
-echo "|-- See encrypted file: $OUTPUT_FILE"
+echo "|-- See encrypted file: $OUTPUT_FILE in $OUTPUT_PARENT_DIR"
+ls -l $OUTPUT_PARENT_DIR | grep $ENCRYPTED_FILE_EXTENSION
