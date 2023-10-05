@@ -25,7 +25,7 @@ readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
 # -- Config
 # ---------------------------------------------
 # -- See https://hub.docker.com/r/jaegertracing/all-in-one/tags
-readonly JAEGER_IMAGE="jaegertracing/all-in-one:1.47"
+readonly JAEGER_IMAGE="jaegertracing/all-in-one:1.49"
 
 #GOTCHA: -d is cross platform, --directory is not
 readonly TEMP_DIR=$(mktemp -d)
@@ -58,9 +58,11 @@ $DOCKER rm --force $JAEGER_CONTAINER_NAME || true &>/dev/null
 #TODO: change user to non-root
 $DOCKER run -d \
   --name $JAEGER_CONTAINER_NAME \
+  --cpus=1.5 \
+  --memory=2g \
   --restart always \
-  -e COLLECTOR_ZIPKIN_HOST_PORT=:9411 \
   -e COLLECTOR_OTLP_ENABLED=true \
+  -e COLLECTOR_ZIPKIN_HOST_PORT=:9411 \
   -p 14250:14250 \
   -p 14268:14268 \
   -p 14269:14269 \
@@ -75,6 +77,8 @@ $DOCKER run -d \
 <<'EXAMPLE_WITH_BADGER'
 $DOCKER run -d \
   --name $JAEGER_CONTAINER_NAME \
+  --cpus=1.5 \
+  --memory=2g \
   --restart always \
   -e BADGER_DIRECTORY_KEY=/badger/key \
   -e BADGER_DIRECTORY_VALUE=/badger/data \
