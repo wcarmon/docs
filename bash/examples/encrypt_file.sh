@@ -30,10 +30,10 @@ set -u
 # ---------------------------------------------
 
 # TODO: generate from input file
-OUTPUT_FILE="$2"
+#OUTPUT_FILE="$2"
 
 # TODO: require env var
-SECRET_KEY="foo"
+#SECRET_KEY="foo"
 
 # ---------------------------------------------
 # -- Derived
@@ -44,7 +44,7 @@ SECRET_KEY="foo"
 # -- Validate
 # ---------------------------------------------
 if [ ! -e "$INPUT_FILE" ]; then
-    echo "Error: input file must exist: $INPUT_FILE"
+    echo "Usage: pass a path to an existing file"
     exit 100
 
 elif [ ! -f "$INPUT_FILE" ]; then
