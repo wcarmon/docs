@@ -3,6 +3,8 @@
 # ---------------------------------------------
 # -- Runs Jaeger locally (stateless)
 # --
+# -- For memory & CPU stats:  docker stats <container-id>
+# --
 # -- Assumptions:
 # -- 1. Docker installed: https://docs.docker.com/get-docker/
 # ---------------------------------------------
@@ -41,6 +43,7 @@ $DOCKER rm --force $JAEGER_CONTAINER_NAME || true &>/dev/null
 # ---------------------------------------------
 # -- Run
 # ---------------------------------------------
+
 
 # -- Ports: https://www.jaegertracing.io/docs/1.42/deployment/
 # - 14250 = collector: model.proto

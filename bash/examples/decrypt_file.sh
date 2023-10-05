@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # ---------------------------------------------
-# -- Encrypt and "mungle" a file
+# -- Decrypt and "demungle" a file
 # --
-# -- See sister file at ./decrypt_file.sh
+# -- See sister file at ./encrypt_file.sh
 # --
 # -- Assumptions:
 # -- 1. openssl installed: https://linux.die.net/man/1/openssl
@@ -27,12 +27,6 @@ INPUT_FILE="$1"
 # -- Config
 # ---------------------------------------------
 
-# TODO: generate from input file
-OUTPUT_FILE="$2"
-
-# TODO: require env var
-SECRET_KEY="foo"
-
 # ---------------------------------------------
 # -- Derived
 # ---------------------------------------------
@@ -44,18 +38,14 @@ SECRET_KEY="foo"
 
 
 # ---------------------------------------------
-# -- Encrypt
+# -- Decrypt
 # ---------------------------------------------
-openssl enc \
--aes-256-cbc \
--salt \
+dd if="$INPUT_FILE" of="$INPUT_FILE" conv=swab
+
+openssl enc -d -aes-256-cbc \
 -in "$INPUT_FILE" \
 -out "$OUTPUT_FILE" \
 -k "$SECRET_KEY"
-
-# -- Reverse the bytes using dd
-dd if="$OUTPUT_FILE" of="$OUTPUT_FILE" conv=swab
-
 
 # ---------------------------------------------
 # -- Report
