@@ -5,14 +5,18 @@
 # --
 # -- See sister file at ./encrypt_file.sh
 # --
+# -- Example:
+# -- SECRET_KEY="foo" $HOME/bin/decrypt_file.sh ./my-file.tar.gz.warp
+# --
 # -- Assumptions:
 # -- 1. openssl installed: https://linux.die.net/man/1/openssl
 # -- 2. dd installed: https://man7.org/linux/man-pages/man1/dd.1.html
 # ---------------------------------------------
-set -x # uncomment to debug script
+#set -x # uncomment to debug script
 set -e # exit on first error
 set -o pipefail
 set -u # fail on unset var
+
 
 # ---------------------------------------------
 # -- Constants
@@ -29,7 +33,7 @@ set -u
 # ---------------------------------------------
 # -- Config
 # ---------------------------------------------
-readonly ENCRYPTED_FILE_EXTENSION=".enc"
+readonly UNWARPED_FILE_EXTENSION=".dec"
 readonly WARPED_FILE_EXTENSION=".warp"
 
 
@@ -43,9 +47,9 @@ if [ -z "$SECRET_KEY" ]; then
 fi
 set -u
 
-#readonly DECRYPTED_OUTPUT_FILE="${INPUT_FILE}${ENCRYPTED_FILE_EXTENSION}"
+readonly ENCRYPTED_OUTPUT_FILE="${INPUT_FILE%.*}$UNWARPED_FILE_EXTENSION"
+readonly OUTPUT_FILE="${INPUT_FILE%.*}"
 
-#TODO: decide on OUTPUT_FILE
 
 # ---------------------------------------------
 # -- Validate
@@ -58,26 +62,46 @@ elif [ ! -f "$INPUT_FILE" ]; then
     echo "Error: input file must be a regular file: $INPUT_FILE"
     exit 101
 
-elif [[ ! "$INPUT_FILE" =~ \Q$WARPED_FILE_EXTENSION\E$ ]]; then
+elif [[ ! "$INPUT_FILE" =~ $WARPED_FILE_EXTENSION$ ]]; then
     echo "Error: INPUT_FILE must end with '$WARPED_FILE_EXTENSION'"
     exit 102
 fi
 
+
 # ---------------------------------------------
 # -- Decrypt
 # ---------------------------------------------
-#rm -vf "$OUTPUT_FILE"
+rm -vf "$ENCRYPTED_OUTPUT_FILE"
+#rm -vf "$OUTPUT_FILE"  # TODO: uncomment me
 
 # -- Reverse all bytes
+echo
+echo "|-- Unwarping $(readlink -f $INPUT_FILE)"
+
 dd if="$INPUT_FILE" \
 of="$ENCRYPTED_OUTPUT_FILE" \
 bs=1 \
 conv=swab
 
-openssl enc -d -aes-256-cbc \
--in "$INPUT_FILE" \
+set -x # <-- TODO: delete me
+exit
+
+
+echo
+echo "|-- Decrypting $(readlink -f $ENCRYPTED_OUTPUT_FILE)"
+
+openssl enc \
+-d \
+-aes-256-cbc \
+-in "$ENCRYPTED_OUTPUT_FILE" \
+-iter 10000 \
+-k "$SECRET_KEY" \
 -out "$OUTPUT_FILE" \
--k "$SECRET_KEY"
+-salt
+
+
+set -x # <-- TODO: delete me
+
 
 # ---------------------------------------------
 # -- Report

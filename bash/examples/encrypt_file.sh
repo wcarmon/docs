@@ -5,9 +5,13 @@
 # --
 # -- See sister file at ./decrypt_file.sh
 # --
+# -- Example:
+# -- SECRET_KEY="foo" $HOME/bin/encrypt_file.sh ./my-file.tar.gz
+# --
 # -- Assumptions:
 # -- 1. openssl installed: https://linux.die.net/man/1/openssl
 # -- 2. dd installed: https://man7.org/linux/man-pages/man1/dd.1.html
+# --
 # ---------------------------------------------
 #set -x # uncomment to debug script
 set -e # exit on first error
@@ -72,7 +76,7 @@ rm -vf "$ENCRYPTED_OUTPUT_FILE" || true
 rm -vf "$WARPED_OUTPUT_FILE" || true
 
 echo
-echo "|-- Encrypting file: $INPUT_FILE"
+echo "|-- Encrypting file: $(readlink -f $INPUT_FILE)"
 
 openssl enc \
 -aes-256-cbc \
@@ -83,7 +87,7 @@ openssl enc \
 -salt
 
 echo
-echo "|-- Warping file: $ENCRYPTED_OUTPUT_FILE"
+echo "|-- Warping file: $(readlink -f $ENCRYPTED_OUTPUT_FILE)"
 
 # -- Reverse all bytes
 dd if="$ENCRYPTED_OUTPUT_FILE" \
@@ -96,7 +100,7 @@ conv=swab
 # -- Report
 # ---------------------------------------------
 echo
-echo "|-- See encrypted file: $WARPED_OUTPUT_FILE in $OUTPUT_PARENT_DIR"
+echo "|-- See warped, encrypted file: $(readlink -f $WARPED_OUTPUT_FILE)"
 ls -l $OUTPUT_PARENT_DIR | grep $ENCRYPTED_FILE_EXTENSION
 ls -l $OUTPUT_PARENT_DIR | grep $WARPED_FILE_EXTENSION
 
