@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # ---------------------------------------------
-# -- Encrypts and "warpes" (recoverably) a file
+# -- Encrypts a file
 # --
 # -- See sister file at ./decrypt_file.sh
 # --
