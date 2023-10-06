@@ -93,15 +93,18 @@ openssl enc \
 -out "$OUTPUT_FILE" \
 -salt
 
+# ---------------------------------------------
+# -- Cleanup
+# ---------------------------------------------
+
 
 # ---------------------------------------------
 # -- Report
 # ---------------------------------------------
 echo
 echo "|-- See decrypted file: $(readlink -f $OUTPUT_FILE)"
-ls -lt $OUTPUT_PARENT_DIR | \
-head -2
+ls -lt "$OUTPUT_PARENT_DIR" | head -2
 
 echo
 echo "|-- File info:"
-file $OUTPUT_FILE
+file "$OUTPUT_FILE"

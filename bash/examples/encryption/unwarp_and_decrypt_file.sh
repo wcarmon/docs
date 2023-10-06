@@ -110,7 +110,7 @@ openssl enc \
 # ---------------------------------------------
 # -- Cleanup
 # ---------------------------------------------
-rm -f $ENCRYPTED_OUTPUT_FILE
+rm -f "$ENCRYPTED_OUTPUT_FILE"
 
 
 # ---------------------------------------------
@@ -118,11 +118,11 @@ rm -f $ENCRYPTED_OUTPUT_FILE
 # ---------------------------------------------
 echo
 echo "|-- See decrypted file: $(readlink -f $OUTPUT_FILE)"
-ls -lt $OUTPUT_PARENT_DIR | \
-grep -v $UNWARPED_FILE_EXTENSION | \
-grep -v $WARPED_FILE_EXTENSION | \
+ls -lt "$OUTPUT_PARENT_DIR" | \
+grep -v "$UNWARPED_FILE_EXTENSION" | \
+grep -v "$WARPED_FILE_EXTENSION" | \
 head -2
 
 echo
 echo "|-- File info:"
-file $OUTPUT_FILE
+file "$OUTPUT_FILE"
