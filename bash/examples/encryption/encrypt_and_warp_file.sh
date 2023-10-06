@@ -106,11 +106,11 @@ conv=swab
 # ---------------------------------------------
 echo
 echo "|-- See warped, encrypted file: $(readlink -f $WARPED_OUTPUT_FILE)"
-ls -l $OUTPUT_PARENT_DIR | grep $ENCRYPTED_FILE_EXTENSION
-ls -l $OUTPUT_PARENT_DIR | grep $WARPED_FILE_EXTENSION
+ls -l "$OUTPUT_PARENT_DIR" | grep "$ENCRYPTED_FILE_EXTENSION"
+ls -l "$OUTPUT_PARENT_DIR" | grep "$WARPED_FILE_EXTENSION"
 
 
 echo
 echo "|-- File info:"
-file $ENCRYPTED_OUTPUT_FILE
-file $WARPED_OUTPUT_FILE
+file "$ENCRYPTED_OUTPUT_FILE"
+file "$WARPED_OUTPUT_FILE"
