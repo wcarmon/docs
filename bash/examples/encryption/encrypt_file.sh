@@ -10,7 +10,6 @@
 # --
 # -- Assumptions:
 # -- 1. openssl installed: https://linux.die.net/man/1/openssl
-# -- 2. dd installed: https://man7.org/linux/man-pages/man1/dd.1.html
 # --
 # ---------------------------------------------
 #set -x # uncomment to debug script
@@ -36,7 +35,6 @@ set -u
 # -- Config
 # ---------------------------------------------
 readonly ENCRYPTED_FILE_EXTENSION=".enc"
-readonly WARPED_FILE_EXTENSION=".warp"
 
 
 # ---------------------------------------------
@@ -50,9 +48,8 @@ fi
 set -u
 
 readonly ENCRYPTED_OUTPUT_FILE="${INPUT_FILE}${ENCRYPTED_FILE_EXTENSION}"
-readonly WARPED_OUTPUT_FILE="${INPUT_FILE}${WARPED_FILE_EXTENSION}"
 
-readonly OUTPUT_PARENT_DIR=$(readlink -f "$(dirname "${WARPED_OUTPUT_FILE}")")
+readonly OUTPUT_PARENT_DIR=$(readlink -f "$(dirname "${ENCRYPTED_OUTPUT_FILE}")")
 
 
 # ---------------------------------------------
@@ -72,7 +69,6 @@ fi
 # -- Encrypt
 # ---------------------------------------------
 rm -vf "$ENCRYPTED_OUTPUT_FILE" || true
-rm -vf "$WARPED_OUTPUT_FILE" || true
 
 echo
 echo "|-- Encrypting file: $(readlink -f $INPUT_FILE)"
@@ -85,15 +81,6 @@ openssl enc \
 -out "$ENCRYPTED_OUTPUT_FILE" \
 -salt
 
-echo
-echo "|-- Warping file: $(readlink -f $ENCRYPTED_OUTPUT_FILE)"
-
-# -- Reverse all bytes
-dd if="$ENCRYPTED_OUTPUT_FILE" \
-of="$WARPED_OUTPUT_FILE" \
-bs=1 \
-conv=swab
-
 
 # ---------------------------------------------
 # -- Cleanup
@@ -105,12 +92,11 @@ conv=swab
 # -- Report
 # ---------------------------------------------
 echo
-echo "|-- See warped, encrypted file: $(readlink -f $WARPED_OUTPUT_FILE)"
-ls -l $OUTPUT_PARENT_DIR | grep $ENCRYPTED_FILE_EXTENSION
-ls -l $OUTPUT_PARENT_DIR | grep $WARPED_FILE_EXTENSION
+echo "|-- See encrypted file: $(readlink -f $ENCRYPTED_OUTPUT_FILE)"
+ls -l "$OUTPUT_PARENT_DIR" | grep "$ENCRYPTED_FILE_EXTENSION"
+
 
 
 echo
 echo "|-- File info:"
-file $ENCRYPTED_OUTPUT_FILE
-file $WARPED_OUTPUT_FILE
+file "$ENCRYPTED_OUTPUT_FILE"
