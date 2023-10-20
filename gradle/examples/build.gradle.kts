@@ -15,38 +15,38 @@ allprojects {
 plugins {
   id("java") apply true
 
-  id("org.jetbrains.kotlin.jvm") version "1.6.0" apply true
+  id("org.jetbrains.kotlin.jvm") version "1.9.20-RC" apply true
 
   /** Formatter */
-  id("com.diffplug.spotless") version "6.7.2" apply true
+  id("com.diffplug.spotless") version "6.22.0" apply true
 
   /** Finds updated deps */
-  id("com.github.ben-manes.versions") version "0.42.0" apply true
+  id("com.github.ben-manes.versions") version "0.49.0" apply true
 
   /** Static analysis */
-  id("io.gitlab.arturbosch.detekt") version "1.20.0" apply false
-  id("org.sonarqube") version "3.4.0.2513" apply true
+  id("io.gitlab.arturbosch.detekt") version "1.23.1" apply false
+  id("org.sonarqube") version "4.4.1.3373" apply true
 
   /** Allows Kotlin & Spring to work together */
-  id("org.jetbrains.kotlin.plugin.allopen") version "1.6.0" apply false
-  id("org.jetbrains.kotlin.plugin.spring") version "1.6.0" apply false
+  id("org.jetbrains.kotlin.plugin.allopen") version "1.9.20-RC" apply false
+  id("org.jetbrains.kotlin.plugin.spring") version "1.9.20-RC" apply false
 
   /** SQL Delight */
   id("com.squareup.sqldelight") version "1.5.3" apply false
 
   /** Protocol buffer compiler */
-  id("com.google.protobuf") version "0.8.18" apply false
+  id("com.google.protobuf") version "0.9.4" apply false
 
   /** Fat jar */
-  id("com.github.johnrengelman.shadow") version "7.1.2" apply false
+  id("com.github.johnrengelman.shadow") version "8.1.1" apply false
 
   /** bootRun task, if using spring */
-  id("org.springframework.boot") version "2.7.0" apply false
+  id("org.springframework.boot") version "3.1.5" apply false
 
-  /** javafx */
-  id("org.openjfx.javafxplugin") version "0.0.13" apply false
+  /** if using javafx */
+  id("org.openjfx.javafxplugin") version "0.1.0" apply false
 
-  id("io.freefair.lombok") version "6.4.3" apply true // if using lombok
+  id("io.freefair.lombok") version "8.4" apply true // if using lombok
 
   /** GraalVM */
   id("org.mikeneck.graalvm-native-image") version "1.4.1" apply false

@@ -9,13 +9,13 @@
 ## Setup, Init, Upgrade
 ```bash
 gradle init
-gradle wrapper --gradle-version 8.1.1
+gradle wrapper --gradle-version 8.4
 gradle wrapper
 
 
 # -- Upgrade
 ./gradlew wrapper --gradle-version=8.3 --distribution-type=all -q
-./gradlew wrapper --gradle-version=8.4-rc-2 --distribution-type=bin -q
+./gradlew wrapper --gradle-version=8.4 --distribution-type=bin -q
 ```
 
 ## Verify setup
