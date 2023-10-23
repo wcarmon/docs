@@ -50,7 +50,9 @@
     1. Compare to [Rust](https://doc.rust-lang.org/rust-by-example/std/result/question_mark.html), [Python](https://docs.python.org/3/library/exceptions.html), [C++](https://cplusplus.com/doc/tutorial/exceptions/) or [Java](https://docs.oracle.com/javase/tutorial/essential/exceptions/index.html)        
     1. No exceptions
         1. Compare to Python, C++, C#, Java, JS/TS, ...
-        1. Rust lacks exceptions, but has [`?`](https://doc.rust-lang.org/std/ops/trait.Try.html) operator 
+        1. Rust lacks exceptions, but has [`?`](https://doc.rust-lang.org/std/ops/trait.Try.html) operator
+        1. Lack os stack traces makes debugging harder
+            1. You can manually wrap errors, but this makes code even more verbose and is error prone (since it's manual) 
 1. [Immutability](../general/immutability.md) is hard
     1. Mitigate: `struct` shallow copy is trivial
         1. But `struct` shallow copy "fails" when structs has pointer/reference field
