@@ -39,6 +39,7 @@ $RECYCLE.BIN/
 **/src/gen/kotlin/
 **/src/genTest/java/
 **/src/genTest/kotlin/
+**/src_gen/
 *.7z
 *.[568vq]
 *.a
@@ -54,6 +55,7 @@ $RECYCLE.BIN/
 *.cgo2.c
 *.class
 *.ctxt
+*.d
 *.dex
 *.diff
 *.dll
@@ -64,6 +66,7 @@ $RECYCLE.BIN/
 *.egg-info
 *.exe
 *.exe~
+*.gch
 *.gem
 *.gen.go
 *.gen.go.partial
@@ -89,6 +92,7 @@ $RECYCLE.BIN/
 *.log.xz
 *.lz4
 *.lzma
+*.mod
 *.msi
 *.msm
 *.msp
@@ -109,6 +113,7 @@ $RECYCLE.BIN/
 *.sbr
 *.sln.docstates
 *.slo
+*.smod
 *.so
 *.so.*
 *.sublime-workspace
@@ -128,6 +133,7 @@ $RECYCLE.BIN/
 *.war
 *.xz
 *.zip
+*/src_gen/
 */WEB-INF/lib/
 *_gen.pb.go
 *_gen_grpc.pb.go
@@ -154,7 +160,6 @@ $RECYCLE.BIN/
 .DS_Store?
 .factorypath
 .fseventsd
-.go
 .gradle
 .gradle/
 .hg
@@ -169,6 +174,7 @@ $RECYCLE.BIN/
 .idea/workspace.xml
 .LSOverride
 .mtj.tmp/
+.ninja_log
 .mypy_cache/
 .project
 .push-*
@@ -195,6 +201,7 @@ $RECYCLE.BIN/
 .VolumeIcon.icns
 .vs
 .vscode
+.vscode/
 .vscode/*
 /*/*/*/WEB-INF/lib/
 /*/*/target/
@@ -225,6 +232,7 @@ $RECYCLE.BIN/
 /tmp
 /typings
 /velero
+/WEB-INF/lib/
 [568vq].out
 [Gg]en/
 [Tt][Mm][Pp]/
@@ -241,6 +249,7 @@ bin/
 bookmark/
 build/
 chrome-profiler-events*.json
+cmake-build-debug/
 CMakeCache.txt
 cpp/root/build/
 debug
@@ -295,6 +304,7 @@ src/vendor/**
 tags
 target/
 Temporary Items
+terraform.tfstate.backup
 test-output/
 testem.log
 Thumbs.db
