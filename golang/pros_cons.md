@@ -31,16 +31,26 @@
     1. Impossible in Java without reflection or hacks
     1. Rust can get close using "Orphan rule" and default impl
 1. Multiple return values
-    1. Compare to Java (you must make extra `record`), or C++ (must make extra struct or class), etc
+    1. Compare to Java (you must make extra `record`), or C++ (must make extra struct or class), or Python (must return dict or tuple), or JS (must return wrapper object), etc
     1. Same benefit in Rust (due to implicit [tuples](https://doc.rust-lang.org/rust-by-example/primitives/tuples.html))
 1. Methods can declare mutable (pointer) or read-only (copy) receiver
     1. Same benefit in Rust
+    1. Same benefit in C++ with `const ref`
+    1. Hard to do in Java
 1. Tests can only log when they fail
+1. "Safe" in the [OWASP](https://owasp.org/www-project-top-ten/)/[MITRE/CWE](https://cwe.mitre.org/data/definitions/1337.html) sense    
+    1. Same as Java, Rust, JS
+    1. Safer than C, C++ (Buffer overflows, Memory leaks, Double-free, use-after-free, uninitialized memory, cross-stack access, integer overflow, etc)
+
 
 # Bad news
-
+1. Go abstractions are higher than C, but much lower than Rust, Java, C++, etc
+    1. eg. algebraic types, enums, etc
 1. Verbose error handling & error propagation
-    1. Compare to [Rust](https://doc.rust-lang.org/rust-by-example/std/result/question_mark.html), [Python](https://docs.python.org/3/library/exceptions.html), [C++](https://cplusplus.com/doc/tutorial/exceptions/) or [Java](https://docs.oracle.com/javase/tutorial/essential/exceptions/index.html)
+    1. Compare to [Rust](https://doc.rust-lang.org/rust-by-example/std/result/question_mark.html), [Python](https://docs.python.org/3/library/exceptions.html), [C++](https://cplusplus.com/doc/tutorial/exceptions/) or [Java](https://docs.oracle.com/javase/tutorial/essential/exceptions/index.html)        
+    1. No exceptions
+        1. Compare to Python, C++, C#, Java, JS/TS, ...
+        1. Rust lacks exceptions, but has [`?`](https://doc.rust-lang.org/std/ops/trait.Try.html) operator 
 1. [Immutability](../general/immutability.md) is hard
     1. Mitigate: `struct` shallow copy is trivial
         1. But `struct` shallow copy "fails" when structs has pointer/reference field
@@ -48,8 +58,8 @@
     1. Also `*big.Float` API favors memory reuse over immutability
     1. Compare to Java [`record`](https://docs.oracle.com/en/java/javase/17/language/records.html#GUID-6699E26F-4A9B-4393-A08B-1E47D4B2D263)s or `final` class props or lombok [`@Value`](https://projectlombok.org/features/Value)
     1. Compare to Rust [`mut`](https://doc.rust-lang.org/std/keyword.mut.html)
-    1. Compare to Python [`@dataclass(frozen=True, kw_only=True, slots=True)`](https://docs.python.org/3/library/dataclasses.html)
-    1. Compare to C++ (class with `private fields` and `const` getter member functions)
+    1. Compare to C++ (class with `private fields` and `const` getter member functions or `const auto&`)
+    1. Compare to Python [`@dataclass(frozen=True, kw_only=True, slots=True)`](https://docs.python.org/3/library/dataclasses.html)    
     1. Requires extra **manual** coding discipline (eg. getters for copy-types, manual deep copy for pointer types, ...)
 1. `struct` provides no way to enforce invariants
     1. compare to Java, C++, or any language with constructors
