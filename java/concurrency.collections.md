@@ -38,6 +38,16 @@
 1. [Rust Equivalent](TODO)
 
 
+# Stack ([`ConcurrentLinkedDeque`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/ConcurrentLinkedDeque.html))
+1. Thread-safe [`Stack`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Stack.html)
+1. `Impl`: doubly-linked nodes
+1. `Order`: LIFO
+1. `Size`: Unbounded
+1. `Locking`: **lock-free**
+1. [C++ Equivalent](TODO)
+1. [Rust Equivalent](TODO)
+
+
 ## [`LinkedBlockingDeque`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/LinkedBlockingDeque.html)
 1. Thread-safe [Double-linked list](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/LinkedList.html)
 1. Can treat like thread-safe [`Stack`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Stack.html) or [`Queue`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Queue.html) (since double ended)
