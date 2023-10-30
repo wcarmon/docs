@@ -86,12 +86,12 @@
 
 # Sets
 
-## HashSet
+## HashSet (Keys of a `ConcurrentHashMap`)
+1. Thread-safe
+1. `Building`: [`ConcurrentHashMap::newKeySet`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/ConcurrentHashMap.html#newKeySet())
 1. `Order`: Unordered
-1. TODO: set projection of ConcurrentHashMap: https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/ConcurrentHashMap.html#newKeySet()
-1. `Impl`: TODO
-1. `Order`: Sorted
-1. `Locking`: TODO
+1. [C++ Equivalent](TODO)
+1. [Rust Equivalent](TODO)
 
 
 ## [`ConcurrentSkipListSet`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/ConcurrentSkipListSet.html)
@@ -99,6 +99,8 @@
 1. `Impl`: TODO
 1. `Order`: Sorted
 1. `Locking`: TODO
+1. [C++ Equivalent](TODO)
+1. [Rust Equivalent](TODO)
 
 
 # Other resources
