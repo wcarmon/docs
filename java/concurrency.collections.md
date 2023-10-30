@@ -2,7 +2,7 @@
 1. Typically used thread-safe collections
 
 
-# [`BlockingQueue`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/BlockingQueue.html) interface (for Sequences)
+# Concurrent [`BlockingQueue`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/BlockingQueue.html) interface (for Sequences)
 1. All implementations are thread-safe
 1. Allows developer to choose blocking or non-blocking for each operation
 1. Useful for multiple-producer multiple-consumer (mpmc) cases
@@ -38,28 +38,32 @@
 1. [Rust Equivalent](TODO)
 
 
-# Stack ([`ConcurrentLinkedDeque`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/ConcurrentLinkedDeque.html))
+# Concurrent [`Deque`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Deque.html)s
+
+## Concurrent Stack ([`ConcurrentLinkedDeque`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/ConcurrentLinkedDeque.html))
 1. Thread-safe [`Stack`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Stack.html)
 1. `Impl`: doubly-linked nodes
 1. `Order`: LIFO
 1. `Size`: Unbounded
-1. `Locking`: **lock-free**
+1. `Locking`: **lock-free** (compare to `LinkedBlockingDeque`)
 1. [C++ Equivalent](TODO)
 1. [Rust Equivalent](TODO)
 
 
 ## [`LinkedBlockingDeque`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/LinkedBlockingDeque.html)
 1. Thread-safe [Double-linked list](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/LinkedList.html)
-1. Can treat like thread-safe [`Stack`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Stack.html) or [`Queue`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Queue.html) (since double ended)
+    1. Can treat like thread-safe [`Stack`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Stack.html) or [`Queue`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Queue.html) (since double ended)
+1. `Impl`: doubly-linked nodes
 1. `Order`: FIFO or LIFO
 1. `Size`: Optionally bounded size (defaults to [`Integer.MAX_VALUE`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Integer.html#MAX_VALUE))
+1. `Locking`: `ReentrantLock` (compare to `ConcurrentLinkedDeque`)
 1. [C++ Equivalent](TODO)
 1. [Rust Equivalent](TODO)
 
 
 --------
 
-# Maps
+# Concurrent Maps
 
 ## [`ConcurrentHashMap`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/ConcurrentHashMap.html)
 1. Thread-safe
@@ -85,7 +89,7 @@
 
 --------
 
-# Sets
+# Concurrent Sets
 
 ## HashSet
 1. Thread-safe
