@@ -15,8 +15,9 @@
 
 
 # AutoCloseable locks
-1. Unlike Java, C++ ([scoped lock](https://en.cppreference.com/w/cpp/thread/scoped_lock)), Rust ([drop](https://doc.rust-lang.org/std/sync/struct.Mutex.html#method.unlock)), and Golang (defer) have idioms for auto-closing locks
-1. Example of [`AutoCloseable`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/AutoCloseable.html) lock
+1. Unlike Java, C++ ([scoped lock](https://en.cppreference.com/w/cpp/thread/scoped_lock)), Rust ([drop](https://doc.rust-lang.org/std/sync/struct.Mutex.html#method.unlock)), and Golang (`defer`) have idioms for auto-closing locks
+
+## Example: Java 8+ [`AutoCloseable`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/AutoCloseable.html) lock (useful in [try-with-resources](https://docs.oracle.com/javase/tutorial/essential/exceptions/tryResourceClose.html) block)
 ```java
 public interface CloseableLock extends Lock {
 
@@ -51,6 +52,13 @@ public final class CloseableReentrantReadWriteLock extends ReentrantReadWriteLoc
         return () -> this.writeLock().unlock();
     }
 }
+```
+
+Usage:
+```java
+    try (var _r = stateLock.lockAsResource()) {
+        // do something atomically
+    }
 ```
 
 
