@@ -2,7 +2,7 @@
 1. Typically used thread-safe collections
 
 
-# Concurrent [`BlockingQueue`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/BlockingQueue.html) interface (for Sequences)
+# [`BlockingQueue`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/BlockingQueue.html) interface (for Sequences)
 1. All implementations are thread-safe
 1. Allows developer to choose blocking or non-blocking for each operation
 1. Useful for multiple-producer multiple-consumer (mpmc) cases
@@ -67,7 +67,7 @@
 
 ## [`ConcurrentHashMap`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/ConcurrentHashMap.html)
 1. Thread-safe
-1. `Impl`:
+1. `Impl`, `Locking`:
     1. Dynamically expands when there are too many collisions
     1. Breaks underlying table into segments, each segment has a `ReentrantLock`
         1. Segmentation reduces lock contention
