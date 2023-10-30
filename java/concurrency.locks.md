@@ -49,14 +49,14 @@ public final class CloseableReentrantReadWriteLock extends ReentrantReadWriteLoc
 
     /** @return an {@link AutoCloseable} after lock acquired. */
     public LockResource lockReadAsResource() {
-        this.readLock().lock();
-        return () -> this.readLock().unlock();
+        readLock().lock();
+        return () -> readLock().unlock();
     }
 
     /** @return an {@link AutoCloseable} after lock acquired. */
     public LockResource lockWriteAsResource() {
-        this.writeLock().lock();
-        return () -> this.writeLock().unlock();
+        writeLock().lock();
+        return () -> writeLock().unlock();
     }
 }
 ```
