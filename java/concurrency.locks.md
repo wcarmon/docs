@@ -61,7 +61,7 @@ public final class CloseableReentrantReadWriteLock extends ReentrantReadWriteLoc
 }
 ```
 
-## Usage:
+## Example Usage:
 ```java
     try (var _r = stateLock.lockAsResource()) {
         // do something atomically
