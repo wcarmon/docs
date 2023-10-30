@@ -54,7 +54,7 @@ public final class CloseableReentrantReadWriteLock extends ReentrantReadWriteLoc
 }
 ```
 
-Usage:
+## Usage:
 ```java
     try (var _r = stateLock.lockAsResource()) {
         // do something atomically
@@ -63,4 +63,5 @@ Usage:
 
 
 # Other resources
-1. TODO
+1. https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/locks/ReentrantLock.html
+1. https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/locks/package-summary.html
