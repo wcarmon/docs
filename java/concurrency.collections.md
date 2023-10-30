@@ -42,7 +42,7 @@
 1. Thread-safe [Double-linked list](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/LinkedList.html)
 1. Can treat like thread-safe [`Stack`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Stack.html) or [`Queue`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Queue.html) (since double ended)
 1. `Order`: FIFO or LIFO
-1. `Size`: TODO
+1. `Size`: Optionally bounded size (defaults to [`Integer.MAX_VALUE`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Integer.html#MAX_VALUE))
 1. [C++ Equivalent](TODO)
 1. [Rust Equivalent](TODO)
 
@@ -53,17 +53,23 @@
 
 ## [`ConcurrentHashMap`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/ConcurrentHashMap.html)
 1. Thread-safe
-1. Implementation:
+1. Impl:
     1. Dynamically expands when there are too many collisions
     1. Breaks underlying table into segments, each segment has a `ReentrantLock`
         1. Segmentation reduces lock contention
     1. Separates reads & writes
     1. Implementation is 6,500+ lines
+1. `Order`: unordered
+1. [C++ Equivalent](TODO)
+1. [Rust Equivalent](TODO)
+1. [Golang Equivalent: `sync.Map`](https://pkg.go.dev/sync#Map)
 
 
 ## [`ConcurrentSkipListMap`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/ConcurrentSkipListMap.html)
 1. Thread-safe
-1. Sorted like [`TreeMap`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/TreeMap.html)
+1. `Order`: Sorted like [`TreeMap`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/TreeMap.html)
+1. [C++ Equivalent](TODO)
+1. [Rust Equivalent](TODO)
 
 
 --------
