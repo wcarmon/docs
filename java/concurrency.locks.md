@@ -25,15 +25,16 @@
 
 ## Example: Java 8+ [`AutoCloseable`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/AutoCloseable.html) lock (useful in [try-with-resources](https://docs.oracle.com/javase/tutorial/essential/exceptions/tryResourceClose.html) block)
 ```java
-public interface CloseableLock extends Lock {
+/** A Lock compatible with try-with-resources */
+public interface LockResource extends AutoCloseable {
 
-    /** @return an {@link AutoCloseable} after lock acquired. */
-    LockResource lockAsResource();
+    @Override
+    void close();
 }
 ```
 ```java
 /** Allows ReentrantLock in try-with-resources */
-public final class CloseableReentrantLock extends ReentrantLock implements CloseableLock {
+public final class CloseableReentrantLock extends ReentrantLock {
 
     /** @return an {@link AutoCloseable} after lock acquired. */
     public LockResource lockAsResource() {
