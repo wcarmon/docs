@@ -1,5 +1,5 @@
 # Overview
-1. Using a latch
+1. Info on Latch
 
 
 # Classes
