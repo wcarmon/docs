@@ -1,5 +1,5 @@
 # Overview
-1. TODO
+1. High level overview of Java 8-21 Lock/mutex offerings
 
 
 # Classes
@@ -12,6 +12,12 @@
 ## [`ReentrantReadWriteLock`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/locks/ReentrantReadWriteLock.html)
 1. Similar to `ReentrantLock`, but optimized for multiple-readers
 1. [Most similar lock in C++](https://en.cppreference.com/w/cpp/thread/shared_mutex)
+
+
+## [`StampedLock`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/locks/StampedLock.html)
+1. Perf: Allows optimistic locking (Performance optimization for read-heavy usage)
+1. Perf: Has same multiple-reader support as `ReentrantReadWriteLock`
+1. Perf: (unlike `ReentrantReadWriteLock`) Can upgrade/downgrade between read & read-write lock
 
 
 # AutoCloseable locks
