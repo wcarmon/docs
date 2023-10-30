@@ -22,7 +22,12 @@
 
 
 # Bag/MultiSet
-1. TODO
+1. TODO: https://guava.dev/releases/31.0.1-jre/api/docs/com/google/common/collect/Multiset.html
+
+
+# Heap
+1. TODO: https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/PriorityQueue.html
+
 
 
 # Other resources
