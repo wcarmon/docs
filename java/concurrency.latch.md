@@ -11,8 +11,8 @@
 1. Useful for fan-out, fan-in pattern
 1. Useful for waiting for events (eg. test assertions waiting for code to finish)
 1. [C++ equivalent: `latch`](https://en.cppreference.com/w/cpp/thread/latch)
-1. [Golang equivalent: WaitGroup](https://pkg.go.dev/sync#WaitGroup)
-1. Rust doesn't seem to have an equivalent (you can roll your own with `std::sync::Mutex` and `std::sync::Condvar`)
+1. [Golang equivalent: `WaitGroup`](https://pkg.go.dev/sync#WaitGroup)
+1. Rust doesn't seem to have an equivalent (you can roll your own with [`std::sync::Mutex`](https://doc.rust-lang.org/std/sync/struct.Mutex.html) and [`std::sync::Condvar`](https://doc.rust-lang.org/std/sync/struct.Condvar.html))
 
 
 # Other resources
