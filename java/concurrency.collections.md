@@ -2,17 +2,17 @@
 1. Typically used thread-safe collections
 
 
-# [`BlockingQueue`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/BlockingQueue.html) (Sequence)
+# [`BlockingQueue`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/BlockingQueue.html) interface (for Sequences)
 1. All implementations are thread-safe
 1. Allows developer to choose blocking or non-blocking for each operation
 1. Useful for multiple-producer multiple-consumer (mpmc) cases
 
 
 ## [`ArrayBlockingQueue`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/ArrayBlockingQueue.html)
-1. Thread-safe
+1. Thread-safe version of `array` (**NOT** `ArrayList` which grows)
 1. `Impl`: Backed by array (`Object[]`) & two index pointers
 1. `Order`: FIFO
-1. `Size`: Bounded-buffer (Fixed-size, fixed-capacity)
+1. `Size`: Bounded-buffer (fixed-size, fixed-capacity)
 1. `Locking`: Uses one `ReentrantLock`
 
 
@@ -23,16 +23,20 @@
 1. `Locking`: Uses two `ReentrantLock`s
 
 
-## [`LinkedBlockingDeque`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/LinkedBlockingDeque.html)
-1. Thread-safe Double-linked list
-1. Can treat like Stack or Queue (since double ended)
-
-
 ## [`PriorityBlockingQueue`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/PriorityBlockingQueue.html)
 1. Thread-safe version of [`PriorityQueue`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/PriorityQueue.html)
 1. `Order`: TODO
 1. `Size`: Unbounded
 
+
+## [`LinkedBlockingDeque`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/LinkedBlockingDeque.html)
+1. Thread-safe [Double-linked list](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/LinkedList.html)
+1. Can treat like thread-safe [`Stack`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Stack.html) or [`Queue`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Queue.html) (since double ended)
+1. `Order`: FIFO or LIFO
+1. `Size`: TODO
+
+
+--------
 
 # Maps
 
@@ -50,6 +54,8 @@
 1. Thread-safe
 1. Sorted like [`TreeMap`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/TreeMap.html)
 
+
+--------
 
 # Sets
 1. TODO: set projection of ConcurrentHashMap: https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/ConcurrentHashMap.html#newKeySet()
