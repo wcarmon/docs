@@ -78,6 +78,7 @@
 ## [`ConcurrentSkipListMap`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/ConcurrentSkipListMap.html)
 1. Thread-safe
 1. `Order`: Sorted like [`TreeMap`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/TreeMap.html)
+1. `Locking`: **lock-free**
 1. [C++ Equivalent](TODO)
 1. [Rust Equivalent](TODO)
 
@@ -89,7 +90,7 @@
 ## HashSet
 1. Thread-safe
 1. `Impl`: Keys of a `ConcurrentHashMap`
-1. `Building`: [`ConcurrentHashMap::newKeySet`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/ConcurrentHashMap.html#newKeySet())
+1. `Construction`: [`ConcurrentHashMap::newKeySet`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/ConcurrentHashMap.html#newKeySet())
 1. `Order`: Unordered
 1. [C++ Equivalent](TODO)
 1. [Rust Equivalent](TODO)
@@ -99,7 +100,6 @@
 1. Thread-safe
 1. `Impl`: Keys of a `ConcurrentSkipListMap`
 1. `Order`: Sorted
-1. `Locking`: TODO
 1. [C++ Equivalent](TODO)
 1. [Rust Equivalent](TODO)
 
