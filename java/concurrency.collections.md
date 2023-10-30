@@ -14,6 +14,9 @@
 1. `Order`: FIFO
 1. `Size`: Bounded-buffer (fixed-size, fixed-capacity)
 1. `Locking`: Uses one `ReentrantLock`
+1. [C++ Equivalent](TODO)
+1. [Rust Equivalent](TODO)
+1. [Golang Equivalent: `channel`](../golang/concurrency.channels.md)
 
 
 ## [`LinkedBlockingQueue`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/LinkedBlockingQueue.html)
@@ -21,12 +24,18 @@
 1. `Order`: FIFO
 1. `Size`: Optionally bounded size (defaults to [`Integer.MAX_VALUE`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Integer.html#MAX_VALUE))
 1. `Locking`: Uses two `ReentrantLock`s
+1. [C++ Equivalent](TODO)
+1. [Rust Equivalent](TODO)
 
 
 ## [`PriorityBlockingQueue`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/PriorityBlockingQueue.html)
 1. Thread-safe version of [`PriorityQueue`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/PriorityQueue.html)
-1. `Order`: TODO
+1. `Impl`: array-based binary heap, so O(log n) for add (`add`/`offer`/`put`) and removal (`remove`/`poll`/`take`)
+1. `Order`: internally unordered, but `remove`/`poll`/`take` returns smallest
 1. `Size`: Unbounded
+1. `Locking`: `ReentrantLock` and also some spin locking
+1. [C++ Equivalent](TODO)
+1. [Rust Equivalent](TODO)
 
 
 ## [`LinkedBlockingDeque`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/LinkedBlockingDeque.html)
@@ -34,6 +43,8 @@
 1. Can treat like thread-safe [`Stack`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Stack.html) or [`Queue`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Queue.html) (since double ended)
 1. `Order`: FIFO or LIFO
 1. `Size`: TODO
+1. [C++ Equivalent](TODO)
+1. [Rust Equivalent](TODO)
 
 
 --------
