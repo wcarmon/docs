@@ -53,7 +53,7 @@
 
 ## [`ConcurrentHashMap`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/ConcurrentHashMap.html)
 1. Thread-safe
-1. Impl:
+1. `Impl`:
     1. Dynamically expands when there are too many collisions
     1. Breaks underlying table into segments, each segment has a `ReentrantLock`
         1. Segmentation reduces lock contention
@@ -75,9 +75,20 @@
 --------
 
 # Sets
-1. TODO: set projection of ConcurrentHashMap: https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/ConcurrentHashMap.html#newKeySet()
-1. TODO: Concurrent Set: https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/ConcurrentSkipListSet.html
 
+## HashSet
+1. `Order`: Unordered
+1. TODO: set projection of ConcurrentHashMap: https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/ConcurrentHashMap.html#newKeySet()
+1. `Impl`: TODO
+1. `Order`: Sorted
+1. `Locking`: TODO
+
+
+## [`ConcurrentSkipListSet`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/ConcurrentSkipListSet.html)
+1. Thread-safe
+1. `Impl`: TODO
+1. `Order`: Sorted
+1. `Locking`: TODO
 
 
 # Other resources
