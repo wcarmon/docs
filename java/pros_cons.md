@@ -79,6 +79,8 @@
 1. `java.nio.file.attribute.FileAttribute` permissions are complex (compare to Go)
 1. Array equality tests are unlike other comparisons (compare to go, rust, ...)
 1. primitive comparisons are different from reference comparisons (compare to go, rust, ...)
+1. oracle keeps making java more expensive
+    1. See [here](https://www.azul.com/java-alternative-vendors/?utm_content=&utm_term=oracle%20java&utm_campaign=GS_NB_Core-Oracle_OC_NAM_EN&utm_source=google&utm_medium=paid-search&_bt=662556186424&_bm=p&_bn=g&gad_source=1&gclid=CjwKCAiA3aeqBhBzEiwAxFiOBhLcjLlx9tewRy_My5Ah-degDI0ItxO2puOWhFgE1NVw1P0ONEcdtxoCe5gQAvD_BwE) or [here](https://redresscompliance.com/decoding-oracle-java-licensing-java-licensing-changes-2023/) or [here](https://www.reddit.com/r/java/comments/10l2we6/oracle_changing_java_licensing_to_per_user_vs_per/)
 
 ## Bad news: minor
 
