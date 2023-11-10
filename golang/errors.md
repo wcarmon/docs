@@ -37,6 +37,7 @@ func doWhatever() error {
 
 
 # Idioms
+1. Use [errorx](https://pkg.go.dev/github.com/joomcode/errorx) `Decorate` for clean stacktraces
 1. Use a [structured logger]() instead of wrapping errors
     1. See [Logging](./logging.md) doc
     1. Pass errors up to caller

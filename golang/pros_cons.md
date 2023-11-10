@@ -82,13 +82,14 @@
     1. Compare to [Python's Trio](https://github.com/python-trio/trio)
     1. Compare to [Rust](https://rust-lang.github.io/async-book/03_async_await/01_chapter.html) or [Rayon Scope](https://docs.rs/rayon/latest/rayon/fn.scope.html), although it's still pretty hard in "core" Rust
     1. Requires extra **manual** coding discipline
-1. `big.Float` is hard to use correctly
+1. `big.Float` is VERY hard to use correctly
     1. [setter methods tend to mutate in the interest of saving memory](https://pkg.go.dev/math/big)
     1. The API is VERY different from most of golang types
     1. Compare to [Java BigDecimal](https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/math/BigDecimal.html#%3Cinit%3E(java.math.BigInteger)), which is equally verbose, but easier to use correctly
     1. Rust [relies on 3rd party](https://github.com/rust-num/num) lib
     1. C++ [relies on 3rd party](https://gmplib.org/) lib
-    1. Mitigate: Learn from [this abandoned library](https://github.com/sdcoffey/big)   
+    1. Debugging is hard because Goland doesn't print simple values, it shows the internal representation
+    1. Mitigate: Learn from [this abandoned library](https://github.com/sdcoffey/big)
     1. Requires extra **manual** coding discipline (eg. always create a new big.Float or be careful about reuse)
 1. Enums cannot have properties
     1. But they can have methods
