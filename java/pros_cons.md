@@ -106,6 +106,9 @@
 
 ## Jackson
 1. While Deserializing, objectMapper doesn't usually tell you which Class/field caused the error
+    1. eg. `NoSuchFieldError`
+    1. Use debugger to step thru their source with a breakpoint
+1. You have to wrap `objectMapper.readValue(...)` calls with try-catch-rethrow to get USEFUL exceptions
 
 
 # Other Resources
