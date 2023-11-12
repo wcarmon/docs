@@ -28,6 +28,7 @@
 1. Java 14 fixed ambiguity or null pointer exceptions (https://openjdk.org/jeps/358)
     1. Null pointer precondition checks are unnecessary since error messages are equally clear
     1. `requireNonNull` is still useful in constructors to catch NPE early
+    1. `requireNonNull` is still useful to prevent null pointers from drifting thru the code
 
 
 # Bad news
