@@ -25,6 +25,9 @@
     1. Maybe it's not a good thing :-)
     1. Rust has alternative thru traits
 1. Class properties support default values (compare to Go)
+1. Java 14 fixed ambiguity or null pointer exceptions (https://openjdk.org/jeps/358)
+    1. Null pointer precondition checks are unnecessary since error messages are equally clear
+
 
 # Bad news
 
