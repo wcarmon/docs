@@ -27,12 +27,14 @@
 1. Class properties support default values (compare to Go)
 1. Java 14 fixed ambiguity or null pointer exceptions (https://openjdk.org/jeps/358)
     1. Null pointer precondition checks are unnecessary since error messages are equally clear
+    1. `requireNonNull` is still useful in constructors to catch NPE early
 
 
 # Bad news
 
 1. [Checked exceptions](./exceptions.no_checked.md), (compare to Go, Rust, c, c++, c#, js, ts, Kotlin, Python, ...)
     1. Mitigate with [Lombok](https://projectlombok.org/features/SneakyThrows)
+    1. Still very painful on streams (eg. [`map()`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/stream/Stream.html#map(java.util.function.Function)) with a lambda that throws an exception
 1. Immutability is hard and not the default (compare to [Kotlin](TODO) or [Rust](TODO))
     1. Mitigate with [Lombok](https://projectlombok.org/features/Value)
 1. No coroutines (see [Project loom](https://cr.openjdk.java.net/~rpressler/loom/Loom-Proposal.html))
