@@ -29,6 +29,7 @@
     1. Null pointer precondition checks are unnecessary since error messages are equally clear
     1. `requireNonNull` is still useful in constructors to catch NPE early
     1. `requireNonNull` is still useful to prevent null pointers from drifting thru the code
+    1. [lombok `@NonNull`](https://projectlombok.org/features/NonNull) also helps
 
 
 # Bad news
