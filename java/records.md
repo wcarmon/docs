@@ -19,6 +19,8 @@
 1. Supports [Generics](https://docs.oracle.com/javase/tutorial/java/generics/index.html)
 1. Supports Validation in constructor (to maintain invariants)
     1. Syntax is noticeably different
+1. Pattern matching works in `instanceof` checks with a implicit casting
+    1. Same for Records, classes, primitives, etc
 
 
 # Differences from Classes
@@ -30,7 +32,6 @@
 1. All fields are defined in the ["Record header"](https://docs.oracle.com/en/java/javase/17/language/records.html#GUID-6699E26F-4A9B-4393-A08B-1E47D4B2D263)
 1. Records work with [pattern matching](https://docs.oracle.com/en/java/javase/20/language/record-patterns.html#GUID-7623D3AD-4141-4914-A384-60C65BD0C010)
     1. See [https://openjdk.org/jeps/427](https://openjdk.org/jeps/427)
-    1. works in `instanceof` checks with a implicit casting (same as classes & primitives)
     1. [destructuring](https://basarat.gitbook.io/typescript/future-javascript/destructuring) works ...
         1. with `instanceof` checks
         1. in `switch` cases
