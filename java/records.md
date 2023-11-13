@@ -11,12 +11,12 @@
 
 # Similarities with Classes
 1. Allows instance methods
-1. Allows static fields
-1. Allows static methods
+1. Allows `static` fields
+1. Allows `static` methods
 1. Can implement interfaces
 1. Instances live on [the heap](https://docs.oracle.com/cd/E13150_01/jrockit_jvm/jrockit/geninfo/diagnos/garbage_collect.html)
-    1. Not the same as [valhalla's inline classes](https://cr.openjdk.org/~briangoetz/valhalla/sov/02-object-model.html)
-1. Supports generics
+    1. Different from [valhalla's inline classes](https://cr.openjdk.org/~briangoetz/valhalla/sov/02-object-model.html)
+1. Supports [Generics](https://docs.oracle.com/javase/tutorial/java/generics/index.html)
 1. Supports Validation in constructor (to maintain invariants)
     1. Syntax is noticeably different
 
