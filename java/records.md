@@ -30,9 +30,11 @@
 1. All fields are defined in the "Record header"
 1. Records work with [pattern matching](https://docs.oracle.com/en/java/javase/20/language/record-patterns.html#GUID-7623D3AD-4141-4914-A384-60C65BD0C010)
     1. See https://openjdk.org/jeps/427
-    1. works in `instanceof` checks
-    1. works in `switch` cases
-    1. works in [`for` loops](https://openjdk.org/jeps/432) (Java 20)
+    1. works in `instanceof` checks with a implicit casting (same as classes & primitives)
+    1. [destructuring](https://basarat.gitbook.io/typescript/future-javascript/destructuring) works ...
+        1. with `instanceof` checks
+        1. in `switch` cases
+        1. in [`for` loops](https://openjdk.org/jeps/432) (Java 20)
 
 
 # [Jackson](https://github.com/FasterXML/jackson) ([databind](https://github.com/FasterXML/jackson-databind)) integration
