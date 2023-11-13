@@ -19,7 +19,7 @@
 1. Instances live on [the heap](https://docs.oracle.com/cd/E13150_01/jrockit_jvm/jrockit/geninfo/diagnos/garbage_collect.html)
     1. Different from [valhalla's inline classes](https://cr.openjdk.org/~briangoetz/valhalla/sov/02-object-model.html)
 1. Supports [Generics](https://docs.oracle.com/javase/tutorial/java/generics/index.html)
-1. Supports Validation in constructor (to maintain invariants)
+1. Supports Validation in constructor (to preserve invariants)
     1. Syntax is noticeably different
 1. Pattern matching works in `instanceof` checks with a implicit casting
     1. Same for Records, classes, enums, primitives, etc
