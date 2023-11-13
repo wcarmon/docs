@@ -32,7 +32,9 @@
 1. Constructors cannot use `this`
 1. Only has `public` instance members (and fields are implicitly `public`)
 1. Compiler generates constructor, accessor methods, [`::equals`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#equals(java.lang.Object)), [`::hashCode`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#hashCode()), [`::toString`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#toString())
-    1. accessor methods are like getters with out the `get` prefix
+    1. (Idiomatic) accessor methods use property name, not `get`
+        1. Class: `this::foo` -> `getFoo()`
+        1. Record: `this::foo` -> `foo()`
 1. Has a [compact constructor](https://blogs.oracle.com/javamagazine/post/java-record-canonical-constructor)
 1. All fields are defined in the ["Record header"](https://docs.oracle.com/en/java/javase/17/language/records.html#GUID-6699E26F-4A9B-4393-A08B-1E47D4B2D263)
 1. Records work with [pattern matching](https://docs.oracle.com/en/java/javase/20/language/record-patterns.html#GUID-7623D3AD-4141-4914-A384-60C65BD0C010)
@@ -42,9 +44,6 @@
         1. in `switch` cases
         1. in [`for` loops](https://openjdk.org/jeps/432) (Java 20)
 1. All secondary constructors **must** delegate to the canonical constructor
-1. (Idiomatic) accessor methods use property name, not `get`
-    1. Class: `this::foo` -> `getFoo()`
-    1. Record: `this::foo` -> `foo()`
 
 
 # [Jackson](https://github.com/FasterXML/jackson) ([databind](https://github.com/FasterXML/jackson-databind)) integration
