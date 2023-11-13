@@ -14,17 +14,22 @@
 1. Allows `static` fields
 1. Allows `static` methods
 1. Can implement interfaces
+1. Supports "shallow immutability"
+    1. classes require `final` keyword, Records are implicitly `final`
 1. Instances live on [the heap](https://docs.oracle.com/cd/E13150_01/jrockit_jvm/jrockit/geninfo/diagnos/garbage_collect.html)
     1. Different from [valhalla's inline classes](https://cr.openjdk.org/~briangoetz/valhalla/sov/02-object-model.html)
 1. Supports [Generics](https://docs.oracle.com/javase/tutorial/java/generics/index.html)
 1. Supports Validation in constructor (to maintain invariants)
     1. Syntax is noticeably different
 1. Pattern matching works in `instanceof` checks with a implicit casting
-    1. Same for Records, classes, primitives, etc
+    1. Same for Records, classes, enums, primitives, etc
+1. Constructor can overwrite/mutate fields before assignment
 
 
 # Differences from Classes
 1. Implicitly `final` (classes are implicitly non-`final`)
+1. Cannot `extends` a class
+1. Constructors cannot use `this`
 1. Only has `public` instance members (and fields are implicitly `public`)
 1. Compiler generates constructor, accessor methods, [`::equals`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#equals(java.lang.Object)), [`::hashCode`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#hashCode()), [`::toString`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#toString())
     1. accessor methods are like getters with out the `get` prefix
@@ -36,6 +41,7 @@
         1. with `instanceof` checks
         1. in `switch` cases
         1. in [`for` loops](https://openjdk.org/jeps/432) (Java 20)
+1. All secondary constructors must delegate to the canonical constructor
 
 
 # [Jackson](https://github.com/FasterXML/jackson) ([databind](https://github.com/FasterXML/jackson-databind)) integration
