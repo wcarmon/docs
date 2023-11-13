@@ -41,7 +41,7 @@
         1. with `instanceof` checks
         1. in `switch` cases
         1. in [`for` loops](https://openjdk.org/jeps/432) (Java 20)
-1. All secondary constructors must delegate to the canonical constructor
+1. All secondary constructors **must** delegate to the canonical constructor
 1. (Idiomatic) accessor methods use property name, not `get`
     1. Class: `this::foo` -> `getFoo()`
     1. Record: `this::foo` -> `foo()`
