@@ -5,9 +5,10 @@
 
 
 # Sections
-1. [Go](./golang)
 1. [Java](./java)
 1. [Rust](./rust)
+1. [C++](./c++)
+1. [Go](./golang)
 1. [Bash scripts](./bash)
 1. [Relational Databases](./rdbms)
 1. [Containerization, Kubernetes, Docker](./containers)
