@@ -22,9 +22,9 @@
 
 
 # Differences from Classes
-1. Implicitly `final` (classes are implicitly non-final)
-1. Only has `public` instance members (and fields are implicitly public)
-1. Compiler generates ctor, accessor methods, `::equals`, `::hashcode`, `::toString`
+1. Implicitly `final` (classes are implicitly non-`final`)
+1. Only has `public` instance members (and fields are implicitly `public`)
+1. Compiler generates constructor, accessor methods, [`::equals`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#equals(java.lang.Object)), [`::hashCode`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#hashCode()), [`::toString`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#toString())
     1. accessor methods are like getters with out the `get` prefix
 1. Has a compact constructor
 1. All fields are defined in the "Record header"
