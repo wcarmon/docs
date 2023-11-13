@@ -30,6 +30,9 @@
 1. All fields are defined in the "Record header"
 1. Records work with [pattern matching](https://docs.oracle.com/en/java/javase/20/language/record-patterns.html#GUID-7623D3AD-4141-4914-A384-60C65BD0C010)
     1. See https://openjdk.org/jeps/427
+    1. works in `instanceof` checks
+    1. works in `switch` cases
+    1. works in [`for` loops](https://openjdk.org/jeps/432) (Java 20)
 
 
 # [Jackson](https://github.com/FasterXML/jackson) ([databind](https://github.com/FasterXML/jackson-databind)) integration
@@ -42,7 +45,8 @@
 
 
 # [Lombok](https://projectlombok.org/) integration
-1. Use [1.18.30+](https://projectlombok.org/changelog) for Records support
+1. Use [1.18.30+](https://projectlombok.org/changelog) for mature records support
+    1. v1.18.20 had basic/initial support
 1. See [`@Builder`](https://projectlombok.org/features/Builder)
 
 
