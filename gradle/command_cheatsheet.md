@@ -9,7 +9,7 @@
 ## Setup, Init, Upgrade
 ```bash
 gradle init
-gradle wrapper --gradle-version 8.4
+gradle wrapper --gradle-version 8.5
 gradle wrapper
 
 
