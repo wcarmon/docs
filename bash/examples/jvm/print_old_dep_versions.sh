@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # ---------------------------------------------
-# -- Bumps gradle version on all project roots under configured search root
+# -- Prints gradle dependencies with older versions
 # --
 # -- Assumptions:
 # -- 1. gradle installed
@@ -25,19 +25,12 @@ set -u # fail on unset var
 # ---------------------------------------------
 readonly SEARCH_ROOT=$HOME/git-repos/modern-jvm
 
-# -- See https://gradle.org/releases/
-readonly TARGET_GRADLE_VERSION=8.5
-
-# -- bin | all
-readonly DISTRIBUTION_TYPE=bin
-
-
 # ---------------------------------------------
 # -- Derived
 # ---------------------------------------------
 
 # ---------------------------------------------
-# -- Bump gradle versions
+# -- Print old versions
 # ---------------------------------------------
 readonly GRADLE_PROJECT_DIRS=$(find "$SEARCH_ROOT" \
 -type f \
@@ -48,10 +41,10 @@ for PROJECT_ROOT in $GRADLE_PROJECT_DIRS; do
     echo
     echo "|-- Upgrading gradle version to $TARGET_GRADLE_VERSION in $PROJECT_ROOT"
 
-    # TODO: consider looking at gradle-wrapper.properties files with old distributionUrl property
+  (
+    echo
+    echo "|-- Checking dependencies in $PROJECT_ROOT ..."
+# TODO: run ben's versions plugin
 
-    (
-      cd $PROJECT_ROOT >/dev/null 2>&1
-      ./gradlew wrapper --gradle-version=$TARGET_GRADLE_VERSION --distribution-type="$DISTRIBUTION_TYPE" -q
-    ) || true
+  )
 done
