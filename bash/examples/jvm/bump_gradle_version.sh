@@ -47,7 +47,7 @@ readonly GRADLE_PROJECT_DIRS=$(find "$SEARCH_ROOT" \
 
 for PROJECT_ROOT in $GRADLE_PROJECT_DIRS; do
     echo
-    echo "|-- Upgrading gradle version in $PROJECT_ROOT"
+    echo "|-- Upgrading gradle version to $TARGET_GRADLE_VERSION in $PROJECT_ROOT"
 
     (
       cd $PROJECT_ROOT >/dev/null 2>&1
