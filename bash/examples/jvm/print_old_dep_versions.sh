@@ -39,12 +39,9 @@ readonly GRADLE_PROJECT_DIRS=$(find "$SEARCH_ROOT" \
 
 for PROJECT_ROOT in $GRADLE_PROJECT_DIRS; do
     echo
-    echo "|-- Upgrading gradle version to $TARGET_GRADLE_VERSION in $PROJECT_ROOT"
+    echo "|-- Checking dependencies in $PROJECT_ROOT ..."
 
   (
-    echo
-    echo "|-- Checking dependencies in $PROJECT_ROOT ..."
-# TODO: run ben's versions plugin
-
-  )
+    ./gradlew dependencyUpdates --refresh-dependencies -q
+  ) || true
 done
