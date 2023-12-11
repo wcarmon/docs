@@ -1,6 +1,7 @@
 # Overview
 
 1. How to standup [Javalin](https://javalin.io/) server quickly
+1. NOTE: Javalin will auto-prefer virtual threads for JDK 21+
 
 # build.gradle.kts
 
