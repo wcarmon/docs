@@ -46,7 +46,7 @@
 1. `Pro`: Request scoped data is easy to read & write (see [`req.local_cache`](https://api.rocket.rs/v0.4/rocket/request/struct.Request.html#method.local_cache))
 
 
-# [Actix](https://actix.rs/)
+# [Actix](https://actix.rs/) (2nd best)
 1. `Con`: Documentation doesn't highlight how good the library is.  Docs focus too much on "magic" features.
 1. `Con`: Naturally more framework than library (like spring-web), but unlike spring, Actix allows lower level access
 1. `Con`: [extractors api](https://actix.rs/docs/extractors/) is overly complex
