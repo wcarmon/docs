@@ -7,17 +7,18 @@
     1. Minimal/No magic
     1. Easy to reason about control flow
     1. Easy to debug
-1. Easy to get down the HTTP protocol's domain
+1. Easy to get down the [HTTP protocol's domain & terminology)](https://en.wikipedia.org/wiki/HTTP)
     1. Easy to respond with a byte array/string body and an HTTP status code
     1. Easy to read request headers
     1. Easy to read raw HTTP request body
 1. Easy to use request scoped data (Eg. authenticated user token/id)
-1. Support for middleware (filters)
+1. Support for [middleware (filters)](https://drstearns.github.io/tutorials/gomiddleware/)
 1. Flexible options for defining routes
     1. with and without attributes/decorators/annotations
 1. Global error handling
-1. Flexible QueryString parsing
-1. Easy to add tracing/spans
+1. Flexible [Query String](https://en.wikipedia.org/wiki/Query_string) parsing
+1. Easy to add [Tracing/spans](https://opentelemetry.io/docs/concepts/)
+    1. See also https://opentelemetry.io/docs/instrumentation/rust/
 1. Easy to add metrics
 1. Easy to add application scoped references (eg. DB connection pool)
 1. Some control over how requests are multiplexed across OS threads
