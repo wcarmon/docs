@@ -27,44 +27,43 @@
 1. Best: [**Rocket**](https://rocket.rs/)
 1. [Actix](https://actix.rs/)
 1. [Warp](https://github.com/seanmonstar/warp)
-1. [Axum](TODO)
+1. ~~Axum~~
 
 
-# [Rocket](TODO) (best)
-1. `Pro`:
-1. `Pro`:
-1. `Pro`:
-1. `Con`:
-1. `Con`:
-1. `Con`:
-
-# [Rocket](https://rocket.rs/)
-1. `Con`: no async support (important for IO heavy cases like servers)  <--- still true?
+# [Rocket](https://rocket.rs/v0.5/guide/overview/) (best)
+1. `Pro`: Simplicity is a virtue
+1. `Pro`: Books written about Rocket
+1. `Pro`: [async support](https://rocket.rs/v0.5/guide/overview/#futures-and-async) (as of 0.5)
+1. `Pro`: Custom middleware is intuitive (See [Fairing](https://api.rocket.rs/v0.4/rocket/fairing/trait.Fairing.html) info)
+1. `Pro`: Custom request parsing is intuitive
+1. `Pro`: Excellent documentation
+1. `Pro`: Flexible [query string parsing](https://docs.rs/rocket/latest/rocket/http/uri/struct.Query.html)
+1. `Pro`: Flexible [Responders](https://docs.rs/rocket/latest/rocket/response/struct.Builder.html)
+1. `Pro`: Flexible [routing options](https://api.rocket.rs/v0.4/rocket/macro.routes.html)
+1. `Pro`: Global error handling via [Catchers](https://rocket.rs/v0.5/guide/requests/#error-catchers)
+1. `Pro`: Request scoped data is easy to read & write (see [`req.local_cache`](https://api.rocket.rs/v0.4/rocket/request/struct.Request.html#method.local_cache))
 
 
 # [Actix](https://actix.rs/)
-1. `Con`:
-1. `Con`:
-1. `Con`:
-1. `Con`:
-1. `Con`:
-1. `Con`:
-1. `Pro`:
-1. `Pro`:
-1. `Pro`:
-1. `Pro`:
-1. `Pro`:
-1. `Pro`:
+1. `Con`: Documentation doesn't highlight how good the library is.  Docs focus too much on "magic" features.
+1. `Con`: Naturally more framework than library (like spring-web), but unlike spring, Actix allows lower level access
+1. `Con`: [extractors api](https://actix.rs/docs/extractors/) is overly complex
+1. `Con`: Complexity on [middleware factory](https://docs.rs/actix-web/latest/actix_web/middleware/index.html#example), although [`wrap_fn`](https://docs.rs/actix-web/4.4.0/actix_web/struct.App.html#method.wrap_fn) should mitigate
+1. `Con`: Global error handling more complex than Rocket
+1. `Pro`: Flexible [routing options](https://actix.rs/docs/url-dispatch/)
 1. `Pro`: multiple recent books are based on this
+1. `Pro`: Relatively simple global error handling (see [`wrap_fn`](https://docs.rs/actix-web/4.4.0/actix_web/struct.App.html#method.wrap_fn))
+1. `Pro`: Relatively simple request scoped data (see [`req.extensions_mut`](https://docs.rs/actix-web/latest/actix_web/struct.HttpRequest.html#method.extensions_mut) to write and [`web::ReqData`](https://docs.rs/actix-web/latest/actix_web/web/struct.ReqData.html) to read)
+1. `Pro`: Simple [response building](https://docs.rs/actix-web/4.4.0/actix_web/struct.HttpResponseBuilder.html), even with [json](https://docs.rs/actix-web/4.4.0/actix_web/struct.HttpResponseBuilder.html#method.json)
+1. `Pro`: Simple query string parsing (see [this](https://actix.rs/docs/extractors/#query) and [this](https://docs.rs/actix-web/latest/actix_web/web/struct.Query.html#method.from_query))
 
 
 # [Warp](https://github.com/seanmonstar/warp)
-1. `Pro`:
-1. `Pro`:
-1. `Pro`:
-1. `Con`:
-1. `Con`:
-1. `Con`:
+1. `Con`: Complexity on custom query string parsing (compare to Rocket & Actix)
+1. `Con`: Overly complex code for custom middleware (compare to Rocket & Actix)
+1. `Con`: Some magic required for request scoped data (makes debugging, reasoning harder)
+1. `Pro`: Global error handling not too complex
+1. `Pro`: Recent book written about warp
 
 
 # [~~Axum~~](https://docs.rs/axum/latest/axum/)
