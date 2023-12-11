@@ -123,7 +123,7 @@
 ```kts
 dependencies {
     
-    //TODO: use latest version
+    // TODO: use latest version
     
     // -- For the API
     implementation("org.apache.logging.log4j:log4j-api:2.22.0")
