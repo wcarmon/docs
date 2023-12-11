@@ -26,6 +26,7 @@
 # Candidates
 1. Best: [**Rocket**](https://rocket.rs/)
 1. [Actix](https://actix.rs/)
+1. [Tide](https://github.com/http-rs/tide)
 1. [Warp](https://github.com/seanmonstar/warp)
 1. ~~Axum~~
 
@@ -58,6 +59,10 @@
 1. `Pro`: Simple query string parsing (see [this](https://actix.rs/docs/extractors/#query) and [this](https://docs.rs/actix-web/latest/actix_web/web/struct.Query.html#method.from_query))
 
 
+# [Tide](https://github.com/http-rs/tide)
+1. `Con`: Not as mature as alternatives above
+
+
 # [Warp](https://github.com/seanmonstar/warp)
 1. `Con`: Complexity on custom query string parsing (compare to Rocket & Actix)
 1. `Con`: Overly complex code for custom middleware (compare to Rocket & Actix)
@@ -78,10 +83,6 @@
 1. `Pro`: Global error handling is not too bad, but less intuitive than alternatives above
 1. `Pro`: Maintained by tokio team
 1. `Pro`: Tracing is a first class use case
-
-
-# [Tide](https://github.com/http-rs/tide)
-1. TODO
 
 
 # [Hyper](https://hyper.rs/)
