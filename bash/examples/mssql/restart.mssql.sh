@@ -81,18 +81,47 @@ docker logs $CONTAINER_NAME
 # --------------------------------------------
 # -- Connect
 # --------------------------------------------
-echo ""
-echo "JDBC-url: jdbc:sqlserver://localhost:${DB_PORT}"
-echo "user=sa"
-echo "port=$DB_PORT"
+echo "|-- Connecting to mssql container:"
+echo "|-- JDBC-url: jdbc:sqlserver://localhost:${DB_PORT}"
+echo "|-- user=sa"
+echo "|-- port=$DB_PORT"
 
 
-# TODO: example connection via local client
+echo
+echo "|-- Examples using sqlcmd (via container):"
+echo
+echo "docker exec -it '$CONTAINER_NAME' /usr/bin/bash"
+echo "..."
+echo "/opt/mssql-tools/bin/sqlcmd -S localhost,1433 -U sa -P \"$DB_PASS\""
+echo "tail -100 /var/opt/mssql/log/errorlog"
 
-#sudo docker exec -it sql1 "bash"
-#/opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P "<YourNewStrong@Passw0rd>"
-#  /opt/mssql-tools/bin/sqlcmd -S localhost -U SA
+echo
+echo "|-- Create database:"
+echo "CREATE DATABASE foo"
+echo "go"
 
-# /var/opt/mssql/log/errorlog
+echo
+echo "|-- List databases:"
+echo "SELECT name FROM sys.databases ORDER BY name"
+echo "go"
 
-#sqlcmd -S localhost,1433 -U sa -P Your_Password_Here
+echo
+echo "|-- Use database:"
+echo "USE foo"
+echo "go"
+
+echo
+echo "|-- Create schema:"
+echo "CREATE SCHEMA bar"
+echo "go"
+
+echo
+echo "|-- List schemas:"
+echo "SELECT name FROM sys.schemas"
+echo "go"
+
+# TODO: this is non-trivial
+#echo
+#echo "|-- List tables:"
+#echo "??"
+#echo "go"
