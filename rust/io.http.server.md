@@ -25,7 +25,7 @@
 
 # Candidates
 1. Best: [**Rocket**](https://rocket.rs/)
-1. [Actix](https://actix.rs/)
+1. Next best: [**Actix**](https://actix.rs/)
 1. [Tide](https://github.com/http-rs/tide)
 1. [Warp](https://github.com/seanmonstar/warp)
 1. ~~Axum~~
