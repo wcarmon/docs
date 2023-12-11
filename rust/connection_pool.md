@@ -30,18 +30,14 @@
 
 # [r2d2](https://github.com/sfackler/r2d2)
 1. `Con`: Abandoned? (no code updates in over a year)
-1. `Con`: No tiberius support
 1. `Con`: No releases in the last 18 months
 1. `Con`: No SQL Server support (mssql)
+1. `Con`: No tiberius support
 1. `Pro`: [rusqlite](https://github.com/jgallagher/rusqlite) support (meaning sqlite)
 1. `Pro`: Simple
 
 
-# [mobc](https://docs.rs/mobc/latest/mobc/)
+# [~~mobc~~](https://docs.rs/mobc/latest/mobc/)
+1. `Con`: Least popular of the options above
 1. `Con`: No [sqlite](https://www.sqlite.org/index.html) support
 1. `Con`: No SQL Server support (mssql)
-1. `Con`: Least popular of the options above
-
-
-# Other resources
-1. TODO
