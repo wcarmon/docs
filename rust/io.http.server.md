@@ -78,7 +78,7 @@
 1. `Con`: `IntoResponse` is complex to use
 1. `Con`: Custom middleware is VERY complex
 1. `Con`: Custom request parsing is very complicated (compared to alternatives above)
-1. `Con`: Deep Integration with [tower](TODO) increases complexity (learning curve)
+1. `Con`: Deep Integration with [tower](https://docs.rs/tower/latest/tower/) increases complexity (learning curve)
 1. `Con`: Request scoped data is more complex (and magical) than alternatives above
 1. `Pro`: Actively maintained
 1. `Pro`: Global error handling is not too bad, but less intuitive than alternatives above
@@ -91,7 +91,3 @@
 1. Very Low-level, most high-level libs are based on this
     1. Warp
     1. Rocket
-
-
-# Other Resources
-1. TODO
