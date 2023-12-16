@@ -16,6 +16,7 @@
 1. `io.javalin:javalin:5.6.3`
 1. `io.opentelemetry.semconv:opentelemetry-semconv:1.23.1-alpha`
 1. `io.opentelemetry:opentelemetry-api:1.32.0`
+1. `io.opentelemetry:opentelemetry-exporter-otlp:1.33.0`
 1. `io.opentelemetry:opentelemetry-sdk:1.32.0`
 1. `io.opentelemetry:opentelemetry-semconv:1.30.1-alpha`
 1. `io.reactivex.rxjava3:rxjava:3.1.8`

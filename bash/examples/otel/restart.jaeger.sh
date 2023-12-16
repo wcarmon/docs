@@ -58,7 +58,8 @@ $DOCKER rm --force $JAEGER_CONTAINER_NAME || true &>/dev/null
 # - 6831 = compact thrift
 # - 6832 = binary thrift
 
-#TODO: change user to non-root
+# TODO: set flag for memory limit:  --memory.max-traces
+# TODO: change user to non-root
 $DOCKER run -d \
   --name $JAEGER_CONTAINER_NAME \
   --cpus=1.5 \
