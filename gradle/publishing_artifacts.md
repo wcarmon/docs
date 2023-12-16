@@ -37,7 +37,7 @@ gpg --import-options restore --import $BACKUP_FILE
 ```properties
 ...
 # -- gpg -K;
-# -- The last 8 symbols of the keyId
+# -- The last 8 symbols of the keyId (see the line starting with "pub")
 signing.keyId=...
 
 # -- Passphrase when you generated the key via `gpg --gen-key`
@@ -48,7 +48,20 @@ signing.password=...
 signing.secretKeyRingFile=/home/wcarmon/.gnupg/secring.gpg
 ```
 
-TODO: gpg --keyserver keys.openpgp.org --send-keys yourKey
+
+# Distribute public key
+```sh
+# -- about 40 chars, uppercase hexidecimal string
+# -- gpg -K;
+KEY_ID=...
+
+gpg --keyserver keys.openpgp.org --send-keys $KEY_ID;
+gpg --keyserver keyserver.ubuntu.com --send-keys $KEY_ID;
+gpg --keyserver pgp.mit.edu --send-keys $KEY_ID;
+```
+
+
+
 
 TODO:
 ```
@@ -79,7 +92,7 @@ mavenCentralPassword=...
 1. https://central.sonatype.org/publish/publish-guide/
 1. https://dzone.com/articles/how-to-publish-artifacts-to-maven-central
 1. PGP signature
-    1. https://central.sonatype.org/publish/requirements/gpg/
+
     1. https://central.sonatype.org/publish/requirements/#sign-files-with-gpgpgp
 1. minimize deps
 1. Checksums .md5 and .sha1
@@ -114,3 +127,7 @@ mavenCentralPassword=...
 1. https://central.sonatype.org/publish/requirements/#supply-javadoc-and-sources
 1. https://docs.gradle.org/current/userguide/publishing_maven.html
 1. https://www.jetbrains.com/help/space/publish-artifacts-to-maven-central.html
+
+## Signing
+1. https://central.sonatype.org/publish/requirements/gpg/
+1. https://docs.gradle.org/current/userguide/signing_plugin.html
