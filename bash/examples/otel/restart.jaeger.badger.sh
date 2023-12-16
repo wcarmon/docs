@@ -7,6 +7,10 @@
 # --
 # -- Assumptions:
 # -- 1. Docker installed: https://docs.docker.com/get-docker/
+# -- 2. user exists for container:
+# --      sudo useradd --system -u 10001 jaeger_container
+# -- 3. container has permissions on the badger data root:
+# --      chown -R 10001 $BADGER_DATA_ROOT
 # ---------------------------------------------
 #set -x # uncomment to debug script
 set -e # exit on first error
@@ -30,7 +34,8 @@ readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
 readonly JAEGER_IMAGE="jaegertracing/all-in-one:1.52"
 
 # -- GOTCHA: -d is cross platform, --directory is not
-readonly TEMP_DIR=$(mktemp -d)
+#readonly BADGER_DATA_ROOT=$(mktemp -d)
+readonly BADGER_DATA_ROOT=$HOME/tmp/badger
 
 readonly JAEGER_CONTAINER_NAME="jaeger_badger"
 
@@ -38,6 +43,9 @@ readonly JAEGER_CONTAINER_NAME="jaeger_badger"
 # -- See https://docs.docker.com/config/containers/resource_constraints/#limit-a-containers-access-to-memory
 readonly MEMORY_LIMIT=500m
 #readonly MEMORY_LIMIT=2g
+
+# NOTE: by default, runs as user=10001
+#readonly USER_FOR_CONTAINER=$USER
 
 
 # ---------------------------------------------
@@ -65,12 +73,20 @@ $DOCKER rm --force $JAEGER_CONTAINER_NAME || true &>/dev/null
 # - 6832 = binary thrift
 
 
-# NOTE: runs as user 10001
+# TODO: set TTL on badger
+# TODO: set max memory on badger
+
+mkdir -pv "$BADGER_DATA_ROOT/key"
+mkdir -pv "$BADGER_DATA_ROOT/data"
+
+set -x
+
 $DOCKER run -d \
   --cpus=1.5 \
   --memory=$MEMORY_LIMIT \
   --name $JAEGER_CONTAINER_NAME \
   --restart always \
+  --user $USER_FOR_CONTAINER \
   -e BADGER_DIRECTORY_KEY=/badger/key \
   -e BADGER_DIRECTORY_VALUE=/badger/data \
   -e BADGER_EPHEMERAL=false \
@@ -87,7 +103,7 @@ $DOCKER run -d \
   -p 6831:6831/udp \
   -p 6832:6832/udp \
   -p 9411:9411 \
-  -v $TEMP_DIR:/badger:rw \
+  -v "$BADGER_DATA_ROOT":/badger:rw \
   $JAEGER_IMAGE
 
 # ---------------------------------------------
@@ -108,6 +124,6 @@ echo
 echo
 echo "|-- Jaeger UI: http://localhost:16686"
 echo
-echo "|-- Badger storage: $TEMP_DIR"
+echo "|-- Badger storage: $BADGER_DATA_ROOT"
 echo
 echo "|-- Stats: docker stats $JAEGER_CONTAINER_NAME"
