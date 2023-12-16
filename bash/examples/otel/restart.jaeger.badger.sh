@@ -9,6 +9,7 @@
 # -- NOTES:
 # -- 1. by default, jaeger container runs as user=10001
 # -- 2. if you run out of memory, just restart, Span data is persisted
+# -- 3. because of compression, badger is much more efficient than memstore
 # --
 # --
 # -- Assumptions:
