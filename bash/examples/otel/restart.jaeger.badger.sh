@@ -10,6 +10,7 @@
 # -- 1. by default, jaeger container runs as user=10001
 # -- 2. if you run out of memory, just restart, Span data is persisted
 # -- 3. because of compression, badger is much more efficient than memstore
+# -- 4. at some point, the UI becomes the bottleneck (not jaeger, not collector)
 # --
 # --
 # -- Assumptions:
@@ -52,7 +53,7 @@ readonly JAEGER_CONTAINER_NAME="jaeger_badger"
 # -- Just restart since span data is persistent
 # -- See https://docs.docker.com/config/containers/resource_constraints/#limit-a-containers-access-to-memory
 #readonly MEMORY_LIMIT=800m
-readonly MEMORY_LIMIT=2g
+readonly MEMORY_LIMIT=1g
 
 # -- Format https://pkg.go.dev/time#ParseDuration
 readonly SPAN_TTL=72h0m
