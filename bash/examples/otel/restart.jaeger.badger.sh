@@ -51,8 +51,8 @@ readonly JAEGER_CONTAINER_NAME="jaeger_badger"
 # -- NOTE: when jaeger runs out of memory, the UI doesn't return any spans
 # -- Just restart since span data is persistent
 # -- See https://docs.docker.com/config/containers/resource_constraints/#limit-a-containers-access-to-memory
-readonly MEMORY_LIMIT=800m
-#readonly MEMORY_LIMIT=2g
+#readonly MEMORY_LIMIT=800m
+readonly MEMORY_LIMIT=2g
 
 # -- Format https://pkg.go.dev/time#ParseDuration
 readonly SPAN_TTL=72h0m
