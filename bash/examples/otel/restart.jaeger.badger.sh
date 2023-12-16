@@ -5,6 +5,8 @@
 # --
 # -- For memory & CPU stats:  docker stats <container-id>
 # --
+# -- NOTE: by default, jaeger container runs as user=10001
+# --
 # -- Assumptions:
 # -- 1. Docker installed: https://docs.docker.com/get-docker/
 # -- 2. user exists for container:
@@ -43,9 +45,6 @@ readonly JAEGER_CONTAINER_NAME="jaeger_badger"
 # -- See https://docs.docker.com/config/containers/resource_constraints/#limit-a-containers-access-to-memory
 readonly MEMORY_LIMIT=500m
 #readonly MEMORY_LIMIT=2g
-
-# NOTE: by default, runs as user=10001
-#readonly USER_FOR_CONTAINER=$USER
 
 
 # ---------------------------------------------
@@ -86,7 +85,6 @@ $DOCKER run -d \
   --memory=$MEMORY_LIMIT \
   --name $JAEGER_CONTAINER_NAME \
   --restart always \
-  --user $USER_FOR_CONTAINER \
   -e BADGER_DIRECTORY_KEY=/badger/key \
   -e BADGER_DIRECTORY_VALUE=/badger/data \
   -e BADGER_EPHEMERAL=false \
