@@ -34,6 +34,10 @@ readonly TEMP_DIR=$(mktemp -d)
 
 readonly JAEGER_CONTAINER_NAME="jaeger"
 
+# -- See https://docs.docker.com/config/containers/resource_constraints/#limit-a-containers-access-to-memory
+readonly MEMORY_LIMIT=500m
+#readonly MEMORY_LIMIT=2g
+
 # ---------------------------------------------
 # -- Cleanup
 # ---------------------------------------------
@@ -63,7 +67,7 @@ $DOCKER rm --force $JAEGER_CONTAINER_NAME || true &>/dev/null
 $DOCKER run -d \
   --name $JAEGER_CONTAINER_NAME \
   --cpus=1.5 \
-  --memory=2g \
+  --memory=$MEMORY_LIMIT \
   --restart always \
   -e COLLECTOR_OTLP_ENABLED=true \
   -e COLLECTOR_ZIPKIN_HOST_PORT=:9411 \
@@ -82,7 +86,7 @@ $DOCKER run -d \
 $DOCKER run -d \
   --name $JAEGER_CONTAINER_NAME \
   --cpus=1.5 \
-  --memory=2g \
+  --memory=$MEMORY_LIMIT \
   --restart always \
   -e BADGER_DIRECTORY_KEY=/badger/key \
   -e BADGER_DIRECTORY_VALUE=/badger/data \
