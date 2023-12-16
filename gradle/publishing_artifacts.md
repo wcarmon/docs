@@ -50,11 +50,9 @@ gpg --keyserver pgp.mit.edu --send-keys $KEY_ID;
 
 
 
-
+-- == -- == -- == -- == -- == -- == -- == -- == -- == -- == -- == -- ==
 TODO:
 ```
-ossrhUsername=...
-ossrhPassword=...
 mavenCentralUsername=...
 mavenCentralPassword=...
 ```
@@ -68,6 +66,7 @@ mavenCentralPassword=...
 ls -hl ./build/libs/
 
 ./gradlew publish -q
+./gradlew uploadArchives -q
 
 ./gradlew publishPubNamePublicationToMavenLocal -q
 ```
@@ -76,16 +75,13 @@ ls -hl ./build/libs/
 
 
 # Unorganized
+1. https://central.sonatype.org/publish/release/
 1. https://central.sonatype.org/publish/release/#releasing-deployment-from-ossrh-to-the-central-repository-introduction
 1. https://central.sonatype.org/publish/requirements/#supply-javadoc-and-sources
 1. https://medium.com/geekculture/how-to-publish-artifacts-on-maven-central-24342fd286cd
 1. https://central.sonatype.org/publish/producer-terms
 1. https://central.sonatype.org/publish/publish-guide/
 1. https://dzone.com/articles/how-to-publish-artifacts-to-maven-central
-1. PGP signature
-
-    1. https://central.sonatype.org/publish/requirements/#sign-files-with-gpgpgp
-1. minimize deps
 1. Checksums .md5 and .sha1
     1. https://central.sonatype.org/publish/requirements/#provide-files-checksums
 1. javadoc artifact - https://central.sonatype.org/publish/requirements/#supply-javadoc-and-sources
@@ -104,11 +100,8 @@ ls -hl ./build/libs/
     1. deployment
         1. https://s01.oss.sonatype.org
         1. gradle uploadArchives
+-- == -- == -- == -- == -- == -- == -- == -- == -- == -- == -- == -- ==
 
-
-# Done
-1. ~~select maven coordinates~~
-1. ~~github repo~~
 
 
 # Other resources
