@@ -34,22 +34,10 @@ gpg --import-options restore --import $BACKUP_FILE
 
 
 # Update ~/.gradle/gradle.properties
-```properties
-...
-# -- gpg -K;
-# -- The last 8 symbols of the keyId (see the line starting with "pub")
-signing.keyId=...
-
-# -- Passphrase when you generated the key via `gpg --gen-key`
-signing.password=...
-
-# -- Export to file like this:
-# -- gpg --keyring secring.gpg --export-secret-keys > ~/.gnupg/secring.gpg
-signing.secretKeyRingFile=/home/wcarmon/.gnupg/secring.gpg
-```
+1. See [`./examples/gradle.properties`](./examples/gradle.properties)
 
 
-# Distribute public key
+# Distribute your Public key
 ```sh
 # -- about 40 chars, uppercase hexidecimal string
 # -- gpg -K;
@@ -65,6 +53,8 @@ gpg --keyserver pgp.mit.edu --send-keys $KEY_ID;
 
 TODO:
 ```
+ossrhUsername=...
+ossrhPassword=...
 mavenCentralUsername=...
 mavenCentralPassword=...
 ```
@@ -72,9 +62,10 @@ mavenCentralPassword=...
 
 # Build, Sign, Publish
 ```sh
-./gradlew sign -q;
+./gradlew clean spotlessApply build sign -x test -q;
 
-./gradlew generatePomFileForPubNamePublication -q
+# -- Verify
+ls -hl ./build/libs/
 
 ./gradlew publish -q
 
