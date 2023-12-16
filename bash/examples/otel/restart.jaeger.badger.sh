@@ -5,12 +5,18 @@
 # --
 # -- For memory & CPU stats:  docker stats <container-id>
 # --
-# -- NOTE: by default, jaeger container runs as user=10001
+# --
+# -- NOTES:
+# -- 1. by default, jaeger container runs as user=10001
+# -- 2. if you run out of memory, just restart, Span data is persisted
+# --
 # --
 # -- Assumptions:
 # -- 1. Docker installed: https://docs.docker.com/get-docker/
+# --
 # -- 2. user exists for container:
 # --      sudo useradd --system -u 10001 jaeger_container
+# --
 # -- 3. container has permissions on the badger data root:
 # --      chown -R 10001 $BADGER_DATA_ROOT
 # ---------------------------------------------
@@ -42,9 +48,14 @@ readonly BADGER_DATA_ROOT=$HOME/tmp/badger
 readonly JAEGER_CONTAINER_NAME="jaeger_badger"
 
 # -- NOTE: when jaeger runs out of memory, the UI doesn't return any spans
+# -- Just restart since span data is persistent
 # -- See https://docs.docker.com/config/containers/resource_constraints/#limit-a-containers-access-to-memory
-readonly MEMORY_LIMIT=500m
+readonly MEMORY_LIMIT=800m
 #readonly MEMORY_LIMIT=2g
+
+# -- Format https://pkg.go.dev/time#ParseDuration
+readonly SPAN_TTL=72h0m
+#readonly SPAN_TTL=120h0m
 
 
 # ---------------------------------------------
@@ -78,8 +89,6 @@ $DOCKER rm --force $JAEGER_CONTAINER_NAME || true &>/dev/null
 mkdir -pv "$BADGER_DATA_ROOT/key"
 mkdir -pv "$BADGER_DATA_ROOT/data"
 
-set -x
-
 $DOCKER run -d \
   --cpus=1.5 \
   --memory=$MEMORY_LIMIT \
@@ -88,6 +97,7 @@ $DOCKER run -d \
   -e BADGER_DIRECTORY_KEY=/badger/key \
   -e BADGER_DIRECTORY_VALUE=/badger/data \
   -e BADGER_EPHEMERAL=false \
+  -e BADGER_SPAN_STORE_TTL=$SPAN_TTL \
   -e COLLECTOR_OTLP_ENABLED=true \
   -e COLLECTOR_ZIPKIN_HOST_PORT=:9411 \
   -e SPAN_STORAGE_TYPE=badger \
