@@ -33,24 +33,34 @@ gpg --import-options restore --import $BACKUP_FILE
 ```
 
 
+# Update ~/.gradle/gradle.properties
+```properties
+...
+# -- gpg -K;
+# -- The last 8 symbols of the keyId
+signing.keyId=...
+
+# -- Passphrase when you generated the key via `gpg --gen-key`
+signing.password=...
+
+# -- Export to file like this:
+# -- gpg --keyring secring.gpg --export-secret-keys > ~/.gnupg/secring.gpg
+signing.secretKeyRingFile=/home/wcarmon/.gnupg/secring.gpg
+```
+
 TODO: gpg --keyserver keys.openpgp.org --send-keys yourKey
 
-
-TODO: ~/.gradle/gradle.properties
+TODO:
 ```
-mavenCentralUsername=xxx
-mavenCentralPassword=xxx
-
-# -- Get key: gpg -K
-signing.keyId=zzz
-signing.password=zzz
-# signing.secretKeyRingFile=/home/wcarmon/.gnupg/trustdb.gpg
-signing.secretKeyRingFile=/home/wcarmon/.gnupg/pubring.kbx
+mavenCentralUsername=...
+mavenCentralPassword=...
 ```
 
 
-# Deploy
+# Build, Sign, Publish
 ```sh
+./gradlew sign -q;
+
 ./gradlew generatePomFileForPubNamePublication -q
 
 ./gradlew publish -q
@@ -64,7 +74,6 @@ signing.secretKeyRingFile=/home/wcarmon/.gnupg/pubring.kbx
 # Unorganized
 1. https://central.sonatype.org/publish/release/#releasing-deployment-from-ossrh-to-the-central-repository-introduction
 1. https://central.sonatype.org/publish/requirements/#supply-javadoc-and-sources
-1. https://www.jetbrains.com/help/space/publish-artifacts-to-maven-central.html
 1. https://medium.com/geekculture/how-to-publish-artifacts-on-maven-central-24342fd286cd
 1. https://central.sonatype.org/publish/producer-terms
 1. https://central.sonatype.org/publish/publish-guide/
@@ -73,12 +82,8 @@ signing.secretKeyRingFile=/home/wcarmon/.gnupg/pubring.kbx
     1. https://central.sonatype.org/publish/requirements/gpg/
     1. https://central.sonatype.org/publish/requirements/#sign-files-with-gpgpgp
 1. minimize deps
-1. choose a license
-    1.
-    1. What did I use for my golang otzap?
-    1. https://choosealicense.com/
-1. Sonatype: Open Source Software Repository Hosting (OSSRH)
-1. Bill of materials approach
+1. Checksums .md5 and .sha1
+    1. https://central.sonatype.org/publish/requirements/#provide-files-checksums
 1. javadoc artifact - https://central.sonatype.org/publish/requirements/#supply-javadoc-and-sources
 1. source artifact - https://central.sonatype.org/publish/requirements/#supply-javadoc-and-sources
 1. checksums - https://central.sonatype.org/publish/requirements/#provide-files-checksums
@@ -104,6 +109,7 @@ signing.secretKeyRingFile=/home/wcarmon/.gnupg/pubring.kbx
 
 # Other resources
 1. Example jira ticket: https://issues.sonatype.org/browse/OSSRH-97577
+1. https://central.sonatype.org/publish/requirements/#a-complete-example-pom
 1. https://central.sonatype.org/publish/requirements/#license-information
 1. https://central.sonatype.org/publish/requirements/#supply-javadoc-and-sources
 1. https://docs.gradle.org/current/userguide/publishing_maven.html
