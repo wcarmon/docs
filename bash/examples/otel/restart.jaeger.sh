@@ -27,7 +27,7 @@ readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
 # -- Config
 # ---------------------------------------------
 # -- See https://hub.docker.com/r/jaegertracing/all-in-one/tags
-readonly JAEGER_IMAGE="jaegertracing/all-in-one:1.49"
+readonly JAEGER_IMAGE="jaegertracing/all-in-one:1.52"
 
 #GOTCHA: -d is cross platform, --directory is not
 readonly TEMP_DIR=$(mktemp -d)
