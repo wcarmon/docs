@@ -5,6 +5,11 @@
 # --
 # -- For memory & CPU stats:  docker stats <container-id>
 # --
+# -- GOTCHAS:
+# -- 1. Memory store is hard to manage at scale
+# -- 2. you can limit total spans, but they can have wildly different sizes
+# -- 3. there are no ttl features
+# --
 # -- Assumptions:
 # -- 1. Docker installed: https://docs.docker.com/get-docker/
 # ---------------------------------------------
@@ -32,11 +37,15 @@ readonly JAEGER_IMAGE="jaegertracing/all-in-one:1.52"
 #GOTCHA: -d is cross platform, --directory is not
 readonly TEMP_DIR=$(mktemp -d)
 
-readonly JAEGER_CONTAINER_NAME="jaeger"
+readonly JAEGER_CONTAINER_NAME="jaeger_memstore"
 
+# -- NOTE: when jaeger runs out of memory, the UI doesn't return any spans
 # -- See https://docs.docker.com/config/containers/resource_constraints/#limit-a-containers-access-to-memory
-readonly MEMORY_LIMIT=500m
-#readonly MEMORY_LIMIT=2g
+#readonly MEMORY_LIMIT=500m
+readonly MEMORY_LIMIT=2g
+
+readonly MAX_TRACES=1000000
+
 
 # ---------------------------------------------
 # -- Cleanup
@@ -44,12 +53,12 @@ readonly MEMORY_LIMIT=500m
 $DOCKER stop $JAEGER_CONTAINER_NAME || true &>/dev/null
 $DOCKER rm --force $JAEGER_CONTAINER_NAME || true &>/dev/null
 
+
 # ---------------------------------------------
 # -- Run
 # ---------------------------------------------
 
-
-# -- Ports: https://www.jaegertracing.io/docs/1.42/deployment/
+# -- Ports: See https://www.jaegertracing.io/docs/1.52/deployment/
 # - 14250 = collector: model.proto
 # - 14269 = admin, health check
 # - 14271 = admin, health check
@@ -62,38 +71,16 @@ $DOCKER rm --force $JAEGER_CONTAINER_NAME || true &>/dev/null
 # - 6831 = compact thrift
 # - 6832 = binary thrift
 
-# TODO: set flag for memory limit:  --memory.max-traces
-# TODO: change user to non-root
-$DOCKER run -d \
-  --name $JAEGER_CONTAINER_NAME \
-  --cpus=1.5 \
-  --memory=$MEMORY_LIMIT \
-  --restart always \
-  -e COLLECTOR_OTLP_ENABLED=true \
-  -e COLLECTOR_ZIPKIN_HOST_PORT=:9411 \
-  -p 14250:14250 \
-  -p 14268:14268 \
-  -p 14269:14269 \
-  -p 16686:16686 \
-  -p 4317:4317 \
-  -p 5778:5778 \
-  -p 6831:6831/udp \
-  -p 6832:6832/udp \
-  -p 9411:9411 \
-  $JAEGER_IMAGE
 
-<<'EXAMPLE_WITH_BADGER'
+# NOTE: runs as user 10001
 $DOCKER run -d \
-  --name $JAEGER_CONTAINER_NAME \
   --cpus=1.5 \
   --memory=$MEMORY_LIMIT \
+  --name $JAEGER_CONTAINER_NAME \
   --restart always \
-  -e BADGER_DIRECTORY_KEY=/badger/key \
-  -e BADGER_DIRECTORY_VALUE=/badger/data \
-  -e BADGER_EPHEMERAL=false \
   -e COLLECTOR_OTLP_ENABLED=true \
   -e COLLECTOR_ZIPKIN_HOST_PORT=:9411 \
-  -e SPAN_STORAGE_TYPE=badger \
+  -e MAX_TRACES=$MAX_TRACES \
   -p 14250:14250 \
   -p 14268:14268 \
   -p 14269:14269 \
@@ -104,9 +91,8 @@ $DOCKER run -d \
   -p 6831:6831/udp \
   -p 6832:6832/udp \
   -p 9411:9411 \
-  -v $TEMP_DIR:/badger:rw \
   $JAEGER_IMAGE
-EXAMPLE_WITH_BADGER
+
 
 # ---------------------------------------------
 # -- Report
@@ -118,4 +104,5 @@ $DOCKER ps --filter="name=$JAEGER_CONTAINER_NAME"
 echo
 echo
 echo "|-- Jaeger UI: http://localhost:16686"
-#echo "|-- Badger storage: $TEMP_DIR"
+echo
+echo "|-- Stats: docker stats $JAEGER_CONTAINER_NAME"
