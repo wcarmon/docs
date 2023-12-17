@@ -15,7 +15,7 @@
 1. Owned (just like [`String`](TODO))
     1. Slice is the borrowed version
 1. Comparison
-    1. Similar to [slice](.//home/wcarmon/git-repos/docs/golang/collections.slices.md) in golang
+    1. Similar to [slice](../golang/collections.slices.md) in golang
     1. Similar to [ArrayList](https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/util/ArrayList.html) in java
     1. Similar to [Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) in javascript
     1. Similar to [List](https://docs.python.org/3/tutorial/datastructures.html#more-on-lists) in python
