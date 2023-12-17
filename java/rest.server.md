@@ -6,13 +6,13 @@
 
 # Criteria
 
-1. See [criteria for selecting libs](../general/libraries.md)
+1. See [criteria for selecting libs](../common/libraries.md)
 
 # Additional Criteria
 
 1. Container friendly
     1. Light on memory
-    1. [Library, not a framework](../general/libraries.md#library-vs-framework)
+    1. [Library, not a framework](../common/libraries.md#library-vs-framework)
     1. [Graal](./graal.md) & [native-image](./graal.md) friendly
 1. [Dependency injection](./di.md) friendly
 1. Simple routing

@@ -34,7 +34,7 @@
 # Big picture
 
 1. We want to group & encapsulate related fields into 1 class (aka, POJO).
-1. We want Immutability.  [Why?](../general/immutability.md).
+1. We want Immutability.  [Why?](../common/immutability.md).
 1. We want compatibility with Java Collections API ([Map](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Map.html), [Set](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Set.html), [List](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/List.html), ...).
 1. We want compatibility with [Jackson](https://github.com/FasterXML/jackson) (JSON serialization & deserialization).
 1. We want our POJOs to pretty-print when logged.

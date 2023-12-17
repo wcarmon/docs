@@ -7,7 +7,7 @@
 
 # General Advice
 
-1. [Immutability](../general/immutability.md), in general
+1. [Immutability](../common/immutability.md), in general
 1. [Immutability](./jvm_immutability.md) on the JVM
 1. [Importance of Sorting](./sorting.md)
 1. [Importance of Preconditions](./preconditions.md)
@@ -39,7 +39,7 @@
 
 # Libraries
 
-1. [Finding good ones](../general/libraries.md)
+1. [Finding good ones](../common/libraries.md)
 
 # POJOs
 

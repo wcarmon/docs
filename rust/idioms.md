@@ -22,9 +22,9 @@
     1. Make it run
     1. [Make error handling more robust](./errors.md) (error `enum`, clear messages)
     1. Fix issues listed by [clippy](./static_analysis.md)
-    1. Find & use [high-quality libraries](/home/wcarmon/git-repos/docs/general/libraries.md) which do things better than you are
+    1. Find & use [high-quality libraries](,,./common/libraries.md) which do things better than you are
     1. Remove most [`.clone()`](https://doc.rust-lang.org/std/clone/trait.Clone.html)
-    1. Minimize [visibility/exposure](/home/wcarmon/git-repos/docs/rust/modules.md) (eg. `pub`, `pub(crate)`)
+    1. Minimize [visibility/exposure](./modules.md) (eg. `pub`, `pub(crate)`)
     1. Extract [Traits](./traits.md), Reuse built-in traits   
     1. Check for Thread-safety, simplify (eg. message passing, Rayon, Crossbeam, Tokio)
     1. Cleanup rustdocs

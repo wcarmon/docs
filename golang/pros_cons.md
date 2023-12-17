@@ -53,7 +53,7 @@
         1. Rust lacks exceptions, but has [`?`](https://doc.rust-lang.org/std/ops/trait.Try.html) operator
         1. Lack os stack traces makes debugging harder
             1. You can manually wrap errors, but this makes code even more verbose and is error prone (since it's manual) 
-1. [Immutability](../general/immutability.md) is hard
+1. [Immutability](../common/immutability.md) is hard
     1. Mitigate: `struct` shallow copy is trivial
         1. But `struct` shallow copy "fails" when structs has pointer/reference field
         1. eg. `struct`s often use `*big.Float` in finance

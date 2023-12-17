@@ -4,7 +4,7 @@
 
 # Requirements
 
-1. [All the general library requirements](../general/libraries.md)
+1. [All the general library requirements](../common/libraries.md)
 1. Works well in java
 1. "Fast enough"
 1. Query + (basic) Transformations
