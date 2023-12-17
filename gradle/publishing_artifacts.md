@@ -112,7 +112,7 @@ ls -hl ./build/libs/
 
 
 # Other resources
-1. Example jira ticket: https://issues.sonatype.org/browse/OSSRH-97577
+1. [Example jira ticket](https://issues.sonatype.org/browse/OSSRH-97577)
 1. https://central.sonatype.org/publish/release/
 1. https://central.sonatype.org/publish/requirements/#a-complete-example-pom
 1. https://central.sonatype.org/publish/requirements/#license-information
