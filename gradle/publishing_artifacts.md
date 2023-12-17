@@ -73,13 +73,12 @@ done
 # -- Verify
 ls -hl ./build/libs/
 
+# -- This creates a staging repository in Nexus
 ./gradlew publish -q
-
-
-./gradlew publishPubNamePublicationToMavenLocal -q
 ```
 
-# Manual release to public
+
+# (Manually) release to public
 1. https://s01.oss.sonatype.org/
 1. Login with OSSHR jira credentials
 1. Staging Repositories
@@ -94,6 +93,9 @@ ls -hl ./build/libs/
 # Automatic release
 1. TODO: Nexus Staging Maven plugin
 
+
+# Verify
+1. TODO ...
 
 
 # Unorganized
