@@ -52,15 +52,17 @@ ls -hl ./build/libs/
 
 
 # Verify
-1. TODO ...
+1. via maven:
+```bash
+mvn dependency:get \
+-DremoteRepositories=maven.apache.org \
+-Dartifact=io.github.wcarmon:property-utils-jvm:1.0.0:jar
+```
 
 
-# Unorganized
-1. https://central.sonatype.org/publish/publish-guide/
-1. https://dzone.com/articles/how-to-publish-artifacts-to-maven-central
-1. Automate ...
-    1. version bump
--- == -- == -- == -- == -- == -- == -- == -- == -- == -- == -- == -- ==
+
+# TODO:
+1. TODO: Automate version bump
 
 
 
@@ -73,5 +75,3 @@ ls -hl ./build/libs/
 1. https://central.sonatype.org/publish/requirements/#supply-javadoc-and-sources
 1. https://docs.gradle.org/current/userguide/publishing_maven.html
 1. https://www.jetbrains.com/help/space/publish-artifacts-to-maven-central.html
-
-
