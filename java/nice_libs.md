@@ -42,7 +42,7 @@
 1. `software.amazon.awssdk:s3:2.21.35`
 
 
-# Testing
+# Testing Libs
 1. `com.github.javafaker:javafaker:1.0.2`
 1. `org.awaitility:awaitility:4.2.0`
 1. `org.junit.jupiter:junit-jupiter-api:5.10.1`
@@ -56,7 +56,7 @@
 1. `org.springframework:spring-test:6.1.1`
 
 
-# Gradle plugins
+# Gradle Plugins
 1. [`com.diffplug.spotless`](https://plugins.gradle.org/plugin/com.diffplug.gradle.spotless)
 1. [`com.github.ben-manes.versions`](https://plugins.gradle.org/plugin/com.github.ben-manes.versions)
 1. [`com.github.johnrengelman.shadow`](https://plugins.gradle.org/plugin/com.github.johnrengelman.shadow)
@@ -64,7 +64,7 @@
 1. [`org.springframework.boot`](https://plugins.gradle.org/plugin/org.springframework.boot)
 
 
-# Docker images
+# Docker Images
 1. [`ghcr.io/graalvm/jdk-community`](https://github.com/graalvm/container/pkgs/container/jdk-community)
 1. [`ghcr.io/graalvm/native-image-community`](https://github.com/graalvm/container/pkgs/container/native-image-community)
 1. [`gradle`](https://hub.docker.com/_/gradle)

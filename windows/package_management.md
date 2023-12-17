@@ -6,10 +6,13 @@
 1. TODO
 
 
-# Portable Apps
+# Winget
 1. TODO
+
+
+# [~~Portable Apps~~](https://portableapps.com/)
+1. Lots of ads
 
 
 # Other resources
 1. https://chocolatey.org/
-1. https://portableapps.com/
