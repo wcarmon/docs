@@ -58,7 +58,7 @@ mvn dependency:get \
 -DremoteRepositories=maven.apache.org \
 -Dartifact=io.github.wcarmon:property-utils-jvm:1.0.0:jar
 ```
-
+1. TODO: via gradle
 
 
 # TODO:
