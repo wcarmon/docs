@@ -61,6 +61,12 @@ mvn dependency:get \
 1. TODO: via gradle
 
 
+
+# Git tag
+1. TODO: ...
+
+
+
 # TODO:
 1. TODO: Automate version bump
 
