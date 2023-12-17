@@ -67,18 +67,16 @@ mvn dependency:get \
 -DremoteRepositories=maven.apache.org \
 -Dartifact=io.github.wcarmon:property-utils-jvm:1.0.0:jar
 ```
-1. TODO: via gradle
+1. via browser: [https://central.sonatype.com](https://central.sonatype.com)
+    1. eg. `https://central.sonatype.com/artifact/io.github.wcarmon/lock-utils-jvm`
 
 
 
 # Git tag
-1. TODO: ...
-
-
-
-# TODO:
-1. TODO: Automate version bump
-
+```bash
+git tag v1.0.1
+git push origin --tags
+```
 
 
 # Other resources
