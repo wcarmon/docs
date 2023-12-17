@@ -114,7 +114,7 @@ struct Employee {
 
 ## Mutability
 
-1. [Prefer immutability](../general/immutability.md), Use [mut](https://doc.rust-lang.org/book/ch03-01-variables-and-mutability.html) (only when required)
+1. [Prefer immutability](../common/immutability.md), Use [mut](https://doc.rust-lang.org/book/ch03-01-variables-and-mutability.html) (only when required)
     1. [`Clone`](https://doc.rust-lang.org/std/clone/trait.Clone.html) might be applicable here too (rust's version of a [defensive copy](http://www.javapractices.com/topic/TopicAction.do?Id=15))
 
 ## [Thread-safety](https://en.wikipedia.org/wiki/Thread_safety)

@@ -3,7 +3,7 @@
 
 
 # Requirements
-1. [Library, not framework](../general/libraries.md)
+1. [Library, not framework](../common/libraries.md)
     1. Minimal/No magic
     1. Easy to reason about control flow
     1. Easy to debug
