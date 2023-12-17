@@ -73,13 +73,26 @@ done
 # -- Verify
 ls -hl ./build/libs/
 
-
 ./gradlew publish -q
-./gradlew uploadArchives -q
+
 
 ./gradlew publishPubNamePublicationToMavenLocal -q
 ```
-1. takes between 10-minutes and 2 hours to reflect new artifacts
+
+# Manual release to public
+1. https://s01.oss.sonatype.org/
+1. Login with OSSHR jira credentials
+1. Staging Repositories
+1. (Optional) evaluate contents of release
+1. Click **Close** (Top)
+1. On dialog, Click **Confirm**
+    1. If it fails, **Drop** & make corrections
+1. Click **Release** (Top)
+1. Takes between 10-minutes and 2 hours to reflect new artifacts
+
+
+# Automatic release
+1. TODO: Nexus Staging Maven plugin
 
 
 
