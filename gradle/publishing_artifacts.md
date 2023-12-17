@@ -7,7 +7,7 @@
 
 
 # Create public git repo
-1. TODO
+1. eg. [via github](https://docs.github.com/en/repositories/creating-and-managing-repositories/quickstart-for-repositories)
 
 
 # Setup Sonatype account (OSSRH)
