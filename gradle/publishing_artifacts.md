@@ -79,12 +79,12 @@ ls -hl ./build/libs/
 
 
 # (Manually) release to public
-1. https://s01.oss.sonatype.org/
-1. Login with OSSHR jira credentials
-1. Staging Repositories
-1. (Optional) evaluate contents of release
+1. [https://s01.oss.sonatype.org](https://s01.oss.sonatype.org)
+    1. Login with OSSRH jira credentials
+1. Click **Staging Repositories** on the left
+1. (Optional) Evaluate artifact contents of release
 1. Click **Close** (Top)
-1. On dialog, Click **Confirm**
+1. On the dialog, Click **Confirm**
     1. If it fails, **Drop** & make corrections
 1. Click **Release** (Top)
     1. (Nexus will auto-delete the staging repository after deployment)
@@ -103,10 +103,7 @@ ls -hl ./build/libs/
 1. https://central.sonatype.org/publish/publish-guide/
 1. https://dzone.com/articles/how-to-publish-artifacts-to-maven-central
 1. Automate ...
-    1. https://central.sonatype.org/publish/publish-gradle
     1. version bump
-    1. deployment
-        1. https://s01.oss.sonatype.org
 -- == -- == -- == -- == -- == -- == -- == -- == -- == -- == -- == -- ==
 
 
