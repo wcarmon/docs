@@ -6,11 +6,20 @@
 1. Once you release an artifact, it is immutable/forever
 
 
+# Create public git repo
+1. TODO
+
+
 # Setup Sonatype account (OSSRH)
 1. https://issues.sonatype.org/secure/Signup!default.jspa
 
 
-# Setup signing
+# Setup maven coordinate (group)
+1. [Example jira ticket](https://issues.sonatype.org/browse/OSSRH-97577)
+1. Once per `groupId` (reuse the same one for different artifacts)
+
+
+# Setup Signing via gpg
 1. See [publishing_gpg.md](./publishing_gpg.md) doc
 
 
