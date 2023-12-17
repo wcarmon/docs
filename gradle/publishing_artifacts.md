@@ -1,61 +1,17 @@
 # Overview
-1. How to sign & publish artifacts to Maven central
+1. How to sign & publish jar artifacts to Maven central using Gradle
+
 
 # Gotcha
-1. Once you upload a release, it is immutable
+1. Once you release an artifact, it is immutable/forever
 
 
-# Setup Sonatype (OSSRH)
+# Setup Sonatype account (OSSRH)
 1. https://issues.sonatype.org/secure/Signup!default.jspa
 
 
 # Setup signing
-```sh
-gpg --gen-key;
-
-# Verify
-gpg --list-keys;
-gpg --list-secret-keys --keyid-format LONG;
-```
-
-
-# Backup gpg key
-```sh
-export BACKUP_FILE=~/private.gpg.backup;
-gpg -o $BACKUP_FILE \
---export-options backup \
---export-secret-keys java@wcarmon.com
-```
-
-# Restore gpg key
-```sh
-gpg --import-options restore --import $BACKUP_FILE
-```
-
-
-# Update ~/.gradle/gradle.properties
-1. See [`./examples/gradle.properties`](./examples/gradle.properties)
-
-
-# Distribute your Public key
-```sh
-# -- about 40 chars, uppercase hexidecimal string
-# -- gpg -K;
-KEY_ID=...
-
-gpg --keyserver keys.openpgp.org --send-keys $KEY_ID;
-gpg --keyserver keyserver.ubuntu.com --send-keys $KEY_ID;
-gpg --keyserver pgp.mit.edu --send-keys $KEY_ID;
-```
-
-
-
--- == -- == -- == -- == -- == -- == -- == -- == -- == -- == -- == -- ==
-TODO:
-```
-mavenCentralUsername=...
-mavenCentralPassword=...
-```
+1. See [publishing_gpg.md](./publishing_gpg.md) doc
 
 
 # Build, Sign, Publish
@@ -110,15 +66,12 @@ ls -hl ./build/libs/
 
 # Other resources
 1. [Example jira ticket](https://issues.sonatype.org/browse/OSSRH-97577)
+1. [Terms/Agreement](https://central.sonatype.org/publish/producer-terms)
 1. https://central.sonatype.org/publish/release/
 1. https://central.sonatype.org/publish/requirements/#a-complete-example-pom
 1. https://central.sonatype.org/publish/requirements/#license-information
 1. https://central.sonatype.org/publish/requirements/#supply-javadoc-and-sources
 1. https://docs.gradle.org/current/userguide/publishing_maven.html
 1. https://www.jetbrains.com/help/space/publish-artifacts-to-maven-central.html
-1. [Terms/Agreement](https://central.sonatype.org/publish/producer-terms)
 
 
-## Signing
-1. https://central.sonatype.org/publish/requirements/gpg/
-1. https://docs.gradle.org/current/userguide/signing_plugin.html
