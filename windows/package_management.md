@@ -7,6 +7,7 @@
 1. Has more recent versions than Winget
 1. `Pro`: 10 years older than winget
 1. `Pro`: virus scanning
+1. `Pro`: Do one thing, do it well
 1. Chocolatey is a package on Chocolatey
 1. Usage:
     1. `choco install <package-name> -y`
@@ -15,11 +16,12 @@
 1. Package search:  [https://community.chocolatey.org/packages](https://community.chocolatey.org/packages)
 
 
+
 # Winget
 1. Official
 1. Comes with windows
 1. Packages come thru the microsoft store
-1. `Con` app store ui is clunky
+1. `Con` app store ui is clunky & unfocused
 1. `Con` app store ui is optimized for games
 1. `Con` lacks .NET SDK
 1. Usage:
