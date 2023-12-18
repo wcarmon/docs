@@ -31,12 +31,12 @@
 for JAR_FILE in ./build/libs/*.jar; do
   md5sum "$JAR_FILE" > "$JAR_FILE.md5"
   sha1sum "$JAR_FILE" > "$JAR_FILE.sha1"
-  # sha256sum "$JAR_FILE" > "$JAR_FILE.sha256"
+  sha256sum "$JAR_FILE" > "$JAR_FILE.sha256"
   # sha512sum "$JAR_FILE" > "$JAR_FILE.sha512"
 done
 
 # -- Verify
-ls -hl ./build/libs/
+# ls -hl ./build/libs/
 
 # -- This creates a staging repository in Nexus
 ./gradlew publish -q
@@ -49,6 +49,7 @@ ls -hl ./build/libs/
 1. Click **Staging Repositories** on the left
 1. (Optional) Evaluate artifact contents of release
 1. Click **Close** (Top)
+    1. Takes about a minute to run the checks
 1. On the dialog, Click **Confirm**
     1. If it fails, **Drop** & make corrections
 1. Click **Release** (Top)
