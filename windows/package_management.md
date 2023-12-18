@@ -1,5 +1,5 @@
 # Overview
-1. TODO
+1. Notes on windows Package Managers
 
 
 # Chocolatey
@@ -19,6 +19,8 @@
 1. Official
 1. Comes with windows
 1. Packages come thru the microsoft store
+1. `Con` app store ui is clunky
+1. `Con` app store ui is optimized for games
 1. `Con` lacks .NET SDK
 1. Usage:
     1. `winget install <package-name>`
