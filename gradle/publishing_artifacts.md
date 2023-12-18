@@ -32,7 +32,7 @@ for JAR_FILE in ./build/libs/*.jar; do
   md5sum "$JAR_FILE" > "$JAR_FILE.md5"
   sha1sum "$JAR_FILE" > "$JAR_FILE.sha1"
   sha256sum "$JAR_FILE" > "$JAR_FILE.sha256"
-  # sha512sum "$JAR_FILE" > "$JAR_FILE.sha512"
+  sha512sum "$JAR_FILE" > "$JAR_FILE.sha512"
 done
 
 # -- Verify
