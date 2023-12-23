@@ -12,17 +12,17 @@ kubectl version;
 
 kubectl api-resources;
 
-kubectl get deployments;
-kubectl get deploy;
-
 kubectl get nodes;
 kubectl get no;
 
 kubectl get namespace;
 kubectl get ns;
 
-kubectl get pods;
-kubectl get po;
+kubectl get deployments;
+kubectl get deploy;
+
+kubectl get replicasets;
+kubectl get rs;
 
 kubectl get services;
 kubectl get svc;
@@ -33,8 +33,20 @@ kubectl get ep;
 kubectl get ingress;
 kubectl get ing;
 
+kubectl get pods;
+kubectl get po;
+kubectl get po -o wide;
+
+POD_NAME=foo
+kubectl describe po $POD_NAME;
+
+
 kubectl get configmap;
 kubectl get cm;
+
+kubectl get pvc;
+
+kubectl get pv;
 
 # -- Get detailed info
 NODE_NAME=minikube;
@@ -66,12 +78,29 @@ kubectl run pg-deployment \
 --env="POSTGRES_USER=sa" \
 --port=4433;
 
-
 ```
+
 
 # Expose services
 ```sh
 kubectl expose rs my-rs --port 3344 --type NodePort --name whatever
+```
+
+
+# Scaling
+
+## Deployment
+```sh
+DEPLOYMENT_NAME=deployment-1;
+kubectl scale deployment --replicas=2 $DEPLOYMENT_NAME
+
+kubectl help scale
+```
+
+
+## ReplicaSet
+```sh
+TODO
 ```
 
 

@@ -43,7 +43,11 @@ source <(kubectl completion bash)
 # Command cheatsheet
 1. See also [./cheatsheet.k8s.md]
 ```sh
+minikube ip;
 minikube service --all;
+
+# -- Run the dashboard (browser based) UI
+minikube dashboard &;
 ```
 
 
