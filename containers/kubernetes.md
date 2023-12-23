@@ -3,63 +3,77 @@
 
 # Concepts
 
-## Namespace (ns)
+## [Namespace](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) (ns)
 1. Group of resources below
 1. Provides isolation between unrelated applications
 
 
-## Pod (po)
+## [Pod](https://kubernetes.io/docs/concepts/workloads/pods/) (po)
 1. "Atomic" unit for K8s
 1. A Deployable unit
 1. Like a single machine
 1. 1+ co-located containers
+1. [Init containers](https://kubernetes.io/docs/concepts/workloads/pods/init-containers/) run on startup
+    1. init containers must terminate before the "main" container can run
+1. [Sidecar Containers](https://kubernetes.io/docs/concepts/workloads/pods/sidecar-containers/) TODO
 
 
-## ReplicaSet (rs)
-1. Ensures 1+ pods running somewhere in the cluster
+## [ReplicaSet](TODO) (rs)
+1. Ensures 1+ identical pods running somewhere in the cluster
 
 
 ## ~~ReplicationController~~
 1. Legacy version of `ReplicaSet`
 
 
-## Job
-1. Runs completable task (unlike a Pod/Server which run forever)
-
-
-## CronJob
-1. Run once or periodically
-
-## DaemonSet (ds)
+## [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) (ds)
 1. (at most) one pod per node
 1. Eg. Otel collector, log collector, perf analyzer, etc
 
 
-## StatefulSet
+## [StatefulSet](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/)
 
 
-## Deployment
+## [Job](https://kubernetes.io/docs/concepts/workloads/controllers/job/)
+1. Runs completable task (unlike a Pod/Server which run forever)
 
 
-## Net/Service (svc)
+## [CronJob](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/)
+1. Run once or periodically
+1. one line of a crontab
 
 
-## Net/Endpoint
+## [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)
+1. Optional
+1. Higher-level concept
+1. Automatically manages some ReplicaSets and Pods
 
-## Net/Ingress
 
-## Conf/ConfigMap
+## [Net/Service](TODO) (svc)
 
-## Conf/Secret
 
-## Storage/PersistentVolume
+## [Net/Endpoint](TODO)
+
+
+## [Net/Ingress](TODO)
+
+
+## [Conf/ConfigMap](TODO)
+
+
+## [Conf/Secret](TODO)
+
+
+## [Storage/PersistentVolume](TODO)
 1. Cluster-level (not in a namespace)
 
-## Storage/PersistentVolumeClaim
 
-## Storage/StorageClass
+## [Storage/PersistentVolumeClaim](TODO)
 
-#
+
+## [Storage/StorageClass](TODO)
+
+##
 
 
 # Other resources
