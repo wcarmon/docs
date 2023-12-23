@@ -6,14 +6,15 @@
 # Concepts
 
 ## [Namespace](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) (ns)
-1. Group of resources below
-1. Provides isolation between unrelated applications
+1. Group of resources (the items below)
+1. Provides **isolation** between unrelated applications
 
 
 ## [Node](https://kubernetes.io/docs/concepts/architecture/nodes/)
 1. A physical machine that Kubernetes can use
 1. Has CPU, RAM, Disk, etc
 1. Cluster-level (not namespaced)
+1. Shared by all applications
 
 
 ### Worker Node
