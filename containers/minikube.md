@@ -40,8 +40,11 @@ source <(kubectl completion bash)
 ```
 
 
-# Unorganized
--
+# Command cheatsheet
+1. See also [./cheatsheet.k8s.md]
+```sh
+minikube service --all;
+```
 
 
 # Other resources
