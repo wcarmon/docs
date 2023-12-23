@@ -8,9 +8,15 @@
 ```sh
 # -- Get info
 kubectl cluster-info;
+kubectl version;
+
+kubectl api-resources;
 
 kubectl get deployments;
+kubectl get deploy;
+
 kubectl get nodes;
+kubectl get no;
 
 kubectl get namespace;
 kubectl get ns;
@@ -39,6 +45,7 @@ kubectl describe node $NODE_NAME;
 # Help
 ```sh
 kubectl help create deployment;
+kubectl help expose rs;
 kubectl help run;
 ```
 
@@ -60,6 +67,11 @@ kubectl run pg-deployment \
 --port=4433;
 
 
+```
+
+# Expose services
+```sh
+kubectl expose rs my-rs --port 3344 --type NodePort --name whatever
 ```
 
 

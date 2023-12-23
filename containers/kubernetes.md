@@ -1,5 +1,7 @@
 # Overview
 1. High-level overview of [Kubernetes](https://kubernetes.io/) (k8s)
+1. See [cheatsheet](cheatsheet.k8s.md)
+
 
 # Concepts
 
@@ -78,7 +80,7 @@
 1. one line of a crontab
 
 
-## [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)
+## [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) (``)
 1. Optional
 1. Higher-level concept
 1. Automatically manages some ReplicaSets and Pods
