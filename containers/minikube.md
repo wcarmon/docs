@@ -1,5 +1,6 @@
 # Overview
-1. TODO
+1. How to run [minikube](https://minikube.sigs.k8s.io/docs/start/) locally
+1. See [kubernetes](./kubernetes.md) doc
 
 
 # Install
