@@ -10,7 +10,7 @@
 1. Provides isolation between unrelated applications
 
 
-## Node
+## [Node](https://kubernetes.io/docs/concepts/architecture/nodes/)
 1. A physical machine that Kubernetes can use
 1. Has CPU, RAM, Disk, etc
 1. Cluster-level (not namespaced)
@@ -31,7 +31,7 @@
 1. A group of Nodes
 
 
-## Control plane
+## [Control plane](https://kubernetes.io/docs/concepts/overview/components/#control-plane-components)
 1. Mostly on the master node
 1. Includes the [kubelet](https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/) on each worker, scheduler, etc.
 1. includes [etcd](https://etcd.io/), the distributed key-value store for cluster config
@@ -80,44 +80,46 @@
 1. one line of a crontab
 
 
-## [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) (``)
+## [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) (`deploy`)
 1. Optional
 1. Higher-level concept
 1. Automatically manages some ReplicaSets and Pods
 
 
-## [Net/Service](TODO) (`svc`)
+## Networking
+### [Service](TODO) (`svc`)
 
 
-## [Net/Endpoint](TODO) (`ep`)
+### [Net/Endpoint](TODO) (`ep`)
 
 
-## [Net/Ingress](TODO) (`ing`)
+### [Net/Ingress](TODO) (`ing`)
+
+## Configuration
+
+### [ConfigMap](TODO) (`cm`)
+
+### [Secret](TODO)
 
 
-## [Conf/ConfigMap](TODO) (`cm`)
-
-
-## [Conf/Secret](TODO)
-
-
-## [Storage/PersistentVolume](https://kubernetes.io/docs/concepts/storage/persistent-volumes/) (`pv`)
+## Storage
+### [PersistentVolume](https://kubernetes.io/docs/concepts/storage/persistent-volumes/) (`pv`)
 1. Cluster-level (not namespaced)
 
 
-## [Storage/EphemeralVolume](https://kubernetes.io/docs/concepts/storage/ephemeral-volumes/)
+### [EphemeralVolume](https://kubernetes.io/docs/concepts/storage/ephemeral-volumes/)
 
 
 
-## [Storage/PersistentVolumeClaim](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#lifecycle-of-a-volume-and-claim) (`pvc`)
+### [PersistentVolumeClaim](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#lifecycle-of-a-volume-and-claim) (`pvc`)
 1. A request for PersistentVolume
 
 
-## [Storage/StorageClass](https://kubernetes.io/docs/concepts/storage/storage-classes/) (`sc`)
+### [StorageClass](https://kubernetes.io/docs/concepts/storage/storage-classes/) (`sc`)
 1. Storage type
 
 
-
+--------
 # Architecture
 
 
