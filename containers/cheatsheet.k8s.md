@@ -108,6 +108,15 @@ TODO
 ```
 
 
+# Delete/Cleanup
+```sh
+kubectl delete deployment foo;
+
+kubectl help delete deployment;
+```
+
+
+
 # -- TODO
 ```sh
 kubectl proxy

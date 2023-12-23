@@ -22,6 +22,12 @@
 # Run
 ```sh
 minikube start;
+minikube start --memory 5000 --cpus=4;
+
+minikube status;
+minikube version;
+minikube ip;
+minikube logs;
 ```
 
 
