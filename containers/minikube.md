@@ -43,10 +43,13 @@ minikube stop;
 1. Add to `~/.bashrc`
 ```sh
 # -- Shorter aliases
+...
 alias d="docker"
 alias g="git"
+
 alias k="minikube kubectl --"
 alias kubectl="minikube kubectl --"
+alias mk="minikube"
 
 # -- Tab completion
 source <(kubectl completion bash | sed s/kubectl/k/g)
