@@ -39,6 +39,7 @@ kubectl get ing;
 kubectl get pods;
 kubectl get po;
 kubectl get po -o wide;
+kubectl get po -A;
 
 POD_NAME=foo
 kubectl describe po $POD_NAME;

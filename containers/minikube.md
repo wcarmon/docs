@@ -25,6 +25,12 @@ minikube start;
 ```
 
 
+# Stop
+```sh
+minikube stop;
+```
+
+
 # Convenience
 1. Add to `~/.bashrc`
 ```sh
