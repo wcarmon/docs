@@ -18,7 +18,7 @@
 1. [Sidecar Containers](https://kubernetes.io/docs/concepts/workloads/pods/sidecar-containers/) TODO
 
 
-## [ReplicaSet](TODO) (rs)
+## [ReplicaSet](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/) (rs)
 1. Ensures 1+ identical pods running somewhere in the cluster
 
 
@@ -49,31 +49,36 @@
 1. Automatically manages some ReplicaSets and Pods
 
 
-## [Net/Service](TODO) (svc)
+## [Net/Service](TODO) (`svc`)
 
 
-## [Net/Endpoint](TODO)
+## [Net/Endpoint](TODO) (`ep`)
 
 
-## [Net/Ingress](TODO)
+## [Net/Ingress](TODO) (`ing`)
 
 
-## [Conf/ConfigMap](TODO)
+## [Conf/ConfigMap](TODO) (`cm`)
 
 
 ## [Conf/Secret](TODO)
 
 
-## [Storage/PersistentVolume](TODO)
+## [Storage/PersistentVolume](https://kubernetes.io/docs/concepts/storage/persistent-volumes/) (`pv`)
 1. Cluster-level (not in a namespace)
 
 
-## [Storage/PersistentVolumeClaim](TODO)
+## [Storage/EphemeralVolume](https://kubernetes.io/docs/concepts/storage/ephemeral-volumes/)
 
 
-## [Storage/StorageClass](TODO)
 
-##
+## [Storage/PersistentVolumeClaim](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#lifecycle-of-a-volume-and-claim) (`pvc`)
+1. A request for PersistentVolume
+
+
+## [Storage/StorageClass](https://kubernetes.io/docs/concepts/storage/storage-classes/) (`sc`)
+1. Storage type
+
 
 
 # Other resources
