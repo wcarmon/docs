@@ -10,6 +10,9 @@
 kubectl cluster-info;
 kubectl version;
 
+kubectl cluster-info | grep dashboard;
+minikube dashboard &
+
 kubectl api-resources;
 
 kubectl get nodes;
