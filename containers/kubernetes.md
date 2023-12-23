@@ -45,7 +45,7 @@
 --------
 ## Execution
 
-### [Pod](https://kubernetes.io/docs/concepts/workloads/pods/) (po)
+### [Pod](https://kubernetes.io/docs/concepts/workloads/pods/) (`po`)
 1. Namespaced
 1. one or more co-located containers
 1. A Deployable unit
@@ -60,14 +60,14 @@
 1. Good Visualizations: [a](https://assets-global.website-files.com/61897bbb80b04406f137091a/618c37679af7c9a2c0a9f138_kubernetes-overview.png), [b](https://matthewpalmer.net/kubernetes-app-developer/articles/networking-overview.png), [c](https://k21academy.com/wp-content/uploads/2020/09/Screenshot-258.png), [d](https://www.altexsoft.com/static/blog-post/2023/11/f5f62de4-31f0-48c9-bb14-3935512789cd.webp), [e](https://www.wallarm.com/assets/external/6386e85a745e454610c5de96_kubernetes20pod20architecture.jpg),
 
 
-### [ReplicaSet](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/) (rs)
+### [ReplicaSet](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/) (`rs`)
 1. Namespaced
 1. Ensures 1+ identical pods running somewhere in the cluster
 1. Allows Horizontal scaling
 1. Can be scaled anytime
 
 
-### ~~ReplicationController~~
+### ~~ReplicationController~~ (`rc`)
 1. Namespaced
 1. Legacy version of `ReplicaSet`
 
@@ -79,13 +79,13 @@
 1. Can be scaled anytime
 
 
-### [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) (ds)
+### [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) (`ds`)
 1. Namespaced
 1. (at most) one pod per node
 1. Eg. Otel collector, log collector, perf analyzer, etc
 
 
-### [StatefulSet](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/)
+### [StatefulSet](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/) (`sts`)
 1. Namespaced
 1. Useful for ... TODO
 
@@ -95,7 +95,7 @@
 1. Runs completable task (unlike a Pod/Server which run forever)
 
 
-### [CronJob](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/)
+### [CronJob](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/) (`cj`)
 1. Namespaced
 1. Run once or periodically
 1. one line of a crontab
