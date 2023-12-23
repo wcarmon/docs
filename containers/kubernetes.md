@@ -11,9 +11,14 @@
 ## Node
 1. A physical machine that Kubernetes can use
 1. Has CPU, RAM, Disk, etc
+1. Cluster-level (not namespaced)
+
 
 ### Worker Node
 1. Runs the deployed applications
+1. Has a [container runtime](https://kubernetes.io/docs/setup/production-environment/container-runtimes/) (eg. crio, containerd, docker, rkt, etc)
+1. Typically synonymous with `Node`
+
 
 ### Master Node
 1. Hosts the Control Plane (manages the entire Cluster)
@@ -90,7 +95,7 @@
 
 
 ## [Storage/PersistentVolume](https://kubernetes.io/docs/concepts/storage/persistent-volumes/) (`pv`)
-1. Cluster-level (not in a namespace)
+1. Cluster-level (not namespaced)
 
 
 ## [Storage/EphemeralVolume](https://kubernetes.io/docs/concepts/storage/ephemeral-volumes/)

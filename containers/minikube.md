@@ -5,6 +5,9 @@
 
 # Install
 1. https://minikube.sigs.k8s.io/docs/start/
+1. A single binary
+1. Works on Linux, windows, macos
+1. NOTE: minikube will auto install the correct version of `kubectl`
 
 
 # [Choose a driver](https://minikube.sigs.k8s.io/docs/drivers/)
