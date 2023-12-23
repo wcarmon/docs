@@ -8,6 +8,31 @@
 1. Provides isolation between unrelated applications
 
 
+## Node
+1. A physical machine that Kubernetes can use
+1. Has CPU, RAM, Disk, etc
+
+### Worker Node
+1. Runs the deployed applications
+
+### Master Node
+1. Hosts the Control Plane (manages the entire Cluster)
+1. Handles [`kubectl`](https://kubernetes.io/docs/reference/kubectl/) commands
+
+
+## Cluster
+1. A group of Nodes
+
+
+## Control plane
+1. Mostly on the master node
+1. Includes the [kubelet](https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/) on each worker, scheduler, etc.
+1. includes [etcd](https://etcd.io/), the distributed key-value store for cluster config
+
+
+## Workloads
+1. TODO
+
 ## [Pod](https://kubernetes.io/docs/concepts/workloads/pods/) (po)
 1. "Atomic" unit for K8s
 1. A Deployable unit
@@ -78,6 +103,10 @@
 
 ## [Storage/StorageClass](https://kubernetes.io/docs/concepts/storage/storage-classes/) (`sc`)
 1. Storage type
+
+
+
+# Architecture
 
 
 
