@@ -34,6 +34,8 @@ minikube logs;
 # Stop
 ```sh
 minikube stop;
+
+#minikube delete;
 ```
 
 
