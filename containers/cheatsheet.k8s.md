@@ -5,6 +5,12 @@
 # Commands
 ```sh
 kubectl cluster-info;
+kubectl get nodes;
+
+NODE_NAME=minikube;
+kubectl describe node $NODE_NAME;
+
+kubectl run zzz --image=... --port=9095 --generator=run/vx
 
 ```
 

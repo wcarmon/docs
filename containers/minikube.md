@@ -19,8 +19,29 @@
 1. [Hyper-V](https://minikube.sigs.k8s.io/docs/drivers/hyperv/) or [VirtualBox](https://minikube.sigs.k8s.io/docs/drivers/virtualbox/) or [Docker](https://minikube.sigs.k8s.io/docs/drivers/docker/)
 
 
+# Run
+```sh
+minikube start;
+```
+
+
+# Convenience
+1. Add to `~/.bashrc`
+```sh
+# -- Shorter aliases
+alias d="docker"
+alias g="git"
+alias k="minikube kubectl"
+alias kubectl="minikube kubectl"
+
+# -- Tab completion
+source <(kubectl completion bash | sed s/kubectl/k/g)
+source <(kubectl completion bash)
+```
+
+
 # Unorganized
-- minikube start
+-
 
 
 # Other resources

@@ -1,5 +1,5 @@
 # Overview
-1. High-level overview of kubernetes
+1. High-level overview of [Kubernetes](https://kubernetes.io/) (k8s)
 
 # Concepts
 
@@ -38,14 +38,19 @@
 ## Workloads
 1. TODO
 
+
 ## [Pod](https://kubernetes.io/docs/concepts/workloads/pods/) (po)
-1. "Atomic" unit for K8s
+1. one or more co-located containers
 1. A Deployable unit
-1. Like a single machine
-1. 1+ co-located containers
+1. The "Atomic" unit for Kubernetes
+    1. Kubernetes doesn't deal with containers directly
+1. Containers share network (`localhost`)
+1. Containers share mounted volume   <-- TODO: confirm
+1. Like a single, logical machine (multiple processes/containers)
 1. [Init containers](https://kubernetes.io/docs/concepts/workloads/pods/init-containers/) run on startup
     1. init containers must terminate before the "main" container can run
 1. [Sidecar Containers](https://kubernetes.io/docs/concepts/workloads/pods/sidecar-containers/) TODO
+1. Good Visualizations: [a](https://assets-global.website-files.com/61897bbb80b04406f137091a/618c37679af7c9a2c0a9f138_kubernetes-overview.png), [b](https://matthewpalmer.net/kubernetes-app-developer/articles/networking-overview.png), [c](https://k21academy.com/wp-content/uploads/2020/09/Screenshot-258.png), [d](https://www.altexsoft.com/static/blog-post/2023/11/f5f62de4-31f0-48c9-bb14-3935512789cd.webp), [e](https://www.wallarm.com/assets/external/6386e85a745e454610c5de96_kubernetes20pod20architecture.jpg),
 
 
 ## [ReplicaSet](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/) (rs)
