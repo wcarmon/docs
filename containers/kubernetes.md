@@ -61,7 +61,7 @@
 1. See [Pod](./kubernetes.pods.md) doc
 
 
-### ReplicaSet & ~~ReplicationController~~
+### [ReplicaSet](./kubernetes.rs.md) & ~~ReplicationController~~
 1. See [ReplicaSet](./kubernetes.rs.md) doc
 
 
