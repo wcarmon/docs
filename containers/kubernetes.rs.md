@@ -27,10 +27,10 @@ kubectl get rc; # legacy
 1. Ensures 1+ identical pods running somewhere in the cluster
 1. Allows Horizontal scaling
 1. Can be scaled anytime
-1. Constantly monitors list of running Pods
+1. Constantly monitors list of running `Pod`s
 1. Creates & removes Pods to match target count
-1. Never reuses terminated Pods, just creates new Pod (somewhere) in the cluster
-1. Never moves a Pod, just creates new Pod (somewhere) in the cluster
+1. `ReplicaSet` never reuses terminated a `Pod`, just creates new Pod (somewhere) in the cluster
+1. `ReplicaSet` never moves a `Pod`, just creates new `Pod` (somewhere) in the cluster
 ```sh
 kubectl explain rs.spec.replicas;
 kubectl explain rs.spec.template;
