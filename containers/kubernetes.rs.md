@@ -9,10 +9,12 @@
 
 # Cheatsheet
 ```sh
-kubectl get replicasets;
 kubectl get rs;
+kubectl get replicasets;
 
-kubectl get rc;
+kubectl scale rs $RS_NAME --replicas=2
+
+kubectl get rc; # legacy
 ```
 
 
