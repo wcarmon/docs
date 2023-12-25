@@ -48,6 +48,7 @@
 ## [Overlay](https://kubectl.docs.kubernetes.io/references/kustomize/glossary/#overlay)
 1. Applies to some base `*.yaml` file
 1. An Overlay can be a base for another Overlay
+1. `kustomization.yaml` + `patches.yaml`
 
 
 ## [Patch](https://kubectl.docs.kubernetes.io/references/kustomize/glossary/#patch)
