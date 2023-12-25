@@ -64,16 +64,35 @@ kubectl help create deployment;
 kubectl help expose rs;
 kubectl help run;
 
+kubectl explain deployment;
+kubectl explain deployment.spec.selector;
+kubectl explain deployment.spec.template;
+kubectl explain deployment.spec;
+
+kubectl explain ingress;
+kubectl explain ingress.spec;
+
+kubectl explain pv;
+kubectl explain PersistentVolume;
+kubectl explain PersistentVolume.spec;
+
+kubectl explain pvc;
+kubectl explain PersistentVolumeClaim;
+kubectl explain PersistentVolumeClaim.spec.resources;
+kubectl explain PersistentVolumeClaim.spec.selector;
+kubectl explain PersistentVolumeClaim.spec;
+
 kubectl explain pod;
 kubectl explain pod.metadata;
-kubectl explain pod.spec;
-kubectl explain deployment;
 kubectl explain pod.spec.containers.ports;
 kubectl explain pod.spec.containers.volumeMounts;
 kubectl explain pod.spec.containers;
 kubectl explain pod.spec.readinessGates;
 kubectl explain pod.spec.volumes;
+kubectl explain pod.spec;
 kubectl explain pod.status;
+
+kubectl explain service;
 kubectl explain service.spec.clusterIPs;
 kubectl explain service.spec.externalIPs;
 kubectl explain service.spec.ports;

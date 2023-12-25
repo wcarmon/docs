@@ -177,20 +177,21 @@
 
 --------
 # Architecture
-1. `Node` -|---o|< `Pod`
+1. `Node` -|o---o|< `Pod`
 1. `Pod` -|---|< `Container`
+1. `Pod` -|o---|- ipAddress
+1. `Container` -|o---o|< port
 1. `Image` -|---o|< `Container`
-1. `` -|---|- ``
-1. `` -|---|- ``
-1. `` -|---|- ``
-1. `` -|---|- ``
+1. `Service` -|o---|< ipAddress
+1. `Service` -|o---|< port
+1. `Service` >|o---o|< `Pod` (via selectors)
+
+1. `Node` -|---|- `Volume`
+1. `Pod` -|---|- `PersistentVolume`
+1. `Pod` -|---|- `PersistentVolumeClaim`
+1. `PersistentVolume` -|---|- `PersistentVolumeClaim`
 1. `` -|---|- ``
 
-
-Pod
-Container
-Volume
-Service
 
 
 
