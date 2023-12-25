@@ -80,16 +80,6 @@ kubectl explain PersistentVolumeClaim.spec.resources;
 kubectl explain PersistentVolumeClaim.spec.selector;
 kubectl explain PersistentVolumeClaim.spec;
 
-kubectl explain pod;
-kubectl explain pod.metadata;
-kubectl explain pod.metadata.labels;
-kubectl explain pod.spec.containers.ports;
-kubectl explain pod.spec.containers.volumeMounts;
-kubectl explain pod.spec.containers;
-kubectl explain pod.spec.readinessGates;
-kubectl explain pod.spec.volumes;
-kubectl explain pod.spec;
-kubectl explain pod.status;
 
 kubectl explain service;
 kubectl explain service.spec.clusterIPs;

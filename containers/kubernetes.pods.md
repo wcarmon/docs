@@ -31,6 +31,20 @@
     1. Useful for container preconditions/dependencies, but better to make container handle outages via [readiness probes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/)
 1. [Sidecar Containers](https://kubernetes.io/docs/concepts/workloads/pods/sidecar-containers/) TODO
 
+## Help
+```sh
+kubectl explain pod;
+kubectl explain pod.metadata;
+kubectl explain pod.metadata.labels;
+kubectl explain pod.spec.containers.ports;
+kubectl explain pod.spec.containers.volumeMounts;
+kubectl explain pod.spec.containers;
+kubectl explain pod.spec.readinessGates;
+kubectl explain pod.spec.volumes;
+kubectl explain pod.spec;
+kubectl explain pod.status;
+```
+
 
 --------
 # Idioms
@@ -38,8 +52,12 @@
 1. Only include containers which scale together (same cardinality, same lifecycle)
 1. Pods are rarely created directly in practice
     - higher level concepts like [`Deployment`](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) manage lifecycle & rolling upgrades better
+
+## Liveness Probe
 1. **Always** define a [liveness probe](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#container-probes)
 1. Always set an initial delay on the liveness probe to allow init time
+1. Keep liveness probe light, they are executed relatively often
+
 
 --------
 # Probes
