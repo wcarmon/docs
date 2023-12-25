@@ -51,6 +51,7 @@
 1. Namespaced
 1. One or more co-located containers
     1. Containers in a `Pod` always run on the same `Node`
+1. A collection of containers that can run on a host
 1. The "Atomic" unit for Kubernetes
     1. Kubernetes doesn't deal with containers directly
     1. `Pod` never spans two `Nodes`
@@ -176,7 +177,21 @@
 
 --------
 # Architecture
-1. TODO
+1. `Node` -|---o|< `Pod`
+1. `Pod` -|---|< `Container`
+1. `Image` -|---o|< `Container`
+1. `` -|---|- ``
+1. `` -|---|- ``
+1. `` -|---|- ``
+1. `` -|---|- ``
+1. `` -|---|- ``
+
+
+Pod
+Container
+Volume
+Service
+
 
 
 # Other resources

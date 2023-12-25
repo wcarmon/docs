@@ -63,6 +63,26 @@ kubectl describe node $NODE_NAME;
 kubectl help create deployment;
 kubectl help expose rs;
 kubectl help run;
+
+kubectl explain pod;
+kubectl explain pod.metadata;
+kubectl explain pod.spec;
+kubectl explain deployment;
+kubectl explain pod.spec.containers.ports;
+kubectl explain pod.spec.containers.volumeMounts;
+kubectl explain pod.spec.containers;
+kubectl explain pod.spec.readinessGates;
+kubectl explain pod.spec.volumes;
+kubectl explain pod.status;
+kubectl explain service.spec.clusterIPs;
+kubectl explain service.spec.externalIPs;
+kubectl explain service.spec.ports;
+kubectl explain service.spec.selector;
+kubectl explain service.spec.type;
+kubectl explain service.spec;
+
+TODO: more interesting things
+
 ```
 
 
