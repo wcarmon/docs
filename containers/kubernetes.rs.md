@@ -11,8 +11,12 @@
 ```sh
 kubectl get rs;
 kubectl get replicasets;
+kubectl describe rs;
 
 kubectl scale rs $RS_NAME --replicas=2
+kubectl describe rs;
+
+kubectl delete rs $RS_NAME;
 
 kubectl get rc; # legacy
 ```
@@ -37,5 +41,6 @@ kubectl explain rs.spec.selector;  # <-- Idiom: don't set this, it will take fro
 
 # ~~ReplicationController~~ (`rc`)
 1. A [Namespaced](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) resource
-1. Legacy version of `ReplicaSet`
-1. Don't use this, use `ReplicaSet`
+1. Legacy version of `ReplicaSet`, completely replaced with `ReplicaSet`
+1. Don't use this, use `ReplicaSet`, or better, Use a `Deployment`
+1. `ReplicaSet` has more expressive pod selectors (eg. pods lacking a label)
