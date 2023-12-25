@@ -1,6 +1,7 @@
 # Overview
 1. High-level overview of [Kubernetes](https://kubernetes.io/) (k8s)
-1. See [cheatsheet](cheatsheet.k8s.md)
+1. See [cheatsheet](./cheatsheet.k8s.md)
+1. See [pod doc](./kubernetes.pods.md)
 
 
 # Concepts
@@ -56,37 +57,8 @@
 --------
 ## Execution
 
-### [Pod](https://kubernetes.io/docs/concepts/workloads/pods/) (`po`)
-1. Namespaced
-1. One or more co-located containers
-    1. Containers in a `Pod` always run on the same `Node`
-1. A collection of containers that can run on a host
-1. The "Atomic" unit for Kubernetes
-    1. Kubernetes doesn't deal with containers directly
-    1. `Pod` never spans two `Nodes`
-1. A Deployable unit
-1. Like a single, logical machine (multiple processes/containers)
-1. Good Visualizations: [a](https://assets-global.website-files.com/61897bbb80b04406f137091a/618c37679af7c9a2c0a9f138_kubernetes-overview.png), [b](https://matthewpalmer.net/kubernetes-app-developer/articles/networking-overview.png), [c](https://k21academy.com/wp-content/uploads/2020/09/Screenshot-258.png), [d](https://www.altexsoft.com/static/blog-post/2023/11/f5f62de4-31f0-48c9-bb14-3935512789cd.webp), [e](https://www.wallarm.com/assets/external/6386e85a745e454610c5de96_kubernetes20pod20architecture.jpg),
-1. Scaling: Everything in the Pod scales together (same cardinality, same lifecycle)
-1. Idiom: one process per Container
-
-
-#### Networking
-1. Containers (in a `Pod`) share network (`localhost`),
-1. Containers (in a `Pod`) share [Linux namespace](https://man7.org/linux/man-pages/man7/namespaces.7.html)
-1. Containers can reach each other via `localhost`
-1. One IP address per `Pod` (shared port space for all containers in the `Pod`)
-
-#### Storage
-1. Containers have isolated filesystems by default
-    1. They can share using a `Volume`
-
-#### Friends
-1. [Init containers](https://kubernetes.io/docs/concepts/workloads/pods/init-containers/) run on startup
-    1. init containers must terminate before the "main" container can run
-    1. Useful for container preconditions/dependencies, but better to make container handle outages via [readiness probes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/)
-1. [Sidecar Containers](https://kubernetes.io/docs/concepts/workloads/pods/sidecar-containers/) TODO
-
+### [Pod](./kubernetes.pods.md)
+1. See [Pod](./kubernetes.pods.md) doc
 
 
 ### [ReplicaSet](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/) (`rs`)
@@ -186,26 +158,7 @@
 
 --------
 # Architecture
-1. `Node` -|o---o|< `Pod`
-1. `Pod` -|---|< `Container`
-1. `Pod` -|o---|- ipAddress
-1. `Container` -|o---o|< port
-1. `Image` -|---o|< `Container`
-
-
-## Storage
-1. `Node` -|---o|< `Volume`
-1. `PersistentVolume` -|---|- `PersistentVolumeClaim`
-1. `Pod` -|o---o|< `PersistentVolume`
-1. `Pod` -|---o|< `PersistentVolumeClaim`
-
-
-## Service
-1. `Service` -|o---|< ipAddress
-1. `Service` -|o---|< port
-1. `Service` >|o---o|< `Pod` (via selectors)
-
-
+- See [arch doc](./kubernetes.arch.md)
 
 
 # Other resources

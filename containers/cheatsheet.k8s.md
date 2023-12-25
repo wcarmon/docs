@@ -141,6 +141,8 @@ kubectl run pg-deployment \
 ```sh
 kubectl create -f my-conf.yaml
 ```
+1. https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
+
 
 
 # Expose services
