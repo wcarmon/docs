@@ -29,13 +29,13 @@
 
 
 ## Cluster
-1. A group of Nodes
+1. A group of `Node`s
 1. All `Pod`s in a cluster share a single flat network-address space (no NAT)
     1. Communication between pods is always simple
 
 
 ## [Control plane](https://kubernetes.io/docs/concepts/overview/components/#control-plane-components)
-1. Mostly on the master node
+1. Mostly on the master `Node`
 1. Includes the [kubelet](https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/) on each worker, scheduler, etc.
 1. includes [etcd](https://etcd.io/), the distributed key-value store for cluster config
 
