@@ -2,6 +2,20 @@
 1. Info on Kubernetes [`ReplicaSets`](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/) & ~~ReplicationController~~
 
 
+# Idioms
+1. Use a [`Deployment`](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) to auto-manage `ReplicaSets`
+1. **Don't** set `selector` on `ReplicaSet`, let it auto-manage from Pod template
+
+
+# Cheatsheet
+```sh
+kubectl get replicasets;
+kubectl get rs;
+
+kubectl get rc;
+```
+
+
 # [ReplicaSet](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/) (`rs`)
 1. A [Namespaced](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) resource
 1. Ensures 1+ identical pods running somewhere in the cluster
@@ -20,12 +34,6 @@ kubectl explain rs.spec.selector;  # <-- Idiom: don't set this, it will take fro
 
 
 # ~~ReplicationController~~ (`rc`)
-1. Namespaced
+1. A [Namespaced](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) resource
 1. Legacy version of `ReplicaSet`
 1. Don't use this, use `ReplicaSet`
-
-
---------
-# Idioms
-1. Use a [`Deployment`](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) to auto-manage `ReplicaSets`
-1. **Don't** set `selector` on `ReplicaSet`, let it auto-manage from Pod template
