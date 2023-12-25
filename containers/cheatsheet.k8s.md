@@ -2,9 +2,7 @@
 1. Cheatsheet of commonly used commands
 
 
-# Commands
-
-## Get info
+# Get info
 ```sh
 # -- Get info
 kubectl cluster-info;
@@ -84,6 +82,7 @@ kubectl explain PersistentVolumeClaim.spec;
 
 kubectl explain pod;
 kubectl explain pod.metadata;
+kubectl explain pod.metadata.labels;
 kubectl explain pod.spec.containers.ports;
 kubectl explain pod.spec.containers.volumeMounts;
 kubectl explain pod.spec.containers;
@@ -105,10 +104,25 @@ TODO: more interesting things
 ```
 
 
+# Logs
+```sh
+kubectl logs myPod
+```
+
+
+# [Labeling](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/)
+```sh
+kubectl labels pod $POD_NAME foo=bar
+kubectl labels pod $POD_NAME foo=bar --overwrite
+```
+1. https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#label
+1. https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/
+
+
 # Run
 ```bash
 # -- Run nginx
-kubectl create deployment deployment-1 \
+kubectl create deployment my-deployment \
 --image=nginx \
 --replicas=1 \
 --port=9090;
@@ -121,6 +135,11 @@ kubectl run pg-deployment \
 --env="POSTGRES_USER=sa" \
 --port=4433;
 
+```
+
+# Apply configuration to cluster
+```sh
+kubectl create -f my-conf.yaml
 ```
 
 
@@ -147,6 +166,15 @@ TODO
 ```
 
 
+# Port forwarding
+```sh
+# <outsidePort>:<insidePort>
+kubectl port-forward myPod 8888:80
+
+kubectl help port-forward
+```
+
+
 # Delete/Cleanup
 ```sh
 kubectl delete deployment foo;
@@ -159,6 +187,7 @@ kubectl help delete deployment;
 # -- TODO
 ```sh
 kubectl proxy
+kubectl port-forward
 
 ```
 

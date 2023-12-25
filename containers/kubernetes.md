@@ -8,6 +8,7 @@
 ## [Namespace](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) (ns)
 1. Group of resources (the items below)
 1. Provides **isolation** between unrelated applications
+1. Allows multi-tenancy
 
 
 ## [Node](https://kubernetes.io/docs/concepts/architecture/nodes/)
@@ -42,6 +43,14 @@
 
 ## Workloads
 1. TODO
+
+
+## [Labels](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/)
+1. a key-value pair
+1. Any resource can have labels (Pod, Node, Volume, Service, PersistentVolumeClaim, ...)
+1. `[a-z0-9A-Z_\.\-]{1,63}`
+1. you can add/modify/remove labels on existing resources
+    1. use [`--overwrite`](TODO) when modifying
 
 
 --------
@@ -182,15 +191,19 @@
 1. `Pod` -|o---|- ipAddress
 1. `Container` -|o---o|< port
 1. `Image` -|---o|< `Container`
+
+
+## Storage
+1. `Node` -|---o|< `Volume`
+1. `PersistentVolume` -|---|- `PersistentVolumeClaim`
+1. `Pod` -|o---o|< `PersistentVolume`
+1. `Pod` -|---o|< `PersistentVolumeClaim`
+
+
+## Service
 1. `Service` -|o---|< ipAddress
 1. `Service` -|o---|< port
 1. `Service` >|o---o|< `Pod` (via selectors)
-
-1. `Node` -|---|- `Volume`
-1. `Pod` -|---|- `PersistentVolume`
-1. `Pod` -|---|- `PersistentVolumeClaim`
-1. `PersistentVolume` -|---|- `PersistentVolumeClaim`
-1. `` -|---|- ``
 
 
 
