@@ -1,6 +1,8 @@
 # Overview
 1. Summary of [Kustomize](https://kustomize.io/)
-1. Goal: reuse of [Kubernetes](https://kubernetes.io/docs/concepts/overview/) `*.yaml` files (without mutating the original)
+1. Useful for ...
+    1. reuse of [Kubernetes](https://kubernetes.io/docs/concepts/overview/) `*.yaml` files (without mutating the original)
+    1. helps introduce env specific changes
 
 
 # Features
@@ -10,6 +12,7 @@
 1. Can **Add** or **Update** [resources](https://kubernetes.io/docs/concepts/overview/kubernetes-api/) (eg. Pod, Service, etc), (but not Delete)
     1. Resource `name` links them
 1. Can use standalone or as a feature of [`kubectl`](https://kubernetes.io/docs/reference/kubectl/)
+    `kustomize build /path/to/dir-with-kustomization-yaml/`
 1. Optimized for small variations on shared config `*.yaml` files
 
 
