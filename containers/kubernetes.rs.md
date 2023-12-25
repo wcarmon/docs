@@ -2,9 +2,8 @@
 1. Info on Kubernetes [`ReplicaSets`](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/) & ~~ReplicationController~~
 
 
-
 # [ReplicaSet](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/) (`rs`)
-1. Namespaced
+1. A [Namespaced](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) resource
 1. Ensures 1+ identical pods running somewhere in the cluster
 1. Allows Horizontal scaling
 1. Can be scaled anytime
@@ -14,8 +13,9 @@
 1. Never moves a Pod, just creates new Pod (somewhere) in the cluster
 ```sh
 kubectl explain rs.spec.replicas;
-kubectl explain rs.spec.selector;
 kubectl explain rs.spec.template;
+
+kubectl explain rs.spec.selector;  # <-- Idiom: don't set this, it will take from Pod `template`
 ```
 
 
@@ -25,9 +25,7 @@ kubectl explain rs.spec.template;
 1. Don't use this, use `ReplicaSet`
 
 
+--------
 # Idioms
 1. Use a [`Deployment`](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) to auto-manage `ReplicaSets`
-
-
-# Other resources
-1. TODO
+1. **Don't** set `selector` on `ReplicaSet`, let it auto-manage from Pod template

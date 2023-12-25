@@ -91,7 +91,10 @@ kubectl explain pod.spec.containers.livenessProbe.timeoutSeconds;
 
 
 ## Readiness Probe
+1. TODO:
 
 
-# Other resources
-1. TODO
+### Help
+```sh
+TODO
+```
