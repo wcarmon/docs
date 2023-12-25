@@ -38,7 +38,8 @@
 1. Only include containers which scale together (same cardinality, same lifecycle)
 1. Pods are rarely created directly in practice
     - higher level concepts like [`Deployment`](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) manage lifecycle & rolling upgrades better
-
+1. **Always** define a [liveness probe](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#container-probes)
+1. Always set an initial delay on the liveness probe to allow init time
 
 --------
 # Probes
@@ -48,15 +49,26 @@
 1. Kubernetes will restart the container if probe fails
 1. Mechanism:
     1. [HTTP GET](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-a-liveness-http-request), success on a `2xx` or `3xx`
+        1. `/health` is a good url
         1. Spring boot uses `/actuator/health` & `/actuator/health/liveness`
-    1. [Exec](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-a-liveness-command) command, success on exit code of `0`
+        1. No auth required
     1. [gRPC probe](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-a-grpc-liveness-probe), success on [status=`SERVING`](https://grpc.github.io/grpc/core/md_doc_health-checking.html)
+    1. [Exec](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-a-liveness-command) command, success on exit code of `0`
+        1. Never use for JVM, JVM restart is relatively expensive
     1. (less common) [TCP probe](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-a-tcp-liveness-probe)
-1. Help
+
+### Help
 ```sh
-kubernetes explain pod.spec.containers.livenessProbe;
-kubernetes explain pod.spec.containers.livenessProbe.httpGet;
-kubernetes explain pod.spec.containers.livenessProbe.exec;
+kubectl explain pod.spec.containers.livenessProbe;
+
+kubectl explain pod.spec.containers.livenessProbe.httpGet;
+kubectl explain pod.spec.containers.livenessProbe.exec.command;
+kubectl explain pod.spec.containers.livenessProbe.grpc;
+
+kubectl explain pod.spec.containers.livenessProbe.failureThreshold;
+kubectl explain pod.spec.containers.livenessProbe.initialDelaySeconds;
+kubectl explain pod.spec.containers.livenessProbe.periodSeconds;
+kubectl explain pod.spec.containers.livenessProbe.timeoutSeconds;
 ```
 
 

@@ -106,7 +106,11 @@ TODO: more interesting things
 
 # Logs
 ```sh
-kubectl logs myPod
+kubectl logs $POD_NAME
+
+# -- After container crashes
+kubectl logs $POD_NAME --previous
+kubectl describe pod $POD_NAME
 ```
 
 
