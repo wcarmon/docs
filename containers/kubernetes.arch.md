@@ -1,7 +1,8 @@
 # Overview
-1. TODO
+1. Relationship between Kubernetes resources
 
 
+# Execution & Net
 1. `Node` -|o---o|< `Pod`
 1. `Pod` -|---|< `Container`
 1. `Pod` -|o---|- ipAddress
@@ -9,14 +10,14 @@
 1. `Image` -|---o|< `Container`
 
 
-## Storage
+# Storage
 1. `Node` -|---o|< `Volume`
 1. `PersistentVolume` -|---|- `PersistentVolumeClaim`
 1. `Pod` -|o---o|< `PersistentVolume`
 1. `Pod` -|---o|< `PersistentVolumeClaim`
 
 
-## Service
+# Service
 1. `Service` -|o---|< ipAddress
 1. `Service` -|o---|< port
 1. `Service` >|o---o|< `Pod` (via selectors)
