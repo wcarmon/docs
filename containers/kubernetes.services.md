@@ -28,7 +28,8 @@
 1. `clusterIP`: randomly assigned IP, immutable, accessible **only within** the cluster
 1. `clusterIPs`: randomly assigned, immutable, accessible **only within** the cluster
     1. at most 2 values
-    1. TODO: "None"
+    1. Setting to "None" creates a [Headless Service](https://kubernetes.io/docs/concepts/services-networking/service/#headless-services)
+        1. Useful for communicating with ALL pods and getting their IP addresses via DNS (multiple [A-record](https://support.dnsimple.com/articles/a-record/)s)
 
 
 ## Discovery

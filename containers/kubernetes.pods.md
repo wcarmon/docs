@@ -68,6 +68,11 @@ kubectl explain pod.status;
 1. Keep liveness probe light, they are executed relatively often
 
 
+## Readiness Probe
+1. **Always** define a [Readiness probe](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#container-probes)
+1. eg. ping the database & upstream services
+
+
 --------
 # Probes
 
