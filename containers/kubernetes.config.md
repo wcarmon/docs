@@ -1,5 +1,5 @@
 # Overview
-1. Info on [Kubernetes ConfigMap](TODO) and [Secrets](TODO)
+1. Info on [Kubernetes ConfigMap](https://kubernetes.io/docs/concepts/configuration/configmap/) and [Secrets](https://kubernetes.io/docs/concepts/configuration/secret/)
 
 
 # [ConfigMap](https://kubernetes.io/docs/concepts/configuration/configmap/) (`cm`)
