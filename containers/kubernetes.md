@@ -7,8 +7,12 @@
 # Concepts
 
 
-## Jobs & CronJobs
-1. See [Jobs](./kubernetes.jobs.md) doc
+## Resource
+1. A `Pod`, `Service`, `Deployment`, `ReplicaSet`, `DaemonSet`, `CronJob`, `PersistentVolume`, `ConfigMap`, etc
+1. aka "api resource"
+```sh
+kubectl api-resources;
+```
 
 
 ## [Namespace](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) (ns)
@@ -99,12 +103,8 @@ kubectl get ds;
 1. Useful for ... TODO
 
 
-### [Job](https://kubernetes.io/docs/concepts/workloads/controllers/job/)
-- See [Jobs](./kubernetes.jobs.md) doc
-
-
-### [CronJob](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/) (`cj`)
-- See [Jobs](./kubernetes.jobs.md) doc
+## Jobs & CronJobs
+1. See [Jobs](./kubernetes.jobs.md) doc
 
 
 --------
