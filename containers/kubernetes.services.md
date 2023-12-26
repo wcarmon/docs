@@ -1,0 +1,52 @@
+# Overview
+1. Info on [Kubernetes Services](https://kubernetes.io/docs/concepts/services-networking/service/)
+
+
+# [Service](https://kubernetes.io/docs/concepts/services-networking/service/) (`svc`)
+1. A [Namespaced](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) resource
+1. A single, **constant** entry point for a group of pods
+1. All pods have the same service
+1. Has an IP address
+1. Connects to n-`Pod`s using [`selector`](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/)
+
+
+## Properties
+1. `externalIPs`: IP managed outside Kubernetes, accessible outside the cluster
+1. `clusterIP`: randomly assigned IP, immutable, accessible only within the cluster
+1. `clusterIPs`: randomly assigned, immutable, accessible only within the cluster
+    1. TODO: "None"
+    1. at most 2 values
+
+
+## Networking
+1. To quickly expose a `Deployment`, `ReplicaSet`, `Pod` or another `Service`:
+```sh
+kubectl expose <resourceType> <resourceName> --port=<externalPort> --target-port=<portInContainer>
+```
+
+
+## Help
+```sh
+kubectl get services;
+kubectl get svc;
+
+kubectl help expose;
+
+kubectl explain service.spec;
+kubectl explain service.spec.clusterIP;
+kubectl explain service.spec.clusterIPs;
+kubectl explain service.spec.externalIPs;
+kubectl explain service.spec.ports;
+kubectl explain service.spec.selector;
+kubectl explain service.spec.type;
+```
+
+--------
+# Idioms
+
+
+- TODO: parse https://kubernetes.io/docs/concepts/services-networking/service/
+
+
+# Other resources
+1. TODO

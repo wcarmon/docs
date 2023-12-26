@@ -61,6 +61,7 @@
 
 # TODO/Unorganized
 - [`kubectl apply -k ...`](https://kubectl.docs.kubernetes.io/guides/config_management/introduction/)
+- TODO: https://testingclouds.wordpress.com/2018/07/20/844/
 
 
 # Other resources

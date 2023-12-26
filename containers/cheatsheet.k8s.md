@@ -81,13 +81,6 @@ kubectl explain PersistentVolumeClaim.spec.selector;
 kubectl explain PersistentVolumeClaim.spec;
 
 
-kubectl explain service;
-kubectl explain service.spec.clusterIPs;
-kubectl explain service.spec.externalIPs;
-kubectl explain service.spec.ports;
-kubectl explain service.spec.selector;
-kubectl explain service.spec.type;
-kubectl explain service.spec;
 
 TODO: more interesting things
 

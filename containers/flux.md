@@ -23,5 +23,8 @@
 # Concepts
 
 
+- TODO: https://github.com/kubernetes/design-proposals-archive/blob/main/architecture/declarative-application-management.md
+
+
 # Other resources
 1. TODO

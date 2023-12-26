@@ -128,9 +128,9 @@ kubectl get ds;
 
 --------
 ## Networking
-### [Service](TODO) (`svc`)
-1. Namespaced
-1. TODO
+
+### [Service](./kubernetes.services.md) (`svc`)
+1. See [Services](./kubernetes.services.md) doc
 
 
 ### [Endpoint](TODO) (`ep`)
