@@ -16,6 +16,10 @@
 1. Optimized for small variations on shared config `*.yaml` files
 
 
+# Idioms
+1. Generally used AFTER [helm](./helm.md)
+
+
 # Input
 1. [Kubernetes](https://kubernetes.io/docs/concepts/overview/) `*.yaml` files (called ["Base" files](https://kubectl.docs.kubernetes.io/references/kustomize/glossary/#base))
 1. Patches
