@@ -106,7 +106,7 @@ kubectl explain endpoints.subsets.ports;
 ```
 
 
-# [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/)
+# [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) (`ing`)
 1. Think: [nginx](https://www.nginx.com/)
 1. Manages external access to services in the cluster
 1. An entry point for the cluster
@@ -130,7 +130,7 @@ kubectl explain endpoints.subsets.ports;
 1. TODO: `kubectl certificate approve $CERT_NAME`
 
 
-# Endpoints
+# Endpoints (`ep`)
 1. The "many-to-many" join between `Service`s and `Pod`s
 1. Only contains Containers that pass [Readiness probe](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-readiness-probes)
 ```sh

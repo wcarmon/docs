@@ -129,18 +129,8 @@ kubectl get ds;
 --------
 ## Networking
 
-### [Service](./kubernetes.services.md) (`svc`)
+### [Service](./kubernetes.services.md) (`svc`), Ingress & Endpoints
 1. See [Services](./kubernetes.services.md) doc
-
-
-### [Endpoint](TODO) (`ep`)
-1. Namespaced?  TODO
-1. TODO
-
-
-### [Ingress](TODO) (`ing`)
-1. Namespaced
-1. TODO
 
 
 --------
