@@ -84,6 +84,9 @@ kubectl explain pod.status;
     1. [Exec](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-a-liveness-command) command, success on exit code of `0`
         1. Never use for JVM, JVM restart is relatively expensive
     1. (less common) [TCP probe](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-a-tcp-liveness-probe)
+1. Should fail if restarting the Pod might help
+    1. Contrast with Readiness Probe
+
 
 ### Help
 ```sh
@@ -106,12 +109,17 @@ kubectl explain pod.spec.containers.livenessProbe.timeoutSeconds;
     1. Contrast with Liveness Probe
 1. Only "ready" `Pod`s are added to the `Service` `Endpoints`
 1. Use [HTTP Probe](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#http-probes) or gRPC
+1. Should fail if requests would fail anyway (eg. cannot reach database or an upstream service)
+    1. Contrast with Liveness Probe
 
 
 ### Help
 ```sh
 kubectl explain pod.spec.containers.readinessProbe;
+
 kubectl explain pod.spec.containers.readinessProbe.httpGet;
+
+kubectl explain pod.spec.containers.readinessProbe.failureThreshold;
 kubectl explain pod.spec.containers.readinessProbe.initialDelaySeconds;
 kubectl explain pod.spec.containers.readinessProbe.periodSeconds;
 kubectl explain pod.spec.containers.readinessProbe.timeoutSeconds;
