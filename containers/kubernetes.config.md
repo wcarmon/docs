@@ -18,7 +18,7 @@
     1. snake_case
     1. camelCase
     1. a.b.c.d.property
-    1. ~~kebab-case~~  <-- avoid because k8s will do the wrong thing when using as env var
+    1. ~~kebab-case~~  <-- supported, but avoid because k8s will do the wrong thing when using as env var ([`envFrom`](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/#restrictions))
 ```sh
 kubectl get configMap;
 kubectl get cm;
@@ -93,7 +93,7 @@ spec:
     1. They conflict with too many other things (like `delve`, junit, java debugger protocol, etc)
 1. You can combine multiple configs into 1 `ConfigMap`
     1. [`kubectl create configmap my-config --from-file=/some/parent/dir`](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/#create-configmaps-from-directories)
-1. GOTCHA: k8s will ignore keys containing a dash (with a warning in events)
+1. GOTCHA: k8s will ignore keys [containing a dash (with a warning in events)](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/#restrictions)
     1. so prefer camelCase or snake_case
 
 
