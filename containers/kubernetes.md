@@ -1,7 +1,7 @@
 # Overview
 1. High-level overview of [Kubernetes](https://kubernetes.io/) (k8s)
 1. See [cheatsheet](./cheatsheet.k8s.md)
-1. See [pod doc](./kubernetes.pods.md)
+1. See [Pod doc](./kubernetes.pods.md)
 
 
 # Concepts
