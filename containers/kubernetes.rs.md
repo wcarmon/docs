@@ -29,6 +29,7 @@ kubectl get rc; # legacy
 1. Can be scaled anytime
 1. Constantly monitors list of running `Pod`s
 1. Creates & removes Pods to match target count
+1. `ReplicaSet` scatters Pods randomly around the Cluster
 1. `ReplicaSet` never reuses terminated a `Pod`, just creates new Pod (somewhere) in the cluster
 1. `ReplicaSet` never moves a `Pod`, just creates new `Pod` (somewhere) in the cluster
 ```sh

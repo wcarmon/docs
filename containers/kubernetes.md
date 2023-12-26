@@ -74,8 +74,16 @@
 
 ### [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) (`ds`)
 1. Namespaced
-1. (at most) one pod per node
-1. Eg. Otel collector, log collector, perf analyzer, etc
+1. (at most) one pod per `Node`
+1. Eg. Otel collector, log collector, perf analyzer, resource monitor, etc
+1. Might need to mount a volume from the `Node`
+1. Use `DaemonSet.spec.selector` to limit which `Node`s run the `DaemonSet`
+```sh
+kubectl explain ds.spec.template;
+
+kubectl explain ds.spec.selector;
+kubectl explain DaemonSet.spec.selector;
+```
 
 
 ### [StatefulSet](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/) (`sts`)
