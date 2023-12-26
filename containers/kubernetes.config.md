@@ -53,6 +53,7 @@ spec:
 ```
 
 
+--------
 # [Secret](https://kubernetes.io/docs/concepts/configuration/secret/)
 1. A [Namespaced](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) resource
 1. For confidential data
