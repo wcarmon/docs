@@ -19,6 +19,9 @@
 1. Allows declarative app updates
     1. Manual rolling updates are tedious and error-prone, especially with rollback scenarios
 1. Can be scaled anytime
+    1. Deployment "owns" one or more `ReplicaSet`s
+    1. Owned `ReplicaSet` manages the lifecycle of the `Pod`s
+    1. Deployment manages multiple `ReplicaSet` during rolling updates
 ```sh
 kubectl get deployment;
 kubectl get deploy;
