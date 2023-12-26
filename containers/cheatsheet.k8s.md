@@ -111,6 +111,13 @@ kubectl describe pod $POD_NAME;
 ```
 
 
+# Resource Usage
+- `kubectl exec $POD_NAME -- df -h`
+- `kubectl exec $POD_NAME -- ps aux`
+- `kubectl top pod $POD_NAME`  # Depends on Metrics API
+- See https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#-em-pod-em-
+
+
 # [Labeling](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/)
 ```sh
 kubectl labels pod $POD_NAME foo=bar
@@ -156,10 +163,9 @@ kubectl expose rs my-rs --port 3344 --type NodePort --name whatever
 
 ## Deployment
 ```sh
-DEPLOYMENT_NAME=deployment-1;
-kubectl scale deployment --replicas=2 $DEPLOYMENT_NAME
+kubectl scale deployment --replicas=2 $DEPLOYMENT_NAME;
 
-kubectl help scale
+kubectl help scale;
 ```
 
 
@@ -180,17 +186,9 @@ kubectl help port-forward
 
 
 
-# Resource usage
-- `kubectl exec $POD_NAME -- df -h`
-- `kubectl exec $POD_NAME -- ps aux`
-- `kubectl top pod $POD_NAME`  # Depends on Metrics API
-- See https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#-em-pod-em-
-
-
-
 # Delete/Cleanup
 ```sh
-kubectl delete deployment foo;
+kubectl delete deployment $DEPLOYMENT_NAME;
 
 kubectl help delete deployment;
 ```
@@ -199,11 +197,7 @@ kubectl help delete deployment;
 
 # -- TODO
 ```sh
-kubectl proxy
-kubectl port-forward
+kubectl proxy ...
+kubectl port-forward ...
 
 ```
-
-
-# Other resources
-1. TODO

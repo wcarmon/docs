@@ -14,12 +14,12 @@
 1. Services link to `Pod`s thru Endpoints
 
 
-## Properties
-1. `externalIPs`: IP managed outside Kubernetes, accessible outside the cluster
-1. `clusterIP`: randomly assigned IP, immutable, accessible only within the cluster
-1. `clusterIPs`: randomly assigned, immutable, accessible only within the cluster
-    1. TODO: "None"
+## Important Service Properties
+1. [`externalIPs`](https://kubernetes.io/docs/concepts/services-networking/service/#external-ips): IP addresses managed outside Kubernetes, accessible **outside** the cluster
+1. `clusterIP`: randomly assigned IP, immutable, accessible **only within** the cluster
+1. `clusterIPs`: randomly assigned, immutable, accessible **only within** the cluster
     1. at most 2 values
+    1. TODO: "None"
 
 
 ## Networking
@@ -29,15 +29,15 @@
 kubectl expose $RESOURCE_TYPE $RESOURCE_NAME --port=$EXTERNAL_PORT --target-port=$PORT_IN_CONTAINER;
 ```
 
+
 ## Discovery
 1. Kubernetes assigns each `Service` a DNS entry (cluster maintains a DNS)
     1. FQDN: `<serviceName>.<namespace>.svc.cluster.local`
     1. If you're in the same namespace, just use `<serviceName>`  (eg. `http://myService/api/v1/...`)
     1. DNS helps you with the name, but not with ports
-1. Kubernetes exposes service IP & port(s) info via environment variables
+1. Kubernetes exposes service IP & port(s) info via [environment variables](https://kubernetes.io/docs/concepts/services-networking/service/#environment-variables)
     1. dashes in serviceName converted to underscores
     1. all letters are upper-cased
-
 
 
 ## Debugging
@@ -60,6 +60,13 @@ kubectl explain service.spec.ports;
 kubectl explain service.spec.selector;
 kubectl explain service.spec.type;
 ```
+
+
+# Endpoints
+```sh
+kubectl describe endpoints;
+```
+
 
 --------
 # Idioms
