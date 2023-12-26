@@ -122,6 +122,7 @@ kubectl explain endpoints.subsets.ports;
 
 # Endpoints
 1. The "many-to-many" join between `Service`s and `Pod`s
+1. Only contains Containers that pass [Readiness probe](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-readiness-probes)
 ```sh
 kubectl describe endpoints;
 ```

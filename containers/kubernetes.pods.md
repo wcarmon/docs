@@ -105,6 +105,8 @@ kubectl explain pod.spec.containers.livenessProbe.timeoutSeconds;
 1. A container **WON'T** be killed for failing a Readiness Probe
     1. Contrast with Liveness Probe
 1. Only "ready" `Pod`s are added to the `Service` `Endpoints`
+1. Use [HTTP Probe](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#http-probes) or gRPC
+
 
 ### Help
 ```sh
