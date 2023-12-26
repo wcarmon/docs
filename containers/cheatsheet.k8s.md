@@ -142,8 +142,8 @@ kubectl run pg-deployment \
 --env="POSTGRES_PASSWORD=quux123" \
 --env="POSTGRES_USER=sa" \
 --port=4433;
-
 ```
+
 
 # Apply configuration to cluster
 ```sh
