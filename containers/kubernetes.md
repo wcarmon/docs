@@ -19,6 +19,12 @@ kubectl api-resources;
 1. Group of resources (the items below)
 1. Provides **isolation** between unrelated applications
 1. Allows multi-tenancy
+```sh
+kubectl get namespaces;
+kubectl describe namespaces;
+
+kubectl describe namespace $NAMESPACE_NAME;
+```
 
 
 ## [Node](https://kubernetes.io/docs/concepts/architecture/nodes/)
