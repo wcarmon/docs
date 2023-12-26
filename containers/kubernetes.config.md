@@ -33,10 +33,11 @@ kubectl explain pod.spec.containers.envFrom;
 kubectl explain pod.spec.volumes.configMap;
 
 kubectl help create configmap;
+kubectl help edit configmap;
 ```
 
 
-## Config env vars example
+## Config environment vars example
 ```yaml
 apiVersion: v1
 kind: Pod
@@ -74,17 +75,39 @@ spec:
   volumes:
      - name: my-config-volume
        configMap:
-          name: myconfigmap
+          name: myconfigmap   # <-- already defined in separate file
 ```
 
 
 --------
 # [Secret](https://kubernetes.io/docs/concepts/configuration/secret/)
 1. A [Namespaced](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) resource
-1. For confidential data
+1. For confidential/sensitive data
     1. eg. database credentials, external service credentials, private keys, etc
-1. TODO
+1. Always stored in memory, (never written to disk)
+    1. etcd stores **unencrypted**
+1. [Best practices](https://kubernetes.io/docs/concepts/security/secrets-good-practices/)
+1. `imagePullSecrets` lets you Authenticate with Docker Registry (eg. Artifactory, DockerHub, etc)
 ```sh
+kubectl get secrets;
+
+kubectl describe secrets;
+
+kubectl explain secrets
+kubectl explain secrets.metadata.name;
+
+kubectl explain secrets.data;
+kubectl explain secrets.immutable;
+kubectl explain secrets.stringData;
+
+kubectl explain pod.spec.volumes;
+kubectl explain pod.spec.volumes.secret;
+kubectl explain pod.spec.volumes.secret.secretName;
+
+kubectl explain pod.spec.imagePullSecrets;
+
+kubectl help create secret;
+kubectl help edit secret;
 ```
 
 
@@ -96,7 +119,6 @@ spec:
     1. [`kubectl create configmap my-config --from-file=/some/parent/dir`](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/#create-configmaps-from-directories)
 1. GOTCHA: k8s will ignore keys [containing a dash (with a warning in events)](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/#restrictions)
     1. so prefer camelCase or snake_case
-
-
-- TODO: https://kubernetes.io/docs/concepts/storage/volumes/#secret
-
+1. Don't use env variables for Secrets (only use `Volume`s)
+    1. env variables are easily exposed accidentally
+1. Use `immutable` for Config and Secrets (`cm.immutable` and `secrets.immutable`)
