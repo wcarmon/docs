@@ -24,6 +24,7 @@ kubectl get rc; # legacy
 
 # [ReplicaSet](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/) (`rs`)
 1. A [Namespaced](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) resource
+1. Runs continuously (not a one-shot operation)
 1. Ensures 1+ identical pods running somewhere in the cluster
 1. Allows Horizontal scaling
 1. Can be scaled anytime

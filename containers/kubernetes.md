@@ -74,6 +74,7 @@
 
 ### [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) (`ds`)
 1. Namespaced
+1. Runs continuously (not a one-shot operation)
 1. (at most) one pod per `Node`
 1. Eg. Otel collector, log collector, perf analyzer, resource monitor, etc
 1. Might need to mount a volume from the `Node`
@@ -83,6 +84,8 @@ kubectl explain ds.spec.template;
 
 kubectl explain ds.spec.selector;
 kubectl explain DaemonSet.spec.selector;
+
+kubectl get ds;
 ```
 
 
@@ -92,14 +95,11 @@ kubectl explain DaemonSet.spec.selector;
 
 
 ### [Job](https://kubernetes.io/docs/concepts/workloads/controllers/job/)
-1. Namespaced
-1. Runs completable task (unlike a Pod/Server which run forever)
+- See [Jobs](./kubernetes.jobs.md) doc
 
 
 ### [CronJob](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/) (`cj`)
-1. Namespaced
-1. Run once or periodically
-1. one line of a crontab
+- See [Jobs](./kubernetes.jobs.md) doc
 
 
 --------
