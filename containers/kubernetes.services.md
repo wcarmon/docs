@@ -4,7 +4,8 @@
 
 # [Service](https://kubernetes.io/docs/concepts/services-networking/service/) (`svc`)
 1. A [Namespaced](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) resource
-1. A single, stable, **constant** entry point for a group of pods (IP + ports)
+1. A single, **stable**, **constant** entry point for a group of pods (IP + ports)
+    1. `Service`s convert the ephemeral lifecycle of pods into a stable IP address
 1. All `Pod`s *should* have the same application
 1. Has one IP address (generally)
 1. Supports [multiple ports](https://kubernetes.io/docs/concepts/services-networking/service/#multi-port-services)
@@ -21,10 +22,9 @@
 
 ## Important Service fields
 1. [`type`](https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types):
-    1. `NodePort`: exposes the SAME port(s) on EVERY `Node`.  Useful for non-HTTP and non-HTTPS services
-    1. `Ingress`: TODO
-    1. `LoadBalancer`: exposes using an external load balancer (eg. your cloud provider's LB)
     1. `ClusterIP`: only accessible inside the cluster (default)
+    1. `NodePort`: exposes the SAME port(s) on EVERY `Node`.  Useful for non-HTTP and non-HTTPS services
+    1. `LoadBalancer`: exposes using an external load balancer (eg. your cloud provider's LB)
 1. [`externalIPs`](https://kubernetes.io/docs/concepts/services-networking/service/#external-ips): IP addresses managed outside Kubernetes, accessible **outside** the cluster
 1. `clusterIP`: randomly assigned IP, immutable, accessible **only within** the cluster
 1. `clusterIPs`: randomly assigned, immutable, accessible **only within** the cluster
@@ -36,8 +36,9 @@
 ## Discovery
 1. Kubernetes assigns each `Service` a DNS entry (in the DNS maintained by the cluster)
     1. FQDN: `<serviceName>.<namespace>.svc.cluster.local`
-    1. If your Container is in the same namespace, just use `<serviceName>` (eg. `http://myService/api/v1/...`)
-    1. DNS helps you with the name, but not with ports
+    1. If your Container is in the same namespace, just use `<serviceName>`
+        - eg. `http://myService/api/v1/...`
+    1. DNS helps you with the hostname, but not with ports
 1. Kubernetes exposes service IP & port(s) info via [environment variables](https://kubernetes.io/docs/concepts/services-networking/service/#environment-variables)
     1. dashes in serviceName converted to underscores
     1. all letters are upper-cased
@@ -105,6 +106,8 @@ kubectl explain endpoints.subsets.ports;
 # [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/)
 1. Think: [nginx](https://www.nginx.com/)
 1. Manages external access to services in the cluster
+1. An entry point for the cluster
+1. Ingress is NOT a service `type`
 1. Exposes HTTP and HTTPS routes from outside the cluster to `Service`s
     1. Again, focused only on HTTP and HTTPS routes
     1. Other ports are handled with other mechanisms
