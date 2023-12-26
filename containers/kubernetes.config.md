@@ -14,17 +14,42 @@
 1. Applications are **NOT** ConfigMap or Secret aware
     1. Applications just read env variables or on the mounted volume
     1. `Pod` definition just references ConfigMap by `name`
+1. Key naming: (be consistent)
+    1. snake_case
+    1. kebab-case
+    1. a.b.c.d.property
 ```sh
 kubectl get configMap;
 kubectl get cm;
 
 kubectl describe cm;
 
+kubectl explain cm.metadata.name;
 kubectl explain cm.data;
 kubectl explain cm.immutable;
-kubectl explain cm.metadata.name;
 
 kubectl help create configmap;
+```
+1. Example
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-pod
+spec:
+  containers:
+    - name: demo
+      image: alpine
+      ...
+      volumeMounts:
+      - name: config
+        mountPath: "/etc/app/config"
+        readOnly: true
+
+  volumes:
+     - name: my-config-map
+       configMap:
+          name: myconfigmap
 ```
 
 
