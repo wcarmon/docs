@@ -8,7 +8,7 @@
 1. Minimize image tag reuse since [`pod.spec.containers.imagePullPolicy`](https://kubernetes.io/docs/concepts/containers/images/#image-pull-policy) must make a tough choice
     1. `Always`: slower, more unnecessary IO
     1. **`IfNotPresent`**: stale versions will take precedence  <-- Prefer this for immutable image tags
-    1. `Never`: stale versions will take precedence or startup fails
+    1. `Never`: stale versions will take precedence or startup fails (requires pre-fetching images)
     1. See `kubectl explain pod.spec.containers.imagePullPolicy;`
 
 
