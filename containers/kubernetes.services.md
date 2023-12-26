@@ -35,12 +35,13 @@
         1. Useful for communicating with ALL pods and getting their IP addresses via DNS (multiple [A-record](https://support.dnsimple.com/articles/a-record/)s)
 
 
-## Discovery
+## [Discovery](https://kubernetes.io/docs/concepts/services-networking/service/#discovering-services)
 1. Kubernetes assigns each `Service` a DNS entry (in the DNS maintained by the cluster)
     1. FQDN: `<serviceName>.<namespace>.svc.cluster.local`
     1. If your Container is in the same namespace, just use `<serviceName>`
         - eg. `http://myService/api/v1/...`
     1. DNS helps you with the hostname, but not with ports
+    1. [Only `Pod`s and `Service`s get DNS records](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#dns-records)
 1. Kubernetes exposes service IP & port(s) info via [environment variables](https://kubernetes.io/docs/concepts/services-networking/service/#environment-variables)
     1. dashes in serviceName converted to underscores
     1. all letters are upper-cased
