@@ -46,10 +46,10 @@ kubectl describe pv;
 1. Pod doesn't need to know the details
 1. A request for `PersistentVolume`
 1. [AccessModes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes)
-    1. `RWO`: single reader, single writer
-    1. `ROX`: multi-reader, no writers
-    1. `RWX`: multi-reader, multi-writer
-    1. Applies to (Worker) `Node`s, not ~~`Pod`s~~, not ~~Containers~~
+    1. `RWO`: single reader `Node`, single writer `Node`
+    1. `ROX`: multi-reader `Node`s, no writers
+    1. `RWX`: multi-reader `Node`s, multi-writer `Node`s
+    1. `RWOP`: single reader `Pod`, single writer `Pod`
 ```sh
 kubectl get pvc;
 kubectl describe pvc;
