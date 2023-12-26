@@ -6,7 +6,9 @@
 1. Don't rely on Kubernetes to guarantee "exactly one" execution
 1. Set a `activeDeadlineSeconds`
 1. Set a `restartPolicy`
-1. Set a `timeZone` for `CronJob`s
+## CronJob
+1. Set a `timeZone`
+1. Make sure jobs do any unfinished work from previous run
 
 
 # [Job](https://kubernetes.io/docs/concepts/workloads/controllers/job/)
