@@ -193,7 +193,6 @@ kubectl help delete deployment;
 ```
 
 
-
 # -- TODO
 ```sh
 kubectl proxy ...
