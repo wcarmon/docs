@@ -120,12 +120,6 @@ kubectl explain endpoints.subsets.ports;
 1. TODO: `kubectl certificate approve $CERT_NAME`
 
 
-## Readiness Probe
-1. TODO
-```sh
-```
-
-
 # Endpoints
 1. The "many-to-many" join between `Service`s and `Pod`s
 ```sh

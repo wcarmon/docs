@@ -73,7 +73,8 @@ kubectl explain pod.status;
 
 ## [Liveness Probe](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#container-probes)
 1. Allows app to communicate to Kubernetes it is alive
-1. Kubernetes will restart the container if probe fails
+1. Kubernetes will restart the container if probe fails "enough" times
+    1. Contrast with Readiness Probe
 1. Mechanism:
     1. [HTTP GET](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-a-liveness-http-request), success on a `2xx` or `3xx`
         1. `/health` is a good url
@@ -100,12 +101,18 @@ kubectl explain pod.spec.containers.livenessProbe.timeoutSeconds;
 
 
 ## Readiness Probe
-1. TODO:
-
+1. Allows application to communicate it can handle requests
+1. A container **WON'T** be killed for failing a Readiness Probe
+    1. Contrast with Liveness Probe
+1. Only "ready" `Pod`s are added to the `Service` `Endpoints`
 
 ### Help
 ```sh
-TODO
+kubectl explain pod.spec.containers.readinessProbe;
+kubectl explain pod.spec.containers.readinessProbe.httpGet;
+kubectl explain pod.spec.containers.readinessProbe.initialDelaySeconds;
+kubectl explain pod.spec.containers.readinessProbe.periodSeconds;
+kubectl explain pod.spec.containers.readinessProbe.timeoutSeconds;
 ```
 
 
