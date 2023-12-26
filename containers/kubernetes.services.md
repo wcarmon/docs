@@ -9,13 +9,14 @@
 1. Has one IP address (generally)
 1. Supports [multiple ports](https://kubernetes.io/docs/concepts/services-networking/service/#multi-port-services)
     1. GOTCHA: each port [requires a `name`](https://kubernetes.io/docs/concepts/services-networking/service/#multi-port-services)
-    1. `kubectl explain service.spec.ports.name;` (like `http` or `https` or `grpc`)
-1. Connects to n-`Pod`s using (label) [`selector`](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/)
-1. Services link to `Pod`s thru `Endpoints`
+    1. `kubectl explain service.spec.ports.name;` (names like `"http"` or `"https"` or `"grpc"`)
+1. A facade over n-`Pod`s
+    1. choose `Pod`s using (label) [`selector`](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/)
+1. `Service`s link to `Pod`s thru `Endpoints`
     1. No need to manage `Endpoints` directly
     1. `Endpoints` **must** have same name as the `Service`
-1. You can also use the Service as an alias for an external service
-    1. GOTCHA: This makes your application dependent on k8s (or requires extra DNS config outside k8s)
+1. ~~You can also use the Service as an alias for an external service~~
+    1. GOTCHA: This makes your application dependent on extra DNS config (when running outside kubernetes)
 
 
 ## Important Service fields
