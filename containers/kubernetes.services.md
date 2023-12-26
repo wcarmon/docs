@@ -34,7 +34,16 @@ kubectl expose $RESOURCE_TYPE $RESOURCE_NAME --port=$EXTERNAL_PORT --target-port
 ## Debugging
 1. ssh into any k8s `Node` in the cluster, then `curl` the IP
 1. `kubectl exec $POD_NAME -- curl -s http://$SVC_IP`
-1. Env vars: `kubectl exec $POD_NAME`
+1. Env vars: `kubectl exec $POD_NAME -- env`
+```sh
+...
+<serviceName>_PORT_443_TCP_ADDR=10.96.0.1
+<serviceName>_PORT_443_TCP_PORT=443
+<serviceName>_SERVICE_HOST=10.96.0.1
+<serviceName>_SERVICE_PORT=443
+<serviceName>_SERVICE_PORT_HTTPS=443
+...
+```
 
 
 ## Help
