@@ -168,10 +168,13 @@ kubectl help scale;
 ```
 
 
-## ReplicaSet
-```sh
-TODO
-```
+# Editing/Mutating Resources
+|Method|Meaning|
+|---|---|
+|`kubectl apply -f ...`|Apply a full yaml to the existing definition|
+|`kubectl edit ...`|Open object's manifest in default editor|
+|`kubectl patch ...`|Modify one or two properties on in the config|
+|`kubectl set image ...`|replace container image on `Pod`|
 
 
 # Port forwarding
