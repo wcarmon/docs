@@ -87,18 +87,9 @@ kubectl describe no;
 1. See [ReplicaSet](./kubernetes.rs.md) doc
 
 
-### [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) (`deploy`)
-1. Namespaced
-1. Higher-level concept than ReplicaSet, ReplicationController, ...
-1. Automatically manages some ReplicaSets and Pods
-1. Can be scaled anytime
-```sh
-kubectl get deploy;
-kubectl get deployment;
+### Deployments (`deploy`)
+1. See [Deployments](./kubernetes.deploy.md) doc
 
-kubectl describe deploy;
-kubectl describe deploy $DEPLOYMENT_NAME;
-```
 
 ### [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) (`ds`)
 1. Namespaced
@@ -132,12 +123,12 @@ kubectl get ds;
 
 
 ## ConfigMaps, Secrets
-- See [ConfigMap](./kubernetes.config.md) doc
+1. See [ConfigMap](./kubernetes.config.md) doc
 
 
 ## Storage
-- See [Volumes](./kubernetes.volumes.md) doc
+1. See [Volumes](./kubernetes.volumes.md) doc
 
 
 # Architecture
-- See [arch](./kubernetes.arch.md) doc
+1. See [arch](./kubernetes.arch.md) doc
