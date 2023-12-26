@@ -126,26 +126,15 @@ kubectl get ds;
 1. See [Jobs](./kubernetes.jobs.md) doc
 
 
---------
-## Networking
 
-### [Service](./kubernetes.services.md) (`svc`), Ingress & Endpoints
+## Networking, [Services](./kubernetes.services.md) (`svc`), Ingress (`ing`) & Endpoints (`ep`)
 1. See [Services](./kubernetes.services.md) doc
 
 
---------
-## Configuration
-
-### [ConfigMap](TODO) (`cm`)
-1. Namespaced
-1. TODO
-
-### [Secret](TODO)
-1. Namespaced
-1. TODO
+## ConfigMaps, Secrets
+- See [ConfigMap](./kubernetes.config.md) doc
 
 
---------
 ## Storage
 - See [Volumes](./kubernetes.volumes.md) doc
 
