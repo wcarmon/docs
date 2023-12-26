@@ -6,6 +6,8 @@
 
 # Concepts
 
+##
+
 ## [Namespace](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) (ns)
 1. Group of resources (the items below)
 1. Provides **isolation** between unrelated applications
