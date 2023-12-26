@@ -16,6 +16,8 @@
 1. `Service`s link to `Pod`s thru `Endpoints`
     1. No need to manage `Endpoints` directly
     1. `Endpoints` **must** have same name as the `Service`
+1. [Naming restrictions](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#rfc-1035-label-names)
+    1. `[a-z][a-z0-9\-]{0,61}[a-z0-9]`  (63 chars max)
 1. ~~You can also use the Service as an alias for an external service~~
     1. GOTCHA: This makes your application dependent on extra DNS config (when running outside kubernetes)
 
@@ -115,7 +117,9 @@ kubectl explain endpoints.subsets.ports;
     1. Think: [nginx reverse proxy](https://docs.nginx.com/nginx/admin-guide/web-server/reverse-proxy/)
 1. Handles SSL termination
 1. Handles name based virtual hosting
+    1. Consolidates routing rules into 1 resource
 1. This *might* be deprecated by [`Gateway`](https://kubernetes.io/docs/concepts/services-networking/gateway/) one day
+    1. An `Ingress` is a simplified `Gateway`
 1. Requires an ingress controller
     1. Enable: `minikube addons enable ingress;`
     1. Verify: `minikube addons list | grep -i ingress;`
@@ -131,14 +135,3 @@ kubectl explain endpoints.subsets.ports;
 ```sh
 kubectl describe endpoints;
 ```
-
-
---------
-# Idioms
-
-
-- TODO: parse https://kubernetes.io/docs/concepts/services-networking/service/
-
-
-# Other resources
-1. TODO
