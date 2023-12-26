@@ -16,8 +16,9 @@
     1. `Pod` definition just references ConfigMap by `name`
 1. Key naming: (be consistent)
     1. snake_case
-    1. kebab-case
+    1. camelCase
     1. a.b.c.d.property
+    1. ~~kebab-case~~  <-- avoid because k8s will do the wrong thing when using as env var
 ```sh
 kubectl get configMap;
 kubectl get cm;
@@ -28,9 +29,32 @@ kubectl explain cm.metadata.name;
 kubectl explain cm.data;
 kubectl explain cm.immutable;
 
+kubectl explain pod.spec.containers.envFrom;
+kubectl explain pod.spec.volumes.configMap;
+
 kubectl help create configmap;
 ```
-1. Example
+
+
+## Config env vars example
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-pod
+spec:
+  containers:
+    - name: foo-container
+      image: registry.k8s.io/busybox
+      command: [ "/bin/sh", "-c", "env" ]
+      envFrom:
+      - configMapRef:
+          name: my-config-name
+```
+
+
+## Config Volume example
+1. See https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/#populate-a-volume-with-data-stored-in-a-configmap
 ```yaml
 apiVersion: v1
 kind: Pod
@@ -47,7 +71,7 @@ spec:
         readOnly: true
 
   volumes:
-     - name: my-config-map
+     - name: my-config-volume
        configMap:
           name: myconfigmap
 ```
@@ -67,6 +91,10 @@ spec:
 1. Use same name for configMap across envs (dev.cm.yaml, qa.cm.yaml, prod.cm.yaml all contain a `ConfigMap` with same `name`)
 1. Don't rely on command line args
     1. They conflict with too many other things (like `delve`, junit, java debugger protocol, etc)
+1. You can combine multiple configs into 1 `ConfigMap`
+    1. [`kubectl create configmap my-config --from-file=/some/parent/dir`](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/#create-configmaps-from-directories)
+1. GOTCHA: k8s will ignore keys containing a dash (with a warning in events)
+    1. so prefer camelCase or snake_case
 
 
 - TODO: https://kubernetes.io/docs/concepts/storage/volumes/#secret
