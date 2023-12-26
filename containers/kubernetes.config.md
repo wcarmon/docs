@@ -12,5 +12,8 @@
 1. TODO
 
 
+- TODO: https://kubernetes.io/docs/concepts/storage/volumes/#secret
+
+
 # Other resources
 1. TODO

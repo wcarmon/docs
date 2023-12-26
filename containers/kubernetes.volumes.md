@@ -16,6 +16,7 @@
 
 # [EphemeralVolume](https://kubernetes.io/docs/concepts/storage/ephemeral-volumes/)
 1. `Pod` Local, temporary (transient) storage (colocated with `Pod`)
+    1. scratch space
 1. Lifespan: as long as the Pod lives
 1. No latency guarantees
 1. Bound to the lifecycle of a Pod
@@ -32,23 +33,38 @@
 1. Persists across Pod restarts
 1. Independent of Pod lifecycle
     1. NOT destroyed when Pod terminates
-
-
+```sh
+kubectl get pv;
+kubectl describe pv;
+```
 
 
 # [PersistentVolumeClaim](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#lifecycle-of-a-volume-and-claim) (`pvc`)
 1. Namespaced
-1. TODO
+1. Used to reserve/claim part of a `PersistentVolume`
+1. Pod doesn't need to know the details
 1. A request for `PersistentVolume`
+```sh
+kubectl get pvc;
+kubectl describe pvc;
+```
 
 
 # [StorageClass](https://kubernetes.io/docs/concepts/storage/storage-classes/) (`sc`)
 1. Storage type
+```sh
+kubectl get StorageClass;
+kubectl get sc;
+kubectl describe sc;
+```
 
 
 # Idioms
 1. `DaemonSet` might need `hostPath` volume to manage resources on the `Node`
     1. `kubectl explain pod.spec.volumes.hostPath`
+1. [`hostPath`](https://kubernetes.io/docs/concepts/storage/volumes/#hostpath) is a security risk, don't use for sharing
+1. [`subPath`](https://kubernetes.io/docs/concepts/storage/volumes/#using-subpath) lets you share one volume between containers in a `Pod`, but with logical isolation
+
 
 ## Sharing files
 1. Mount the same volume to multiple containers
