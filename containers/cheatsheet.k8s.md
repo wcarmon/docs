@@ -152,7 +152,6 @@ kubectl create -f my-conf.yaml
 1. https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 
 
-
 # Expose services
 ```sh
 kubectl expose rs my-rs --port 3344 --type NodePort --name whatever
