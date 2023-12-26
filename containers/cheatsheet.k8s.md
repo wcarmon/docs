@@ -82,21 +82,22 @@ kubectl explain PersistentVolumeClaim.spec;
 ```
 
 
-# Logs
+# [Logs](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#logs)
 ```sh
 kubectl logs $POD_NAME
 
 # -- After container crashes
-kubectl logs $POD_NAME --previous
-kubectl describe pod $POD_NAME
+kubectl logs $POD_NAME --previous;
+kubectl describe pod $POD_NAME;
 ```
 
 
 # Debugging
 - GOTCHA: ping does NOT work in the cluster
-- `kubectl exec -it $POD_NAME -- bash`
+- [`kubectl exec -it $POD_NAME -- bash`](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#exec) (or `... -- /bin/bash`)
+    - add `--container $CONTAINER_NAME` flag when Pod has multiple containers
 - ssh into any `Node` in the cluster, then `curl` a cluster IP
-- `kubectl exec $POD_NAME -- curl -s http://$SVC_IP`
+    - [`kubectl exec $POD_NAME -- curl -s http://$SVC_IP`](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#exec)
 - List env vars: `kubectl exec $POD_NAME -- env`
 ```sh
 # -- example output:
@@ -175,6 +176,16 @@ kubectl port-forward myPod 8888:80
 
 kubectl help port-forward
 ```
+1. See https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#port-forward
+
+
+
+# Resource usage
+- `kubectl exec $POD_NAME -- df -h`
+- `kubectl exec $POD_NAME -- ps aux`
+- `kubectl top pod $POD_NAME`  # Depends on Metrics API
+- See https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#-em-pod-em-
+
 
 
 # Delete/Cleanup

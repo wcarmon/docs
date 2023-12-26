@@ -106,3 +106,7 @@ kubectl explain pod.spec.containers.livenessProbe.timeoutSeconds;
 ```sh
 TODO
 ```
+
+
+# Debugging
+1. See ... TODO

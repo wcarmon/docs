@@ -11,6 +11,7 @@
     1. GOTCHA: each port needs a `name`
     1. `kubectl explain service.spec.ports.name;` (like `http` or `https` or `grpc`)
 1. Connects to n-`Pod`s using [`selector`](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/)
+1. Services link to `Pod`s thru Endpoints
 
 
 ## Properties
