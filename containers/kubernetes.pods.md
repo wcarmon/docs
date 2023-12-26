@@ -61,6 +61,12 @@ kubectl explain pod.status;
 1. Only include containers which scale together (same cardinality, same lifecycle)
 1. Pods are rarely created directly in practice
     - higher level concepts like [`Deployment`](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) manage lifecycle & rolling upgrades better
+1. Override the [`ENTRYPOINT`](https://docs.docker.com/engine/reference/builder/#entrypoint) or [`CMD`](https://docs.docker.com/engine/reference/builder/#cmd) via TODO
+    1. `ENTRYPOINT`: `kubectl explain pod.spec.containers.command;`
+    1. `CMD`: `kubectl explain pod.spec.containers.args;`
+1. move env vars from `pod.spec.containers.env` to a `ConfigMap`
+    1. so not hardcoded into the pod definition (more reusable)
+
 
 ## Liveness Probe
 1. **Always** define a [liveness probe](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#container-probes)
