@@ -18,10 +18,12 @@
 1. Automatically manages ReplicaSets and Pods
 1. Allows declarative app updates
     1. Manual rolling updates are tedious and error-prone, especially with rollback scenarios
+    1. Deployment prevents crazy scenarios when deployments stop part way through a rolling update
 1. Can be scaled anytime
     1. Deployment "owns" one or more `ReplicaSet`s
     1. Owned `ReplicaSet` manages the lifecycle of the `Pod`s
     1. Deployment manages multiple `ReplicaSet` during rolling updates
+1. TODO: Recreate vs RollingUpdate
 ```sh
 kubectl get deployment;
 kubectl get deploy;
@@ -36,7 +38,16 @@ kubectl explain deploy.spec.replicas;
 kubectl explain deploy.spec.selector;
 kubectl explain deploy.spec.strategy;
 kubectl explain deploy.spec.template.spec;
+kubectl explain deploy.spec.template.spec.containers;
 
-kubectl describe deploy;
-kubectl describe deploy $DEPLOYMENT_NAME;
+kubectl explain pod.spec.containers.imagePullPolicy;
+```
+1. BAU exapmles
+```sh
+
+# -- Rollout
+kubectl rollout status deployment;
+kubectl rollout status deployment $DEPLOYMENT_NAME;
+
+TODO: scaling example
 ```
