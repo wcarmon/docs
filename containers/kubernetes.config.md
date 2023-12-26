@@ -55,6 +55,7 @@ spec:
 
 ## Config Volume example
 1. See https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/#populate-a-volume-with-data-stored-in-a-configmap
+1. Useful for exposing app specific conf files (like [`nginx.conf`](https://www.nginx.com/resources/wiki/start/topics/examples/full/#nginx-conf), `postgresql.conf`, etc)
 ```yaml
 apiVersion: v1
 kind: Pod
