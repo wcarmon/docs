@@ -6,7 +6,6 @@
 
 # Concepts
 
-
 ## Resource
 1. A `Pod`, `Service`, `Deployment`, `ReplicaSet`, `DaemonSet`, `CronJob`, `PersistentVolume`, `ConfigMap`, etc
 1. aka "api resource"
@@ -21,7 +20,9 @@ kubectl api-resources;
 1. Allows multi-tenancy
 ```sh
 kubectl get namespaces;
-kubectl describe namespaces;
+kubectl get ns;
+
+kubectl describe ns;
 
 kubectl describe namespace $NAMESPACE_NAME;
 ```
@@ -32,6 +33,12 @@ kubectl describe namespace $NAMESPACE_NAME;
 1. Has CPU, RAM, Disk, etc
 1. Cluster-level (not namespaced)
 1. Shared by all applications
+```sh
+kubectl get node;
+kubectl get no;
+
+kubectl describe no;
+```
 
 
 ### Worker Node
@@ -85,7 +92,13 @@ kubectl describe namespace $NAMESPACE_NAME;
 1. Higher-level concept than ReplicaSet, ReplicationController, ...
 1. Automatically manages some ReplicaSets and Pods
 1. Can be scaled anytime
+```sh
+kubectl get deploy;
+kubectl get deployment;
 
+kubectl describe deploy;
+kubectl describe deploy $DEPLOYMENT_NAME;
+```
 
 ### [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) (`ds`)
 1. Namespaced
