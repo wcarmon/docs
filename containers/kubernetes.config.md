@@ -2,6 +2,19 @@
 1. Info on [Kubernetes ConfigMap](https://kubernetes.io/docs/concepts/configuration/configmap/) and [Secrets](https://kubernetes.io/docs/concepts/configuration/secret/)
 
 
+# Idioms
+1. Use same name for configMap across envs (dev.cm.yaml, qa.cm.yaml, prod.cm.yaml all contain a `ConfigMap` with same `name`)
+1. Don't rely on command line args
+    1. They conflict with too many other things (like `delve`, junit, java debugger protocol, etc)
+1. You can combine multiple configs into 1 `ConfigMap`
+    1. [`kubectl create configmap my-config --from-file=/some/parent/dir`](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/#create-configmaps-from-directories)
+1. GOTCHA: k8s will ignore keys [containing a dash (with a warning in events)](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/#restrictions)
+    1. so prefer camelCase or snake_case
+1. Don't use env variables for Secrets (only use `Volume`s)
+    1. env variables are easily exposed accidentally
+1. Use `immutable` for Config and Secrets (`cm.immutable` and `secrets.immutable`)
+
+
 # [ConfigMap](https://kubernetes.io/docs/concepts/configuration/configmap/) (`cm`)
 1. A [Namespaced](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) resource
 1. key-value pairs (Think: `Map<String, String>` or `map[string]string`)
@@ -109,16 +122,3 @@ kubectl explain pod.spec.imagePullSecrets;
 kubectl help create secret;
 kubectl help edit secret;
 ```
-
-
-# Idioms
-1. Use same name for configMap across envs (dev.cm.yaml, qa.cm.yaml, prod.cm.yaml all contain a `ConfigMap` with same `name`)
-1. Don't rely on command line args
-    1. They conflict with too many other things (like `delve`, junit, java debugger protocol, etc)
-1. You can combine multiple configs into 1 `ConfigMap`
-    1. [`kubectl create configmap my-config --from-file=/some/parent/dir`](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/#create-configmaps-from-directories)
-1. GOTCHA: k8s will ignore keys [containing a dash (with a warning in events)](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/#restrictions)
-    1. so prefer camelCase or snake_case
-1. Don't use env variables for Secrets (only use `Volume`s)
-    1. env variables are easily exposed accidentally
-1. Use `immutable` for Config and Secrets (`cm.immutable` and `secrets.immutable`)
