@@ -24,6 +24,7 @@
 1. Containers (in a `Pod`) share [Linux namespace](https://man7.org/linux/man-pages/man7/namespaces.7.html)
 1. Containers can reach each other via `localhost`
 1. One IP address per `Pod` (shared port space for all containers in the `Pod`)
+    1. Virtual IP, only routable/accessible inside the cluster
 1. K8s assigns the IP to the Pod after scheduling to a node
 
 
