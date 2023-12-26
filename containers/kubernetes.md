@@ -127,7 +127,7 @@ kubectl get ds;
 
 
 
-## Networking, [Services](./kubernetes.services.md) (`svc`), Ingress (`ing`) & Endpoints (`ep`)
+## Networking, Services (`svc`), Ingress (`ing`) & Endpoints (`ep`)
 1. See [Services](./kubernetes.services.md) doc
 
 
