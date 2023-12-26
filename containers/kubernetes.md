@@ -6,7 +6,10 @@
 
 # Concepts
 
-##
+
+## Jobs & CronJobs
+1. See [Jobs](./kubernetes.jobs.md) doc
+
 
 ## [Namespace](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) (ns)
 1. Group of resources (the items below)
