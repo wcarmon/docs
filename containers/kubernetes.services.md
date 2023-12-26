@@ -21,7 +21,7 @@
 
 ## Important Service fields
 1. [`type`](https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types):
-    1. `NodePort`: exposes the same port(s) on EVERY `Node`.  Useful for non-HTTP and non-HTTPS services
+    1. `NodePort`: exposes the SAME port(s) on EVERY `Node`.  Useful for non-HTTP and non-HTTPS services
     1. `Ingress`: TODO
     1. `LoadBalancer`: exposes using an external load balancer (eg. your cloud provider's LB)
     1. `ClusterIP`: only accessible inside the cluster (default)
@@ -29,14 +29,14 @@
 1. `clusterIP`: randomly assigned IP, immutable, accessible **only within** the cluster
 1. `clusterIPs`: randomly assigned, immutable, accessible **only within** the cluster
     1. at most 2 values
-    1. Setting to "None" creates a [Headless Service](https://kubernetes.io/docs/concepts/services-networking/service/#headless-services)
+    1. Setting to `clusterIPs="None"` creates a [Headless Service](https://kubernetes.io/docs/concepts/services-networking/service/#headless-services)
         1. Useful for communicating with ALL pods and getting their IP addresses via DNS (multiple [A-record](https://support.dnsimple.com/articles/a-record/)s)
 
 
 ## Discovery
-1. Kubernetes assigns each `Service` a DNS entry (cluster maintains a DNS)
+1. Kubernetes assigns each `Service` a DNS entry (in the DNS maintained by the cluster)
     1. FQDN: `<serviceName>.<namespace>.svc.cluster.local`
-    1. If you're in the same namespace, just use `<serviceName>`  (eg. `http://myService/api/v1/...`)
+    1. If your Container is in the same namespace, just use `<serviceName>` (eg. `http://myService/api/v1/...`)
     1. DNS helps you with the name, but not with ports
 1. Kubernetes exposes service IP & port(s) info via [environment variables](https://kubernetes.io/docs/concepts/services-networking/service/#environment-variables)
     1. dashes in serviceName converted to underscores
