@@ -33,6 +33,7 @@
 1. Persists across Pod restarts
 1. Independent of Pod lifecycle
     1. NOT destroyed when Pod terminates
+1. Generally created and managed by the k8s administrator
 ```sh
 kubectl get pv;
 kubectl describe pv;
@@ -44,6 +45,11 @@ kubectl describe pv;
 1. Used to reserve/claim part of a `PersistentVolume`
 1. Pod doesn't need to know the details
 1. A request for `PersistentVolume`
+1. [AccessModes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes)
+    1. `RWO`: single reader, single writer
+    1. `ROX`: multi-reader, no writers
+    1. `RWX`: multi-reader, multi-writer
+    1. Applies to (Worker) `Node`s, not ~~`Pod`s~~, not ~~Containers~~
 ```sh
 kubectl get pvc;
 kubectl describe pvc;
