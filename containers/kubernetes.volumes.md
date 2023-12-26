@@ -42,9 +42,10 @@ kubectl describe pv;
 
 # [PersistentVolumeClaim](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#lifecycle-of-a-volume-and-claim) (`pvc`)
 1. Namespaced
-1. Used to reserve/claim part of a `PersistentVolume`
-1. Pod doesn't need to know the details
 1. A request for `PersistentVolume`
+1. Reserves (claims) part of a `PersistentVolume`
+1. See `pod.spec.volumes.persistentVolumeClaim`
+1. Pod doesn't need to know the details
 1. [AccessModes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes)
     1. `RWO`: single reader `Node`, single writer `Node`
     1. `ROX`: multi-reader `Node`s, no writers
@@ -53,6 +54,8 @@ kubectl describe pv;
 ```sh
 kubectl get pvc;
 kubectl describe pvc;
+
+kubectl explain pod.spec.volumes.persistentVolumeClaim
 ```
 
 
@@ -70,6 +73,7 @@ kubectl describe sc;
     1. `kubectl explain pod.spec.volumes.hostPath`
 1. [`hostPath`](https://kubernetes.io/docs/concepts/storage/volumes/#hostpath) is a security risk, don't use for sharing
 1. [`subPath`](https://kubernetes.io/docs/concepts/storage/volumes/#using-subpath) lets you share one volume between containers in a `Pod`, but with logical isolation
+1. set [`pvc.spec.storageClassName`](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#class) to empty string
 
 
 ## Sharing files
@@ -89,4 +93,7 @@ kubectl explain pod.spec.containers.volumeMounts
 kubectl explain pod.spec.containers.volumeMounts.mountPath
 kubectl explain pod.spec.containers.volumeMounts.readOnly
 kubectl explain pod.spec.containers.volumeMounts.subPath
+
+kubectl explain pvc.spec.accessModes
+kubectl explain pvc.spec.storageClassName
 ```
