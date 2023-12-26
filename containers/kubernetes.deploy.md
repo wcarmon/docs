@@ -3,6 +3,7 @@
 
 
 # Idioms
+1. Prefer `Deployment` over managing your own `ReplicaSet`s
 1. Roll forward to an old image instead of rolling back to old image
     1. more control over specific version (since "previous version" is stateful)
 1. Minimize image tag reuse since [`pod.spec.containers.imagePullPolicy`](https://kubernetes.io/docs/concepts/containers/images/#image-pull-policy) must make a tough choice
@@ -23,7 +24,11 @@
     1. Deployment "owns" one or more `ReplicaSet`s
     1. Owned `ReplicaSet` manages the lifecycle of the `Pod`s
     1. Deployment manages multiple `ReplicaSet` during rolling updates
-1. TODO: Recreate vs RollingUpdate
+1. `Pod` and `ReplicaSet` names contain a hash suffix, based on the pod template
+    1. avoids duplicate deployments
+1. `deploy.spec.strategy`:
+    1. `Recreate`: kill all before creating new Pods (no live version overlap)
+    1. `RollingUpdate`: gradual/incremental deployment (default)
 ```sh
 kubectl get deployment;
 kubectl get deploy;
@@ -42,10 +47,15 @@ kubectl explain deploy.spec.template.spec.containers;
 
 kubectl explain pod.spec.containers.imagePullPolicy;
 ```
-1. BAU exapmles
+
+
+## Application Updates
+1. Trigger a rollout by modifying the `Deployment`'s `Pod` template (`deploy.spec.template.spec`)
+1. Change image: [`kubectl set image deployment $DEPLOYMENT_NAME $CONTAINER_NAME=$IMAGE`](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#updating-a-deployment)
+1. Change one property: [`kubectl patch deployment $DEPLOYMENT_NAME -p ...`](https://kubernetes.io/docs/tasks/manage-kubernetes-objects/update-api-object-kubectl-patch/)
 ```sh
 
-# -- Rollout
+# -- Status
 kubectl rollout status deployment;
 kubectl rollout status deployment $DEPLOYMENT_NAME;
 
