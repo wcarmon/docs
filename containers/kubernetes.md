@@ -14,7 +14,7 @@ kubectl api-resources;
 ```
 
 
-## [Namespace](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) (ns)
+## [Namespace](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) (`ns`)
 1. Group of resources (the items below)
 1. Provides **isolation** between unrelated applications
 1. Allows multi-tenancy
@@ -28,7 +28,7 @@ kubectl describe namespace $NAMESPACE_NAME;
 ```
 
 
-## [Node](https://kubernetes.io/docs/concepts/architecture/nodes/)
+## [Node](https://kubernetes.io/docs/concepts/architecture/nodes/) (`no`)
 1. A physical machine that Kubernetes can use
 1. Has CPU, RAM, Disk, etc
 1. Cluster-level (not namespaced)
@@ -79,11 +79,11 @@ kubectl describe no;
 --------
 ## Execution
 
-### [Pod](./kubernetes.pods.md)
+### [Pod](./kubernetes.pods.md) (`po`)
 1. See [Pod](./kubernetes.pods.md) doc
 
 
-### [ReplicaSet](./kubernetes.rs.md) & ~~ReplicationController~~
+### [ReplicaSet](./kubernetes.rs.md) & ~~ReplicationController~~ (`rs`)
 1. See [ReplicaSet](./kubernetes.rs.md) doc
 
 
