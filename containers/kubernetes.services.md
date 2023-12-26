@@ -20,7 +20,7 @@
 
 ## Important Service Properties
 1. [`type`](https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types):
-    1. `NodePort`: exposes port(s) on EVERY `Node`.  Useful for non-HTTP and non-HTTPS services
+    1. `NodePort`: exposes the same port(s) on EVERY `Node`.  Useful for non-HTTP and non-HTTPS services
     1. `Ingress`: TODO
     1. `LoadBalancer`: exposes using an external load balancer (eg. your cloud provider's LB)
     1. `ClusterIP`: only accessible inside the cluster (default)
@@ -85,6 +85,14 @@ kubectl explain service.spec.type;
 kubectl explain ingress;
 kubectl explain ingress.spec;
 kubectl explain ingress.spec.rules;
+kubectl explain ingress.spec.rules.host;
+kubectl explain ingress.spec.rules.http;
+kubectl explain ingress.spec.rules.http.paths;
+kubectl explain ingress.spec.rules.http.paths.path;
+kubectl explain ingress.spec.rules.http.paths.backend;
+kubectl explain ingress.spec.rules.http.paths.backend.service;
+kubectl explain ingress.spec.rules.http.paths.backend.service.name;
+kubectl explain ingress.spec.rules.http.paths.backend.service.port;
 
 kubectl explain endpoints.subsets;
 kubectl explain endpoints.subsets.addresses;
@@ -98,12 +106,28 @@ kubectl explain endpoints.subsets.ports;
 1. Exposes HTTP and HTTPS routes from outside the cluster to `Service`s
     1. Again, focused only on HTTP and HTTPS routes
     1. Other ports are handled with other mechanisms
+1. Can expose multiple `Service`s thru one `Ingress`
+    1. Think: [nginx reverse proxy](https://docs.nginx.com/nginx/admin-guide/web-server/reverse-proxy/)
 1. Handles SSL termination
 1. Handles name based virtual hosting
 1. This *might* be deprecated by [`Gateway`](https://kubernetes.io/docs/concepts/services-networking/gateway/) one day
+1. Requires an ingress controller
+    1. Enable: `minikube addons enable ingress;`
+    1. Verify: `minikube addons list | grep -i ingress;`
+
+
+## TLS Certificates
+1. TODO: `kubectl certificate approve $CERT_NAME`
+
+
+## Readiness Probe
+1. TODO
+```sh
+```
 
 
 # Endpoints
+1. The "many-to-many" join between `Service`s and `Pod`s
 ```sh
 kubectl describe endpoints;
 ```
