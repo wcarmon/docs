@@ -73,7 +73,7 @@ kubectl describe sc;
     1. `kubectl explain pod.spec.volumes.hostPath`
 1. [`hostPath`](https://kubernetes.io/docs/concepts/storage/volumes/#hostpath) is a security risk, don't use for sharing
 1. [`subPath`](https://kubernetes.io/docs/concepts/storage/volumes/#using-subpath) lets you share one volume between containers in a `Pod`, but with logical isolation
-1. set [`pvc.spec.storageClassName`](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#class) to empty string
+1. set [`pvc.spec.storageClassName`](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#class) to empty string (allows cluster to choose best option)
 
 
 ## Sharing files
