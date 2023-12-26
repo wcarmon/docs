@@ -5,7 +5,7 @@
 # [Service](https://kubernetes.io/docs/concepts/services-networking/service/) (`svc`)
 1. A [Namespaced](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) resource
 1. A single, stable, **constant** entry point for a group of pods (IP + ports)
-1. All pods have the same service
+1. All `Pod`s *should* have the same application
 1. Has an IP address
 1. Supports multiple ports
     1. GOTCHA: each port needs a `name`
@@ -22,28 +22,26 @@
 
 
 ## Networking
-1. Kubernetes exposes service info via environment variables
-    1.
 1. To quickly expose a `Deployment`, `ReplicaSet`, `Pod` or another `Service`:
     1. In practice, better to create a yaml file with `kind: Service`
 ```sh
 kubectl expose $RESOURCE_TYPE $RESOURCE_NAME --port=$EXTERNAL_PORT --target-port=$PORT_IN_CONTAINER;
 ```
 
+## Discovery
+1. Kubernetes assigns each `Service` a DNS entry (cluster maintains a DNS)
+    1. FQDN: `<serviceName>.<namespace>.svc.cluster.local`
+    1. If you're in the same namespace, just use `<serviceName>`  (eg. `http://myService/api/v1/...`)
+    1. DNS helps you with the name, but not with ports
+1. Kubernetes exposes service IP & port(s) info via environment variables
+    1. dashes in serviceName converted to underscores
+    1. all letters are upper-cased
+
+
 
 ## Debugging
-1. ssh into any k8s `Node` in the cluster, then `curl` the IP
-1. `kubectl exec $POD_NAME -- curl -s http://$SVC_IP`
-1. Env vars: `kubectl exec $POD_NAME -- env`
-```sh
-...
-<serviceName>_PORT_443_TCP_ADDR=10.96.0.1
-<serviceName>_PORT_443_TCP_PORT=443
-<serviceName>_SERVICE_HOST=10.96.0.1
-<serviceName>_SERVICE_PORT=443
-<serviceName>_SERVICE_PORT_HTTPS=443
-...
-```
+1. See [cheatsheet](./cheatsheet.k8s.md) doc
+1. GOTCHA: ping does NOT work in the cluster
 
 
 ## Help

@@ -79,11 +79,6 @@ kubectl explain PersistentVolumeClaim;
 kubectl explain PersistentVolumeClaim.spec.resources;
 kubectl explain PersistentVolumeClaim.spec.selector;
 kubectl explain PersistentVolumeClaim.spec;
-
-
-
-TODO: more interesting things
-
 ```
 
 
@@ -94,6 +89,24 @@ kubectl logs $POD_NAME
 # -- After container crashes
 kubectl logs $POD_NAME --previous
 kubectl describe pod $POD_NAME
+```
+
+
+# Debugging
+- GOTCHA: ping does NOT work in the cluster
+- `kubectl exec -it $POD_NAME -- bash`
+- ssh into any `Node` in the cluster, then `curl` a cluster IP
+- `kubectl exec $POD_NAME -- curl -s http://$SVC_IP`
+- List env vars: `kubectl exec $POD_NAME -- env`
+```sh
+# -- example output:
+...
+<serviceName>_PORT_443_TCP_ADDR=10.96.0.1
+<serviceName>_PORT_443_TCP_PORT=443
+<serviceName>_SERVICE_HOST=10.96.0.1
+<serviceName>_SERVICE_PORT=443
+<serviceName>_SERVICE_PORT_HTTPS=443
+...
 ```
 
 
