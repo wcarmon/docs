@@ -6,9 +6,9 @@
 1. A [Namespaced](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) resource
 1. A single, stable, **constant** entry point for a group of pods (IP + ports)
 1. All `Pod`s *should* have the same application
-1. Has an IP address
-1. Supports multiple ports
-    1. GOTCHA: each port needs a `name`
+1. Has one IP address (generally)
+1. Supports [multiple ports](https://kubernetes.io/docs/concepts/services-networking/service/#multi-port-services)
+    1. GOTCHA: each port [requires a `name`](https://kubernetes.io/docs/concepts/services-networking/service/#multi-port-services)
     1. `kubectl explain service.spec.ports.name;` (like `http` or `https` or `grpc`)
 1. Connects to n-`Pod`s using (label) [`selector`](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/)
 1. Services link to `Pod`s thru `Endpoints`
@@ -18,7 +18,7 @@
     1. GOTCHA: This makes your application dependent on k8s (or requires extra DNS config outside k8s)
 
 
-## Important Service Properties
+## Important Service fields
 1. [`type`](https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types):
     1. `NodePort`: exposes the same port(s) on EVERY `Node`.  Useful for non-HTTP and non-HTTPS services
     1. `Ingress`: TODO
