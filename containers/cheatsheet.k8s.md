@@ -9,6 +9,8 @@ kubectl cluster-info;
 kubectl version;
 
 kubectl cluster-info | grep dashboard;
+
+# -- Browser UI
 minikube dashboard &
 
 kubectl api-resources;
@@ -199,7 +201,10 @@ kubectl help delete deployment;
 
 # -- TODO
 ```sh
-kubectl proxy ...
+
+# -- expoes api server
+kubectl proxy --port=1234
+
 kubectl port-forward ...
 
 ```

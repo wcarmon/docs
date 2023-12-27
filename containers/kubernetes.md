@@ -119,7 +119,7 @@ kubectl get ds;
 
 
 ## Networking, Services (`svc`), Ingress (`ing`) & Endpoints (`ep`)
-1. See [Services](./kubernetes.services.md) doc
+1. See [Services](./kubernetes.svc.md) doc
 
 
 ## ConfigMaps, Secrets

@@ -2,6 +2,13 @@
 # kubectl get svc jaeger-deploy
 # kubectl describe svc jaeger-deploy
 # kubectl logs --selector app=jaeger
+#
+# -- Inside cluster:
+# http://jaeger-service:14268
+# http://jaeger-service:16686
+#
+# -- Outer cluster:
+# -- See ingress
 # ----------------------------------------
 
 apiVersion: v1
@@ -14,10 +21,12 @@ spec:
       port: 14268
       protocol: TCP
       targetPort: 14268
+
     - name: browser-ui
       port: 16686
       protocol: TCP
       targetPort: 16686
+
   selector:
     app: jaeger
   type: ClusterIP
