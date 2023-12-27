@@ -11,6 +11,7 @@
     1. **`IfNotPresent`**: stale versions will take precedence  <-- Prefer this for immutable image tags
     1. `Never`: stale versions will take precedence or startup fails (requires pre-fetching images)
     1. See `kubectl explain pod.spec.containers.imagePullPolicy;`
+1. GOTCHA: modifying the `ConfigMap` does **NOT** trigger a redeploy
 
 
 # [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) (`deploy`)
@@ -55,9 +56,10 @@ kubectl explain pod.spec.containers.imagePullPolicy;
 1. Change one property: [`kubectl patch deployment $DEPLOYMENT_NAME -p ...`](https://kubernetes.io/docs/tasks/manage-kubernetes-objects/update-api-object-kubectl-patch/)
 ```sh
 
+# -- Scale
+kubectl scale deployment $DEPLOYMENT_NAME --replicas=2
+
 # -- Status
 kubectl rollout status deployment;
 kubectl rollout status deployment $DEPLOYMENT_NAME;
-
-TODO: scaling example
 ```

@@ -85,6 +85,7 @@ kubectl explain PersistentVolumeClaim.spec;
 # [Logs](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#logs)
 ```sh
 kubectl logs $POD_NAME
+kubectl logs --selector app=jaeger
 
 # -- After container crashes
 kubectl logs $POD_NAME --previous;

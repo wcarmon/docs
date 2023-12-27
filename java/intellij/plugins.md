@@ -10,6 +10,7 @@
 1. [Lines Sorter](https://plugins.jetbrains.com/plugin/5919-lines-sorter)
 1. [Shifter](https://plugins.jetbrains.com/plugin/6149-shifter)
 1. [String Manipulation](https://plugins.jetbrains.com/plugin/2162-string-manipulation)
+1. [yaml sorter](https://plugins.jetbrains.com/plugin/19771-yaml-sorter)
 
 
 ## Bundled

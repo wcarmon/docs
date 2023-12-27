@@ -1,0 +1,33 @@
+# ----------------------------------------
+# kubectl get deploy jaeger-deploy
+# kubectl describe deploy jaeger-deploy
+# kubectl logs --selector app=jaeger
+# ----------------------------------------
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: jaeger
+  name: jaeger-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jaeger
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: jaeger
+    spec:
+      containers:
+        - image: jaegertracing/all-in-one:1.52
+          imagePullPolicy: IfNotPresent
+          name: jaeger
+          ports:
+            - containerPort: 16686
+              name: browser-ui
+            - containerPort: 14268
+              name: grpc-collector
