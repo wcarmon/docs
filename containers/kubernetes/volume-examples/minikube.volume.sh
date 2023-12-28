@@ -48,8 +48,9 @@ minikube mount --kill;
 mkdir -p $EXTRA_VOLUME
 
 # -- For Jaeger w/Badger
-mkdir -p $EXTRA_VOLUME/badger/key
-mkdir -p $EXTRA_VOLUME/badger/data
+readonly BADGER_ROOT=$EXTRA_VOLUME/badger;
+mkdir -p $BADGER_ROOT/key
+mkdir -p $BADGER_ROOT/data
 
 
 # -- Run mount process in background
@@ -63,7 +64,9 @@ minikube mount $EXTRA_VOLUME:/pv &
 # -- Print Help
 # ---------------------------------------------
 echo "|-- To fix permissions:"
-echo "chmod 777 -R $EXTRA_VOLUME;"
+echo "sudo chmod 777 -R $EXTRA_VOLUME;"
+echo "sudo chown 10001 -R $BADGER_ROOT;"
+echo "sudo chgrp 0 -R $BADGER_ROOT;"
 
 
 echo

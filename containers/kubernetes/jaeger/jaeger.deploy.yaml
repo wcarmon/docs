@@ -44,6 +44,12 @@
 # -----------------------------------
 # - See https://www.jaegertracing.io/docs/1.52/deployment/
 #
+#
+# -----------------------------------
+# -- Linux user id: 10001
+# -----------------------------------
+# -- See https://github.com/jaegertracing/jaeger/blob/main/cmd/all-in-one/Dockerfile#L6C5-L6C13
+#
 # --------------------------------------------------------------------
 
 apiVersion: apps/v1
@@ -96,8 +102,9 @@ spec:
             - name: COLLECTOR_ZIPKIN_HOST_PORT
               value: ":9411"
 
-            - name: SPAN_STORAGE_TYPE
-              value: badger
+#TODO: uncomment this:
+#            - name: SPAN_STORAGE_TYPE
+#              value: badger
 
             # -- must match ingress.spec.rules.http.paths.path
             - name: QUERY_BASE_PATH
