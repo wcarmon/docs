@@ -1,10 +1,8 @@
 # --------------------------------------------------------------------
 # NOTE: normally a Sys-admin creates this
 #
-# mkdir -pv /tmp/volume-for-minikube-1
-# minikube mount --kill
-# minikube mount  &
-# minikube start --mount-string="/tmp/volume-for-minikube-1:/pv" --mount
+# -- See ./minikube.sh
+#
 #
 # -- Add
 # kubectl apply -f ./local.pv.yaml
@@ -43,7 +41,6 @@ spec:
   local:
     path: /pv
 
-#  persistentVolumeReclaimPolicy: Delete
   persistentVolumeReclaimPolicy: Retain
 
 #  storageClassName: standard
