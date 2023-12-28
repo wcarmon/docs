@@ -111,7 +111,7 @@ kubectl explain endpoints.subsets.ports;
 1. Manages external access to services in the cluster
 1. An entry point for the cluster
 1. Ingress is NOT a service `type`
-1. Exposes HTTP and HTTPS routes from outside the cluster to `Service`s
+1. Exposes HTTP (on 80) and HTTPS (on 443) routes from outside the cluster to `Service`s
     1. Again, focused only on HTTP and HTTPS routes
     1. Other ports are handled with other mechanisms
 1. Can expose multiple `Service`s thru one `Ingress`
