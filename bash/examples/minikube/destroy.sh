@@ -1,9 +1,7 @@
 #!/bin/bash
 
 # ---------------------------------------------
-#
-#
-#
+# -- Tear down a minikube instance
 # ---------------------------------------------
 
 #set -x # uncomment to debug script

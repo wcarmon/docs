@@ -9,7 +9,7 @@
 # -- Assumptions:
 # -- 1. minikube installed and already running via:
 # --      minikube start;
-# -- 2. kubectl installed (automatically by minikube)
+# -- 2. kubectl installed (automatically inside minikube)
 # -----------------------------------------------------
 #set -x # uncomment to debug script
 set -e # exit on first error
