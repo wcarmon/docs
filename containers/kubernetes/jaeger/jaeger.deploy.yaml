@@ -1,24 +1,49 @@
 # --------------------------------------------------------------------
 # -- Debugging:
+#
+#
 # kubectl describe deploy jaeger-deploy
+# kubectl describe po $(kubectl get pods -l app=jaeger --output=jsonpath={.items..metadata.name});
+#
+#
+# -----------------------------------
+# -- Logs & Events
+# -----------------------------------
+# kubectl logs $(kubectl get pods -l app=jaeger --output=jsonpath={.items..metadata.name});
 # kubectl logs --selector app=jaeger
+#
 # kubectl get events --namespace=default
 # -- (new events at bottom)
 #
-#
-# kubectl get pods -l app=jaeger --output=jsonpath={.items..metadata.name}
-# kubectl describe po $(kubectl get pods -l app=jaeger --output=jsonpath={.items..metadata.name})
-#
-# kubectl exec -it deploy/jaeger-deploy -- /bin/ash
-# kubectl exec -it deploy/jaeger-deploy -- env | sort
+# POD_NAME="$(kubectl get pods -l app=jaeger --output=jsonpath={.items..metadata.name})";
 #
 #
+# -----------------------------------
+# -- Debug running container
+# -----------------------------------
+# kubectl exec -it deploy/jaeger-deploy -- /bin/ash;
+# kubectl exec -it deploy/jaeger-deploy -- env | sort;
+#
+#
+# -----------------------------------
+# -- Debug the Image
+# -----------------------------------
+# kubectl delete pod debug-jaeger;
+# kubectl run debug-jaeger --image=jaegertracing/all-in-one:1.52 --env="SPAN_STORAGE_TYPE=badger"
+# kubectl exec -it debug-jaeger -- /bin/ash;
+#
+#
+# -----------------------------------
 # -- Delete/Cleanup
+# -----------------------------------
 # kubectl delete deploy jaeger-deploy;
 #
 #
+# -----------------------------------
 # -- Official Jaeger Ports:
+# -----------------------------------
 # - See https://www.jaegertracing.io/docs/1.52/deployment/
+#
 # --------------------------------------------------------------------
 
 apiVersion: apps/v1
@@ -52,10 +77,10 @@ spec:
 
           env:
             - name: BADGER_DIRECTORY_KEY
-              value: /badger/key
+              value: /pv/badger/key
 
             - name: BADGER_DIRECTORY_VALUE
-              value: /badger/data
+              value: /pv/badger/data
 
             - name: BADGER_EPHEMERAL
               value: "false"
@@ -79,17 +104,34 @@ spec:
               value: /jaeger
 
           ports:
+            - containerPort: 4317
+              name: otlp-grpc
+
+            - containerPort: 4318
+              name: otlp-http
+
+            - containerPort: 9411
+              name: zipkin
+
             - containerPort: 16686
               name: browser-ui
 
             - containerPort: 14268
               name: grpc-collector
 
-            - containerPort: 4317
-              name: otlp-grpc
+          #  -p 14250:14250 \
+          #  -p 14269:14269 \
+          #  -p 5778:5778 \
+          #  -p 6831:6831/udp \
+          #  -p 6832:6832/udp \
 
-            - containerPort: 9411
-              name: zipkin
+          #  # - 14250 = collector: model.proto
+          #  # - 14269 = admin, health check
+          #  # - 14271 = admin, health check
+          #  # - 16685 = query service
+          #  # - 16687 = query service
+          #  # - 6831 = compact thrift
+          #  # - 6832 = binary thrift
 
           resources:
             requests:
@@ -101,7 +143,7 @@ spec:
               memory: 1G
 
           volumeMounts:
-            - mountPath: /badger
+            - mountPath: /pv
               name: beagle-volume
               readOnly: false
 
@@ -110,27 +152,6 @@ spec:
           persistentVolumeClaim:
             claimName: jaeger-pvc
 
-#   -p 14250:14250 \
-#  -p 14269:14269 \
-#  -p 4318:4318 \
-#  -p 5778:5778 \
-#  -p 6831:6831/udp \
-#  -p 6832:6832/udp \
-
-#  # - 14250 = collector: model.proto
-#  # - 14269 = admin, health check
-#  # - 14271 = admin, health check
-#  # - 16685 = query service
-#  # - 16687 = query service
-#  # - 4318 = collector: OpenTelemetry OTLP over http
-#  # - 6831 = compact thrift
-#  # - 6832 = binary thrift
-
 
 #  # TODO: set TTL on badger
 #  # TODO: set max memory on badger
-#
-#  mkdir -pv "$BADGER_DATA_ROOT/key"
-#  mkdir -pv "$BADGER_DATA_ROOT/data"
-#
-#  -v "$BADGER_DATA_ROOT":/badger:rw \

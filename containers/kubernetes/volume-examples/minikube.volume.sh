@@ -44,8 +44,12 @@ readonly EXTRA_VOLUME="/tmp/volume-for-minikube-1"
 # -- Cleanup old mount processes
 minikube mount --kill;
 
-# -- create dir
+# -- create dirs
 mkdir -p $EXTRA_VOLUME
+
+# -- For Jaeger w/Badger
+mkdir -p $EXTRA_VOLUME/badger/key
+mkdir -p $EXTRA_VOLUME/badger/data
 
 
 # -- Run mount process in background

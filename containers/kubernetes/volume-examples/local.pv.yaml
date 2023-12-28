@@ -12,9 +12,6 @@
 # kubectl describe pv
 # kubectl describe pv my-volume-1
 #
-# ls -hl /tmp/volume-for-minikube-1
-# du -h /tmp/volume-for-minikube-1
-#
 #
 # -- Remove/Delete
 # minikube mount --kill
