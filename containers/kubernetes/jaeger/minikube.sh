@@ -8,7 +8,7 @@
 # --      minikube start;
 # -- 2. kubectl installed (automatically inside minikube)
 # -----------------------------------------------------
-#set -x # uncomment to debug script
+set -x # uncomment to debug script
 set -e # exit on first error
 set -o pipefail
 set -u # fail on unset var
@@ -39,6 +39,9 @@ readonly KUBECTL="minikube kubectl --"
 #echo "|-- Starting minikube ..."
 #minikube start;
 
+
+echo
+echo "|-- Enabling required minikube addons ..."
 minikube addons enable ingress;
 minikube addons enable metrics-server
 
