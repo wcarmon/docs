@@ -1,4 +1,4 @@
-# ----------------------------------------
+# --------------------------------------------------------------------
 # kubectl get deploy jaeger-deploy
 # kubectl describe deploy jaeger-deploy
 #
@@ -6,7 +6,7 @@
 #
 # kubectl exec -it deploy/jaeger-deploy -- /bin/ash
 # kubectl exec -it deploy/jaeger-deploy -- env | sort
-# ----------------------------------------
+# --------------------------------------------------------------------
 
 apiVersion: apps/v1
 kind: Deployment

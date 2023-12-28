@@ -1,28 +1,23 @@
-# ----------------------------------------
-# NOTE: ingress can be shared across multiple services
-#
+# --------------------------------------------------------------------
+# -- Debugging:
 # kubectl get ing my-ingress
 # kubectl describe ing my-ingress
-# kubectl logs --selector app=jaeger
 #
-# NOTE: deployment.spec.template.spec.containers.env.QUERY_BASE_PATH
-#       must match ingress.spec.rules.http.paths.path
 #
-# -- Inside cluster:
-# http://jaeger-service:14268
-# http://jaeger-service:16686
+# -- Jaeger specific:
+# These two paths must match for Jaeger to work:
+#     - deployment.spec.template.spec.containers.env.QUERY_BASE_PATH
+#     - ingress.spec.rules.http.paths.path
 #
-# -- Outside cluster:
-# echo "http://$(minikube ip)/jaeger/"
-# ----------------------------------------
+#
+# -- Accessing UI outside the cluster:
+# echo "Navigate to:  http://$(minikube ip)/jaeger"
+# --------------------------------------------------------------------
 
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 
 metadata:
-  labels:
-    app: jaeger
-
   name: my-ingress
 
 spec:
@@ -31,8 +26,13 @@ spec:
         paths:
           - backend:
               service:
+                # -- matches service.metadata.name
                 name: jaeger-service
+
                 port:
+                  # -- matches service port for browser ui
                   number: 16686
+
+            # -- matches deployment.spec.template.spec.containers.env.QUERY_BASE_PATH
             path: /jaeger
             pathType: Prefix
