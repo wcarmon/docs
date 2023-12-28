@@ -26,13 +26,19 @@ readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
 # ---------------------------------------------
 # -- Config
 # ---------------------------------------------
+# -- See https://github.com/graalvm/container/pkgs/container/native-image-community
 # -- See https://github.com/graalvm/container/pkgs/container/native-image
-readonly NATIVE_IMAGE_DOCKER_IMAGE=ghcr.io/graalvm/native-image:muslib-ol9-java17-22.3.0-b2
+#readonly NATIVE_IMAGE_DOCKER_IMAGE=ghcr.io/graalvm/native-image:muslib-ol9-java17-22.3.0-b2
+readonly NATIVE_IMAGE_DOCKER_IMAGE=ghcr.io/graalvm/native-image-community:21-muslib
 
-# Relative to $PROJ_ROOT/build/libs/
+# -- Relative to $PROJ_ROOT/build/libs/
 readonly NATIVE_IMAGE_INPUT_JAR=app.uber.jar
 
 readonly OUTPUT_DIR="$PARENT_DIR/build/native_image"
+
+# -- See https://hub.docker.com/_/alpine
+readonly ALPINE_IMAGE=alpine:3.19
+
 
 # ---------------------------------------------
 # -- Derived
@@ -83,16 +89,18 @@ readonly MY_GID=$(id -g)
 $DOCKER run \
   --rm \
   -v $PROJ_ROOT/build/native_image:/tmp:rw \
-  alpine:3.17 \
+  $ALPINE_IMAGE \
   /bin/sh -c "chown -vR $MY_UID:$MY_GID /tmp"
 
-# -- delete useless files
+
+# -- Delete useless files
 rm -f $PROJ_ROOT/build/native_image/app.bin.build_artifacts.txt
 rm -f $PROJ_ROOT/build/native_image/app.bin.o
 
 
+
 << 'DEBUG_NATIVE_IMAGE'
-IMAGE=ghcr.io/graalvm/native-image:muslib-ol9-java17-22.3.0-b2;
+IMAGE=ghcr.io/graalvm/native-image-community:21-muslib
 NATIVE_IMAGE_INPUT_JAR=app.uber.jar;
 
 docker run \
@@ -105,10 +113,6 @@ docker run \
 
 docker inspect $IMAGE;
 DEBUG_NATIVE_IMAGE
-
-
-# TODO: test binary on alpine (where it will run)
-#alpine:3.17
 
 
 # ---------------------------------------------
