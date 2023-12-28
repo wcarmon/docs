@@ -1,19 +1,27 @@
 # --------------------------------------------------------------------
 # NOTE: normally a Sys-admin creates this
 #
-# Debugging:
+#
+# -- Add
+# kubectl apply -f ./local.pv.yaml
+#
+#
+# -- Debugging:
 # kubectl describe pv
-# kubectl get pv
+# kubectl describe pv my-volume-1
+#
+# ls -hl /tmp/volume-for-minikube-1
+# du -h /tmp/volume-for-minikube-1
 #
 #
-#
-#
-#
+# -- Remove/Delete
+# kubectl delete pv my-volume-1
 #
 # --------------------------------------------------------------------
 
 apiVersion: v1
 kind: PersistentVolume
+
 metadata:
   name: my-volume-1
 
@@ -21,14 +29,24 @@ spec:
   accessModes:
     - ReadWriteOnce
     - ReadOnlyMany
-
   capacity:
-    storage: 8Gi
+    storage: 10Gi
+  local:
+    path: /tmp/volume-for-minikube-1
 
-  claimRef:
-    name: foo-pvc
-    namespace: foo
-
+#  persistentVolumeReclaimPolicy: Delete
   persistentVolumeReclaimPolicy: Retain
 
-  storageClassName: ''
+  storageClassName: standard
+  volumeMode: Filesystem
+
+  # -- Only required for Local
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+        - matchExpressions:
+            - key: kubernetes.io/hostname
+              operator: In
+              values:
+                - wc-box-02
+                # TODO: add other hostnames here
