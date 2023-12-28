@@ -1,1 +1,1 @@
-see containers/java.Dockerfile
+see containers/dockerfiles/java.Dockerfile
