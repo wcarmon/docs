@@ -76,6 +76,26 @@ spec:
         app: jaeger
 
     spec:
+      initContainers:
+        - name: badger-fs-init
+          image: busybox
+          command:
+            - sh
+            - -c
+            - 'mkdir -vp /pv/badger/data; 
+            mkdir -vp /pv/badger/key;
+             
+            chmod 755 /pv/badger/data;
+            chmod 755 /pv/badger/key;
+
+            chown -Rv 10001 /pv/badger;            
+            '
+
+          volumeMounts:
+            - mountPath: /pv
+              name: badger-volume
+              readOnly: false
+
       containers:
         - image: jaegertracing/all-in-one:1.52
           imagePullPolicy: IfNotPresent
@@ -161,11 +181,11 @@ spec:
 
           volumeMounts:
             - mountPath: /pv
-              name: beagle-volume
+              name: badger-volume
               readOnly: false
 
       volumes:
-        - name: beagle-volume
+        - name: badger-volume
           persistentVolumeClaim:
             claimName: jaeger-pvc
 
