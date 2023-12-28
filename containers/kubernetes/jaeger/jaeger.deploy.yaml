@@ -102,7 +102,7 @@ spec:
             - name: COLLECTOR_ZIPKIN_HOST_PORT
               value: ":9411"
 
-#TODO: uncomment this:
+            #TODO: uncomment this:
 #            - name: SPAN_STORAGE_TYPE
 #              value: badger
 

@@ -1,8 +1,10 @@
 #!/bin/bash
 
 # -----------------------------------------------------
-# -- Runs process to add extra volume to minikube
+# -- Runs process to add extra volume (overlay fs) to minikube
 # -- See https://minikube.sigs.k8s.io/docs/handbook/mount/
+# --
+# -- NOTE: rerun this to see changes from underlying/host filesystem
 # --
 # -- Assumptions:
 # -- 1. minikube installed and already running via:
@@ -30,6 +32,8 @@ readonly SCRIPT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/")
 # ---------------------------------------------
 # -- Config
 # ---------------------------------------------
+# -- Overlay filesystem
+# -- (meaning: changes only live inside minikube and its volumes/pods/containers)
 readonly EXTRA_VOLUME="$HOME/tmp/volume-for-minikube-1"
 
 
@@ -72,6 +76,7 @@ echo "sudo chgrp 0 -R $BADGER_ROOT;"
 echo
 echo "|-- To verify mount:"
 echo "minikube ssh;"
+echo "# GOTCHA: this is an overlay fs, no changes persist"
 echo "touch /pv/foobar;"
 echo "ls -hal /pv;"
 echo "exit"

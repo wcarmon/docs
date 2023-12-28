@@ -36,8 +36,6 @@ spec:
       protocol: TCP
       targetPort: 16686
 
-    # TODO: must I expose more ports?
-
   selector:
     app: jaeger
 
