@@ -1,7 +1,6 @@
 # --------------------------------------------------------------------
 # -- Debugging:
 # kubectl describe pvc jaeger-pvc
-# kubectl get pvc jaeger-pvc
 # kubectl get events --namespace=default
 #
 #

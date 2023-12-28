@@ -58,6 +58,11 @@ minikube mount $EXTRA_VOLUME:/pv &
 # ---------------------------------------------
 # -- Print Help
 # ---------------------------------------------
+echo "|-- To fix permissions:"
+echo "chmod 777 -R $EXTRA_VOLUME;"
+
+
+echo
 echo "|-- To verify mount:"
 echo "minikube ssh;"
 echo "touch /pv/foobar;"
