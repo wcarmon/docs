@@ -25,4 +25,4 @@ spec:
     requests:
       storage: 2Gi
 
-  storageClassName: ''
+  storageClassName: ""

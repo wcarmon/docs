@@ -1,6 +1,10 @@
 # --------------------------------------------------------------------
 # NOTE: normally a Sys-admin creates this
 #
+# mkdir -pv /tmp/volume-for-minikube-1
+# minikube mount --kill
+# minikube mount  &
+# minikube start --mount-string="/tmp/volume-for-minikube-1:/pv" --mount
 #
 # -- Add
 # kubectl apply -f ./local.pv.yaml
@@ -15,7 +19,10 @@
 #
 #
 # -- Remove/Delete
-# kubectl delete pv my-volume-1
+# minikube mount --kill
+# kubectl delete deploy jaeger-deploy;
+# kubectl delete pvc jaeger-pvc;
+# kubectl delete pv my-volume-1;
 #
 # --------------------------------------------------------------------
 
@@ -29,15 +36,17 @@ spec:
   accessModes:
     - ReadWriteOnce
     - ReadOnlyMany
+
   capacity:
     storage: 10Gi
+
   local:
-    path: /tmp/volume-for-minikube-1
+    path: /pv
 
 #  persistentVolumeReclaimPolicy: Delete
   persistentVolumeReclaimPolicy: Retain
 
-  storageClassName: standard
+#  storageClassName: standard
   volumeMode: Filesystem
 
   # -- Only required for Local
@@ -48,5 +57,6 @@ spec:
             - key: kubernetes.io/hostname
               operator: In
               values:
-                - wc-box-02
+                - minikube
                 # TODO: add other hostnames here
+                # kubectl describe node | grep -i hostname

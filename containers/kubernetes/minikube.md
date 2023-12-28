@@ -31,6 +31,13 @@ minikube logs;
 ```
 
 
+# Enable addonds
+```sh
+minikube addons enable ingress;
+minikube addons enable metrics-server
+```
+
+
 # Stop
 ```sh
 minikube stop;

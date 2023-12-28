@@ -3,7 +3,11 @@
 # kubectl describe deploy jaeger-deploy
 # kubectl logs --selector app=jaeger
 # kubectl get events --namespace=default
+# -- (new events at bottom)
 #
+#
+# kubectl get pods -l app=jaeger --output=jsonpath={.items..metadata.name}
+# kubectl describe po $(kubectl get pods -l app=jaeger --output=jsonpath={.items..metadata.name})
 #
 # kubectl exec -it deploy/jaeger-deploy -- /bin/ash
 # kubectl exec -it deploy/jaeger-deploy -- env | sort
