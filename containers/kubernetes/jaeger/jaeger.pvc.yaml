@@ -4,9 +4,8 @@
 # kubectl get pvc jaeger-pvc
 #
 #
-#
-#
-#
+# -- Delete/Cleanup
+# kubectl delete pvc jaeger-pvc;
 # --------------------------------------------------------------------
 
 apiVersion: v1
@@ -18,11 +17,9 @@ metadata:
 spec:
   accessModes:
     - ReadWriteOnce
+
   resources:
     requests:
-      storage: 1Gi
+      storage: 2Gi
 
   storageClassName: ''
-
-# TODO: replace with existing volume
-#  volumeName: my-volume-1
