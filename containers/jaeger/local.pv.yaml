@@ -18,13 +18,17 @@ metadata:
   name: my-volume-1
 
 spec:
-  capacity:
-    storage: 8Gi
   accessModes:
     - ReadWriteOnce
     - ReadOnlyMany
-#    - ReadWriteOncePod
-  storageClassName: ""
+
+  capacity:
+    storage: 8Gi
+
   claimRef:
     name: foo-pvc
     namespace: foo
+
+  persistentVolumeReclaimPolicy: Retain
+
+  storageClassName: ''
