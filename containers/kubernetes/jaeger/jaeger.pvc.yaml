@@ -2,6 +2,7 @@
 # -- Debugging:
 # kubectl describe pvc jaeger-pvc
 # kubectl get pvc jaeger-pvc
+# kubectl get events --namespace=default
 #
 #
 # -- Delete/Cleanup
@@ -13,6 +14,8 @@ kind: PersistentVolumeClaim
 metadata:
   name: jaeger-pvc
   namespace: default
+  labels:
+    app: jaeger
 
 spec:
   accessModes:

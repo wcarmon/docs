@@ -1,9 +1,10 @@
 # --------------------------------------------------------------------
 # -- Debugging:
-# kubectl get svc jaeger-deploy
 # kubectl describe svc jaeger-deploy
+# kubectl get svc jaeger-deploy
 #
 # kubectl logs --selector app=jaeger
+# kubectl get events --namespace=default
 #
 #
 # -- Access inside cluster:

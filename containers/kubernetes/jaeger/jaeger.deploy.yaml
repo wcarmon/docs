@@ -1,9 +1,9 @@
 # --------------------------------------------------------------------
 # -- Debugging:
 # kubectl describe deploy jaeger-deploy
-# kubectl get deploy jaeger-deploy
-#
 # kubectl logs --selector app=jaeger
+# kubectl get events --namespace=default
+#
 #
 # kubectl exec -it deploy/jaeger-deploy -- /bin/ash
 # kubectl exec -it deploy/jaeger-deploy -- env | sort
@@ -121,8 +121,6 @@ spec:
 #  # - 6831 = compact thrift
 #  # - 6832 = binary thrift
 
-
-#  readonly BADGER_DATA_ROOT=$HOME/tmp/badger
 
 #  # TODO: set TTL on badger
 #  # TODO: set max memory on badger

@@ -1,7 +1,7 @@
 # --------------------------------------------------------------------
 # -- Debugging:
-# kubectl get ing my-ingress
 # kubectl describe ing my-ingress
+# kubectl get events
 #
 #
 # -- Jaeger specific:
@@ -11,7 +11,7 @@
 #
 #
 # -- Accessing UI outside the cluster:
-# echo "Navigate to:  http://$(minikube ip)/jaeger"
+# echo "Navigate to:  http://$(minikube ip)/jaeger";
 # --------------------------------------------------------------------
 
 apiVersion: networking.k8s.io/v1

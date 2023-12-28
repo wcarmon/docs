@@ -44,7 +44,6 @@ kubectl get po -A;
 POD_NAME=foo
 kubectl describe po $POD_NAME;
 
-
 kubectl get configmap;
 kubectl get cm;
 
@@ -88,6 +87,7 @@ kubectl explain PersistentVolumeClaim.spec;
 ```sh
 kubectl logs $POD_NAME
 kubectl logs --selector app=jaeger
+kubectl get events --namespace=default
 
 # -- After container crashes
 kubectl logs $POD_NAME --previous;
