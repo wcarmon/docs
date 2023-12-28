@@ -19,11 +19,13 @@ set -u # fail on unset var
 # -- Constants
 # ---------------------------------------------
 readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
+readonly SCRIPT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/")
 
 
 # ---------------------------------------------
 # -- Script arguments
 # ---------------------------------------------
+
 
 # ---------------------------------------------
 # -- Config
@@ -35,25 +37,22 @@ readonly EXTRA_VOLUME="/tmp/volume-for-minikube-1"
 # -- Run mount process
 # ---------------------------------------------
 
-
 # GOTCHA:
 # mounting via minikube start doesn't work so well
 # minikube start --mount-string="/tmp/volume-for-minikube-1:/pv" --mount
 
-
-# -- Cleanup old mounts
+# -- Cleanup old mount processes
 minikube mount --kill;
 
-# -- Make room
+# -- create dir
 mkdir -p $EXTRA_VOLUME
 
 
-# -- Run mounter in background
-# -- if process dies, mount stops working
-# -- cleanup: minikube mount --kill
+# -- Run mount process in background
+# -- GOTCHA: if process dies, mount stops working
 
-# nohup minikube mount $EXTRA_VOLUME:/pv &
 minikube mount $EXTRA_VOLUME:/pv &
+# nohup minikube mount $EXTRA_VOLUME:/pv &
 
 
 # ---------------------------------------------
@@ -61,20 +60,14 @@ minikube mount $EXTRA_VOLUME:/pv &
 # ---------------------------------------------
 echo "|-- To verify mount:"
 echo "minikube ssh;"
-echo "touch /pv/foobar"
-echo "ls -hal /pv"
+echo "touch /pv/foobar;"
+echo "ls -hal /pv;"
 echo "exit"
 
 
-# ---------------------------------------------
-# --
-# ---------------------------------------------
-
-echo "kubectl apply -f $PARENT_DIR/volume-examples/local.pv.yaml"
-#
-# kubectl describe pv
-# du -h /tmp/volume-for-minikube-1
-#
-# kubectl delete deploy jaeger-deploy;
-# kubectl delete pvc jaeger-pvc;
-# kubectl delete pv my-volume-1;
+echo
+echo "|-- To apply & verify the mount:"
+echo "kubectl apply -f $SCRIPT_DIR/local.pv.yaml;"
+echo "kubectl describe pv;"
+echo "du -h $EXTRA_VOLUME;"
+echo "ls -hal $EXTRA_VOLUME;"
