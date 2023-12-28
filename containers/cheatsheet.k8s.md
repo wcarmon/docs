@@ -202,7 +202,7 @@ kubectl help delete deployment;
 # -- TODO
 ```sh
 
-# -- expoes api server
+# -- Exposes API server
 kubectl proxy --port=1234
 
 kubectl port-forward ...

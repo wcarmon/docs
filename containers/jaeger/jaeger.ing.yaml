@@ -5,40 +5,37 @@
 # kubectl describe ing my-ingress
 # kubectl logs --selector app=jaeger
 #
+# NOTE: deployment.spec.template.spec.containers.env.QUERY_BASE_PATH
+#       must match ingress.spec.rules.http.paths.path
+#
 # TODO: http://localhost:16686/search
 #
 # -- Inside cluster:
 # http://jaeger-service:14268
 # http://jaeger-service:16686
 #
-# -- Outer cluster:
-# TODO
+# -- Outside cluster:
+# echo "http://$(minikube ip):16686/jaeger/"
+#
 # ----------------------------------------
 
 apiVersion: networking.k8s.io/v1
 kind: Ingress
+
 metadata:
-  annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
+  labels:
+    app: jaeger
+
   name: my-ingress
+
 spec:
   rules:
-    # TODO: fix
-    - host: foobar.com
-      http:
+    - http:
         paths:
           - backend:
               service:
-                name: jaeger-grpc-collector
-                port:
-                  number: 14268
-            path: /jaeger/collector
-            pathType: Prefix
-          - backend:
-              service:
-                name: jaeger-browser-ui
+                name: jaeger-service
                 port:
                   number: 16686
-            path: /jaeger/ui
+            path: /jaeger
             pathType: Prefix
-
