@@ -15,8 +15,8 @@
 1. Pods are ephemeral (can be restart at any time)
 1. Good Visualizations: [a](https://assets-global.website-files.com/61897bbb80b04406f137091a/618c37679af7c9a2c0a9f138_kubernetes-overview.png), [b](https://matthewpalmer.net/kubernetes-app-developer/articles/networking-overview.png), [c](https://k21academy.com/wp-content/uploads/2020/09/Screenshot-258.png), [d](https://www.altexsoft.com/static/blog-post/2023/11/f5f62de4-31f0-48c9-bb14-3935512789cd.webp), [e](https://www.wallarm.com/assets/external/6386e85a745e454610c5de96_kubernetes20pod20architecture.jpg),
 1. Maybe a continuous running service (eg. `Deployment`, `ReplicaSet`) or a single-shot job (eg. `CronJob`, `Job`)
-    1. See [`ReplicaSet`](./kubernetes.rs.md) doc
-    1. See [Job](./kubernetes.jobs.md)s doc
+    1. See [`ReplicaSet`](./k8s.rs.md) doc
+    1. See [Job](./k8s.jobs.md)s doc
 
 
 ## Networking

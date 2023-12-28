@@ -33,6 +33,7 @@
 1. Persists across Pod restarts
 1. Independent of Pod lifecycle
     1. NOT destroyed when Pod terminates
+1. Controls where storage lives (paths, devices), how big, [access modes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes), auto-cleanup, etc
 1. Generally created and managed by the k8s administrator
 1. [`persistentVolumeReclaimPolicy`]()
     1. [`Retain`](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#retain): manual cleanup when done

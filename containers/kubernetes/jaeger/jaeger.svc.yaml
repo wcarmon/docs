@@ -21,6 +21,7 @@ metadata:
   labels:
     app: jaeger
   name: jaeger-service
+  namespace: default
 
 spec:
   ports:

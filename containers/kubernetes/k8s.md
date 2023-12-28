@@ -1,7 +1,7 @@
 # Overview
 1. High-level overview of [Kubernetes](https://kubernetes.io/) (k8s)
 1. See [cheatsheet](./cheatsheet.k8s.md)
-1. See [Pod doc](./kubernetes.pods.md)
+1. See [Pod doc](./k8s.pods.md)
 
 
 # Concepts
@@ -79,16 +79,16 @@ kubectl describe no;
 --------
 ## Execution
 
-### [Pod](./kubernetes.pods.md) (`po`)
-1. See [Pod](./kubernetes.pods.md) doc
+### [Pod](./k8s.pods.md) (`po`)
+1. See [Pod](./k8s.pods.md) doc
 
 
-### [ReplicaSet](./kubernetes.rs.md) & ~~ReplicationController~~ (`rs`)
-1. See [ReplicaSet](./kubernetes.rs.md) doc
+### [ReplicaSet](./k8s.rs.md) & ~~ReplicationController~~ (`rs`)
+1. See [ReplicaSet](./k8s.rs.md) doc
 
 
 ### Deployments (`deploy`)
-1. See [Deployments](./kubernetes.deploy.md) doc
+1. See [Deployments](./k8s.deploy.md) doc
 
 
 ### [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) (`ds`)
@@ -114,21 +114,21 @@ kubectl get ds;
 
 
 ## Jobs & CronJobs
-1. See [Jobs](./kubernetes.jobs.md) doc
+1. See [Jobs](./k8s.jobs.md) doc
 
 
 
 ## Networking, Services (`svc`), Ingress (`ing`) & Endpoints (`ep`)
-1. See [Services](./kubernetes.svc.md) doc
+1. See [Services](./k8s.svc.md) doc
 
 
 ## ConfigMaps, Secrets
-1. See [ConfigMap](./kubernetes.config.md) doc
+1. See [ConfigMap](./k8s.config.md) doc
 
 
 ## Storage
-1. See [Volumes](./kubernetes.volumes.md) doc
+1. See [Volumes](./k8s.volumes.md) doc
 
 
 # Architecture
-1. See [arch](./kubernetes.arch.md) doc
+1. See [arch](./k8s.arch.md) doc

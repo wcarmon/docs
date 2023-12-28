@@ -1,0 +1,28 @@
+# --------------------------------------------------------------------
+# -- Debugging:
+# kubectl describe pvc jaeger-pvc
+# kubectl get pvc jaeger-pvc
+#
+#
+#
+#
+#
+# --------------------------------------------------------------------
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: jaeger-pvc
+  namespace: default
+
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+
+  storageClassName: ''
+
+# TODO: replace with existing volume
+#  volumeName: my-volume-1

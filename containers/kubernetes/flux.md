@@ -7,7 +7,7 @@
 1. Declarative
 1. Automate everything from `git push ...` to running application
 1. [Helm](./helm.md) aware
-1. [K8s](./kubernetes.md) aware
+1. [K8s](./k8s.md) aware
 1. [Kustomize](./kustomize.md) aware
 1. GitHub aware
 1. GitLab aware
