@@ -29,9 +29,14 @@ readonly SCRIPT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/")
 
 
 # ---------------------------------------------
-# -- Cleanup
+# -- Cleanup (unused)
 # ---------------------------------------------
+echo
+echo "|-- Purging unused networks, containers, images, build cache:"
 docker system prune --all --force;
+
+echo
+echo "|-- Purging unused volumes:"
 docker system prune --volumes --force;
 
 
