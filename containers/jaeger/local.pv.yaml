@@ -1,0 +1,30 @@
+# --------------------------------------------------------------------
+# NOTE: normally a Sys-admin creates this
+#
+# Debugging:
+# kubectl describe pv
+# kubectl get pv
+#
+#
+#
+#
+#
+#
+# --------------------------------------------------------------------
+
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: my-volume-1
+
+spec:
+  capacity:
+    storage: 8Gi
+  accessModes:
+    - ReadWriteOnce
+    - ReadOnlyMany
+#    - ReadWriteOncePod
+  storageClassName: ""
+  claimRef:
+    name: foo-pvc
+    namespace: foo
