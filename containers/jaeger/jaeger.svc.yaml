@@ -2,6 +2,7 @@
 # -- Debugging:
 # kubectl get svc jaeger-deploy
 # kubectl describe svc jaeger-deploy
+#
 # kubectl logs --selector app=jaeger
 #
 #
