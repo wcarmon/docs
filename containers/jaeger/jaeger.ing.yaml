@@ -26,13 +26,14 @@ spec:
         paths:
           - backend:
               service:
-                # -- matches service.metadata.name
+                # -- must match service.metadata.name
                 name: jaeger-service
 
                 port:
-                  # -- matches service port for browser ui
+                  # -- must match service port for browser ui
                   number: 16686
 
-            # -- matches deployment.spec.template.spec.containers.env.QUERY_BASE_PATH
+            # -- must match deployment.spec.template.spec.containers.env.QUERY_BASE_PATH
             path: /jaeger
+
             pathType: Prefix
