@@ -38,16 +38,19 @@ readonly EXTRA_VOLUME="$HOME/tmp/volume-for-minikube-1"
 
 
 # ---------------------------------------------
-# -- Run mount process
+# -- Cleanup
 # ---------------------------------------------
-
 # GOTCHA:
 # -- mounting via minikube start doesn't work so well
 # minikube start --mount-string="$HOME/tmp/volume-for-minikube-1:/pv" --mount
 
-# -- Cleanup old mount processes
+# -- Terminate old mount processes
 minikube mount --kill;
 
+
+# ---------------------------------------------
+# -- Preconditions
+# ---------------------------------------------
 # -- create dirs
 mkdir -p $EXTRA_VOLUME
 
@@ -57,9 +60,10 @@ mkdir -p $BADGER_ROOT/key
 mkdir -p $BADGER_ROOT/data
 
 
-# -- Run mount process in background
+# ---------------------------------------------
+# -- Run mount process (in background)
 # -- GOTCHA: if process dies, mount stops working
-
+# ---------------------------------------------
 minikube mount $EXTRA_VOLUME:/pv &
 # nohup minikube mount $EXTRA_VOLUME:/pv &
 
