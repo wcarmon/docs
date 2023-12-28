@@ -30,7 +30,7 @@ readonly SCRIPT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/")
 # ---------------------------------------------
 # -- Config
 # ---------------------------------------------
-readonly EXTRA_VOLUME="/tmp/volume-for-minikube-1"
+readonly EXTRA_VOLUME="$HOME/tmp/volume-for-minikube-1"
 
 
 # ---------------------------------------------
@@ -38,8 +38,8 @@ readonly EXTRA_VOLUME="/tmp/volume-for-minikube-1"
 # ---------------------------------------------
 
 # GOTCHA:
-# mounting via minikube start doesn't work so well
-# minikube start --mount-string="/tmp/volume-for-minikube-1:/pv" --mount
+# -- mounting via minikube start doesn't work so well
+# minikube start --mount-string="$HOME/tmp/volume-for-minikube-1:/pv" --mount
 
 # -- Cleanup old mount processes
 minikube mount --kill;
