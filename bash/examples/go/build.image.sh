@@ -85,7 +85,7 @@ echo
 echo "|-- Latest commit: $(git log -1 --format='%H at %ci')"
 
 echo
-echo "|-- Building & tagging docker image ..."
+echo "|-- Building & tagging docker image into local registry ..."
 $DOCKER build \
   --file ${DOCKERFILE} \
   --tag "${QUALIFIED_IMAGE_NAME}:${TAG_LATEST}" \
