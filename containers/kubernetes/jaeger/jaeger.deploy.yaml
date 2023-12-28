@@ -1,7 +1,5 @@
 # --------------------------------------------------------------------
 # -- Debugging:
-#
-#
 # kubectl describe deploy jaeger-deploy
 # kubectl describe po $(kubectl get pods -l app=jaeger --output=jsonpath={.items..metadata.name});
 #
@@ -122,9 +120,9 @@ spec:
             - name: COLLECTOR_ZIPKIN_HOST_PORT
               value: ":9411"
 
-            #TODO: uncomment this:
-#            - name: SPAN_STORAGE_TYPE
-#              value: badger
+            # NOTE: comment this out if storage/volumes are broken
+            - name: SPAN_STORAGE_TYPE
+              value: badger
 
             # -- must match ingress.spec.rules.http.paths.path
             - name: QUERY_BASE_PATH
@@ -166,10 +164,6 @@ spec:
             - containerPort: 14269
               name: admin-health-1
 
-          #  # - 14271 = admin, health check
-          #  # - 16685 = query service
-          #  # - 16687 = query service
-
           resources:
             requests:
               cpu: 1500m
@@ -189,6 +183,5 @@ spec:
           persistentVolumeClaim:
             claimName: jaeger-pvc
 
-
-#  # TODO: set TTL on badger
-#  # TODO: set max memory on badger
+# TODO: set TTL on badger
+# TODO: set max memory on badger
