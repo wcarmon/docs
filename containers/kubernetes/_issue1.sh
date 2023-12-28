@@ -5,30 +5,47 @@ set -o pipefail
 set -u # fail on unset var
 
 
-set -x
-minikube stop;
-minikube mount --kill;
+# ---------------------------------------------------------------
+readonly PV_ROOT="$HOME/tmp/volume-for-minikube-1"
 
-minikube delete --all;
-minikube delete --purge;
-
-rm -rfv $HOME/tmp/volume-for-minikube-1/*
-
-#sudo find / -name badger -type d
-#sudo find / -name beagle -type d
-#sudo find /var/lib/docker/overlay2/ -name badger -type d
-#sudo find /var/lib/docker/overlay2/ -name beagle -type d
 
 # ---------------------------------------------------------------
+$HOME/git-repos/docs/bash/examples/minikube/destroy.sh
+#rm -rfv "$PV_ROOT/*"
+
+
+# ---------------------------------------------------------------
+echo
+echo "|-- Starting minikube ..."
 minikube start;
 
+minikube addons enable ingress;
+minikube addons enable metrics-server
+
+echo
+echo "|-- Minikube Volume setup ..."
 $HOME/git-repos/docs/containers/kubernetes/volume-examples/minikube.volume.sh
 
+echo
+echo "|-- Applying jaeger yamls ..."
 kubectl apply -f $HOME/git-repos/docs/containers/kubernetes/jaeger/
 
-kubectl get deploy jaeger-deploy
-kubectl get pod
-
+echo
+echo "|-- Deployment:"
 kubectl describe deploy jaeger-deploy
 
-# kubectl exec -it deploy/jaeger-deploy -- /bin/ash;
+echo
+echo "|-- Pods:"
+kubectl get pod
+
+echo
+echo "|-- Pod logs:"
+kubectl logs $(kubectl get pods -l app=jaeger --output=jsonpath={.items..metadata.name});
+
+echo
+echo "|-- Dir:"
+tree -L 2 $PV_ROOT;
+
+echo
+echo "|-- Entering pod:"
+kubectl exec -it deploy/jaeger-deploy -- /bin/ash;
