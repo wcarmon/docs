@@ -1,7 +1,7 @@
 # --------------------------------------------------------------------
 # -- Debugging:
-# kubectl get deploy jaeger-deploy
 # kubectl describe deploy jaeger-deploy
+# kubectl get deploy jaeger-deploy
 #
 # kubectl logs --selector app=jaeger
 #
@@ -11,8 +11,6 @@
 #
 # -- Official Jaeger Ports:
 # - See https://www.jaegertracing.io/docs/1.52/deployment/
-#
-#
 #
 # --------------------------------------------------------------------
 
@@ -80,7 +78,7 @@ spec:
               name: grpc-collector
 
             - containerPort: 9411
-              name: zipkin-collector
+              name: zipkin
 
           resources:
             requests:
@@ -89,7 +87,7 @@ spec:
               # -- NOTE: when jaeger runs out of memory, the UI doesn't return any spans
               # -- Just restart since span data is persistent
               # -- See https://docs.docker.com/config/containers/resource_constraints/#limit-a-containers-access-to-memory
-              memory: 1g
+              memory: 1G
 
 #  -p 14250:14250 \
 #  -p 14269:14269 \
