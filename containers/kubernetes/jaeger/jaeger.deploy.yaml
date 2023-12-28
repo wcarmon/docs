@@ -104,11 +104,25 @@ spec:
               value: /jaeger
 
           ports:
+            # TODO: drop any unused
             - containerPort: 4317
               name: otlp-grpc
+              protocol: TCP
 
             - containerPort: 4318
               name: otlp-http
+
+            - containerPort: 5778
+              name: agnt-cnfgs-http
+              protocol: TCP
+
+            - containerPort: 6831
+              name: agnt-j-thrft-co
+              protocol: UDP
+
+            - containerPort: 6832
+              name: agnt-j-thrft-bn
+              protocol: UDP
 
             - containerPort: 9411
               name: zipkin
@@ -116,22 +130,18 @@ spec:
             - containerPort: 16686
               name: browser-ui
 
+            - containerPort: 14250
+              name: model-proto
+
             - containerPort: 14268
               name: grpc-collector
 
-          #  -p 14250:14250 \
-          #  -p 14269:14269 \
-          #  -p 5778:5778 \
-          #  -p 6831:6831/udp \
-          #  -p 6832:6832/udp \
+            - containerPort: 14269
+              name: admin-health-1
 
-          #  # - 14250 = collector: model.proto
-          #  # - 14269 = admin, health check
           #  # - 14271 = admin, health check
           #  # - 16685 = query service
           #  # - 16687 = query service
-          #  # - 6831 = compact thrift
-          #  # - 6832 = binary thrift
 
           resources:
             requests:
