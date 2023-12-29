@@ -110,7 +110,7 @@ WORKDIR /app
 COPY --from=builder /home/appbuilder/main/build/libs/app.jar /app/app.jar
 
 # -- Print help:
-#   docker run -it --rm ghcr.io/graalvm/native-image-community:21-muslib --help
+#   docker run -it --rm ghcr.io/graalvm/native-image-community:21 --help
 
 # -- Compile jar to native binary
 RUN /usr/bin/native-image \
