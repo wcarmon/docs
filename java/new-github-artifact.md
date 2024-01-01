@@ -1,8 +1,8 @@
 # Overview
-1. TODO
+1. Steps to setup a new Github repo, with a public, published jar artifact
 
 
-# Creating a repo for public, published jar artifact
+# Steps
 1. Choose a name (eg. "foo-utils-jvm")
 1. Choose a License (eg. MIT)
 1. Create new repo in GitHub
@@ -19,6 +19,12 @@
 1. Make source tree
     1. `mkdir -p src/{main,test}/{java,resources}/`
     1. `mkdir -p src/{main,test}/java/io/github/`
+1. Choose a package
+    1. io.github.<your-name>.<subject>
 1. `module-info.java`
     1. `touch src/main/java/module-info.java`
 1. Make `readme.md`
+
+
+# Publish
+- See [publish doc](../gradle/publishing_artifacts.md)
