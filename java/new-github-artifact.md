@@ -1,0 +1,24 @@
+# Overview
+1. TODO
+
+
+# Creating a repo for public, published jar artifact
+1. Choose a name (eg. "foo-utils-jvm")
+1. Choose a License (eg. MIT)
+1. Create new repo in GitHub
+1. clone (git+ssh)
+1. Update License (add your name or organization name)
+1. `settings.gradle.kts`
+    1. rootProject.name = "foo-utils-jvm"
+1. `gradle wrap`
+1. Open in IDE
+1. copy `.gitignore`
+1. copy `.gitattributes`
+1. `git add`
+1. Make `build.gradle.kts`
+1. Make source tree
+    1. `mkdir -p src/{main,test}/{java,resources}/`
+    1. `mkdir -p src/{main,test}/java/io/github/`
+1. `module-info.java`
+    1. `touch src/main/java/module-info.java`
+1. Make `readme.md`
