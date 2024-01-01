@@ -24,6 +24,7 @@
 1. `module-info.java`
     1. `touch src/main/java/module-info.java`
 1. Make `readme.md`
+1. Write code
 
 
 # Publish
