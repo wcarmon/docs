@@ -27,6 +27,7 @@
     1. `touch src/main/java/module-info.java`
 1. Make `readme.md`
 1. Write code
+1. Move panels to Right-Top
 
 
 # Publish
