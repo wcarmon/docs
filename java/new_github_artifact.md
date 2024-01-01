@@ -16,6 +16,8 @@
 1. copy `.gitattributes`
 1. `git add`
 1. Make `build.gradle.kts`
+    1. set mvnArtifactId
+    1. set dependencies
 1. Make source tree
     1. `mkdir -p src/{main,test}/{java,resources}/`
     1. `mkdir -p src/{main,test}/java/io/github/`
