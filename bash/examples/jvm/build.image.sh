@@ -22,7 +22,9 @@ readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
 # ---------------------------------------------
 # semver: https://semver.org/
 # eg. "1.2.3" or "4.5"
+set +u
 readonly SEMVER=$1
+set -u
 
 # ---------------------------------------------
 # -- Config
@@ -57,6 +59,18 @@ readonly IMAGE_REPO_URI=ecr.us-east-1.amazonaws.com
 # Google cloud: gcloud artifacts repositories list
 readonly REPOSITORY_NAME=my-github-project
 
+# -- Optional
+# -- Path to write git info as html
+# -- Ensure this path is in .gitignore
+readonly GIT_INFO_HTML_FILE="src/git-info.html"
+
+# -- Optional
+# -- Path to write git info as property file
+# -- Ensure this path is in .gitignore
+readonly GIT_INFO_PROPERTY_FILE="src/git-info.properties"
+#readonly GIT_INFO_PROPERTY_FILE="src/main/resources/git-info.properties"
+
+
 # ---------------------------------------------
 # -- Derived
 # ---------------------------------------------
@@ -76,13 +90,55 @@ if [ "$(echo $TAG_NUMBERED)" = "" ]; then
   exit 10
 fi
 
+
 # ---------------------------------------------
-# -- Build
+# -- Write git info
 # ---------------------------------------------
 cd "$PROJ_ROOT" >/dev/null 2>&1
 
 echo
-echo "|-- Latest commit: $(git log -1 --format='%H at %ci')"
+echo "|-- Latest commit: $(git log -1 --format='%H')"
+echo "|-- Latest commit ts: $(git log -1 --format='%ci')"
+
+if [ -n "$GIT_INFO_HTML_FILE" ]; then
+  SINK="$GIT_INFO_HTML_FILE"
+
+  # -- truncate
+  :> $SINK
+
+  echo '<!doctype html>
+  <html lang="en">
+  <body>
+    <ul>' >> $SINK
+
+  echo "    <li>gitHash: $(git log -1 --format='%H')</li>" >> $SINK
+  echo "    <li>buildTS: $(git log -1 --format='%ci')</li>" >> $SINK
+
+  echo '  </ul>
+  </body>
+  </html>' >> $SINK
+
+  echo "|-- Wrote git info as html to $SINK"
+fi
+
+
+if [ -n "$GIT_INFO_PROPERTY_FILE" ]; then
+  SINK="$GIT_INFO_PROPERTY_FILE"
+
+  # -- truncate
+  :> $SINK
+
+  echo "git.hash=$(git log -1 --format='%H')" >> $SINK
+  echo "git.ts=$(git log -1 --format='%ci')" >> $SINK
+
+  echo "|-- Writing git info as property file to $SINK"
+fi
+
+
+# ---------------------------------------------
+# -- Build
+# ---------------------------------------------
+cd "$PROJ_ROOT" >/dev/null 2>&1
 
 echo
 echo "|-- Building & tagging docker image into local registry ..."
