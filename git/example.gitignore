@@ -312,6 +312,7 @@ logs/
 maven-status/
 Network Trash Folder
 node_modules/
+nohup.out
 npm-debug.log
 objs
 out-tsc/
