@@ -56,9 +56,10 @@ ng serve --open
 ## Files 
 1. `tsconfig.json`: Global
     - Add any extra ES features to [`compilerOptions.lib`](https://www.typescriptlang.org/tsconfig#individual-library-components) 
-        - "ES2015.Collection",
-        - "ES2021.String",
-        - "ES2018.Promise",
+        - "es2018.promise"
+        - "es2023.collection"
+        - 'es2022.regexp'
+        - 'es2022.string'
     - Add `"noImplicitAny": true,`
     - Add typeRoots
         ```json
