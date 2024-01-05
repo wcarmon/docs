@@ -124,6 +124,7 @@ kubectl explain endpoints.subsets.ports;
 1. Requires an ingress controller
     1. Enable: `minikube addons enable ingress;`
     1. Verify: `minikube addons list | grep -i ingress;`
+1. OpenShift calls this a [Route](https://docs.openshift.com/container-platform/4.14/networking/routes/route-configuration.html)
 
 
 ## TLS Certificates
