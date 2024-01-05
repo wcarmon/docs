@@ -7,7 +7,7 @@
 # ---------------------------------------------
 # -- Build stage
 # ---------------------------------------------
-FROM debian:bullseye AS builder
+FROM debian:bullseye AS buildStage
 WORKDIR /home/appbuilder
 
 # -- TODO: copy extra ca certs here
@@ -102,7 +102,7 @@ EXPOSE 3000
 RUN update-ca-certificates && \
     apk --no-cache add ca-certificates
 
-COPY --from=builder /home/appbuilder/build/libs/*.jar /app/app.jar
+COPY --from=buildStage /home/appbuilder/build/libs/*.jar /app/app.jar
 
 #TODO: need to copy/install java
 

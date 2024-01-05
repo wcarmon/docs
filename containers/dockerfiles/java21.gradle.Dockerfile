@@ -8,7 +8,7 @@
 # -- Build stage
 # ---------------------------------------------
 # -- Debug: docker run -it --rm amazoncorretto:21 bash
-FROM amazoncorretto:21 AS builder
+FROM amazoncorretto:21 AS buildStage
 
 # - Alpine: /usr/local/share/ca-certificates/
 # - Debian: /usr/lib/ssl/certs/
@@ -106,8 +106,8 @@ USER root
 WORKDIR /app
 
 # -- Copy uber jar from previous stage
-#COPY --from=builder /home/appbuilder/build/libs/app.jar /app/app.jar
-COPY --from=builder /home/appbuilder/main/build/libs/app.jar /app/app.jar
+#COPY --from=buildStage /home/appbuilder/build/libs/app.jar /app/app.jar
+COPY --from=buildStage /home/appbuilder/main/build/libs/app.jar /app/app.jar
 
 # -- Print help:
 #   docker run -it --rm ghcr.io/graalvm/native-image-community:21 --help
