@@ -4,6 +4,8 @@
 # Related git commands:
 #       git status --ignored
 #
+# See https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository#_ignoring
+#
 # Syntax:
 # *If line is prefixed with !, negates the pattern
 # *If pattern does not contain a slash, treated like a shell glob pattern (match against the pathname, relative to $REPO_HOME)
