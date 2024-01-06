@@ -1,0 +1,42 @@
+# --------------------------------------------------------------------
+# -- Debugging:
+# kubectl describe svc ui-service
+# kubectl get svc ui-service
+#
+# kubectl logs --selector app=ui
+# kubectl get events --namespace=default
+#
+#
+# -- Access inside cluster:
+# http://ui-service:3000
+# http://ui-service:3001
+#
+# -- Access outside cluster:
+# -- See ui.ing.yaml
+# --------------------------------------------------------------------
+
+apiVersion: v1
+kind: Service
+
+metadata:
+  labels:
+    app: ui
+  name: ui-service
+  namespace: default
+
+spec:
+  ports:
+    - name: release-build
+      port: 3000
+      protocol: TCP
+      targetPort: 3000
+
+    - name: debug-build
+      port: 3001
+      protocol: TCP
+      targetPort: 3001
+
+  selector:
+    app: ui
+
+  type: ClusterIP

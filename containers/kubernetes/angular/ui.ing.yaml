@@ -1,0 +1,65 @@
+# --------------------------------------------------------------------
+#
+# GOTCHA: pathType=Prefix is not helpful for Angular
+#
+# -- Debugging:
+# kubectl describe ing my-ingress
+# kubectl get events
+#
+# -- Accessing UI outside the cluster:
+# echo "Navigate to:  http://$(minikube ip)/ui";
+# echo "Navigate to:  http://$(minikube ip)/ui-debug";
+#
+#
+# -- minikube ingress logs:
+# kubectl get pods -n ingress-nginx |  grep -i running   # get pod name
+# INGRESS_POD=ingress-nginx-controller-7c6974c4d8-v77gx
+# kubectl logs $INGRESS_POD -n ingress-nginx
+# --------------------------------------------------------------------
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+
+metadata:
+  name: my-ingress
+  namespace: default
+
+  annotations:
+    nginx.ingress.kubernetes.io/use-regex: "true"
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+
+spec:
+  rules:
+    - http:
+        paths:
+
+          # --- TODO: Add these to your existing Ingress
+
+          # -- Regex supported by nginx location directive
+          # -- For Angular, must match: ng build --base-href="ui/" ...
+          - path: /ui(/|$)(.*)
+
+            # -- ImplementationSpecific means a raw nginx location directive
+            # -- See http://nginx.org/en/docs/http/ngx_http_core_module.html#location
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                # -- must match service.metadata.name
+                name: ui-service
+
+                port:
+                  # -- For release build
+                  # -- must match an exposed port in service.yaml (spec.ports[i].port)
+                  number: 3000
+
+          - path: /ui-debug(/|$)(.*)
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                # -- must match service.metadata.name
+                name: ui-service
+
+                port:
+                  # -- For debug build
+                  # -- must match an exposed port in service.yaml (spec.ports[i].port)
+                  number: 3001

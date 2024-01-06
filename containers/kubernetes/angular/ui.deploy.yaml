@@ -1,0 +1,89 @@
+# --------------------------------------------------------------------
+# -- Debugging:
+# kubectl describe deploy ui-deploy
+# kubectl describe po $(kubectl get pods -l app=ui --output=jsonpath={.items..metadata.name});
+#
+#
+# -----------------------------------
+# -- Logs & Events
+# -----------------------------------
+# kubectl logs $(kubectl get pods -l app=ui --output=jsonpath={.items..metadata.name});
+# kubectl logs --selector app=ui
+#
+# kubectl get events --namespace=default
+# -- (new events at bottom)
+#
+# POD_NAME="$(kubectl get pods -l app=ui --output=jsonpath={.items..metadata.name})";
+#
+#
+# -----------------------------------
+# -- Debug running container
+# -----------------------------------
+# kubectl exec -it deploy/ui-deploy -- /bin/ash;
+# kubectl exec -it deploy/ui-deploy -- env | sort;
+#
+#
+# -----------------------------------
+# -- Debug the Image
+# -----------------------------------
+# IMAGE_NAME="my-image-a:latest"
+# kubectl delete pod debug-ui;
+# kubectl run debug-ui --image=$IMAGE_NAME
+# kubectl exec -it debug-ui -- /bin/ash;
+#
+#
+# -----------------------------------
+# -- Delete/Cleanup
+# -----------------------------------
+# kubectl delete deploy ui-deploy;
+#
+# --------------------------------------------------------------------
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: ui
+  name: ui-deploy
+  namespace: default
+
+spec:
+  # -- TODO: Use as many as you need
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: ui
+
+  strategy:
+    type: Recreate
+
+  template:
+    metadata:
+      labels:
+        app: ui
+
+    spec:
+      containers:
+        # TODO: fix this image name
+        - image: my-image-a:0.0.13
+
+          imagePullPolicy: IfNotPresent
+          name: ui
+
+          ports:
+            - containerPort: 3000
+              name: release-build
+              protocol: TCP
+
+            - containerPort: 3001
+              name: debug-build
+              protocol: TCP
+
+          resources:
+            requests:
+              cpu: 2000m
+
+              # -- See https://docs.docker.com/config/containers/resource_constraints/#limit-a-containers-access-to-memory
+              memory: 250M
+              # memory: 1g
