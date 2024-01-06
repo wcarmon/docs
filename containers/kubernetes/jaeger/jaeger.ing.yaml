@@ -25,7 +25,12 @@ spec:
   rules:
     - http:
         paths:
-          - backend:
+          # --- TODO: Add these to your existing Ingress
+
+         # -- GOTCHA: path must match deployment.spec.template.spec.containers.env.QUERY_BASE_PATH
+          - path: /jaeger
+            pathType: Prefix
+            backend:
               service:
                 # -- must match service.metadata.name
                 name: jaeger-service
@@ -33,8 +38,3 @@ spec:
                 port:
                   # -- must match service port for browser ui
                   number: 16686
-
-            # -- must match deployment.spec.template.spec.containers.env.QUERY_BASE_PATH
-            path: /jaeger
-
-            pathType: Prefix

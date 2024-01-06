@@ -16,9 +16,14 @@
 
 ## Baseurl
 1. Add to [`angular.json`](https://angular.io/guide/workspace-config#angular-workspace-configuration)
-    - [`/projects/<project-name>/architect/build/options/baseHref`](https://angular.io/guide/workspace-config#base-href)
+    1. [`/projects/<project-name>/architect/build/options/baseHref`](https://angular.io/guide/workspace-config#base-href)
+    1. Set the `baseHref` here (**NOT** as a cli argument in `ng build ...`)
+        1. Each configuration can have a different `baseHref`
 1. Add to `index.html`
-    - TODO: see https://angular.io/guide/deployment#the-base-tag
+    1. `<base href="/">` is fine (and is the default)
+    1.  angular-build rewrites the `base`, so default is fine:
+        1. See https://github.com/angular/angular-devkit-build-angular-builds/blob/main/src/utils/index-file/augment-index-html.js#L138
+    1. See https://angular.io/guide/deployment#the-base-tag
 
 
 # [Karma](https://angular.io/guide/testing#configuration)

@@ -30,6 +30,7 @@ readonly KUBECTL="minikube kubectl --"
 # ---------------------------------------------
 # -- Config
 # ---------------------------------------------
+readonly K8S_YAML_DIR="$SCRIPT_DIR"
 
 
 # ---------------------------------------------
@@ -56,7 +57,7 @@ $KUBECTL apply -f $PARENT_DIR/volume-examples/local.pv.yaml
 
 echo
 echo "|-- Applying jaeger yamls ..."
-$KUBECTL apply -f $SCRIPT_DIR/
+$KUBECTL apply -f $K8S_YAML_DIR/
 
 sleep 1;
 

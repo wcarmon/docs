@@ -1,7 +1,7 @@
 # --------------------------------------------------------------------
 # -- Debugging:
-# kubectl describe svc jaeger-deploy
-# kubectl get svc jaeger-deploy
+# kubectl describe svc jaeger-service
+# kubectl get svc jaeger-service
 #
 # kubectl logs --selector app=jaeger
 # kubectl get events --namespace=default
