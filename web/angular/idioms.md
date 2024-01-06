@@ -15,6 +15,8 @@
 1. [Set Base href](https://angular.io/guide/router#base-href)
 
 ## Baseurl
+1. Make sure it **ends with a slash**
+1. If using k8s ingress, use the path as `--base-href`
 1. Priority
     1. Highest: `ng build --base-href="..."`  <-- do it here
     1. Middle:  `baseHref` in `angular.json`  <-- don't use
