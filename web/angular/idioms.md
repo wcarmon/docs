@@ -16,9 +16,9 @@
 
 ## Baseurl
 1. Priority
-    1. Highest: `ng build --base-href="..."`
-    1. Middle:  `baseHref` in `angular.json`
-    1. Lowest: `<base href="...">` in `index.html`
+    1. Highest: `ng build --base-href="..."`  <-- do it here
+    1. Middle:  `baseHref` in `angular.json`  <-- don't use
+    1. Lowest: `<base href="...">` in `index.html`  <-- don't use
 1. Add to [`angular.json`](https://angular.io/guide/workspace-config#angular-workspace-configuration)
     1. [`/projects/<project-name>/architect/build/options/baseHref`](https://angular.io/guide/workspace-config#base-href)
     1. Set the `baseHref` here (cli argument in `ng build ...`)
