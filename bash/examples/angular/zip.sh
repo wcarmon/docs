@@ -32,6 +32,7 @@ readonly OUTPUT_FILE=dist/archive.zip
 # ---------------------------------------------
 # -- Derived
 # ---------------------------------------------
+readonly REAL_OUTPUT=$(readlink -f "${OUTPUT_FILE}")
 
 
 # ---------------------------------------------
@@ -44,11 +45,21 @@ readonly OUTPUT_FILE=dist/archive.zip
 # ---------------------------------------------
 cd "$PARENT_DIR" >/dev/null 2>&1
 
-rm -v "$OUTPUT_FILE" || true
+rm -vf "$OUTPUT_FILE" || true
 
 zip -r "$OUTPUT_FILE" \
 . \
--x ".angular/*" \
--x ".idea/*" \
--x "dist/*" \
--x "node_modules/*"
+-x "./package-lock.json" \
+-x "./pnpm-lock.yaml" \
+-x ".angular*" \
+-x ".idea*" \
+-x "dist*" \
+-x "node_modules*"
+
+
+# ---------------------------------------------
+# -- Report
+# ---------------------------------------------
+echo
+echo "|-- Wrote zip file:"
+du -sh $REAL_OUTPUT || true
