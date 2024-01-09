@@ -1,6 +1,7 @@
 # Overview
 1. Info on flux Sources
 1. See [flux doc](./flux.md)
+1. See [helm doc](./helm.md)
 
 
 # [Source](https://fluxcd.io/flux/concepts/#sources)
@@ -16,10 +17,11 @@
 ## [`HelmRepository` (`source.toolkit.fluxcd.io/v1beta2`) Custom Resource](https://github.com/fluxcd/source-controller/blob/main/docs/spec/v1beta2/helmrepositories.md)
 1. [Custom Resource Definition](https://github.com/fluxcd/source-controller/blob/main/docs/spec/v1beta1/helmrepositories.md)
 1. `index.yaml`
+    1. includes the contents of `Chart.yaml`
 1. [Example](https://github.com/fluxcd/source-controller/blob/main/docs/spec/v1beta2/helmrepositories.md#examples)
 1. `kubectl get helmrepository`
-1. [`.spec.interval`](TODO) controls how often flux checks for diffs
-
+1. [`.spec.interval`](TODO) controls how often flux checks for diffs (eg. `10m`, `5m`)
+   
 
 
 # [Source Controller](https://fluxcd.io/flux/components/source/)

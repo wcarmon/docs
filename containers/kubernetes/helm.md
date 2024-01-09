@@ -31,6 +31,7 @@
 # Packaging
 1. A package is just a `.tgz` (tar-gzip) of the directory layout + [`index.yaml`](https://helm.sh/docs/topics/chart_repository/#the-index-file) 
     1. [`helm repo index`](https://helm.sh/docs/helm/helm_repo_index/) can generate the `index.yaml` file
+    1. `index.yaml` contains the contents of `Chart.yaml`
 
 
 # Public charts
