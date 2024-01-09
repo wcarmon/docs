@@ -13,6 +13,7 @@
 1. GitHub aware
 1. GitLab aware
 1. (Mostly) removes the need to execute `kubectl`
+1. Supports an arbitrary number of git repos
 
 
 # Input
@@ -39,13 +40,14 @@
     1. Has credentials
 1. Flux checks (origin of) Source periodically (eg. every 5 minutes)
 1. All Sources are [CRDs (Custom Resources)](TODO)
-1. `HelmRepository`
+1. `HelmRepository` (`source.toolkit.fluxcd.io/v1beta2`)
     1. https://github.com/fluxcd/source-controller/blob/main/docs/spec/v1beta2/helmrepositories.md
     1. `index.yaml`
+    1. [Example](https://github.com/fluxcd/source-controller/blob/main/docs/spec/v1beta2/helmrepositories.md#examples)
 
 
 ## [Source Controller](https://fluxcd.io/flux/components/source/)
-1. 
+1. Uses one or more `Source`s
 1. [Spec](TODO)
    Validate source definitions
    Authenticate to sources (SSH, user/password, API token)
@@ -62,9 +64,13 @@
 1. [`HelmRelease`](TODO)
 1. [`Kustomization`](TODO)
     1. [Flux Kustomization](TODO) is different from [Kubernetes Kustomization] (TODO)
+1. [`flux reconcile source helm <repository-name>`](https://fluxcd.io/flux/cmd/flux_reconcile/)
 
 
 - TODO: https://github.com/kubernetes/design-proposals-archive/blob/main/architecture/declarative-application-management.md
+
+# UI
+1. [Weave gitops](https://github.com/weaveworks/weave-gitops)
 
 
 # Other resources
