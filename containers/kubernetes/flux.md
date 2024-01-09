@@ -16,10 +16,13 @@
 1. Supports an arbitrary number of git repos
 1. Sends notifications 
 
+
 # Input
+1. TODO
 
 
 # Output
+1. An application running in a k8s cluster
 
 
 # Concepts
@@ -34,7 +37,7 @@
 1. Pull-based deployment (Eventually consistent)
 
 
-## [Source](TODO)
+## [Source](https://fluxcd.io/flux/concepts/#sources)
 1. Contents
     1. Has desired state (or running cluster) 
     1. Has version selectors
@@ -55,11 +58,7 @@
 1. Fetchs resources on-demand and on-a-schedule (eg. HelmRepository's `index.yaml`, chart, etc)
 1. Packages the fetched resources into tar.gz
 1. Triggers notifications (status conditions, events, hooks)
-
-
-## KustomizationController
-1. Consumes source (eg. `HelmRepository`)
-1. https://github.com/fluxcd/kustomize-controller/
+1. https://github.com/fluxcd/source-controller/
 
 
 ## HelmController (Kubernetes operator)
@@ -70,14 +69,20 @@
 1. Generates `HelmChart`s
 1. Executes helm actions/operations against the k8s cluster
 1. Reports events to [`NotificationController`](https://github.com/fluxcd/notification-controller)
-1. Includes a [Kustomize](TODO) [post renderer](https://helm.sh/docs/topics/advanced/#post-rendering)
-1. https://github.com/fluxcd/helm-controller/blob/main/docs/spec/README.md
+1. Includes a [Kustomize](https://kustomize.io/) [post renderer](https://helm.sh/docs/topics/advanced/#post-rendering)
 1. https://fluxcd.io/flux/guides/helmreleases/
+1. https://github.com/fluxcd/helm-controller/blob/main/docs/spec/README.md
+1. https://github.com/fluxcd/helm-controller/blob/main/docs/spec/v2beta2/README.md
+
+
+## KustomizationController
+1. Consumes source (eg. `HelmRepository`)
+1. https://github.com/fluxcd/kustomize-controller/
 
 
 ## Reconciliation
 1. Ensures Cluster state matches desired state
-1. [`HelmRelease`](TODO) Custom Resource
+1. [`HelmRelease`](https://fluxcd.io/flux/components/helm/helmreleases/) Custom Resource
      1. The desired state of a Helm release
 1. [`Kustomization`](TODO)
     1. [Flux Kustomization](TODO) is different from [Kubernetes Kustomization] (TODO)
@@ -90,31 +95,31 @@
 1. [Weave gitops](https://github.com/weaveworks/weave-gitops)
 
 
+# Flagger
+1. https://fluxcd.io/flagger/faq/
+1. Progressive Delivery (gradual rollout)
+1. eg. A/B testing
+
+
 # Other resources
 1. TODO
 
 
 # TODO/Unorganized:
 - Deployment is based on tags
-- Runs in a Kubernetes cluster
-- Polls a (remote) git repo (eg. gitlab) at configurable interval
-- Image Automation Controller
+- [Image Automation Controller](https://fluxcd.io/flux/components/image/)
    - scans container images
    - auto-tagging
-- Notification Controller
+- [Notification Controller](https://fluxcd.io/flux/components/notification/)
    - Input: events from git repo, Jenkins
    - Output: Slack, ...
 - https://fluxcd.io/flux/components/source/
 - https://fluxcd.io/flux/components/source/helmrepositories/
 - https://fluxcd.io/flux/components/
-- https://fluxcd.io/flux/components/helm/
 - https://fluxcd.io/flux/components/helm/helmreleases/
-- https://fluxcd.io/flux/components/kustomize/
 - https://fluxcd.io/flux/components/kustomize/
 - https://fluxcd.io/flux/components/kustomize/kustomizations/
 - https://fluxcd.io/flux/faq/#kustomize-questions
-- https://fluxcd.io/flagger/faq/
-- https://fluxcd.io/flux/cheatsheets/oci-artifacts/
 - https://fluxcd.io/flux/cheatsheets/troubleshooting/
 - https://fluxcd.io/flux/cmd/flux_create_image/
 - https://fluxcd.io/flux/faq/
