@@ -18,8 +18,9 @@
 
 
 # Flux Input
-1. kubernetes `*.yaml` files in some git repository
-    1. or helm charts in some git repository
+1. One or more [Source](./flux.sources.md)s
+1. Desired state
+1. eg. kubernetes `*.yaml` files in some git repository or helm charts in some git repository
 
 
 # Flux Output
