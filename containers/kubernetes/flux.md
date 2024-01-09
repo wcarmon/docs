@@ -70,7 +70,9 @@
 1. [`Kustomization`](TODO)
     1. [Flux Kustomization](TODO) is different from [Kubernetes Kustomization] (TODO)
 1. [`flux reconcile source helm <repository-name>`](https://fluxcd.io/flux/cmd/flux_reconcile/)
-
+1. [To manually trigger a reconcile](https://fluxcd.io/flux/components/source/helmrepositories/#triggering-a-reconcile)
+    1. `kubectl annotate --field-manager=flux-client-side-apply --overwrite helmrepository/$REPOSITORY_NAME reconcile.fluxcd.io/requestedAt="$(date +%s)"`
+    1. or `flux reconcile source helm $REPOSITORY_NAME`
 
 - TODO: https://github.com/kubernetes/design-proposals-archive/blob/main/architecture/declarative-application-management.md
 
@@ -102,7 +104,6 @@
 - [Notification Controller](https://fluxcd.io/flux/components/notification/)
    - Input: events from git repo, Jenkins
    - Output: Slack, ...
-- https://fluxcd.io/flux/components/source/helmrepositories/  <-- now
 - https://fluxcd.io/flux/components/helm/helmreleases/
 
 https://fluxcd.io/flux/components/kustomize/
