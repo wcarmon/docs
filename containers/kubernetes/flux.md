@@ -101,6 +101,10 @@
 1. eg. A/B testing
 
 
+# Alternatives
+1. ~~argo CD~~ lost this war (see [gitlab article](https://about.gitlab.com/blog/2023/02/08/why-did-we-choose-to-integrate-fluxcd-with-gitlab/)) 
+
+
 # Other resources
 1. TODO
 

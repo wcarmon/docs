@@ -145,5 +145,10 @@ kubectl get ds;
 1. "Join" between `Role` and `User` (or set of users) 
 
 
+# [Operator](https://kubernetes.io/docs/concepts/extend-kubernetes/operator/)
+1. Code that checks periodically to see if cluster state matches desired state
+1. Code that fixes the cluster to match desired state
+
+
 # Architecture
 1. See [arch](./k8s.arch.md) doc
