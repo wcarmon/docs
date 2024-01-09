@@ -4,7 +4,7 @@
 
 
 # Features
-1. OpenSource
+1. Open-source
 1. Declarative
 1. Automate everything from Artifactory to running application
 1. [Helm](./helm.md) aware
@@ -17,14 +17,16 @@
 1. Sends notifications 
 
 
-# Input
-1. TODO
+# Flux Input
+1. kubernetes `*.yaml` files in some git repository
+    1. or helm charts in some git repository
 
 
-# Output
+# Flux Output
 1. An application running in a k8s cluster
 
 
+-------- 
 # Concepts
 1. Flux is a set of [Custom Resources](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/)
 
@@ -37,28 +39,8 @@
 1. Pull-based deployment (Eventually consistent)
 
 
-## [Source](https://fluxcd.io/flux/concepts/#sources)
-1. Contents
-    1. Has desired state (or running cluster) 
-    1. Has version selectors
-    1. Has credentials
-1. Flux checks (origin of) Source periodically (eg. every 5 minutes)
-1. All Sources are [CRDs (Custom Resources)](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/)
-1. [`HelmRepository` (`source.toolkit.fluxcd.io/v1beta2`) Custom Resource](https://github.com/fluxcd/source-controller/blob/main/docs/spec/v1beta2/helmrepositories.md)    
-    1. `index.yaml`
-    1. [Example](https://github.com/fluxcd/source-controller/blob/main/docs/spec/v1beta2/helmrepositories.md#examples)
-    1. `kubectl get helmrepository`
-
-
-## [Source Controller](https://fluxcd.io/flux/components/source/)
-1. Uses one or more `Source`s
-1. Validates source definitions
-1. Authenticates to sources (SSH, user/password, API token)
-1. Detects source changes based on update policies (semver, sha256 difference)
-1. Fetchs resources on-demand and on-a-schedule (eg. HelmRepository's `index.yaml`, chart, etc)
-1. Packages the fetched resources into tar.gz
-1. Triggers notifications (status conditions, events, hooks)
-1. https://github.com/fluxcd/source-controller/
+## Source and Source Controller 
+1. See [doc](./flux.sources.md)
 
 
 ## HelmController (Kubernetes operator)
@@ -91,6 +73,8 @@
 
 - TODO: https://github.com/kubernetes/design-proposals-archive/blob/main/architecture/declarative-application-management.md
 
+
+--------
 # UI
 1. [Weave gitops](https://github.com/weaveworks/weave-gitops)
 
@@ -117,17 +101,20 @@
 - [Notification Controller](https://fluxcd.io/flux/components/notification/)
    - Input: events from git repo, Jenkins
    - Output: Slack, ...
-- https://fluxcd.io/flux/components/source/
-- https://fluxcd.io/flux/components/source/helmrepositories/
-- https://fluxcd.io/flux/components/
+- https://fluxcd.io/flux/components/source/helmrepositories/  <-- now
 - https://fluxcd.io/flux/components/helm/helmreleases/
-- https://fluxcd.io/flux/components/kustomize/
+
+https://fluxcd.io/flux/components/kustomize/
 - https://fluxcd.io/flux/components/kustomize/kustomizations/
 - https://fluxcd.io/flux/faq/#kustomize-questions
+
+- https://fluxcd.io/flux/flux-e2e/
+- https://fluxcd.io/flux/faq/
+  
+- https://fluxcd.io/flux/components/source/
+- https://fluxcd.io/flux/components/
 - https://fluxcd.io/flux/cheatsheets/troubleshooting/
 - https://fluxcd.io/flux/cmd/flux_create_image/
-- https://fluxcd.io/flux/faq/
-- https://fluxcd.io/flux/flux-e2e/
 - https://fluxcd.io/flux/get-started/
 - https://fluxcd.io/flux/gitops-toolkit/
 - https://fluxcd.io/flux/guides/
