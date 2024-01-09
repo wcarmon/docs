@@ -10,6 +10,7 @@
 1. The "Atomic" unit for Kubernetes
     1. Kubernetes doesn't deal with containers directly
     1. `Pod` never spans two `Nodes`
+1. The smallest deployable unit
 1. A Deployable unit
 1. Like a single, logical machine (multiple processes/containers)
 1. Pods are ephemeral (can be restart at any time)
@@ -52,7 +53,11 @@ kubectl explain pod.spec.readinessGates;
 kubectl explain pod.spec.volumes;
 kubectl explain pod.spec;
 kubectl explain pod.status;
+
+kubectl get pods -o=jsonpath='{.items[*].metadata.name}'
+kubectl get pods -o=jsonpath='{.items[0].spec.containers[*].ports}'
 ```
+1. [jsonpath examples](https://kubernetes.io/docs/reference/kubectl/jsonpath/)
 
 
 --------

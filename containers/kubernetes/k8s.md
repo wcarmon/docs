@@ -1,7 +1,11 @@
 # Overview
 1. High-level overview of [Kubernetes](https://kubernetes.io/) (k8s)
 1. See [cheatsheet](./cheatsheet.k8s.md)
-1. See [Pod doc](./k8s.pods.md)
+1. See [Pod doc](./k8s.pod.md)
+
+# Goals
+1. To run containers efficiently on a pool of machines with the resources they need
+1. HA, prevent downtime
 
 
 # Concepts
@@ -53,7 +57,7 @@ kubectl describe no;
 
 
 ## Cluster
-1. A group of `Node`s
+1. A group/pool of `Node`s (computers)
 1. All `Pod`s in a cluster share a single flat network-address space (no NAT)
     1. Communication between pods is always simple
 
@@ -79,8 +83,8 @@ kubectl describe no;
 --------
 ## Execution
 
-### [Pod](./k8s.pods.md) (`po`)
-1. See [Pod](./k8s.pods.md) doc
+### [Pod](./k8s.pod.md) (`po`)
+1. See [Pod](./k8s.pod.md) doc
 
 
 ### [ReplicaSet](./k8s.rs.md) & ~~ReplicationController~~ (`rs`)
@@ -110,7 +114,8 @@ kubectl get ds;
 
 ### [StatefulSet](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/) (`sts`)
 1. Namespaced
-1. Useful for ... TODO
+1. Useful for stateful containers like Databases
+1. maintains a sticky identity for each Pod replica
 
 
 ## Jobs & CronJobs
@@ -123,11 +128,21 @@ kubectl get ds;
 
 
 ## ConfigMaps, Secrets
-1. See [ConfigMap](./k8s.config.md) doc
+1. See [ConfigMap](./k8s.cm.md) doc
 
 
 ## Storage
 1. See [Volumes](./k8s.volumes.md) doc
+
+
+## Auth
+
+### Role
+1. Permissions allows on some K8s API
+
+
+### RoleBinding
+1. "Join" between `Role` and `User` (or set of users) 
 
 
 # Architecture

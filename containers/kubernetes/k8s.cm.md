@@ -17,6 +17,7 @@
 
 # [ConfigMap](https://kubernetes.io/docs/concepts/configuration/configmap/) (`cm`)
 1. A [Namespaced](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) resource
+1. Decouples configuration from code   
 1. key-value pairs (Think: `Map<String, String>` or `map[string]string`)
 1. For non-confidential data
     1. certificates, server urls, timeouts, jwt expiration, min/max/limit values, etc

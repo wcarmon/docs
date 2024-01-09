@@ -6,6 +6,7 @@
 1. A [Namespaced](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) resource
 1. A single, **stable**, **constant** entry point for a group of pods (IP + ports)
     1. `Service`s convert the ephemeral lifecycle of pods into a stable IP address
+1. A Load-balancing mechanism for `Pod` replicas    
 1. All `Pod`s *should* have the same application
 1. Has one IP address (generally)
 1. Supports [multiple ports](https://kubernetes.io/docs/concepts/services-networking/service/#multi-port-services)
@@ -108,7 +109,7 @@ kubectl explain endpoints.subsets.ports;
 
 # [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) (`ing`)
 1. Think: [nginx](https://www.nginx.com/)
-1. Manages external access to services in the cluster
+1. Manages **external** access to services in the cluster
 1. An entry point for the cluster
 1. Ingress is NOT a service `type`
 1. Exposes HTTP (on 80) and HTTPS (on 443) routes from outside the cluster to `Service`s
