@@ -14,7 +14,7 @@
 1. GitLab aware
 1. (Mostly) removes the need to execute `kubectl`
 1. Supports an arbitrary number of git repos
-
+1. Sends notifications 
 
 # Input
 
@@ -23,6 +23,7 @@
 
 
 # Concepts
+1. Flux is a set of [Custom Resources](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/)
 
 ## GitOps
 1. Links
@@ -39,29 +40,45 @@
     1. Has version selectors
     1. Has credentials
 1. Flux checks (origin of) Source periodically (eg. every 5 minutes)
-1. All Sources are [CRDs (Custom Resources)](TODO)
-1. `HelmRepository` (`source.toolkit.fluxcd.io/v1beta2`)
-    1. https://github.com/fluxcd/source-controller/blob/main/docs/spec/v1beta2/helmrepositories.md
+1. All Sources are [CRDs (Custom Resources)](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/)
+1. [`HelmRepository` (`source.toolkit.fluxcd.io/v1beta2`) Custom Resource](https://github.com/fluxcd/source-controller/blob/main/docs/spec/v1beta2/helmrepositories.md)    
     1. `index.yaml`
     1. [Example](https://github.com/fluxcd/source-controller/blob/main/docs/spec/v1beta2/helmrepositories.md#examples)
+    1. `kubectl get helmrepository`
 
 
 ## [Source Controller](https://fluxcd.io/flux/components/source/)
 1. Uses one or more `Source`s
-1. [Spec](TODO)
-   Validate source definitions
-   Authenticate to sources (SSH, user/password, API token)
-   Validate source authenticity (PGP)
-   Detect source changes based on update policies (semver)
-   Fetch resources on-demand and on-a-schedule
-   Package the fetched resources into a well-known format (tar.gz, yaml)
-   Make the artifacts addressable by their source identifier (sha, version, ts)
-   Make the artifacts available in-cluster to interested 3rd parties
-   Notify interested 3rd parties of source changes and availability (status conditions, events, hooks)
+1. Validates source definitions
+1. Authenticates to sources (SSH, user/password, API token)
+1. Detects source changes based on update policies (semver, sha256 difference)
+1. Fetchs resources on-demand and on-a-schedule (eg. HelmRepository's `index.yaml`, chart, etc)
+1. Packages the fetched resources into tar.gz
+1. Triggers notifications (status conditions, events, hooks)
+
+
+## KustomizationController
+1. Consumes source (eg. `HelmRepository`)
+1. https://github.com/fluxcd/kustomize-controller/
+
+
+## HelmController (Kubernetes operator)
+1. Helps auto manage helm chart releases
+1. Consumes source (eg. `HelmRepository`) 
+1. https://github.com/fluxcd/helm-controller/
+1. Watches `HelmRelease`s (fetched by SourceController)
+1. Generates `HelmChart`s
+1. Executes helm actions/operations against the k8s cluster
+1. Reports events to [`NotificationController`](https://github.com/fluxcd/notification-controller)
+1. Includes a [Kustomize](TODO) [post renderer](https://helm.sh/docs/topics/advanced/#post-rendering)
+1. https://github.com/fluxcd/helm-controller/blob/main/docs/spec/README.md
+1. https://fluxcd.io/flux/guides/helmreleases/
+
 
 ## Reconciliation
 1. Ensures Cluster state matches desired state
-1. [`HelmRelease`](TODO)
+1. [`HelmRelease`](TODO) Custom Resource
+     1. The desired state of a Helm release
 1. [`Kustomization`](TODO)
     1. [Flux Kustomization](TODO) is different from [Kubernetes Kustomization] (TODO)
 1. [`flux reconcile source helm <repository-name>`](https://fluxcd.io/flux/cmd/flux_reconcile/)
@@ -81,26 +98,29 @@
 - Deployment is based on tags
 - Runs in a Kubernetes cluster
 - Polls a (remote) git repo (eg. gitlab) at configurable interval
-- It uses Helm and Kustomize
-
-
-https://fluxcd.io/flux/components/source/
-https://fluxcd.io/flux/components/source/helmrepositories/
-https://fluxcd.io/flux/components/
-https://fluxcd.io/flux/components/helm/
-https://fluxcd.io/flux/components/helm/helmreleases/
-https://fluxcd.io/flux/components/kustomize/
-https://fluxcd.io/flux/components/kustomize/
-https://fluxcd.io/flux/components/kustomize/kustomizations/
-https://fluxcd.io/flux/faq/#kustomize-questions
-https://fluxcd.io/flagger/faq/
-https://fluxcd.io/flux/cheatsheets/oci-artifacts/
-https://fluxcd.io/flux/cheatsheets/troubleshooting/
-https://fluxcd.io/flux/cmd/flux_create_image/
-https://fluxcd.io/flux/faq/
-https://fluxcd.io/flux/flux-e2e/
-https://fluxcd.io/flux/get-started/
-https://fluxcd.io/flux/gitops-toolkit/
-https://fluxcd.io/flux/guides/
-https://fluxcd.io/flux/monitoring/
-https://fluxcd.io/flux/use-cases/
+- Image Automation Controller
+   - scans container images
+   - auto-tagging
+- Notification Controller
+   - Input: events from git repo, Jenkins
+   - Output: Slack, ...
+- https://fluxcd.io/flux/components/source/
+- https://fluxcd.io/flux/components/source/helmrepositories/
+- https://fluxcd.io/flux/components/
+- https://fluxcd.io/flux/components/helm/
+- https://fluxcd.io/flux/components/helm/helmreleases/
+- https://fluxcd.io/flux/components/kustomize/
+- https://fluxcd.io/flux/components/kustomize/
+- https://fluxcd.io/flux/components/kustomize/kustomizations/
+- https://fluxcd.io/flux/faq/#kustomize-questions
+- https://fluxcd.io/flagger/faq/
+- https://fluxcd.io/flux/cheatsheets/oci-artifacts/
+- https://fluxcd.io/flux/cheatsheets/troubleshooting/
+- https://fluxcd.io/flux/cmd/flux_create_image/
+- https://fluxcd.io/flux/faq/
+- https://fluxcd.io/flux/flux-e2e/
+- https://fluxcd.io/flux/get-started/
+- https://fluxcd.io/flux/gitops-toolkit/
+- https://fluxcd.io/flux/guides/
+- https://fluxcd.io/flux/monitoring/
+- https://fluxcd.io/flux/use-cases/
