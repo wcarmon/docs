@@ -80,13 +80,13 @@ spec:
           command:
             - sh
             - -c
-            - 'mkdir -vp /pv/badger/data; 
+            - 'mkdir -vp /pv/badger/data;
             mkdir -vp /pv/badger/key;
-             
+
             chmod 755 /pv/badger/data;
             chmod 755 /pv/badger/key;
 
-            chown -Rv 10001 /pv/badger;            
+            chown -Rv 10001 /pv/badger;
             '
 
           volumeMounts:
@@ -171,7 +171,11 @@ spec:
               # -- NOTE: when jaeger runs out of memory, the UI doesn't return any spans
               # -- Just restart since span data is persistent
               # -- See https://docs.docker.com/config/containers/resource_constraints/#limit-a-containers-access-to-memory
+              # --
+              # -- Units: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#meaning-of-memory
+              # -- Mebibytes, Milicores, ...
               memory: 1G
+              # memory: 512Mi
 
           volumeMounts:
             - mountPath: /pv

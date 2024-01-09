@@ -13,12 +13,15 @@
 
 # Chart directory layout/contents
 1. [`Chart.yaml`](https://helm.sh/docs/topics/charts/#the-chartyaml-file)
+    1. Chart definition
 1. `templates/`
     1. based on [Golang text templates](../../golang/templates.md)
 1. (optional) `values.yaml`: 
     1. Has default values/config/parameters for the chart
     1. See https://helm.sh/docs/chart_template_guide/values_files/
 1. (optional) `values.schema.json`
+1. (optional) [`.helmignore`](https://helm.sh/docs/chart_template_guide/helm_ignore_file/)
+    1. same concept as `.gitignore`, `.dockerignore` and `.npmignore`
 
 
 # Setup
@@ -50,11 +53,22 @@
 
 
 # Input
-1. a helm chart 
+1. a helm chart
+1. Your app's [values file (`foo-values.yaml`)](https://helm.sh/docs/chart_template_guide/values_files/)
 
 
 # Output
 1. one or more kubernetes resource `*.yaml` files
+
+
+# Reusable snippets
+1. https://helm.sh/docs/chart_template_guide/named_templates/#declaring-and-using-templates-with-define-and-template
+1. By convention, go into `_helpers.tpl`
+
+
+# [Dependencies](https://helm.sh/docs/helm/helm_dependency/)
+1. dependencies listed in `Chart.yaml`
+1. dependencies are conditional via [Conditions (higher priority) & tags (lower priority)](https://helm.sh/docs/chart_best_practices/dependencies/#conditions-and-tags)
 
 
 # Usage
@@ -66,14 +80,14 @@ helm show values .
 
 
 ## Expand chart locally
-```bash
+```bash  
+cd $CHART_DIR
 
-# -- The dir containing  
-cd CHART_DIR
-helm template myRelease .
+helm dependency build .
+helm template my-release1 .
 
 # -- or 
-helm template myRelease . > helm.output.yaml
+helm template my-release1 . > helm.output.yaml
 ```
 
 
@@ -100,9 +114,14 @@ helm install $RELEASE_NAME $FQ_CHART_NAME \
 
 ## Debugging
 ```bash
-helm show chart
-helm show values
-helm show values
+cd $CHART_DIR
+
+helm show chart .
+helm show chart path/to/some/chart.tgz
+
+helm show values .
+
+helm dependency list .
 
 helm list --namespace $NAMESPACE
 ```
