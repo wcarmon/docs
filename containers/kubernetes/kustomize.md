@@ -30,6 +30,15 @@
 1. A [Variant](TODO), One [Kubernetes](https://kubernetes.io/docs/concepts/overview/) `*.yaml` file
 
 
+# Directory layout
+1. [`kustomization.yaml`](TODO)
+
+
+# Usage
+1. `kubectl kustomize <KUSTOMIZATION_DIR>`  <-- this runs `build`
+1. [or download and put binary on path](https://kubectl.docs.kubernetes.io/installation/kustomize/binaries/) and run `kustomize build . > kustomize.output.yaml`
+
+
 # Concepts
 
 ## Base
