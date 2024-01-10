@@ -35,6 +35,9 @@
 # ---------------------------
 # -- Volume Mounts
 # ---------------------------
+- op: remove
+  path: /spec/template/spec/containers/0/volumeMounts/0
+
 - op: add
   path: /spec/template/spec/containers/0/volumeMounts/-
   value:
@@ -53,6 +56,9 @@
 # ---------------------------
 # -- Volumes
 # ---------------------------
+- op: remove
+  path: /spec/template/spec/volumes/0
+
 - op: add
   path: /spec/template/spec/volumes/-
   value:
