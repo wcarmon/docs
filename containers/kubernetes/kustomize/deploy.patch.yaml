@@ -1,0 +1,74 @@
+# ---------------------------
+# -- Ports
+# ---------------------------
+- op: replace
+  path: /spec/template/spec/containers/0/ports/0/name
+  value: release-build
+
+- op: add
+  path: /spec/template/spec/containers/0/ports/-
+  value:
+    containerPort: 8081
+    name: debug-build
+
+
+# ---------------------------
+# -- Replicas
+# ---------------------------
+- op: replace
+  path: /spec/replicas
+  value: 3
+
+
+# ---------------------------
+# -- Resources
+# ---------------------------
+- op: replace
+  path: /spec/template/spec/containers/0/resources/requests/memory
+  value: 512M
+
+- op: replace
+  path: /spec/template/spec/containers/0/resources/requests/cpu
+  value: 2000m
+
+
+# ---------------------------
+# -- Volume Mounts
+# ---------------------------
+- op: add
+  path: /spec/template/spec/containers/0/volumeMounts/-
+  value:
+    mountPath: /app/debug/config
+    name: debug-config-volume
+    readOnly: true
+
+- op: add
+  path: /spec/template/spec/containers/0/volumeMounts/-
+  value:
+    mountPath: /app/release/config
+    name: release-config-volume
+    readOnly: true
+
+
+# ---------------------------
+# -- Volumes
+# ---------------------------
+- op: add
+  path: /spec/template/spec/volumes/-
+  value:
+    name: debug-config-volume
+    configMap:
+      name: ui-debug-config
+      items:
+        - key: config.json
+          path: config.json
+
+- op: add
+  path: /spec/template/spec/volumes/-
+  value:
+    name: release-config-volume
+    configMap:
+      name: ui-release-config
+      items:
+        - key: config.json
+          path: config.json

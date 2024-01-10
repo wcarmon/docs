@@ -3,24 +3,19 @@ kind: Deployment
 metadata:
   labels:
     app: ui
-  name: ui-deploy
+  name: my-deploy
   namespace: default
-
 spec:
-  replicas: 2
-
+  replicas: 1
   selector:
     matchLabels:
       app: ui
-
   strategy:
     type: Recreate
-
   template:
     metadata:
       labels:
         app: ui
-
     spec:
       containers:
         - image: foobar:0.0.1
@@ -30,12 +25,12 @@ spec:
 
           ports:
             - containerPort: 8080
-              name: release-build
+              name: main-port
               protocol: TCP
 
           resources:
             requests:
-              cpu: 2000m
+              cpu: 1000m
               memory: 250M
 
           volumeMounts:
