@@ -104,11 +104,10 @@
 - [Notification Controller](https://fluxcd.io/flux/components/notification/)
    - Input: events from git repo, Jenkins
    - Output: Slack, ...
-- https://fluxcd.io/flux/components/helm/helmreleases/
-
-https://fluxcd.io/flux/components/kustomize/
+- https://fluxcd.io/flux/components/kustomize/
 - https://fluxcd.io/flux/components/kustomize/kustomizations/
 - https://fluxcd.io/flux/faq/#kustomize-questions
+- https://fluxcd.io/flux/components/helm/helmreleases/
 
 - https://fluxcd.io/flux/flux-e2e/
 - https://fluxcd.io/flux/faq/
