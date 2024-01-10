@@ -190,6 +190,8 @@ $RECYCLE.BIN/
 .mtj.tmp/
 .mypy_cache/
 .ninja_log
+.nx/cache
+.pnpm-store
 .project
 .push-*
 .pydevproject
