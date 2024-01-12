@@ -1,6 +1,7 @@
 # High priority
 
 1. Completion: copilot
+1. Completion: tabnine
 1. Completion: line completion
 1. Completion: live-template
 1. Completion: postfix
@@ -13,9 +14,11 @@
 1. Edit: Reformat current file
 1. Edit: Sort all lines
 1. Edit: Sort select lines
+1. Edit: Toggle case on selection 
 1. Execution: Compile
 1. Execution: Run current test
-1. Navigate: Search for file by name pattern
+1. Navigate: Run any thing (SHIFT+SHIFT)
+1. Navigate: Search for file by name pattern/regex
 1. Navigate: Search for symbol (property/field/...)
 1. Navigate: Search for type (class/struct/enum)
 1. Navigate: to definition
@@ -38,40 +41,70 @@
 
 # Medium priority
 
+1. C++: auto-import for unambiguous types
+1. C++: Extract method
+1. C++: Inspections (static analysis)
 1. Completion: Add trait/interface implementation
 1. Conf: exclude some types from auto-import
-1. Debug: Step into
-1. Debug: Step out-of
-1. Debug: Step over
-1. Debug: Toggle breakpoint line
+1. Debug: step into
+1. Debug: step out-of
+1. Debug: step over
+1. Debug: toggle breakpoint line
 1. Edit: add missing branches to switch/case/match
-1. Edit: Add missing fields to struct initializer
-1. Edit: cycle case (camel, snake, kebab)
-1. Edit: Find & Replace using regex (all files in dir recursive)
-1. Edit: Find & Replace using regex (current file)
-1. Edit: Sort json
+1. Edit: add missing fields to struct initializer
+1. Edit: Compare current file with a file in local file system
+1. Edit: Compare current file with local history
+1. Edit: cycle case (camel, snake, kebab, upper/lower)
+1. Edit: find & replace using regex (all files in dir recursive)
+1. Edit: find & replace using regex (current file)
+1. Edit: sort json
+1. Edit: sort yaml
 1. Execution: Debug tests
 1. Execution: Run current fn (when named main)
 1. Execution: Run external command
 1. Execution: Run profiler
 1. Execution: Run tests in file
 1. git: commit
-1. git: Compare with local file
+1. git: Compare committed with local file
 1. git: fetch
 1. git: pull
 1. git: push
+1. git: resolve merge conflicts
 1. git: show changed files
+1. git: show current branch in footer
+1. git: show merge conflicts
+1. Java: Arrangement: method reordering
+1. Java: Arrangement: whitespace cleanup
+1. Java: auto-import for unambiguous types
+1. Java: debugger with breakpoints
+1. Java: Download sources for dependency
+1. Java: Extract method
+1. Java: Generate builder
+1. Java: import cleanup (sort, remove unused)
+1. Java: Inspections (static analysis)
+1. Java: JUnit debugger with breakpoints
+1. Java: JUnit test runner 
+1. Java: Lombok support
+1. Java: Show decompiled java sources of dependencies (in local jars) 
+1. Multi-clipboard
 1. Navigate: from error message file:line in console output to file
 1. Navigate: from error message file:line to file
 1. Navigate: to implementations (of trait/interface)
 1. Navigate: to implemented trait/interface
-1. View: Change color scheme
+1. Rust: auto-import for unambiguous types
+1. Rust: Extract method
+1. sh: shell script formatter  
+1. Typescript: auto-import for unambiguous types
+1. Typescript: karma debugger with breakpoints
+1. View: Change color scheme (light & dark)
 1. View: close other tabs (all except current)
 1. View: Diff directories
 1. View: Diff files
+1. View: Get absolute path of current file 
 1. View: line/column num for cursor
 1. View: see list of problems/errors to fix (from compiler)
 1. View: see list of problems/errors to fix (from static analysis)
+
 
 # Low priority
 
