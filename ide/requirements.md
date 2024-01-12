@@ -3,8 +3,8 @@
 1. Completion: copilot
 1. Completion: tabnine
 1. Completion: line completion
-1. Completion: live-template
-1. Completion: postfix
+1. Completion: live template
+1. Completion: postfix template
 1. Edit: add missing imports/use
 1. Edit: Delete line (CTRL+Y)
 1. Edit: Find & Replace using simple text (all files in dir recursive)
@@ -93,7 +93,7 @@
 1. Navigate: to implemented trait/interface
 1. Rust: auto-import for unambiguous types
 1. Rust: Extract method
-1. sh: shell script formatter  
+1. sh: shell script formatter
 1. Typescript: auto-import for unambiguous types
 1. Typescript: karma debugger with breakpoints
 1. View: Change color scheme (light & dark)
@@ -114,3 +114,7 @@
 1. Execution: Run tests in directory recursively
 1. Interpret string as SQL (for completion & syntax)
 1. Navigate: Terminal (to and from)
+
+
+# Other resoruces
+1. https://docs.google.com/spreadsheets/d/1rtUpcBnssgaeDKIieXEbPfKOX62G92yBEnxu-FLXvYI
