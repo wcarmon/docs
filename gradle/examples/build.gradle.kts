@@ -213,7 +213,7 @@ subprojects {
         duplicatesStrategy = DuplicatesStrategy.WARN
 
         manifest {
-            attributes["Main-Class"] = "com.galaxy.swapdealer.EntryPoint"
+            attributes["Main-Class"] = "com.wcarmon.something.EntryPoint"
         }
 
         mergeServiceFiles()
