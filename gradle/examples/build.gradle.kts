@@ -121,6 +121,14 @@ subprojects {
         targetCompatibility = JavaVersion.VERSION_17
     }
 
+    // -- eg. if you want a different jdk version for tests
+    // tasks {
+    //     compileTestJava {
+    //         sourceCompatibility = JavaVersion.VERSION_21.toString()
+    //         targetCompatibility = JavaVersion.VERSION_21.toString()
+    //     }
+    // }
+
     tasks.withType<JavaCompile>().configureEach {
         // See -Xlint options: https://docs.oracle.com/en/java/javase/11/tools/javac.html#GUID-AEEC9F07-CB49-4E96-8BC7-BCC2C7F725C9
 

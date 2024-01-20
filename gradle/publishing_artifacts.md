@@ -24,6 +24,7 @@
 
 
 # Build, Sign, Publish
+1. Bump the version in `build.gradle.kts`
 ```sh
 ./gradlew clean spotlessApply build sign -x test -q;
 
