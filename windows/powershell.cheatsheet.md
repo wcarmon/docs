@@ -1,6 +1,7 @@
 # Overview:
 
-- Common Powershell commands
+1. Common Powershell commands
+1. Help for people with linux/bash muscle memory
 
 # Find location of a binary: [Get-Command](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/get-command?view=powershell-7.4)
 
@@ -17,17 +18,19 @@ function which([string]$cmd) {gcm -ErrorAction "SilentlyContinue" $cmd | ft Defi
 # Find files by name: [Get-ChildItem](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.management/get-childitem?view=powershell-7.4)
 
 ```powershell
-ls -path . -include "app*.properties" -recurse -force
-gci -path . -include "app*.properties" -recurse -force
-Get-ChildItem -Path . -Include "app*.properties" -Recurse -Force
+ls -recurse -force -include "app*.properties"
+gci -recurse -force -include "app*.properties"
+Get-ChildItem  -Recurse -Force -Path . -Include "app*.properties"
 ```
 
 1. Linux: [`find`](https://linux.die.net/man/1/find)
+1. `-Path .` is implied
 1. [`-Force`](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.management/get-childitem?view=powershell-7.4#-force) includes hidden files
 1. [`-Include` syntax](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.management/get-childitem?view=powershell-7.4#-include)
 1. `ls` and `gci` are aliases for `Get-ChildItem`
-1. TODO: short flags?
 1. Flags can be UPPER CASE or lower case
+1. Flag order is irrelevant
+1. TODO: short flags? (`-r` fails)
 1. TODO: then pipe to grep
 
 # Find files by content
