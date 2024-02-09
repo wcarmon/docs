@@ -27,7 +27,7 @@ Get-ChildItem  -Recurse -Force -Path . -Include "app*.properties"
 1. `-Path .` is implied
 1. [`-Force`](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.management/get-childitem?view=powershell-7.4#-force) includes hidden files
 1. [`-Include` syntax](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.management/get-childitem?view=powershell-7.4#-include)
-1. `ls` and `gci` are aliases for `Get-ChildItem`
+1. `ls` and `gci` are aliases for [`Get-ChildItem`](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.management/get-childitem?view=powershell-7.4)
 1. Flags can be UPPER CASE or lower case
 1. Flag order is irrelevant
 1. TODO: short flags? (`-r` fails)
@@ -36,13 +36,14 @@ Get-ChildItem  -Recurse -Force -Path . -Include "app*.properties"
 # Find files by content
 
 ```powershell
-TODO
+ls -recurse | sls "foo" -list | Select Path
+gci -recurse | sls "foo" -list | Select Path 
+
 Get-ChildItem -Recurse | Select-String "foo" -List | Select Path
 ```
 
 1. Linux: [`grep`](https://linux.die.net/man/1/grep)
-1. [`Select-String`](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/select-string?view=powershell-7.4)
-1. TODO:
+1. `sls` is an alias for [`Select-String`](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/select-string?view=powershell-7.4)
 
 # ...
 
