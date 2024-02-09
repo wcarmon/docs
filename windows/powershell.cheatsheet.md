@@ -20,6 +20,7 @@ function which([string]$cmd) {gcm -ErrorAction "SilentlyContinue" $cmd | ft Defi
 ```powershell
 ls -recurse -force -include "app*.properties"
 gci -recurse -force -include "app*.properties"
+
 Get-ChildItem  -Recurse -Force -Path . -Include "app*.properties"
 ```
 
