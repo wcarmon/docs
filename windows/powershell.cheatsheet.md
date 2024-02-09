@@ -5,7 +5,7 @@
 # Find location of a binary: [Get-Command](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/get-command?view=powershell-7.4)
 
 ```powershell
-function which ([string]$cmd) (gcm -ErrorAction "SilentlyContinue" $cmd | ft Definition)
+function which([string]$cmd) (gcm -ErrorAction "SilentlyContinue" $cmd | ft Definition)
 ```
 
 1. Linux: [`which`](https://linux.die.net/man/1/which)
