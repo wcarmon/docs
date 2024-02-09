@@ -39,8 +39,8 @@ Get-ChildItem -Recurse -Force -Path . -Include "app*.properties"
 # Find files by content
 
 ```powershell
-ls -recurse | sls "foo" -list | Select Path
-gci -recurse | sls "foo" -list | Select Path 
+ls -r | sls "foo" -list | Select Path
+gci -r | sls "foo" -list | Select Path 
 
 Get-ChildItem -Recurse | Select-String "foo" -List | Select Path
 ```
