@@ -36,7 +36,7 @@ Get-ChildItem -Recurse -Force -Path . -Include "app*.properties"
 1. TODO: multiple patterns with AND  <-- complicated, uses `Where-Object`
 1. TODO: multiple patterns with OR
 
-# Find files by content
+# Find files by content (slow)
 
 ```powershell
 ls -r | sls "foo" -list | Select Path
