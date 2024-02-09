@@ -18,10 +18,10 @@ plugins {
   id("org.jetbrains.kotlin.jvm") version "1.9.20-RC" apply true
 
   /** Formatter */
-  id("com.diffplug.spotless") version "6.22.0" apply true
+  id("com.diffplug.spotless") version "6.23.3" apply true
 
   /** Finds updated deps */
-  id("com.github.ben-manes.versions") version "0.49.0" apply true
+  id("com.github.ben-manes.versions") version "0.50.0" apply true
 
   /** Static analysis */
   id("io.gitlab.arturbosch.detekt") version "1.23.1" apply false
@@ -117,8 +117,12 @@ subprojects {
     // -- Java Compiler
     // ------------------------------------------------------
     java {
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
+        sourceCompatibility = JavaVersion.VERSION_21
+        targetCompatibility = JavaVersion.VERSION_21
+    }
+
+    application {
+        mainClass.set("com.foo.Main")
     }
 
     // -- eg. if you want a different jdk version for tests
@@ -132,11 +136,15 @@ subprojects {
     tasks.withType<JavaCompile>().configureEach {
         // See -Xlint options: https://docs.oracle.com/en/java/javase/11/tools/javac.html#GUID-AEEC9F07-CB49-4E96-8BC7-BCC2C7F725C9
 
+        options.compilerArgs.plusAssign("--enable-preview")
         options.isDebug = true  // -g:{lines,vars,source}, fixes Unknown Source problem
         options.isFailOnError = true
-        options.isFork = true
+        options.isFork = true // allows different JDK for compilation & runtime
         options.isIncremental = true
         options.isVerbose = false
+//      options.compilerArgs.plusAssign("-verbose")
+//      options.compilerArgs.plusAssign("-Werror")
+//      options.compilerArgs.plusAssign("-Xlint:unchecked")
 
 //      options.compilerArgs = listOf("--add-opens=java.base/java.io=ALL-UNNAMED")
 //      options.compilerArgs = listOf("-Xlint")
