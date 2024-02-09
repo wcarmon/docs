@@ -30,8 +30,9 @@ Get-ChildItem  -Recurse -Force -Path . -Include "app*.properties"
 1. `ls` and `gci` are aliases for [`Get-ChildItem`](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.management/get-childitem?view=powershell-7.4)
 1. Flags can be UPPER CASE or lower case
 1. Flag order is irrelevant
-1. TODO: short flags? (`-r` fails)
-1. TODO: then pipe to grep
+1. TODO: short flags? (`-f` fails)
+1. TODO: multiple patterns with AND
+1. TODO: multiple patterns with OR
 
 # Find files by content
 
