@@ -60,12 +60,12 @@ let values = vec![1, 2, 3]
 1. Use `?` operator after assigning result
 
 ```rust
-let result: Result<Vec<_>, anyhow::Error> = vec![1, 2, 3]     // <-- notice result type
+let result: Result<Vec<_>, anyhow::Error> = vec![1, 2, 3]  // <-- notice type
     .into_iter()                     // <-- ownership of items
     .map(|x| something_failable(x))  // <-- return a Result
     .collect();
 
-let values = result?;
+let values = result?;                // <-- optionally add err context here
 ...
 ```
 
