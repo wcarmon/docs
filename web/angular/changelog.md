@@ -2,9 +2,10 @@
 
 1. Summary of major changes for each Angular version
 
-# [Angular 19](TODO)
 
 # [Angular 18](TODO) - ?? 2024
+
+1. TODO
 
 # [Angular 17](https://blog.angular.io/introducing-angular-v17-4d7033312e4b) - Nov 2023
 
@@ -42,7 +43,12 @@
 
 1. strict types on reactive forms
 
-# [Angular 13](TODO) - Nov 2021
+# [Angular 13](https://update.angular.io/?l=3&v=12.0-13.0) - Nov 2021
+
+1. TypeScript 4.4
+1. [Ivy](https://docs.angular.lat/guide/ivy)
 
 # [Angular 12](TODO) - May 2021
+
+1. TODO
 
