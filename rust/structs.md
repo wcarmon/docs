@@ -74,11 +74,6 @@ impl MyStruct {
 
 1. TODO
 
-# Methods
-
-1. TODO
-
-
 
 # Anti-patterns
 
