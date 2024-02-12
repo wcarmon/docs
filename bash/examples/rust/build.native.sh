@@ -1,31 +1,19 @@
 #!/bin/bash
 
 # ---------------------------------------------
-# -- Builds local binary via local go sdk
+# -- Builds local binary via local cargo/rust
 # --
 # -- Assumptions:
-# -- 1. Rust SDK installed
-# --    TODO: more here
-# --
-# -- 2. cargo installed (on PATH)
-# --    TODO: more here
-# --
-# -- 3. cargo install -f cross
-# --
-# -- 4. cross compilation targets
-# --
-# -- Available targets:   rustup target list
-# -- Current target:      rustc -vV
-# -- Setup targets:
-#                         rustup target add aarch64-apple-darwin;  # M1
-#                         rustup target add x86_64-apple-darwin;
-#                         rustup target add x86_64-pc-windows-gnu;
-#                         rustup target add x86_64-unknown-linux-gnu;
-#                         rustup target add x86_64-unknown-linux-musl; # alpine
-#
-# -- 5: sudo apt install -y g++-aarch64-linux-gnu libc6-dev-arm64-cross gcc-multilib
+# -- 1. Cargo installed: rustup update
+# -- 2. Cross compilation targets installed  (rustup target add $TARGET_NAME)
+# --    Available targets:   rustup target list
+# --    Current target:      rustc -vV
+# --    Interesting targets:
+# --          x86_64-unknown-linux-gnu (Debian, Ubuntu, Mint, ...)
+# --          x86_64-unknown-linux-musl (alpine linux)
+# --          x86_64-pc-windows-msvc (windows 7)
+# --          aarch64-apple-darwin (macOS with M1 chip)
 # ---------------------------------------------
-
 
 #set -x # uncomment to debug script
 set -e # exit on first error
@@ -36,9 +24,10 @@ set -u # fail on unset var
 # -- Constants
 # ---------------------------------------------
 readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
-readonly SCRIPTS_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")")
 
-#TODO: rustc is at $HOME/.cargo/bin/rustc (linux & mac)
+# NOTE: Binary Paths
+# - Linux & Mac: $HOME/.cargo/bin/rustc
+# - windows:    C:\Users\<username>\.rustup\toolchains\stable-x86_64-pc-windows-msvc\bin\*.exe
 
 # ---------------------------------------------
 # -- Script arguments
@@ -47,26 +36,26 @@ readonly SCRIPTS_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")")
 # ---------------------------------------------
 # -- Config
 # ---------------------------------------------
+readonly EXECUTABLE_CRATE_NAME="foo-main"
+
 
 # ---------------------------------------------
 # -- Derived
 # ---------------------------------------------
-# $PROJ_ROOT/src/go.mod file must exist
-readonly PROJ_ROOT="$PARENT_DIR"
-
+# $PROJ_ROOT/Cargo.toml file must exist (root Cargo.toml)
+readonly PROJ_ROOT="${PARENT_DIR}"
 
 # ---------------------------------------------
 # -- Validate
 # ---------------------------------------------
 
 # ---------------------------------------------
-# -- Cleanup
-# ---------------------------------------------
-
-# ---------------------------------------------
 # -- Build
 # ---------------------------------------------
+cd "$PROJ_ROOT" >/dev/null 2>&1
 
+echo
+echo "|-- Building code in ${PROJ_ROOT}"
 
 # ---------------------------------------------
 # -- Docs
