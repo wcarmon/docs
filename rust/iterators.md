@@ -47,9 +47,9 @@
 1. Example:
 ```rust
 let values = vec![1, 2, 3]
-    .into_iter()
-    .map(|x| something_failable(x))  // <-- return a Result
-    .collect::<Vec<_>, anyhow::Error>()?;
+    .into_iter()                          // <-- ownership of items
+    .map(|x| something_failable(x))       // <-- return a Result
+    .collect::<Vec<_>, anyhow::Error>()?; // <-- optionally add err context here
 ```
 
 ### Error handling Approach #2:
