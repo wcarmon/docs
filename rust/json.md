@@ -19,8 +19,8 @@
 
 ## Solve via Defaults
 1. [`#[serde(default)]`](https://serde.rs/field-attrs.html#default): calls `Default::default()` (so [`impl Default`](https://doc.rust-lang.org/std/default/trait.Default.html#how-can-i-implement-default))
-1. [`#[serde(default = "path")]`](https://serde.rs/field-attrs.html#default--path) invokes a function
-1. See also: https://doc.rust-lang.org/std/default/trait.Default.html
+1. [`#[serde(default = "path-to-function")]`](https://serde.rs/field-attrs.html#default--path) invokes a function
+1. See also: [`Default` trait](https://doc.rust-lang.org/std/default/trait.Default.html)
 
 ## Solve via Ignoring
 1. `#[serde(skip)]`: both serialization and deserialization
