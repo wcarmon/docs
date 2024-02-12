@@ -23,6 +23,7 @@
 1. How to enforce validation (without builder)
     1. Use [`non_exhaustive`](https://doc.rust-lang.org/reference/attributes/type_system.html) attribute
     1. Has no impact inside the crate, only affects other crates
+
 ```rust
 #[derive(...)]
 #[non_exhaustive]
@@ -58,6 +59,7 @@ impl MyStruct {
 # Builder Pattern
 
 ## Builder: Pros & Cons
+
 1. `Con`: For small structs, Builder doesn't help much because structs [are easily built by field name](https://doc.rust-lang.org/book/ch05-01-defining-structs.html#using-the-field-init-shorthand)
 1. `Con`: If you already implement [`Default`](https://doc.rust-lang.org/std/default/trait.Default.html), builder is wasted syntax/complexity (eg. must [`unwrap`](https://docs.rs/derive_builder/latest/derive_builder/struct.UninitializedFieldError.html) the build result)
 1. `Pro`: Builder is simpler than making multiple constructor functions
@@ -67,38 +69,76 @@ impl MyStruct {
 1. More tradeoffs: [doc-1](https://rust-unofficial.github.io/patterns/patterns/creational/builder.html), [doc-2](https://www.lurklurk.org/effective-rust/builders.html)
 
 ## Builder: Example
+
 1. In `main.rs` or `lib.rs`
+
 ```rust
 #[macro_use]
 extern crate derive_builder;
 
 ...
 ```
+
 1. In a struct
+
 ```rust
-TODO
+#[derive(Builder, Debug)]
+#[builder(build_fn(error = "anyhow::Error", validate = "Self::validate"))]
+pub struct MyStruct {
+    pub age: u16,
+    pub happy: bool,
+    pub weight: f32,
+
+    // -- Allow anything that can convert into String (eg. Vec<String>)
+    #[builder(setter(into))]
+    pub friends: Vec<String>,
+
+    // -- Allow caller to skip setting this field
+    #[builder(default)]
+    // -- Avoid double wrapping Option
+    #[builder(setter(into, strip_option))]
+    pub id: Option<i32>,
+
+    // -- Allow anything that can convert into String (eg. &str)
+    #[builder(setter(into))]
+    pub name: String,
+
+    // -- Don't generate setter for private field
+    #[builder(setter(skip))]
+    #[builder(default = "17")]
+    something_hidden: i64,
+}
 ```
 
+## Builder: Enforce [Validation](https://docs.rs/derive_builder/latest/derive_builder/#pre-build-validation)
 
-## Builder: Validation
-1. How to enforce validation (with builder)
 ```rust
-// TODO: https://docs.rs/derive_builder/latest/derive_builder/#pre-build-validation
+impl MyStructBuilder {  // Notice the the fn is on the Builder struct
+
+    fn validate(&self) -> Result<(), anyhow::Error> {
+
+        // TODO: more validation here
+
+        if let Some(v) = self.age {
+            if v > 88 {
+                bail!("too old: {v}");
+            }
+        }
+
+        Ok(())
+    }
+}
 ```
-
-
 
 # Destructuring
 
 1. TODO
-
 
 # Anti-patterns
 
 1. ~~[Getters](https://codehs.gitbooks.io/apjava/content/Classes-And-Object-Oriented-Programming/getter-and-setter-methods.html)~~
     1. `Con`: Doesn't help much because field-level [(exterior)](https://web.mit.edu/rust-lang_v1.25/arch/amd64_ubuntu1404/share/doc/rust/html/book/first-edition/mutability.html#interior-vs-exterior-mutability) mutability is already controlled by [references & ownership](https://web.mit.edu/rust-lang_v1.25/arch/amd64_ubuntu1404/share/doc/rust/html/book/first-edition/mutability.html#field-level-mutability)
     1. `Pro`: [Implementation is trivial](https://docs.rs/derive-getters/0.2.0/derive_getters/)
-
 
 # TODO/Unorganized
 
