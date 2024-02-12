@@ -17,10 +17,10 @@
     1. To borrow mutable, use `&mut my_collection`, (think `.iter_mut()`) <-- rare
 1. [Iterators](https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html#) and [Adapters](https://doc.rust-lang.org/stable/std/iter/index.html#adapters) are lazy
     1. Nothing happens until call [`.next()`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html#tymethod.next) (might be indirect, [see Terminators](#terminators))
-    1. Compiler generally warns you
+    1. Compiler generally warns you :-)
     1. Iterators can be infinite
 1. Implementers choose which forms to support (rare for me)
-    - `iter()`: ... TODO ...
+    - `iter()`: [`Vec`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.iter), [`BTreeMap`](https://doc.rust-lang.org/std/collections/struct.BTreeMap.html#method.iter) [`BTreeSet`](https://doc.rust-lang.org/std/collections/struct.BTreeSet.html#method.iter), [`HashMap`](https://doc.rust-lang.org/std/collections/struct.HashMap.html#method.iter), [`HashSet`](https://doc.rust-lang.org/std/collections/struct.HashSet.html#method.iter), [`Result`](https://doc.rust-lang.org/std/result/#iterating-over-result), [`VecDeque`](https://doc.rust-lang.org/std/collections/struct.VecDeque.html#method.iter), ...
     - `iter_mut()`: [`Vec`](https://doc.rust-lang.org/std/vec/struct.Vec.html), [`BTreeMap`](https://doc.rust-lang.org/std/collections/struct.BTreeMap.html), [`LinkedList`](https://doc.rust-lang.org/std/collections/struct.LinkedList.html#), [`Option`](https://doc.rust-lang.org/std/option/enum.Option.html), [`Result`](https://doc.rust-lang.org/std/result/enum.Result.html), [`VecDeque`](https://doc.rust-lang.org/std/collections/struct.VecDeque.html),
     - `into_iter()`: [`Vec`](https://doc.rust-lang.org/std/vec/struct.Vec.html), [`VecDeque`](https://doc.rust-lang.org/std/collections/struct.VecDeque.html), [`BTreeSet`](https://doc.rust-lang.org/std/collections/struct.BTreeSet.html), [`HashMap`](https://doc.rust-lang.org/std/collections/struct.HashMap.html), [`Option`](https://doc.rust-lang.org/std/option/enum.Option.html), [`BinaryHeap`](https://doc.rust-lang.org/std/collections/struct.BinaryHeap.html), [`LinkedList`](https://doc.rust-lang.org/std/collections/struct.LinkedList.html), ...
 
