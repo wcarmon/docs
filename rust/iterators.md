@@ -18,7 +18,7 @@
 1. [Iterators](https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html#) and [Adapters](https://doc.rust-lang.org/stable/std/iter/index.html#adapters) are lazy
     1. Nothing happens until call [`.next()`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html#tymethod.next) (might be indirect, [see Terminators](#terminators))
     1. Compiler generally warns you
-    1. implies iterators can be infinite
+    1. Iterators can be infinite
 1. Implementers choose which forms to support (rare for me)
     - `iter()`: ... TODO ...
     - `iter_mut()`: [`Vec`](https://doc.rust-lang.org/std/vec/struct.Vec.html), [`BTreeMap`](https://doc.rust-lang.org/std/collections/struct.BTreeMap.html), [`LinkedList`](https://doc.rust-lang.org/std/collections/struct.LinkedList.html#), [`Option`](https://doc.rust-lang.org/std/option/enum.Option.html), [`Result`](https://doc.rust-lang.org/std/result/enum.Result.html), [`VecDeque`](https://doc.rust-lang.org/std/collections/struct.VecDeque.html),
@@ -159,7 +159,8 @@ impl<'a> IntoIterator for &'a MyFancyStuff {
 | [`skip`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html#method.skip)           | ignore first *n*                        | Generally less         | *Same*          |
 | [`cloned`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html#method.cloned)       | clones items (converts to owned)        | *Same*                 | Same, but owned |
 | [`enumerate`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html#method.enumerate) | like `map`, but includes Item index     | *Same*                 | Changed         |
-| [`inspect`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html#method.inspect)     | debugging                               | *Same*                 | *Same*          
+| [`inspect`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html#method.inspect)     | debugging                               | *Same*                 | *Same*          |
+| [`filter_map`](https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.filter_map)      | Both `filter` (`Some`/`None`) and `map` | Generally less         | *Generally changed*|
 
 # Terminators
 
