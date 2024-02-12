@@ -1,8 +1,12 @@
 #!/bin/bash
 
 # ---------------------------------------------
-# -- Auto format the java files
+# -- Runs automated tests
+# --
+# -- Assumptions:
+# -- 1. Cargo installed: rustup update
 # ---------------------------------------------
+
 #set -x # uncomment to debug script
 set -e # exit on first error
 set -o pipefail
@@ -20,12 +24,12 @@ readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
 # ---------------------------------------------
 # -- Config
 # ---------------------------------------------
-# NOTE: all paths relative to $PROJ_ROOT
+
 
 # ---------------------------------------------
 # -- Derived
 # ---------------------------------------------
-# Directory contains settings.gradle.kts, build.gradle.kts, gradlew, ...
+# Directory contains root Cargo.toml
 readonly PROJ_ROOT="${PARENT_DIR}"
 
 # ---------------------------------------------
@@ -33,13 +37,12 @@ readonly PROJ_ROOT="${PARENT_DIR}"
 # ---------------------------------------------
 
 # ---------------------------------------------
-# -- Format
+# -- Lint (static analysis)
 # ---------------------------------------------
 cd "$PROJ_ROOT" >/dev/null 2>&1
 
 echo
-echo "|-- Formatting code in ${PROJ_ROOT}"
+echo "|-- Testing code in ${PROJ_ROOT}"
 
-cd "$PROJ_ROOT" >/dev/null 2>&1
-
-./gradlew spotlessApply --quiet
+#RUST_BACKTRACE=full cargo test
+cargo test

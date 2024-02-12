@@ -6,6 +6,8 @@
 # -- Assumptions:
 # -- 1. Docker installed: https://docs.docker.com/get-docker/
 # -- 2. local *.sql file(s) with schema (SQL CREATE TABLE statements)
+#
+# -- Help choosing a version: https://github.com/wcarmon/docs/blob/main/rdbms/postgres/pg.version.changelog.md
 # ---------------------------------------------
 #set -x # uncomment to debug script
 set -e # exit on first error
@@ -24,7 +26,7 @@ readonly DB_NAME="postgres"
 readonly DB_PASS="postgres"
 readonly DB_PORT=5432
 readonly DB_USER="postgres"
-readonly POSTGRES_IMAGE="postgres:15.1-alpine"
+readonly POSTGRES_IMAGE="postgres:16.1-alpine"
 
 readonly SQL_FOR_CREATE_TABLES="$HOME/tmp/foobar/postgres_create_table.sql"
 readonly SQL_FOR_FOREIGN_KEYS="$HOME/tmp/foobar/foreign_keys.sql"
@@ -55,7 +57,7 @@ docker run \
   -v "$SQL_FOR_FOREIGN_KEYS":/docker-entrypoint-initdb.d/010.fk.sql:ro \
   $POSTGRES_IMAGE
 
-# NOTE: to persis the database, add:
+# NOTE: to persist the database, add:
 # -v $HOME/.pgdata/db1:/var/lib/postgresql/data:rw \
 
 # --------------------------------------------
@@ -65,7 +67,7 @@ sleep 2  # allow time to start
 docker ps --filter name=$CONTAINER_NAME
 
 docker logs $CONTAINER_NAME
-# TODO: wait for message: "database system is ready to accept connections"
+# TODO: wait for message: "database system is ready to accept connections" (confirmed on v15, v16)
 
 # --------------------------------------------
 # -- Connect
