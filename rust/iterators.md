@@ -11,6 +11,7 @@
     - `iter()`, iterates over `&T`, **borrowed** immutable item ref
     - `iter_mut()`, iterates over `&mut T`, **borrowed** mutable item ref  <-- rare
 1. Ownership & mutability of the items is different from ownership and mutability of the collection or iterator
+    1. TODO: dive into the nuance
 1. [`for` loop](https://doc.rust-lang.org/reference/expressions/loop-expr.html#iterator-loops) is [syntactic sugar for Iterators](https://doc.rust-lang.org/std/iter/index.html#for-loops-and-intoiterator)
     1. consumes by default (think `.into_iter()`)
     1. To borrow, use `&my_collection`, (think `.iter()`)
