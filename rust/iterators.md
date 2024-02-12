@@ -60,8 +60,8 @@ let values = vec![1, 2, 3]
 1. Use `?` operator after assigning result
 
 ```rust
-let result: Result<Vec<_>, anyhow::Error> = vec![1, 2, 3]
-    .into_iter()
+let result: Result<Vec<_>, anyhow::Error> = vec![1, 2, 3]     // <-- notice result type
+    .into_iter()                     // <-- ownership of items
     .map(|x| something_failable(x))  // <-- return a Result
     .collect();
 
