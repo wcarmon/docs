@@ -15,7 +15,7 @@
 
 
 --------
-# @Missing Properties
+# @Missing fields
 
 ## Solve via Defaults
 1. [`#[serde(default)]`](https://serde.rs/field-attrs.html#default): calls `Default::default()` (so [`impl Default`](https://doc.rust-lang.org/std/default/trait.Default.html#how-can-i-implement-default))
@@ -29,10 +29,12 @@
 
 
 --------
-# @Extra properties
+# @Extra fields
 ```rust
 #[serde(deny_unknown_fields)]
-...
+pub struct MyStruct {
+    ... fields ...
+}
 ```
 
 
