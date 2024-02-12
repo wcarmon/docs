@@ -12,10 +12,10 @@
     1. although not nearly as bad as golang
 1. [`anyhow`](https://docs.rs/anyhow/latest/anyhow/) (high-level) and [`thiserror`](https://docs.rs/thiserror/latest/thiserror/) (low-level) are excellent solutions
     1. Prefer [`anyhow`](https://docs.rs/anyhow/latest/anyhow/) unless you have extreme performance requirements (then use thiserror)
-1. Return a [`std::result::Result<Something, anyhow::Error>`](https://doc.rust-lang.org/std/result/enum.Result.html) from most functions
+1. Return a [`Result<Something, anyhow::Error>`](https://doc.rust-lang.org/std/result/enum.Result.html) from most functions
     1. [`anyhow::Result`](https://docs.rs/anyhow/latest/anyhow/type.Result.html) as return type on most `fn`
 1. Inside functions, use [`?` operator](https://doc.rust-lang.org/reference/expressions/operator-expr.html#the-question-mark-operator) to simplify caller & chain calls
-1. [preconditions](https://github.com/google/guava/wiki/PreconditionsExplained): Use [`anyhow::ensure!`](https://docs.rs/anyhow/latest/anyhow/macro.ensure.html) 
+1. [Preconditions](https://github.com/google/guava/wiki/PreconditionsExplained): Use [`anyhow::ensure!`](https://docs.rs/anyhow/latest/anyhow/macro.ensure.html) 
 1. Don't [`panic!`](https://doc.rust-lang.org/std/macro.panic.html)
     1. No [`.unwrap()`](https://doc.rust-lang.org/std/result/enum.Result.html#method.unwrap), it provides no helpful information and panics.
     1. Try to avoid [`.expect()`](https://doc.rust-lang.org/std/result/enum.Result.html#method.expect) in production code, useful in tests though
@@ -39,17 +39,17 @@ if let Ok(s) = res {
 
 # Adding extra context info
 
-## Approach #1: Eager context
+## Approach #1: [Eager context](https://docs.rs/anyhow/latest/anyhow/trait.Context.html)
 
 ```rust
 something_dangerous(...)
-  .context(format!("failed to do something dangerous: {some_local_var}"))?;
+  .context(
+    format!("failed to do something dangerous: {some_local_var}"))?;
 ```
 
-1. Still works with [`?` operator](https://doc.rust-lang.org/reference/expressions/operator-expr.html#the-question-mark-operator)
+1. Compatible with [`?` operator](https://doc.rust-lang.org/reference/expressions/operator-expr.html#the-question-mark-operator)
 1. [Official Example](https://docs.rs/anyhow/latest/anyhow/trait.Context.html#example)
-1. Using [`some_result.context("...")?`](https://docs.rs/anyhow/latest/anyhow/trait.Context.html)
-    1. (anyhow crate adds [`.context(...)`](https://docs.rs/anyhow/latest/anyhow/trait.Context.html#tymethod.context) to the [`Result`](https://doc.rust-lang.org/nightly/core/result/enum.Result.html) type)
+1. `anyhow` crate adds [`.context(...)`](https://docs.rs/anyhow/latest/anyhow/trait.Context.html#tymethod.context) to the [`Result`](https://doc.rust-lang.org/nightly/core/result/enum.Result.html) type
 
 ## Approach #2: Lazy context
 
@@ -59,9 +59,9 @@ something_dangerous(...)
   // useful when the context is expensive to build
 ```
 
-1. Still works with [`?` operator](https://doc.rust-lang.org/reference/expressions/operator-expr.html#the-question-mark-operator)
+1. Compatible with [`?` operator](https://doc.rust-lang.org/reference/expressions/operator-expr.html#the-question-mark-operator)
 1. [`.with_context("...")?`](https://docs.rs/anyhow/latest/anyhow/trait.Context.html#tymethod.with_context) is the lazy version of `context(...)`
-1. (anyhow crate adds [`.with_context(...)`](https://docs.rs/anyhow/latest/anyhow/trait.Context.html#method.with_context-1) to the [`Result`](https://doc.rust-lang.org/nightly/core/result/enum.Result.html) type)
+1. `anyhow` crate adds [`.with_context(...)`](https://docs.rs/anyhow/latest/anyhow/trait.Context.html#method.with_context-1) to the [`Result`](https://doc.rust-lang.org/nightly/core/result/enum.Result.html) type
 
 ## Approach #3: Tracing or logging
 
