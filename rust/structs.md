@@ -28,6 +28,11 @@
     1. `Pro`: Builder allows incremental construction (which may or may not be a good idea)
     1. `Pro`: It's trivial [to make a builder](https://docs.rs/derive_builder/latest/derive_builder/)
     1. More tradeoffs: [doc-1](https://rust-unofficial.github.io/patterns/patterns/creational/builder.html), [doc-2](https://www.lurklurk.org/effective-rust/builders.html)
+    1. Enforce validation (with builder)
+    ```rust
+    // TODO: https://docs.rs/derive_builder/latest/derive_builder/#pre-build-validation
+    ```
+
 
 1. Enforce validation (without builder)
     1. Use [`non_exhaustive`](https://doc.rust-lang.org/reference/attributes/type_system.html)
