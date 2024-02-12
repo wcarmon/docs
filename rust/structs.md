@@ -23,12 +23,12 @@
 1. Builder Pattern
     1. `Con`: For small structs, Builder doesn't help much because structs [are easily built by field name](https://doc.rust-lang.org/book/ch05-01-defining-structs.html#using-the-field-init-shorthand)
     1. `Con`: If you already implement [`Default`](https://doc.rust-lang.org/std/default/trait.Default.html), builder is wasted syntax/complexity (eg. must [`unwrap`](https://docs.rs/derive_builder/latest/derive_builder/struct.UninitializedFieldError.html) the build result)
-    1. `Pro`: Builder allows incremental construction (less local variables)
     1. `Pro`: Builder is simpler than making multiple constructor functions
-    1. `Pro`: Builder allows incremental construction (which may or may not be a good idea)
-    1. `Pro`: It's trivial [to make a builder](https://docs.rs/derive_builder/latest/derive_builder/)
+    1. `Pro`: Builder allows incremental construction (less local variables)
+    1. `Pro`: Builder has simpler validation pattern
+    1. `Pro`: [Implementation is trivial](https://docs.rs/derive_builder/latest/derive_builder/)
     1. More tradeoffs: [doc-1](https://rust-unofficial.github.io/patterns/patterns/creational/builder.html), [doc-2](https://www.lurklurk.org/effective-rust/builders.html)
-    1. Enforce validation (with builder)
+    1. How to enforce validation (with builder)
     ```rust
     // TODO: https://docs.rs/derive_builder/latest/derive_builder/#pre-build-validation
     ```
