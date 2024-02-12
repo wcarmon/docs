@@ -34,13 +34,14 @@
     ```
 
 
-1. Enforce validation (without builder)
-    1. Use [`non_exhaustive`](https://doc.rust-lang.org/reference/attributes/type_system.html)
+1. How to enforce validation (without builder)
+    1. Use [`non_exhaustive`](https://doc.rust-lang.org/reference/attributes/type_system.html) attribute
     1. Has no impact inside the crate, only affects other crates
 ```rust
-#[derive(...)
+#[derive(...)]
 #[non_exhaustive]
 pub struct MyStruct {
+
     pub foo: Foo,
     pub bar: Bar,
     // ... other fields ...
@@ -48,9 +49,16 @@ pub struct MyStruct {
 
 impl MyStruct {
 
-    // new function is the "constructor" pattern
-    pub fn new(foo: Foo, bar: Bar) -> Result<Self, anyhow::Error> {
-        let out = Self { ... assign here ... };
+    // ::new function is the "constructor" pattern
+    pub fn new(
+            foo: Foo,
+            bar: Bar
+            // ... other fields ...
+        ) -> Result<Self, anyhow::Error> {
+
+        let out = Self {
+            ... assign here ...
+        };
         out.validate()?;
         Ok(out)
     }
