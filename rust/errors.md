@@ -1,9 +1,10 @@
 # Overview
+
 1. Idioms for error handling
 1. How to use [`anyhow`](https://docs.rs/anyhow/latest/anyhow/) and [`thiserror`](https://docs.rs/thiserror/latest/thiserror/)
 
-
 # Summary of key ideas for success
+
 1. Idiomatic error handling can be verbose (without libs)
 1. Define [an error type](https://docs.rs/thiserror/latest/thiserror/#example) for your crate (eg. `MyCustomError`).
     1. [thiserror](https://github.com/dtolnay/thiserror) library [makes this simple](https://docs.rs/thiserror/latest/thiserror/)
@@ -17,14 +18,7 @@
 1. Don't [`panic!`](https://doc.rust-lang.org/std/macro.panic.html)
     1. No [`.unwrap()`](https://doc.rust-lang.org/std/result/enum.Result.html#method.unwrap) nor [`.expect()`](https://doc.rust-lang.org/std/result/enum.Result.html#method.expect) in production code
 1. Only add [logs](./logging.md) where you **handle** the error, not where you propagate ([`?`](https://doc.rust-lang.org/reference/expressions/operator-expr.html#the-question-mark-operator))
-1. Add extra context ...
-    1. Using fields on your Custom Error type variants
-    1. Using [fields](https://doc.rust-lang.org/rust-by-example/custom_types/enum.html#enums) on your custom error type
-    1. Using [tracing](./tracing.md) or [logging](./logging.md)
-    1. Using [`some_result.context("...")?`](https://docs.rs/anyhow/latest/anyhow/trait.Context.html) to add extra error details (eager)
-        1. [`.with_context("...")?`](https://docs.rs/anyhow/latest/anyhow/trait.Context.html#tymethod.with_context) is the lazy version
-        1. (anyhow crate adds [`.with_context(...)`](https://docs.rs/anyhow/latest/anyhow/trait.Context.html#method.with_context-1) to the [`Result`](https://doc.rust-lang.org/nightly/core/result/enum.Result.html) type)
-        1. [Example](https://docs.rs/anyhow/latest/anyhow/trait.Context.html#example)
+1. Add extra context ... (See below)
 1. `impl From<foreign::SomeError> for MyCustomError {` to translate foreign errors.
     1. [thiserror](https://docs.rs/thiserror/latest/thiserror/#details) can generate
     1. ```rust
@@ -36,6 +30,7 @@
         },
     1. The `?` operator looks for `impl From<ProducedError> for ReturnedError`
 1. Use [`if-let`](https://doc.rust-lang.org/rust-by-example/flow_control/if_let.html) or [`match`](https://doc.rust-lang.org/book/ch09-02-recoverable-errors-with-result.html#matching-on-different-errors) on error when needed for control flow
+
 ```rust
 let res = something_risky(...)
 if let Err(MyCustomVariant(_)) = res {
@@ -46,16 +41,49 @@ if let Ok(s) = res {
   // ...
 }
 ```
+
 1. Optionally use `Result<(), anyhow::Error>` on test functions to simplify `?` usage
-
-
-# While prototyping ...
-1. Use [`anyhow`](https://docs.rs/anyhow/latest/anyhow/) ...
+1. Unless you have extreme performance requirements, Use [`anyhow`](https://docs.rs/anyhow/latest/anyhow/) ...
     1. [`anyhow::Result`](https://docs.rs/anyhow/latest/anyhow/type.Result.html) as return type on most `fn`
     1. [`anyhow::ensure!`](https://docs.rs/anyhow/latest/anyhow/macro.ensure.html) to check [preconditions](https://github.com/google/guava/wiki/PreconditionsExplained)
 
+--------
+
+# Adding extra context info
+
+## Approach #1: Eager context
+
+```rust
+something_dangerous(...)
+  .context(format!("failed to do something dangerous: {some_local_var}"))?;
+```
+1. Still works with [`?` operator](https://doc.rust-lang.org/reference/expressions/operator-expr.html#the-question-mark-operator)
+1. [Official Example](https://docs.rs/anyhow/latest/anyhow/trait.Context.html#example)
+1. Using [`some_result.context("...")?`](https://docs.rs/anyhow/latest/anyhow/trait.Context.html)
+    1. (anyhow crate adds [`.context(...)`](https://docs.rs/anyhow/latest/anyhow/trait.Context.html#tymethod.context) to the [`Result`](https://doc.rust-lang.org/nightly/core/result/enum.Result.html) type)
+
+## Approach #2: Lazy context
+
+```rust
+something_dangerous(...)
+  .with_context(|| format!("failed to do something dangerous: {some_local_var}"))?;
+  // useful when the context is expensive to build
+```
+1. Still works with [`?` operator](https://doc.rust-lang.org/reference/expressions/operator-expr.html#the-question-mark-operator)
+1. [`.with_context("...")?`](https://docs.rs/anyhow/latest/anyhow/trait.Context.html#tymethod.with_context) is the lazy version of `context(...)`
+1. (anyhow crate adds [`.with_context(...)`](https://docs.rs/anyhow/latest/anyhow/trait.Context.html#method.with_context-1) to the [`Result`](https://doc.rust-lang.org/nightly/core/result/enum.Result.html) type)
+
+## Approach #3: Tracing or logging
+
+- Using [tracing](./tracing.md) or [logging](./logging.md)
+
+## Approach #4: Custom Error
+
+1. most verbose option
+1. Using [fields](https://doc.rust-lang.org/rust-by-example/custom_types/enum.html#enums) on your custom error type
 
 # [thiserror](https://docs.rs/thiserror/latest/thiserror/)
+
 1. Low-level error handling lib
 1. thiserror helps ...
     1. to build an idiomatic custom error type
@@ -67,8 +95,8 @@ if let Ok(s) = res {
 1. [`#[source]`](https://docs.rs/thiserror/latest/thiserror/#details) attribute is for root cause (see [Error chaining](https://docs.rs/anyhow/latest/anyhow/struct.Chain.html))
 1. Alternative: [snafu](https://docs.rs/snafu/latest/snafu/index.html)
 
-
 # [anyhow](https://docs.rs/anyhow/latest/anyhow/)
+
 1. High-level error handling lib
 1. Very useful for prototyping phase
 1. Use [`Err(anyhow!("foo {}", bar))`](https://docs.rs/anyhow/latest/anyhow/macro.anyhow.html) for one-off (adhoc) error message
@@ -77,12 +105,12 @@ if let Ok(s) = res {
 1. Use [downcasting](https://docs.rs/anyhow/1.0.4/anyhow/struct.Error.html#example-1) to get the original error type
     1. [`anyhow::Error::downcast_ref::<io::Error>()`](https://docs.rs/anyhow/latest/anyhow/struct.Error.html#method.downcast_ref)
 
-
 # Unorganized/TODO
+
 - TODO: RUST_BACKTRACE=1
 
-
 # Other Resources
+
 1. https://nick.groenen.me/posts/rust-error-handling/
 1. https://vino.dev/blog/node-to-rust-day-14-managing-errors/
 1. https://docs.rs/anyhow/latest/anyhow/
