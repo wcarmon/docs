@@ -15,14 +15,14 @@
 1. Return a [`Result<Something, anyhow::Error>`](https://doc.rust-lang.org/std/result/enum.Result.html) from most functions
     1. [`anyhow::Result`](https://docs.rs/anyhow/latest/anyhow/type.Result.html) as return type on most `fn`
 1. Inside functions, use [`?` operator](https://doc.rust-lang.org/reference/expressions/operator-expr.html#the-question-mark-operator) to simplify caller & chain calls
-1. [Preconditions](https://github.com/google/guava/wiki/PreconditionsExplained): Use [`anyhow::ensure!`](https://docs.rs/anyhow/latest/anyhow/macro.ensure.html) 
+1. [Preconditions](https://github.com/google/guava/wiki/PreconditionsExplained): Use [`anyhow::ensure!`](https://docs.rs/anyhow/latest/anyhow/macro.ensure.html)
 1. Don't [`panic!`](https://doc.rust-lang.org/std/macro.panic.html)
     1. No [`.unwrap()`](https://doc.rust-lang.org/std/result/enum.Result.html#method.unwrap), it provides no helpful information and panics.
     1. Try to avoid [`.expect()`](https://doc.rust-lang.org/std/result/enum.Result.html#method.expect) in production code, useful in tests though
         1. Sometimes, this can be an alternative to nesting with the same "no-panic" guarantee
 1. Only add [logs](./logging.md) where you **handle** the error, not where you propagate ([`?`](https://doc.rust-lang.org/reference/expressions/operator-expr.html#the-question-mark-operator))
 1. On Tests, Optionally return `Result<(), anyhow::Error>` to simplify `?` usage
-1. Use [`if-let`](https://doc.rust-lang.org/rust-by-example/flow_control/if_let.html) or [`match`](https://doc.rust-lang.org/book/ch09-02-recoverable-errors-with-result.html#matching-on-different-errors) on error when needed for control flow
+1. When errors drive control flow, Use [`if-let`](https://doc.rust-lang.org/rust-by-example/flow_control/if_let.html) or [`match`](https://doc.rust-lang.org/book/ch09-02-recoverable-errors-with-result.html#matching-on-different-errors)
 
 ```rust
 let res = something_risky(...)
@@ -81,9 +81,8 @@ something_dangerous(...)
 
 # Translate foreign errors:
 
-`impl From<foreign::SomeError> for MyCustomError {`
-
-1. [thiserror](https://docs.rs/thiserror/latest/thiserror/#details) can generate
+1. Idiom: `impl From<foreign::SomeError> for MyCustomError { ... }`
+1. [thiserror](https://docs.rs/thiserror/latest/thiserror/#details) will generate this for you
 1. ```rust
     #[error("io error")]
     StdIoError {
@@ -91,7 +90,9 @@ something_dangerous(...)
         source: std::io::Error,
         backtrace: Backtrace,
     },
-1. The `?` operator looks for `impl From<ProducedError> for ReturnedError`
+
+```    
+1. The [`?` operator](https://doc.rust-lang.org/reference/expressions/operator-expr.html#the-question-mark-operator) looks for `impl From<ProducedError> for ReturnedError`
 
 --------
 
