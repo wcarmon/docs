@@ -43,7 +43,7 @@ extern crate derive_builder;
 ...
 ```
 
-### In a struct
+### Annotate the struct
 
 ```rust
 #[derive(Builder, Debug)]
@@ -90,16 +90,14 @@ pub struct MyStruct {
 ## Builder: Enforce [Validation](https://docs.rs/derive_builder/latest/derive_builder/#pre-build-validation)
 
 ```rust
-impl MyStructBuilder {  // Notice the the fn is on the Builder struct
+impl MyStructBuilder {  // Notice the validate fn is on the Builder struct
 
     fn validate(&self) -> Result<(), anyhow::Error> {
 
         // TODO: more validation here
 
         if let Some(v) = self.age {
-            if v > 88 {
-                bail!("too old: {v}");
-            }
+            ensure!(v < 90, "too old: {v}");
         }
 
         Ok(())
