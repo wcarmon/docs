@@ -77,7 +77,7 @@ pub struct MyStruct {
 ### Usage
 
 ```rust
-  let v1 = MyStructBuilder::default()
+  let v1 = MyStructBuilder::default()   // <-- NOTICE: start with default on builder
             .age(123)
             .friends(vec!["foo", "bar"].into_iter().map(String::from).collect_vec())
             .happy(true)
