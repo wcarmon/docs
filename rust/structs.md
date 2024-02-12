@@ -59,6 +59,7 @@ impl MyStruct {
         let out = Self {
             ... assign here ...
         };
+
         out.validate()?;
         Ok(out)
     }
@@ -83,7 +84,8 @@ impl MyStruct {
 
 1. ~~[Getters](https://codehs.gitbooks.io/apjava/content/Classes-And-Object-Oriented-Programming/getter-and-setter-methods.html)~~
     1. `Con`: Doesn't help much because field-level [(exterior)](https://web.mit.edu/rust-lang_v1.25/arch/amd64_ubuntu1404/share/doc/rust/html/book/first-edition/mutability.html#interior-vs-exterior-mutability) mutability is already controlled by [references & ownership](https://web.mit.edu/rust-lang_v1.25/arch/amd64_ubuntu1404/share/doc/rust/html/book/first-edition/mutability.html#field-level-mutability)
-    1. `Pro`: It's trivial [to make getter](https://docs.rs/derive-getters/0.2.0/derive_getters/)
+    1. `Pro`: [Implementation is trivial](https://docs.rs/derive-getters/0.2.0/derive_getters/)
+
 
 # TODO/Unorganized
 
