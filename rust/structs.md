@@ -19,42 +19,8 @@
 1. Use [`derive`](./traits.derive.md) attribute to auto-generate [common traits](./traits.derive.md)
 1. `Ownership`: Prefer to own fields in a struct ([Why?](https://www.lurklurk.org/effective-rust/lifetimes.html#lifetimes-in-data-structures))
 1. Don't implement `to_string()`, implement [`Display`](https://doc.rust-lang.org/std/fmt/trait.Display.html)
+1. Enforce validation (invariant maintenance).  See two options below
 
-1. How to enforce validation (without builder)
-    1. Use [`non_exhaustive`](https://doc.rust-lang.org/reference/attributes/type_system.html) attribute
-    1. Has no impact inside the crate, only affects other crates
-
-```rust
-#[derive(...)]
-#[non_exhaustive]
-pub struct MyStruct {
-
-    pub foo: Foo,
-    pub bar: Bar,
-    // ... other fields ...
-}
-
-impl MyStruct {
-
-    // ::new function is the "constructor" pattern
-    pub fn new(
-            foo: Foo,
-            bar: Bar
-            // ... other fields ...
-        ) -> Result<Self, anyhow::Error> {
-
-        let out = Self {
-            ... assign here ...
-        };
-
-        out.validate()?;
-        Ok(out)
-    }
-
-    pub fn validate(&self) -> Result<(), anyhow::Error> {
-        // ... run validation here
-    }
-```
 
 # Builder Pattern
 
@@ -110,6 +76,18 @@ pub struct MyStruct {
 }
 ```
 
+1. Usage
+```rust
+  let v1 = MyStructBuilder::default()
+            .age(123)
+            .friends(vec!["foo", "bar"].into_iter().map(String::from).collect_vec())
+            .happy(true)
+            .name("foo")
+            .weight(3.14)
+            .build()
+            .context("failed to build MyStruct")?;
+```
+
 ## Builder: Enforce [Validation](https://docs.rs/derive_builder/latest/derive_builder/#pre-build-validation)
 
 ```rust
@@ -129,6 +107,43 @@ impl MyStructBuilder {  // Notice the the fn is on the Builder struct
     }
 }
 ```
+
+# Enforce validation (without a builder)
+1. Use [`non_exhaustive`](https://doc.rust-lang.org/reference/attributes/type_system.html) attribute
+1. Only forces validation   Has no impact inside the crate, only affects other crates
+
+```rust
+#[derive(...)]
+#[non_exhaustive]
+pub struct MyStruct {
+
+    pub foo: Foo,
+    pub bar: Bar,
+    // ... other fields ...
+}
+
+impl MyStruct {
+
+    // ::new function is the "constructor" pattern
+    pub fn new(
+            foo: Foo,
+            bar: Bar
+            // ... other fields ...
+        ) -> Result<Self, anyhow::Error> {
+
+        let out = Self {
+            ... assign here ...
+        };
+
+        out.validate()?;
+        Ok(out)
+    }
+
+    pub fn validate(&self) -> Result<(), anyhow::Error> {
+        // ... run validation here
+    }
+```
+
 
 # Destructuring
 
