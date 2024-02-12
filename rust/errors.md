@@ -21,6 +21,7 @@
     1. Try to avoid [`.expect()`](https://doc.rust-lang.org/std/result/enum.Result.html#method.expect) in production code, useful in tests though
         1. Sometimes, this can be an alternative to nesting with the same "no-panic" guarantee
 1. Only add [logs](./logging.md) where you **handle** the error, not where you propagate ([`?`](https://doc.rust-lang.org/reference/expressions/operator-expr.html#the-question-mark-operator))
+    1. use `context(...)` or `with_context(...)` instead (see below)
 1. On Tests, Optionally return `Result<(), anyhow::Error>` to simplify `?` usage
 1. When errors drive control flow, Use [`if-let`](https://doc.rust-lang.org/rust-by-example/flow_control/if_let.html) or [`match`](https://doc.rust-lang.org/book/ch09-02-recoverable-errors-with-result.html#matching-on-different-errors)
 
@@ -63,9 +64,9 @@ something_dangerous(...)
 1. [`.with_context("...")?`](https://docs.rs/anyhow/latest/anyhow/trait.Context.html#tymethod.with_context) is the lazy version of `context(...)`
 1. `anyhow` crate adds [`.with_context(...)`](https://docs.rs/anyhow/latest/anyhow/trait.Context.html#method.with_context-1) to the [`Result`](https://doc.rust-lang.org/nightly/core/result/enum.Result.html) type
 
-## Approach #3: Tracing or logging
+## Approach #3: Tracing or Logging
 
-- Using [tracing](./tracing.md) or [logging](./logging.md)
+- Using [Tracing](./tracing.md) or [Logging](./logging.md)
 
 ## Approach #4: Custom Error
 
@@ -79,20 +80,22 @@ something_dangerous(...)
 
 --------
 
-# Translate foreign errors:
+# Translate Foreign Errors:
 
+1. The [`?` operator](https://doc.rust-lang.org/reference/expressions/operator-expr.html#the-question-mark-operator) looks for `impl From<ProducedError> for ReturnedError`
 1. Idiom: `impl From<foreign::SomeError> for MyCustomError { ... }`
 1. [thiserror](https://docs.rs/thiserror/latest/thiserror/#details) will generate this for you
-1. ```rust
+
+```rust
     #[error("io error")]
     StdIoError {
         #[from]
         source: std::io::Error,
         backtrace: Backtrace,
     },
-
-```    
-1. The [`?` operator](https://doc.rust-lang.org/reference/expressions/operator-expr.html#the-question-mark-operator) looks for `impl From<ProducedError> for ReturnedError`
+    
+    ... other errors ...
+```
 
 --------
 
