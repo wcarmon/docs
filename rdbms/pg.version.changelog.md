@@ -2,7 +2,7 @@
 
 1. Summary of major changes for each PostgreSQL version
 
-# [PG 17](TODO) - ? 2024
+# [PG 17](TODO) - Sep 2024
 
 1. TODO
 
@@ -29,9 +29,16 @@
 1. json logging (for DB system logs)
 
 # [PG 14](https://www.postgresql.org/about/news/postgresql-14-released-2318/) - Sep 2021
+
 1. [Details](https://www.postgresql.org/docs/release/14.0/)
-1. 
+1. JSON ergonomic improvements
+1. Query pipelining
 
-# [PG 13](TODO) - x 20x
+# [PG 13](https://www.postgresql.org/about/news/postgresql-13-released-2077/) - Sep 2020
 
-# [PG 12](TODO) - x 20x
+1. [Details](https://www.postgresql.org/docs/13/release-13.html)
+1. Parallel Vacuuming
+1. More DBAdmin featuers
+1. random uuid generation (without extensions)
+1. new `datetime` function for SQL/JSON
+1. tie resolution for `FETCH FIRST`

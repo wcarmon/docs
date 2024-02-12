@@ -25,7 +25,6 @@ readonly DB_PASS="postgres"
 readonly DB_PORT=5432
 readonly DB_USER="postgres"
 readonly POSTGRES_IMAGE="postgres:15.1-alpine"
-readonly PROJECT_DIR="$HOME/tmp/foobar"
 
 readonly SQL_FOR_CREATE_TABLES="$HOME/tmp/foobar/postgres_create_table.sql"
 readonly SQL_FOR_FOREIGN_KEYS="$HOME/tmp/foobar/foreign_keys.sql"
@@ -33,13 +32,16 @@ readonly SQL_FOR_FOREIGN_KEYS="$HOME/tmp/foobar/foreign_keys.sql"
 # --------------------------------------------
 # -- Run
 # --------------------------------------------
-cd "$PROJECT_DIR" >/dev/null 2>&1
 
 docker stop $CONTAINER_NAME || true
 docker rm $CONTAINER_NAME || true
 
 # GOTCHA: SQL setup scripts only runs when data directory is empty/new
 # NOTE: scripts run in alphabetical order
+
+# NOTE: PG can run as any user as long as UID matches owner of /var/lib/postgresql/data
+# GOTCHA: initdb DOES care which user you use, must exist in /etc/passwd (in the container)
+
 
 docker run \
   --detach \
@@ -53,7 +55,8 @@ docker run \
   -v "$SQL_FOR_FOREIGN_KEYS":/docker-entrypoint-initdb.d/010.fk.sql:ro \
   $POSTGRES_IMAGE
 
-# TODO: update to persist volume
+# NOTE: to persis the database, add:
+# -v $HOME/.pgdata/db1:/var/lib/postgresql/data:rw \
 
 # --------------------------------------------
 # -- Report
