@@ -10,6 +10,7 @@
 # Signals
 
 1. Simpler subset of rxjs (think `.map`, `.filter`, etc)
+   1. but Angular specific (unlike rxjs)
 1. Fine grained changes (unlike Zone.js)  <-- TODO: explain this
 
 - TODO: `computed`: for composition, TODO: rx equivalent
