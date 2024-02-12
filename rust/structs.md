@@ -85,6 +85,8 @@ pub struct MyStruct {
             .weight(3.14)
             .build()
             .context("failed to build MyStruct")?;
+
+// NOTE: missing (non-optional) setter throws error: 'X' must be initialized            
 ```
 
 ## Builder: Enforce [Validation](https://docs.rs/derive_builder/latest/derive_builder/#pre-build-validation)
@@ -104,6 +106,9 @@ impl MyStructBuilder {  // Notice the validate fn is on the Builder struct
     }
 }
 ```
+
+- [Example of Builder with Serde](./json.md)
+
 
 # Enforce validation (without a builder)
 

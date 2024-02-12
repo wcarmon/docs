@@ -1,8 +1,10 @@
 # Overview
-1. Idioms for success with JSON Deserialization
 
+1. Idioms for success with JSON Deserialization
+1. See also [structs doc](structs.md) (for Record/POJO/Data class)
 
 # Idioms
+
 1. Keep it simple
 1. Move complexity out of the serde process
 1. Deserialize to **simple** types, then convert using core Rust
@@ -13,23 +15,26 @@
 1. `#[derive(Clone, Debug, Deserialize, Serialize, ...)]`
     1. assuming you have the [`derive` feature flag](https://serde.rs/feature-flags.html) in `Cargo.toml`
 
-
 --------
+
 # @Missing fields
 
 ## Solve via Defaults
+
 1. [`#[serde(default)]`](https://serde.rs/field-attrs.html#default): calls `Default::default()` (so [`impl Default`](https://doc.rust-lang.org/std/default/trait.Default.html#how-can-i-implement-default))
 1. [`#[serde(default = "path-to-function")]`](https://serde.rs/field-attrs.html#default--path) invokes a function
 1. See also: [`Default` trait](https://doc.rust-lang.org/std/default/trait.Default.html)
 
 ## Solve via Ignoring
+
 1. `#[serde(skip)]`: both serialization and deserialization
 1. `#[serde(skip_serializing)]`: only for serialization
 1. `#[serde(skip_deserializing)]`: only for deserialization
 
-
 --------
+
 # @Extra fields
+
 ```rust
 #[serde(deny_unknown_fields)]
 pub struct MyStruct {
@@ -37,9 +42,9 @@ pub struct MyStruct {
 }
 ```
 
-
 # Validation
-1. Out of scope for Deserialization (too complex, scope creep)
+
+1. Out of scope for Deserialization library (too complex, scope creep)
 1. Deserialize to a simpler type, possibly using new-type pattern
     1. See https://rust-unofficial.github.io/patterns/patterns/behavioural/newtype.html
     1. See https://doc.rust-lang.org/rust-by-example/generics/new_types.html
@@ -48,26 +53,32 @@ pub struct MyStruct {
     1. [`#[serde(try_from = "SimpleSerdeFriendlyType")]`](https://serde.rs/container-attrs.html#try_from)
         1. Assuming `SimpleSerdeFriendlyType` is local to the deserializing crate
 
+# Example
+
+```rust
+// TODO: builder + serde + validation
+```
 
 # Field aliases
+
 ```rust
 #[serde(alias = "foo")]
 #[serde(alias = "fooBar")]
 pub my_field: String
 ```
 
-
 # Auto-deduce Enum variant
+
 ```rust
 // TODO
 ```
 
-
 # TODO: parse these
+
 - TODO: https://docs.rs/jsonschema/latest/jsonschema/
 - TODO: https://docs.rs/schemars/0.8.10/schemars/
 - TODO: https://vino.dev/blog/node-to-rust-day-22-using-json/
 
-
 # Other Resources
+
 1. TODO
