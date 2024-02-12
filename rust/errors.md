@@ -14,17 +14,6 @@
     1. Try to avoid [`.expect()`](https://doc.rust-lang.org/std/result/enum.Result.html#method.expect) in production code, useful in tests though
         1. Sometimes, this can be an alternative to nesting with the same "no-panic" guarantee
 1. Only add [logs](./logging.md) where you **handle** the error, not where you propagate ([`?`](https://doc.rust-lang.org/reference/expressions/operator-expr.html#the-question-mark-operator))
-1. Add extra context ... (See below)
-1. `impl From<foreign::SomeError> for MyCustomError {` to translate foreign errors.
-    1. [thiserror](https://docs.rs/thiserror/latest/thiserror/#details) can generate
-    1. ```rust
-        #[error("io error")]
-        StdIoError {
-            #[from]
-            source: std::io::Error,
-            backtrace: Backtrace,
-        },
-    1. The `?` operator looks for `impl From<ProducedError> for ReturnedError`
 1. Use [`if-let`](https://doc.rust-lang.org/rust-by-example/flow_control/if_let.html) or [`match`](https://doc.rust-lang.org/book/ch09-02-recoverable-errors-with-result.html#matching-on-different-errors) on error when needed for control flow
 
 ```rust
@@ -85,7 +74,37 @@ something_dangerous(...)
     1. again, [thiserror](https://docs.rs/thiserror/latest/thiserror/derive.Error.html) makes this easy via [`#[derive(Debug, Error)]`](https://docs.rs/thiserror/latest/thiserror/derive.Error.html)
 1. Add [fields](https://doc.rust-lang.org/rust-by-example/custom_types/enum.html#enums) on your custom error type
 
-# [thiserror](https://docs.rs/thiserror/latest/thiserror/)
+--------
+
+# Translate foreign errors:
+
+`impl From<foreign::SomeError> for MyCustomError {`
+
+1. [thiserror](https://docs.rs/thiserror/latest/thiserror/#details) can generate
+1. ```rust
+    #[error("io error")]
+    StdIoError {
+        #[from]
+        source: std::io::Error,
+        backtrace: Backtrace,
+    },
+1. The `?` operator looks for `impl From<ProducedError> for ReturnedError`
+
+--------
+
+# Helpful Libraries
+
+## [anyhow](https://docs.rs/anyhow/latest/anyhow/)
+
+1. High-level error handling lib
+1. Very useful for prototyping phase
+1. Use [`Err(anyhow!("foo {}", bar))`](https://docs.rs/anyhow/latest/anyhow/macro.anyhow.html) for one-off (adhoc) error message
+    1. or [`bail!("foo {}", bar)`](https://docs.rs/anyhow/latest/anyhow/macro.bail.html) shorthand
+1. [`chain()`](https://docs.rs/anyhow/latest/anyhow/struct.Chain.html) lets you iterate Error causes
+1. Use [downcasting](https://docs.rs/anyhow/1.0.4/anyhow/struct.Error.html#example-1) to get the original error type
+    1. [`anyhow::Error::downcast_ref::<io::Error>()`](https://docs.rs/anyhow/latest/anyhow/struct.Error.html#method.downcast_ref)
+
+## [thiserror](https://docs.rs/thiserror/latest/thiserror/)
 
 1. Low-level error handling lib
 1. thiserror helps ...
@@ -98,15 +117,7 @@ something_dangerous(...)
 1. [`#[source]`](https://docs.rs/thiserror/latest/thiserror/#details) attribute is for root cause (see [Error chaining](https://docs.rs/anyhow/latest/anyhow/struct.Chain.html))
 1. Alternative: [snafu](https://docs.rs/snafu/latest/snafu/index.html)
 
-# [anyhow](https://docs.rs/anyhow/latest/anyhow/)
-
-1. High-level error handling lib
-1. Very useful for prototyping phase
-1. Use [`Err(anyhow!("foo {}", bar))`](https://docs.rs/anyhow/latest/anyhow/macro.anyhow.html) for one-off (adhoc) error message
-    1. or [`bail!("foo {}", bar)`](https://docs.rs/anyhow/latest/anyhow/macro.bail.html) shorthand
-1. [`chain()`](https://docs.rs/anyhow/latest/anyhow/struct.Chain.html) lets you iterate Error causes
-1. Use [downcasting](https://docs.rs/anyhow/1.0.4/anyhow/struct.Error.html#example-1) to get the original error type
-    1. [`anyhow::Error::downcast_ref::<io::Error>()`](https://docs.rs/anyhow/latest/anyhow/struct.Error.html#method.downcast_ref)
+--------
 
 # Unorganized/TODO
 
