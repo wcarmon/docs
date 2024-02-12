@@ -7,9 +7,9 @@
 1. Iterator to Collection: [`.collect()`](https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.collect), [`.collect_into()`](https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.collect_into)
 1. Collection to Iterator: `iter()`, `into_iter()`, `iter_mut()`
 1. There are [3 forms of iteration](https://doc.rust-lang.org/std/iter/index.html#the-three-forms-of-iteration) (over some "Collection")
-    - [`into_iter()`](https://doc.rust-lang.org/std/iter/trait.IntoIterator.html#tymethod.into_iter), iterates over `T`: **owned** item
-    - `iter()`, iterates over `&T`: **borrowed** immutable item ref
-    - `iter_mut()`, iterates over `&mut T`: **borrowed** mutable item ref  <-- rare
+    - [`into_iter()`](https://doc.rust-lang.org/std/iter/trait.IntoIterator.html#tymethod.into_iter), iterates over `T`, **owned** item
+    - `iter()`, iterates over `&T`, **borrowed** immutable item ref
+    - `iter_mut()`, iterates over `&mut T`, **borrowed** mutable item ref  <-- rare
 1. Ownership & mutability of the items is different from ownership and mutability of the collection or iterator
 1. [`for` loop](https://doc.rust-lang.org/reference/expressions/loop-expr.html#iterator-loops) is [syntactic sugar for Iterators](https://doc.rust-lang.org/std/iter/index.html#for-loops-and-intoiterator)
     1. consumes by default (think `.into_iter()`)
@@ -72,7 +72,7 @@ let values = result?;                // <-- optionally add err context here
 # [`Iterator`](https://doc.rust-lang.org/std/iter/trait.Iterator.html) trait
 
 1. The most important [trait](./traits.md) related to iteration
-1. Has one associated type for the [`Item`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html#associatedtype.Item)
+1. Has one [associated type](https://web.mit.edu/rust-lang_v1.25/arch/amd64_ubuntu1404/share/doc/rust/html/book/first-edition/associated-types.html) for the [`Item`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html#associatedtype.Item)
 1. [`next`](https://doc.rust-lang.org/std/iter/trait.Iterator.html#tymethod.next) is the only required method
 1. You get 75+ other methods for free (since based on `.next()`), [See Adapters](#adapters)
     1. Returns [`Option<Self::Item>`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html#tymethod.next)
