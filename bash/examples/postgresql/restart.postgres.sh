@@ -53,6 +53,8 @@ docker run \
   -v "$SQL_FOR_FOREIGN_KEYS":/docker-entrypoint-initdb.d/010.fk.sql:ro \
   $POSTGRES_IMAGE
 
+# TODO: update to persist volume
+
 # --------------------------------------------
 # -- Report
 # --------------------------------------------
