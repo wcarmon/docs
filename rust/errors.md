@@ -23,7 +23,8 @@
     1. Using [tracing](./tracing.md) or [logging](./logging.md)
     1. Using [`some_result.context("...")?`](https://docs.rs/anyhow/latest/anyhow/trait.Context.html) to add extra error details
         1. [`.with_context("...")?`](https://docs.rs/anyhow/latest/anyhow/trait.Context.html#tymethod.with_context) is the lazy version
-    1. TODO: add example here
+        1. (anyhow crate adds [`.with_context(...)`](https://docs.rs/anyhow/latest/anyhow/trait.Context.html#method.with_context-1) to the [`Result`](https://doc.rust-lang.org/nightly/core/result/enum.Result.html) type)
+        1. [Example](https://docs.rs/anyhow/latest/anyhow/trait.Context.html#example)
 1. `impl From<foreign::SomeError> for MyCustomError {` to translate foreign errors.
     1. [thiserror](https://docs.rs/thiserror/latest/thiserror/#details) can generate
     1. ```rust
