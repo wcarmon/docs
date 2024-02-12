@@ -10,7 +10,9 @@
 1. Return a [`std::result::Result<Something, anyhow::Error>`](https://doc.rust-lang.org/std/result/enum.Result.html) from most of your functions
 1. Inside functions, use [`?` operator](https://doc.rust-lang.org/reference/expressions/operator-expr.html#the-question-mark-operator) to simplify caller & chain calls
 1. Don't [`panic!`](https://doc.rust-lang.org/std/macro.panic.html)
-    1. No [`.unwrap()`](https://doc.rust-lang.org/std/result/enum.Result.html#method.unwrap) nor [`.expect()`](https://doc.rust-lang.org/std/result/enum.Result.html#method.expect) in production code
+    1. No [`.unwrap()`](https://doc.rust-lang.org/std/result/enum.Result.html#method.unwrap), it provides no helpful information and panics.
+    1. Try to avoid [`.expect()`](https://doc.rust-lang.org/std/result/enum.Result.html#method.expect) in production code, useful in tests though
+        1. Sometimes, this can be an alternative to nesting with the same "no-panic" guarantee
 1. Only add [logs](./logging.md) where you **handle** the error, not where you propagate ([`?`](https://doc.rust-lang.org/reference/expressions/operator-expr.html#the-question-mark-operator))
 1. Add extra context ... (See below)
 1. `impl From<foreign::SomeError> for MyCustomError {` to translate foreign errors.
