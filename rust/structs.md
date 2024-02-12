@@ -19,8 +19,7 @@
 1. Use [`derive`](./traits.derive.md) attribute to auto-generate [common traits](./traits.derive.md)
 1. `Ownership`: Prefer to own fields in a struct ([Why?](https://www.lurklurk.org/effective-rust/lifetimes.html#lifetimes-in-data-structures))
 1. Don't implement `to_string()`, implement [`Display`](https://doc.rust-lang.org/std/fmt/trait.Display.html)
-1. Enforce validation (invariant maintenance).  See two options below
-
+1. Enforce validation (invariant maintenance). See two options below
 
 # Builder Pattern
 
@@ -35,7 +34,7 @@
 
 ## Builder: Example
 
-1. In `main.rs` or `lib.rs`
+### In `main.rs` or `lib.rs`
 
 ```rust
 #[macro_use]
@@ -44,7 +43,7 @@ extern crate derive_builder;
 ...
 ```
 
-1. In a struct
+### In a struct
 
 ```rust
 #[derive(Builder, Debug)]
@@ -75,7 +74,8 @@ pub struct MyStruct {
 }
 ```
 
-1. Usage
+### Usage
+
 ```rust
   let v1 = MyStructBuilder::default()
             .age(123)
@@ -108,8 +108,9 @@ impl MyStructBuilder {  // Notice the the fn is on the Builder struct
 ```
 
 # Enforce validation (without a builder)
+
 1. Use [`non_exhaustive`](https://doc.rust-lang.org/reference/attributes/type_system.html) attribute
-1. Only forces validation   Has no impact inside the crate, only affects other crates
+1. Only forces validation Has no impact inside the crate, only affects other crates
 
 ```rust
 #[derive(...)]
@@ -142,7 +143,6 @@ impl MyStruct {
         // ... run validation here
     }
 ```
-
 
 # Destructuring
 
