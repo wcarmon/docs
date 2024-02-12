@@ -23,6 +23,7 @@
     1. Using [tracing](./tracing.md) or [logging](./logging.md)
     1. Using [`some_result.context("...")?`](https://docs.rs/anyhow/latest/anyhow/trait.Context.html) to add extra error details
         1. [`.with_context("...")?`](https://docs.rs/anyhow/latest/anyhow/trait.Context.html#tymethod.with_context) is the lazy version
+    1. TODO: add example here
 1. `impl From<foreign::SomeError> for MyCustomError {` to translate foreign errors.
     1. [thiserror](https://docs.rs/thiserror/latest/thiserror/#details) can generate
     1. ```rust
@@ -34,7 +35,7 @@
         },
     1. The `?` operator looks for `impl From<ProducedError> for ReturnedError`
 1. Use [`if-let`](https://doc.rust-lang.org/rust-by-example/flow_control/if_let.html) or [`match`](https://doc.rust-lang.org/book/ch09-02-recoverable-errors-with-result.html#matching-on-different-errors) on error when needed for control flow
-```
+```rust
 let res = something_risky(...)
 if let Err(MyCustomVariant(_)) = res {
   // ...

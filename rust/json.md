@@ -24,8 +24,8 @@
 
 ## Solve via Ignoring
 1. `#[serde(skip)]`: both serialization and deserialization
-1. `#[serde(skip_serializing)]`: only serialization
-1. `#[serde(skip_deserializing)]`: only deserialization
+1. `#[serde(skip_serializing)]`: only for serialization
+1. `#[serde(skip_deserializing)]`: only for deserialization
 
 
 --------
