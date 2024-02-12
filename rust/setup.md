@@ -6,7 +6,7 @@
 1. https://www.rust-lang.org/tools/install
 
 
-# Update
+# Update version
 ```bash
 rustup update
 ```
@@ -18,8 +18,14 @@ rustc --version
 ```
 
 
-# rustup
+# Switch between nightly and stable
+```rust
+rustup override set nightly;
 
+# -- or
+
+rustup override set stable;
+```
 
 
 
