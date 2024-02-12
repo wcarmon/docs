@@ -11,6 +11,7 @@
         1. Assuming `SimpleSerdeFriendlyType` is local to the deserializing crate
 1. [`#[serde(rename_all = "camelCase")]`](https://serde.rs/container-attrs.html#rename_all): auto converts snake_case in struct fields to camelCase in json
 1. `#[derive(Clone, Debug, Deserialize, Serialize, ...)]`
+    1. assuming you have the [`derive` feature flag](https://serde.rs/feature-flags.html) in `Cargo.toml`
 
 
 --------
