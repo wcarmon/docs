@@ -39,9 +39,12 @@ pub struct MyStruct {
 
 
 # Validation
-```rust
-// TODO
-```
+1. Out of scope for Deserialization (too complex, scope creep)
+1. Deserialize to a simpler type, possibly using new-type pattern
+1. Use `TryFrom`
+    1. [See `TryFrom` trait](https://doc.rust-lang.org/std/convert/trait.TryFrom.html)
+    1. [`#[serde(try_from = "SimpleSerdeFriendlyType")]`](https://serde.rs/container-attrs.html#try_from)
+        1. Assuming `SimpleSerdeFriendlyType` is local to the deserializing crate
 
 
 # Field aliases
