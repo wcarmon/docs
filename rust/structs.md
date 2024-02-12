@@ -126,20 +126,25 @@ impl MyStruct {
     pub fn new(
             foo: Foo,
             bar: Bar
-            // ... other fields ...
+            // ... all other fields ...  <-- NOTICE you must pass ALL fields
         ) -> Result<Self, anyhow::Error> {
 
         let out = Self {
-            ... assign here ...
+            // ... assign ALL fields here ...
         };
 
-        out.validate()?;
+        Self::validate(&out)
+            .context("Invalid MyStruct")?;
+
         Ok(out)
     }
 
-    pub fn validate(&self) -> Result<(), anyhow::Error> {
+    pub fn validate(data: &Self) -> Result<(), anyhow::Error> {
         // ... run validation here
     }
+
+    ...
+}    
 ```
 
 # Destructuring
