@@ -8,10 +8,6 @@
 1. Idiomatic error handling can be verbose (without libs)
 1. [`anyhow`](https://docs.rs/anyhow/latest/anyhow/) (high-level) and [`thiserror`](https://docs.rs/thiserror/latest/thiserror/) (low-level) are excellent solutions
 1. Return a [`std::result::Result<Something, anyhow::Error>`](https://doc.rust-lang.org/std/result/enum.Result.html) from most of your functions
-    1. [`anyhow::Result<T>`](https://docs.rs/anyhow/latest/anyhow/type.Result.html) is fine for prototyping
-    1. Production/robust/fast code should use your custom error directly in the [`Result`](https://doc.rust-lang.org/std/result/enum.Result.html)
-1. Ensure your custom error type implements [`std::error::Error`](https://doc.rust-lang.org/std/error/trait.Error.html) trait
-    1. again, [thiserror](https://docs.rs/thiserror/latest/thiserror/derive.Error.html) makes this easy via [`#[derive(Debug, Error)]`](https://docs.rs/thiserror/latest/thiserror/derive.Error.html)
 1. Inside functions, use [`?` operator](https://doc.rust-lang.org/reference/expressions/operator-expr.html#the-question-mark-operator) to simplify caller & chain calls
 1. Don't [`panic!`](https://doc.rust-lang.org/std/macro.panic.html)
     1. No [`.unwrap()`](https://doc.rust-lang.org/std/result/enum.Result.html#method.unwrap) nor [`.expect()`](https://doc.rust-lang.org/std/result/enum.Result.html#method.expect) in production code
@@ -78,11 +74,14 @@ something_dangerous(...)
 - Using [tracing](./tracing.md) or [logging](./logging.md)
 
 ## Approach #4: Custom Error
+
 1. most verbose option
 1. Define [an error type](https://docs.rs/thiserror/latest/thiserror/#example) for your crate (eg. `MyCustomError`).
     1. [thiserror](https://github.com/dtolnay/thiserror) library [makes this simple](https://docs.rs/thiserror/latest/thiserror/)
     1. More examples: [one](https://fettblog.eu/rust-enums-wrapping-errors/), [two](https://www.lpalmieri.com/posts/error-handling-rust/#modelling-errors-as-enums)
-1. Using [fields](https://doc.rust-lang.org/rust-by-example/custom_types/enum.html#enums) on your custom error type
+1. Ensure your custom error type implements [`std::error::Error`](https://doc.rust-lang.org/std/error/trait.Error.html) trait
+    1. again, [thiserror](https://docs.rs/thiserror/latest/thiserror/derive.Error.html) makes this easy via [`#[derive(Debug, Error)]`](https://docs.rs/thiserror/latest/thiserror/derive.Error.html)
+1. Add [fields](https://doc.rust-lang.org/rust-by-example/custom_types/enum.html#enums) on your custom error type
 
 # [thiserror](https://docs.rs/thiserror/latest/thiserror/)
 
