@@ -4,8 +4,11 @@
 
 # Idioms
 1. Keep it simple
-1. move complexity out of the serde process
-1. Deserialize to simple types, then convert using core Rust
+1. Move complexity out of the serde process
+1. Deserialize to **simple** types, then convert using core Rust
+    1. [See `TryFrom` trait](https://doc.rust-lang.org/std/convert/trait.TryFrom.html)
+    1. [`#[serde(try_from = "SimpleSerdeFriendlyType")]`](https://serde.rs/container-attrs.html#try_from)
+        1. Assuming `SimpleSerdeFriendlyType` is local to the deserializing crate
 1. `#[serde(rename_all = "camelCase")]`: auto converts snake_case in struct fields to camelCase in json
 1. `#[derive(Clone, Debug, Deserialize, Serialize, ...)]`
 
