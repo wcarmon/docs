@@ -11,8 +11,12 @@
 # --    Interesting targets:
 # --          x86_64-unknown-linux-gnu (Debian, Ubuntu, Mint, ...)
 # --          x86_64-unknown-linux-musl (alpine linux)
-# --          x86_64-pc-windows-msvc (windows 7)
+# --          x86_64-pc-windows-msvc (windows 7)  <-- requires visual studio installed
+# --          x86_64-pc-windows-gnu (windows 7)
 # --          aarch64-apple-darwin (macOS with M1 chip)
+# -- 3. All binary crates referenced in root Cargo.toml [workspace]
+# -- 4. (Compiling for windows from linux) sudo apt-get instal -y mingw-w64
+# -- 5. (For binary sizes): cargo install cargo-bloat
 # ---------------------------------------------
 
 #set -x # uncomment to debug script
@@ -36,8 +40,8 @@ readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
 # ---------------------------------------------
 # -- Config
 # ---------------------------------------------
-readonly EXECUTABLE_CRATE_NAME="foo-main"
-
+readonly LINUX_TARGET="x86_64-unknown-linux-gnu"
+readonly WINDOWS_TARGET="x86_64-pc-windows-gnu"
 
 # ---------------------------------------------
 # -- Derived
@@ -55,7 +59,18 @@ readonly PROJ_ROOT="${PARENT_DIR}"
 cd "$PROJ_ROOT" >/dev/null 2>&1
 
 echo
-echo "|-- Building code in ${PROJ_ROOT}"
+echo "|-- Release build for native target (all executable crates in ${PROJ_ROOT}) ..."
+cargo build \
+  --release
+#  --quiet \
+
+
+echo
+echo "|-- Release build for windows (all executable crates in ${PROJ_ROOT}) ..."
+cargo build \
+  --release \
+  --target=$WINDOWS_TARGET
+
 
 # ---------------------------------------------
 # -- Docs
@@ -65,14 +80,19 @@ echo "|-- Building code in ${PROJ_ROOT}"
 # ---------------------------------------------
 # -- Report
 # ---------------------------------------------
-echo
-echo "|-- See binaries in $ABSOLUTE_OUTPUT_DIR"
-ls -hlt $ABSOLUTE_OUTPUT_DIR
+readonly NATIVE_BINARIES_DIR="${PROJ_ROOT}/target/release"
+readonly WIN_BINARIES_DIR="${PROJ_ROOT}/target/${WINDOWS_TARGET}/release"
+readonly LINUX_BINARIES_DIR="${PROJ_ROOT}/target/${LINUX_TARGET}/release"
 
-# TODO: output in ./target/release/foo-main
-# TODO: output in ./target/debug/foo-main use:   find ./target -type f -executable -name "my-proj*"
+echo
+echo "|-- See native binaries in ${NATIVE_BINARIES_DIR}"
+find ${NATIVE_BINARIES_DIR} -maxdepth 1 -executable -type f
+
+echo
+echo "|-- See windows binaries in ${WIN_BINARIES_DIR}"
+find ${WIN_BINARIES_DIR} -maxdepth 1 -executable -type f -name *.exe
 
 #echo
 #echo "|-- Size Analysis: ..."
-##cargo install cargo-bloat
+#cargo install cargo-bloat
 #cargo bloat --release -n 15
