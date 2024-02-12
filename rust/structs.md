@@ -20,6 +20,42 @@
 1. `Ownership`: Prefer to own fields in a struct ([Why?](https://www.lurklurk.org/effective-rust/lifetimes.html#lifetimes-in-data-structures))
 1. Don't implement `to_string()`, implement [`Display`](https://doc.rust-lang.org/std/fmt/trait.Display.html)
 
+1. Builder Pattern
+    1. `Con`: For small structs, Builder doesn't help much because structs [are easily built by field name](https://doc.rust-lang.org/book/ch05-01-defining-structs.html#using-the-field-init-shorthand)
+    1. `Con`: If you already implement [`Default`](https://doc.rust-lang.org/std/default/trait.Default.html), builder is wasted syntax/complexity (eg. must [`unwrap`](https://docs.rs/derive_builder/latest/derive_builder/struct.UninitializedFieldError.html) the build result)
+    1. `Pro`: Builder allows incremental construction (less local variables)
+    1. `Pro`: Builder is simpler than making multiple constructor functions
+    1. `Pro`: Builder allows incremental construction (which may or may not be a good idea)
+    1. `Pro`: It's trivial [to make a builder](https://docs.rs/derive_builder/latest/derive_builder/)
+    1. More tradeoffs: [doc-1](https://rust-unofficial.github.io/patterns/patterns/creational/builder.html), [doc-2](https://www.lurklurk.org/effective-rust/builders.html)
+
+1. Enforce validation (without builder)
+    1. Use [`non_exhaustive`](https://doc.rust-lang.org/reference/attributes/type_system.html)
+    1. Has no impact inside the crate, only affects other crates
+```rust
+#[derive(...)
+#[non_exhaustive]
+pub struct MyStruct {
+    pub foo: Foo,
+    pub bar: Bar,
+    // ... other fields ...
+}
+
+impl MyStruct {
+
+    // new function is the "constructor" pattern
+    pub fn new(foo: Foo, bar: Bar) -> Result<Self, anyhow::Error> {
+        let out = Self { ... assign here ... };
+        out.validate()?;
+        Ok(out)
+    }
+
+    pub fn validate(&self) -> Result<(), anyhow::Error> {
+        // ... run validation here
+    }
+```
+
+
 # Destructuring
 
 1. TODO
@@ -28,15 +64,10 @@
 
 1. TODO
 
+
+
 # Anti-patterns
 
-1. ~~Builder Pattern~~
-    1. `Con`: Builder doesn't help much because structs [are easily built by field name](https://doc.rust-lang.org/book/ch05-01-defining-structs.html#using-the-field-init-shorthand)
-    1. `Con`: If you already implement [`Default`](https://doc.rust-lang.org/std/default/trait.Default.html), builder is wasted syntax/complexity (eg. must [`unwrap`](https://docs.rs/derive_builder/latest/derive_builder/struct.UninitializedFieldError.html) the build result)
-    1. `Pro`: Builder is simpler than making multiple constructor functions
-    1. `Pro`: Builder allows incremental construction (which may or may not be a good idea)
-    1. `Pro`: It's trivial [to make a builder](https://docs.rs/derive_builder/latest/derive_builder/)
-    1. More tradeoffs: [doc-1](https://rust-unofficial.github.io/patterns/patterns/creational/builder.html), [doc-2](https://www.lurklurk.org/effective-rust/builders.html)
 1. ~~[Getters](https://codehs.gitbooks.io/apjava/content/Classes-And-Object-Oriented-Programming/getter-and-setter-methods.html)~~
     1. `Con`: Doesn't help much because field-level [(exterior)](https://web.mit.edu/rust-lang_v1.25/arch/amd64_ubuntu1404/share/doc/rust/html/book/first-edition/mutability.html#interior-vs-exterior-mutability) mutability is already controlled by [references & ownership](https://web.mit.edu/rust-lang_v1.25/arch/amd64_ubuntu1404/share/doc/rust/html/book/first-edition/mutability.html#field-level-mutability)
     1. `Pro`: It's trivial [to make getter](https://docs.rs/derive-getters/0.2.0/derive_getters/)
