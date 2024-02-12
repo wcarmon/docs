@@ -1,15 +1,13 @@
 # Overview
 
-1. Idioms for error handling
+1. Idioms for low-friction, maintenance-friendly error handling
 1. How to use [`anyhow`](https://docs.rs/anyhow/latest/anyhow/) and [`thiserror`](https://docs.rs/thiserror/latest/thiserror/)
 
-# Summary of key ideas for success
+# Summary of Key Ideas for success
 
 1. Idiomatic error handling can be verbose (without libs)
-1. Define [an error type](https://docs.rs/thiserror/latest/thiserror/#example) for your crate (eg. `MyCustomError`).
-    1. [thiserror](https://github.com/dtolnay/thiserror) library [makes this simple](https://docs.rs/thiserror/latest/thiserror/)
-    1. More examples: [one](https://fettblog.eu/rust-enums-wrapping-errors/), [two](https://www.lpalmieri.com/posts/error-handling-rust/#modelling-errors-as-enums)
-1. Return a [`std::result::Result<Something, MyCustomError>`](https://doc.rust-lang.org/std/result/enum.Result.html) from most of your functions
+1. [`anyhow`](https://docs.rs/anyhow/latest/anyhow/) (high-level) and [`thiserror`](https://docs.rs/thiserror/latest/thiserror/) (low-level) are excellent solutions
+1. Return a [`std::result::Result<Something, anyhow::Error>`](https://doc.rust-lang.org/std/result/enum.Result.html) from most of your functions
     1. [`anyhow::Result<T>`](https://docs.rs/anyhow/latest/anyhow/type.Result.html) is fine for prototyping
     1. Production/robust/fast code should use your custom error directly in the [`Result`](https://doc.rust-lang.org/std/result/enum.Result.html)
 1. Ensure your custom error type implements [`std::error::Error`](https://doc.rust-lang.org/std/error/trait.Error.html) trait
@@ -57,6 +55,7 @@ if let Ok(s) = res {
 something_dangerous(...)
   .context(format!("failed to do something dangerous: {some_local_var}"))?;
 ```
+
 1. Still works with [`?` operator](https://doc.rust-lang.org/reference/expressions/operator-expr.html#the-question-mark-operator)
 1. [Official Example](https://docs.rs/anyhow/latest/anyhow/trait.Context.html#example)
 1. Using [`some_result.context("...")?`](https://docs.rs/anyhow/latest/anyhow/trait.Context.html)
@@ -69,6 +68,7 @@ something_dangerous(...)
   .with_context(|| format!("failed to do something dangerous: {some_local_var}"))?;
   // useful when the context is expensive to build
 ```
+
 1. Still works with [`?` operator](https://doc.rust-lang.org/reference/expressions/operator-expr.html#the-question-mark-operator)
 1. [`.with_context("...")?`](https://docs.rs/anyhow/latest/anyhow/trait.Context.html#tymethod.with_context) is the lazy version of `context(...)`
 1. (anyhow crate adds [`.with_context(...)`](https://docs.rs/anyhow/latest/anyhow/trait.Context.html#method.with_context-1) to the [`Result`](https://doc.rust-lang.org/nightly/core/result/enum.Result.html) type)
@@ -78,8 +78,10 @@ something_dangerous(...)
 - Using [tracing](./tracing.md) or [logging](./logging.md)
 
 ## Approach #4: Custom Error
-
 1. most verbose option
+1. Define [an error type](https://docs.rs/thiserror/latest/thiserror/#example) for your crate (eg. `MyCustomError`).
+    1. [thiserror](https://github.com/dtolnay/thiserror) library [makes this simple](https://docs.rs/thiserror/latest/thiserror/)
+    1. More examples: [one](https://fettblog.eu/rust-enums-wrapping-errors/), [two](https://www.lpalmieri.com/posts/error-handling-rust/#modelling-errors-as-enums)
 1. Using [fields](https://doc.rust-lang.org/rust-by-example/custom_types/enum.html#enums) on your custom error type
 
 # [thiserror](https://docs.rs/thiserror/latest/thiserror/)
