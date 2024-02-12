@@ -5,15 +5,23 @@
 
 # Summary of Key Ideas for success
 
+1. Errors are values
+    1. Similar to golang
+    1. Unlike Java, C++, Javascript/TypeScript, Python, etc
 1. Idiomatic error handling can be verbose (without libs)
+    1. although not nearly as bad as golang
 1. [`anyhow`](https://docs.rs/anyhow/latest/anyhow/) (high-level) and [`thiserror`](https://docs.rs/thiserror/latest/thiserror/) (low-level) are excellent solutions
-1. Return a [`std::result::Result<Something, anyhow::Error>`](https://doc.rust-lang.org/std/result/enum.Result.html) from most of your functions
+    1. Prefer [`anyhow`](https://docs.rs/anyhow/latest/anyhow/) unless you have extreme performance requirements (then use thiserror)
+1. Return a [`std::result::Result<Something, anyhow::Error>`](https://doc.rust-lang.org/std/result/enum.Result.html) from most functions
+    1. [`anyhow::Result`](https://docs.rs/anyhow/latest/anyhow/type.Result.html) as return type on most `fn`
 1. Inside functions, use [`?` operator](https://doc.rust-lang.org/reference/expressions/operator-expr.html#the-question-mark-operator) to simplify caller & chain calls
+1. [preconditions](https://github.com/google/guava/wiki/PreconditionsExplained): Use [`anyhow::ensure!`](https://docs.rs/anyhow/latest/anyhow/macro.ensure.html) 
 1. Don't [`panic!`](https://doc.rust-lang.org/std/macro.panic.html)
     1. No [`.unwrap()`](https://doc.rust-lang.org/std/result/enum.Result.html#method.unwrap), it provides no helpful information and panics.
     1. Try to avoid [`.expect()`](https://doc.rust-lang.org/std/result/enum.Result.html#method.expect) in production code, useful in tests though
         1. Sometimes, this can be an alternative to nesting with the same "no-panic" guarantee
 1. Only add [logs](./logging.md) where you **handle** the error, not where you propagate ([`?`](https://doc.rust-lang.org/reference/expressions/operator-expr.html#the-question-mark-operator))
+1. On Tests, Optionally return `Result<(), anyhow::Error>` to simplify `?` usage
 1. Use [`if-let`](https://doc.rust-lang.org/rust-by-example/flow_control/if_let.html) or [`match`](https://doc.rust-lang.org/book/ch09-02-recoverable-errors-with-result.html#matching-on-different-errors) on error when needed for control flow
 
 ```rust
@@ -26,11 +34,6 @@ if let Ok(s) = res {
   // ...
 }
 ```
-
-1. Optionally use `Result<(), anyhow::Error>` on test functions to simplify `?` usage
-1. Unless you have extreme performance requirements, Use [`anyhow`](https://docs.rs/anyhow/latest/anyhow/) ...
-    1. [`anyhow::Result`](https://docs.rs/anyhow/latest/anyhow/type.Result.html) as return type on most `fn`
-    1. [`anyhow::ensure!`](https://docs.rs/anyhow/latest/anyhow/macro.ensure.html) to check [preconditions](https://github.com/google/guava/wiki/PreconditionsExplained)
 
 --------
 
