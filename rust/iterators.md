@@ -4,19 +4,26 @@
 
 # Key Concepts
 
-1. There are 3 forms of iteration
-    - `iter()`, iterates over `&T` *(borrowed item ref)*
-    - `iter_mut()`, iterates over `&mut T` *(borrowed mutable item ref)*
-    - [`into_iter()`](https://doc.rust-lang.org/std/iter/trait.IntoIterator.html#tymethod.into_iter), iterates over `T` *(owned item)*
-1. Implementers choose which forms to support
-    - `iter()`: ... TODO ...
-    - `iter_mut()`: [`Vec`](https://doc.rust-lang.org/std/vec/struct.Vec.html), [`BTreeMap`](https://doc.rust-lang.org/std/collections/struct.BTreeMap.html), [`LinkedList`](https://doc.rust-lang.org/std/collections/struct.LinkedList.html#), [`Option`](https://doc.rust-lang.org/std/option/enum.Option.html), [`Result`](https://doc.rust-lang.org/std/result/enum.Result.html), [`VecDeque`](https://doc.rust-lang.org/std/collections/struct.VecDeque.html),
-    - `into_iter()`: [`Vec`](https://doc.rust-lang.org/std/vec/struct.Vec.html), [`VecDeque`](https://doc.rust-lang.org/std/collections/struct.VecDeque.html), [`BTreeSet`](https://doc.rust-lang.org/std/collections/struct.BTreeSet.html), [`HashMap`](https://doc.rust-lang.org/std/collections/struct.HashMap.html), [`Option`](https://doc.rust-lang.org/std/option/enum.Option.html), [`BinaryHeap`](https://doc.rust-lang.org/std/collections/struct.BinaryHeap.html), [`LinkedList`](https://doc.rust-lang.org/std/collections/struct.LinkedList.html), ...
+1. Iterator to Collection: [`.collect()`](https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.collect), [`.collect_into()`](https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.collect_into)
+1. Collection to Iterator: `iter()`, `into_iter()`, `iter_mut()`
+1. There are [3 forms of iteration](https://doc.rust-lang.org/std/iter/index.html#the-three-forms-of-iteration) (over some "Collection")
+    - `iter()`, iterates over `&T`: **borrowed** immutable item ref
+    - `iter_mut()`, iterates over `&mut T`: **borrowed** mutable item ref
+    - [`into_iter()`](https://doc.rust-lang.org/std/iter/trait.IntoIterator.html#tymethod.into_iter), iterates over `T`: **owned** item
+1. Ownership & mutability of the items is different from ownership and mutability of the collection or iterator
 1. [`for` loop](https://doc.rust-lang.org/reference/expressions/loop-expr.html#iterator-loops) is [syntactic sugar for Iterators](https://doc.rust-lang.org/std/iter/index.html#for-loops-and-intoiterator)
+    1. consumes by default (think `.into_iter()`)
+    1. To borrow, use `&my_collection`, (think `.iter()`)
+    1. To borrow mutable, use `&mut my_collection`, (think `.iter_mut()`)
 1. [Iterators](https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html#) and [Adapters](https://doc.rust-lang.org/stable/std/iter/index.html#adapters) are lazy
     1. Nothing happens until call [`.next()`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html#tymethod.next) (might be indirect, [see Terminators](#terminators))
     1. Compiler generally warns you
     1. implies iterators can be infinite
+1. Implementers choose which forms to support (rare for me)
+    - `iter()`: ... TODO ...
+    - `iter_mut()`: [`Vec`](https://doc.rust-lang.org/std/vec/struct.Vec.html), [`BTreeMap`](https://doc.rust-lang.org/std/collections/struct.BTreeMap.html), [`LinkedList`](https://doc.rust-lang.org/std/collections/struct.LinkedList.html#), [`Option`](https://doc.rust-lang.org/std/option/enum.Option.html), [`Result`](https://doc.rust-lang.org/std/result/enum.Result.html), [`VecDeque`](https://doc.rust-lang.org/std/collections/struct.VecDeque.html),
+    - `into_iter()`: [`Vec`](https://doc.rust-lang.org/std/vec/struct.Vec.html), [`VecDeque`](https://doc.rust-lang.org/std/collections/struct.VecDeque.html), [`BTreeSet`](https://doc.rust-lang.org/std/collections/struct.BTreeSet.html), [`HashMap`](https://doc.rust-lang.org/std/collections/struct.HashMap.html), [`Option`](https://doc.rust-lang.org/std/option/enum.Option.html), [`BinaryHeap`](https://doc.rust-lang.org/std/collections/struct.BinaryHeap.html), [`LinkedList`](https://doc.rust-lang.org/std/collections/struct.LinkedList.html), ...
+
 
 # Idioms
 
