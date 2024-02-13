@@ -47,6 +47,8 @@ extern crate derive_builder;
 
 ```rust
 #[derive(Builder, Debug)]
+// -- Use anyhow::Error as the return type on validation error
+// -- Invoke MyStructBuilder::validate for validation
 #[builder(build_fn(error = "anyhow::Error", validate = "Self::validate"))]
 pub struct MyStruct {
     pub age: u16,

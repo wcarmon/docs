@@ -83,13 +83,13 @@ pub my_field: String
 # Example: Builder Deserialization with Validation
 
 1. `Concept`: let `serde` deserialize into generated `*Builder` struct, then [let Builder enforce validtaion](./structs.md#builder-enforce-validation)
-1. `Idiom`: Pass-through `serde` attribute macros into [`builder_*_attr`](https://docs.rs/derive_builder/latest/derive_builder/#pass-through-attributes)
+1. `Idiom`: Pass-through `serde` attribute macros using [`builder_*_attr`](https://docs.rs/derive_builder/latest/derive_builder/#pass-through-attributes) attribute macros
 
 ## Annotate the Struct
 
 ```rust
 
-#[derive(Builder, Debug)]
+#[derive(Builder, Debug, ...)]   // <-- NOTICE: no Deserialize here
 #[builder(build_fn(error = "anyhow::Error", validate = "Self::validate"))]
 #[builder_struct_attr(derive(Deserialize))]
 // -- Pass thru serde attributes
