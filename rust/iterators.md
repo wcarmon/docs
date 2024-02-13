@@ -168,7 +168,7 @@ impl<'a> IntoIterator for &'a MyFancyStuff {
 
 | Terminator                                                                           | Purpose                                            |
 |--------------------------------------------------------------------------------------|----------------------------------------------------|
-| [`collect`](https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.collect)   | builds collection                                  |
+| [`collect`](https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.collect)   | builds collection, see `FromIterator`                                  |
 | [`for_each`](https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.for_each) | side effects (eg. printing, logging)               |
 | [`reduce`](https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.reduce)     | *reduce* down to a single value                    |
 | [`fold`](https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.fold)         | like `reduce`, but takes starting value            |
