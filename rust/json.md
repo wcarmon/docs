@@ -17,7 +17,7 @@
 
 --------
 
-# @Missing fields
+# Handling Missing fields
 
 ## Solve via Defaults
 
@@ -55,31 +55,13 @@ impl MyStruct {
 
 --------
 
-# @Extra fields
+# Handling Extra fields
 
 ```rust
 #[serde(deny_unknown_fields)]
 pub struct MyStruct {
     ... fields ...
 }
-```
-
-# Validation
-
-1. Out of scope for Deserialization library (too complex, scope creep)
-1. Deserialize to a simpler type, possibly using new-type pattern
-    1. See https://rust-unofficial.github.io/patterns/patterns/behavioural/newtype.html
-    1. See https://doc.rust-lang.org/rust-by-example/generics/new_types.html
-1. Use `TryFrom`
-    1. [See `TryFrom` trait](https://doc.rust-lang.org/std/convert/trait.TryFrom.html)
-    1. [`#[serde(try_from = "SimpleSerdeFriendlyType")]`](https://serde.rs/container-attrs.html#try_from)
-        1. Assuming `SimpleSerdeFriendlyType` is local to the deserializing crate
-
-# Builder Deserialization with Validation Example
-1. Concept: deserialize into generated builder, then [use normal builder validtaion](./structs.md#builder-enforce-validation)
-1. Idiom: Pass-through `serde` attribute macros into [`builder_*_attr`](https://docs.rs/derive_builder/latest/derive_builder/#pass-through-attributes)
-```rust
-// TODO: builder + serde + validation
 ```
 
 # Field aliases
@@ -96,16 +78,59 @@ pub my_field: String
 // TODO: #[serde(untagged)] 
 ```
 
-# Deserialize to Map of Values
+--------
 
-1. TODO
+# Builder Deserialization with Validation Example
 
-# TODO: parse these
+1. Concept: deserialize into generated builder, then [use normal builder validtaion](./structs.md#builder-enforce-validation)
+1. Idiom: Pass-through `serde` attribute macros into [`builder_*_attr`](https://docs.rs/derive_builder/latest/derive_builder/#pass-through-attributes)
 
-- TODO: https://docs.rs/jsonschema/latest/jsonschema/
-- TODO: https://docs.rs/schemars/0.8.10/schemars/
-- TODO: https://vino.dev/blog/node-to-rust-day-22-using-json/
+## Annotate the Struct
 
-# Other Resources
+```rust
 
-1. TODO
+#[derive(Builder, Debug)]
+#[builder(build_fn(error = "anyhow::Error", validate = "Self::validate"))]
+#[builder_struct_attr(derive(Deserialize))]
+// -- Pass thru serde attributes
+#[builder_struct_attr(serde(deny_unknown_fields, rename_all = "camelCase"))]
+pub struct MyStruct {
+   ... fields ...
+   
+    #[builder(setter(skip))]
+    #[builder(default)]
+    #[builder_field_attr(serde(default))]  // <-- NOTICE: serde attribute passed thru to Builder struct
+    something_defaulted: i64,
+}   
+
+// Validation fn is the same as for normal Builder 
+impl MyStructBuilder {
+    fn validate(&self) -> Result<(), anyhow::Error> {
+        ...
+    }
+}
+```
+
+## Usage
+
+```rust
+let json_str = ...
+
+let b: MyStructBuilder = serde_json::from_str(json_str)
+    .context("failed to parse json for MyStruct")?;
+
+let instance = b.build()
+    .context("failed to build MyStruct")?;
+```
+
+# Validation (Without builder)
+
+1. Out of scope for Deserialization library (too complex, scope creep)
+1. Deserialize to a simpler type, possibly using new-type pattern
+    1. See https://rust-unofficial.github.io/patterns/patterns/behavioural/newtype.html
+    1. See https://doc.rust-lang.org/rust-by-example/generics/new_types.html
+1. Use `TryFrom`
+    1. [See `TryFrom` trait](https://doc.rust-lang.org/std/convert/trait.TryFrom.html)
+    1. [`#[serde(try_from = "SimpleSerdeFriendlyType")]`](https://serde.rs/container-attrs.html#try_from)
+        1. Assuming `SimpleSerdeFriendlyType` is local to the deserializing crate
+1. Avoid the ~~Map<String, Value>~~ route, it's a dead end, requires a lot of pattern matching
