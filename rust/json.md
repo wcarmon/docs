@@ -91,8 +91,9 @@ pub my_field: String
 
 #[derive(Builder, Debug, ...)]   // <-- NOTICE: no Deserialize here
 #[builder(build_fn(error = "anyhow::Error", validate = "Self::validate"))]
+// -- Pass thru Deserialize attribute macro to Builder struct
 #[builder_struct_attr(derive(Deserialize))]
-// -- Pass thru serde attributes
+// -- Pass thru typical serde attributes
 #[builder_struct_attr(serde(deny_unknown_fields, rename_all = "camelCase"))]
 pub struct MyStruct {
    ... fields ...
