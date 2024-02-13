@@ -124,12 +124,14 @@ let b: MyStructBuilder = serde_json::from_str(json_str)
 
 // -- Validate on build
 let instance = b.build()
-    .context("failed to build MyStruct")?;
+    .context("invalid MyStruct")?;
 ```
 
 # Validation (Without builder)
 
-1. Out of scope for Deserialization library (too complex, scope creep)
+1. Generally Out-of-scope for a Deserialization library
+    1. too complex, scope creep
+    1. Do validation AFTER parsing
 1. Deserialize to a simpler type, possibly using new-type pattern
     1. See https://rust-unofficial.github.io/patterns/patterns/behavioural/newtype.html
     1. See https://doc.rust-lang.org/rust-by-example/generics/new_types.html
