@@ -105,7 +105,7 @@ pub struct MyStruct {
     something_defaulted: i64,
 }   
 
-// Validation fn is the same as for normal Builder 
+// -- Validation fn is the same as for normal Builder (see structs.md for details) 
 impl MyStructBuilder {
     fn validate(&self) -> Result<(), anyhow::Error> {
         ...
@@ -116,11 +116,13 @@ impl MyStructBuilder {
 ## Usage
 
 ```rust
-let json_str = ...
+let json_str = r#" { ... } "#;
 
+// -- Deserialize into the generated Builder struct
 let b: MyStructBuilder = serde_json::from_str(json_str)
     .context("failed to parse json for MyStruct")?;
 
+// -- Validate on build
 let instance = b.build()
     .context("failed to build MyStruct")?;
 ```
