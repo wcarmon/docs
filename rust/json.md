@@ -25,6 +25,28 @@
 1. [`#[serde(default = "path-to-function")]`](https://serde.rs/field-attrs.html#default--path) invokes a function
 1. See also: [`Default` trait](https://doc.rust-lang.org/std/default/trait.Default.html)
 
+```rust
+#[derive(Deserialize, ...)]
+pub struct MyStruct {
+   
+    // -- Uses default Foo type 
+    #[serde(default)]
+    foo: Foo
+   
+    #[serde(default = "MyStruct::default_for_quux")]
+    quux: i64,
+    
+    ... other fields ...
+}
+
+
+impl MyStruct {
+    fn default_for_quux() -> i64 {
+        18
+    }
+}
+```
+
 ## Solve via Ignoring
 
 1. `#[serde(skip)]`: both serialization and deserialization
@@ -72,6 +94,10 @@ pub my_field: String
 ```rust
 // TODO
 ```
+
+# Deserialize to Map of Values
+
+1. TODO
 
 # TODO: parse these
 
