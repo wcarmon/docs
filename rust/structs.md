@@ -55,7 +55,7 @@ pub struct MyStruct {
     pub happy: bool,
     pub weight: f32,
 
-    // -- Allow anything that can convert into String (eg. Vec<String>)
+    // -- Allow anything that can convert into ...
     #[builder(setter(into))]
     pub friends: Vec<String>,
 
