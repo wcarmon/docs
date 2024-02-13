@@ -76,7 +76,7 @@ pub struct MyStruct {
         1. Assuming `SimpleSerdeFriendlyType` is local to the deserializing crate
 
 # Builder Deserialization with Validation Example
-1. Concept: deserialize into generated builder, then [use normal builder validtaion](./structs.md)
+1. Concept: deserialize into generated builder, then [use normal builder validtaion](./structs.md#builder-enforce-validation)
 1. Idiom: Pass-through `serde` attribute macros into [`builder_*_attr`](https://docs.rs/derive_builder/latest/derive_builder/#pass-through-attributes)
 ```rust
 // TODO: builder + serde + validation
