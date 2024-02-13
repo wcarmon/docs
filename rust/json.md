@@ -29,7 +29,7 @@
 #[derive(Deserialize, ...)]
 pub struct MyStruct {
    
-    // -- Uses default Foo type 
+    // -- Uses Default on Foo type 
     #[serde(default)]
     foo: Foo
    
@@ -47,7 +47,7 @@ impl MyStruct {
 }
 ```
 
-## Solve via Ignoring
+## Solve by Ignoring
 
 1. `#[serde(skip)]`: both serialization and deserialization
 1. `#[serde(skip_serializing)]`: only for serialization
@@ -92,7 +92,7 @@ pub my_field: String
 # Auto-deduce Enum variant
 
 ```rust
-// TODO
+// TODO: #[serde(untagged)] 
 ```
 
 # Deserialize to Map of Values
