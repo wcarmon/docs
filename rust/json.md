@@ -127,7 +127,7 @@ let instance = b.build()
     .context("invalid MyStruct")?;
 ```
 
-# Validation (Without builder)
+# Struct Validation (Without Builder)
 
 1. Generally Out-of-scope for a Deserialization library
     1. too complex, scope creep
@@ -139,4 +139,4 @@ let instance = b.build()
     1. [See `TryFrom` trait](https://doc.rust-lang.org/std/convert/trait.TryFrom.html)
     1. [`#[serde(try_from = "SimpleSerdeFriendlyType")]`](https://serde.rs/container-attrs.html#try_from)
         1. Assuming `SimpleSerdeFriendlyType` is local to the deserializing crate
-1. Avoid the ~~Map<String, Value>~~ route, it's a dead end, requires a lot of pattern matching
+1. Avoid the ~~`HashMap<String, Value>`~~ route, it's a dead end, requires a lot of pattern matching
