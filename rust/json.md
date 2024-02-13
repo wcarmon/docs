@@ -65,7 +65,7 @@ pub struct MyStruct {
 }
 ```
 
-# Field aliases
+# Field Aliases
 
 ```rust
 #[serde(alias = "foo")]
@@ -82,8 +82,8 @@ pub my_field: String
 
 # Example: Builder Deserialization with Validation
 
-1. Concept: deserialize into generated builder, then [use normal builder validtaion](./structs.md#builder-enforce-validation)
-1. Idiom: Pass-through `serde` attribute macros into [`builder_*_attr`](https://docs.rs/derive_builder/latest/derive_builder/#pass-through-attributes)
+1. `Concept`: let `serde` deserialize into generated `*Builder` struct, then [let Builder enforce validtaion](./structs.md#builder-enforce-validation)
+1. `Idiom`: Pass-through `serde` attribute macros into [`builder_*_attr`](https://docs.rs/derive_builder/latest/derive_builder/#pass-through-attributes)
 
 ## Annotate the Struct
 
