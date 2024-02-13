@@ -96,11 +96,12 @@ pub my_field: String
 // -- Pass thru typical serde attributes
 #[builder_struct_attr(serde(deny_unknown_fields, rename_all = "camelCase"))]
 pub struct MyStruct {
-   ... fields ...
+    
+    // ... fields ...
    
     #[builder(setter(skip))]
     #[builder(default)]
-    #[builder_field_attr(serde(default))]  // <-- NOTICE: serde attribute passed thru to Builder struct
+    #[builder_field_attr(serde(default))]  // <-- Pass thru serde default to Builder struct
     something_defaulted: i64,
 }   
 
