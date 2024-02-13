@@ -139,7 +139,7 @@ impl<'a> IntoIterator for &'a MyFancyStuff {
 
 # [`FromIterator`](https://doc.rust-lang.org/std/iter/trait.FromIterator.html) trait
 
-1. TODO
+1. controls the behavior of `.collect`
 
 # [Adapters](https://doc.rust-lang.org/std/iter/index.html#adapters)
 
