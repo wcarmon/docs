@@ -24,4 +24,10 @@ mod tests {
 
 
 # Other Resources
-1. https://doc.rust-lang.org/rust-by-example/testing/unit_testing.html
+1. Basics:
+    1. https://doc.rust-lang.org/rust-by-example/testing/unit_testing.html
+    1. https://doc.rust-lang.org/book/ch11-01-writing-tests.html
+1. Organizing tests:
+    1. https://doc.rust-lang.org/book/ch11-03-test-organization.html
+    1. https://blog.logrocket.com/how-to-organize-rust-tests/
+
