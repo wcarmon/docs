@@ -50,7 +50,7 @@ impl MyStruct {
 
 ## [Solve by Ignoring](https://serde.rs/attr-skip-serializing.html)
 
-1. `#[serde(skip)]`: both serialization and deserialization
+1. `#[serde(skip)]`: for both serialization and deserialization
 1. `#[serde(skip_serializing)]`: only for serialization
 1. `#[serde(skip_deserializing)]`: only for deserialization
 
@@ -61,7 +61,7 @@ impl MyStruct {
 ```rust
 #[serde(deny_unknown_fields)]
 pub struct MyStruct {
-    ... fields ...
+    // ... fields ...
 }
 ```
 
@@ -75,9 +75,8 @@ pub my_field: String
 
 # Auto-deduce Enum variant
 
-```rust
-// TODO: #[serde(untagged)] 
-```
+1. Use `#[serde(untagged)]` on the `enum`
+1. [Example](https://serde.rs/enum-representations.html#untagged)
 
 --------
 
