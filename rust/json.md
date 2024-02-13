@@ -1,7 +1,7 @@
 # Overview
 
 1. Idioms for success with JSON Deserialization
-1. See also [structs doc](structs.md) (for Record/POJO/Data class)
+1. See also [structs doc](structs.md) (for Record/POJO/Data class, with and without Builder)
 
 # Idioms
 
@@ -11,17 +11,17 @@
     1. [See `TryFrom` trait](https://doc.rust-lang.org/std/convert/trait.TryFrom.html)
     1. [`#[serde(try_from = "SimpleSerdeFriendlyType")]`](https://serde.rs/container-attrs.html#try_from)
         1. Assuming `SimpleSerdeFriendlyType` is local to the deserializing crate
-1. [`#[serde(rename_all = "camelCase")]`](https://serde.rs/container-attrs.html#rename_all): auto converts snake_case in struct fields to camelCase in json
+1. [`#[serde(rename_all = "camelCase")]`](https://serde.rs/container-attrs.html#rename_all): auto converts between a `snake_case` struct field and a `camelCase` json property
 1. `#[derive(Clone, Debug, Deserialize, Serialize, ...)]`
     1. assuming you have the [`derive` feature flag](https://serde.rs/feature-flags.html) in `Cargo.toml`
 
 --------
 
-# Handling Missing fields
+# Handle Missing fields
 
 ## Solve via Defaults
 
-1. [`#[serde(default)]`](https://serde.rs/field-attrs.html#default): calls `Default::default()` (so [`impl Default`](https://doc.rust-lang.org/std/default/trait.Default.html#how-can-i-implement-default))
+1. [`#[serde(default)]`](https://serde.rs/field-attrs.html#default): calls `Default::default()` (assuming you [`impl Default`](https://doc.rust-lang.org/std/default/trait.Default.html#how-can-i-implement-default))
 1. [`#[serde(default = "path-to-function")]`](https://serde.rs/field-attrs.html#default--path) invokes a function
 1. See also: [`Default` trait](https://doc.rust-lang.org/std/default/trait.Default.html)
 
@@ -47,7 +47,7 @@ impl MyStruct {
 }
 ```
 
-## Solve by Ignoring
+## [Solve by Ignoring](https://serde.rs/attr-skip-serializing.html)
 
 1. `#[serde(skip)]`: both serialization and deserialization
 1. `#[serde(skip_serializing)]`: only for serialization
@@ -55,7 +55,7 @@ impl MyStruct {
 
 --------
 
-# Handling Extra fields
+# Handle Extra/Unknown fields
 
 ```rust
 #[serde(deny_unknown_fields)]
