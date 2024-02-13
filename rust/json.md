@@ -22,7 +22,8 @@
 ## Solve via Defaults
 
 1. [`#[serde(default)]`](https://serde.rs/field-attrs.html#default): calls `Default::default()` (assuming you [`impl Default`](https://doc.rust-lang.org/std/default/trait.Default.html#how-can-i-implement-default))
-1. [`#[serde(default = "path-to-function")]`](https://serde.rs/field-attrs.html#default--path) invokes a function
+1. [`#[serde(default = "path-to-function")]`](https://serde.rs/field-attrs.html#default--path) invokes a function to provide default value
+    1. GOTCHA: This feature doesn't seem to work with derive_builder
 1. See also: [`Default` trait](https://doc.rust-lang.org/std/default/trait.Default.html)
 
 ```rust
@@ -36,7 +37,7 @@ pub struct MyStruct {
     #[serde(default = "MyStruct::default_for_quux")]
     quux: i64,
     
-    ... other fields ...
+    // ... other fields ...
 }
 
 
