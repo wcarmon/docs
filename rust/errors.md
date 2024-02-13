@@ -20,6 +20,7 @@
     1. No [`.unwrap()`](https://doc.rust-lang.org/std/result/enum.Result.html#method.unwrap), it provides no helpful information and panics.
     1. Try to avoid [`.expect()`](https://doc.rust-lang.org/std/result/enum.Result.html#method.expect) in production code, useful in tests though
         1. Sometimes, this can be an alternative to nesting with the same "no-panic" guarantee
+    1. It's fine to panic in test code.  Test Runner handles panic cleanly
 1. Only add [logs](./logging.md) where you **handle** the error, not where you propagate ([`?`](https://doc.rust-lang.org/reference/expressions/operator-expr.html#the-question-mark-operator))
     1. use `context(...)` or `with_context(...)` instead (see below)
 1. On Tests, Optionally return `Result<(), anyhow::Error>` to simplify `?` usage

@@ -146,7 +146,7 @@ impl<'a> IntoIterator for &'a MyFancyStuff {
 1. Adapters are "chainable" functions
 1. Adapters are Higher-order functions (functions that accept a function)
 1. In other places, these are called [Combinators](https://doc.rust-lang.org/reference/glossary.html#combinator)
-1. Don't panic, return a [`Result`](https://doc.rust-lang.org/std/result/)
+1. Don't panic, return a [`Result`](https://doc.rust-lang.org/std/result/)    
 1. Adapters are lazy
 1. Similar to [RxJs](https://rxjs.dev/api/operators), [RxJava `Observable`](https://reactivex.io/RxJava/3.x/javadoc/io/reactivex/rxjava3/subjects/BehaviorSubject.html), [Reactor `Flux`](https://projectreactor.io/docs/core/release/api/reactor/core/publisher/Flux.html), [Java `Stream`](https://docs.oracle.com/en/java/javase/18/docs/api/java.base/java/util/stream/Stream.html), [lodash operators](https://lodash.com/docs/4.17.15#map) operators
     1. Visual guides: [js based](https://res.cloudinary.com/practicaldev/image/fetch/s--sYEjzdnw--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/i/sr8koff729gxcvpnoty6.jpeg), [C# based](https://csharpcorner-mindcrackerinc.netdna-ssl.com/article/simplify-map-reduce-and-filter-in-typescript/Images/map_filter_reduce.png), ...
