@@ -114,12 +114,12 @@ impl MyStructBuilder {  // Notice the validate fn is on the Builder struct
 
 # Enforce validation (without a builder)
 
-1. Use [`non_exhaustive`](https://doc.rust-lang.org/reference/attributes/type_system.html) attribute
+1. Use [`non_exhaustive`](https://doc.rust-lang.org/reference/attributes/type_system.html) attribute to force users (outside the crate) to build via the `::new` `fn`
 1. Only forces validation Has no impact inside the crate, only affects other crates
 
 ```rust
 #[derive(...)]
-#[non_exhaustive]
+#[non_exhaustive]  // Force construction via ::new (outside the crate)
 pub struct MyStruct {
 
     pub foo: Foo,
