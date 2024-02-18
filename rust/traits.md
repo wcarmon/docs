@@ -18,10 +18,10 @@
 1. Traits are the way we "hook-into" built-in functionality, for example:
     1. [`Add`](https://doc.rust-lang.org/std/ops/trait.Add.html) and [`Sub`](https://doc.rust-lang.org/std/ops/trait.Sub.html) allow your type with the `+` and `-` operators (summation & difference), (operator overloading)
     1. [`AddAssign`](https://doc.rust-lang.org/std/ops/trait.AddAssign.html) and [`SubAssign`](https://doc.rust-lang.org/std/ops/trait.SubAssign.html) allow your type to work with `+=` and `-=` operators (operator overloading)
-    1. [`Clone`](https://doc.rust-lang.org/std/clone/trait.Clone.html) ... TODO
+    1. [`Clone`](https://doc.rust-lang.org/std/clone/trait.Clone.html) allows your type with [`cloned()`](https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.cloned) in iterators
     1. [`Debug`](https://doc.rust-lang.org/std/fmt/trait.Debug.html) allows a type to work with [`{:?}` syntax](https://doc.rust-lang.org/std/fmt/trait.Debug.html#examples)
     1. [`Display`](https://doc.rust-lang.org/std/fmt/trait.Display.html) allows your types in (user facing) print/format statements
-    1. [`Drop`](https://doc.rust-lang.org/std/ops/trait.Drop.html) allows your type to cleanup when done (eg. closing resources)
+    1. [`Drop`](https://doc.rust-lang.org/std/ops/trait.Drop.html) allows your type to cleanup when done (eg. closing connection pools, files, etc)
     1. [`Eq`](https://doc.rust-lang.org/std/cmp/trait.Eq.html) and [`PartialEq`](https://doc.rust-lang.org/std/cmp/trait.PartialEq.html) allow `==` operator on your type
     1. [`From`](https://doc.rust-lang.org/std/convert/trait.From.html) and [`TryFrom`](https://doc.rust-lang.org/std/convert/trait.TryFrom.html) help you auto convert between types (eg. transparently when invoking methods, automatic error conversion, when using [serde](https://serde.rs/container-attrs.html#try_from))
     1. [`Hash`](https://doc.rust-lang.org/std/hash/trait.Hash.html) allows your type in [`HashMap`](https://doc.rust-lang.org/std/collections/struct.HashMap.html) & [`HashSet`](https://doc.rust-lang.org/std/collections/struct.HashSet.html)
