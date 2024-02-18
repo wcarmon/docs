@@ -16,16 +16,17 @@
 1. [Marker Trait](https://doc.rust-lang.org/std/marker/index.html): agreement between user and implementer for something the compiler cannot represent
 1. Traits can be used with [static dispatch](https://www.cs.brandeis.edu/~cs146a/rust/doc-02-21-2015/book/static-and-dynamic-dispatch.html#static-dispatch) (generics) or with [dynamic dispatch](https://www.cs.brandeis.edu/~cs146a/rust/doc-02-21-2015/book/static-and-dynamic-dispatch.html#dynamic-dispatch) (trait objects via `dyn`)
 1. Traits are the way we "hook-into" Built-in functionality
-    1. Eg. [`Display`](TODO) ...
-    1. Eg. [`Clone`](TODO) ...
-    1. Eg. [`Debug`](TODO) allows a type to work with [`{:?}` syntax](TODO)
-    1. Eg. [`Eq`](https://doc.rust-lang.org/std/cmp/trait.Eq.html) and [`PartialEq`](TODO) allow `==` operator on your type
-    1. Eg. [`From`](https://doc.rust-lang.org/std/convert/trait.From.html) and [`TryFrom`](https://doc.rust-lang.org/std/convert/trait.TryFrom.html) help you auto convert between types (eg. transparently when invoking methods, automatic error conversion, when using [serde](TODO))
+    1. Eg. [`Add`](https://doc.rust-lang.org/std/ops/trait.Add.html) and [`Sub`](https://doc.rust-lang.org/std/ops/trait.Sub.html) allow your type with the `+` and `-` operators (summation & difference)
+    1. Eg. [`Clone`](https://doc.rust-lang.org/std/clone/trait.Clone.html) ... TODO
+    1. Eg. [`Debug`](https://doc.rust-lang.org/std/fmt/trait.Debug.html) allows a type to work with [`{:?}` syntax](https://doc.rust-lang.org/std/fmt/trait.Debug.html#examples)
+    1. Eg. [`Display`](https://doc.rust-lang.org/std/fmt/trait.Display.html) allows your types in (user facing) print/format statements
+    1. Eg. [`Eq`](https://doc.rust-lang.org/std/cmp/trait.Eq.html) and [`PartialEq`](https://doc.rust-lang.org/std/cmp/trait.PartialEq.html) allow `==` operator on your type
+    1. Eg. [`From`](https://doc.rust-lang.org/std/convert/trait.From.html) and [`TryFrom`](https://doc.rust-lang.org/std/convert/trait.TryFrom.html) help you auto convert between types (eg. transparently when invoking methods, automatic error conversion, when using [serde](https://serde.rs/container-attrs.html#try_from))
     1. Eg. [`Hash`](https://doc.rust-lang.org/std/hash/trait.Hash.html) allows your type in [`HashMap`](https://doc.rust-lang.org/std/collections/struct.HashMap.html) & [`HashSet`](https://doc.rust-lang.org/std/collections/struct.HashSet.html)
-    1. Eg. [`Ord`](https://doc.rust-lang.org/std/cmp/trait.Ord.html) allows your type with `<`, `>`, etc operators, allows as key for [`BTreeMap`](https://doc.rust-lang.org/std/collections/struct.BTreeMap.html) or [`BTreeSet`](https://doc.rust-lang.org/std/collections/struct.BTreeSet.html), and [allows sorting](https://doc.rust-lang.org/std/primitive.slice.html#method.sort)
     1. Eg. [`IntoIterator`](https://doc.rust-lang.org/std/iter/trait.IntoIterator.html) allows your type to work in [`for` loop](https://doc.rust-lang.org/std/iter/index.html#for-loops-and-intoiterator)
+    1. Eg. [`Ord`](https://doc.rust-lang.org/std/cmp/trait.Ord.html) allows your type with `<`, `>`, etc operators, allows as key for [`BTreeMap`](https://doc.rust-lang.org/std/collections/struct.BTreeMap.html) or [`BTreeSet`](https://doc.rust-lang.org/std/collections/struct.BTreeSet.html), and [allows sorting](https://doc.rust-lang.org/std/primitive.slice.html#method.sort)
     1. Eg. [``](TODO) ... TODO
-    1. Eg. [``](TODO) ... TODO
+    - add
 
 # Static dispatch
 1. [Generics](https://doc.rust-lang.org/book/ch10-01-syntax.html), [monomorphization](https://rustwasm.github.io/twiggy/concepts/generic-functions-and-monomorphization.html)
