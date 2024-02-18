@@ -33,6 +33,8 @@
     1. [`Try`](https://doc.rust-lang.org/std/ops/trait.Try.html) allows your type to work with the `?` operator (error propagation)
     1. `Deref`, `AsRef`, `Borrow` allows you to make your own pointers
 1. Traits unify the rust community by standardizing how we do common things
+1. Traits turn some runtime issues into compilation issues
+    1. eg. `Hash` can catch if part of your object graph isn't hash compatible (like `f32` or `f64`)
 
 
 # Static dispatch
