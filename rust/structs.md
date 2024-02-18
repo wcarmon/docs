@@ -50,6 +50,7 @@ extern crate derive_builder;
 // -- Use anyhow::Error as the return type on validation error
 // -- Invoke MyStructBuilder::validate for validation
 #[builder(build_fn(error = "anyhow::Error", validate = "Self::validate"))]
+#[non_exhaustive]  // Force construction via builder or ::new (outside the crate)
 pub struct MyStruct {
     pub age: u16,
     pub happy: bool,
