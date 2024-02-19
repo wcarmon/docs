@@ -12,9 +12,10 @@
 
 # Definitions
 1. A trait is a collection of **methods** defined for an **unknown type**, called `Self`
-    1. Type can be resolved at compile time (generics) or at runtime (`dyn`)
+    1. Type can be resolved at compile time (generics & [Monomorphization](https://rustc-dev-guide.rust-lang.org/backend/monomorph.html)) or at runtime ([`dyn`](https://doc.rust-lang.org/std/keyword.dyn.html))
 1. [Marker Trait](https://doc.rust-lang.org/std/marker/index.html): agreement between user and implementer for something the compiler cannot represent
 1. Traits can be used with [static dispatch](https://www.cs.brandeis.edu/~cs146a/rust/doc-02-21-2015/book/static-and-dynamic-dispatch.html#static-dispatch) (generics) or with [dynamic dispatch](https://www.cs.brandeis.edu/~cs146a/rust/doc-02-21-2015/book/static-and-dynamic-dispatch.html#dynamic-dispatch) (trait objects via `dyn`)
+1. Traits are a polymorphism tool.
 1. Traits are the way we "hook-into" built-in functionality, for example:
     1. [`Add`](https://doc.rust-lang.org/std/ops/trait.Add.html) and [`Sub`](https://doc.rust-lang.org/std/ops/trait.Sub.html) allow your type with the `+` and `-` operators (summation & difference), (operator overloading)
     1. [`AddAssign`](https://doc.rust-lang.org/std/ops/trait.AddAssign.html) and [`SubAssign`](https://doc.rust-lang.org/std/ops/trait.SubAssign.html) allow your type to work with `+=` and `-=` operators (operator overloading)
@@ -105,6 +106,10 @@
 1. TODO
 
 
+# Same method, multiple traits
+1. https://web.mit.edu/rust-lang_v1.25/arch/amd64_ubuntu1404/share/doc/rust/html/book/second-edition/ch19-03-advanced-traits.html#fully-qualified-syntax-for-disambiguation-calling-methods-with-the-same-name
+
+
 # Language Comparison
 
 ## Java
@@ -115,6 +120,7 @@
     1. implementation is decoupled from the type (`impl` block is separate from struct/enum/type)
     1. Trait implementation is outside the type’s definition
     1. Can choose between vtable/indirect dispatch (heap allocated) and static/direct dispatch
+    1. A type can implement same method on multiple traits (with different implementation)
 
 
 ## Golang
@@ -124,6 +130,7 @@
 1. Differences
     1. Traits are **explicitly** implemented on types
     1. No embedding
+    1. A type can implement same method on multiple traits (with different implementation)
 
 
 ## C++
@@ -132,6 +139,7 @@
 1. Differences
     1. TODO: no fields
     1. [Operator overloading](https://doc.rust-lang.org/rust-by-example/trait/ops.html) works via traits
+    1. A type can implement same method on multiple traits (with different implementation)
 
 
 # Gotchas
@@ -144,6 +152,23 @@
     1. `impl Debug for dyn MyTrait { ... }` 
     1. Use `Vec<Box<dyn MyTrait>>` for collection
          
+
+# [Trait Objects](https://doc.rust-lang.org/reference/types/trait-object.html)
+1. An new type that behaves like a pointer to a Trait.
+1. A (well defined) view of some other type.
+1. Type is unknown at Compile time
+1. We don't know the type until runtime (so, must use [`dyn` keyword](TODO)).
+1. Because of type-erasure, users of the Trait Object lack access to the rest of the type (opaque)
+1. Must access via `&` or `Box<...>` because they are dynamically sized (think heap)
+
+
+## [Object safety](https://doc.rust-lang.org/reference/items/traits.html#object-safety)
+1. A way to [restrict which traits](https://github.com/rust-lang/rfcs/blob/master/text/0255-object-safety.md) can be used as trait objects
+1. `Pro`: Simplifies usage
+1. `Pro`: Simplifies error messages, and they happen closer to the root cause
+1. `Pro`: simplifies evolution of code that uses Traits
+1. Base Trait: TODO
+
 
 
 # TODO/Unorganized
