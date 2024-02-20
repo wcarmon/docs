@@ -38,6 +38,10 @@
 1. Error handling for [`Result`](https://doc.rust-lang.org/std/result/)s in failable operations
     1. Other approaches: https://doc.rust-lang.org/rust-by-example/error/iter_result.html
 
+### Error handling Approach #0:
+1. itertools has [`map_ok`](https://docs.rs/itertools/latest/itertools/trait.Itertools.html#method.map_ok), [`filter_ok`](https://docs.rs/itertools/latest/itertools/trait.Itertools.html#method.filter_ok), etc
+1. TODO: how to collect?
+
 ### Error handling Approach #1:
 
 1. In [`.map`](https://doc.rust-lang.org/std/iter/struct.Map.html) (or similar) return [`Result`](https://doc.rust-lang.org/std/result/)

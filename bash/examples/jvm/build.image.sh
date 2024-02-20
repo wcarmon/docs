@@ -92,7 +92,8 @@ fi
 cd "$PROJ_ROOT" >/dev/null 2>&1
 
 echo
-echo "|-- Latest commit: $(git log -1 --format='%H')"
+#echo "|-- Latest commit: $(git log -1 --format='%H')"
+echo "|-- Latest commit: $(git rev-parse HEAD)"
 echo "|-- Latest commit ts: $(git log -1 --format='%ci')"
 
 if [ -n "$GIT_INFO_HTML_FILE" ]; then
@@ -106,7 +107,8 @@ if [ -n "$GIT_INFO_HTML_FILE" ]; then
   <body>
     <ul>' >> $SINK
 
-  echo "    <li>gitHash: $(git log -1 --format='%H')</li>" >> $SINK
+#  echo "    <li>gitHash: $(git log -1 --format='%H')</li>" >> $SINK
+  echo "    <li>gitHash: $(git rev-parse HEAD)</li>" >> $SINK
   echo "    <li>buildTS: $(git log -1 --format='%ci')</li>" >> $SINK
 
   echo '  </ul>
