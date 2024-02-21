@@ -219,6 +219,28 @@ where
 }
 ```
 
+# More Examples
+
+## Iterate Lines of a File
+```rust
+...
+
+let file = File::open("foo.txt")?;
+let reader = BufReader::new(file);
+
+let mut lines = Vec::with_capacity(64);
+for line in reader.lines() {
+    lines.push(line?);
+}
+
+Ok(lines
+    .into_iter()
+    .map(|line| line.trim().to_string())
+    .filter(|line| ... )
+    .collect())
+```
+
+
 # ~~TODO: Unorganized~~
 
 - https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html#method.nth
