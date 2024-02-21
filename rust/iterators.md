@@ -41,7 +41,7 @@
 ### Error handling Approach #1:
 
 1. In [`.map`](https://doc.rust-lang.org/std/iter/struct.Map.html) (or similar) return [`Result`](https://doc.rust-lang.org/std/result/)
-1. Final step in `iter` chain is [`collect`](https://doc.rust-lang.org/std/result/#collecting-into-result) with [turbofish](https://techblog.tonsser.com/posts/what-is-rusts-turbofish):
+1. Add a step in `iter` chain to [`collect`](https://doc.rust-lang.org/std/result/#collecting-into-result) with [turbofish](https://techblog.tonsser.com/posts/what-is-rusts-turbofish):
     - eg. `.collect::<Result<Vec<_>, anyhow::Error>>()?`
     - eg. `.collect::<Result<Vec<_>, anyhow::Error>>()?.join("...")`
     - [`Result::collect`](https://doc.rust-lang.org/std/result/#collecting-into-result) will [auto fail-fast on first `Err`](https://doc.rust-lang.org/std/result/enum.Result.html#impl-FromIterator%3CResult%3CA%2C%20E%3E%3E-for-Result%3CV%2C%20E%3E)
