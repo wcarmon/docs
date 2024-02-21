@@ -221,7 +221,7 @@ where
 
 # More Examples
 
-## Iterate Lines of a File
+## Iterate lines of a File
 ```rust
 ...
 
