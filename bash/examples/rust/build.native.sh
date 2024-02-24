@@ -58,6 +58,11 @@ readonly PROJ_ROOT="${PARENT_DIR}"
 # ---------------------------------------------
 cd "$PROJ_ROOT" >/dev/null 2>&1
 
+# -- NOTE: [profile.dev] is default for `cargo build`
+# -- NOTE: [profile.release] runs for `cargo build --release`
+
+# for fast local build with useful debugger info, run `cargo build`
+
 echo
 echo "|-- Release build for native target (all executable crates in ${PROJ_ROOT}) ..."
 cargo build \
