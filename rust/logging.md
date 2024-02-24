@@ -53,7 +53,6 @@ pub fn setup_logger() -> Result<(), anyhow::Error> {
 ...
 setup_logger().expect("failed to setup logger");
 ...
-
 ```
 
 
@@ -66,6 +65,10 @@ warn!("...", ...);
 error!("...", ...);
 ```
 
-# Other Resources
+## GOTCHAS
+1. In Jetbrains products on on windows, **Disable** `Enable terminal emulation in output console`
+    1. See https://www.jetbrains.com/help/clion/terminal-in-the-output-console.html#enable
 
+# Other Resources
+1. https://docs.rs/simplelog/latest/simplelog/
 1. https://docs.rs/log/latest/log/
