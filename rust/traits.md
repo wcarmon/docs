@@ -21,6 +21,7 @@
     1. [`AddAssign`](https://doc.rust-lang.org/std/ops/trait.AddAssign.html) and [`SubAssign`](https://doc.rust-lang.org/std/ops/trait.SubAssign.html) allow your type to work with `+=` and `-=` operators (operator overloading)
     1. [`Clone`](https://doc.rust-lang.org/std/clone/trait.Clone.html) allows your type with [`cloned()`](https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.cloned) in iterators
     1. [`Debug`](https://doc.rust-lang.org/std/fmt/trait.Debug.html) allows a type to work with [`{:?}` syntax](https://doc.rust-lang.org/std/fmt/trait.Debug.html#examples)
+    1. [`Deref`](TODO) ... auto conversion for fn args
     1. [`Display`](https://doc.rust-lang.org/std/fmt/trait.Display.html) allows your types in (user facing) print/format statements
     1. [`Drop`](https://doc.rust-lang.org/std/ops/trait.Drop.html) allows your type to cleanup when done (eg. closing connection pools, files, etc)
     1. [`Eq`](https://doc.rust-lang.org/std/cmp/trait.Eq.html) and [`PartialEq`](https://doc.rust-lang.org/std/cmp/trait.PartialEq.html) allow `==` operator on your type
