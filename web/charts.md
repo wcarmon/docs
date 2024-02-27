@@ -14,7 +14,14 @@
 1. Zoom-in/zoom-out
 
 
+# Canvas.js
+1. `Pro`: has financial charts
+
+
 # Rejected
+1. ~~Chart.js~~
+    1. `Con`: No statistics chargs (eg. Box & Whisker, Candlestick, etc)
+    1. `Con`: No stock charts
 1. ~~d3~~
     1. `Con`: Too low level
 1. ~~Plotly~~
