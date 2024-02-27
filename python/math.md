@@ -2,14 +2,15 @@
 1. Higher math libraries for Python. (Scientific Computing, Linear algebra, etc)
 
 
-# Numpy (Low-level)
-1. TODO
-
-# SciPy (High-level)
+# [Numpy](https://numpy.org/) (Low-level)
 1. TODO
 
 
-# Numba
+# [SciPy](https://scipy.org/) (High-level)
+1. TODO
+
+
+# [Numba](https://numba.pydata.org/)
 1. TODO
 
 
