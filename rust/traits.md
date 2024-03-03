@@ -31,7 +31,7 @@
     1. [`IntoIterator`](https://doc.rust-lang.org/std/iter/trait.IntoIterator.html) allows your type to work in [`for` loop](https://doc.rust-lang.org/std/iter/index.html#for-loops-and-intoiterator)
     1. [`LowerHex`](https://doc.rust-lang.org/std/fmt/trait.LowerHex.html) and [`UpperHex`](https://doc.rust-lang.org/std/fmt/trait.UpperHex.html) allow your numeric types to print as hexidecimal strings
     1. [`Not`](https://doc.rust-lang.org/std/ops/trait.Not.html) allows your type to work with `!` operator (eg. to invert an enum with two variants)
-    1. [`Ord`](https://doc.rust-lang.org/std/cmp/trait.Ord.html) allows your type with `<`, `>`, etc operators, allows as key for [`BTreeMap`](https://doc.rust-lang.org/std/collections/struct.BTreeMap.html) or [`BTreeSet`](https://doc.rust-lang.org/std/collections/struct.BTreeSet.html), and [allows sorting](https://doc.rust-lang.org/std/primitive.slice.html#method.sort)
+    1. [`Ord`](https://doc.rust-lang.org/std/cmp/trait.Ord.html) and [`PartialOrd`](https://doc.rust-lang.org/std/cmp/trait.PartialEq.html) allow your type with `<`, `>`, etc operators, allows as key for [`BTreeMap`](https://doc.rust-lang.org/std/collections/struct.BTreeMap.html) or [`BTreeSet`](https://doc.rust-lang.org/std/collections/struct.BTreeSet.html), and [allows sorting](https://doc.rust-lang.org/std/primitive.slice.html#method.sort)
     1. [`RangeBounds`](https://doc.rust-lang.org/std/ops/trait.RangeBounds.html) allows your type to work in ranges (like `..`, `a..`, `..b`)
     1. [`Try`](https://doc.rust-lang.org/std/ops/trait.Try.html) allows your type to work with the `?` operator (error propagation)
     1. `Deref`, `AsRef`, `Borrow` allows you to make your own pointers
