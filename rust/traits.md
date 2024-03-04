@@ -16,6 +16,7 @@
 1. [Marker Trait](https://doc.rust-lang.org/std/marker/index.html): agreement between user and implementer for something the compiler cannot represent
 1. Traits can be used with [static dispatch](https://www.cs.brandeis.edu/~cs146a/rust/doc-02-21-2015/book/static-and-dynamic-dispatch.html#static-dispatch) (generics) or with [dynamic dispatch](https://www.cs.brandeis.edu/~cs146a/rust/doc-02-21-2015/book/static-and-dynamic-dispatch.html#dynamic-dispatch) (trait objects via `dyn`)
 1. Traits are a polymorphism tool.
+1. Traits enable operator overloading 
 1. Traits are the way we "hook-into" built-in functionality, for example:
     1. [`Add`](https://doc.rust-lang.org/std/ops/trait.Add.html) and [`Sub`](https://doc.rust-lang.org/std/ops/trait.Sub.html) allow your type with the `+` and `-` operators (summation & difference), (operator overloading)
     1. [`AddAssign`](https://doc.rust-lang.org/std/ops/trait.AddAssign.html) and [`SubAssign`](https://doc.rust-lang.org/std/ops/trait.SubAssign.html) allow your type to work with `+=` and `-=` operators (operator overloading)
