@@ -16,12 +16,13 @@
 1. [Marker Trait](https://doc.rust-lang.org/std/marker/index.html): agreement between user and implementer for something the compiler cannot represent
 1. Traits can be used with [static dispatch](https://www.cs.brandeis.edu/~cs146a/rust/doc-02-21-2015/book/static-and-dynamic-dispatch.html#static-dispatch) (generics) or with [dynamic dispatch](https://www.cs.brandeis.edu/~cs146a/rust/doc-02-21-2015/book/static-and-dynamic-dispatch.html#dynamic-dispatch) (trait objects via `dyn`)
 1. Traits are a polymorphism tool.
+1. Traits enable operator overloading 
 1. Traits are the way we "hook-into" built-in functionality, for example:
     1. [`Add`](https://doc.rust-lang.org/std/ops/trait.Add.html) and [`Sub`](https://doc.rust-lang.org/std/ops/trait.Sub.html) allow your type with the `+` and `-` operators (summation & difference), (operator overloading)
     1. [`AddAssign`](https://doc.rust-lang.org/std/ops/trait.AddAssign.html) and [`SubAssign`](https://doc.rust-lang.org/std/ops/trait.SubAssign.html) allow your type to work with `+=` and `-=` operators (operator overloading)
     1. [`Clone`](https://doc.rust-lang.org/std/clone/trait.Clone.html) allows your type with [`cloned()`](https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.cloned) in iterators
     1. [`Debug`](https://doc.rust-lang.org/std/fmt/trait.Debug.html) allows a type to work with [`{:?}` syntax](https://doc.rust-lang.org/std/fmt/trait.Debug.html#examples)
-    1. [`Deref`](https://doc.rust-lang.org/book/ch15-02-deref.html#implicit-deref-coercions-with-functions-and-methods) auto converts types for fn/method args
+    1. [`Deref`](https://doc.rust-lang.org/book/ch15-02-deref.html#implicit-deref-coercions-with-functions-and-methods) auto converts types for fn/method args (also useful with [NewType](https://doc.rust-lang.org/rust-by-example/generics/new_types.html) pattern)
     1. [`Display`](https://doc.rust-lang.org/std/fmt/trait.Display.html) allows your types in (user facing) print/format statements
     1. [`Drop`](https://doc.rust-lang.org/std/ops/trait.Drop.html) allows your type to cleanup when done (eg. closing connection pools, files, etc)
     1. [`Eq`](https://doc.rust-lang.org/std/cmp/trait.Eq.html) and [`PartialEq`](https://doc.rust-lang.org/std/cmp/trait.PartialEq.html) allow `==` operator on your type
@@ -31,7 +32,7 @@
     1. [`IntoIterator`](https://doc.rust-lang.org/std/iter/trait.IntoIterator.html) allows your type to work in [`for` loop](https://doc.rust-lang.org/std/iter/index.html#for-loops-and-intoiterator)
     1. [`LowerHex`](https://doc.rust-lang.org/std/fmt/trait.LowerHex.html) and [`UpperHex`](https://doc.rust-lang.org/std/fmt/trait.UpperHex.html) allow your numeric types to print as hexidecimal strings
     1. [`Not`](https://doc.rust-lang.org/std/ops/trait.Not.html) allows your type to work with `!` operator (eg. to invert an enum with two variants)
-    1. [`Ord`](https://doc.rust-lang.org/std/cmp/trait.Ord.html) allows your type with `<`, `>`, etc operators, allows as key for [`BTreeMap`](https://doc.rust-lang.org/std/collections/struct.BTreeMap.html) or [`BTreeSet`](https://doc.rust-lang.org/std/collections/struct.BTreeSet.html), and [allows sorting](https://doc.rust-lang.org/std/primitive.slice.html#method.sort)
+    1. [`Ord`](https://doc.rust-lang.org/std/cmp/trait.Ord.html) and [`PartialOrd`](https://doc.rust-lang.org/std/cmp/trait.PartialEq.html) allow your type with `<`, `>`, etc operators, allows as key for [`BTreeMap`](https://doc.rust-lang.org/std/collections/struct.BTreeMap.html) or [`BTreeSet`](https://doc.rust-lang.org/std/collections/struct.BTreeSet.html), and [allows sorting](https://doc.rust-lang.org/std/primitive.slice.html#method.sort)
     1. [`RangeBounds`](https://doc.rust-lang.org/std/ops/trait.RangeBounds.html) allows your type to work in ranges (like `..`, `a..`, `..b`)
     1. [`Try`](https://doc.rust-lang.org/std/ops/trait.Try.html) allows your type to work with the `?` operator (error propagation)
     1. `Deref`, `AsRef`, `Borrow` allows you to make your own pointers
