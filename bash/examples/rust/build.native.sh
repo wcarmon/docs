@@ -15,7 +15,7 @@
 # --          x86_64-pc-windows-gnu (windows 7)
 # --          aarch64-apple-darwin (macOS with M1 chip)
 # -- 3. All binary crates referenced in root Cargo.toml [workspace]
-# -- 4. (Compiling for windows from linux) sudo apt-get instal -y mingw-w64
+# -- 4. (Compiling for windows from linux) sudo apt-get install -y mingw-w64
 # -- 5. (For binary sizes): cargo install cargo-bloat
 # ---------------------------------------------
 

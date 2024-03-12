@@ -38,6 +38,7 @@
 .gitignore
 Dockerfile
 Dockerfile*
+docs/
 logs/
 modules
 modules*
@@ -45,4 +46,5 @@ modules/*
 passphrase.txt
 passwords.txt
 README.md
+target/
 vendor/
