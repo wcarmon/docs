@@ -14,14 +14,6 @@
 |Move line|`CTRL+SHIFT+DOWN`|`ALT+DOWN`|TODO|TODO|
 
 
-## Same
-|Action|Jetbrains & vscode|
-|---:|---:|
-|Redo|`CTRL+SHIFT+Z`|
-|Sort lines|`ALT+SHIFT+L`|
-|Switch tabs|`CTRL+Tab`|
-|Undo|`CTRL+Z`|
-
 
 ## Change Line Height
 1. `editor.lineHeight`
@@ -35,6 +27,16 @@
 |Recently opened files|`CTRL+E`|`TODO`|TODO|TODO|
 |Run anything|`CTRL+SHIFT+A`|`CTRL+SHIFT+P`|TODO|Type info|
 |Switch tab|`TODO`|`TODO`|TODO|TODO|
+
+
+# Same (default) Key binding
+|Action|Jetbrains & vscode|
+|---:|---:|
+|Go to line|`CTRL+G`|
+|Redo|`CTRL+SHIFT+Z`|
+|Sort lines|`ALT+SHIFT+L`|
+|Switch tabs|`CTRL+Tab`|
+|Undo|`CTRL+Z`|
 
 
 --------
@@ -97,3 +99,4 @@
 1. edit history (eg. local vcs)
 1. auto-save
 1. Key promoter
+1. open project in **new window**
