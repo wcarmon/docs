@@ -7,7 +7,7 @@
 |Action|Jetbrains|vscode|Destructive in vsc|Destructive in JB|
 |---:|---:|---:|:---:|:---:|
 |Column select|`ALT+SHIFT+INS`|`ALT+SHIFT+DOWN`|TODO|TODO|
-|Copy line|TODO|TODO|TODO|TODO|
+|Copy line|`CTRL+C` (without selection)|TODO|TODO|TODO|
 |Delete line|`CTRL+Y`|`CTRL+SHIFT+K`, (same/custom)|no|TODO|
 |Extend selection|`CTRL+W`|`ALT+SHIFT+RIGHT`|TODO|no|
 |Move line|`CTRL+SHIFT+DOWN`|`ALT+DOWN`|TODO|TODO|
@@ -26,7 +26,7 @@
 |Center editor group|`TODO`|`CTRL+2`|TODO|TODO|
 |Close active editor|TODO|`CTRL+W`|TODO|no|
 |First editor group|`TODO`|`CTRL+1`|TODO|TODO|
-|Last edit location|`TODO`|`TODO`|TODO|TODO|
+|Last edit location|`CTRL+SHIFT+Backspace`|`TODO`|TODO|TODO|
 |Recently opened files|`CTRL+E`|`TODO`|TODO|TODO|
 |Run anything|`CTRL+SHIFT+A`|`CTRL+SHIFT+P`|TODO|Type info|
 |Settings|`ALT+CTRL+S`|`CTRL+,`|no|TODO|
@@ -34,14 +34,22 @@
 |Un-close active editor|TODO|TODO|TODO|TODO|
 
 
-# Same (default) Key binding
+# Ported to vscode
+|Action|Jetbrains & vscode binding|
+|---:|---:|
+|Duplicate line|`CTRL+D`|
+|Sort lines|`ALT+SHIFT+L`|
+
+- TODO: block comment
+- TODO: line comment
+
+# Same Default Key Binding
 |Action|Jetbrains & vscode|Custom|
-|---:|---:|---|
-|Go to line|`CTRL+G`|--|
+|---:|---:|:---:|
 |Find in file|`CTRL+F`|--|
-|Duplicate line|`CTRL+D`|Yes|
+|Go to line|`CTRL+G`|--|
+|Move editor into next group|`ALT+S`|yes|
 |Redo|`CTRL+SHIFT+Z`|--|
-|Sort lines|`ALT+SHIFT+L`|Yes|
 |Switch tabs|`CTRL+Tab`|--|
 |Undo|`CTRL+Z`|--|
 
@@ -56,7 +64,7 @@
 1. [Git: current branch](https://code.visualstudio.com/docs/sourcecontrol/overview#_git-status-bar-actions)
 
 ## Memory usage
-
+1. TODO
 
 # Theme/Colors
 1. [Dark/Light mode](https://code.visualstudio.com/docs/getstarted/themes)
@@ -103,31 +111,38 @@
 1. See https://marketplace.visualstudio.com/items?itemName=isudox.vscode-jetbrains-keybindings
 1. TODO: https://code.visualstudio.com/docs/editor/refactoring
 1. View Productivity guide (personal usage stats)
+1. Conditional breakpoint
 
 
 ## TODO: Keyboard shortcuts
 1. 100: Editor: Reformat code
 1. 110: Navigate: Go to declaration
+1. 115: Editor: Refactor: comment/uncomment line
 1. 120: Editor: show context actions
-1. 130: Editor: smart complete line
+1. 130: Editor: smart complete line (CTRL+ENTER)
 1. 140: Navigate: Search by symbol
 1. 150: Editor: Completion: by camel case
 1. 160: Editor: Refactor: Rename - https://code.visualstudio.com/docs/editor/refactoring#_rename-symbol
 1. 170: Editor: camel to snake case (rust/python)
 1. 180: Editor: Postfix completion
-1. 190: 
-1. 200: Navigate: Split editor right (move, not copy)
+1. 185: Navigate: go to class
+1. 190: VCS: git commit <--- CTRL+K
+1. 195: Navigate: show/hide file explorer (project view)
 1. 210: Editor: replace in all files
 1. 220: Run inspections
 1. 230: Navigate: Show usages of symbol
+1. 235: Show file structure (methods/variables summary)
 1. 240: Directory diff
-1. 250: 
 1. 260: Editor: Refactor: Introduce variable
 1. 270: Editor: Refactor: inline variable
 1. 280: Editor: Refactor: extract fn/method
-1. 290: 
-1. 300: 
-1. 400: 
+1. 290: Override method (on interface)
+1. 300: Search Explorer view by letters (Speed search in trees)
+1. 350: Generate getters/accessors
+1. 380: Live template
+1. 400: Fold selection
+1. 410: Expand selection
+
 
 1. keyboard shortcut: git commit & push: 
     1. https://tecadmin.net/shortcuts-for-git-integration-in-visual-studio-code/
