@@ -7,12 +7,12 @@
 |Action|Jetbrains|vscode|Destructive in vsc|Destructive in JB|
 |---:|---:|---:|:---:|:---:|
 |Column select|`ALT+SHIFT+INS`|`ALT+SHIFT+DOWN`|TODO|TODO|
+|Change font size (Change zoom level)|`CTRL+Mouse wheel`|`CTRL+ +`, `CTRL+ -`|TODO|TODO|
 |Copy line|`CTRL+C` (without selection)|TODO|TODO|TODO|
 |Delete line|`CTRL+Y`|`CTRL+SHIFT+K`, (same/custom)|no|TODO|
 |Extend selection|`CTRL+W`|`ALT+SHIFT+RIGHT`|TODO|no|
 |Move line|`CTRL+SHIFT+DOWN`|`ALT+DOWN`|TODO|TODO|
-|Replace in file|`CTRL+R`|`CTRL+H`|TODO|no|
-|Toggle case on selection|TODO|[transform]|TODO|TODO|
+|Toggle case on selection|`CTRL+SHIFT+U`|`transform` action|TODO|TODO|
 
 
 ## Change Line Height
@@ -27,7 +27,6 @@
 |Close active editor|TODO|`CTRL+W`|TODO|no|
 |First editor group|`TODO`|`CTRL+1`|TODO|TODO|
 |Last edit location|`CTRL+SHIFT+Backspace`|`TODO`|TODO|TODO|
-|Recently opened files|`CTRL+E`|`TODO`|TODO|TODO|
 |Run anything|`CTRL+SHIFT+A`|`CTRL+SHIFT+P`|TODO|Type info|
 |Settings|`ALT+CTRL+S`|`CTRL+,`|no|TODO|
 |Switch tab|`TODO`|`TODO`|TODO|TODO|
@@ -38,7 +37,10 @@
 |Action|Jetbrains & vscode binding|
 |---:|---:|
 |Duplicate line|`CTRL+D`|
+|Recently opened files|`CTRL+E`|
+|Replace in file|`CTRL+R`|`CTRL+H`|TODO|no|
 |Sort lines|`ALT+SHIFT+L`|
+
 
 - TODO: block comment
 - TODO: line comment
@@ -133,17 +135,23 @@
 1. 230: Navigate: Show usages of symbol
 1. 235: Show file structure (methods/variables summary)
 1. 240: Directory diff
-1. 260: Editor: Refactor: Introduce variable
-1. 270: Editor: Refactor: inline variable
-1. 280: Editor: Refactor: extract fn/method
-1. 290: Override method (on interface)
+1. 260: Editor: Refactor: Introduce variable - https://code.visualstudio.com/docs/editor/refactoring#_extract-variable
+1. 270: Editor: Refactor: inline variable - https://code.visualstudio.com/docs/java/java-refactoring#_inline-local-variable
+1. 280: Editor: Refactor: extract fn/method - https://code.visualstudio.com/docs/editor/refactoring#_extract-method
+1. 285: Move method/fn up/down - 
+1. 287: Java: var to explicit type - https://code.visualstudio.com/docs/java/java-refactoring#_change-var-type-to-resolved-type
+1. 290: Override method (on interface) - https://code.visualstudio.com/docs/java/java-refactoring#_overrideimplement-methods
 1. 300: Search Explorer view by letters (Speed search in trees)
-1. 350: Generate getters/accessors
+1. 350: Generate getters/accessors - https://code.visualstudio.com/docs/java/java-refactoring#_generate-getters-and-setters
+1. 378: Java: stream to loop
 1. 380: Live template
+1. 390: invert boolean - https://code.visualstudio.com/docs/java/java-refactoring#_invert-conditions
 1. 400: Fold selection
-1. 410: Expand selection
+1. 410: Expand folded selection
+1. 312: adjust font size with mouse wheel - `editor.fontSize`
 
 
 1. keyboard shortcut: git commit & push: 
     1. https://tecadmin.net/shortcuts-for-git-integration-in-visual-studio-code/
     1. https://stackoverflow.com/questions/46382883/shortcut-to-push-code-to-git-in-vscode
+1. consider https://marketplace.visualstudio.com/items?itemName=wmaurer.change-case
