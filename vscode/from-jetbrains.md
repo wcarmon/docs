@@ -8,7 +8,7 @@
 |---:|---:|---:|:---:|:---:|
 |Column select|`ALT+SHIFT+INS`|`ALT+SHIFT+DOWN`|TODO|TODO|
 |Copy line|TODO|TODO|TODO|TODO|
-|Delete line|`CTRL+Y`|`CTRL+SHIFT+K`|TODO|TODO|
+|Delete line|`CTRL+Y`|`CTRL+SHIFT+K`, (same/custom)|no|TODO|
 |Extend selection|`CTRL+W`|`ALT+SHIFT+RIGHT`|TODO|no|
 |Move line|`CTRL+SHIFT+DOWN`|`ALT+DOWN`|TODO|TODO|
 |Replace in file|`CTRL+R`|`CTRL+H`|TODO|no|
@@ -116,9 +116,6 @@
 1. 290: 
 1. 300: 
 
-1. duplicate line
-1. expand selection (ctrl+w)
-
 1. change font in file explorer
 1. keyboard shortcut: git commit & push: 
     1. https://tecadmin.net/shortcuts-for-git-integration-in-visual-studio-code/
@@ -134,3 +131,4 @@
 1. See https://marketplace.visualstudio.com/items?itemName=isudox.vscode-jetbrains-keybindings
 1. Show usages
 1. Productivity guide (personal usage stats)
+1. See https://github.com/JetBrains/intellij-community/blob/master/platform/platform-resources/src/keymaps/Default%20for%20XWin.xml
