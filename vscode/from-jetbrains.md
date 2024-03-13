@@ -17,12 +17,30 @@
 - https://code.visualstudio.com/docs/editor/custom-layout#_panel
 
 
-# Runtime Info
+# Status Bar & Runtime Info
+1. [Git: current branch](https://code.visualstudio.com/docs/sourcecontrol/overview#_git-status-bar-actions)
 
-## Git: current branch
 ## Memory usage
 
 
 # Theme/Colors
 1. [Dark/Light mode](https://code.visualstudio.com/docs/getstarted/themes)
+
+
+# VCS
+
+## Git: commit
+1. [View: source control](TODO)
+
+## Git: Merge
+1. TODO
+
+## Conflict resolution
+1. https://code.visualstudio.com/docs/sourcecontrol/overview#_resolving-conflicts
+
+## View diffs
+1. https://code.visualstudio.com/docs/sourcecontrol/overview#_viewing-diffs
+
+## Log
+1. TODO
 
