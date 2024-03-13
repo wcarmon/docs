@@ -31,6 +31,7 @@
 
 ## Git: commit
 1. [View: source control](TODO)
+1. `CTRL+K` -> 
 
 ## Git: Merge
 1. TODO
