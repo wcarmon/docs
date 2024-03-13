@@ -11,8 +11,9 @@
 |Delete line|`CTRL+Y`|`CTRL+SHIFT+K`|TODO|TODO|
 |Duplicate line|`CTRL+D`|TODO|TODO|TODO|
 |Extend selection|`CTRL+W`|`ALT+SHIFT+RIGHT`|TODO|no|
+|Find in file|TODO|TODO|TODO|TODO|
 |Move line|`CTRL+SHIFT+DOWN`|`ALT+DOWN`|TODO|TODO|
-
+|Replace in file|TODO|TODO|TODO|TODO|
 
 
 ## Change Line Height
@@ -28,6 +29,7 @@
 |Run anything|`CTRL+SHIFT+A`|`CTRL+SHIFT+P`|TODO|Type info|
 |Settings|`ALT+CTRL+S`|`CTRL+,`|TODO|TODO|
 |Switch tab|`TODO`|`TODO`|TODO|TODO|
+|First editor group|`TODO`|`CTRL+1`|TODO|TODO|
 
 
 # Same (default) Key binding
