@@ -26,6 +26,7 @@
 |Last edit location|`TODO`|`TODO`|TODO|TODO|
 |Recently opened files|`CTRL+E`|`TODO`|TODO|TODO|
 |Run anything|`CTRL+SHIFT+A`|`CTRL+SHIFT+P`|TODO|Type info|
+|Settings|`ALT+CTRL+S`|`CTRL+,`|TODO|TODO|
 |Switch tab|`TODO`|`TODO`|TODO|TODO|
 
 
