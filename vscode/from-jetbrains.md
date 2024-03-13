@@ -26,7 +26,6 @@
 |Center editor group|`TODO`|`CTRL+2`|TODO|TODO|
 |Close active editor|TODO|`CTRL+W`|TODO|no|
 |First editor group|`TODO`|`CTRL+1`|TODO|TODO|
-|Last edit location|`CTRL+SHIFT+Backspace`|`TODO`|TODO|TODO|
 |Run anything|`CTRL+SHIFT+A`|`CTRL+SHIFT+P`|TODO|Type info|
 |Settings|`ALT+CTRL+S`|`CTRL+,`|no|TODO|
 |Switch tab|`TODO`|`TODO`|TODO|TODO|
@@ -34,16 +33,17 @@
 
 
 # Ported to vscode
-|Action|Jetbrains & vscode binding|
+|Action|vscode binding|
 |---:|---:|
 |Duplicate line|`CTRL+D`|
+|Last edit location|`CTRL+SHIFT+Backspace`, `CTRL+K CTRL+Q` <br>`navigateToLastEditLocation`|
 |Recently opened files|`CTRL+E`|
-|Replace in file|`CTRL+R`|`CTRL+H`|TODO|no|
+|Replace in file|`CTRL+R`|
 |Sort lines|`ALT+SHIFT+L`|
 
 
 - TODO: block comment
-- TODO: line comment
+
 
 # Same Default Key Binding
 |Action|Jetbrains & vscode|Custom|
@@ -53,7 +53,9 @@
 |Move editor into next group|`ALT+S`|yes|
 |Redo|`CTRL+SHIFT+Z`|--|
 |Switch tabs|`CTRL+Tab`|--|
+|Toggle line comment|`CTRL+/`|--|
 |Undo|`CTRL+Z`|--|
+
 
 
 --------
@@ -106,7 +108,7 @@
 1. Caps lock indicator
 1. Key promoter
 1. Local edit history (eg. local vcs)
-1. open project in **new window**
+1. open project in **new window** - https://stackoverflow.com/questions/43362133/visual-studio-code-open-tab-in-new-window-on-another-screen-floating
 1. Port non-conflicting JetBrains keybindings to vscode
 1. See https://gist.github.com/bradtraversy/b28a0a361880141af928ada800a671d9
 1. See https://github.com/JetBrains/intellij-community/blob/master/platform/platform-resources/src/keymaps/Default%20for%20XWin.xml
@@ -114,6 +116,7 @@
 1. TODO: https://code.visualstudio.com/docs/editor/refactoring
 1. View Productivity guide (personal usage stats)
 1. Conditional breakpoint
+1. Clipboard history (multi-clipboard)
 
 
 ## TODO: Keyboard shortcuts
