@@ -3,7 +3,7 @@
 
 
 --------
-# Editor
+# Editor: Key Bindings
 |Action|Jetbrains|vscode|Destructive in vsc|Destructive in JB|
 |---:|---:|---:|:---:|:---:|
 |Column select|`ALT+SHIFT+INS`|`ALT+SHIFT+DOWN`|TODO|TODO|
@@ -14,11 +14,11 @@
 |Toggle case on selection|`CTRL+SHIFT+U`|`transform` action|TODO|TODO|
 
 
-## Change Line Height
-1. `editor.lineHeight`
+# Editor: Features
+1. Change Line Height: `editor.lineHeight`
 
 
-# Navigation
+# Navigation: Key Bindings
 |Action|Jetbrains|vscode|Destructive in vsc|Destructive in JB|
 |---:|---:|---:|:---:|:---:|
 |Ace Jump|(custom)|TODO|TODO|TODO|
@@ -31,7 +31,7 @@
 |Un-close active editor|TODO|TODO|TODO|TODO|
 
 
-# Ported to vscode
+# Key Bindings: ported to vscode
 |Action|vscode binding(s)|
 |---:|---:|
 |Delete line|`CTRL+Y`, `CTRL+SHIFT+K`|
@@ -42,7 +42,7 @@
 |Sort lines|`ALT+SHIFT+L`|
 
 
-# Same Default Key Binding
+# Key Bindings: Same Defaults (in Jetbrains and vscode)
 |Action|Jetbrains & vscode|Custom|
 |---:|---:|:---:|
 |Find in file|`CTRL+F`|--|
@@ -56,18 +56,15 @@
 
 --------
 # Panels
-## Move terminal/console:
-- https://code.visualstudio.com/docs/editor/custom-layout#_panel
+
+1. Move terminal/console: [official docs](https://code.visualstudio.com/docs/editor/custom-layout#_panel)
+1. Theme/Colors: [Dark/Light mode](https://code.visualstudio.com/docs/getstarted/themes) 
 
 
 # Status Bar & Runtime Info
 1. [Git: current branch](https://code.visualstudio.com/docs/sourcecontrol/overview#_git-status-bar-actions)
+1. Memory usage: TODO
 
-## Memory usage
-1. TODO
-
-# Theme/Colors
-1. [Dark/Light mode](https://code.visualstudio.com/docs/getstarted/themes)
 
 
 --------
@@ -144,7 +141,7 @@
 1. 330: Override method (on interface) - https://code.visualstudio.com/docs/java/java-refactoring#_overrideimplement-methods
 1. 340: Search Explorer view by letters (Speed search in trees)
 1. 350: Generate getters/accessors - https://code.visualstudio.com/docs/java/java-refactoring#_generate-getters-and-setters
-1. 360: Java: stream to loop
+1. 360: Java: refactor stream to loop
 1. 370: Live template
 1. 380: invert boolean - https://code.visualstudio.com/docs/java/java-refactoring#_invert-conditions
 1. 390: Fold selection
