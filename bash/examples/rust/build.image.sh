@@ -186,8 +186,6 @@ echo
 echo "|-- Debug using:"
 echo "$DOCKER run --rm -it $QUALIFIED_IMAGE_NAME:latest /bin/ash"
 echo
-echo "|-- Show effective configuration (inside container)"
-echo "nginx -T"
 
 
 readonly CONTAINER_NAME=my_svr
