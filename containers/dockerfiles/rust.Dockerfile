@@ -16,7 +16,7 @@ WORKDIR /usr/src/myapp
 # TODO: copy & install required certs
 
 RUN apt-get update -qq && \
-    apt-get install -q -y curl unzip tree zip && \
+    apt-get install -q -y curl musl-tools unzip tree zip && \
     apt-get install -q -y mingw-w64 && \
     update-ca-certificates
 
