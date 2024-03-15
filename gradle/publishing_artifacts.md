@@ -46,7 +46,7 @@ done
 
 # (Manually) release to public
 1. [https://s01.oss.sonatype.org](https://s01.oss.sonatype.org)
-    1. Login with OSSRH jira credentials
+    1. Login with OSSRH jira credentials (upper right)
 1. Click **Staging Repositories** on the left
 1. (Optional) Evaluate artifact contents of release
 1. Click **Close** (Top)
