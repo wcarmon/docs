@@ -6,6 +6,8 @@
 # ---------------------------------------------
 # -- Build stage (Debian)
 # ---------------------------------------------
+# -- See https://hub.docker.com/_/rust
+# -- Debug: docker run --rm -it rust:1.76-bookworm /bin/bash
 FROM rust:1.76-bookworm AS builder
 #FROM rust:1.76-alpine AS builder
 
