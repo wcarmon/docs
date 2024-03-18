@@ -169,7 +169,9 @@ print!("{:?}", m);
 # Java comparison
 |Rust|Java|
 |---|---|
-|```for (k, v) in &m {...}```|`for (var entry : m.entrySet()) {...}`|
+|```rust
+for (k, v) in &m {...}
+```|`for (var entry : m.entrySet()) {...}`|
 |`HashMap::new()`|`new HashMap<>()`|
 |`HashMap::with_capacity(n)`|`new HashMap<>(n)`|
 |`if let Some(v) = m.get(&k) {...}`|`if (m.containsValue(v)) {...}`|
