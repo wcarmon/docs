@@ -8,5 +8,8 @@
 - TODO: https://ferrous-systems.com/blog/embedded-concurrency-patterns/
 - TODO: https://blog.logrocket.com/deep-dive-concurrency-rust-programming-language/
 
+# Map
+1. https://docs.rs/dashmap/latest/dashmap
+
 
 # Other Resources
