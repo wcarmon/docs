@@ -9,10 +9,16 @@
 1. Only applies to references
 1. Not required for Owned types (eg. [String](https://doc.rust-lang.org/std/string/struct.String.html), [PathBuf](https://doc.rust-lang.org/stable/std/path/struct.PathBuf.html))
 1. Not required for smart pointers (because the variables which reference them have a lifetime)
+1. Useful for sharing immutable data (avoiding unnecessary allocations)
+1. Only need to specify lifetimes on ...
+    1. structs with borrowed fields
+    1. functions with borrowed **return** types
+1. Most of the time compiler can automatically determine lifetimes
+
 
 # Popular Lifetimes
 
-- `static`: guaranteed valid for duration of entire program
+- `static`: guaranteed valid for duration of entire program (eg. global lifetime)
 
 
 - TODO: struct properties

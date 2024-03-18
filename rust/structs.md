@@ -13,6 +13,10 @@
 1. There are **no** [constructors](https://en.wikipedia.org/wiki/Constructor_(object-oriented_programming))
     1. Instantiation: [doc-1](https://doc.rust-lang.org/std/keyword.struct.html#instantiation), [doc-2](https://doc.rust-lang.org/nomicon/constructors.html)
     1. Optionally, you can add a `pub fn new(...) -> Self { ... }`
+1. Borrowing field data:
+    1. Purpose: avoid unnecessary allocation by sharing immutable data
+    1. struct needs to outlive fields (easy to specifiy via lifetimes on struct & borrowed field)
+
 
 # Idioms
 
