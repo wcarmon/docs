@@ -40,7 +40,7 @@ let m: HashMap<String, &str> = ...
 ...
 m.insert(String::from("k1"), "foo"); // put or upsert
 
-let oldValue = m.insert(String::from("k2"), "bar");
+let old_value = m.insert(String::from("k2"), "bar");
 ```
 
 # [Put all](https://doc.rust-lang.org/std/iter/trait.Extend.html#tymethod.extend)
@@ -52,14 +52,14 @@ m.extend(m2)
 # [Remove](https://doc.rust-lang.org/std/collections/struct.HashMap.html#method.remove)
 
 ```rust
-let oldValue = m.remove(key1);
+let old_value = m.remove(key1);
 
-let oldEntry = m.remove_entry(key1);
+let old_entry = m.remove_entry(key1);
 
 m.clear();
 ```
 
-# [Retrieve](https://doc.rust-lang.org/std/collections/struct.HashMap.html#method.get)
+# [Get/Retrieve](https://doc.rust-lang.org/std/collections/struct.HashMap.html#method.get)
 
 1. GOTCHA: valid lookups return [`Some(&Value)`](https://doc.rust-lang.org/std/option/enum.Option.html#variant.Some), not [`Some(Value)`](https://doc.rust-lang.org/std/option/enum.Option.html#variant.Some)
 1. Avoid `m[key1]` because failed lookup [panics](https://www.lurklurk.org/effective-rust/panic.html)
@@ -85,16 +85,20 @@ m.get_mut("k1")
 
 ```rust
 // can query by reference or by owned key
-m.contains_key(&key1)
+if m.contains_key(&key1) {
+    ...
+}
 ```
 
 # [Iterate](https://doc.rust-lang.org/std/collections/struct.HashMap.html#method.iter)
 
 ```rust
+// -- Iterate entries
 for (key, value) in m {
     ...
 }
 
+// or .into_iter()
 
 // -- keys only (less efficient than entry iter)
 for key in m.keys() {
@@ -102,7 +106,7 @@ for key in m.keys() {
 }
 
 // -- values only (less efficient than entry iter)
-for val in m.values() {
+for v in m.values() {
     ...
 }
 ```
@@ -123,7 +127,7 @@ TODO: try m.clone()
 # [Put-if-absent](https://doc.rust-lang.org/stable/std/collections/hash_map/enum.Entry.html#method.or_insert)
 
 ```rust
-let oldValue = m.entry(key1).or_insert(my_dflt_val);
+let old_value = m.entry(key1).or_insert(my_dflt_val);
 ```
 
 # [Filter/Retain](https://doc.rust-lang.org/std/collections/struct.HashMap.html#method.retain)
@@ -160,6 +164,34 @@ print!("{:?}", m);
 # Idioms
 
 1. TODO
+
+
+# Java comparison
+|Rust|Java|
+|---|---|
+|`for (k, v) in &m {...}`|`for (var entry : m.entrySet()) {...}`|
+|`HashMap::new()`|`new HashMap<>()`|
+|`HashMap::with_capacity(n)`|`new HashMap<>(n)`|
+|`if let Some(v) = m.get(&k) {...}`|`if (m.containsValue(v)) {...}`|
+|`let old = m.remove(&k)`|`var old = m.remove(k)`|
+|`m.clear()`|`m.clear()`|
+|`m.contains_key(&k)`|`m.containsKey(k)`|
+|`m.entry(&k).or_insert(v)`|`m.putIfAbsent(k, v)`|
+|`m.extend(m2)`|`m.putAll(m2)`|
+|`m.insert(k, v)`|`m.put(k, v)`|
+|`m.into_iter()`|N/A|
+|`m.iter()`|`m.entrySet().stream()`|
+|`m.iter()`|`m.entrySet()`|
+|`m.keys()`|`m.keySet()`|
+|`m.len()`|`m.size()`|
+|`m.values()`|`m.values()`|
+|`m.values_mut()`|N/A|
+|`m.`|`m.`|
+
+- TODO: compute
+- TODO: computeIfAbsent
+- TODO: merge
+
 
 # Other Resources
 
