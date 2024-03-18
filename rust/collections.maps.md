@@ -177,7 +177,7 @@ print!("{:?}", m);
 |`m.clear()`|`m.clear()`|
 |`m.contains_key(&k)`|`m.containsKey(k)`|
 |`m.entry(&k).or_insert(v)`|`m.putIfAbsent(k, v)`|
-|`m.entry(&k).or_insert_with(|| some_value)`|`m.computeIfAbsent(k, (ignored) -> some_value)`|
+|`m.entry(&k).or_insert_with(\|\| some_value)`|`m.computeIfAbsent(k, (ignored) -> some_value)`|
 |`m.extend(m2)`|`m.putAll(m2)`|
 |`m.get(&k).copied().unwrap_or(v)`|`m.getOrDefault(k, v)`|
 |`m.insert(k, v)`|`m.put(k, v)`|
