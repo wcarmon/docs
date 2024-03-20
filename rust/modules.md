@@ -105,6 +105,7 @@
 
 # Other Resources
 
+1. https://www.sheshbabu.com/posts/rust-module-system/
 1. https://doc.rust-lang.org/rust-by-example/mod.html
 1. https://doc.rust-lang.org/reference/items/modules.html#module-source-filenames
 1. https://stevedonovan.github.io/rust-gentle-intro/4-modules.html
