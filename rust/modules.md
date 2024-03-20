@@ -28,7 +28,7 @@
 
 1. *Crate root* is the starting **file** for compiler ([rustc](https://doc.rust-lang.org/rustc/what-is-rustc.html))
 1. *Crate root* is the starting **file** for imported modules
-1. `src/lib.rs` (for library)
+1. `src/lib.rs` (for library, non-executable)
 1. `src/main.rs` (for binary)
 1. Language Comparison:
     1. *Go*: like [`cmd/foo/main.go`](https://github.com/golang-standards/project-layout#cmd)
@@ -39,6 +39,9 @@
 
 1. Every file is a module
 1. Modules can have sub-modules
+    - ... but not sub-sub modules, no grandchild modules
+    - `mod child` must appear in `main.rs`  (or `lib.rs`)
+    - `mod grandchild` must appear in child.rs
 1. One file can have multiple modules, flat or nested
 1. See a complex but working example: [example.modules](./example.modules)
 1. [`mod`](https://doc.rust-lang.org/std/keyword.mod.html) is the closest thing rust has to `import` (golang, java, node, ts, dart, etc)
@@ -57,6 +60,7 @@
 1. `mod foo { ... }`: means put `...` into module named foo
 1. [`use`](https://doc.rust-lang.org/reference/items/use-declarations.html) has **nothing** to do with importing
 1. Do **not** use ~~`mod.rs`~~ [(legacy approach from pre-1.30)](https://doc.rust-lang.org/reference/items/modules.html#module-source-filenames)
+    - `/foo/mod.rs` is the legacy alternative to having both `foo.rs` and `foo/`
 
 ## Sub-modules
 
@@ -97,6 +101,7 @@
 | `pub(crate)` | visible in current crate                         |
 | `pub(super)` | visible in parent module                         |
 | `pub(self)`  | private, visible within module (this is default) |
+
 
 # Other Resources
 
