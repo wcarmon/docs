@@ -13,9 +13,13 @@ gradle wrapper --gradle-version 8.6
 gradle wrapper
 
 
-# -- Upgrade
+# -- Upgrade thru gradle on $PATH
+gradle wrapper --gradle-version=8.6 --distribution-type=bin -q
+gradle wrapper --gradle-version=8.6 --distribution-type=all --no-validate-url -q
+
+# -- Upgrade thru existing wrapper
 ./gradlew wrapper --gradle-version=8.5 --distribution-type=all -q
-./gradlew wrapper --gradle-version=8.6 --distribution-type=bin --no-validate-url -q
+./gradlew wrapper --gradle-version=8.6 --distribution-type=bin -q
 ```
 
 ## Verify setup
