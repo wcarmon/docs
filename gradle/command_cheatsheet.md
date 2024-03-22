@@ -15,7 +15,7 @@ gradle wrapper
 
 # -- Upgrade
 ./gradlew wrapper --gradle-version=8.5 --distribution-type=all -q
-./gradlew wrapper --gradle-version=8.6 --distribution-type=bin -q
+./gradlew wrapper --gradle-version=8.6 --distribution-type=bin --no-validate-url -q
 ```
 
 ## Verify setup
