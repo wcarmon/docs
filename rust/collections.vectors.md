@@ -5,7 +5,7 @@
 
 
 # Idioms
-1. `fn` should accept accept `&[T]` (not ~~`Vec<T>`~~)
+1. `fn` should accept `&[T]` (not ~~`Vec<T>`~~)
 1. `fn` should return `Vec<T>` (not ~~`&[T]`~~)
 
 
