@@ -38,11 +38,17 @@
 1. Size is part of the type
 
 
-
 # Gotcha: 
 - `::push()` (not `.add()`, not `append`)
+- 
 
 
+# Comparison to Java
+... TODO
+
+
+
+# TODO
 - TODO: https://doc.rust-lang.org/book/ch08-01-vectors.html
 - TODO: https://learning-rust.github.io/docs/b1.vectors.html
 - TODO: https://doc.rust-lang.org/std/vec/struct.Vec.html
