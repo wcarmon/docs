@@ -40,7 +40,7 @@
 
 ## [`Box`](https://doc.rust-lang.org/std/boxed/struct.Box.html)
 1. Useful for (compile time enforced) ownership on heap
-1. Useful for `dyn` Traits
+1. Useful for `dyn` Trait (trait objects)
 1. `Conversion`: `x: T` to `Box<T>` *(owned-on-stack to owned-on-heap)*
     ```rust
     let x = MyImpl {}; // MyImpl implements MyTrait 
