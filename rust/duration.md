@@ -22,6 +22,7 @@
 # Construct
 1. Chrono: [hours](https://docs.rs/chrono/latest/chrono/struct.Duration.html#method.hours), [minutes](https://docs.rs/chrono/latest/chrono/struct.Duration.html#method.minutes), [seconds](https://docs.rs/chrono/latest/chrono/struct.Duration.html#method.seconds), [millis](https://docs.rs/chrono/latest/chrono/struct.Duration.html#method.milliseconds), [micros](https://docs.rs/chrono/latest/chrono/struct.Duration.html#method.microseconds)
 ```rust
+// TODO: Use try_...()
 let d = chrono::Duration::weeks(1);
 let d = chrono::Duration::days(1);
 let d = chrono::Duration::hours(1);
@@ -52,7 +53,7 @@ TODO
 ```
 
 
-# Timing
+# Measure Time
 1. [Chrono](https://docs.rs/chrono/latest/chrono/struct.DateTime.html#impl-Sub%3CDateTime%3CTz%3E%3E-for-DateTime%3CTz%3E)
 ```rust
 let start = Utc::now();
