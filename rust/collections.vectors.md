@@ -39,11 +39,6 @@
 1. Size is part of the type
 
 
-# Gotcha: 
-- `::push()` (not `.add()`, not `append`)
-- 
-
-
 # Comparison to Java
 |Rust|Java|
 |---|---|
@@ -58,13 +53,13 @@
 |[`v0 == v1`](TODO)|[`v0.equals(v1)`](TODO)|
 |[`Vec::from(iter)`](TODO)|[`new ArrayList<>(otherCollection)`](TODO)|
 |[`Vec::with_capacity(cap)`](TODO)|[`new ArrayList<>(cap)`](TODO)|
-|[`v.pop()`](TODO)|[``](TODO)|
-|[`v.iter()`](TODO), [`v.into_iter()`](TODO)|[``](TODO)|
-|[`v.iter().min()`](TODO)|[``](TODO)|
+|[`v.pop()`](TODO)|[`v.removeLast()`](TODO)|
+|[`v.iter()`](TODO), [`v.into_iter()`](TODO)|[`v.stream()`](TODO)|
+|[`v.iter().min()`](TODO)|[`Collections.min(v)`](TODO)|
 |[`vec![1, 2, 3]`](TODO)|[`List.of(1, 2, 3)`](TODO)|
-|[`v.reverse()`](TODO)|[``](TODO)|
+|[`v.reverse()`](TODO)|[`Collections.reverse(v)`](TODO)|
 |[`v.sort_unstable()`](TODO)|N/A|
-|[`v.sort()`](TODO)|[``](TODO)|
+|[`v.sort()`](TODO) (stable)|[`Collections.sort(v)`](TODO)|
 |[``](TODO)|[``](TODO)|
 |[``](TODO)|[``](TODO)|
 |[``](TODO)|[``](TODO)|
