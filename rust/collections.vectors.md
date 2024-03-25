@@ -52,20 +52,20 @@
 |[`v.is_empty()`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.is_empty)|[`v.isEmpty()`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/ArrayList.html#isEmpty())|
 |[`v.iter().min()`](https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.min)|[`Collections.min(v)`](TODO)|
 |[`v.iter().position(...)`](https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.position),<br>[`v.iter().rposition(...)`](https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.rposition)|[`v.indexOf(value)`](TODO)|
-|[`v.iter()`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.iter), [`v.into_iter()`](TODO)|[`v.stream()`](TODO)<br>[`v.iterator()`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/ArrayList.html#iterator())|
+|[`v.iter()`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.iter), [`v.into_iter()`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.into_iter-2)|[`v.stream()`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Collection.html#stream())<br>[`v.iterator()`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/ArrayList.html#iterator())|
 |[`v.last()`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.last)|[`v.getLast()`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/ArrayList.html#getLast())|
 |[`v.len()`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.len)|[`v.size()`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/ArrayList.html#size())|
 |[`v.pop()`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.pop)|[`v.removeLast()`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/ArrayList.html#removeLast())|
-|[`v.push(...)`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.push)|[`v.add(...)`](TODO), [`v.addLast(...)`](TODO)|
+|[`v.push(...)`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.push)|[`v.add(...)`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/ArrayList.html#add(java.lang.Object)), [`v.addLast(...)`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/ArrayList.html#addLast(java.lang.Object))|
 |[`v.remove(0)`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.remove),<br>[`VecDeque::pop_front()`](TODO)|[`v.removeFirst()`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/ArrayList.html#removeFirst())|
 |[`v.remove(i)`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.remove)|[`v.remove(i)`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/ArrayList.html#remove(int))|
-|[`v.reverse()`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.reverse)|[`Collections.reverse(v)`](TODO)|
-|[`v.sort()`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.sort) (stable sort)|[`Collections.sort(v)`](TODO)|
+|[`v.reverse()`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.reverse)|[`Collections.reverse(v)`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Collections.html#reverse(java.util.List))|
+|[`v.sort()`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.sort) (stable sort)|[`Collections.sort(v)`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Collections.html#sort(java.util.List))|
 |[`v.sort_unstable()`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.sort_unstable)|N/A|
-|[`v0 == v1`](https://doc.rust-lang.org/std/vec/struct.Vec.html#impl-Eq-for-Vec%3CT,+A%3E)|[`v0.equals(v1)`](TODO)|
+|[`v0 == v1`](https://doc.rust-lang.org/std/vec/struct.Vec.html#impl-Eq-for-Vec%3CT,+A%3E)|[`v0.equals(v1)`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/ArrayList.html#equals(java.lang.Object))|
 |[`vec![1, 2, 3]`](https://doc.rust-lang.org/std/macro.vec.html)|[`List.of(1, 2, 3)`](TODO)|
-|[`Vec::from(iter)`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.from-2)|[`new ArrayList<>(otherCollection)`](TODO)|
-|[`Vec::with_capacity(cap)`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.with_capacity)|[`new ArrayList<>(cap)`](TODO)|
+|[`Vec::from(iter)`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.from-2)|[`new ArrayList<>(otherCollection)`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/ArrayList.html#%3Cinit%3E(java.util.Collection))|
+|[`Vec::with_capacity(cap)`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.with_capacity)|[`new ArrayList<>(cap)`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/ArrayList.html#%3Cinit%3E(int))|
 
 
 # TODO
