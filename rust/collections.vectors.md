@@ -45,24 +45,27 @@
 |[`v.binary_search(...)`](TODO)|[`Arrays.binarySearch(...)`](TODO)|
 |[`v.clear()`](TODO)|[`v.clear()`](TODO)|
 |[`v.extend(iter)`](TODO)|[`v.addAll(collection)`](TODO)|
+|[`v.first()`](TODO)<br>[`v.get(0)`](TODO)|[`v.getFirst()`](TODO)|
+|[`v.get(i)`](TODO)|[`v.get(i)`](TODO)|
 |[`v.insert(...)`](TODO)|[`v.add(...)`](TODO)|
 |[`v.insert(0, item)`](TODO), <br>[`VecDeque::push_front(item)`](TODO)|[`v.addFirst(item)`](TODO)|
 |[`v.is_empty()`](TODO)|[`v.isEmpty()`](TODO)|
 |[`v.iter().min()`](TODO)|[`Collections.min(v)`](TODO)|
-|[`v.iter()`](TODO), [`v.into_iter()`](TODO)|[`v.stream()`](TODO)|
+|[`v.iter()`](TODO), [`v.into_iter()`](TODO)|[`v.stream()`](TODO)<br>[`v.iterator()`](TODO)|
+|[`v.last()`](TODO)|[`v.getLast()`](TODO)|
 |[`v.len()`](TODO)|[`v.size()`](TODO)|
 |[`v.pop()`](TODO)|[`v.removeLast()`](TODO)|
 |[`v.push(...)`](TODO)|[`v.add(...)`](TODO), [`v.addLast(...)`](TODO)|
 |[`v.reverse()`](TODO)|[`Collections.reverse(v)`](TODO)|
-|[`v.sort()`](TODO) (stable)|[`Collections.sort(v)`](TODO)|
+|[`v.sort()`](TODO) (stable sort)|[`Collections.sort(v)`](TODO)|
 |[`v.sort_unstable()`](TODO)|N/A|
 |[`v0 == v1`](TODO)|[`v0.equals(v1)`](TODO)|
 |[`vec![1, 2, 3]`](TODO)|[`List.of(1, 2, 3)`](TODO)|
 |[`Vec::from(iter)`](TODO)|[`new ArrayList<>(otherCollection)`](TODO)|
 |[`Vec::with_capacity(cap)`](TODO)|[`new ArrayList<>(cap)`](TODO)|
-|[``](TODO)|[``](TODO)|
-|[``](TODO)|[``](TODO)|
-|[``](TODO)|[``](TODO)|
+|[`v.remove(0)`](TODO)|[`v.removeFirst()`](TODO)|
+|[`v.remove(i)`](TODO)|[`v.remove(i)`](TODO)|
+|[``](TODO)|[`v.indexOf(value)`](TODO)|
 |[``](TODO)|[``](TODO)|
 
 
