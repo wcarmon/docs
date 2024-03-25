@@ -50,7 +50,8 @@
 |[`v.insert(...)`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.insert)|[`v.add(...)`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/ArrayList.html#add(E))|
 |[`v.insert(0, item)`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.insert), <br>[`VecDeque::push_front(item)`](https://doc.rust-lang.org/std/collections/struct.VecDeque.html#method.push_front)|[`v.addFirst(item)`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/ArrayList.html#addFirst(java.lang.Object))|
 |[`v.is_empty()`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.is_empty)|[`v.isEmpty()`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/ArrayList.html#isEmpty())|
-|[`v.iter().min()`](https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.min)|[`Collections.min(v)`](TODO)|
+|[`v.iter().max()`](https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.max)|[`Collections.max(v)`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Collections.html#max(java.util.Collection))|
+|[`v.iter().min()`](https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.min)|[`Collections.min(v)`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Collections.html#min(java.util.Collection))|
 |[`v.iter().position(...)`](https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.position),<br>[`v.iter().rposition(...)`](https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.rposition)|[`v.indexOf(value)`](TODO)|
 |[`v.iter()`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.iter), [`v.into_iter()`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.into_iter-2)|[`v.stream()`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Collection.html#stream())<br>[`v.iterator()`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/ArrayList.html#iterator())|
 |[`v.last()`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.last)|[`v.getLast()`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/ArrayList.html#getLast())|
@@ -63,7 +64,7 @@
 |[`v.sort()`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.sort) (stable sort)|[`Collections.sort(v)`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Collections.html#sort(java.util.List))|
 |[`v.sort_unstable()`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.sort_unstable)|N/A|
 |[`v0 == v1`](https://doc.rust-lang.org/std/vec/struct.Vec.html#impl-Eq-for-Vec%3CT,+A%3E)|[`v0.equals(v1)`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/ArrayList.html#equals(java.lang.Object))|
-|[`vec![1, 2, 3]`](https://doc.rust-lang.org/std/macro.vec.html)|[`List.of(1, 2, 3)`](TODO)|
+|[`vec![1, 2, 3]`](https://doc.rust-lang.org/std/macro.vec.html)|[`List.of(1, 2, 3)`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html#of(E...))|
 |[`Vec::from(iter)`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.from-2)|[`new ArrayList<>(otherCollection)`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/ArrayList.html#%3Cinit%3E(java.util.Collection))|
 |[`Vec::with_capacity(cap)`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.with_capacity)|[`new ArrayList<>(cap)`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/ArrayList.html#%3Cinit%3E(int))|
 
