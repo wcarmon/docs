@@ -51,7 +51,7 @@
 |[`v.clear()`](TODO)|[`v.clear()`](TODO)|
 |[`v.extend(iter)`](TODO)|[`v.addAll(collection)`](TODO)|
 |[`v.insert(...)`](TODO)|[`v.add(...)`](TODO)|
-|[`v.insert(0, item)`](TODO), [`VecDeque::push_front(item)`](TODO)|[`v.addFirst(item)`](TODO)|
+|[`v.insert(0, item)`](TODO), <br>[`VecDeque::push_front(item)`](TODO)|[`v.addFirst(item)`](TODO)|
 |[`v.is_empty()`](TODO)|[`v.isEmpty()`](TODO)|
 |[`v.len()`](TODO)|[`v.size()`](TODO)|
 |[`v.push(...)`](TODO)|[`v.add(...)`](TODO), [`v.addLast(...)`](TODO)|
