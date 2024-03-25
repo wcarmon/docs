@@ -42,30 +42,30 @@
 # Comparison to Java
 |Rust|Java|
 |---|---|
-|[`v.binary_search(...)`](TODO)|[`Arrays.binarySearch(...)`](TODO)|
-|[`v.clear()`](TODO)|[`v.clear()`](TODO)|
-|[`v.extend(iter)`](TODO)|[`v.addAll(collection)`](TODO)|
-|[`v.first()`](TODO)<br>[`v.get(0)`](TODO)|[`v.getFirst()`](TODO)|
-|[`v.get(i)`](TODO)|[`v.get(i)`](TODO)|
-|[`v.insert(...)`](TODO)|[`v.add(...)`](TODO)|
-|[`v.insert(0, item)`](TODO), <br>[`VecDeque::push_front(item)`](TODO)|[`v.addFirst(item)`](TODO)|
-|[`v.is_empty()`](TODO)|[`v.isEmpty()`](TODO)|
-|[`v.iter().min()`](TODO)|[`Collections.min(v)`](TODO)|
-|[`v.iter().position(...)`](TODO),<br>[`v.iter().rposition(...)`](TODO)|[`v.indexOf(value)`](TODO)|
-|[`v.iter()`](TODO), [`v.into_iter()`](TODO)|[`v.stream()`](TODO)<br>[`v.iterator()`](TODO)|
-|[`v.last()`](TODO)|[`v.getLast()`](TODO)|
-|[`v.len()`](TODO)|[`v.size()`](TODO)|
-|[`v.pop()`](TODO)|[`v.removeLast()`](TODO)|
-|[`v.push(...)`](TODO)|[`v.add(...)`](TODO), [`v.addLast(...)`](TODO)|
-|[`v.remove(0)`](TODO),<br>[`VecDeque::pop_front()`](TODO)|[`v.removeFirst()`](TODO)|
-|[`v.remove(i)`](TODO)|[`v.remove(i)`](TODO)|
-|[`v.reverse()`](TODO)|[`Collections.reverse(v)`](TODO)|
-|[`v.sort()`](TODO) (stable sort)|[`Collections.sort(v)`](TODO)|
-|[`v.sort_unstable()`](TODO)|N/A|
-|[`v0 == v1`](TODO)|[`v0.equals(v1)`](TODO)|
-|[`vec![1, 2, 3]`](TODO)|[`List.of(1, 2, 3)`](TODO)|
-|[`Vec::from(iter)`](TODO)|[`new ArrayList<>(otherCollection)`](TODO)|
-|[`Vec::with_capacity(cap)`](TODO)|[`new ArrayList<>(cap)`](TODO)|
+|[`v.binary_search(...)`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.binary_search)|[`Arrays.binarySearch(...)`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Arrays.html#binarySearch(byte[],byte))|
+|[`v.clear()`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.clear)|[`v.clear()`](TODO)|
+|[`v.extend(iter)`](https://doc.rust-lang.org/std/iter/trait.Extend.html#tymethod.extend)|[`v.addAll(collection)`](TODO)|
+|[`v.first()`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.first),<br>[`v.get(0)`](TODO)|[`v.getFirst()`](TODO)|
+|[`v.get(i)`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.get)|[`v.get(i)`](TODO)|
+|[`v.insert(...)`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.insert)|[`v.add(...)`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/ArrayList.html#add(E))|
+|[`v.insert(0, item)`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.insert), <br>[`VecDeque::push_front(item)`](https://doc.rust-lang.org/std/collections/struct.VecDeque.html#method.push_front)|[`v.addFirst(item)`](TODO)|
+|[`v.is_empty()`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.is_empty)|[`v.isEmpty()`](TODO)|
+|[`v.iter().min()`](https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.min)|[`Collections.min(v)`](TODO)|
+|[`v.iter().position(...)`](https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.position),<br>[`v.iter().rposition(...)`](https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.rposition)|[`v.indexOf(value)`](TODO)|
+|[`v.iter()`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.iter), [`v.into_iter()`](TODO)|[`v.stream()`](TODO)<br>[`v.iterator()`](TODO)|
+|[`v.last()`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.last)|[`v.getLast()`](TODO)|
+|[`v.len()`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.len)|[`v.size()`](TODO)|
+|[`v.pop()`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.pop)|[`v.removeLast()`](TODO)|
+|[`v.push(...)`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.push)|[`v.add(...)`](TODO), [`v.addLast(...)`](TODO)|
+|[`v.remove(0)`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.remove),<br>[`VecDeque::pop_front()`](TODO)|[`v.removeFirst()`](TODO)|
+|[`v.remove(i)`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.remove)|[`v.remove(i)`](TODO)|
+|[`v.reverse()`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.reverse)|[`Collections.reverse(v)`](TODO)|
+|[`v.sort()`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.sort) (stable sort)|[`Collections.sort(v)`](TODO)|
+|[`v.sort_unstable()`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.sort_unstable)|N/A|
+|[`v0 == v1`](https://doc.rust-lang.org/std/vec/struct.Vec.html#impl-Eq-for-Vec%3CT,+A%3E)|[`v0.equals(v1)`](TODO)|
+|[`vec![1, 2, 3]`](https://doc.rust-lang.org/std/macro.vec.html)|[`List.of(1, 2, 3)`](TODO)|
+|[`Vec::from(iter)`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.from-2)|[`new ArrayList<>(otherCollection)`](TODO)|
+|[`Vec::with_capacity(cap)`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.with_capacity)|[`new ArrayList<>(cap)`](TODO)|
 
 
 # TODO
