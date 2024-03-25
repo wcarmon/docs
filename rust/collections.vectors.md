@@ -16,9 +16,10 @@
     1. Slice is the borrowed version
 1. Comparison
     1. Similar to [slice](../golang/collections.slices.md) in golang
-    1. Similar to [ArrayList](https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/util/ArrayList.html) in java
-    1. Similar to [Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) in javascript
-    1. Similar to [List](https://docs.python.org/3/tutorial/datastructures.html#more-on-lists) in python
+    1. Similar to [`ArrayList`](https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/util/ArrayList.html) in java
+    1. Similar to [`Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) in javascript
+    1. Similar to [`std::vector`](https://cplusplus.com/reference/vector/vector/) in C++
+    1. Similar to [`List`](https://docs.python.org/3/tutorial/datastructures.html#more-on-lists) in python
 1. `vec![...]` macro
 1. TODO: Ranges
 
@@ -44,7 +45,30 @@
 
 
 # Comparison to Java
-... TODO
+|Rust|Java|
+|---|---|
+|[`v.binary_search(...)`](TODO)|[`Arrays.binarySearch(...)`](TODO)|
+|[`v.clear()`](TODO)|[`v.clear()`](TODO)|
+|[`v.extend(iter)`](TODO)|[`v.addAll(collection)`](TODO)|
+|[`v.insert(...)`](TODO)|[`v.add(...)`](TODO)|
+|[`v.insert(0, item)`](TODO), [`VecDeque::push_front(item)`](TODO)|[`v.addFirst(item)`](TODO)|
+|[`v.is_empty()`](TODO)|[`v.isEmpty()`](TODO)|
+|[`v.len()`](TODO)|[`v.size()`](TODO)|
+|[`v.push(...)`](TODO)|[`v.add(...)`](TODO), [`v.addLast(...)`](TODO)|
+|[`v0 == v1`](TODO)|[`v0.equals(v1)`](TODO)|
+|[`Vec::from(iter)`](TODO)|[`new ArrayList<>(otherCollection)`](TODO)|
+|[`Vec::with_capacity(cap)`](TODO)|[`new ArrayList<>(cap)`](TODO)|
+|[`v.pop()`](TODO)|[``](TODO)|
+|[`v.iter()`](TODO), [`v.into_iter()`](TODO)|[``](TODO)|
+|[`v.iter().min()`](TODO)|[``](TODO)|
+|[`vec![1, 2, 3]`](TODO)|[`List.of(1, 2, 3)`](TODO)|
+|[`v.reverse()`](TODO)|[``](TODO)|
+|[`v.sort_unstable()`](TODO)|N/A|
+|[`v.sort()`](TODO)|[``](TODO)|
+|[``](TODO)|[``](TODO)|
+|[``](TODO)|[``](TODO)|
+|[``](TODO)|[``](TODO)|
+|[``](TODO)|[``](TODO)|
 
 
 
