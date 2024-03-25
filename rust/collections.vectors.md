@@ -48,18 +48,18 @@
 |[`v.insert(...)`](TODO)|[`v.add(...)`](TODO)|
 |[`v.insert(0, item)`](TODO), <br>[`VecDeque::push_front(item)`](TODO)|[`v.addFirst(item)`](TODO)|
 |[`v.is_empty()`](TODO)|[`v.isEmpty()`](TODO)|
+|[`v.iter().min()`](TODO)|[`Collections.min(v)`](TODO)|
+|[`v.iter()`](TODO), [`v.into_iter()`](TODO)|[`v.stream()`](TODO)|
 |[`v.len()`](TODO)|[`v.size()`](TODO)|
+|[`v.pop()`](TODO)|[`v.removeLast()`](TODO)|
 |[`v.push(...)`](TODO)|[`v.add(...)`](TODO), [`v.addLast(...)`](TODO)|
+|[`v.reverse()`](TODO)|[`Collections.reverse(v)`](TODO)|
+|[`v.sort()`](TODO) (stable)|[`Collections.sort(v)`](TODO)|
+|[`v.sort_unstable()`](TODO)|N/A|
 |[`v0 == v1`](TODO)|[`v0.equals(v1)`](TODO)|
+|[`vec![1, 2, 3]`](TODO)|[`List.of(1, 2, 3)`](TODO)|
 |[`Vec::from(iter)`](TODO)|[`new ArrayList<>(otherCollection)`](TODO)|
 |[`Vec::with_capacity(cap)`](TODO)|[`new ArrayList<>(cap)`](TODO)|
-|[`v.pop()`](TODO)|[`v.removeLast()`](TODO)|
-|[`v.iter()`](TODO), [`v.into_iter()`](TODO)|[`v.stream()`](TODO)|
-|[`v.iter().min()`](TODO)|[`Collections.min(v)`](TODO)|
-|[`vec![1, 2, 3]`](TODO)|[`List.of(1, 2, 3)`](TODO)|
-|[`v.reverse()`](TODO)|[`Collections.reverse(v)`](TODO)|
-|[`v.sort_unstable()`](TODO)|N/A|
-|[`v.sort()`](TODO) (stable)|[`Collections.sort(v)`](TODO)|
 |[``](TODO)|[``](TODO)|
 |[``](TODO)|[``](TODO)|
 |[``](TODO)|[``](TODO)|
