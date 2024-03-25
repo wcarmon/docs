@@ -45,20 +45,20 @@
 |[`v.binary_search(...)`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.binary_search)|[`Arrays.binarySearch(...)`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Arrays.html#binarySearch(byte[],byte))|
 |[`v.clear()`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.clear)|[`v.clear()`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/ArrayList.html#clear())|
 |[`v.extend(iter)`](https://doc.rust-lang.org/std/iter/trait.Extend.html#tymethod.extend)|[`v.addAll(collection)`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/ArrayList.html#addAll(java.util.Collection))|
-|[`v.first()`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.first),<br>[`v.get(0)`](TODO)|[`v.getFirst()`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/ArrayList.html#getFirst())|
+|[`v.first()`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.first),<br>[`v.get(0)`](https://doc.rust-lang.org/std/collections/struct.VecDeque.html#method.get)|[`v.getFirst()`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/ArrayList.html#getFirst())|
 |[`v.get(i)`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.get)|[`v.get(i)`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/ArrayList.html#get(int))|
 |[`v.insert(...)`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.insert)|[`v.add(...)`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/ArrayList.html#add(E))|
 |[`v.insert(0, item)`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.insert), <br>[`VecDeque::push_front(item)`](https://doc.rust-lang.org/std/collections/struct.VecDeque.html#method.push_front)|[`v.addFirst(item)`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/ArrayList.html#addFirst(java.lang.Object))|
 |[`v.is_empty()`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.is_empty)|[`v.isEmpty()`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/ArrayList.html#isEmpty())|
 |[`v.iter().max()`](https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.max)|[`Collections.max(v)`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Collections.html#max(java.util.Collection))|
 |[`v.iter().min()`](https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.min)|[`Collections.min(v)`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Collections.html#min(java.util.Collection))|
-|[`v.iter().position(...)`](https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.position),<br>[`v.iter().rposition(...)`](https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.rposition)|[`v.indexOf(value)`](TODO)|
+|[`v.iter().position(...)`](https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.position),<br>[`v.iter().rposition(...)`](https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.rposition)|[`v.indexOf(value)`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/ArrayList.html#indexOf(java.lang.Object))|
 |[`v.iter()`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.iter), [`v.into_iter()`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.into_iter-2)|[`v.stream()`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Collection.html#stream())<br>[`v.iterator()`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/ArrayList.html#iterator())|
 |[`v.last()`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.last)|[`v.getLast()`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/ArrayList.html#getLast())|
 |[`v.len()`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.len)|[`v.size()`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/ArrayList.html#size())|
 |[`v.pop()`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.pop)|[`v.removeLast()`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/ArrayList.html#removeLast())|
 |[`v.push(...)`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.push)|[`v.add(...)`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/ArrayList.html#add(java.lang.Object)), [`v.addLast(...)`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/ArrayList.html#addLast(java.lang.Object))|
-|[`v.remove(0)`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.remove),<br>[`VecDeque::pop_front()`](TODO)|[`v.removeFirst()`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/ArrayList.html#removeFirst())|
+|[`v.remove(0)`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.remove),<br>[`VecDeque::pop_front()`](https://doc.rust-lang.org/std/collections/struct.VecDeque.html#method.pop_front)|[`v.removeFirst()`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/ArrayList.html#removeFirst())|
 |[`v.remove(i)`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.remove)|[`v.remove(i)`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/ArrayList.html#remove(int))|
 |[`v.reverse()`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.reverse)|[`Collections.reverse(v)`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Collections.html#reverse(java.util.List))|
 |[`v.sort()`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.sort) (stable sort)|[`Collections.sort(v)`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Collections.html#sort(java.util.List))|
@@ -69,15 +69,15 @@
 |[`Vec::with_capacity(cap)`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.with_capacity)|[`new ArrayList<>(cap)`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/ArrayList.html#%3Cinit%3E(int))|
 
 
-# TODO
-- TODO: https://doc.rust-lang.org/book/ch08-01-vectors.html
-- TODO: https://learning-rust.github.io/docs/b1.vectors.html
-- TODO: https://doc.rust-lang.org/std/vec/struct.Vec.html
-- TODO: https://doc.rust-lang.org/rust-by-example/std/vec.html
-- TODO: https://vino.dev/blog/node-to-rust-day-17-arrays-loops-and-iterators/
-- TODO: https://cheats.rs/#data-structures
-- TODO: https://www.programming-idioms.org/cheatsheet/Rust
-- TODO: https://www.kuniga.me/docs/rust/#data-structures
+# TODO:
+- parse https://doc.rust-lang.org/book/ch08-01-vectors.html
+- parse https://learning-rust.github.io/docs/b1.vectors.html
+- parse https://doc.rust-lang.org/std/vec/struct.Vec.html
+- parse https://doc.rust-lang.org/rust-by-example/std/vec.html
+- parse https://vino.dev/blog/node-to-rust-day-17-arrays-loops-and-iterators/
+- parse https://cheats.rs/#data-structures
+- parse https://www.programming-idioms.org/cheatsheet/Rust
+- parse https://www.kuniga.me/docs/rust/#data-structures
 
 
 # Other Resources
