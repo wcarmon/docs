@@ -2,17 +2,17 @@
 1. Tools for generating [uuids](https://en.wikipedia.org/wiki/Universally_unique_identifier)
 
 
-# [uuid](https://docs.rs/uuid/latest/uuid/) crate
+# Best lib: [uuid](https://docs.rs/uuid/latest/uuid/) crate
 1. `Pro`: serde friendly
 1. `Pro`: modular (see crate features)
-1. `Pro`: Popular
-1. `Pro`: Actively developed
 1. `Pro`: Some official support from the rust team
+1. `Pro`: Actively developed
+1. `Pro`: Popular
 
 
 ## Setup
-1. Update your [`Cargo.toml`](https://docs.rs/uuid/latest/uuid/#getting-started)
-1. `fast-rng` feature is faster, but uses more external crates (dependencies)
+1. Add to your [`Cargo.toml`](https://docs.rs/uuid/latest/uuid/#getting-started)
+1. [`fast-rng` feature](https://docs.rs/uuid/latest/uuid/#other-features) is faster, but uses more external crates (dependencies)
 
 ## Usage
 ```rust
