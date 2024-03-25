@@ -40,7 +40,7 @@
 
 
 # Comparison to Java
-|Rust|Java|
+|Rust|Java 21|
 |---|---|
 |[`v.binary_search(...)`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.binary_search)|[`Arrays.binarySearch(...)`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Arrays.html#binarySearch(byte[],byte))|
 |[`v.clear()`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.clear)|[`v.clear()`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/ArrayList.html#clear())|
