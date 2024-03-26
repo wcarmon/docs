@@ -1,0 +1,50 @@
+# Overview
+1. Comparison between [`Send`](TODO) and [`Sync`](TODO) Traits
+
+
+# [Send](TODO)
+1. Think: move & ownership
+1. Auto-implemented by the compiler when applicable (unsafe trait)
+1. Transferrable (Can **move**) across threads
+1.
+
+## Not `Send`
+1. `!Send`: means `T` is locked to the thread which created it (single threaded)
+1. Counter examples:
+    1. [`Rc`](https://doc.rust-lang.org/std/rc/struct.Rc.html)
+    1. [`MutexGuard`](https://doc.rust-lang.org/std/sync/struct.MutexGuard.html)
+
+
+# [Sync](TODO)
+1. Think: Shared references
+1. Safe to **share** a read-only reference across threads
+1. Safe to **move** a read-only reference across threads
+1. Means "Threadsafe"
+1. Auto-implemented by the compiler when applicable (unsafe trait)
+1. (Mostly) a subset of `Send` Trait (even more strict than `Send`)
+1. Examples
+    1. All "primitives"
+    1. Most standard types
+    1. [`Arc`](https://doc.rust-lang.org/std/sync/struct.Arc.html)
+    1. [`Mutex`](https://doc.rust-lang.org/std/sync/struct.Mutex.html) - usually, but depends on what it wraps
+
+## Not `Sync`
+1. `!Sync`: means shared references to `T` are locked to the thread
+1. Counter examples: (generally because of unsynchronized [Internal Mutability](https://doc.rust-lang.org/reference/interior-mutability.html))
+    1. [`Cell`](https://doc.rust-lang.org/std/cell/struct.Cell.html)
+    1. [`RefCell`](https://doc.rust-lang.org/std/cell/struct.RefCell.html)
+    1. [`Rc`](https://doc.rust-lang.org/std/rc/struct.Rc.html)
+    1. [`MutexGuard`](https://doc.rust-lang.org/std/sync/struct.MutexGuard.html)
+
+
+# `Send` and `!Sync`
+1. Generally because of interior mutability
+1. Can always wrap these in a [`Mutex`](https://doc.rust-lang.org/std/sync/struct.Mutex.html)
+1. Examples
+    1. [`Cell`](https://doc.rust-lang.org/std/cell/struct.Cell.html)
+    1. [`RefCell`](https://doc.rust-lang.org/std/cell/struct.RefCell.html)
+    1. [`mpsc::Receiver`](https://doc.rust-lang.org/std/sync/mpsc/struct.Receiver.html)
+
+
+# Other Resources
+1. TODO
