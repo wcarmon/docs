@@ -1,24 +1,29 @@
 # Overview
-1. Differentiating between [`Clone`](TODO) and [`Copy`](TODO) traits in Rust.
+1. Differentiating between [`Clone`](https://doc.rust-lang.org/std/clone/trait.Clone.html) and [`Copy`](https://doc.rust-lang.org/std/marker/trait.Copy.html) traits in Rust.
 
 
-||[`Clone`](TODO)|[`Copy`](TODO)|
-|---|---|---|
-|TODO|Explicit duplication|Implicit|
+||[`Clone`](https://doc.rust-lang.org/std/clone/trait.Clone.html)|[`Copy`](https://doc.rust-lang.org/std/marker/trait.Copy.html)|
+| ---|---|---|
+|Syntax|Explicit duplication|Implicit|
 |Runtime cost|cheap or expensive|must be cheap|
 |Depth|Deep or shallow|deep|
 |Extra behavior?|Add arbitrary extra behavior|no|
-|Move semantics|no change|Replaces move with copy semantics|
+|Move semantics<br>(assignments, fn invocations, etc)|no change|Replaces move with copy semantics|
 
 
-# [Copy](TODO)
-1. Implicit duplication (Automatic replication)
-    1. eg. assignments, fn invocations, etc
-1. Bitwise copy
-    1. No extra behavior beyond bitwise copy
-1. Must be computationally cheap
+# `Clone`
+1. Supports extra behavior
+    1. eg. [`Arc::clone()`](https://doc.rust-lang.org/std/sync/struct.Arc.html#method.clone) creates a new reference and increments a counter
+    1. eg. [`String::clone()`](https://doc.rust-lang.org/std/string/struct.String.html#method.clone) allocates new independent memory on the heap
+    1. eg. [`Vec::clone()`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.clone) creates an independent (deep) copy of vector (compiler requires elements `impl Clone`)
+1. Super-Trait of `Copy`
 
 
+# `Copy`
+1. Sub-Trait of `Clone`
+1. Forbidden for heap-allocated data
+1. Forbidden on types that [`impl Drop`](https://doc.rust-lang.org/std/ops/trait.Drop.html)
 
-# Other resources
-1. TODO
+
+# Other Resources
+1. https://hashrust.com/blog/moves-copies-and-clones-in-rust/
