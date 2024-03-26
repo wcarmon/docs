@@ -4,10 +4,10 @@
 
 # [Send](https://doc.rust-lang.org/std/marker/trait.Send.html)
 1. Think: move & ownership
-1. Auto-implemented by the compiler when applicable (unsafe trait)
+1. Auto-implemented by the compiler when applicable ([unsafe trait](https://doc.rust-lang.org/book/ch19-01-unsafe-rust.html))
 1. Transferrable (Can **move**) across threads
-1. (Mostly) a superset of `Sync` Trait (less restrictive than `Sync`)
-1. Implies destructor can run in a different thread
+1. (Mostly) a superset of [`Sync`](https://doc.rust-lang.org/std/marker/trait.Sync.html) Trait (less restrictive than [`Sync`](https://doc.rust-lang.org/std/marker/trait.Sync.html))
+1. Implies [destructor](https://doc.rust-lang.org/nomicon/destructors.html) can run in a different thread
 
 ## Not `Send`
 1. `!Send`: means `T` is locked to the thread which created it (single threaded)
@@ -21,7 +21,7 @@
 1. Safe to **share** a read-only reference across threads
 1. Safe to **move** a read-only reference across threads
 1. Means "Threadsafe"
-1. Auto-implemented by the compiler when applicable (unsafe trait)
+1. Auto-implemented by the compiler when applicable ([unsafe trait](https://doc.rust-lang.org/book/ch19-01-unsafe-rust.html))
 1. (Mostly) a subset of `Send` Trait (even more strict than `Send`)
 1. Examples
     1. All "primitives"
