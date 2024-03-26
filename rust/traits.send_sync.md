@@ -39,7 +39,7 @@
 
 
 # `Send` and `!Sync`
-1. Generally because of interior mutability
+1. Generally because of [Internal Mutability](https://doc.rust-lang.org/reference/interior-mutability.html)
 1. Can always wrap these in a [`Mutex`](https://doc.rust-lang.org/std/sync/struct.Mutex.html)
 1. Examples
     1. [`Cell`](https://doc.rust-lang.org/std/cell/struct.Cell.html)
