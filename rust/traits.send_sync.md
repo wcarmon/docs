@@ -1,12 +1,13 @@
 # Overview
-1. Comparison between [`Send`](TODO) and [`Sync`](TODO) Traits
+1. Comparison between [`Send`](https://doc.rust-lang.org/std/marker/trait.Send.html) and [`Sync`](https://doc.rust-lang.org/std/marker/trait.Sync.html) Traits
 
 
-# [Send](TODO)
+# [Send](https://doc.rust-lang.org/std/marker/trait.Send.html)
 1. Think: move & ownership
 1. Auto-implemented by the compiler when applicable (unsafe trait)
 1. Transferrable (Can **move**) across threads
-1.
+1. (Mostly) a superset of `Sync` Trait (less restrictive than `Sync`)
+1. Implies destructor can run in a different thread
 
 ## Not `Send`
 1. `!Send`: means `T` is locked to the thread which created it (single threaded)
@@ -15,7 +16,7 @@
     1. [`MutexGuard`](https://doc.rust-lang.org/std/sync/struct.MutexGuard.html)
 
 
-# [Sync](TODO)
+# [Sync](https://doc.rust-lang.org/std/marker/trait.Sync.html)
 1. Think: Shared references
 1. Safe to **share** a read-only reference across threads
 1. Safe to **move** a read-only reference across threads
@@ -47,4 +48,8 @@
 
 
 # Other Resources
-1. TODO
+1. https://doc.rust-lang.org/nomicon/send-and-sync.html
+1. https://doc.rust-lang.org/book/ch16-04-extensible-concurrency-sync-and-send.html
+1. https://google.github.io/comprehensive-rust/concurrency/send-sync.html
+1. https://stackoverflow.com/questions/59428096/understanding-the-send-trait
+1. http://web.mit.edu/rust-lang_v1.25/arch/amd64_ubuntu1404/share/doc/rust/html/nomicon/send-and-sync.html
