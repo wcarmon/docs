@@ -32,7 +32,7 @@ pub fn setup_logger() -> Result<(), anyhow::Error> {
         "app.log",
         AppendCount::new(2),
         ContentLimit::Time(TimeFrequency::Daily),
-        Compression::OnRotate(1),
+        Compression::OnRotate(0),
         #[cfg(unix)]
             None,
     );
