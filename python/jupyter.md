@@ -24,5 +24,5 @@ brew install jupyter-notebook-ql
 ## windows
 1. TODO
 
-# Other resources
+# Other Resources
 1. https://jupyter.org/

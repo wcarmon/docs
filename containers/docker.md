@@ -31,5 +31,5 @@
 1. [rkt](https://www.redhat.com/en/topics/containers/what-is-rkt)
 
 
-# Other resources
+# Other Resources
 1. https://dev.to/theyasirr/comparison-of-container-runtimes-or-managment-technologies-docker-containerd-podman-rkt-1b8b

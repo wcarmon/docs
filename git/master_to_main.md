@@ -12,5 +12,5 @@ git push --delete origin master;
 ```
 
 
-# Other resources
+# Other Resources
 1. TODO

@@ -58,7 +58,7 @@ chmod +x my_script.py
 1. TODO
 
 
-# Other resources
+# Other Resources
 1. https://gimpbook.com/scripting/
 1. https://www.gimp.org/docs/python/index.html#STRUCTURE-OF-PLUGIN
 1. https://en.wikibooks.org/wiki/GIMP/Installing_Plugins#Linux

@@ -108,5 +108,5 @@
 1. [Rust Equivalent](TODO)
 
 
-# Other resources
+# Other Resources
 1. https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/package-summary.html#concurrent-collections-heading

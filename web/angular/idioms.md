@@ -76,5 +76,5 @@
 # Gotchas
 - See [setup.angular.md](./setup.angular.md)      
 
-# Other resources
+# Other Resources
 1. TODO

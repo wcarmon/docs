@@ -38,5 +38,5 @@ $SRC $DEST
 ```
 
 
-# Other resources
+# Other Resources
 1. https://linux.die.net/man/1/rsync

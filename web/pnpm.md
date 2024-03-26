@@ -19,5 +19,5 @@
 1. `npm install -g pnpm`
 
 
-# Other resources
+# Other Resources
 1. https://medium.com/@buffet_time/why-you-should-move-to-pnpm-82962f332418

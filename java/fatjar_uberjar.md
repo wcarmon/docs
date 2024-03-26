@@ -100,6 +100,6 @@ tasks.withType<ShadowJar>() {
 }
 ```
 
-# Other resources
+# Other Resources
 
 1. TODO

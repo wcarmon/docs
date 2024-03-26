@@ -33,5 +33,5 @@
     1. `Con`: slow
 
 
-# Other resources
+# Other Resources
 1. TODO

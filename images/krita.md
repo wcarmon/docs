@@ -10,5 +10,5 @@
 # Plugins
 
 
-# Other resources
+# Other Resources
 1. https://docs.krita.org/en/user_manual/introduction_from_other_software/introduction_from_photoshop.html

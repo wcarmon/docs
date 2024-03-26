@@ -10,7 +10,7 @@
 1. TODO: MethodHandle
 
 
-# Other resources
+# Other Resources
 1. TODO
 
 

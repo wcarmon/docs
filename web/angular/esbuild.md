@@ -6,4 +6,4 @@
 1. Written in golang
 
 
-# Other resources
+# Other Resources

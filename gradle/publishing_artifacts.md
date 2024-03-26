@@ -81,7 +81,7 @@ git push origin --tags
 ```
 
 
-# Other resources
+# Other Resources
 1. [Example jira ticket](https://issues.sonatype.org/browse/OSSRH-97577)
 1. [Terms/Agreement](https://central.sonatype.org/publish/producer-terms)
 1. https://central.sonatype.org/publish/release/

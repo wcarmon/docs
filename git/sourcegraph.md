@@ -78,4 +78,4 @@ done
 1. [http://localhost:7080](http://localhost:7080)
 1. TODO 
 
-# Other resources
+# Other Resources

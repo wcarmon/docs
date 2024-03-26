@@ -60,6 +60,6 @@
     1. Ignores min/preferred/max sizes
     1. Narrow usefulness
 
-# Other resources
+# Other Resources
 
 1. TODO

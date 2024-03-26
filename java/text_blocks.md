@@ -21,6 +21,6 @@
         1. Text block will end with a `\n`
 
 
-# Other resources
+# Other Resources
 1. https://openjdk.org/jeps/378
 1. https://docs.oracle.com/en/java/javase/15/text-blocks/index.html

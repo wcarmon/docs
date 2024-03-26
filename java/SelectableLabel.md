@@ -40,7 +40,7 @@ public class SelectableLabel extends TextField {
 }
 ```
 
-# Other resources
+# Other Resources
 
 1. https://openjfx.io/javadoc/19/javafx.graphics/javafx/scene/doc-files/cssref.html
 1. https://github.com/openjdk/jfx/blob/jfx20/modules/javafx.controls/src/main/resources/com/sun/javafx/scene/control/skin/caspian/caspian.css

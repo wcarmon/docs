@@ -3,5 +3,5 @@
 
 1. TODO: https://github.com/catchorg/Catch2/blob/devel/docs/tutorial.md
 
-# Other resources
+# Other Resources
 1. TODO

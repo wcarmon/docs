@@ -43,6 +43,6 @@ npm outdated
 ```
 
 
-# Other resources
+# Other Resources
 1. https://github.com/nodejs/help/wiki/Installation#how-to-install-nodejs-via-binary-archive-on-linux
 1. https://nodejs.org/en/download/package-manager/

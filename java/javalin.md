@@ -63,6 +63,6 @@ public static void main(String... args) {
 1. TODO: global error handler
 1. TODO: tracing propagation
 
-# Other resources
+# Other Resources
 
 1. TODO

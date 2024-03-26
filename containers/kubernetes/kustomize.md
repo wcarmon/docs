@@ -73,7 +73,7 @@
 - TODO: https://testingclouds.wordpress.com/2018/07/20/844/
 
 
-# Other resources
+# Other Resources
 1. https://kustomize.io/
 1. https://github.com/kubernetes-sigs/kustomize
 1. https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#kustomize

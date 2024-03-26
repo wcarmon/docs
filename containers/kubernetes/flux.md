@@ -92,7 +92,7 @@
 1. ~~argo CD~~ lost this war (see [gitlab article](https://about.gitlab.com/blog/2023/02/08/why-did-we-choose-to-integrate-fluxcd-with-gitlab/)) 
 
 
-# Other resources
+# Other Resources
 1. TODO
 
 

@@ -3,5 +3,5 @@
 
 1. TODO: semaphore
 
-# Other resources
+# Other Resources
 1. TODO

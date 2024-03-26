@@ -12,6 +12,6 @@
 | 20           | 64                 |
 | 21 LTS       | 65                 |
 
-# Other resources
+# Other Resources
 
 1. https://javaalmanac.io/bytecode/versions/

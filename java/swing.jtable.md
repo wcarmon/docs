@@ -121,6 +121,6 @@
 
 1. TODO: more here
 
-# Other resources
+# Other Resources
 
 1. [Official usage guide](https://docs.oracle.com/javase/tutorial/uiswing/components/table.html)

@@ -6,5 +6,5 @@
 1. GOTCHA: no windows nor macos support yet
 
 
-# Other resources
+# Other Resources
 1. TODO

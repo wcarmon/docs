@@ -27,5 +27,5 @@
 
 - TODO: make a diagram
 
-# Other resources
+# Other Resources
 1. TODO

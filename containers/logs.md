@@ -23,5 +23,5 @@ EOF
 ```
 
 
-# Other resources
+# Other Resources
 1. https://docs.docker.com/engine/reference/commandline/logs/

@@ -93,7 +93,7 @@ gcloud iam service-accounts describe $ACCT_EMAIL
 1. See [cloud logs](https://console.cloud.google.com/logs/query) for any IAM failures
 
 
-# Other resources
+# Other Resources
 1. https://cloud.google.com/run
 1. https://console.cloud.google.com/run
 1. https://cloud.google.com/iam/docs/service-account-overview

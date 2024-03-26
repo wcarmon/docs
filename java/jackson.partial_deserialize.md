@@ -98,7 +98,7 @@ public final class RawJSONDeserializer extends JsonDeserializer<RawJSONIndexes> 
         });
 ```
 
-# Other resources
+# Other Resources
 
 1. https://www.javadoc.io/doc/com.fasterxml.jackson.core/jackson-core/2.14.2/com/fasterxml/jackson/core/JsonParser.html
 1. https://javadoc.io/doc/com.fasterxml.jackson.core/jackson-databind/2.14.2/com/fasterxml/jackson/databind/JsonDeserializer.html

@@ -10,5 +10,5 @@
 1. Restart gimp
 
 
-# Other resources
+# Other Resources
 1. https://superuser.com/questions/1513000/how-to-enlarge-gimp-ui-font-and-icon-size-for-hdpi-screen

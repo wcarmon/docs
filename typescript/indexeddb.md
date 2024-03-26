@@ -109,7 +109,7 @@
 - `Con`: [IndexedDB storage requires purchase](https://rxdb.info/rx-storage-indexeddb.html) 
 
 
-# Other resources
+# Other Resources
 1. https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API
 1. https://developer.chrome.com/docs/devtools/storage/indexeddb/
 1. https://firefox-source-docs.mozilla.org/devtools-user/storage_inspector/indexeddb/index.html

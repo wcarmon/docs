@@ -21,5 +21,5 @@
     - Might occasionally be faster then Py equivalent
 
 
-# Other resources
+# Other Resources
 1. TODO

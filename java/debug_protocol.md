@@ -6,7 +6,7 @@
 
 `-agentlib:jdwp=transport=dt_socket,server=n,suspend=y,address=127.0.0.1:5555`
 
-# Other resources
+# Other Resources
 
 1. TODO
 

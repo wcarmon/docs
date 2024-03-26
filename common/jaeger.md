@@ -54,7 +54,7 @@ docker ps | grep jaeger
 - [http://localhost:16686](http://localhost:16686)
 
 
-# Other resources
+# Other Resources
 - [bash script example to run Jaeger](../bash/examples/go/run.jaeger.sh)
 - [doc for tracing in Rust](../rust/tracing.md)
 - [doc for tracing in Golang](../golang/tracing.md)

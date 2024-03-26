@@ -96,6 +96,6 @@ ng serve --open
 1. Components and Services need [`autoBind(this);`](https://www.npmjs.com/package/auto-bind)
 
 
-# Other resources
+# Other Resources
 1. https://angular.io/cli
 1. https://angular.io/guide/setup-local

@@ -174,6 +174,6 @@ func MergeChannels[T any](
 ```
 
 
-# Other resources
+# Other Resources
 1. https://go.dev/blog/pipelines
 1. See [concurrency.debug.md](./concurrency.debug.md)

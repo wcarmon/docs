@@ -29,5 +29,5 @@
 1. See logs for any IAM failures
 
 
-# Other resources
+# Other Resources
 1. TODO

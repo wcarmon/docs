@@ -9,5 +9,5 @@
     1. Interpreter: ~/.pyenv/versions/<version>/bin/python
 
 
-# Other resources
+# Other Resources
 1.

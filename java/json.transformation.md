@@ -85,4 +85,4 @@
 - UnQL
 - unquery
 
-# Other resources
+# Other Resources

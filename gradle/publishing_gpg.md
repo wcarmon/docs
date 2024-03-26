@@ -46,6 +46,6 @@ gpg --keyserver pgp.mit.edu --send-keys $KEY_ID;
 ```
 
 
-# Other resources
+# Other Resources
 1. https://central.sonatype.org/publish/requirements/gpg/
 1. https://docs.gradle.org/current/userguide/signing_plugin.html

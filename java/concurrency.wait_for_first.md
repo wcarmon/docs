@@ -11,5 +11,5 @@
 1. TODO: awaitiliy: https://github.com/awaitility/awaitility/wiki/Usage
 
 
-# Other resources
+# Other Resources
 1. TODO

@@ -39,6 +39,6 @@
     1. Abandonware (last updated 2020)
 
 
-# Other resources
+# Other Resources
 1. TODO
 

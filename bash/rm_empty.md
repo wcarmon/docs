@@ -23,6 +23,6 @@ find . -type f -empty -delete 2>/dev/null
 ```
 
 
-# Other resources
+# Other Resources
 1. https://man7.org/linux/man-pages/man1/find.1.html
 1. https://www.cyberciti.biz/faq/unix-linux-find-all-empty-files/

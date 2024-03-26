@@ -102,7 +102,7 @@ duplicates = df[df.duplicated(keep=False)]
 1. Relies on [numpy](./numpy.md)
 
 
-# Other resources
+# Other Resources
 1. https://pandas.pydata.org/docs/user_guide/index.html#user-guide
 
 

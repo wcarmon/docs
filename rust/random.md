@@ -16,10 +16,10 @@
 |[`rng.sample_iter(Uniform::from(1..7)).take(8).collect::<Vec<u16>>()`](https://rust-random.github.io/rand/rand/trait.Rng.html#method.sample_iter)<br>`let v: BTreeSet<u16> = rng.sample_iter(Standard).take(8).collect();`|[`ints()`](https://docs.oracle.com/en%2Fjava%2Fjavase%2F21%2Fdocs%2Fapi%2F%2F/java.base/java/util/concurrent/ThreadLocalRandom.html#ints(int,int))|
 |[`rng.sample_iter(Uniform::from(500u64..1_000u64)).take(13).collect()`](https://rust-random.github.io/rand/rand/trait.Rng.html#method.sample_iter)<br>`let v: Vec<u64> = rng.sample_iter(Standard).take(16).collect();`|[`longs()`](https://docs.oracle.com/en%2Fjava%2Fjavase%2F21%2Fdocs%2Fapi%2F%2F/java.base/java/util/concurrent/ThreadLocalRandom.html#longs(long,long))|
 |[`let v: Vec<f64> = rng.sample_iter(Uniform::from(0.0f64..1.0f64)).take(5).collect()`](https://rust-random.github.io/rand/rand/trait.Rng.html#method.sample_iter)|[`doubles()`](https://docs.oracle.com/en%2Fjava%2Fjavase%2F21%2Fdocs%2Fapi%2F%2F/java.base/java/util/concurrent/ThreadLocalRandom.html#doubles(double,double))|
-|[`let mut rng = rand::thread_rng()`](https://docs.rs/rand/latest/rand/fn.thread_rng.html)|[`var rng = ThreadLocalRandom.current()`](https://docs.oracle.com/en%2Fjava%2Fjavase%2F21%2Fdocs%2Fapi%2F%2F/java.base/java/util/concurrent/ThreadLocalRandom.html#current())|
+|[`let mut rng = rand::thread_rng()`](https://docs.rs/rand/latest/rand/fn.thread_rng.html)|[`ThreadLocalRandom.current()`](https://docs.oracle.com/en%2Fjava%2Fjavase%2F21%2Fdocs%2Fapi%2F%2F/java.base/java/util/concurrent/ThreadLocalRandom.html#current())|
 |[`cksac/fake-rs`](https://crates.io/crates/fake)|[`DiUS/Faker`](https://github.com/DiUS/java-faker)|
 
 
-# Other resources
+# Other Resources
 1. https://rust-lang-nursery.github.io/rust-cookbook/algorithms/randomness.html
 1. https://docs.rs/rand_distr/latest/rand_distr/struct.Uniform.html

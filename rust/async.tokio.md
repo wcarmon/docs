@@ -17,7 +17,7 @@
 - https://rust-lang.github.io/async-book/01_getting_started/04_async_await_primer.html
 - https://rust-lang.github.io/async-book/02_execution/02_future.html
 
-# Other resources
+# Other Resources
 
 1. https://rust-lang.github.io/async-book/
 1. https://rust-lang.github.io/async-book/01_getting_started/04_async_await_primer.html

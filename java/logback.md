@@ -113,7 +113,7 @@ public final class SomeClass {
 - See 1. See https://docs.spring.io/spring-boot/docs/3.0.0/reference/html/features.html#features.logging
 - See https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-logging
 
-# Other resources
+# Other Resources
 
 1. https://docs.spring.io/spring-boot/docs/3.0.0/reference/html/features.html#features.logging
 1. https://www.slf4j.org/images/concrete-bindings.png

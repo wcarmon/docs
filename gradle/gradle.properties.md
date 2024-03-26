@@ -28,6 +28,6 @@ task("printProperties") {
 ```
 
 
-# Other resources
+# Other Resources
 1. https://docs.gradle.org/current/userguide/build_environment.html#sec:gradle_configuration_properties
 1. https://docs.gradle.org/current/userguide/writing_build_scripts.html#properties

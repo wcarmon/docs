@@ -11,5 +11,5 @@
      1. https://www.postgresql.org/docs/current/datatype-json.html
 
 
-# Other resources
+# Other Resources
 1. https://www.postgresql.org/docs/current/datatype-json.html

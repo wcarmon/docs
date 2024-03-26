@@ -19,4 +19,4 @@
 - TODO: `untracked`: avoids infinite loop, for network IO
 - TODO: enabling on components
 
-# Other resources
+# Other Resources

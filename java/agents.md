@@ -59,6 +59,6 @@ java -javaagent:/path/to/jar=option1 ...   <-- TODO: better example
 
 - Debugging `premain` doesn't work
 
-# Other resources
+# Other Resources
 
 1. https://docs.oracle.com/en/java/javase/20/docs/api/java.instrument/java/lang/instrument/package-summary.html

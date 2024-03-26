@@ -26,5 +26,5 @@ sudo netstat -pant | grep -i 45484
     1. GOTCHA: **blackconnect breaks pycharm debugger and breakpoints**
 
 
-# Other resources
+# Other Resources
 https://plugins.jetbrains.com/plugin/14321-blackconnect

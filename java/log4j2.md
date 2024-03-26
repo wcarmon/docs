@@ -236,7 +236,7 @@ public final class SomeClass {
 1. See https://docs.spring.io/spring-boot/docs/3.0.0/reference/html/features.html#features.logging
 1. See https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-log4j2
 
-# Other resources
+# Other Resources
 
 1. https://logging.apache.org/log4j/2.x/
 1. https://logging.apache.org/log4j/log4j-2.11.2/faq.html

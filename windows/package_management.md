@@ -39,7 +39,7 @@
 1. Lots of ads
 
 
-# Other resources
+# Other Resources
 1. https://chocolatey.org/
 
 

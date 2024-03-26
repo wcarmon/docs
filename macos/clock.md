@@ -11,6 +11,6 @@
     1. Show date: **"always"**
     1. [*] Use a 24-hour clock
 
-# Other resources
+# Other Resources
 
 1. TODO

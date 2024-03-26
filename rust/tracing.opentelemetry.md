@@ -51,7 +51,7 @@
     span.end(); // or drop(span) or let it happen automatically
 ```
 
-# Other resources
+# Other Resources
 
 1. https://docs.rs/opentelemetry/
 1. https://opentelemetry.io/

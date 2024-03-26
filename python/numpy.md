@@ -125,7 +125,7 @@ TODO
 1. The foundation for TODO
 
 
-# Other resources
+# Other Resources
 1. https://numpy.org/
 1. https://github.com/numpy/numpy-tutorials
 1. https://numpy.org/doc/1.23/numpy-ref.pdf

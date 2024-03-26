@@ -59,7 +59,7 @@ echo "|-- See ${DEST}"
 # TODO: --tempo
 ```
 
-# Other resources
+# Other Resources
 
 1. https://manpages.debian.org/unstable/rubberband-cli/rubberband.1.en.html
 1. https://breakfastquay.com/rubberband/

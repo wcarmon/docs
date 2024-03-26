@@ -8,6 +8,6 @@
 visualvm --fontsize 18
 ```
 
-# Other resources
+# Other Resources
 
 1. TODO

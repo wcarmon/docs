@@ -111,6 +111,6 @@
 
 
 
-# Other resources
+# Other Resources
 1. https://docs.gradle.org/current/userguide/variant_model.html#gradle_component_model
 1. https://docs.gradle.org/current/userguide/custom_plugins.html

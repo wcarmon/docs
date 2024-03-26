@@ -61,7 +61,7 @@
 1. See [`@Builder`](https://projectlombok.org/features/Builder)
 
 
-# Other resources
+# Other Resources
 1. [JEP 359](https://openjdk.org/jeps/359) (Java 14)
 1. [JEP 384](https://openjdk.org/jeps/384) (Java 15)
 1. [JEP 395](https://openjdk.org/jeps/395) (Java 16)

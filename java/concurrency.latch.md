@@ -15,6 +15,6 @@
 1. Rust doesn't seem to have an equivalent (you can roll your own with [`std::sync::Mutex`](https://doc.rust-lang.org/std/sync/struct.Mutex.html) and [`std::sync::Condvar`](https://doc.rust-lang.org/std/sync/struct.Condvar.html))
 
 
-# Other resources
+# Other Resources
 1. https://howtodoinjava.com/java/multi-threading/when-to-use-countdownlatch-java-concurrency-example-tutorial/
 1. https://www.javatpoint.com/countdownlatch-in-java

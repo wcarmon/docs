@@ -24,6 +24,6 @@ done
 ```
 
 
-# Other resources
+# Other Resources
 1. https://www.cyberciti.biz/faq/bash-loop-over-file/
 1. https://www.digitalocean.com/community/tutorials/workflow-loop-through-files-in-a-directory

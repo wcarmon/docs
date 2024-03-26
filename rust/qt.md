@@ -4,7 +4,7 @@
 
 1. Qt is c++ focused, so it doesn't always map well to rust
 
-# Other resources
+# Other Resources
 
 1. https://github.com/rust-qt
 1. https://github.com/rust-qt/ritual

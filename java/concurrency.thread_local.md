@@ -6,5 +6,5 @@
 1. TODO: Scoped values
 
 
-# Other resources
+# Other Resources
 1. TODO

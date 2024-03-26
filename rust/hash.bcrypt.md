@@ -10,7 +10,7 @@
 - TODO: https://docs.rs/bcrypt/latest/bcrypt/fn.verify.html
 
 
-# Other resources
+# Other Resources
 1. https://en.wikipedia.org/wiki/Bcrypt
 1. https://en.wikipedia.org/wiki/Blowfish_(cipher)
 1. https://www.usenix.org/legacy/event/usenix99/provos/provos.pdf
