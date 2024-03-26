@@ -16,6 +16,7 @@
 ```toml
 [dependencies]
 anyhow = "..."
+file-rotate = "..."
 log = "..."
 simplelog = "..."
 ```
@@ -27,7 +28,17 @@ pub fn setup_logger() -> Result<(), anyhow::Error> {
 
     // TODO: allow override levels from env var
 
+    let out_file = FileRotate::new(
+        "app.log",
+        AppendCount::new(2),
+        ContentLimit::Time(TimeFrequency::Daily),
+        Compression::OnRotate(2),
+        #[cfg(unix)]
+            None,
+    );
+
     CombinedLogger::init(vec![
+        // -- Terminal appender
         TermLogger::new(
             LevelFilter::Info,
             Config::default(),
@@ -35,11 +46,11 @@ pub fn setup_logger() -> Result<(), anyhow::Error> {
             ColorChoice::Auto,
         ),
 
-        // TODO: rolling or just disable
+        // -- (Rolling) file appender
         WriteLogger::new(
             LevelFilter::Debug,
             Config::default(),
-            File::create("app.log")?,
+            out_file,
         ),
     ])?;
 
