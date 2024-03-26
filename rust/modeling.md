@@ -131,7 +131,7 @@ struct Employee {
 1. `impl MyTrait for ExternalType`
 1. Functions can accept/return *MyTrait*
 
-### Option-B: Wrap external types using [newtype pattern](TODO)
+### Option-B: Wrap external types using [newtype pattern](https://doc.rust-lang.org/rust-by-example/generics/new_types.html)
 
 1. proxy or [shrinkwrap](https://docs.rs/shrinkwraprs/latest/shrinkwraprs/) external types
     1. [example-1](https://doc.rust-lang.org/rust-by-example/generics/new_types.html)
