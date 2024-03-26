@@ -5,7 +5,7 @@
 # [Send](https://doc.rust-lang.org/std/marker/trait.Send.html)
 1. Think: move & ownership
 1. Auto-implemented by the compiler when applicable ([unsafe trait](https://doc.rust-lang.org/book/ch19-01-unsafe-rust.html))
-1. Transferrable (Can **move**) across threads
+1. [Transferrable (Can **move**)](https://google.github.io/comprehensive-rust/memory-management/move.html) across threads
 1. (Mostly) a superset of [`Sync`](https://doc.rust-lang.org/std/marker/trait.Sync.html) Trait (less restrictive than [`Sync`](https://doc.rust-lang.org/std/marker/trait.Sync.html))
 1. Implies [destructor](https://doc.rust-lang.org/nomicon/destructors.html) can run in a different thread
 
@@ -53,3 +53,5 @@
 1. https://google.github.io/comprehensive-rust/concurrency/send-sync.html
 1. https://stackoverflow.com/questions/59428096/understanding-the-send-trait
 1. http://web.mit.edu/rust-lang_v1.25/arch/amd64_ubuntu1404/share/doc/rust/html/nomicon/send-and-sync.html
+1. https://google.github.io/comprehensive-rust/memory-management/move.html
+
