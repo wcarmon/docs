@@ -55,4 +55,3 @@
 1. https://stackoverflow.com/questions/59428096/understanding-the-send-trait
 1. http://web.mit.edu/rust-lang_v1.25/arch/amd64_ubuntu1404/share/doc/rust/html/nomicon/send-and-sync.html
 1. https://google.github.io/comprehensive-rust/memory-management/move.html
-
