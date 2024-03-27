@@ -11,7 +11,7 @@
 
 
 ## Not `Send`
-1. `!Send`: means `T` is locked to the thread which created it (single threaded)
+1. `!Send`: means `T` is locked to the thread which created it (single-threaded)
 1. Counter examples:
     1. [`Rc`](https://doc.rust-lang.org/std/rc/struct.Rc.html)
     1. [`MutexGuard`](https://doc.rust-lang.org/std/sync/struct.MutexGuard.html)
