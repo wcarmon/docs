@@ -223,7 +223,7 @@
 - Move flexible version of [`Cell`](https://doc.rust-lang.org/std/cell/struct.Cell.html)
 - Runtime safety enforcement
 - `Rc<RefCell<Foo>>` is basically how all references work in (single threaded) Java or C++ code
-    - `Arc<RefCell<Foo>>` is how muktithreaded Java or C++ work by default.  It's an antipattern in rust, C++ and Java.
+    - ~~`Arc<RefCell<Foo>>`~~ is how multithreaded Java or C++ work by default.  It's an antipattern in Rust, C++ and Java.
 
 
 ## [`Cell`](https://doc.rust-lang.org/std/cell/struct.Cell.html)
