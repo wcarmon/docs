@@ -20,24 +20,23 @@
 
 
 # Construct
-1. Chrono: [hours](https://docs.rs/chrono/latest/chrono/struct.Duration.html#method.hours), [minutes](https://docs.rs/chrono/latest/chrono/struct.Duration.html#method.minutes), [seconds](https://docs.rs/chrono/latest/chrono/struct.Duration.html#method.seconds), [millis](https://docs.rs/chrono/latest/chrono/struct.Duration.html#method.milliseconds), [micros](https://docs.rs/chrono/latest/chrono/struct.Duration.html#method.microseconds)
+1. Chrono
 ```rust
-// TODO: Use try_...()
-let d = chrono::Duration::weeks(1);
-let d = chrono::Duration::days(1);
-let d = chrono::Duration::hours(1);
-let d = chrono::Duration::minutes(1);
-let d = chrono::Duration::seconds(1);
-let d = chrono::Duration::milliseconds(1);
-let d = chrono::Duration::microseconds(1);
-let d = chrono::Duration::nanoseconds(1);
+let d = TimeDelta::try_weeks(1).context("invalid weeks")?;
+let d = TimeDelta::try_days(1).context("invalid days")?;
+let d = TimeDelta::try_hours(1).context("invalid hours")?;
+...   = TimeDelta::try_minutes(1).context(...)?;
+...   = TimeDelta::try_seconds(1).context(...)?;
+...   = TimeDelta::try_milliseconds(1).context(...)?;
+...   = TimeDelta::try_microseconds(1).context(...)?;
+...   = TimeDelta::try_nanoseconds(1).context(...)?;
 ```
-1. Standard: [seconds](https://doc.rust-lang.org/stable/std/time/struct.Duration.html#method.from_secs), [millis](https://doc.rust-lang.org/stable/std/time/struct.Duration.html#method.from_millis), [micros](https://doc.rust-lang.org/stable/std/time/struct.Duration.html#method.from_micros)
+1. `std::time::Duration`: [seconds](https://doc.rust-lang.org/stable/std/time/struct.Duration.html#method.from_secs), [millis](https://doc.rust-lang.org/stable/std/time/struct.Duration.html#method.from_millis), [micros](https://doc.rust-lang.org/stable/std/time/struct.Duration.html#method.from_micros)
 ```rust
-let d = std::time::Duration::from_secs(1);
-let d = std::time::Duration::from_millis(1);
-let d = std::time::Duration::from_micros(1);
-let d = std::time::Duration::from_nanos(1);
+let d = Duration::from_secs(1);
+let d = Duration::from_millis(1);
+let d = Duration::from_micros(1);
+let d = Duration::from_nanos(1);
 ```
 
 
@@ -151,7 +150,7 @@ let chr_dur = chrono::Duration::from_std(std_d)
 |[`d.num_minutes()`](https://docs.rs/chrono/latest/chrono/struct.TimeDelta.html#method.num_minutes)|[`d.as_secs()/60`](https://doc.rust-lang.org/std/time/struct.Duration.html#method.as_secs)|[`d.toMinutes()`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/time/Duration.html#toMinutes())|
 |[`d.num_seconds()`](https://docs.rs/chrono/latest/chrono/struct.TimeDelta.html#method.num_seconds)|[`d.as_secs()`](https://doc.rust-lang.org/std/time/struct.Duration.html#method.as_secs)|[`d.toSeconds()`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/time/Duration.html#toSeconds())|
 |[`TimeDelta::try_hours(n).context("invalid hours")?`](https://docs.rs/chrono/latest/chrono/struct.TimeDelta.html#method.try_hours)|[`Duration::from_hours(n)`](TODO)|[`Duration.ofHours(n)`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/time/Duration.html#ofHours(long))|
-|[`TimeDelta::try_milliseconds(n).context("invalid millis")`](https://docs.rs/chrono/latest/chrono/struct.TimeDelta.html#method.try_milliseconds)|[`Duration::from_millis(n)`](TODO)|[`Duration.ofMillis(n)`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/time/Duration.html#ofMillis(long))|
+|[`TimeDelta::try_milliseconds(n).context("invalid millis")`](https://docs.rs/chrono/latest/chrono/struct.TimeDelta.html#method.try_milliseconds)|[`Duration::from_millis(n)`](https://doc.rust-lang.org/std/time/struct.Duration.html#method.from_millis)|[`Duration.ofMillis(n)`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/time/Duration.html#ofMillis(long))|
 |[`TimeDelta::try_minutes(n).context("invalid minutes")?`](https://docs.rs/chrono/latest/chrono/struct.TimeDelta.html#method.try_minutes)|[`Duration::from_secs(60*n)`](https://doc.rust-lang.org/std/time/struct.Duration.html#method.from_secs) or<br>[`Duration::from_secs_f64(...)`](https://doc.rust-lang.org/std/time/struct.Duration.html#method.from_secs_f64)|[`Duration.ofMinutes(n)`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/time/Duration.html#ofMinutes(long))|
 |[`TimeDelta::try_seconds(n).context("invalid seconds")`](https://docs.rs/chrono/latest/chrono/struct.TimeDelta.html#method.try_seconds)|[`Duration::from_secs(n)`](https://doc.rust-lang.org/std/time/struct.Duration.html#method.from_secs)|[`Duration.ofSeconds(n)`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/time/Duration.html#ofSeconds(long))|
 |(use number instead)|(use number instead)|[`d.toString()`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/time/Duration.html#toString())|
