@@ -136,24 +136,24 @@ let chr_dur = chrono::Duration::from_std(std_d)
 
 
 # Comparison to Java
-|Rust (std)|[Rust (chrono)](https://docs.rs/chrono/latest/chrono/)|Java|
+|[Rust (chrono)](https://docs.rs/chrono/latest/chrono)|Rust (std)|Java|
 |---|---|---|
-|[`a + b`](TODO)|[`a + b`](TODO)<br>[`a.checked_add(&b).context("overflow")?`](TODO)|[`a.plus(b)`](TODO)|
-|[`a - b`](TODO)|[`a - b`](TODO)<br>[`a.checked_sub(&b).context("overflow")`](TODO)|[`a.minus(b)`](TODO)|
+|[`(ts0 - ts1).abs()`](TODO)|[`ts0.duration_since(ts1)?` (`Err` when order wrong)](TODO)|[`Duration.between(a, b).abs()`](TODO)|
+|[`a + b`](TODO)<br>[`a.checked_add(&b).context("overflow")?`](TODO)|[`a + b`](TODO)|[`a.plus(b)`](TODO)|
+|[`a - b`](TODO)<br>[`a.checked_sub(&b).context("overflow")`](TODO)|[`a - b`](TODO)|[`a.minus(b)`](TODO)|
 |[`a == b`](TODO)|[`a == b`](TODO)|[`a.equals(b)`](TODO)|
-|[`d.as_millis()`](TODO)|[`d.num_milliseconds()`](TODO)|[`d.toMillis()`](TODO)|
-|[`d.as_secs() / 3600`](TODO)|[`d.num_hours()`](TODO)|[`d.toHours()`](TODO)|
-|[`d.as_secs()/60`](TODO)|[`d.num_minutes()`](TODO)|[`d.toMinutes()`](TODO)|
-|[`d.as_secs()`](TODO)|[`d.num_seconds()`](TODO)|[`d.toSeconds()`](TODO)|
+|[`d < TimeDelta::zero()`](TODO)|N/A (never negative)|[`d.isNegative()`](TODO)|
+|[`d > TimeDelta::zero()`](TODO)|N/A (never negative)|[`d.isPositive()`](TODO)|
+|[`d.abs()`](TODO)|N/A (never negative)|[`d.abs()`](TODO)|
 |[`d.is_zero()`](TODO)|[`d.is_zero()`](TODO)|[`.isZero()`](TODO)|
-|[`Duration::from_hours(n)`](TODO)|[`TimeDelta::try_hours(n).context("invalid hours")?`](TODO)|[`Duration.ofHours(n)`](TODO)|
-|[`Duration::from_millis(n)`](TODO)|[`TimeDelta::try_milliseconds(n).context("invalid millis")`](TODO)|[`Duration.ofMillis(n)`](TODO)|
-|[`Duration::from_secs(60*n)`](TODO)|[`TimeDelta::try_minutes(n).context("invalid minutes")?`](TODO)|[`Duration.ofMinutes(n)`](TODO)|
-|[`Duration::from_secs(n)`](TODO)|[`TimeDelta::try_seconds(n).context("invalid seconds")`](TODO)|[`Duration.ofSeconds(n)`](TODO)|
-|[`ts0.duration_since(ts1)?` (Err when order wrong)](TODO)|[`(ts0 - ts1).abs()`](TODO)|[`Duration.between(a, b).abs()`](TODO)|
-|N/A (never negative)|[`d < TimeDelta::zero()`](TODO)|[`d.isNegative()`](TODO)|
-|N/A (never negative)|[`d > TimeDelta::zero()`](TODO)|[`d.isPositive()`](TODO)|
-|N/A (never negative)|[`d.abs()`](TODO)|[`d.abs()`](TODO)|
+|[`d.num_hours()`](TODO)|[`d.as_secs() / 3600`](TODO)|[`d.toHours()`](TODO)|
+|[`d.num_milliseconds()`](TODO)|[`d.as_millis()`](TODO)|[`d.toMillis()`](TODO)|
+|[`d.num_minutes()`](TODO)|[`d.as_secs()/60`](TODO)|[`d.toMinutes()`](TODO)|
+|[`d.num_seconds()`](TODO)|[`d.as_secs()`](TODO)|[`d.toSeconds()`](TODO)|
+|[`TimeDelta::try_hours(n).context("invalid hours")?`](TODO)|[`Duration::from_hours(n)`](TODO)|[`Duration.ofHours(n)`](TODO)|
+|[`TimeDelta::try_milliseconds(n).context("invalid millis")`](TODO)|[`Duration::from_millis(n)`](TODO)|[`Duration.ofMillis(n)`](TODO)|
+|[`TimeDelta::try_minutes(n).context("invalid minutes")?`](TODO)|[`Duration::from_secs(60*n)`](TODO)|[`Duration.ofMinutes(n)`](TODO)|
+|[`TimeDelta::try_seconds(n).context("invalid seconds")`](TODO)|[`Duration::from_secs(n)`](TODO)|[`Duration.ofSeconds(n)`](TODO)|
 |(use number instead)|(use number instead)|[`d.toString()`](TODO)|
 |(use number instead)|(use number instead)|[`Duration.parse(...)`](TODO)|
 
