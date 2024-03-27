@@ -12,6 +12,7 @@
 
 
 # `Clone`
+1. Compiler never invokes automatically
 1. Supports extra behavior
     1. eg. [`Arc::clone()`](https://doc.rust-lang.org/std/sync/struct.Arc.html#method.clone) creates a new reference and increments a counter
     1. eg. [`String::clone()`](https://doc.rust-lang.org/std/string/struct.String.html#method.clone) allocates new independent memory on the heap
