@@ -137,11 +137,11 @@ let chr_dur = chrono::Duration::from_std(std_d)
 # Comparison to Java
 |Rust (std)|[Rust (chrono)](https://docs.rs/chrono/latest/chrono/)|Java|
 |---|---|---|
-|[`.as_secs() / 3600`](TODO)|[`d.num_hours()`](TODO)|[`d.toHours()`](TODO)|
 |[`a + b`](TODO)|[`a + b`](TODO)<br>[`a.checked_add(&b).context("overflow")?`](TODO)|[`a.plus(b)`](TODO)|
 |[`a - b`](TODO)|[`a - b`](TODO)<br>[`a.checked_sub(&b).context("overflow")`](TODO)|[`a.minus(b)`](TODO)|
 |[`a == b`](TODO)|[`a == b`](TODO)|[`a.equals(b)`](TODO)|
 |[`d.as_millis()`](TODO)|[`d.num_milliseconds()`](TODO)|[`d.toMillis()`](TODO)|
+|[`d.as_secs() / 3600`](TODO)|[`d.num_hours()`](TODO)|[`d.toHours()`](TODO)|
 |[`d.as_secs()/60`](TODO)|[`d.num_minutes()`](TODO)|[`d.toMinutes()`](TODO)|
 |[`d.as_secs()`](TODO)|[`d.num_seconds()`](TODO)|[`d.toSeconds()`](TODO)|
 |[`d.is_zero()`](TODO)|[`d.is_zero()`](TODO)|[`.isZero()`](TODO)|
