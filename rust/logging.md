@@ -28,6 +28,7 @@ pub fn setup_logger() -> Result<(), anyhow::Error> {
 
     // TODO: allow override levels from env var
 
+    // -- Daily rolling log file, compress old files
     let out_file = FileRotate::new(
         "app.log",
         AppendCount::new(2),
