@@ -40,18 +40,6 @@ let d = Duration::from_nanos(1);
 ```
 
 
-# [Parse](TODO) (from string)
-```rust
-TODO
-```
-
-
-# [Format](TODO) (to string)
-```rust
-TODO
-```
-
-
 # Measure Time
 1. [Chrono](https://docs.rs/chrono/latest/chrono/struct.DateTime.html#impl-Sub%3CDateTime%3CTz%3E%3E-for-DateTime%3CTz%3E)
 ```rust
