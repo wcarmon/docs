@@ -74,6 +74,10 @@ pub struct MyStruct {
     #[builder(setter(into))]
     pub name: String,
 
+    // -- allows .try_host_name("any_string")?
+    #[builder(try_setter, setter(into))]
+    pub host_name: HostName,
+
     // -- Don't generate setter for private field
     #[builder(setter(skip))]
     #[builder(default = "17")]
