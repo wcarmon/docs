@@ -138,22 +138,22 @@ let chr_dur = chrono::Duration::from_std(std_d)
 # Comparison to Java
 |[Rust (chrono)](https://docs.rs/chrono/latest/chrono)|Rust (std)|Java|
 |---|---|---|
-|[`(ts0 - ts1).abs()`](TODO)|[`ts0.duration_since(ts1)?` (`Err` when order wrong)](TODO)|[`Duration.between(ts0, ts1).abs()`](TODO)|
-|[`a + b`](TODO) or<br>[`a.checked_add(&b).context("overflow")?`](TODO)|[`a + b`](TODO)|[`a.plus(b)`](TODO)|
-|[`a - b`](TODO) or<br>[`a.checked_sub(&b).context("overflow")`](TODO)|[`a - b`](TODO)|[`a.minus(b)`](TODO)|
-|[`a == b`](TODO)|[`a == b`](TODO)|[`a.equals(b)`](TODO)|
-|[`d < TimeDelta::zero()`](TODO)|N/A (never negative)|[`d.isNegative()`](TODO)|
-|[`d > TimeDelta::zero()`](TODO)|N/A (never negative)|[`d.isPositive()`](TODO)|
-|[`d.abs()`](TODO)|N/A (never negative)|[`d.abs()`](TODO)|
-|[`d.is_zero()`](TODO)|[`d.is_zero()`](TODO)|[`d.isZero()`](TODO)|
-|[`d.num_hours()`](TODO)|[`d.as_secs() / 3600`](TODO)|[`d.toHours()`](TODO)|
-|[`d.num_milliseconds()`](TODO)|[`d.as_millis()`](TODO)|[`d.toMillis()`](TODO)|
-|[`d.num_minutes()`](TODO)|[`d.as_secs()/60`](TODO)|[`d.toMinutes()`](TODO)|
-|[`d.num_seconds()`](TODO)|[`d.as_secs()`](TODO)|[`d.toSeconds()`](TODO)|
-|[`TimeDelta::try_hours(n).context("invalid hours")?`](TODO)|[`Duration::from_hours(n)`](TODO)|[`Duration.ofHours(n)`](TODO)|
-|[`TimeDelta::try_milliseconds(n).context("invalid millis")`](TODO)|[`Duration::from_millis(n)`](TODO)|[`Duration.ofMillis(n)`](TODO)|
-|[`TimeDelta::try_minutes(n).context("invalid minutes")?`](TODO)|[`Duration::from_secs(60*n)`](TODO)|[`Duration.ofMinutes(n)`](TODO)|
-|[`TimeDelta::try_seconds(n).context("invalid seconds")`](TODO)|[`Duration::from_secs(n)`](TODO)|[`Duration.ofSeconds(n)`](TODO)|
+|[`(ts0 - ts1).abs()`](https://docs.rs/chrono/latest/chrono/struct.TimeDelta.html#method.abs)|[`ts0.duration_since(ts1)?`](TODO) (`Err` when order wrong)|[`Duration.between(ts0, ts1).abs()`](TODO)|
+|[`a + b`](https://docs.rs/chrono/latest/chrono/struct.TimeDelta.html#impl-Add-for-TimeDelta) or<br>[`a.checked_add(&b).context("overflow")?`](https://doc.rust-lang.org/nightly/core/time/struct.Duration.html#method.checked_add)|[`a + b`](TODO)|[`a.plus(b)`](TODO)|
+|[`a - b`](https://docs.rs/chrono/latest/chrono/struct.TimeDelta.html#impl-Sub-for-TimeDelta) or<br>[`a.checked_sub(&b).context("overflow")`](https://doc.rust-lang.org/nightly/core/time/struct.Duration.html#method.checked_sub)|[`a - b`](TODO)|[`a.minus(b)`](TODO)|
+|[`a == b`](https://docs.rs/chrono/latest/chrono/struct.TimeDelta.html#impl-PartialEq%3CTimeDelta%3E-for-ArchivedTimeDelta)|[`a == b`](TODO)|[`a.equals(b)`](TODO)|
+|[`d < TimeDelta::zero()`](https://docs.rs/chrono/latest/chrono/struct.TimeDelta.html#impl-Ord-for-TimeDelta)|N/A (never negative)|[`d.isNegative()`](TODO)|
+|[`d > TimeDelta::zero()`](https://docs.rs/chrono/latest/chrono/struct.TimeDelta.html#impl-Ord-for-TimeDelta)|N/A (never negative)|[`d.isPositive()`](TODO)|
+|[`d.abs()`](https://docs.rs/chrono/latest/chrono/struct.TimeDelta.html#method.abs)|N/A (never negative)|[`d.abs()`](TODO)|
+|[`d.is_zero()`](https://docs.rs/chrono/latest/chrono/struct.TimeDelta.html#method.is_zero)|[`d.is_zero()`](TODO)|[`d.isZero()`](TODO)|
+|[`d.num_hours()`](https://docs.rs/chrono/latest/chrono/struct.TimeDelta.html#method.num_hours)|[`d.as_secs() / 3600`](TODO)|[`d.toHours()`](TODO)|
+|[`d.num_milliseconds()`](https://docs.rs/chrono/latest/chrono/struct.TimeDelta.html#method.num_milliseconds)|[`d.as_millis()`](TODO)|[`d.toMillis()`](TODO)|
+|[`d.num_minutes()`](https://docs.rs/chrono/latest/chrono/struct.TimeDelta.html#method.num_minutes)|[`d.as_secs()/60`](TODO)|[`d.toMinutes()`](TODO)|
+|[`d.num_seconds()`](https://docs.rs/chrono/latest/chrono/struct.TimeDelta.html#method.num_seconds)|[`d.as_secs()`](TODO)|[`d.toSeconds()`](TODO)|
+|[`TimeDelta::try_hours(n).context("invalid hours")?`](https://docs.rs/chrono/latest/chrono/struct.TimeDelta.html#method.try_hours)|[`Duration::from_hours(n)`](TODO)|[`Duration.ofHours(n)`](TODO)|
+|[`TimeDelta::try_milliseconds(n).context("invalid millis")`](https://docs.rs/chrono/latest/chrono/struct.TimeDelta.html#method.try_milliseconds)|[`Duration::from_millis(n)`](TODO)|[`Duration.ofMillis(n)`](TODO)|
+|[`TimeDelta::try_minutes(n).context("invalid minutes")?`](https://docs.rs/chrono/latest/chrono/struct.TimeDelta.html#method.try_minutes)|[`Duration::from_secs(60*n)`](TODO)|[`Duration.ofMinutes(n)`](TODO)|
+|[`TimeDelta::try_seconds(n).context("invalid seconds")`](https://docs.rs/chrono/latest/chrono/struct.TimeDelta.html#method.try_seconds)|[`Duration::from_secs(n)`](TODO)|[`Duration.ofSeconds(n)`](TODO)|
 |(use number instead)|(use number instead)|[`d.toString()`](TODO)|
 |(use number instead)|(use number instead)|[`Duration.parse(...)`](TODO)|
 
