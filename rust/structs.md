@@ -74,7 +74,8 @@ pub struct MyStruct {
     #[builder(setter(into))]
     pub name: String,
 
-    // -- allows .try_host_name("any_string")?
+    // -- you can always do:    .host_name("any_string".try_into()?)
+    // -- this also allows      .try_host_name("any_string")?
     #[builder(try_setter, setter(into))]
     pub host_name: HostName,
 
