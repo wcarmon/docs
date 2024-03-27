@@ -130,9 +130,31 @@ let chr_dur = chrono::Duration::from_std(std_d)
 1. [`::to_std()`](https://docs.rs/chrono/latest/chrono/struct.Duration.html#method.to_std), [`::from_std()`](https://docs.rs/chrono/latest/chrono/struct.Duration.html#method.from_std)
 
 
-
 # Idioms
 1. TODO
+
+
+# Comparison to Java
+|Rust (std)|[Rust (chrono)](https://docs.rs/chrono/latest/chrono/)|Java|
+|---|---|---|
+|[`.as_millis()`](TODO)|[`d.num_milliseconds()`](TODO)|[`d.toMillis()`](TODO)|
+|[`.as_secs()/3600`](TODO)|[`d.num_hours()`](TODO)|[`d.toHours()`](TODO)|
+|[`.as_secs()/60`](TODO)|[`d.num_minutes()`](TODO)|[`d.toMinutes()`](TODO)|
+|[`.as_secs()`](TODO)|[`d.num_seconds()`](TODO)|[`d.toSeconds()`](TODO)|
+|[`a + b`](TODO)<br>[`a.checked_add(b)`](TODO)|[`a + b`](TODO)|[`a.plus(b)`](TODO)|
+|[`a - b`](TODO)<br>[`a.checked_sub(b)`](TODO)|[`a - b`](TODO)|[`a.minus(b)`](TODO)|
+|[`a == b`](TODO)|[`a == b`](TODO)|[`a.equals(b)`](TODO)|
+|[`abs_diff(...)`](TODO)|[`(a-b).abs()`](TODO)|[`between(a, b)`](TODO)|
+|[`d.is_zero()`](TODO)|[`d.is_zero()`](TODO)|[`.isZero()`](TODO)|
+|[`try_hours(...)`](TODO)|[`::from_secs(3600*n)`](TODO)|[`Duration.ofHours(n)`](TODO)|
+|[`try_milliseconds(...)`](TODO)|[`::from_millis(n)`](TODO)|[`Duration.ofMillis(n)`](TODO)|
+|[`try_minutes(...)`](TODO)|[`::from_secs(60*n)`](TODO)|[`Duration.ofMinutes(n)`](TODO)|
+|[`try_seconds(...)`](TODO)|[`::from_secs(...)`](TODO)|[`Duration.ofSeconds(n)`](TODO)|
+|N/A (never negative)|[`d < Duration::zero()`](TODO)|[`.isNegative()`](TODO)|
+|N/A (never negative)|[`d > Duration::zero()`](TODO)|[`.isPositive()`](TODO)|
+|N/A (never negative)|[`d.abs()`](TODO)|[`d.abs()`](TODO)|
+|(use number instead)|(use number instead)|[`d.toString()`](TODO)|
+|(use number instead)|(use number instead)|[`Duration.parse(...)`](TODO)|
 
 
 # TODO/Unorganized
