@@ -131,7 +131,8 @@ let chr_dur = chrono::Duration::from_std(std_d)
 
 
 # Idioms
-1. standard lib might require `#![feature(duration_constructors)]`
+1. standard lib might require `#![feature(duration_constructors)]` and `#![feature(duration_abs_diff)]`
+1. chrono is easier to use
 
 
 # Comparison to Java
@@ -149,10 +150,11 @@ let chr_dur = chrono::Duration::from_std(std_d)
 |[`Duration::from_millis(n)`](TODO)|[`TimeDelta::try_milliseconds(n).context("invalid millis")`](TODO)|[`Duration.ofMillis(n)`](TODO)|
 |[`Duration::from_secs(60*n)`](TODO)|[`TimeDelta::try_minutes(n).context("invalid minutes")?`](TODO)|[`Duration.ofMinutes(n)`](TODO)|
 |[`Duration::from_secs(n)`](TODO)|[`TimeDelta::try_seconds(n).context("invalid seconds")`](TODO)|[`Duration.ofSeconds(n)`](TODO)|
+|[`ts0.duration_since(ts1)?` (Err when order wrong)](TODO)|[`(ts0 - ts1).abs()`](TODO)|[`Duration.between(a, b).abs()`](TODO)|
 
 
 - TODO: test from here down
-|[`abs_diff(...)`](TODO)|[`(a-b).abs()`](TODO)|[`between(a, b)`](TODO)|
+|[`abs_diff(...)`](TODO)|[`(a-b).abs()`](TODO)|[``](TODO)|
 |N/A (never negative)|[`d < Duration::zero()`](TODO)|[`.isNegative()`](TODO)|
 |N/A (never negative)|[`d > Duration::zero()`](TODO)|[`.isPositive()`](TODO)|
 |N/A (never negative)|[`d.abs()`](TODO)|[`d.abs()`](TODO)|
@@ -161,6 +163,7 @@ let chr_dur = chrono::Duration::from_std(std_d)
 
 - TODO: test all
 - TODO: link all
+
 
 
 # TODO/Unorganized
