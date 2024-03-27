@@ -221,7 +221,10 @@
 - Useful for provably safe mutation within one thread (across aliases/variables)
 - **Single-threaded** sharable mutable container (shared across aliases/variables)
 - Move flexible version of [`Cell`](https://doc.rust-lang.org/std/cell/struct.Cell.html)
-- Runtime safety enforcement
+- Runtime safety enforcement of Rust borrow & mutation patterns.
+- Single-threaded version of `Mutex`
+- `Rc<RefCell<Foo>>` is basically how all references work in (single threaded) Java or C++ code
+    - ~~`Arc<RefCell<Foo>>`~~ is how multithreaded Java or C++ work by default.  It's an antipattern in Rust, C++ and Java.
 
 
 ## [`Cell`](https://doc.rust-lang.org/std/cell/struct.Cell.html)

@@ -4,13 +4,14 @@
 
 # [Send](https://doc.rust-lang.org/std/marker/trait.Send.html)
 1. Think: move & ownership
-1. Auto-implemented by the compiler when applicable ([unsafe trait](https://doc.rust-lang.org/book/ch19-01-unsafe-rust.html))
-1. [Transferrable (Can **move**)](https://google.github.io/comprehensive-rust/memory-management/move.html) across threads
-1. (Mostly) a superset of [`Sync`](https://doc.rust-lang.org/std/marker/trait.Sync.html) Trait (less restrictive than [`Sync`](https://doc.rust-lang.org/std/marker/trait.Sync.html))
+1. [Transferrable (can **move**)](https://google.github.io/comprehensive-rust/memory-management/move.html) across threads
 1. Implies [destructor](https://doc.rust-lang.org/nomicon/destructors.html) can run in a different thread
+1. Auto-implemented by the compiler when applicable ([unsafe trait](https://doc.rust-lang.org/book/ch19-01-unsafe-rust.html))
+1. (Mostly) a superset of [`Sync`](https://doc.rust-lang.org/std/marker/trait.Sync.html) Trait (less restrictive than [`Sync`](https://doc.rust-lang.org/std/marker/trait.Sync.html))
+
 
 ## Not `Send`
-1. `!Send`: means `T` is locked to the thread which created it (single threaded)
+1. `!Send`: means `T` is locked to the thread which created it (single-threaded)
 1. Counter examples:
     1. [`Rc`](https://doc.rust-lang.org/std/rc/struct.Rc.html)
     1. [`MutexGuard`](https://doc.rust-lang.org/std/sync/struct.MutexGuard.html)

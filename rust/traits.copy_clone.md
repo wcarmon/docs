@@ -12,12 +12,16 @@
 
 
 # `Clone`
+1. Compiler never invokes automatically
 1. Supports extra behavior
     1. eg. [`Arc::clone()`](https://doc.rust-lang.org/std/sync/struct.Arc.html#method.clone) creates a new reference and increments a counter
     1. eg. [`String::clone()`](https://doc.rust-lang.org/std/string/struct.String.html#method.clone) allocates new independent memory on the heap
     1. eg. [`Vec::clone()`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.clone) creates an independent (deep) copy of vector
         1. (compiler requires elements `impl Clone`)
 1. Super-Trait of `Copy`
+1. implement when...
+    1. Some part of your type won't be captured by a (recursive) field-by-field copy
+    1. Your type needs extra steps to copy correctly
 
 
 # `Copy`
