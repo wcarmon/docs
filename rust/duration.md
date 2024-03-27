@@ -146,12 +146,13 @@ let chr_dur = chrono::Duration::from_std(std_d)
 |[`d.as_secs()`](TODO)|[`d.num_seconds()`](TODO)|[`d.toSeconds()`](TODO)|
 |[`d.is_zero()`](TODO)|[`d.is_zero()`](TODO)|[`.isZero()`](TODO)|
 |[`Duration::from_hours(n)`](TODO)|[`TimeDelta::try_hours(n).context("invalid hours")?`](TODO)|[`Duration.ofHours(n)`](TODO)|
-|[`Duration::from_secs(...)`](TODO)|[`TimeDelta::try_seconds(...).context("invalid seconds")`](TODO)|[`Duration.ofSeconds(n)`](TODO)|
-|[`Duration::from_secs(60*n)`](TODO)|[`TimeDelta::try_minutes(4).context("invalid minutes")?`](TODO)|[`Duration.ofMinutes(n)`](TODO)|
+|[`Duration::from_millis(n)`](TODO)|[`TimeDelta::try_milliseconds(n).context("invalid millis")`](TODO)|[`Duration.ofMillis(n)`](TODO)|
+|[`Duration::from_secs(60*n)`](TODO)|[`TimeDelta::try_minutes(n).context("invalid minutes")?`](TODO)|[`Duration.ofMinutes(n)`](TODO)|
+|[`Duration::from_secs(n)`](TODO)|[`TimeDelta::try_seconds(n).context("invalid seconds")`](TODO)|[`Duration.ofSeconds(n)`](TODO)|
+
 
 - TODO: test from here down
 |[`abs_diff(...)`](TODO)|[`(a-b).abs()`](TODO)|[`between(a, b)`](TODO)|
-|[`try_milliseconds(...)`](TODO)|[`::from_millis(n)`](TODO)|[`Duration.ofMillis(n)`](TODO)|
 |N/A (never negative)|[`d < Duration::zero()`](TODO)|[`.isNegative()`](TODO)|
 |N/A (never negative)|[`d > Duration::zero()`](TODO)|[`.isPositive()`](TODO)|
 |N/A (never negative)|[`d.abs()`](TODO)|[`d.abs()`](TODO)|
