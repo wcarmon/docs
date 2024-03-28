@@ -4,9 +4,17 @@
 1. Why are Lifetimes useful?
 1. When do we need them?
 
+# What are they?
+
+1. Lifetimes are a performance & safety optimization
+1. without lifetime, we have to ...
+    1. Copy: which is safe, but slower
+    2. Ignore: which is fast, but unsafe
+    3. Manually choose from the options above at every point and manually reason about safety and performance
+
 
 # Scope/Applicibility
-1. Lifetimes are a performance optimization
+
 1. Only applies to references (borrowing)
 1. Not required for Owned types (eg. [String](https://doc.rust-lang.org/std/string/struct.String.html), [PathBuf](https://doc.rust-lang.org/stable/std/path/struct.PathBuf.html))
 1. Not required for smart pointers (because the variables which reference them have a lifetime)
