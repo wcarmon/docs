@@ -39,7 +39,8 @@
 
 
 # Functions
-1. borrowed fn args may need to outlive return type?
+1. by default, borrowed args must live long enough for the fn invocation to exit
+1. returned references must live as long as one of the arguments
 2. multiple borrowed args may need the same or different lifetime
 3. lifetimes define the contract enforced by the compiler (borrow checker)
 
