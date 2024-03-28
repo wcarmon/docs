@@ -40,8 +40,8 @@
 
 # Functions
 1. by default, borrowed args must live long enough for the fn invocation to exit
-1. returned references must live as long as one of the arguments
-2. multiple borrowed args may need the same or different lifetime
+1. returned references must live as long as one of the borrowed arguments (or be `static`)
+2. For multiple borrowed args, compiler can enforce they have the same or different lifetimes
 3. lifetimes define the contract enforced by the compiler (borrow checker)
 
 
