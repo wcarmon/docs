@@ -35,13 +35,13 @@
 # Structs
 1. borrowed struct fields must outlive the struct
 2. only need to define on the struct and field, not at the usage points
-3. lifetimes define the contract enforced by the compiler 
+3. lifetimes define the contract enforced by the compiler (borrow checker)
 
 
 # Functions
 1. borrowed fn args may need to outlive return type?
 2. multiple borrowed args may need the same or different lifetime
-3. lifetimes define the contract enforced by the compiler 
+3. lifetimes define the contract enforced by the compiler (borrow checker)
 
 
 # Other Resources
