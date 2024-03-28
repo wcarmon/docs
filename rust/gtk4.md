@@ -2,6 +2,14 @@
 1. How to setup gtk4-rs
 
 
+# Gotchas
+1. There's an enormous impedance mismatch in the model
+1. gtk relies a lot on inheritance
+1. gtk keeps multiple refs to signals forever
+1. window objects are neither `Send` nor `Sync`
+1. It will be very obvious from the start you're using the wrong pair of tools
+
+
 # Setup gtk4
 ```bash
 sudo echo "deb http://deb.debian.org/debian experimental main" > /etc/apt/sources.list.d/gtk4-rs.list
