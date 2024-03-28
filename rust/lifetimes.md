@@ -20,13 +20,13 @@
 1. Only applies to references (borrowing)
 1. Not required for Owned types (eg. [String](https://doc.rust-lang.org/std/string/struct.String.html), [PathBuf](https://doc.rust-lang.org/stable/std/path/struct.PathBuf.html))
 1. Not required for smart pointers (because the variables which reference them have a lifetime)
-1. Useful for sharing immutable data and safely mutating reference data.
+1. Useful for sharing immutable data and safely mutating referenced data.
 1. Useful for avoiding unnecessary allocations
     1. This is huge for performance.
     1. This avoids unnecessary deallocation (`free`) too.
-    1. This reduces memory footprint.
+    1. This reduces runtime memory footprint.
 1. Only need to specify lifetimes on ...
-    1. structs with borrowed fields
+    1. `struct`s (or `enum` variants) with borrowed fields
     1. functions with borrowed **return** types
 1. Most of the time compiler can automatically determine lifetimes
 
