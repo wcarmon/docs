@@ -7,10 +7,10 @@
 # What are they?
 
 1. Lifetimes are a performance & safety optimization
-1. without lifetime, we have to ...
-    1. Copy: which is safe, but slower
-    2. Ignore: which is fast, but unsafe
-    3. Manually choose from the options above at every point and manually reason about safety and performance
+1. Without lifetimes, we must ...
+    1. copy: which is safe, but slower
+    2. ignore lifetimes: which is fast, but unsafe (concurrent mutability, use after free, etc)
+    3. manually choose from the 2 options above, at every point, and manually reason about both safety and performance
 1. Think: `... must outlive ...`
 
 
