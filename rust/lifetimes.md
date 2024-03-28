@@ -28,21 +28,21 @@
 1. Only need to specify lifetimes on ...
     1. `struct`s (or `enum` variants) with borrowed fields
     1. functions with borrowed **return** types
-1. Most of the time compiler can automatically determine lifetimes
+1. Most often, compiler will automatically determine lifetimes
 
 
-# Popular Lifetimes
+# Global Lifetime
 
-- `static`: guaranteed valid for duration of entire program (eg. global lifetime)
+- `static`: guaranteed valid for duration of entire program
 
 
-# Structs
+# Lifetimes on Structs
 1. A borrowed `struct` field **must outlive** the `struct`.
 2. Only need lifetime annotation on the struct and field, not at the usage points.
 3. lifetimes define the contract enforced by the compiler (specifically, the borrow checker)
 
 
-# Functions
+# Lifetimes on Functions
 1. By default, borrowed args **must outlive** the function invocation.
 1. returned references **must outlive** one of the borrowed arguments (or be `static`).
 2. For multiple borrowed args, compiler can enforce they have the same or different lifetimes
