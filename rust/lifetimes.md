@@ -4,12 +4,16 @@
 1. Why are Lifetimes useful?
 1. When do we need them?
 
-# Scope/Applicibility
 
-1. Only applies to references
+# Scope/Applicibility
+1. Lifetimes are a performance optimization
+1. Only applies to references (borrowing)
 1. Not required for Owned types (eg. [String](https://doc.rust-lang.org/std/string/struct.String.html), [PathBuf](https://doc.rust-lang.org/stable/std/path/struct.PathBuf.html))
 1. Not required for smart pointers (because the variables which reference them have a lifetime)
 1. Useful for sharing immutable data (avoiding unnecessary allocations)
+    1. This is huge for performance
+    1. This avoids unnecessary deallocation (`free`) too
+    1. This reduces memory corruption
 1. Only need to specify lifetimes on ...
     1. structs with borrowed fields
     1. functions with borrowed **return** types
@@ -20,9 +24,17 @@
 
 - `static`: guaranteed valid for duration of entire program (eg. global lifetime)
 
+# Structs
+1. borrowed struct fields must outlive the struct
+2. only need to define on the struct and field, not at the usage points
+3. lifetimes define the contract enforced by the compiler 
 
-- TODO: struct properties
-- TODO: fn args & return types
+
+# Functions
+1. borrowed fn args may need to outlive return type?
+2. multiple borrowed args may need the same or different lifetime
+3. lifetimes define the contract enforced by the compiler 
+
 
 # Other Resources
 
