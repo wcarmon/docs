@@ -7,6 +7,7 @@
 1. gtk relies a lot on inheritance
 1. gtk keeps multiple refs to signals forever
 1. window objects are neither `Send` nor `Sync`
+1. Setup is gtk version specific
 1. It will be very obvious from the start you're using the wrong pair of tools
 
 
