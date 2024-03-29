@@ -24,6 +24,16 @@
 1. Some control over how requests are multiplexed across OS threads
 
 
+# Low level
+## [Hyper](https://hyper.rs/)
+1. Very Low-level, most high-level libs are based on this
+    1. Warp
+    1. Rocket
+1. At the same level as [Go http](TODO)
+1. Slightly below the level of [Javalin](TODO)
+1. Gives you granular control over routing, state injection (like a db connection pool, request validation, headers, authentication, lifetimes, ...)
+  
+
 # High-level Candidates
 1. Best: [**Rocket**](https://rocket.rs/)
 1. Next best: [**Actix**](https://actix.rs/)
@@ -33,6 +43,7 @@
 
 
 ## [Rocket](https://rocket.rs/v0.5/guide/overview/) (best)
+1. At the level of Spring Web
 1. `Con`: Farings (middleware) are exhausting and framework heavy (too far abstracted from actual behavior)
 1. `Con`: Faring setup doesn't play well with DI
 1. `Con`: Route annotations only work on functions not on methods (not impl)
@@ -87,10 +98,3 @@
 1. `Pro`: Global error handling is not too bad, but less intuitive than alternatives above
 1. `Pro`: Maintained by tokio team
 1. `Pro`: Tracing is a first class use case
-
-
-# Low level
-## [Hyper](https://hyper.rs/)
-1. Very Low-level, most high-level libs are based on this
-    1. Warp
-    1. Rocket
