@@ -33,6 +33,7 @@
 
 
 # [Rocket](https://rocket.rs/v0.5/guide/overview/) (best)
+1. `Con`: Farings (middleware) are exhausting and framework heavy (too far abstracted from actual behavior)
 1. `Pro`: Simplicity is a virtue
 1. `Pro`: Books written about Rocket
 1. `Pro`: [async support](https://rocket.rs/v0.5/guide/overview/#futures-and-async) (as of 0.5)
