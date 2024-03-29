@@ -24,7 +24,7 @@
 1. Some control over how requests are multiplexed across OS threads
 
 
-# Candidates
+# High-level Candidates
 1. Best: [**Rocket**](https://rocket.rs/)
 1. Next best: [**Actix**](https://actix.rs/)
 1. [Tide](https://github.com/http-rs/tide)
@@ -32,8 +32,10 @@
 1. ~~Axum~~
 
 
-# [Rocket](https://rocket.rs/v0.5/guide/overview/) (best)
+## [Rocket](https://rocket.rs/v0.5/guide/overview/) (best)
 1. `Con`: Farings (middleware) are exhausting and framework heavy (too far abstracted from actual behavior)
+1. `Con`: Faring setup doesn't play well with DI
+1. `Con`: Route annotations only work on functions not on methods (not impl)
 1. `Pro`: Simplicity is a virtue
 1. `Pro`: Books written about Rocket
 1. `Pro`: [async support](https://rocket.rs/v0.5/guide/overview/#futures-and-async) (as of 0.5)
@@ -47,7 +49,7 @@
 1. `Pro`: Request scoped data is easy to read & write (see [`req.local_cache`](https://api.rocket.rs/v0.4/rocket/request/struct.Request.html#method.local_cache))
 
 
-# [Actix](https://actix.rs/) (2nd best)
+## [Actix](https://actix.rs/) (2nd best)
 1. `Con`: Documentation doesn't highlight how good the library is.  Docs focus too much on "magic" features.
 1. `Con`: Naturally more framework than library (like spring-web), but unlike spring, Actix allows lower level access
 1. `Con`: [extractors api](https://actix.rs/docs/extractors/) is overly complex
@@ -61,11 +63,11 @@
 1. `Pro`: Simple query string parsing (see [this](https://actix.rs/docs/extractors/#query) and [this](https://docs.rs/actix-web/latest/actix_web/web/struct.Query.html#method.from_query))
 
 
-# [Tide](https://github.com/http-rs/tide)
+## [Tide](https://github.com/http-rs/tide)
 1. `Con`: Not as mature as alternatives above
 
 
-# [Warp](https://github.com/seanmonstar/warp)
+## [Warp](https://github.com/seanmonstar/warp)
 1. `Con`: Complexity on custom query string parsing (compare to Rocket & Actix)
 1. `Con`: Overly complex code for custom middleware (compare to Rocket & Actix)
 1. `Con`: Some magic required for request scoped data (makes debugging, reasoning harder)
@@ -73,7 +75,7 @@
 1. `Pro`: Recent book written about warp
 
 
-# [~~Axum~~](https://docs.rs/axum/latest/axum/)
+## [~~Axum~~](https://docs.rs/axum/latest/axum/)
 1. `Con`: No appreciation for simplicity
 1. `Con`: `Infallible` is complex to use with other features
 1. `Con`: `IntoResponse` is complex to use
@@ -87,8 +89,8 @@
 1. `Pro`: Tracing is a first class use case
 
 
-# [Hyper](https://hyper.rs/)
-1. Don't use directly
+# Low level
+## [Hyper](https://hyper.rs/)
 1. Very Low-level, most high-level libs are based on this
     1. Warp
     1. Rocket
