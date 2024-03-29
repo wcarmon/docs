@@ -22,12 +22,14 @@
 1. implement when...
     1. Some part of your type won't be captured by a (recursive) field-by-field copy
     1. Your type needs extra steps to copy correctly
+1. Useful for sending a "copy" of something threadsafe to another thread (eg. [`Arc::clone`](https://doc.rust-lang.org/std/sync/struct.Arc.html#cloning-references))
 
 
 # `Copy`
 1. Sub-Trait of `Clone`
 1. Forbidden for heap-allocated data
 1. Forbidden on types that [`impl Drop`](https://doc.rust-lang.org/std/ops/trait.Drop.html)
+
 
 
 # Other Resources
