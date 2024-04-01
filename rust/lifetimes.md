@@ -6,9 +6,9 @@
 
 # What are they?
 
-1. Lifetimes define when a reference is valid
+1. Lifetimes define when a **reference** is valid
 1. Lifetimes are both a performance optimization & safety tool
-1. Lifetimes help the compiler avoid dangling references
+1. Lifetimes help the compiler avoid dangling **references**
 1. Without lifetimes, we must ...
     1. copy: which is safe, but slower
     1. ignore lifetimes: which is fast, but unsafe (concurrent mutability, use after free, etc)
@@ -22,7 +22,7 @@
 1. Only applies to **references** (borrowing)
 1. Not required for Owned types (eg. [String](https://doc.rust-lang.org/std/string/struct.String.html), [PathBuf](https://doc.rust-lang.org/stable/std/path/struct.PathBuf.html))
 1. Not required for smart pointers (because the variables which reference them have a lifetime)
-1. Useful for sharing immutable data and safely mutating referenced data.
+1. Useful for sharing immutable data and safely mutating **referenced** data.
 1. Useful for avoiding unnecessary allocations
     1. This is huge for performance.
     1. This avoids unnecessary deallocation (`free`) too.
