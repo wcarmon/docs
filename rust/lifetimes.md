@@ -6,18 +6,20 @@
 
 # What are they?
 
-1. Lifetimes are a performance & safety optimization
+1. Lifetimes define when a reference is valid
+1. Lifetimes are both a performance optimization & safety tool
+1. Lifetimes help the compiler avoid dangling references
 1. Without lifetimes, we must ...
     1. copy: which is safe, but slower
-    2. ignore lifetimes: which is fast, but unsafe (concurrent mutability, use after free, etc)
-    3. manually choose from the 2 options above, at every point, and manually reason about both safety and performance
+    1. ignore lifetimes: which is fast, but unsafe (concurrent mutability, use after free, etc)
+    1. manually choose from the 2 options above, at every point, and manually reason about both safety and performance
 1. Think: `... must outlive ...`
 
 
 
 # Scope/Applicibility
 
-1. Only applies to references (borrowing)
+1. Only applies to **references** (borrowing)
 1. Not required for Owned types (eg. [String](https://doc.rust-lang.org/std/string/struct.String.html), [PathBuf](https://doc.rust-lang.org/stable/std/path/struct.PathBuf.html))
 1. Not required for smart pointers (because the variables which reference them have a lifetime)
 1. Useful for sharing immutable data and safely mutating referenced data.
@@ -45,8 +47,9 @@
 # Lifetimes on Functions
 1. By default, borrowed args **must outlive** the function invocation.
 1. returned references **must outlive** one of the borrowed arguments (or be `static`).
-2. For multiple borrowed args, compiler can enforce they have the same or different lifetimes
-3. lifetimes define the contract enforced by the compiler (specifically, the borrow checker)
+    1. connects output lifetime to input lifetime
+1. For multiple borrowed args, compiler can enforce they have the same or different lifetimes
+1. lifetimes define the contract enforced by the compiler (specifically, the borrow checker)
 
 
 # Other Resources
