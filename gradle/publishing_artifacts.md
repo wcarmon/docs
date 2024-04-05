@@ -26,6 +26,13 @@
 # Build, Sign, Publish
 1. Bump the version in `build.gradle.kts`
 ```sh
+rm -vf ./build/libs/*.jar
+rm -vf ./build/libs/*.asc
+rm -vf ./build/libs/*.md5
+rm -vf ./build/libs/*.sha1
+rm -vf ./build/libs/*.sha256
+rm -vf ./build/libs/*.sha512
+
 ./gradlew clean spotlessApply build sign -x test -q;
 
 # -- Build hashes
@@ -37,10 +44,10 @@ for JAR_FILE in ./build/libs/*.jar; do
 done
 
 # -- Verify
-# ls -hl ./build/libs/
+ls -hl ./build/libs/
 
 # -- This creates a staging repository in Nexus
-./gradlew publish -q
+./gradlew publish
 ```
 
 
