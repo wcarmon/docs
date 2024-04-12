@@ -1,0 +1,74 @@
+# --------------------------------------------------------------------
+# -- Debugging:
+# kubectl get sts --namespace=default
+# kubectl describe sts postgres-sts --namespace=default
+# kubectl get events --namespace=default
+# kubectl logs --selector app=postgres --namespace=default
+#
+# -- Delete/Cleanup
+# kubectl delete pvc postgres-sts;
+# TODO: delete the pod too
+# --------------------------------------------------------------------
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  labels:
+    app: postgres
+  name: postgres-sts
+  namespace: default
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: postgres
+
+  serviceName: postgres-svc
+
+  template:
+    metadata:
+      labels:
+        app: postgres
+
+    spec:
+      containers:
+        - env:
+            - name: PGDATA
+              value: /data/pgdata
+
+            # -- superuser name
+            - name: POSTGRES_USER
+              value: postgres
+
+            # -- Default database name
+            - name: POSTGRES_DB
+              value: postgres
+
+            # TODO: get from secret (POSTGRES_PASSWORD_FILE)
+            - name: POSTGRES_PASSWORD
+              value: Zz612l7amMZNXigH0ED
+
+          image: postgres:16.2
+          # image: postgres:15.6
+          # image: postgres:14.11
+
+          name: postgres
+
+          ports:
+            - containerPort: 5432
+
+          volumeMounts:
+            - mountPath: /data
+              name: postgres-volume
+
+  volumeClaimTemplates:
+    - metadata:
+        name: postgres-volume
+
+      spec:
+        accessModes:
+          - ReadWriteOnce
+        resources:
+          requests:
+            storage: 1Gi
