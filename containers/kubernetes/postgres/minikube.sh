@@ -66,6 +66,11 @@ sleep 1;
 # ---------------------------------------------
 
 echo
+echo "|-- PersistentVolumeClaims:"
+$KUBECTL get pvc --selector app=postgres;
+
+
+echo
 echo "|-- StatefulSet:"
 $KUBECTL get sts postgres-sts;
 
@@ -78,6 +83,11 @@ $KUBECTL get svc --selector app=postgres;
 echo
 echo "|-- Pods:"
 $KUBECTL get pod --selector app=postgres;
+
+
+echo
+echo "|-- Config map:"
+$KUBECTL get cm --selector app=postgres;
 
 
 # ---------------------------------------------

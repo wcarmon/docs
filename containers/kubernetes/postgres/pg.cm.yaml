@@ -1,0 +1,22 @@
+# --------------------------------------------------------------------
+# -- Debugging:
+# kubectl describe cm postgres-cm --namespace=default
+# kubectl get cm postgres-cm
+# --------------------------------------------------------------------
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  labels:
+    app: postgres
+  name: postgres-cm
+  namespace: default
+
+data:
+  # -- Default database name
+  POSTGRES_DB: "postgres"
+
+  # -- superuser name
+  POSTGRES_USER: "postgres"
+
+  # TODO: get from secret? POSTGRES_PASSWORD_FILE
+  POSTGRES_PASSWORD: "Zz612l7amMZNXigH0ED"
