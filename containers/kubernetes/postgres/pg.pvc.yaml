@@ -1,0 +1,27 @@
+# --------------------------------------------------------------------
+# -- Debugging:
+# kubectl describe pvc postgres-pvc
+# kubectl get events --namespace=default
+#
+#
+# -- Delete/Cleanup
+# kubectl delete pvc postgres-pvc;
+# --------------------------------------------------------------------
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: postgres-pvc
+  namespace: default
+  labels:
+    app: postgres
+
+spec:
+  accessModes:
+    - ReadWriteOnce
+
+  resources:
+    requests:
+      storage: 2Gi
+
+  storageClassName: ""

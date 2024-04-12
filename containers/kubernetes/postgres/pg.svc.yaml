@@ -1,0 +1,35 @@
+# --------------------------------------------------------------------
+# -- Debugging:
+# kubectl describe svc postgres-svc
+# kubectl get svc postgres-svc
+#
+# kubectl logs --selector app=postgres
+# kubectl get events --namespace=default
+#
+#
+# -- Access inside cluster:
+# postgres-svc:5432
+#
+# -- Access outside cluster:
+# -- See postgres.ing.yaml
+# --------------------------------------------------------------------
+
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: postgres
+  name: postgres-svc
+  namespace: default
+spec:
+  ports:
+    - name: pg
+      port: 5432
+      protocol: TCP
+      targetPort: 5432
+
+  selector:
+    app: postgres
+
+  type: ClusterIP
+#  type: LoadBalancer
