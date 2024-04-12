@@ -48,8 +48,10 @@ kubectl get configmap;
 kubectl get cm;
 
 kubectl get pvc;
+kubectl get PersistentVolumeClaim;
 
 kubectl get pv;
+kubectl get PersistentVolume;
 
 # -- Get detailed info
 NODE_NAME=minikube;

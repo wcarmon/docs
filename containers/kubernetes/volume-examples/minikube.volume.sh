@@ -45,7 +45,7 @@ readonly EXTRA_VOLUME="$HOME/tmp/volume-for-minikube-1"
 # minikube start --mount-string="$HOME/tmp/volume-for-minikube-1:/pv" --mount
 
 # -- Terminate old mount processes
-minikube mount --kill;
+minikube mount --kill || true;
 
 
 # ---------------------------------------------
