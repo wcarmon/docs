@@ -11,7 +11,10 @@
 # postgres-svc:5432
 #
 # -- Access outside cluster:
-# -- See postgres.ing.yaml
+# -- psql --host=$(minikube ip) --port=30737 --user=postgres
+# --   \l
+# --   \c mydb
+# --   \dt
 # --------------------------------------------------------------------
 
 apiVersion: v1
