@@ -61,7 +61,7 @@ spec:
               command:
                 - sh
                 - -c
-                - exec pg_isready --host $HOSTNAME
+                - pg_isready --host $HOSTNAME
             failureThreshold: 6
             initialDelaySeconds: 60
             periodSeconds: 10
@@ -78,7 +78,7 @@ spec:
               command:
                 - sh
                 - -c
-                - exec pg_isready --host $HOSTNAME
+                - pg_isready --host $HOSTNAME
             failureThreshold: 3
             initialDelaySeconds: 5
             periodSeconds: 5
