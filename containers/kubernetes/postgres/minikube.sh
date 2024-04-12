@@ -58,7 +58,7 @@ echo "|-- Applying postgres yamls ..."
 $KUBECTL apply -f $K8S_YAML_DIR/
 
 
-sleep 1;
+sleep 2;
 
 
 # ---------------------------------------------

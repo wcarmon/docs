@@ -45,7 +45,7 @@ spec:
           #            - name: POSTGRES_PASSWORD
           #              valueFrom:
           #                secretKeyRef:
-          #                  key: password
+          #                  key: postgres_password
           #                  name: postgres
 
           envFrom:
