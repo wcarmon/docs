@@ -11,7 +11,8 @@
 # postgres-svc:5432
 #
 # -- Access outside cluster:
-# -- psql --host=$(minikube ip) --port=30737 --user=postgres
+# -- psql --host=$(minikube ip) --port=30737 --user=postgres --dbname=postgres
+# -- psql --host=$(minikube ip) --port=30737 --user=app_user --dbname=foo1
 # --   \l
 # --   \c mydb
 # --   \dt
@@ -44,9 +45,11 @@ spec:
   selector:
     app: postgres
 
-  # -- Only accessible inside cluster
-  # type: ClusterIP
-
+  # -- Accessible externally by connecting to any cluster Node
   # -- Same port exposed on all nodes in cluster
   # -- Default range: 30000-32767
+  # -- See spec.ports[i].nodePort
   type: NodePort
+
+  # -- Only accessible inside cluster
+  # type: ClusterIP
