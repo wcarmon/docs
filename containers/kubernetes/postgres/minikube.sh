@@ -69,6 +69,12 @@ echo
 echo "|-- StatefulSet:"
 $KUBECTL get sts postgres-sts;
 
+
+echo
+echo "|-- Service:"
+$KUBECTL get svc --selector app=postgres;
+
+
 echo
 echo "|-- Pods:"
 $KUBECTL get pod --selector app=postgres;

@@ -21,7 +21,13 @@ metadata:
     app: postgres
   name: postgres-svc
   namespace: default
+
 spec:
+
+  # -- Headless Service (no IP allocated)
+  # -- Access directly thru the Pod
+  clusterIP: None
+
   ports:
     - name: pg
       port: 5432
