@@ -13,6 +13,8 @@
     1. Each Pod has storage
 1. `Pod` names have a sequential suffix, starting with `-0`, then `-1`, etc
 1. Adding/Removing pods does **NOT** affect `PersistentVolumeClaim` (Data safety)
+    1. Scaling up: adds `Pod`s, adds `PersistentVolumeClaim`s
+    1. Scaling down: deletes `Pod`s, retains `PersistentVolumeClaim`s
 1. `SatefulSet` does **NOT** guarantee pod termination when StatefulSet is deleted
 1. Rolling updates are significantly more complex
 
