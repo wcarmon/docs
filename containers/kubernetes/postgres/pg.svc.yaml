@@ -23,6 +23,7 @@ kind: Service
 metadata:
   labels:
     app: postgres
+    group: db
   name: postgres-svc
   namespace: default
 

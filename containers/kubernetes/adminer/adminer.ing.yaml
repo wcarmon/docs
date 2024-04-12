@@ -1,0 +1,29 @@
+# --------------------------------------------------------------------
+# -- Debugging:
+# kubectl describe ing ingress-service-for-adminer
+# kubectl get events
+#
+# -- Accessing UI outside the cluster:
+# echo "Navigate to:  http://$(minikube ip)/adminer";
+# --------------------------------------------------------------------
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-service-for-adminer
+  namespace: default
+
+spec:
+  ingressClassName: nginx
+  rules:
+    - http:
+        paths:
+
+          # --- TODO: Add these to your existing Ingress        -
+          - backend:
+              service:
+                name: adminer-svc
+                port:
+                  number: 8080
+            path: /adminer
+            pathType: Prefix

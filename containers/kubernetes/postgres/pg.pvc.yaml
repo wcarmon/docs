@@ -3,6 +3,7 @@
 # kubectl describe pvc postgres-pvc
 # kubectl get events --namespace=default
 #
+# kubectl logs --selector app=adminer
 #
 # -- Delete/Cleanup
 # kubectl delete pvc postgres-pvc;
@@ -13,6 +14,7 @@ kind: PersistentVolumeClaim
 metadata:
   labels:
     app: postgres
+    group: db
   name: postgres-pvc
   namespace: default
 

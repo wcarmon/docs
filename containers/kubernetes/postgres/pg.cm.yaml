@@ -9,6 +9,7 @@ kind: ConfigMap
 metadata:
   labels:
     app: postgres
+    group: db
   name: postgres-cm
   namespace: default
 
@@ -25,3 +26,8 @@ data:
 #    max_connections = 100
 #    shared_buffers = 256MB
 #    log_statement = 'all'
+
+
+
+# minikube config get apiserver.service-node-port-range
+# minikube config get service-node-port-range

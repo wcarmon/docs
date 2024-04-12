@@ -1,0 +1,96 @@
+# --------------------------------------------------------------------
+# -- Debugging:
+# kubectl describe deploy adminer-deploy
+# kubectl describe po $(kubectl get pods -l app=adminer --output=jsonpath={.items..metadata.name});
+#
+#
+# -----------------------------------
+# -- Logs & Events
+# -----------------------------------
+# kubectl logs $(kubectl get pods -l app=adminer --output=jsonpath={.items..metadata.name});
+# kubectl logs --selector app=adminer
+#
+# kubectl get events --namespace=default
+# -- (new events at bottom)
+#
+# POD_NAME="$(kubectl get pods -l app=adminer --output=jsonpath={.items..metadata.name})";
+#
+#
+# -----------------------------------
+# -- Debug running container
+# -----------------------------------
+# kubectl exec -it deploy/adminer-deploy -- /bin/bash;
+# kubectl exec -it deploy/adminer-deploy -- env | sort;
+#
+#
+# -----------------------------------
+# -- Debug the Image
+# -----------------------------------
+# kubectl delete pod debug-adminer;
+# kubectl run debug-adminer --image=adminer:4.8.1-standalone
+# kubectl exec -it debug-adminer -- /bin/bash;
+#
+#
+# -----------------------------------
+# -- Delete/Cleanup
+# -----------------------------------
+# kubectl delete deploy adminer-deploy;
+#
+# --------------------------------------------------------------------
+
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  labels:
+    app: adminer
+    group: db
+  name: adminer-deploy
+  namespace: default
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: adminer
+
+  strategy:
+    type: Recreate
+
+  template:
+    metadata:
+      labels:
+        app: adminer
+        group: db
+
+    spec:
+      containers:
+        - image: adminer:4.8.1-standalone
+          imagePullPolicy: IfNotPresent
+          name: adminer
+
+          env:
+            # -- See designs: https://www.adminer.org/en/#extras
+            # -- See designs sources: https://github.com/vrana/adminer/tree/master/designs
+            - name: ADMINER_DESIGN
+              #value: dracula
+              #value: flat
+              #value: hydra
+              #value: nette
+              #value: pepa-linha
+              value: arcs-material
+            - name: ADMINER_DEFAULT_SERVER
+              # NOTE: must match (PG) service::metadata.name
+              value: postgres-svc
+
+          ports:
+            - containerPort: 8080
+
+          resources:
+            #limits:
+            #  cpu: 500m
+            #  memory: 256Mi
+
+            requests:
+              cpu: 600m
+              memory: 500Mi

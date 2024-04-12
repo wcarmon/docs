@@ -19,6 +19,7 @@ kind: StatefulSet
 metadata:
   labels:
     app: postgres
+    group: db
   name: postgres-sts
   namespace: default
 
