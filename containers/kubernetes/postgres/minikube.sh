@@ -58,7 +58,7 @@ echo "|-- Applying postgres yamls ..."
 $KUBECTL apply -f $K8S_YAML_DIR/
 
 
-echo "|-- waiting for cluster to update..."
+echo "|-- Waiting for cluster to update..."
 sleep 3;
 
 
