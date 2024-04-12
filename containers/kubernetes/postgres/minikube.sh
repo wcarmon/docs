@@ -78,6 +78,9 @@ echo "|-- Service:"
 $KUBECTL get svc --selector app=postgres;
 
 echo
+echo "|-- IP for minikube cluster node: $(minikube ip)"
+
+echo
 echo "|-- StatefulSet:"
 $KUBECTL get sts postgres-sts;
 
