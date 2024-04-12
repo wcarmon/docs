@@ -32,9 +32,9 @@ spec:
             pathType: Prefix
             backend:
               service:
-                # -- must match service.metadata.name
+                # -- must match service::metadata.name
                 name: jaeger-service
 
                 port:
-                  # -- must match service port for browser ui
+                  # -- must match service:: port for browser ui
                   number: 16686

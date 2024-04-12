@@ -2,8 +2,13 @@
 # -- Debugging:
 # kubectl get sts --namespace=default
 # kubectl describe sts postgres-sts --namespace=default
+#
+# kubectl exec -it sts/postgres-sts -- /bin/bash;
+#
 # kubectl get events --namespace=default
 # kubectl logs --selector app=postgres --namespace=default
+#
+# -- Pod hostnames are like `postgres-sts-0`, `postgres-sts-1`
 #
 # -- Delete/Cleanup
 # kubectl delete pvc postgres-sts

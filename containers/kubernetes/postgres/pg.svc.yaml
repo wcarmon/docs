@@ -26,12 +26,14 @@ spec:
 
   # -- Headless Service (no IP allocated)
   # -- Access directly thru the Pod
-  clusterIP: None
+  # clusterIP: None
 
   ports:
-    - name: pg
+    - name: pg-port
+      # -- exposed
       port: 5432
       protocol: TCP
+      # -- inside the container (container app listens on this port)
       targetPort: 5432
 
   selector:
