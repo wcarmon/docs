@@ -30,11 +30,12 @@ spec:
 
   ports:
     - name: pg-port
-      # -- exposed
-      port: 5432
       protocol: TCP
+      # -- exposed (other pods within cluster)
+      port: 5432
       # -- inside the container (container app listens on this port)
       targetPort: 5432
+      # -- outside the cluster
       nodePort: 30737
 
   selector:
