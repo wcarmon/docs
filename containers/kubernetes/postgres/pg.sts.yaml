@@ -6,7 +6,7 @@
 # kubectl logs --selector app=postgres --namespace=default
 #
 # -- Delete/Cleanup
-# kubectl delete pvc postgres-sts;
+# kubectl delete pvc postgres-sts
 # TODO: delete the pod too
 # --------------------------------------------------------------------
 apiVersion: apps/v1
