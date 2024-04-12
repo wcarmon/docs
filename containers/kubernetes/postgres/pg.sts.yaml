@@ -42,11 +42,13 @@ spec:
             - name: PGDATA
               value: /data/pgdata
 
-          #            - name: POSTGRES_PASSWORD
-          #              valueFrom:
-          #                secretKeyRef:
-          #                  key: postgres_password
-          #                  name: postgres
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  # -- matches Secret::data.<key>
+                  key: postgres-password
+                  # -- matches Secret::metadata.name
+                  name: postgres-secret
 
           envFrom:
             - configMapRef:

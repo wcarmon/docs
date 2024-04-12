@@ -3,6 +3,7 @@
 # kubectl describe cm postgres-cm --namespace=default
 # kubectl get cm postgres-cm
 # --------------------------------------------------------------------
+
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -18,14 +19,7 @@ data:
   # -- superuser name
   POSTGRES_USER: "postgres"
 
-  # TODO: get from secret? POSTGRES_PASSWORD_FILE
-  POSTGRES_PASSWORD: "Zz612l7amMZNXigH0ED"
-
 # TODO: db conf:
-#apiVersion: v1
-#kind: ConfigMap
-#metadata:
-#  name: postgres-config
 #data:
 #  postgresql.conf: |
 #    max_connections = 100

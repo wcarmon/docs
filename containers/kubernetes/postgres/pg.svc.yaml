@@ -35,9 +35,14 @@ spec:
       protocol: TCP
       # -- inside the container (container app listens on this port)
       targetPort: 5432
+      nodePort: 30737
 
   selector:
     app: postgres
 
-  type: ClusterIP
-#  type: LoadBalancer
+  # -- Only accessible inside cluster
+  # type: ClusterIP
+
+  # -- Same port exposed on all nodes in cluster
+  # -- Default range: 30000-32767
+  type: NodePort
