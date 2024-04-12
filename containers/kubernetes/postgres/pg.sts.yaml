@@ -37,17 +37,9 @@ spec:
             - name: PGDATA
               value: /data/pgdata
 
-            # -- superuser name
-            - name: POSTGRES_USER
-              value: postgres
-
-            # -- Default database name
-            - name: POSTGRES_DB
-              value: postgres
-
-            # TODO: get from secret (POSTGRES_PASSWORD_FILE)
-            - name: POSTGRES_PASSWORD
-              value: Zz612l7amMZNXigH0ED
+          envFrom:
+            - configMapRef:
+                name: postgres-cm
 
           image: postgres:16.2
           # image: postgres:15.6
@@ -61,6 +53,9 @@ spec:
           volumeMounts:
             - mountPath: /data
               name: postgres-volume
+
+  updateStrategy:
+    type: RollingUpdate
 
   volumeClaimTemplates:
     - metadata:
