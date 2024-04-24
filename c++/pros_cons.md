@@ -33,7 +33,8 @@
 
 
 # Bad news
-1. Complexity
+1. Complexity everywhere
+1. Doing the idiomatic thing is more verbose than anti-patterns
 1. Versions
     1. C++ 11 is a different language from pre 11
     1. C++ 17/20/23 feel like a different language from C++ 11/14
@@ -55,3 +56,7 @@
     1. Python: Compare to [pip](https://pypi.org/project/pip/)
     1. Rust: Compare to [cargo](https://doc.rust-lang.org/cargo/)
 1. OpenMP is an afterthought
+1. No one is starting new projects in c++
+    1. Unless they only have C++ dev
+    2. Unless they are in gaming or military
+    3. Mostly maintaining mission critical legacy systems that are too hard to update
