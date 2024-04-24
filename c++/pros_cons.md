@@ -38,6 +38,7 @@
 1. Versions
     1. C++ 11 is a different language from pre 11
     1. C++ 17/20/23 feel like a different language from C++ 11/14
+    1. Many teams haven't upgraded for that reason
 1. Cross compilation is VERY complex
 1. Modules are not well supported yet
     1. Which makes compilation slower
