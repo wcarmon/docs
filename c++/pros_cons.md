@@ -68,5 +68,13 @@
     1. too many ways to do things
     2. old ways never die
 1. Templates
+    1. also error messages are unhelpful
 1. Dumping ground for ideas
 1. Operator overloading means you don't really know what anything does
+1. safe concurrency is a nightmare
+1. no consistency around naming things (Compared to Rust, Java, Go, etc)
+1. Focus is on the language, not problem solving
+1. Most jobs are about babysitting legacy systems.  Nothing new
+1. Banned from the Linux kernel
+1. Undefined behavior
+2. 
