@@ -22,6 +22,7 @@
 1. Huge community
     1. Strong Machine learning libraries
     1. Strong GUI libraries
+    1. Strong Finance libraries (eigen, boost)
 1. Immutability (via `const`)
 1. Idioms for safe memory management
     1. Compare to C which requires `malloc` and `free`
