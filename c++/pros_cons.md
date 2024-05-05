@@ -19,10 +19,11 @@
     1. Same as Java, Rust, etc
     1. Also, Lock-free collections (Rust too)
     1. Much better options than Go, C, Javascript, etc
-1. Huge community
-    1. Strong Machine learning libraries
-    1. Strong GUI libraries
-    1. Strong Finance libraries (eigen, boost)
+1. Huge community for specific domains
+    1. Big in gaming, though C# is close
+    1. Strong Machine learning libraries, though Python is close (deferring to c for performance)
+    1. Strong GUI libraries (compared to all other languages)
+    1. Strong Finance libraries (eigen, quantlib, boost)
 1. Immutability (via `const`)
 1. Idioms for safe memory management
     1. Compare to C which requires `malloc` and `free`
@@ -77,4 +78,6 @@
 1. Most jobs are about babysitting legacy systems.  Nothing new
 1. Banned from the Linux kernel
 1. Undefined behavior
-2. 
+1. Exceptions and how they interact with everything else
+1. 
+3. 
