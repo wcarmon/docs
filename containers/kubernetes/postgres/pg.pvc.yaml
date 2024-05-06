@@ -9,21 +9,22 @@
 # kubectl delete pvc postgres-pvc;
 # --------------------------------------------------------------------
 
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  labels:
-    app: postgres
-    group: db
-  name: postgres-pvc
-  namespace: default
-
-spec:
-  accessModes:
-    - ReadWriteOnce
-
-  resources:
-    requests:
-      storage: 2Gi
-
-  storageClassName: ""
+# -- NOTE: if the sts works, you don't need this file
+#apiVersion: v1
+#kind: PersistentVolumeClaim
+#metadata:
+#  labels:
+#    app: postgres
+#    group: db
+#  name: postgres-pvc
+#  namespace: default
+#
+#spec:
+#  accessModes:
+#    - ReadWriteOnce
+#
+#  resources:
+#    requests:
+#      storage: 2Gi
+#
+#  storageClassName: ""
