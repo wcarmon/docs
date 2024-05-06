@@ -19,21 +19,24 @@
     1. Same as Java, Rust, etc
     1. Also, Lock-free collections (Rust too)
     1. Much better options than Go, C, Javascript, etc
-1. Huge community
-    1. Strong Machine learning libraries
-    1. Strong GUI libraries
+1. Huge community for specific domains
+    1. Big in gaming, though C# is close
+    1. Strong Machine learning libraries, though Python is close (deferring to c for performance)
+    1. Strong GUI libraries (compared to all other languages)
+    1. Strong Finance libraries (eigen, quantlib, boost)
 1. Immutability (via `const`)
 1. Idioms for safe memory management
     1. Compare to C which requires `malloc` and `free`
 1. Easy to containerize
 1. Concise error handling
 1. Inheritance, which is useful for GUI code
-1. Safe pointers (References, Smart pointers)
+1. (kinda) Safe pointers (References, Smart pointers)
     1. Unlike Go, C, ...
 
 
 # Bad news
 1. Complexity everywhere
+2. Programmer must do things the tools could easily do
 1. Doing the idiomatic thing is more verbose than anti-patterns
 1. Versions
     1. C++ 11 is a different language from pre 11
@@ -61,3 +64,20 @@
     1. Unless they only have C++ dev
     2. Unless they are in gaming or military
     3. Mostly maintaining mission critical legacy systems that are too hard to update
+1. Macros
+1. Infinite backward compatibility
+    1. too many ways to do things
+    2. old ways never die
+1. Templates
+    1. also error messages are unhelpful
+1. Dumping ground for ideas
+1. Operator overloading means you don't really know what anything does
+1. safe concurrency is a nightmare
+1. no consistency around naming things (Compared to Rust, Java, Go, etc)
+1. Focus is on the language, not problem solving
+1. Most jobs are about babysitting legacy systems.  Nothing new
+1. Banned from the Linux kernel
+1. Undefined behavior
+1. Exceptions and how they interact with everything else
+1. 
+3. 
