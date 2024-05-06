@@ -94,6 +94,7 @@ ng serve --open
 1. When there's an error in `app.module.ts`, most of the errors are misleading
 1. [`app.module.ts`](https://angular.io/guide/architecture-modules) cannot import forms from a [barrel file](https://basarat.gitbook.io/typescript/main-1/barrel)
 1. Components and Services need [`autoBind(this);`](https://www.npmjs.com/package/auto-bind)
+1. Don't use ~~ActivatedRoute~~, subscribe to Router events instead
 
 
 # Other Resources
