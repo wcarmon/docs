@@ -4,6 +4,29 @@
 
 # Concepts
 
+## [hyper::Request](https://docs.rs/hyper/latest/hyper/struct.Request.html) struct
+
+1. Head and (optional) Body
+1. Head is of type [`Parts`](https://docs.rs/http/1.1.0/http/request/struct.Parts.html)
+    1. [`url`](https://docs.rs/http/1.1.0/http/uri/struct.Uri.html)
+    1. [`method`](https://docs.rs/http/1.1.0/http/method/struct.Method.html)
+    1. [`headerMap`](https://docs.rs/http/1.1.0/http/header/struct.HeaderMap.html)
+    1. [HTTP `version` (`1`, `1.1`, `2`, `3`)](https://docs.rs/http/1.1.0/http/version/struct.Version.html)
+    1. [`Extensions`](https://docs.rs/http/1.1.0/http/struct.Extensions.html) for arbitrary key-value pairs
+        1. Similar to java [ServletRequest::attributes](https://javaee.github.io/javaee-spec/javadocs/javax/servlet/ServletRequest.html#getAttribute-java.lang.String-)
+1. Body can be a Stream or bytes in memory, etc
+
+## [hyper::Response](https://docs.rs/hyper/latest/hyper/struct.Response.html) struct
+
+1. Head and (optional) Body
+1. Head is of type [`Parts`](https://docs.rs/http/1.1.0/http/response/struct.Parts.html)
+    1. [`status` code](https://docs.rs/http/1.1.0/http/status/struct.StatusCode.html)
+    1. [`headerMap`](https://docs.rs/http/1.1.0/http/header/struct.HeaderMap.html)
+    1. [HTTP `version` (`1`, `1.1`, `2`, `3`)](https://docs.rs/http/1.1.0/http/version/struct.Version.html)
+    1. [`Extensions`](https://docs.rs/http/1.1.0/http/struct.Extensions.html) for arbitrary key-value pairs
+        1. Similar to java [ServletRequest::attributes](https://javaee.github.io/javaee-spec/javadocs/javax/servlet/ServletRequest.html#getAttribute-java.lang.String-)
+1. Body can be a Stream or bytes in memory, etc (same as `Request`.`body`)
+
 ## Body [module](https://docs.rs/hyper/latest/hyper/body/index.html) & [trait](https://docs.rs/hyper/latest/hyper/body/trait.Body.html)
 
 - For **Streaming** request body or response body
@@ -33,17 +56,6 @@
 
 1. TODO: https://docs.rs/hyper/latest/hyper/body/struct.Bytes.html
 1. TODO: Bytes crate
-
-## [hyper::Request](https://docs.rs/hyper/latest/hyper/struct.Request.html)
-
-1. Head & (optional) Body
-1. Head is of type [`Parts`](https://docs.rs/http/1.1.0/http/request/struct.Parts.html)
-    1. url, method, headerMap, http version (1, 1.1, 2, 3)
-    1. Has [`Extensions`](https://docs.rs/http/1.1.0/http/struct.Extensions.html) for arbitrary key-value pairs
-    1. Similar to java [ServletRequest::attributes](https://javaee.github.io/javaee-spec/javadocs/javax/servlet/ServletRequest.html#getAttribute-java.lang.String-)
-1. Body can be a Stream or bytes in memory, etc
-
-## [hyper::Response](https://docs.rs/hyper/latest/hyper/struct.Response.html)
 
 TODO: http_body_util::BodyStream
 
