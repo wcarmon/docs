@@ -63,7 +63,7 @@
 1. a `Body` created from a (futures) [`Stream`](https://docs.rs/futures-core/0.3.30/futures_core/stream/trait.Stream.html)
 1. connects [`futures_core`](https://docs.rs/futures-core/0.3.30/futures_core/index.html) crate to hyper crate
 
-### [BoxBody](https://docs.rs/http-body-util/latest/http_body_util/combinators/struct.BoxBody.html)
+### [http_body_util::`BoxBody`](https://docs.rs/http-body-util/latest/http_body_util/combinators/struct.BoxBody.html)
 
 1. a `Body` ... TODO
 1. TODO: when useful?
@@ -76,6 +76,9 @@
 1. TODO
 
 ### [Frame](https://docs.rs/hyper/latest/hyper/body/struct.Frame.html)
+
+1. See https://developer.mozilla.org/en-US/docs/Web/HTTP/Messages#http2_frames
+1. See https://datatracker.ietf.org/doc/html/rfc7540#section-4
 
 1. TODO
 
