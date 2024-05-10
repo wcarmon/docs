@@ -14,7 +14,7 @@
     1. [HTTP `version`](https://docs.rs/http/1.1.0/http/version/struct.Version.html) (`1`, `1.1`, `2`, `3`)
     1. [`Extensions`](https://docs.rs/http/1.1.0/http/struct.Extensions.html) for arbitrary key-value pairs
         1. Similar to java [ServletRequest::attributes](https://javaee.github.io/javaee-spec/javadocs/javax/servlet/ServletRequest.html#getAttribute-java.lang.String-)
-1. Body can be a Stream or bytes in memory, etc
+1. Body can be a stream, bytes in memory, etc
 
 ## [hyper::Response](https://docs.rs/hyper/latest/hyper/struct.Response.html) struct
 
@@ -25,13 +25,14 @@
     1. [HTTP `version`](https://docs.rs/http/1.1.0/http/version/struct.Version.html) (`1`, `1.1`, `2`, `3`)
     1. [`Extensions`](https://docs.rs/http/1.1.0/http/struct.Extensions.html) for arbitrary key-value pairs
         1. Similar to java [ServletRequest::attributes](https://javaee.github.io/javaee-spec/javadocs/javax/servlet/ServletRequest.html#getAttribute-java.lang.String-)
-1. Body can be a Stream or bytes in memory, etc (same as `Request`.`body`)
+1. Body can be a stream, bytes in memory, etc (same as `Request`.`body`)
 
 ## Body [module](https://docs.rs/hyper/latest/hyper/body/index.html) & [trait](https://docs.rs/hyper/latest/hyper/body/trait.Body.html)
 
-- For **Streaming** request body or response body
+- For **streaming** request/response body
 - Minimizes memory footprint
-- [`Body` Trait](https://docs.rs/hyper/latest/hyper/body/trait.Body.html) has [`poll_frame`](https://docs.rs/hyper/latest/hyper/body/trait.Body.html#tymethod.poll_frame) method which synchronously yields a [Frame](https://docs.rs/hyper/latest/hyper/body/struct.Frame.html)
+- Supports backpressure
+- [`Body` Trait](https://docs.rs/hyper/latest/hyper/body/trait.Body.html) has [`poll_frame`](https://docs.rs/hyper/latest/hyper/body/trait.Body.html#tymethod.poll_frame) method which asynchronously yields a [Frame](https://docs.rs/hyper/latest/hyper/body/struct.Frame.html)
 - [http_body_util](https://docs.rs/http-body-util/latest/http_body_util/) crate has utils for building `Body` implementations
 
 ### [http_body_util::Empty](https://docs.rs/http-body-util/latest/http_body_util/struct.Empty.html)
