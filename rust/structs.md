@@ -15,7 +15,7 @@
     1. Optionally, you can add a `pub fn new(...) -> Self { ... }`
 1. Borrowing field data:
     1. Purpose: avoid unnecessary allocation by sharing immutable data
-    1. struct needs to outlive fields (easy to specifiy via lifetimes on struct & borrowed field)
+    1. struct needs to outlive fields (easy to specify via lifetimes on struct & borrowed field)
 
 
 # Idioms
@@ -24,6 +24,7 @@
 1. `Ownership`: Prefer to own fields in a struct ([Why?](https://www.lurklurk.org/effective-rust/lifetimes.html#lifetimes-in-data-structures))
 1. Don't implement `to_string()`, implement [`Display`](https://doc.rust-lang.org/std/fmt/trait.Display.html)
 1. Enforce validation (invariant maintenance). See two options below
+1. Force construction via a function using `_priv: (),` property
 
 # Builder Pattern
 

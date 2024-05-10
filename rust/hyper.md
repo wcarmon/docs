@@ -32,12 +32,19 @@
 - For **Streaming** request body or response body
 - Minimizes memory footprint
 - [`Body` Trait](https://docs.rs/hyper/latest/hyper/body/trait.Body.html) has [`poll_frame`](https://docs.rs/hyper/latest/hyper/body/trait.Body.html#tymethod.poll_frame) method which synchronously yields a [Frame](https://docs.rs/hyper/latest/hyper/body/struct.Frame.html)
+- [http_body_util](https://docs.rs/http-body-util/latest/http_body_util/) crate has utils for building `Body` implementations
 
-- TODO: Buf: https://docs.rs/hyper/latest/hyper/body/trait.Buf.html
+### [http_body_util::Empty](https://docs.rs/http-body-util/latest/http_body_util/struct.Empty.html)
 
-### [Full](TODO)
+1. `Body` with No data
+
+### [http_body_util::Full](https://docs.rs/http-body-util/latest/http_body_util/struct.Full.html)
+
+1. `Body` with single chunk
 
 ### [BoxBody](TODO)
+
+1. TODO
 
 ### [Incomming](https://docs.rs/hyper/latest/hyper/body/struct.Incoming.html)
 
@@ -45,6 +52,8 @@
 - hyper builds and provides
 
 ### [StreamBody](TODO)
+
+1. TODO
 
 ### [Frame](https://docs.rs/hyper/latest/hyper/body/struct.Frame.html)
 
@@ -57,12 +66,14 @@
 1. TODO: https://docs.rs/hyper/latest/hyper/body/struct.Bytes.html
 1. TODO: Bytes crate
 
-TODO: http_body_util::BodyStream
+# TODO
 
+- TODO: http_body_util::BodyStream
 - TODO: https://docs.rs/http-body-util/0.1.1/http_body_util/combinators/struct.BoxBody.html
 - TODO: https://docs.rs/http-body-util/0.1.1/http_body_util/struct.Limited.html
 - TODO: https://docs.rs/http-body-util/0.1.1/http_body_util/struct.Full.html (single chunk)
     - NOTE: http2 uses alternative chunking methods
+- TODO: Buf: https://docs.rs/hyper/latest/hyper/body/trait.Buf.html
 
 # Other Resources
 
