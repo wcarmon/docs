@@ -65,7 +65,10 @@
 
 ### [BoxBody](https://docs.rs/http-body-util/latest/http_body_util/combinators/struct.BoxBody.html)
 
-1. TODO
+1. a `Body` ... TODO
+1. TODO: when useful?
+1. Puts on the heap (using [`Box`](https://doc.rust-lang.org/std/boxed/struct.Box.html))
+1. [Pins](https://doc.rust-lang.org/std/boxed/struct.Box.html#method.pin) (cannot move in memory)
 
 
 ### [Frame](https://docs.rs/hyper/latest/hyper/body/struct.Frame.html)
