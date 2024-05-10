@@ -37,11 +37,12 @@
 
 ### [http_body_util::Empty](https://docs.rs/http-body-util/latest/http_body_util/struct.Empty.html)
 
-1. `Body` with No data
+1. `Body` with no data
 
 ### [http_body_util::Full](https://docs.rs/http-body-util/latest/http_body_util/struct.Full.html)
 
 1. `Body` with single chunk
+    1. Chunk info [one](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Transfer-Encoding), [two](https://en.wikipedia.org/wiki/Chunked_transfer_encoding), [three](https://bunny.net/academy/http/what-is-chunked-encoding/) 
 
 ### [BoxBody](TODO)
 
