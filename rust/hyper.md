@@ -35,30 +35,38 @@
 - [`Body` Trait](https://docs.rs/hyper/latest/hyper/body/trait.Body.html) has [`poll_frame`](https://docs.rs/hyper/latest/hyper/body/trait.Body.html#tymethod.poll_frame) method which asynchronously yields a [Frame](https://docs.rs/hyper/latest/hyper/body/struct.Frame.html)
 - [http_body_util](https://docs.rs/http-body-util/latest/http_body_util/) crate has utils for building `Body` implementations
 
-### [http_body_util::`Empty`](https://docs.rs/http-body-util/latest/http_body_util/struct.Empty.html)
 
-1. `Body` with no data
+### [`String`](https://doc.rust-lang.org/nightly/alloc/string/struct.String.html)
 
-### [http_body_util::`Full`](https://docs.rs/http-body-util/latest/http_body_util/struct.Full.html)
+1. standard String [impl Body](https://docs.rs/hyper/latest/hyper/body/trait.Body.html#impl-Body-for-String)
 
-1. `Body` with single chunk
-    1. What is a chunk? [answer-1](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Transfer-Encoding), [answer-2](https://en.wikipedia.org/wiki/Chunked_transfer_encoding), [answer-3](https://bunny.net/academy/http/what-is-chunked-encoding/) 
 
 ### [`Incomming`](https://docs.rs/hyper/latest/hyper/body/struct.Incoming.html)
 
-1. A [`Body`](https://docs.rs/hyper/latest/hyper/body/struct.Incoming.html#impl-Body-for-Incoming)
+1. a [`Body`](https://docs.rs/hyper/latest/hyper/body/struct.Incoming.html#impl-Body-for-Incoming)
 1. For receiving ...
     1. input for an http server
     1. response for an http client
 1. hyper builds and provides these (users should not build `Incomming`)
 
-### [BoxBody](TODO)
+### [http_body_util::`Empty`](https://docs.rs/http-body-util/latest/http_body_util/struct.Empty.html)
+
+1. a `Body` with no data
+
+### [http_body_util::`Full`](https://docs.rs/http-body-util/latest/http_body_util/struct.Full.html)
+
+1. a `Body` with one single chunk
+    1. What is a chunk? [answer-1](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Transfer-Encoding), [answer-2](https://en.wikipedia.org/wiki/Chunked_transfer_encoding), [answer-3](https://bunny.net/academy/http/what-is-chunked-encoding/) 
+
+### [http_body_util::`StreamBody`](TODO)
+
+1. a `Body` created from a (futures) [`Stream`](https://docs.rs/futures-core/0.3.30/futures_core/stream/trait.Stream.html)
+1. connects [`futures_core`](https://docs.rs/futures-core/0.3.30/futures_core/index.html) crate to hyper crate
+
+### [BoxBody](https://docs.rs/http-body-util/latest/http_body_util/combinators/struct.BoxBody.html)
 
 1. TODO
 
-### [StreamBody](TODO)
-
-1. TODO
 
 ### [Frame](https://docs.rs/hyper/latest/hyper/body/struct.Frame.html)
 
