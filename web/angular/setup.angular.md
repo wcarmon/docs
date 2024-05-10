@@ -69,6 +69,7 @@ pnpm i --save-dev prettier
 
 1. in package.json, replace `^` with `~`
 
+
 # [angular.json](https://angular.io/guide/workspace-config) (Angular workspace config)
 
 1. The format/structure changes between versions
