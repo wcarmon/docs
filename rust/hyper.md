@@ -4,7 +4,7 @@
 
 # Concepts
 
-## [hyper::Request](https://docs.rs/hyper/latest/hyper/struct.Request.html) struct
+## [hyper::`Request`](https://docs.rs/hyper/latest/hyper/struct.Request.html) struct
 
 1. Head and (optional) Body
 1. Head is of type [`Parts`](https://docs.rs/http/1.1.0/http/request/struct.Parts.html)
@@ -16,7 +16,7 @@
         1. Similar to java [ServletRequest::attributes](https://javaee.github.io/javaee-spec/javadocs/javax/servlet/ServletRequest.html#getAttribute-java.lang.String-)
 1. Body can be a stream, bytes in memory, etc
 
-## [hyper::Response](https://docs.rs/hyper/latest/hyper/struct.Response.html) struct
+## [hyper::`Response`](https://docs.rs/hyper/latest/hyper/struct.Response.html) struct
 
 1. Head and (optional) Body
 1. Head is of type [`Parts`](https://docs.rs/http/1.1.0/http/response/struct.Parts.html)
@@ -35,23 +35,26 @@
 - [`Body` Trait](https://docs.rs/hyper/latest/hyper/body/trait.Body.html) has [`poll_frame`](https://docs.rs/hyper/latest/hyper/body/trait.Body.html#tymethod.poll_frame) method which asynchronously yields a [Frame](https://docs.rs/hyper/latest/hyper/body/struct.Frame.html)
 - [http_body_util](https://docs.rs/http-body-util/latest/http_body_util/) crate has utils for building `Body` implementations
 
-### [http_body_util::Empty](https://docs.rs/http-body-util/latest/http_body_util/struct.Empty.html)
+### [http_body_util::`Empty`](https://docs.rs/http-body-util/latest/http_body_util/struct.Empty.html)
 
 1. `Body` with no data
 
-### [http_body_util::Full](https://docs.rs/http-body-util/latest/http_body_util/struct.Full.html)
+### [http_body_util::`Full`](https://docs.rs/http-body-util/latest/http_body_util/struct.Full.html)
 
 1. `Body` with single chunk
-    1. Chunk info [one](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Transfer-Encoding), [two](https://en.wikipedia.org/wiki/Chunked_transfer_encoding), [three](https://bunny.net/academy/http/what-is-chunked-encoding/) 
+    1. What is a chunk? [answer-1](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Transfer-Encoding), [answer-2](https://en.wikipedia.org/wiki/Chunked_transfer_encoding), [answer-3](https://bunny.net/academy/http/what-is-chunked-encoding/) 
+
+### [`Incomming`](https://docs.rs/hyper/latest/hyper/body/struct.Incoming.html)
+
+1. A [`Body`](https://docs.rs/hyper/latest/hyper/body/struct.Incoming.html#impl-Body-for-Incoming)
+1. For receiving ...
+    1. input for an http server
+    1. response for an http client
+1. hyper builds and provides these (users should not build `Incomming`)
 
 ### [BoxBody](TODO)
 
 1. TODO
-
-### [Incomming](https://docs.rs/hyper/latest/hyper/body/struct.Incoming.html)
-
-- For receiving (input for http server, response for http client)
-- hyper builds and provides
 
 ### [StreamBody](TODO)
 
