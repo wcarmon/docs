@@ -4,7 +4,7 @@
 1. See [hyper Overview doc](./hyper.md)
 1. See [hyper Request & Response doc](./hyper.req-res.md) also
 1. See [Bytes doc](./hyper.bytes.md) also
-- TODO: add link for service
+1. See [hyper Service doc](./hyper.service.md) also
 
 
 ## [Frame](https://docs.rs/hyper/latest/hyper/body/struct.Frame.html)

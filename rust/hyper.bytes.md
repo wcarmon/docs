@@ -3,7 +3,6 @@
 1. Request & Response concepts in [hyper](https://hyper.rs/)
 1. See [hyper Overview doc](./hyper.md) also
 1. See [hyper Body doc](./hyper.body.md) also
-- TODO: add link for service
 
 
 # [bytes::buf::`Buf`](https://docs.rs/bytes/latest/bytes/buf/trait.Buf.html) trait
