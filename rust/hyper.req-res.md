@@ -60,8 +60,9 @@
 
 ### `Response<Full<Bytes>>`
 1. `Response` struct has a [`Body`](https://docs.rs/http/1.1.0/src/http/response.rs.html#182)
-1. TODO
-1. `Full` struct is a Body type
+1. `Response` struct has one generic for the body type, 
+    1. ... currently bound to [`TODO`](TODO) 
+1. `Full` struct is a type of `Body`
 1. TODO
 1. TODO
 1. TODO
