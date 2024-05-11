@@ -70,12 +70,11 @@
 1. Internal details
     1. Underlying implementation is dynamic (uses vtable)
     1. might not be contiguous, affects [chunking](https://docs.rs/bytes/latest/bytes/buf/trait.Buf.html#tymethod.chunk)    
+1. TODO: comparison to `std::io::Cursor<&[u8]>`
 
 
-# TODO
-
-- TODO: http_body_util::BodyStream
-    - NOTE: http2 uses alternative chunking methods
+## TODO
+- TODO: http_body_util::BodyStream    
 - TODO: Buf: https://docs.rs/hyper/latest/hyper/body/trait.Buf.html
 - TODO: [tokio::ReaderStream](TODO)
 

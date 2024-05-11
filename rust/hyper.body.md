@@ -11,16 +11,18 @@
 - [`Body` Trait](https://docs.rs/hyper/latest/hyper/body/trait.Body.html) has [`poll_frame`](https://docs.rs/hyper/latest/hyper/body/trait.Body.html#tymethod.poll_frame) method which asynchronously yields a [Frame](https://docs.rs/hyper/latest/hyper/body/struct.Frame.html)
 - [http_body_util](https://docs.rs/http-body-util/latest/http_body_util/) crate has utils for building `Body` implementations
 
-# [http_body_util::combinators::`BoxBody`](https://docs.rs/http-body-util/0.1.1/http_body_util/combinators/struct.BoxBody.html)
+# [http_body_util::combinators::`BoxBody`](https://docs.rs/http-body-util/latest/http_body_util/combinators/struct.BoxBody.html)
 
 1. a `Body` backed by a [bytes::buf::`Buf`](https://docs.rs/bytes/latest/bytes/buf/trait.Buf.html)
 1. Useful for large files, [WebSockets](https://www.pubnub.com/guides/websockets/), long-lived web connections, etc
-1. Threadsafe
+1. [Threadsafe](https://docs.rs/http-body-util/0.1.1/http_body_util/combinators/struct.BoxBody.html#impl-Send-for-BoxBody%3CD,+E%3E)
 1. Asynchronous (non-blocking)
 1. Memory efficient
 1. Can represent infinite data since it's streaming
+    1. Puts on the heap (using [`Box`](https://doc.rust-lang.org/std/boxed/struct.Box.html))
 1. Internals:
-    1. inner data is [pinned](https://rust-lang.github.io/async-book/04_pinning/01_chapter.html) (so it works with futures)
+    1. inner data is [pinned](https://rust-lang.github.io/async-book/04_pinning/01_chapter.html) (so it works with [futures](https://tokio.rs/tokio/tutorial/async))
+    1. [Pins](https://doc.rust-lang.org/std/boxed/struct.Box.html#method.pin) (cannot move in memory)
 
 
 ## [`std::String`](https://doc.rust-lang.org/nightly/alloc/string/struct.String.html) Body
@@ -28,7 +30,7 @@
 1. standard String [impl Body](https://docs.rs/hyper/latest/hyper/body/trait.Body.html#impl-Body-for-String)
 
 
-## [`Incomming`](https://docs.rs/hyper/latest/hyper/body/struct.Incoming.html)
+## [hyper::body::`Incomming`](https://docs.rs/hyper/latest/hyper/body/struct.Incoming.html)
 
 1. a [`Body`](https://docs.rs/hyper/latest/hyper/body/struct.Incoming.html#impl-Body-for-Incoming)
 1. For receiving ...
@@ -50,13 +52,6 @@
 1. a `Body` created from a (futures) [`Stream`](https://docs.rs/futures-core/0.3.30/futures_core/stream/trait.Stream.html)
 1. connects [`futures_core`](https://docs.rs/futures-core/0.3.30/futures_core/index.html) crate to hyper crate
 
-## [http_body_util::`BoxBody`](https://docs.rs/http-body-util/latest/http_body_util/combinators/struct.BoxBody.html)
-
-1. a `Body` ... TODO
-1. TODO: when useful?
-1. Puts on the heap (using [`Box`](https://doc.rust-lang.org/std/boxed/struct.Box.html))
-1. [Pins](https://doc.rust-lang.org/std/boxed/struct.Box.html#method.pin) (cannot move in memory)
-
 
 ## [http_body_util::`Limited`](https://docs.rs/http-body-util/0.1.1/http_body_util/struct.Limited.html)
 
@@ -64,7 +59,19 @@
 
 ## [Frame](https://docs.rs/hyper/latest/hyper/body/struct.Frame.html)
 
+1. A Frame is the smallest unit of communication in http/2
+1. A frame is the smallest unit of data transmitted between two peers
+1. Frames can arrive in any order
+1. Heavily used in http/2
+    1. http/2 frames are binary encoded
+    1. http/2 frames from multiple streams can interleave
+    1. Each http/2 frame has a header (with streamId)
+1. http/1 has messages, http/2 breaks down messages into frames
 1. See https://developer.mozilla.org/en-US/docs/Web/HTTP/Messages#http2_frames
 1. See https://datatracker.ietf.org/doc/html/rfc7540#section-4
-
-1. TODO: https://tokio.rs/tokio/tutorial/framing
+1. Relationships
+    1. Connection -|---|< Stream
+    1. Stream -|---|< Message 
+    1. Message -|---|< Frame    
+1. Other resources
+    1. https://tokio.rs/tokio/tutorial/framing
