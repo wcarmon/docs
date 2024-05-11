@@ -30,7 +30,8 @@
 
 
 ### Construction:
-1. [Via builder](https://docs.rs/hyper/latest/hyper/struct.Response.html#method.builder)
+1. [Via builder](https://docs.rs/hyper/latest/hyper/struct.Response.html#method.builder) 
+    1. Useful for setting [`status`](https://doc.servo.org/http/response/struct.Builder.html#method.status), [`body`](https://doc.servo.org/http/response/struct.Builder.html#method.body), [`header`](https://doc.servo.org/http/response/struct.Builder.html#method.header), and [extensions](https://doc.servo.org/http/response/struct.Builder.html#method.extensions_mut)
 1. [via `::new`](https://docs.rs/hyper/latest/hyper/struct.Response.html#method.new) 
 
 
