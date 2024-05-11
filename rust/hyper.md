@@ -36,8 +36,8 @@
 
 ### Common examples
 1. `Response<BoxBody<Bytes, anyhow::Error>>`  (very common in hyper server coding)
-    1. `Response` has a Body (`http_body_util::combinators::BoxBody`)
-    1. `Response` has one generic param
+    1. `Response` has a Body 
+    1. `Response` body type (generic) is (`http_body_util::combinators::BoxBody`) 
     1. `BoxBody` is backed by a `Buf` (`bytes::Bytes`)
     1. `BoxBody` has two generic params
 1. `Response<Empty<Bytes>>`

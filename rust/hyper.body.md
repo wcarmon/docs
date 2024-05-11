@@ -6,11 +6,13 @@
 
 # Body [module](https://docs.rs/hyper/latest/hyper/body/index.html) & [trait](https://docs.rs/hyper/latest/hyper/body/trait.Body.html)
 
-- For **streaming** request/response body
-- Minimizes memory footprint
-- Supports backpressure
-- [`Body` Trait](https://docs.rs/hyper/latest/hyper/body/trait.Body.html) has [`poll_frame`](https://docs.rs/hyper/latest/hyper/body/trait.Body.html#tymethod.poll_frame) method which asynchronously yields a [Frame](https://docs.rs/hyper/latest/hyper/body/struct.Frame.html)
-- [http_body_util](https://docs.rs/http-body-util/latest/http_body_util/) crate has utils for building `Body` implementations
+1. For **streaming** request/response body
+1. Minimizes memory footprint
+1. Supports backpressure
+1. [`Body` Trait](https://docs.rs/hyper/latest/hyper/body/trait.Body.html) has [`poll_frame`](https://docs.rs/hyper/latest/hyper/body/trait.Body.html#tymethod.poll_frame) method which asynchronously yields a [Frame](https://docs.rs/hyper/latest/hyper/body/struct.Frame.html)
+    1. See https://docs.rs/http-body/latest/http_body/trait.Body.html
+1. [http_body_util](https://docs.rs/http-body-util/latest/http_body_util/) crate has utils for building `Body` implementations
+
 
 # [http_body_util::combinators::`BoxBody`](https://docs.rs/http-body-util/latest/http_body_util/combinators/struct.BoxBody.html)
 
@@ -21,6 +23,7 @@
 1. Memory efficient
 1. Can represent infinite data since it's streaming
     1. Puts on the heap (using [`Box`](https://doc.rust-lang.org/std/boxed/struct.Box.html))
+1. `BoxBody` has [two generics](https://docs.rs/http-body-util/0.1.1/http_body_util/combinators/struct.BoxBody.html#method.new) to set associated types on [`Body` trait](https://docs.rs/http-body/latest/http_body/trait.Body.html)
 1. Internals:
     1. inner data is [pinned](https://rust-lang.github.io/async-book/04_pinning/01_chapter.html) (so it works with [futures](https://tokio.rs/tokio/tutorial/async))
     1. [Pins](https://doc.rust-lang.org/std/boxed/struct.Box.html#method.pin) (cannot move in memory)
