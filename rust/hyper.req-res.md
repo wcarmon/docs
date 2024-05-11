@@ -31,16 +31,17 @@
 
 ## Construction
 1. Via [builder](https://docs.rs/hyper/latest/hyper/struct.Response.html#method.builder) 
-    1. Useful for setting [`status`](https://doc.servo.org/http/response/struct.Builder.html#method.status), [`body`](https://doc.servo.org/http/response/struct.Builder.html#method.body), [`header`](https://doc.servo.org/http/response/struct.Builder.html#method.header), and [extensions](https://doc.servo.org/http/response/struct.Builder.html#method.extensions_mut)
+    1. Useful for setting [`status`](https://doc.servo.org/http/response/struct.Builder.html#method.status), [`body`](https://doc.servo.org/http/response/struct.Builder.html#method.body), [`header`](https://doc.servo.org/http/response/struct.Builder.html#method.header), and [`extensions`](https://doc.servo.org/http/response/struct.Builder.html#method.extensions_mut)
 1. Via [`::new`](https://docs.rs/hyper/latest/hyper/struct.Response.html#method.new)
-    1. Useful for setting only body
+    1. Useful for setting just the body
 
 
 ## Understanding Common Examples
 
 ### `Response<BoxBody<Bytes, anyhow::Error>>`
 1. `Response` struct has a [`Body`](https://docs.rs/http/1.1.0/src/http/response.rs.html#182) 
-1. `Response` struct has one generic for the body type, (set to [`http_body_util::combinators::BoxBody`](https://docs.rs/http-body-util/latest/http_body_util/combinators/struct.BoxBody.html)) 
+1. `Response` struct has one generic for the body type, 
+    1. ... currently bound to [`http_body_util::combinators::BoxBody`](https://docs.rs/http-body-util/latest/http_body_util/combinators/struct.BoxBody.html) 
 1. `BoxBody` struct is a Body type
 1. `BoxBody` struct has two generic params 
     1. `Data` type set to `Bytes` struct
