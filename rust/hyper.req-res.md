@@ -36,7 +36,7 @@
     1. Useful for setting just the body
 
 
-## Understanding Common Examples
+## Understanding Common Response Examples
 
 ### `Response<BoxBody<Bytes, anyhow::Error>>`
 1. `Response` struct has a [`Body`](https://docs.rs/http/1.1.0/src/http/response.rs.html#182) 
