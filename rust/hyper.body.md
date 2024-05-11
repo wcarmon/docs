@@ -52,6 +52,13 @@
     1. inner data is [pinned](https://rust-lang.github.io/async-book/04_pinning/01_chapter.html) (so it works with [futures](https://tokio.rs/tokio/tutorial/async))
     1. [Pins](https://doc.rust-lang.org/std/boxed/struct.Box.html#method.pin) (cannot move in memory)
 
+## Convert error type to anyhow
+```rust
+    let box_body = BoxBody::new(body)
+        .map_err(|err| anyhow!(err))   // or .map_err(anyhow::Error::from)
+        .boxed();
+```
+
 
 ## [hyper::body::`Incomming`](https://docs.rs/hyper/latest/hyper/body/struct.Incoming.html) struct
 
@@ -99,3 +106,19 @@
 ## [http_body_util::`Limited`](https://docs.rs/http-body-util/0.1.1/http_body_util/struct.Limited.html)
 
 1. TODO
+
+
+------
+# Error handling
+
+## Drop Infallible
+```rust
+.map_err(|never| match never {})
+```
+
+## Convert error type to anyhow
+```rust
+    let box_body = BoxBody::new(body)
+        .map_err(|err| anyhow!(err))   // or .map_err(anyhow::Error::from)
+        .boxed();
+```
