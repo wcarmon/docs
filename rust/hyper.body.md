@@ -13,8 +13,8 @@
 
 # [http_body_util::combinators::`BoxBody`](https://docs.rs/http-body-util/0.1.1/http_body_util/combinators/struct.BoxBody.html)
 
-1. a [`Body`](TODO) backed by a [bytes::buf::`Buf`](https://docs.rs/bytes/latest/bytes/buf/trait.Buf.html)
-1. Useful for large files, WebSockets, long-lived web connections, etc
+1. a `Body` backed by a [bytes::buf::`Buf`](https://docs.rs/bytes/latest/bytes/buf/trait.Buf.html)
+1. Useful for large files, [WebSockets](https://www.pubnub.com/guides/websockets/), long-lived web connections, etc
 1. Threadsafe
 1. Asynchronous (non-blocking)
 1. Memory efficient

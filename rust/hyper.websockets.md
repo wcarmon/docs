@@ -1,0 +1,3 @@
+- https://en.wikipedia.org/wiki/WebSocket
+- https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API
+- https://www.pubnub.com/guides/websockets/
