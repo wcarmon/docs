@@ -52,7 +52,8 @@
 
 ### `Response<Empty<Bytes>>`
 1. `Response` struct has a [`Body`](https://docs.rs/http/1.1.0/src/http/response.rs.html#182)
-1. `Response` body type (generic) is bound to [`Empty`](https://docs.rs/http-body-util/latest/http_body_util/struct.Empty.html)
+1. `Response` struct has one generic for the body type,
+    1. ... bound to [`Empty`](https://docs.rs/http-body-util/latest/http_body_util/struct.Empty.html)
 1. `Empty` struct is a type of `Body`
 1. `Empty` struct has two generics
     1. `Body` is **always** empty
@@ -61,9 +62,9 @@
 ### `Response<Full<Bytes>>`
 1. `Response` struct has a [`Body`](https://docs.rs/http/1.1.0/src/http/response.rs.html#182)
 1. `Response` struct has one generic for the body type, 
-    1. ... currently bound to [`TODO`](TODO) 
+    1. ... bound to [`Full`](https://docs.rs/http-body-util/latest/http_body_util/struct.Full.html) 
 1. `Full` struct is a type of `Body`
-1. TODO
+1. `Full` struct has two generics
 1. TODO
 1. TODO
 
