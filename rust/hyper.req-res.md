@@ -7,24 +7,24 @@
 # [http::`Request`](https://docs.rs/hyper/latest/hyper/struct.Request.html) struct
 
 1. `Request` has [Head](https://docs.rs/http/1.1.0/src/http/request.rs.html#159) and (optional) [Body](https://docs.rs/http/1.1.0/src/http/request.rs.html#160)
-1. Head is of type [`Parts`](https://docs.rs/http/1.1.0/http/request/struct.Parts.html)
+1. Head is of type [`http::request::Parts`](https://docs.rs/http/1.1.0/http/request/struct.Parts.html)
     1. [`url`](https://docs.rs/http/1.1.0/http/uri/struct.Uri.html)
     1. [`method`](https://docs.rs/http/1.1.0/http/method/struct.Method.html)
     1. [`headerMap`](https://docs.rs/http/1.1.0/http/header/struct.HeaderMap.html)
     1. [HTTP `version`](https://docs.rs/http/1.1.0/http/version/struct.Version.html) (`1`, `1.1`, `2`, `3`)
     1. [`Extensions`](https://docs.rs/http/1.1.0/http/struct.Extensions.html) for arbitrary key-value pairs
-        1. Similar to java [ServletRequest::attributes](https://javaee.github.io/javaee-spec/javadocs/javax/servlet/ServletRequest.html#getAttribute-java.lang.String-)
+        1. Similar to Java [`ServletRequest::attributes`](https://javaee.github.io/javaee-spec/javadocs/javax/servlet/ServletRequest.html#getAttribute-java.lang.String-)
 1. Body can be a stream, bytes in memory, etc
 
 # [http::`Response`](https://docs.rs/hyper/latest/hyper/struct.Response.html) struct
 
 1. `Response` has [Head](https://docs.rs/http/1.1.0/src/http/response.rs.html#181) and (optional) [Body](https://docs.rs/http/1.1.0/src/http/response.rs.html#182)
-1. Head is of type [`Parts`](https://docs.rs/http/1.1.0/http/response/struct.Parts.html)
+1. Head is of type [`http::response::Parts`](https://docs.rs/http/1.1.0/http/response/struct.Parts.html)
     1. [`status` code](https://docs.rs/http/1.1.0/http/status/struct.StatusCode.html)
     1. [`headerMap`](https://docs.rs/http/1.1.0/http/header/struct.HeaderMap.html)
     1. [HTTP `version`](https://docs.rs/http/1.1.0/http/version/struct.Version.html) (`1`, `1.1`, `2`, `3`)
     1. [`Extensions`](https://docs.rs/http/1.1.0/http/struct.Extensions.html) for arbitrary key-value pairs
-        1. Similar to java [ServletRequest::attributes](https://javaee.github.io/javaee-spec/javadocs/javax/servlet/ServletRequest.html#getAttribute-java.lang.String-)
+        1. Similar to Java [`ServletRequest::attributes`](https://javaee.github.io/javaee-spec/javadocs/javax/servlet/ServletRequest.html#getAttribute-java.lang.String-)
 1. Body can be a stream, bytes in memory, etc (same as `Request`.`body`)
 1. `Response` has one generic param (for the body)
 
