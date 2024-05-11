@@ -26,7 +26,7 @@
     1. https://tokio.rs/tokio/tutorial/framing
 
 
-# Body [Trait](https://docs.rs/hyper/latest/hyper/body/trait.Body.html) (parent [module](https://docs.rs/hyper/latest/hyper/body/index.html))
+# [`Body` Trait](https://docs.rs/hyper/latest/hyper/body/trait.Body.html) ([parent module](https://docs.rs/hyper/latest/hyper/body/index.html))
 
 1. For **streaming** Request/Response body
 1. Minimizes memory footprint
