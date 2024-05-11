@@ -38,8 +38,8 @@
     1. [`Box<[u8]>`](https://docs.rs/hyper/latest/hyper/body/struct.Bytes.html#impl-From%3CBox%3C%5Bu8%5D%3E%3E-for-Bytes)
     1. [`String`](https://docs.rs/hyper/latest/hyper/body/struct.Bytes.html#impl-From%3CString%3E-for-Bytes)
     1. [`Vec<u8>]`](https://docs.rs/hyper/latest/hyper/body/struct.Bytes.html#impl-From%3CVec%3Cu8%3E%3E-for-Bytes)
-    1. [byte literal](https://docs.rs/hyper/latest/hyper/body/struct.Bytes.html#impl-From%3C%26%5Bu8%5D%3E-for-Bytes)    
-    1. [string literal](https://docs.rs/hyper/latest/hyper/body/struct.Bytes.html#impl-From%3C%26str%3E-for-Bytes)
+    1. [byte literal](https://docs.rs/hyper/latest/hyper/body/struct.Bytes.html#impl-From%3C%26%5Bu8%5D%3E-for-Bytes) like `b"foobar"`    
+    1. [string literal](https://docs.rs/hyper/latest/hyper/body/struct.Bytes.html#impl-From%3C%26str%3E-for-Bytes) like `"foobar"`
 1. [Hyper version is almost identical](https://docs.rs/hyper/latest/hyper/body/struct.Bytes.html)
 1. Internal details
     1. Underlying implementation is dynamic (uses vtable)
