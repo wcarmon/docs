@@ -36,7 +36,7 @@
 1. [http_body_util](https://docs.rs/http-body-util/latest/http_body_util/) crate has util functions for building `Body` implementations
 
 
-# [http_body_util::combinators::`BoxBody`](https://docs.rs/http-body-util/latest/http_body_util/combinators/struct.BoxBody.html)
+# [http_body_util::combinators::`BoxBody`](https://docs.rs/http-body-util/latest/http_body_util/combinators/struct.BoxBody.html) struct
 
 1. A `Body` type
 1. Backed by a [bytes::buf::`Buf`](https://docs.rs/bytes/latest/bytes/buf/trait.Buf.html) impl
@@ -53,7 +53,7 @@
     1. [Pins](https://doc.rust-lang.org/std/boxed/struct.Box.html#method.pin) (cannot move in memory)
 
 
-## [hyper::body::`Incomming`](https://docs.rs/hyper/latest/hyper/body/struct.Incoming.html)
+## [hyper::body::`Incomming`](https://docs.rs/hyper/latest/hyper/body/struct.Incoming.html) struct
 
 1. A [`Body`](https://docs.rs/hyper/latest/hyper/body/struct.Incoming.html#impl-Body-for-Incoming) type for receiving ...
     1. http server: requests
@@ -62,7 +62,7 @@
     1. developers should **NOT** build `Incomming`
 
 
-## [http_body_util::`Empty`](https://docs.rs/http-body-util/latest/http_body_util/struct.Empty.html)
+## [http_body_util::`Empty`](https://docs.rs/http-body-util/latest/http_body_util/struct.Empty.html) struct
 
 1. A `Body` type with no data
 1. `Empty` struct has two generics
@@ -70,7 +70,7 @@
     1. `Error` is [`Infallible`](https://doc.rust-lang.org/nightly/core/convert/enum.Infallible.html)
 
 
-## [http_body_util::`Full`](https://docs.rs/http-body-util/latest/http_body_util/struct.Full.html)
+## [http_body_util::`Full`](https://docs.rs/http-body-util/latest/http_body_util/struct.Full.html) struct
 
 1. A `Body` type with one single chunk
     1. What is a chunk? [answer-1](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Transfer-Encoding), [answer-2](https://en.wikipedia.org/wiki/Chunked_transfer_encoding), [answer-3](https://bunny.net/academy/http/what-is-chunked-encoding/) 
