@@ -29,16 +29,16 @@
 1. `Response` has one generic param (for the body)
 
 
-### Construction:
+### Construction
 1. Via [builder](https://docs.rs/hyper/latest/hyper/struct.Response.html#method.builder) 
     1. Useful for setting [`status`](https://doc.servo.org/http/response/struct.Builder.html#method.status), [`body`](https://doc.servo.org/http/response/struct.Builder.html#method.body), [`header`](https://doc.servo.org/http/response/struct.Builder.html#method.header), and [extensions](https://doc.servo.org/http/response/struct.Builder.html#method.extensions_mut)
 1. Via [`::new`](https://docs.rs/hyper/latest/hyper/struct.Response.html#method.new)
-    1. Useful for only setting body
+    1. Useful for setting only body
 
 
-### Understanding Common Examples:
+### Understanding Common Examples
 1. `Response<BoxBody<Bytes, anyhow::Error>>`
-    1. `Response` struct has a `Body` 
+    1. `Response` struct has a [`Body`](https://docs.rs/http/1.1.0/src/http/response.rs.html#182) 
     1. `Response` struct has one generic for the body type, (set to [`http_body_util::combinators::BoxBody`](https://docs.rs/http-body-util/latest/http_body_util/combinators/struct.BoxBody.html)) 
     1. `BoxBody` struct is a Body type
     1. `BoxBody` struct has two generic params 
@@ -47,14 +47,14 @@
         1. These align with the two associated types on [`Body` trait](https://docs.rs/http-body/latest/http_body/trait.Body.html)
     1. `BoxBody` struct is backed by a [`Buf`](https://docs.rs/bytes/latest/bytes/buf/trait.Buf.html) impl (currently [`bytes::Bytes`](https://docs.rs/bytes/latest/bytes/struct.Bytes.html) struct)    
 1. `Response<Empty<Bytes>>`
-    1. `Response` struct has a `Body`
+    1. `Response` struct has a [`Body`](https://docs.rs/http/1.1.0/src/http/response.rs.html#182)
     1. `Response` body type (generic) is ([`Empty`](https://docs.rs/http-body-util/latest/http_body_util/struct.Empty.html))
     1. `Empty` struct is a Body type 
     1. `Empty` struct has two generics
         1. `Body` is **always** empty
         1. `Error` is [`Infallible`](https://doc.rust-lang.org/nightly/core/convert/enum.Infallible.html)
 1. `Response<Full<Bytes>>`
-    1. `Response` struct has a `Body`
+    1. `Response` struct has a [`Body`](https://docs.rs/http/1.1.0/src/http/response.rs.html#182)
     1. TODO
     1. `Full` struct is a Body type
     1. TODO
