@@ -52,6 +52,13 @@
     1. inner data is [pinned](https://rust-lang.github.io/async-book/04_pinning/01_chapter.html) (so it works with [futures](https://tokio.rs/tokio/tutorial/async))
     1. [Pins](https://doc.rust-lang.org/std/boxed/struct.Box.html#method.pin) (cannot move in memory)
 
+## Construction
+1. Via [`BoxBody::new`](https://docs.rs/http-body-util/latest/http_body_util/combinators/struct.BoxBody.html#method.new)
+1. Via `Body.boxed()` 
+    1. See [BodyExt::boxed()](https://docs.rs/http-body-util/latest/http_body_util/trait.BodyExt.html#method.boxed)
+    1. See [`Body` impl `BodyExt`](https://docs.rs/http-body-util/latest/http_body_util/trait.BodyExt.html#impl-BodyExt-for-T)
+    
+
 ## Convert error type to anyhow
 ```rust
     let box_body = BoxBody::new(body)
@@ -113,8 +120,14 @@
 
 ## Drop Infallible
 ```rust
-.map_err(|never| match never {})
+    my_body
+    .map_err(|never| match never {})
+    .boxed()
 ```
+1. See [`BodyExt`](https://docs.rs/http-body-util/latest/http_body_util/trait.BodyExt.html#)
+    1. See [BodyExt::map_err(...)](https://docs.rs/http-body-util/latest/http_body_util/trait.BodyExt.html#method.map_err)
+    1. See [BodyExt::boxed()](https://docs.rs/http-body-util/latest/http_body_util/trait.BodyExt.html#method.boxed)
+
 
 ## Convert error type to anyhow
 ```rust
