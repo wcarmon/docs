@@ -45,4 +45,7 @@
     1. Underlying implementation is dynamic (uses vtable)
     1. might not be contiguous, affects [chunking](https://docs.rs/bytes/latest/bytes/buf/trait.Buf.html#tymethod.chunk)    
 1. TODO: comparison to `std::io::Cursor<&[u8]>`
-
+    1. https://codeandbitters.com/rust-cursors/
+        1. Refcounted
+        1. Growable
+        1. Seekable / Overwritable
