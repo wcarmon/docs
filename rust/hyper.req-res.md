@@ -44,8 +44,8 @@
     1. ... currently bound to [`http_body_util::combinators::BoxBody`](https://docs.rs/http-body-util/latest/http_body_util/combinators/struct.BoxBody.html) 
 1. `BoxBody` struct is a type of `Body`
 1. `BoxBody` struct has two generic params 
-    1. `Data` type set to `Bytes` struct
-    1. `Error` type set to `anyhow::Error`
+    1. `Data` type bound to `Bytes` struct
+    1. `Error` type bound to `anyhow::Error`
     1. These align with the two associated types on [`Body` trait](https://docs.rs/http-body/latest/http_body/trait.Body.html)
 1. `BoxBody` struct is backed by a [`Buf`](https://docs.rs/bytes/latest/bytes/buf/trait.Buf.html) impl 
     1. ... currently [`bytes::Bytes`](https://docs.rs/bytes/latest/bytes/struct.Bytes.html) struct    
@@ -65,6 +65,6 @@
     1. ... bound to [`Full`](https://docs.rs/http-body-util/latest/http_body_util/struct.Full.html) 
 1. `Full` struct is a type of `Body`
 1. `Full` struct has two generics
-1. TODO
-1. TODO
+    1. `Body` is some `Buf` impl, currently bound to 
+    1. `Error` is [`Infallible`](https://doc.rust-lang.org/nightly/core/convert/enum.Infallible.html)
 

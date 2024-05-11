@@ -18,7 +18,8 @@
 
 # [http_body_util::combinators::`BoxBody`](https://docs.rs/http-body-util/latest/http_body_util/combinators/struct.BoxBody.html)
 
-1. a `Body` backed by a [bytes::buf::`Buf`](https://docs.rs/bytes/latest/bytes/buf/trait.Buf.html)
+1. a `Body` type
+1. Backed by a [bytes::buf::`Buf`](https://docs.rs/bytes/latest/bytes/buf/trait.Buf.html)
 1. Useful for large files, [WebSockets](https://www.pubnub.com/guides/websockets/), long-lived web connections, etc
 1. [Threadsafe](https://docs.rs/http-body-util/0.1.1/http_body_util/combinators/struct.BoxBody.html#impl-Send-for-BoxBody%3CD,+E%3E)
 1. Asynchronous (non-blocking)
@@ -31,14 +32,9 @@
     1. [Pins](https://doc.rust-lang.org/std/boxed/struct.Box.html#method.pin) (cannot move in memory)
 
 
-## [`std::String`](https://doc.rust-lang.org/nightly/alloc/string/struct.String.html) Body
-
-1. standard String [impl Body](https://docs.rs/hyper/latest/hyper/body/trait.Body.html#impl-Body-for-String)
-
-
 ## [hyper::body::`Incomming`](https://docs.rs/hyper/latest/hyper/body/struct.Incoming.html)
 
-1. a [`Body`](https://docs.rs/hyper/latest/hyper/body/struct.Incoming.html#impl-Body-for-Incoming)
+1. a [`Body`](https://docs.rs/hyper/latest/hyper/body/struct.Incoming.html#impl-Body-for-Incoming) type
 1. For receiving ...
     1. input for an http server
     1. response for an http client
@@ -46,12 +42,18 @@
 
 ## [http_body_util::`Empty`](https://docs.rs/http-body-util/latest/http_body_util/struct.Empty.html)
 
-1. a `Body` with no data
+1. a `Body` type with no data
 
 ## [http_body_util::`Full`](https://docs.rs/http-body-util/latest/http_body_util/struct.Full.html)
 
-1. a `Body` with one single chunk
+1. a `Body` type with one single chunk
     1. What is a chunk? [answer-1](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Transfer-Encoding), [answer-2](https://en.wikipedia.org/wiki/Chunked_transfer_encoding), [answer-3](https://bunny.net/academy/http/what-is-chunked-encoding/) 
+
+## [`std::String`](https://doc.rust-lang.org/nightly/alloc/string/struct.String.html) Body
+
+1. standard String [impl Body](https://docs.rs/hyper/latest/hyper/body/trait.Body.html#impl-Body-for-String)
+
+
 
 ## [http_body_util::`StreamBody`](TODO)
 
