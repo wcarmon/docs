@@ -11,8 +11,19 @@
 - [`Body` Trait](https://docs.rs/hyper/latest/hyper/body/trait.Body.html) has [`poll_frame`](https://docs.rs/hyper/latest/hyper/body/trait.Body.html#tymethod.poll_frame) method which asynchronously yields a [Frame](https://docs.rs/hyper/latest/hyper/body/struct.Frame.html)
 - [http_body_util](https://docs.rs/http-body-util/latest/http_body_util/) crate has utils for building `Body` implementations
 
+# [http_body_util::combinators::`BoxBody`](https://docs.rs/http-body-util/0.1.1/http_body_util/combinators/struct.BoxBody.html)
 
-## [`String`](https://doc.rust-lang.org/nightly/alloc/string/struct.String.html) Body
+1. a [`Body`](TODO) backed by a [bytes::buf::`Buf`](https://docs.rs/bytes/latest/bytes/buf/trait.Buf.html)
+1. Useful for large files, WebSockets, long-lived web connections, etc
+1. Threadsafe
+1. Asynchronous (non-blocking)
+1. Memory efficient
+1. Can represent infinite data since it's streaming
+1. Internals:
+    1. inner data is [pinned](https://rust-lang.github.io/async-book/04_pinning/01_chapter.html) (so it works with futures)
+
+
+## [`std::String`](https://doc.rust-lang.org/nightly/alloc/string/struct.String.html) Body
 
 1. standard String [impl Body](https://docs.rs/hyper/latest/hyper/body/trait.Body.html#impl-Body-for-String)
 
