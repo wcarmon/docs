@@ -32,10 +32,23 @@
 
 
 ## Construction
-1. Via [builder](https://docs.rs/hyper/latest/hyper/struct.Response.html#method.builder) 
-    1. Useful for setting [`status`](https://doc.servo.org/http/response/struct.Builder.html#method.status), [`body`](https://doc.servo.org/http/response/struct.Builder.html#method.body), [`header`](https://doc.servo.org/http/response/struct.Builder.html#method.header), and [`extensions`](https://doc.servo.org/http/response/struct.Builder.html#method.extensions_mut)
 1. Via [`::new`](https://docs.rs/hyper/latest/hyper/struct.Response.html#method.new)
     1. Useful for setting just the body
+1. Via [builder](https://docs.rs/hyper/latest/hyper/struct.Response.html#method.builder) 
+    1. Useful for setting [`status`](https://doc.servo.org/http/response/struct.Builder.html#method.status), [`body`](https://doc.servo.org/http/response/struct.Builder.html#method.body), [`header`](https://doc.servo.org/http/response/struct.Builder.html#method.header), and [`extensions`](https://doc.servo.org/http/response/struct.Builder.html#method.extensions_mut)
+```rust
+    ...
+
+    let body = Full::new(Bytes::from(json_content))
+        .map_err(anyhow::Error::from)
+        .boxed();
+
+    Response::builder()
+        .status(200)
+        .header(hyper::header::CONTENT_TYPE, "application/json")
+        .body(body)
+        .context("failed to build response")
+```
 
 
 ## Understanding Common Response Examples
