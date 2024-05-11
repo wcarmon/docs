@@ -80,7 +80,8 @@
 1. See https://developer.mozilla.org/en-US/docs/Web/HTTP/Messages#http2_frames
 1. See https://datatracker.ietf.org/doc/html/rfc7540#section-4
 
-1. TODO
+1. TODO: https://tokio.rs/tokio/tutorial/framing
+
 
 ## [bytes::buf::`Buf`](https://docs.rs/bytes/latest/bytes/buf/trait.Buf.html) trait
 
@@ -102,10 +103,26 @@
     1. [`java.nio.ByteBuffer`](https://docs.oracle.com/en%2Fjava%2Fjavase%2F21%2Fdocs%2Fapi%2F%2F/java.base/java/nio/ByteBuffer.html) - Core, inconvenient 
 
 
-## [TODO::`Bytes`](TODO) struct
+## [bytes::`Bytes`](https://docs.rs/bytes/latest/bytes/struct.Bytes.html) struct
 
-1. TODO: https://docs.rs/hyper/latest/hyper/body/struct.Bytes.html
-1. TODO: Bytes crate
+1. Implements `bytes::buf::Buf` (see above)
+1. contiguous memory
+1. [sliceable](https://docs.rs/bytes/latest/bytes/struct.Bytes.html#method.slice)
+1. Convenient for networking programming
+1. Multiple `Bytes` objects can safely point to the same memory
+    1. Avoids copying
+    1. Implemented via reference counting
+1. Can easily convert from ...
+    1. [`Box<[u8]>`](https://docs.rs/hyper/latest/hyper/body/struct.Bytes.html#impl-From%3CBox%3C%5Bu8%5D%3E%3E-for-Bytes)
+    1. [`String`](https://docs.rs/hyper/latest/hyper/body/struct.Bytes.html#impl-From%3CString%3E-for-Bytes)
+    1. [`Vec<u8>]`](https://docs.rs/hyper/latest/hyper/body/struct.Bytes.html#impl-From%3CVec%3Cu8%3E%3E-for-Bytes)
+    1. [byte literal](https://docs.rs/hyper/latest/hyper/body/struct.Bytes.html#impl-From%3C%26%5Bu8%5D%3E-for-Bytes)    
+    1. [string literal](https://docs.rs/hyper/latest/hyper/body/struct.Bytes.html#impl-From%3C%26str%3E-for-Bytes)
+1. [Hyper version is almost identical](https://docs.rs/hyper/latest/hyper/body/struct.Bytes.html)
+1. Internal details
+    1. Underlying implementation is dynamic (uses vtable)
+    1. might not be contiguous, affects [chunking](https://docs.rs/bytes/latest/bytes/buf/trait.Buf.html#tymethod.chunk)    
+
 
 # TODO
 
