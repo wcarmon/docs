@@ -60,6 +60,9 @@
     1. http client: responses
 1. hyper builds and provides these 
     1. developers should **NOT** build `Incomming`
+1. `Incomming` struct has two generics    
+    1. `Data` is [`bytes::Bytes`](https://docs.rs/bytes/latest/bytes/struct.Bytes.html) struct
+    1. `Error` is [hyper::Error](https://docs.rs/hyper/latest/hyper/struct.Error.html)
 
 
 ## [http_body_util::`Empty`](https://docs.rs/http-body-util/latest/http_body_util/struct.Empty.html) struct
@@ -79,7 +82,7 @@
     1. `Error` is [`Infallible`](https://doc.rust-lang.org/nightly/core/convert/enum.Infallible.html)
 
 
-## [`std::String`](https://doc.rust-lang.org/nightly/alloc/string/struct.String.html) Body
+## [`std::String`](https://doc.rust-lang.org/nightly/alloc/string/struct.String.html)
 
 1. standard String [impl Body](https://docs.rs/hyper/latest/hyper/body/trait.Body.html#impl-Body-for-String)
     1. `Data` is [`bytes::Bytes`](https://docs.rs/bytes/latest/bytes/struct.Bytes.html) struct
