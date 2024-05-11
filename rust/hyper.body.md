@@ -59,19 +59,19 @@
 
 ## [Frame](https://docs.rs/hyper/latest/hyper/body/struct.Frame.html)
 
-1. A Frame is the smallest unit of communication in http/2
-1. A frame is the smallest unit of data transmitted between two peers
-1. Frames can arrive in any order
+1. A `Frame` is the smallest unit of communication in http/2
+1. A `Frame` is the smallest unit of data transmitted between two peers
+1. Each`Frame` can arrive in any order
 1. Heavily used in http/2
     1. http/2 frames are binary encoded
     1. http/2 frames from multiple streams can interleave
     1. Each http/2 frame has a header (with streamId)
-1. http/1 has messages, http/2 breaks down messages into frames
-1. See https://developer.mozilla.org/en-US/docs/Web/HTTP/Messages#http2_frames
-1. See https://datatracker.ietf.org/doc/html/rfc7540#section-4
-1. Relationships
-    1. Connection -|---|< Stream
-    1. Stream -|---|< Message 
-    1. Message -|---|< Frame    
+    1. See https://developer.mozilla.org/en-US/docs/Web/HTTP/Messages#http2_frames
+    1. See https://datatracker.ietf.org/doc/html/rfc7540#section-4
+    1. http/1 has messages, http/2 breaks messages into frames
+1. Concept Relationships:
+    1. `Connection` -|---|< `Stream`
+    1. `Stream` -|---|< `Message` 
+    1. `Message` -|---|< `Frame`
 1. Other resources
     1. https://tokio.rs/tokio/tutorial/framing
