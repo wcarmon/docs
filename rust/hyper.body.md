@@ -1,6 +1,7 @@
 # Overview
 
 1. Body concept in [hyper](https://hyper.rs/)
+1. See [hyper doc](./hyper.md) also
 
 
 # Body [module](https://docs.rs/hyper/latest/hyper/body/index.html) & [trait](https://docs.rs/hyper/latest/hyper/body/trait.Body.html)
@@ -61,7 +62,7 @@
 
 1. A `Frame` is the smallest unit of communication in http/2
 1. A `Frame` is the smallest unit of data transmitted between two peers
-1. Each`Frame` can arrive in any order
+1. Each `Frame` can arrive in any order
 1. Heavily used in http/2
     1. http/2 frames are binary encoded
     1. http/2 frames from multiple streams can interleave
