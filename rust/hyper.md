@@ -77,7 +77,3 @@
 - TODO: http_body_util::BodyStream    
 - TODO: Buf: https://docs.rs/hyper/latest/hyper/body/trait.Buf.html
 - TODO: [tokio::ReaderStream](TODO)
-
-# Other Resources
-
-1. TODO
