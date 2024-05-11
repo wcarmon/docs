@@ -34,9 +34,10 @@ TODO
 
 1. Convenience utility to build a `Service` from a function
 
-1. TODO: Java equivalents
-1. TODO: golang equivalents
-1. TODO: node/express.js equivalents
+1. Java equivalents
+    1. [`Servlet::service`](https://javaee.github.io/javaee-spec/javadocs/javax/servlet/Servlet.html#service-javax.servlet.ServletRequest-javax.servlet.ServletResponse-)
+1. Golang equivalent
+    1. [`Handler`](https://pkg.go.dev/net/http#Handler)    
 
 
 # Other resources
