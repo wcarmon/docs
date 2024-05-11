@@ -76,7 +76,8 @@
 ## [http_body_util::`Full`](https://docs.rs/http-body-util/latest/http_body_util/struct.Full.html) struct
 
 1. A `Body` type with one single chunk
-    1. What is a chunk? [answer-1](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Transfer-Encoding), [answer-2](https://en.wikipedia.org/wiki/Chunked_transfer_encoding), [answer-3](https://bunny.net/academy/http/what-is-chunked-encoding/) 
+    1. What is a chunk? [answer-1](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Transfer-Encoding), [answer-2](https://en.wikipedia.org/wiki/Chunked_transfer_encoding), [answer-3](https://bunny.net/academy/http/what-is-chunked-encoding/)
+1. Useful for returning string error messages      
 1. `Full` struct has two generics
     1. `Data` is some `Buf` impl          
     1. `Error` is [`Infallible`](https://doc.rust-lang.org/nightly/core/convert/enum.Infallible.html)
