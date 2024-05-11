@@ -2,8 +2,8 @@
 
 1. `Request` & `Response` concepts in [hyper](https://hyper.rs/)
 1. See [hyper Overview doc](./hyper.md) also
-1. See [hyper Body doc](./hyper.body.md) also
 1. See [hyper Service doc](./hyper.service.md) also
+1. See [hyper Body doc](./hyper.body.md) also
 
 
 # [http::`Request`](https://docs.rs/hyper/latest/hyper/struct.Request.html) struct
