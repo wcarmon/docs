@@ -82,8 +82,27 @@
 
 1. TODO
 
+## [bytes::buf::`Buf`](https://docs.rs/bytes/latest/bytes/buf/trait.Buf.html) trait
 
-## [Bytes](TODO)
+1. part of [tokio `bytes` crate](https://github.com/tokio-rs/bytes)
+1. Think: cursor over contiguous bytes
+1. Efficient iterator over bytes (`u8`)
+1. Convenient for parsing
+1. Guarantees operations are infallible
+    1. do something reasonable at the edge cases: [Example-1](https://docs.rs/bytes/latest/bytes/buf/trait.Buf.html#implementer-notes-1)
+    1. makes it easy to detect edge cases: [Example-1](https://docs.rs/bytes/latest/bytes/buf/trait.Buf.html#method.has_remaining))
+1. [Reading advances the cursor](https://docs.rs/bytes/latest/bytes/buf/trait.Buf.html#method.get_u8)
+1. Implemented by ...
+    1. [`&[u8]`](https://docs.rs/bytes/latest/bytes/buf/trait.Buf.html#impl-Buf-for-%26%5Bu8%5D)  <-- byte [slice](https://doc.rust-lang.org/std/primitive.slice.html)
+    1. [`VecDeque<u8>`](https://docs.rs/bytes/latest/bytes/buf/trait.Buf.html#impl-Buf-for-VecDeque%3Cu8%3E)
+    1. [`std::io::Cursor`](https://doc.rust-lang.org/nightly/std/io/struct.Cursor.html)
+    1. `Bytes` (see below)
+1. Java equivalent: 
+    1. [`io.netty.buffer.ByteBuf`](https://netty.io/4.1/api/io/netty/buffer/ByteBuf.html) - Closest comparable, equally convenient
+    1. [`java.nio.ByteBuffer`](https://docs.oracle.com/en%2Fjava%2Fjavase%2F21%2Fdocs%2Fapi%2F%2F/java.base/java/nio/ByteBuffer.html) - Core, inconvenient 
+
+
+## [TODO::`Bytes`](TODO) struct
 
 1. TODO: https://docs.rs/hyper/latest/hyper/body/struct.Bytes.html
 1. TODO: Bytes crate
