@@ -1,7 +1,7 @@
 # Overview
 
 1. Body concept in [hyper](https://hyper.rs/)
-1. See the [hyper overview doc](./hyper.md)
+1. See the [hyper Overview doc](./hyper.md)
 1. See [hyper Request & Response doc](./hyper.req-res.md) also
 1. See [Bytes doc](./hyper.bytes.md) also
 
