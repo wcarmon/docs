@@ -39,14 +39,15 @@
 # [http_body_util::combinators::`BoxBody`](https://docs.rs/http-body-util/latest/http_body_util/combinators/struct.BoxBody.html)
 
 1. A `Body` type
-1. Backed by a [bytes::buf::`Buf`](https://docs.rs/bytes/latest/bytes/buf/trait.Buf.html)
-1. Useful for large files, [WebSockets](https://www.pubnub.com/guides/websockets/), long-lived web connections, etc
+1. Backed by a [bytes::buf::`Buf`](https://docs.rs/bytes/latest/bytes/buf/trait.Buf.html) impl
 1. [Threadsafe](https://docs.rs/http-body-util/0.1.1/http_body_util/combinators/struct.BoxBody.html#impl-Send-for-BoxBody%3CD,+E%3E)
-1. Asynchronous (non-blocking)
+1. Asynchronous (therefore non-blocking)
 1. Memory efficient
+1. Useful for large files, [WebSockets](https://www.pubnub.com/guides/websockets/), long-lived web connections, etc
 1. Can represent infinite data since it's streaming
     1. Puts on the heap (using [`Box`](https://doc.rust-lang.org/std/boxed/struct.Box.html))
-1. `BoxBody` has [two generics](https://docs.rs/http-body-util/0.1.1/http_body_util/combinators/struct.BoxBody.html#method.new) to set associated types on [`Body` trait](https://docs.rs/http-body/latest/http_body/trait.Body.html)
+1. `BoxBody` has [two generics](https://docs.rs/http-body-util/0.1.1/http_body_util/combinators/struct.BoxBody.html#method.new) 
+    1. so it can bind associated types on [`Body` trait](https://docs.rs/http-body/latest/http_body/trait.Body.html)
 1. Internals:
     1. inner data is [pinned](https://rust-lang.github.io/async-book/04_pinning/01_chapter.html) (so it works with [futures](https://tokio.rs/tokio/tutorial/async))
     1. [Pins](https://doc.rust-lang.org/std/boxed/struct.Box.html#method.pin) (cannot move in memory)
@@ -55,19 +56,28 @@
 ## [hyper::body::`Incomming`](https://docs.rs/hyper/latest/hyper/body/struct.Incoming.html)
 
 1. A [`Body`](https://docs.rs/hyper/latest/hyper/body/struct.Incoming.html#impl-Body-for-Incoming) type for receiving ...
-    1. input for an http server
-    1. response for an http client
+    1. http server: requests
+    1. http client: responses
 1. hyper builds and provides these 
     1. developers should **NOT** build `Incomming`
+
 
 ## [http_body_util::`Empty`](https://docs.rs/http-body-util/latest/http_body_util/struct.Empty.html)
 
 1. A `Body` type with no data
+1. `Empty` struct has two generics
+    1. `Body` is **always** empty
+    1. `Error` is [`Infallible`](https://doc.rust-lang.org/nightly/core/convert/enum.Infallible.html)
+
 
 ## [http_body_util::`Full`](https://docs.rs/http-body-util/latest/http_body_util/struct.Full.html)
 
 1. A `Body` type with one single chunk
     1. What is a chunk? [answer-1](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Transfer-Encoding), [answer-2](https://en.wikipedia.org/wiki/Chunked_transfer_encoding), [answer-3](https://bunny.net/academy/http/what-is-chunked-encoding/) 
+1. `Full` struct has two generics
+    1. `Body` is some `Buf` impl          
+    1. `Error` is [`Infallible`](https://doc.rust-lang.org/nightly/core/convert/enum.Infallible.html)
+
 
 ## [`std::String`](https://doc.rust-lang.org/nightly/alloc/string/struct.String.html) Body
 
