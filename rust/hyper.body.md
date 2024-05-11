@@ -33,12 +33,12 @@
 1. Supports [backpressure](https://medium.com/@jayphelps/backpressure-explained-the-flow-of-data-through-software-2350b3e77ce7), ([another nice article](https://github.com/ReactiveX/RxJava/wiki/Backpressure))
 1. [`Body` Trait](https://docs.rs/hyper/latest/hyper/body/trait.Body.html) has [`poll_frame`](https://docs.rs/hyper/latest/hyper/body/trait.Body.html#tymethod.poll_frame) method, which asynchronously yields a [Frame](https://docs.rs/hyper/latest/hyper/body/struct.Frame.html)
     1. See above for `Frame`
-1. [http_body_util](https://docs.rs/http-body-util/latest/http_body_util/) crate has utils for building `Body` implementations
+1. [http_body_util](https://docs.rs/http-body-util/latest/http_body_util/) crate has util functions for building `Body` implementations
 
 
 # [http_body_util::combinators::`BoxBody`](https://docs.rs/http-body-util/latest/http_body_util/combinators/struct.BoxBody.html)
 
-1. a `Body` type
+1. A `Body` type
 1. Backed by a [bytes::buf::`Buf`](https://docs.rs/bytes/latest/bytes/buf/trait.Buf.html)
 1. Useful for large files, [WebSockets](https://www.pubnub.com/guides/websockets/), long-lived web connections, etc
 1. [Threadsafe](https://docs.rs/http-body-util/0.1.1/http_body_util/combinators/struct.BoxBody.html#impl-Send-for-BoxBody%3CD,+E%3E)
@@ -54,25 +54,26 @@
 
 ## [hyper::body::`Incomming`](https://docs.rs/hyper/latest/hyper/body/struct.Incoming.html)
 
-1. a [`Body`](https://docs.rs/hyper/latest/hyper/body/struct.Incoming.html#impl-Body-for-Incoming) type
-1. For receiving ...
+1. A [`Body`](https://docs.rs/hyper/latest/hyper/body/struct.Incoming.html#impl-Body-for-Incoming) type for receiving ...
     1. input for an http server
     1. response for an http client
-1. hyper builds and provides these (users should not build `Incomming`)
+1. hyper builds and provides these 
+    1. developers should **NOT** build `Incomming`
 
 ## [http_body_util::`Empty`](https://docs.rs/http-body-util/latest/http_body_util/struct.Empty.html)
 
-1. a `Body` type with no data
+1. A `Body` type with no data
 
 ## [http_body_util::`Full`](https://docs.rs/http-body-util/latest/http_body_util/struct.Full.html)
 
-1. a `Body` type with one single chunk
+1. A `Body` type with one single chunk
     1. What is a chunk? [answer-1](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Transfer-Encoding), [answer-2](https://en.wikipedia.org/wiki/Chunked_transfer_encoding), [answer-3](https://bunny.net/academy/http/what-is-chunked-encoding/) 
 
 ## [`std::String`](https://doc.rust-lang.org/nightly/alloc/string/struct.String.html) Body
 
 1. standard String [impl Body](https://docs.rs/hyper/latest/hyper/body/trait.Body.html#impl-Body-for-String)
-
+    1. `Data` is [`bytes::Bytes`](https://docs.rs/bytes/latest/bytes/struct.Bytes.html) struct
+    1. `Error` is [`Infallible`](https://doc.rust-lang.org/nightly/core/convert/enum.Infallible.html)
 
 
 ## [http_body_util::`StreamBody`](TODO)
