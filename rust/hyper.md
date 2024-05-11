@@ -34,17 +34,29 @@
 1. [via `::new`](https://docs.rs/hyper/latest/hyper/struct.Response.html#method.new) 
 
 
-### Common examples
-1. `Response<BoxBody<Bytes, anyhow::Error>>`  (very common in hyper server coding)
-    1. `Response` has a `Body` 
-    1. `Response` has one generic for the body type, (set to [`http_body_util::combinators::BoxBody`](https://docs.rs/http-body-util/latest/http_body_util/combinators/struct.BoxBody.html)) 
-    1. `BoxBody` has two generic params (data and error type), to set the two associated types on [`Body` trait](https://docs.rs/http-body/latest/http_body/trait.Body.html)
-    1. `BoxBody` is backed by a [`Buf`](https://docs.rs/bytes/latest/bytes/buf/trait.Buf.html) impl (currently [`bytes::Bytes`](https://docs.rs/bytes/latest/bytes/struct.Bytes.html) struct)    
+### Understanding Common Examples:
+1. `Response<BoxBody<Bytes, anyhow::Error>>`
+    1. `Response` struct has a `Body` 
+    1. `Response` struct has one generic for the body type, (set to [`http_body_util::combinators::BoxBody`](https://docs.rs/http-body-util/latest/http_body_util/combinators/struct.BoxBody.html)) 
+    1. `BoxBody` struct is a Body type
+    1. `BoxBody` struct has two generic params 
+        1. `Data` type set to `Bytes` struct
+        1. `Error` type set to `anyhow::Error`
+        1. These align with the two associated types on [`Body` trait](https://docs.rs/http-body/latest/http_body/trait.Body.html)
+    1. `BoxBody` struct is backed by a [`Buf`](https://docs.rs/bytes/latest/bytes/buf/trait.Buf.html) impl (currently [`bytes::Bytes`](https://docs.rs/bytes/latest/bytes/struct.Bytes.html) struct)    
 1. `Response<Empty<Bytes>>`
-    1. `Response` has a `Body`
-    1. `Response` body type (generic) is ([`Empty`](https://docs.rs/http-body-util/latest/http_body_util/struct.Empty.html)) 
-    1. 
+    1. `Response` struct has a `Body`
+    1. `Response` body type (generic) is ([`Empty`](https://docs.rs/http-body-util/latest/http_body_util/struct.Empty.html))
+    1. `Empty` struct is a Body type 
+    1. `Empty` struct has two generics
+        1. `Body` is **always** empty
+        1. `Error` is [`Infallible`](https://doc.rust-lang.org/nightly/core/convert/enum.Infallible.html)
 1. `Response<Full<Bytes>>`
+    1. `Response` struct has a `Body`
+    1. TODO
+    1. `Full` struct is a Body type
+    1. TODO
+    1. TODO
     1. TODO
 
 
