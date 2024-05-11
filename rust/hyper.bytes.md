@@ -1,8 +1,9 @@
 # Overview
 
 1. Request & Response concepts in [hyper](https://hyper.rs/)
-1. See the [hyper Overview doc](./hyper.md)
-1. See the [hyper Body doc](./hyper.body.md)
+1. See [hyper Overview doc](./hyper.md)
+1. See [hyper Body doc](./hyper.body.md)
+- TODO: add link for service
 
 
 # [bytes::buf::`Buf`](https://docs.rs/bytes/latest/bytes/buf/trait.Buf.html) trait

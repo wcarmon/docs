@@ -20,6 +20,10 @@
 
 1. [See doc](./hyper.bytes.md)
 
+## Service or Service fn
+
+1. [See doc](./hyper.service.md)
+
 
 ## TODO
 - TODO: http_body_util::BodyStream    

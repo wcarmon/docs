@@ -1,8 +1,9 @@
 # Overview
 
 1. `Request` & `Response` concepts in [hyper](https://hyper.rs/)
-1. See the [hyper Overview doc](./hyper.md)
-1. See the [hyper Body doc](./hyper.body.md)
+1. See [hyper Overview doc](./hyper.md)
+1. See [hyper Body doc](./hyper.body.md)
+- TODO: add link for service
 
 # [http::`Request`](https://docs.rs/hyper/latest/hyper/struct.Request.html) struct
 

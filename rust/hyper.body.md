@@ -1,9 +1,10 @@
 # Overview
 
-1. Body concept in [hyper](https://hyper.rs/)
-1. See the [hyper Overview doc](./hyper.md)
+1. `Body` concept in [hyper](https://hyper.rs/)
+1. See [hyper Overview doc](./hyper.md)
 1. See [hyper Request & Response doc](./hyper.req-res.md) also
 1. See [Bytes doc](./hyper.bytes.md) also
+- TODO: add link for service
 
 
 ## [Frame](https://docs.rs/hyper/latest/hyper/body/struct.Frame.html)
@@ -62,7 +63,7 @@
 ## Convert error type to anyhow
 ```rust
     let box_body = BoxBody::new(body)
-        .map_err(|err| anyhow!(err))   // or .map_err(anyhow::Error::from)
+        .map_err(anyhow::Error::from) // or .map_err(|err| anyhow!(err)) 
         .boxed();
 ```
 
