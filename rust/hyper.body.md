@@ -6,13 +6,33 @@
 1. See [Bytes doc](./hyper.bytes.md) also
 
 
-# Body [module](https://docs.rs/hyper/latest/hyper/body/index.html) & [trait](https://docs.rs/hyper/latest/hyper/body/trait.Body.html)
+## [Frame](https://docs.rs/hyper/latest/hyper/body/struct.Frame.html)
 
-1. For **streaming** request/response body
+1. A `Frame` is the smallest unit of communication in http/2
+1. A `Frame` is the smallest unit of data transmitted between two peers
+1. Each `Frame` can arrive in any order
+1. Heavily used in http/2
+    1. http/2 frames are binary encoded
+    1. http/2 frames from multiple streams can interleave
+    1. Each http/2 frame has a header (with streamId)
+    1. See https://developer.mozilla.org/en-US/docs/Web/HTTP/Messages#http2_frames
+    1. See https://datatracker.ietf.org/doc/html/rfc7540#section-4
+    1. http/1 has messages, http/2 breaks messages into frames
+1. Concept Relationships:
+    1. `Connection` -|---|< `Stream`
+    1. `Stream` -|---|< `Message` 
+    1. `Message` -|---|< `Frame`
+1. Other resources
+    1. https://tokio.rs/tokio/tutorial/framing
+
+
+# Body [Trait](https://docs.rs/hyper/latest/hyper/body/trait.Body.html) (parent [module](https://docs.rs/hyper/latest/hyper/body/index.html))
+
+1. For **streaming** Request/Response body
 1. Minimizes memory footprint
-1. Supports backpressure
-1. [`Body` Trait](https://docs.rs/hyper/latest/hyper/body/trait.Body.html) has [`poll_frame`](https://docs.rs/hyper/latest/hyper/body/trait.Body.html#tymethod.poll_frame) method which asynchronously yields a [Frame](https://docs.rs/hyper/latest/hyper/body/struct.Frame.html)
-    1. See https://docs.rs/http-body/latest/http_body/trait.Body.html
+1. Supports [backpressure](https://medium.com/@jayphelps/backpressure-explained-the-flow-of-data-through-software-2350b3e77ce7), ([another nice article](https://github.com/ReactiveX/RxJava/wiki/Backpressure))
+1. [`Body` Trait](https://docs.rs/hyper/latest/hyper/body/trait.Body.html) has [`poll_frame`](https://docs.rs/hyper/latest/hyper/body/trait.Body.html#tymethod.poll_frame) method, which asynchronously yields a [Frame](https://docs.rs/hyper/latest/hyper/body/struct.Frame.html)
+    1. See above for `Frame`
 1. [http_body_util](https://docs.rs/http-body-util/latest/http_body_util/) crate has utils for building `Body` implementations
 
 
@@ -64,22 +84,3 @@
 ## [http_body_util::`Limited`](https://docs.rs/http-body-util/0.1.1/http_body_util/struct.Limited.html)
 
 1. TODO
-
-## [Frame](https://docs.rs/hyper/latest/hyper/body/struct.Frame.html)
-
-1. A `Frame` is the smallest unit of communication in http/2
-1. A `Frame` is the smallest unit of data transmitted between two peers
-1. Each `Frame` can arrive in any order
-1. Heavily used in http/2
-    1. http/2 frames are binary encoded
-    1. http/2 frames from multiple streams can interleave
-    1. Each http/2 frame has a header (with streamId)
-    1. See https://developer.mozilla.org/en-US/docs/Web/HTTP/Messages#http2_frames
-    1. See https://datatracker.ietf.org/doc/html/rfc7540#section-4
-    1. http/1 has messages, http/2 breaks messages into frames
-1. Concept Relationships:
-    1. `Connection` -|---|< `Stream`
-    1. `Stream` -|---|< `Message` 
-    1. `Message` -|---|< `Frame`
-1. Other resources
-    1. https://tokio.rs/tokio/tutorial/framing
