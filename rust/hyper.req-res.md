@@ -1,12 +1,12 @@
 # Overview
 
-1. Request & Response concepts in [hyper](https://hyper.rs/)
+1. `Request` & `Response` concepts in [hyper](https://hyper.rs/)
 1. See the [hyper overview doc](./hyper.md)
 1. See the [hyper Body doc](./hyper.body.md)
 
 # [http::`Request`](https://docs.rs/hyper/latest/hyper/struct.Request.html) struct
 
-1. Head and (optional) Body
+1. `Request` has [Head](https://docs.rs/http/1.1.0/src/http/request.rs.html#159) and (optional) [Body](https://docs.rs/http/1.1.0/src/http/request.rs.html#160)
 1. Head is of type [`Parts`](https://docs.rs/http/1.1.0/http/request/struct.Parts.html)
     1. [`url`](https://docs.rs/http/1.1.0/http/uri/struct.Uri.html)
     1. [`method`](https://docs.rs/http/1.1.0/http/method/struct.Method.html)
@@ -18,7 +18,7 @@
 
 # [http::`Response`](https://docs.rs/hyper/latest/hyper/struct.Response.html) struct
 
-1. Head and (optional) Body
+1. `Response` has [Head](https://docs.rs/http/1.1.0/src/http/response.rs.html#181) and (optional) [Body](https://docs.rs/http/1.1.0/src/http/response.rs.html#182)
 1. Head is of type [`Parts`](https://docs.rs/http/1.1.0/http/response/struct.Parts.html)
     1. [`status` code](https://docs.rs/http/1.1.0/http/status/struct.StatusCode.html)
     1. [`headerMap`](https://docs.rs/http/1.1.0/http/header/struct.HeaderMap.html)
