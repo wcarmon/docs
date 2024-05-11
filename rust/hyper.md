@@ -36,12 +36,14 @@
 
 ### Common examples
 1. `Response<BoxBody<Bytes, anyhow::Error>>`  (very common in hyper server coding)
-    1. `Response` has a Body 
-    1. `Response` body type (generic) is (`http_body_util::combinators::BoxBody`) 
-    1. `BoxBody` is backed by a `Buf` (`bytes::Bytes`)
-    1. `BoxBody` has two generic params
+    1. `Response` has a `Body` 
+    1. `Response` has one generic for the body type, (set to [`http_body_util::combinators::BoxBody`](https://docs.rs/http-body-util/latest/http_body_util/combinators/struct.BoxBody.html)) 
+    1. `BoxBody` has two generic params (data and error type), to set the two associated types on [`Body` trait](https://docs.rs/http-body/latest/http_body/trait.Body.html)
+    1. `BoxBody` is backed by a [`Buf`](https://docs.rs/bytes/latest/bytes/buf/trait.Buf.html) impl (currently [`bytes::Bytes`](https://docs.rs/bytes/latest/bytes/struct.Bytes.html) struct)    
 1. `Response<Empty<Bytes>>`
-    1. TODO
+    1. `Response` has a `Body`
+    1. `Response` body type (generic) is ([`Empty`](https://docs.rs/http-body-util/latest/http_body_util/struct.Empty.html)) 
+    1. 
 1. `Response<Full<Bytes>>`
     1. TODO
 
