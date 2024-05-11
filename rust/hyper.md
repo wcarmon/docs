@@ -4,7 +4,7 @@
 
 # Concepts
 
-## [hyper::`Request`](https://docs.rs/hyper/latest/hyper/struct.Request.html) struct
+## [http::`Request`](https://docs.rs/hyper/latest/hyper/struct.Request.html) struct
 
 1. Head and (optional) Body
 1. Head is of type [`Parts`](https://docs.rs/http/1.1.0/http/request/struct.Parts.html)
@@ -16,7 +16,7 @@
         1. Similar to java [ServletRequest::attributes](https://javaee.github.io/javaee-spec/javadocs/javax/servlet/ServletRequest.html#getAttribute-java.lang.String-)
 1. Body can be a stream, bytes in memory, etc
 
-## [hyper::`Response`](https://docs.rs/hyper/latest/hyper/struct.Response.html) struct
+## [http::`Response`](https://docs.rs/hyper/latest/hyper/struct.Response.html) struct
 
 1. Head and (optional) Body
 1. Head is of type [`Parts`](https://docs.rs/http/1.1.0/http/response/struct.Parts.html)
@@ -26,6 +26,25 @@
     1. [`Extensions`](https://docs.rs/http/1.1.0/http/struct.Extensions.html) for arbitrary key-value pairs
         1. Similar to java [ServletRequest::attributes](https://javaee.github.io/javaee-spec/javadocs/javax/servlet/ServletRequest.html#getAttribute-java.lang.String-)
 1. Body can be a stream, bytes in memory, etc (same as `Request`.`body`)
+1. `Response` has one generic param (for the body)
+
+
+### Construction:
+1. [Via builder](https://docs.rs/hyper/latest/hyper/struct.Response.html#method.builder)
+1. [via `::new`](https://docs.rs/hyper/latest/hyper/struct.Response.html#method.new) 
+
+
+### Common examples
+1. `Response<BoxBody<Bytes, anyhow::Error>>`  (very common in hyper server coding)
+    1. `Response` has a Body (`http_body_util::combinators::BoxBody`)
+    1. `Response` has one generic param
+    1. `BoxBody` is backed by a `Buf` (`bytes::Bytes`)
+    1. `BoxBody` has two generic params
+1. `Response<Empty<Bytes>>`
+    1. TODO
+1. `Response<Full<Bytes>>`
+    1. TODO
+
 
 ## Body
 
