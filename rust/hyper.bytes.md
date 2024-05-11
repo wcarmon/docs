@@ -1,8 +1,8 @@
 # Overview
 
 1. Request & Response concepts in [hyper](https://hyper.rs/)
-1. See [hyper Overview doc](./hyper.md)
-1. See [hyper Body doc](./hyper.body.md)
+1. See [hyper Overview doc](./hyper.md) also
+1. See [hyper Body doc](./hyper.body.md) also
 - TODO: add link for service
 
 
