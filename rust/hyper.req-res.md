@@ -65,6 +65,7 @@
     1. ... bound to [`Full`](https://docs.rs/http-body-util/latest/http_body_util/struct.Full.html) 
 1. `Full` struct is a type of `Body`
 1. `Full` struct has two generics
-    1. `Body` is some `Buf` impl, currently bound to 
+    1. `Body` is some `Buf` impl
+        1. ... currently bound to [`bytes::Bytes`](https://docs.rs/bytes/latest/bytes/struct.Bytes.html) struct  
     1. `Error` is [`Infallible`](https://doc.rust-lang.org/nightly/core/convert/enum.Infallible.html)
 
