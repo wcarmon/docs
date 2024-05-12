@@ -15,18 +15,20 @@
 1. [Set Base href](https://angular.io/guide/router#base-href)
 
 ## Baseurl
-1. Make sure it **ends with a slash**
+1. **MUST END WITH TRAILING SLASH**
+1. Be consistent
 1. If using k8s ingress, use the path as `--base-href`
 1. Priority
     1. Highest: `ng build --base-href="..."`  <-- do it here
     1. Middle:  `baseHref` in `angular.json`  <-- don't use
     1. Lowest: `<base href="...">` in `index.html`  <-- don't use
-1. Add to [`angular.json`](https://angular.io/guide/workspace-config#angular-workspace-configuration)
+1. Must add to [`angular.json`](https://angular.io/guide/workspace-config#angular-workspace-configuration)
     1. [`/projects/<project-name>/architect/build/options/baseHref`](https://angular.io/guide/workspace-config#base-href)
     1. Set the `baseHref` here (cli argument in `ng build ...`)
         1. Each configuration can have a different `baseHref`
-1. Add to `index.html`
+1. Must add to `index.html`
     1. `<base href="/">` is fine (and is the default)
+    1. `<base href="/static/">` is also fine    
     1.  angular-build rewrites the `base`, so default is fine:
         1. See https://github.com/angular/angular-devkit-build-angular-builds/blob/main/src/utils/index-file/augment-index-html.js#L138
     1. See https://angular.io/guide/deployment#the-base-tag
