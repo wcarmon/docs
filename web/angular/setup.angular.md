@@ -40,7 +40,7 @@ ng serve --open
 pnpm i --save @sherifmagdy/animejs
 pnpm i --save auto-bind
 pnpm i --save dayjs
-pnpm i --save lodash
+pnpm i --save lodash-es
 pnpm i --save normalize.css
 pnpm i --save rxjs
 pnpm i --save toastify-js
