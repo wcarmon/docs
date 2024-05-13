@@ -22,4 +22,5 @@ myMap.forEach((value, key) => {
 
 
 # Other Resources
-1. TODO ...
+1. https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/forEach
+
