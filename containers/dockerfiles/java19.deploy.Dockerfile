@@ -47,4 +47,11 @@ COPY --chown=javaapp:javaapp ./target/fix.jar /home/javaapp/app.jar
 RUN chown -R javaapp:javaapp /home/javaapp
 
 USER javaapp:javaapp
+
+#
+# In K8s, use environment vars like this:
+# JDK_JAVA_OPTIONS=--enable-preview --add-opens=java.base/java.nio=ALL-UNNAMED
+# or
+# JAVA_TOOL_OPTIONS=--enable-preview --add-opens=java.base/java.nio=ALL-UNNAMED
+#
 CMD ["/usr/bin/java", "-jar", "app.jar"]

@@ -174,4 +174,10 @@ RUN addgroup -gid 1001 javaapp && \
 RUN chown -R javaapp:javaapp /app
 USER javaapp:javaapp
 
+#
+# In K8s, use environment vars like this:
+# JDK_JAVA_OPTIONS=--enable-preview --add-opens=java.base/java.nio=ALL-UNNAMED
+# or
+# JAVA_TOOL_OPTIONS=--enable-preview --add-opens=java.base/java.nio=ALL-UNNAMED
+#
 CMD ["/app/app.bin"]
