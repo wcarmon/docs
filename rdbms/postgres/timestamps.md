@@ -1,4 +1,5 @@
 # Overview
+1. Idioms for more robust datetime/timestamp columns
 
 
 # Idiom
@@ -13,6 +14,7 @@
     1. Avoids casting in postgres queries
     1. JVM: Avoids legacy getters/setters related to `java.sql.Timestamp`
     1. JVM: Avoids conversion issues with buggy jdbc drivers    
+1. Name the column after the type (eg. `foo_epoch_secs` or `foo_epoch_millis`)
 
 
 # Builtin timestamps
