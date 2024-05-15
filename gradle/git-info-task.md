@@ -115,3 +115,61 @@ compileJava.dependsOn("writeGitHashToFile")
 1. `COPY --chown=appbuilder:appbuilder .git /home/appbuilder/.git`
 1. `RUN git config --global --add safe.directory /home/appbuilder`
 
+
+# Java record example
+```java
+/**
+ * See build.gradle.kts, task called "writeGitHashToFile"
+ */
+@Builder
+public record GitInfo(
+    @Nullable Instant buildTS,
+    @Nullable Instant gitCommitTS,
+    String gitCommitHash,
+    String gitlabCommitHash) {
+    
+    public static final String CLASSPATH_FOR_GIT_INFO_PROPERTIES = "/git-info.properties";
+    private static final DateTimeFormatter TS_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss Z");
+    
+    public GitInfo {
+        gitCommitHash = StringUtils.defaultIfBlank(gitCommitHash, "");
+        gitlabCommitHash = StringUtils.defaultIfBlank(gitlabCommitHash, "");
+    }
+    
+    public static GitInfo empty() {
+        return GitInfo.builder().build();
+    }
+    
+    @SneakyThrows
+    public static GitInfo readFromClasspath(String classpath) {
+        
+        final Properties properties = new Properties();
+        try (final InputStream inputStream = 
+                GitInfo.class.getResourceAsStream(classpath)) {
+                
+            properties.load(inputStream);
+        }
+        
+        final String clean0 = StringUtils.defaultIfBlank(properties.getProperty("build.ts"), "")
+                .replaceAll("'", "")
+                .replaceAll("\"", "")
+                .strip();
+        final OffsetDateTime buildTS = OffsetDateTime.parse(clean0, TS_FORMATTER);
+        
+        // -- git log -1 --format='%ci'
+        // -- eg. '2024-09-13 12:35:54 -0400'
+        final String clean1 = StringUtils.defaultIfBlank(properties.getProperty("git.commit.ts"), "")
+                .replaceAll("'", "")
+                .replaceAll("\"", "")
+                .strip();
+        final OffsetDateTime buildTS = OffsetDateTime.parse(clean1, TS_FORMATTER);
+        
+        return GitInfo.builder()
+                .buildTS(buildTS.toInstant())
+                .gitCommitHash(StringUtils.defaultIfBlank(properties.getProperty("git.commit.hash"), "").trim())
+                .gitCommitTS(gitCommitTS.toInstant())
+                .gitlabCommitHash(StringUtils.defaultIfBlank(properties.getProperty("gitlab.commit.hash"), "").trim())                
+                .build();
+    }
+}
+```
