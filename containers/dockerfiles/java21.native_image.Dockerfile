@@ -16,7 +16,7 @@ FROM amazoncorretto:21 AS buildStage
 
 # -- Install dependencies
 RUN yum upgrade -y && \
-    yum install -q -y wget unzip zip shadow-utils.x86_64 && \
+    yum install -q -y git wget unzip zip shadow-utils.x86_64 && \
     update-ca-trust
 
 

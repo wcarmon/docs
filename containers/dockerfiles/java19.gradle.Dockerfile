@@ -17,7 +17,7 @@ WORKDIR /home/appbuilder
 
 # -- Install dependencies
 RUN apt-get update -qq && \
-    apt-get install -q -y curl unzip zip && \
+    apt-get install -q -y git curl unzip zip && \
     update-ca-certificates
 
 
