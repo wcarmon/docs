@@ -113,3 +113,5 @@ compileJava.dependsOn("writeGitHashToFile")
     1. `apt-get install -y git ...`
 1. Ensure `.dockerignore` **lacks** `.git/`
 1. `COPY --chown=appbuilder:appbuilder .git /home/appbuilder/.git`
+1. `RUN git config --global --add safe.directory /home/appbuilder`
+
