@@ -105,3 +105,11 @@ task writeGitHashToFile() {
 // -- Run whenever compiling java
 compileJava.dependsOn("writeGitHashToFile")
 ```
+
+
+# Docker
+1. add `git` binary:
+    1. `yum install -y -q git ...`
+    1. `apt-get install -y git ...`
+1. Ensure `.dockerignore` **lacks** `.git/`
+1. `COPY --chown=appbuilder:appbuilder .git /home/appbuilder/.git`
