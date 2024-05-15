@@ -1,5 +1,5 @@
 # Overview
-1. Example gradle tasks for writing git-info to src/main/resources
+1. Example gradle tasks for writing git-info to `src/main/resources` and using at runtime
 
 
 # build.gradle.kts
@@ -10,9 +10,9 @@ import java.time.format.DateTimeFormatter
 import java.time.Instant
 import java.time.ZoneOffset
 
-...
+// ...
 
-// Writes git info into src/main/resources, so server can expose
+// -- Writes git info into src/main/resources, so server can log or expose
 task("writeGitHashToFile") {
 
     // -- Get git commit hash
@@ -108,10 +108,10 @@ compileJava.dependsOn("writeGitHashToFile")
 
 
 # Docker
-1. add `git` binary:
-    1. `yum install -y -q git ...`
+1. add `git` binary:    
     1. `apt-get install -y git ...`
-1. Ensure `.dockerignore` **lacks** `.git/`
+    1. `yum install -y -q git ...`
+1. Ensure `.dockerignore` **lacks** `.git/` directory
 1. `COPY --chown=appbuilder:appbuilder .git /home/appbuilder/.git`
 1. `RUN git config --global --add safe.directory /home/appbuilder`
 
@@ -142,6 +142,7 @@ public record GitInfo(
     
     @SneakyThrows
     public static GitInfo readFromClasspath(String classpath) {
+        checkArgument(isNotBlank(classpath), "classpath is required");
         
         final Properties properties = new Properties();
         try (final InputStream inputStream = 
