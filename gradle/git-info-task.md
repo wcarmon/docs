@@ -61,7 +61,7 @@ tasks.named<JavaCompile>("compileJava") {
 ```
 
 
-# build.gradle
+# build.gradle (legacy)
 ```gradle
 // Writes git info into src/main/resources, so server can expose
 task writeGitHashToFile() {
