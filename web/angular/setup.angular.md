@@ -74,13 +74,13 @@ pnpm i --save-dev prettier
 
 1. The format/structure changes between versions
 1. Add your global styles
-    - Add to:  projects.<projectName>.architect.build.options.styles
+    - Add to:  projects.<projectName&gt;.architect.build.options.styles
     - Add to:  projects.<projectName>.architect.test.options.styles
 
 ```json
 "styles": [
-"node_modules/normalize.css/normalize.css",
-"node_modules/toastify-js/src/toastify.css",
+  "node_modules/normalize.css/normalize.css",
+  "node_modules/toastify-js/src/toastify.css",
 ],
 ```
 
