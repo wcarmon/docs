@@ -50,8 +50,10 @@ pnpm i --save uuid
 pnpm i --save-dev chai
 pnpm i --save-dev chance
 pnpm i --save-dev eslint
+
 pnpm i --save-dev jasmine
 pnpm i --save-dev jasmine-spec-reporter
+
 pnpm i --save-dev karma
 pnpm i --save-dev karma-chrome-launcher
 pnpm i --save-dev karma-coverage
@@ -59,6 +61,7 @@ pnpm i --save-dev karma-firefox-launcher
 pnpm i --save-dev karma-jasmine
 pnpm i --save-dev karma-jasmine-html-reporter
 pnpm i --save-dev karma-junit-reporter
+
 pnpm i --save-dev mocha
 pnpm i --save-dev prettier
 
@@ -75,7 +78,7 @@ pnpm i --save-dev prettier
 1. The format/structure changes between versions
 1. Add your global styles
     - Add to:  projects.<projectName&gt;.architect.build.options.styles
-    - Add to:  projects.<projectName>.architect.test.options.styles
+    - Add to:  projects.<projectName&gt;.architect.test.options.styles
 
 ```json
 "styles": [
