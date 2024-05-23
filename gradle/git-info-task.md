@@ -44,7 +44,8 @@ task("writeGitHashToFile") {
     val gitInfoFile: File = File(
         project.projectDir,
         "src/main/resources/git-info.properties")
-
+    
+    gitInfoFile.parentFile.mkdirs()
     gitInfoFile.createNewFile()
     gitInfoFile.writeText("") // truncate
 
@@ -94,6 +95,7 @@ task writeGitHashToFile() {
         project.projectDir,
         "src/main/resources/git-info.properties")
 
+    gitInfoFile.parentFile.mkdirs()
     gitInfoFile.createNewFile()
     gitInfoFile.write("") // truncate
 
