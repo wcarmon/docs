@@ -28,11 +28,15 @@
 1. On each field, set [`FormControlName`](https://v17.angular.io/api/forms/FormControlName) directive
 1. Set `id="..."` attribute on HTML input tag, for deep linking
 1. TODO: printing validation error div with *ngIf
-1. 
+1. TODO: (ngSubmit)
+
+
+## CSS (Less)
+1. use the `ng-` classes to make forms appear responsive 
  
 
 # Reactive Forms vs. ~~Template Forms~~
-1. Avoid template forms because ...
+1. Avoid ~~Template forms~~ because ...
     1. They don't scale
     1. Too much logic in HTML template
     1. More verbose HTML template
@@ -43,11 +47,11 @@
 
 
 # [`FormControl`](https://v17.angular.io/api/forms/FormControl)
-1. The source of truth
+1. The source of truth for field value
 1. Structure: Field value + Validation Errors + dirty/touched state
 1. `FormControl` is mutable, but field value is immutable
-    1. See [`.setValue(...)`](https://v17.angular.io/api/forms/FormControl#setValue)
-    1. See [`.patchvalue(...)`](https://v17.angular.io/api/forms/FormControl#patchvalue)
+    1. Use [`.setValue(...)`](https://v17.angular.io/api/forms/FormControl#setValue) to replace **all** values
+    1. Use [`.patchvalue(...)`](https://v17.angular.io/api/forms/FormControl#patchvalue) to replace **some** values
 1. Supports multiple errors (think: `Map<ErrorKey, ErrorMessage>`)
 1. Supports multiple validators (think function: `(HTMLControl) => Map<ErrorKey, ErrorMessage>`)
 1. Supports async validators (think function: `(HTMLControl) => Promise<Map<ErrorKey, ErrorMessage>>`)    
