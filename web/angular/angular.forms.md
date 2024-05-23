@@ -19,16 +19,18 @@
 1. Include ReactiveForms module in Component: `imports: [ReactiveFormsModule],`
 1. Create one [`FormGroup`](https://v17.angular.io/api/forms/FormGroup) instance in component class
 1. Create [`FormControl`](https://v17.angular.io/api/forms/FormControl) instance in component class, for each field
+    1. Add validator functions (like [`required`](TODO), [`min`](TODO), [`max`](TODO))
 1. Add `FormControl` instances to `FormGroup`
-    1. Match the form control names to the domain specific TS interface 
+    1. Use the same name for the TS interface field and `FormGroup` field 
 
 ## HTML
-1. Create a `<form [formGroup]="myForm">`
+1. Create a `<form [formGroup]="myForm" (ngSubmit)="onSubmit()">`
 1. Create HTML elements for each field (eg. `<input>`, `<select>`, etc)
 1. On each field, set [`FormControlName`](https://v17.angular.io/api/forms/FormControlName) directive
 1. Set `id="..."` attribute on HTML input tag, for deep linking
 1. TODO: printing validation error div with *ngIf
-1. TODO: (ngSubmit)
+1. TODO: if foo.touched & foo.invalid or foo.hasError('errorKey')
+1. `<button type="submit" [disabled]="!myForm.valid">`
 
 
 ## CSS (Less)
@@ -53,7 +55,7 @@
     1. Use [`.setValue(...)`](https://v17.angular.io/api/forms/FormControl#setValue) to replace **all** values
     1. Use [`.patchvalue(...)`](https://v17.angular.io/api/forms/FormControl#patchvalue) to replace **some** values
 1. Supports multiple errors (think: `Map<ErrorKey, ErrorMessage>`)
-1. Supports multiple validators (think function: `(HTMLControl) => Map<ErrorKey, ErrorMessage>`)
+1. Supports multiple validators (think function: [`(HTMLControl) => Map<ErrorKey, ErrorMessage>`](https://v17.angular.io/api/forms/ValidatorFn))
 1. Supports async validators (think function: `(HTMLControl) => Promise<Map<ErrorKey, ErrorMessage>>`)    
 1. TODO: restricting input
 
