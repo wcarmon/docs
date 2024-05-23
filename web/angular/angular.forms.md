@@ -15,8 +15,9 @@
 # Cheatsheet
 1. Typescript
     1. Create a component
-    1. 
-    1. 
+    1. Create one `FormGroup` instance in component class
+    1. Create `FormControl` instance in component class, for each field
+    1. Add `FormControl` instances to `FormGroup`
     1. 
 1. HTML
     1. Create a `<form [formGroup]="myForm">`
@@ -34,10 +35,9 @@
     1. Validation uses directives, not functions
     1. Harder to test
     1. Harder to reason about data flow
-    
 
 
-# [`FormControl`](TODO)
+# [`FormControl`](https://v17.angular.io/api/forms/FormControl)
 1. The source of truth
 1. Structure: Field value + Validation Errors + dirty/touched state
 1. `FormControl` is mutable, but field value is immutable
@@ -45,15 +45,11 @@
     1. See [`.patchvalue(...)`](https://v17.angular.io/api/forms/FormControl#patchvalue)
 1. Supports multiple errors (think: `Map<ErrorKey, ErrorMessage>`)
 1. Supports multiple validators (think function: `(HTMLControl) => Map<ErrorKey, ErrorMessage>`)
-1. Supports async validators (think function: `(HTMLControl) => Promise<Map<ErrorKey, ErrorMessage>>`)
-1. Usage:
-    1. Create `FormControl` instance in component class
-    1. Add `FormControl` instance to a `FormGroup`
-    1. in HTML template, use [`[FormControl]`](https://v17.angular.io/api/forms/FormControlDirective) directive
+1. Supports async validators (think function: `(HTMLControl) => Promise<Map<ErrorKey, ErrorMessage>>`)    
 1. TODO: restricting input
 
 
-# [`FormGroup`](TODO)
+# [`FormGroup`](https://v17.angular.io/api/forms/FormGroup)
 1. Aggregates `FormControl`s of different types (Facade pattern)
     1. Tracks `dirty` and `touched` for all child `FormControls`
 1. Can be nested
