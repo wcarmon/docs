@@ -13,17 +13,22 @@
 
 
 # Cheatsheet
-1. Typescript
-    1. Create a component
-    1. Create one `FormGroup` instance in component class
-    1. Create `FormControl` instance in component class, for each field
-    1. Add `FormControl` instances to `FormGroup`
-    1. 
-1. HTML
-    1. Create a `<form [formGroup]="myForm">`
-    1. Create HTML elements for each field (eg. `<input>`, `<select>`, etc)
-    1. On each field, set [`FormControlName`](https://v17.angular.io/api/forms/FormControlName) directive
-    1. Set `id="..."` attribute on HTML input tag, for deep linking
+## Typescript
+1. Make a domain specific [TS interface](https://www.typescriptlang.org/static/TypeScript%20Interfaces-34f1ad12132fb463bd1dfe5b85c5b2e6.png) to model the form entity
+1. [Generate a component for the form](https://v17.angular.io/cli/generate#component-command)
+1. Include ReactiveForms module in Component: `imports: [ReactiveFormsModule],`
+1. Create one [`FormGroup`](https://v17.angular.io/api/forms/FormGroup) instance in component class
+1. Create [`FormControl`](https://v17.angular.io/api/forms/FormControl) instance in component class, for each field
+1. Add `FormControl` instances to `FormGroup`
+    1. Match the form control names to the domain specific TS interface 
+
+## HTML
+1. Create a `<form [formGroup]="myForm">`
+1. Create HTML elements for each field (eg. `<input>`, `<select>`, etc)
+1. On each field, set [`FormControlName`](https://v17.angular.io/api/forms/FormControlName) directive
+1. Set `id="..."` attribute on HTML input tag, for deep linking
+1. TODO: printing validation error div with *ngIf
+1. 
  
 
 # Reactive Forms vs. ~~Template Forms~~
@@ -54,14 +59,14 @@
     1. Tracks `dirty` and `touched` for all child `FormControls`
 1. Can be nested
 1. Supports [cross-field validation](https://v17.angular.io/guide/form-validation#cross-field-validation) 
-1. Idiomatic usage: 
-    1. Make a domain specific interface to model the form controls
+1. Idiomatic usage:    
     1. Use `FormGroup` to model the domain entity 
     1. Use `FormControl` to model the domain entity fields
         1. Same names or use [`FormControlName`](https://v17.angular.io/api/forms/FormControlName) directive
-    1. Use [`FormGroup:setValue(myEntity)`](TODO) to update entire form
+    1. Use [`FormGroup.setValue(myEntity)`](https://v17.angular.io/api/forms/FormGroup#setValue) to update entire form
         1 Assumes property names match
-    1. Use [`FormGroup::reset()`](TODO) on init and after successful form submit
+    1. Use [`FormGroup.patchValue`](https://v17.angular.io/api/forms/FormGroup#patchvalue) to update specific fields
+    1. Use [`FormGroup.reset()`](https://v17.angular.io/api/forms/FormGroup#reset) on init and after successful form submit
         1. clears the `dirty` and `touched` flags, sets defaults, etc. 
 
 
