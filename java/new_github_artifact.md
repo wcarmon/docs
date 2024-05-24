@@ -23,11 +23,12 @@
     1. `mkdir -p src/{main,test}/java/io/github/`
 1. Choose a package
     1. io.github.<your-name>.<subject>
-1. `module-info.java`
+1. `module-info.java` file
     1. `touch src/main/java/module-info.java`
 1. Make `readme.md`
-1. Write code
-1. Move panels to Right-Top
+1. Write source code
+1. IDEA:
+    1. Move panels to Right-Top
 
 
 # Publish
