@@ -293,7 +293,7 @@ subprojects {
     // ------------------------------------------------------
     spotless {
         java {
-            googleJavaFormat("1.12.0").aosp().reflowLongStrings()
+            googleJavaFormat("1.18.1").aosp().reflowLongStrings().skipJavadocFormatting()
             importOrder()
             removeUnusedImports()
 
