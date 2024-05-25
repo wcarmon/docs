@@ -8,6 +8,8 @@
 1. Values must impl [`Eq`](https://doc.rust-lang.org/std/cmp/trait.Eq.html) and [`Hash`](https://doc.rust-lang.org/std/hash/trait.Hash.html) traits
 1. Java equivalent: [`HashSet`](https://docs.oracle.com/en%2Fjava%2Fjavase%2F21%2Fdocs%2Fapi%2F%2F/java.base/java/util/HashSet.html)
 1. C++ equivalent: [`unordered_set`](https://en.cppreference.com/w/cpp/container/unordered_set)
+1. GOTCHA: [`HashSet<T>` does NOT impl `Hash`](https://users.rust-lang.org/t/hashmap-hashset-not-implemented-hash/63173/4)
+    1. Must use `BTreeSet<T>` if you want a property of type "Set<T>" to impl `Hash`
 
 
 # [`BTreeSet`](https://doc.rust-lang.org/std/collections/struct.BTreeSet.html)
