@@ -39,10 +39,13 @@
 ## No Timezone
 1. [`chrono::NaiveDateTime`](https://docs.rs/chrono/latest/chrono/naive/struct.NaiveDateTime.html): Date and time (no timezone)
     1. Java equivalent: [`LocalDateTime`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/LocalDateTime.html)
+    1. internally stored as pair of `NaiveDate` and `NaiveTime`
 1. [`chrono::NaiveDate`](https://docs.rs/chrono/latest/chrono/naive/struct.NaiveDate.html): Date (no timezone)
-    1. Java equivalent: [`LocalDate`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/LocalDate.html)
+    1. internally stored as bits representing year, month, date (no timezone) 
+    1. Java equivalent: [`LocalDate`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/LocalDate.html)    
 1. [`chrono::NaiveTime`](https://docs.rs/chrono/latest/chrono/naive/struct.NaiveTime.html): Time (no timezone)
-    1. Java equivalent: [`LocalTime`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/LocalTime.html)
+    1. internally stored as `# seconds into the day` (`u32`) + `fraction of second` (`u32`)
+    1. Java equivalent: [`LocalTime`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/LocalTime.html)    
 
 
 # Construct
@@ -209,6 +212,7 @@ let chrono_ts: DateTime<Utc> = SystemTime::now().into();
 
 
 - TODO: consider https://docs.rs/time/latest/time/
+- TODO: convert DateTime between time zones (UTC, NYC, AZ, Chicago)
 
 
 # Other Resources
