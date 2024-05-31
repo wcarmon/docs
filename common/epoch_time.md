@@ -1,17 +1,17 @@
 # Overview
 1. Representing time in a machine friendly way
 
-# Epoch Millis
+# Epoch Milliseconds
 1. Rust:
-    - Use `i64`, covers years from `258195 BCE` to `258195 AD`
-    - ~~i32~~ too small
-    - ~~u64~~ incompatible with chrono
+    - Use [`i64`](https://doc.rust-lang.org/std/primitive.i64.html), covers years from `258195 BCE` to `258195 AD`
+    - ~~`i32`~~ too small
+    - ~~`u64`~~ incompatible with chrono
 1. Java:
     - Use `long`, covers years from `258195 BCE` to `258195 AD`
-    - ~~int~~ too small
+    - ~~`int`~~ too small
 1. Postgres:
-    - Use `bigint`, covers years from `258195 BCE` to `258195 AD`
-    - ~~integer~~ too small
+    - Use [`bigint`](https://www.postgresql.org/docs/current/datatype-numeric.html), covers years from `258195 BCE` to `258195 AD`
+    - ~~`integer`~~ too small
 
 |Epoch millis| UTC Timestamp|
 | ---|---|
