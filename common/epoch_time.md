@@ -2,6 +2,7 @@
 1. Representing time in a machine friendly way
 
 # Epoch Milliseconds
+1. Prefer this over seconds, or nanos
 1. Rust:
     - Use [`i64`](https://doc.rust-lang.org/std/primitive.i64.html), covers years from `258195 BCE` to `258195 AD`
     - ~~`i32`~~ too small
@@ -36,10 +37,17 @@
 |`8_210_200_000_000_000`|`262140-11-17 23:06:40 UTC`|
 
 
-- TODO: epoch_nanos: u32, u64; min/max
-
-
 # Epoch Seconds
+1. Rust:
+    - Use [`i64`](https://doc.rust-lang.org/std/primitive.i64.html), covers as many years as chrono can represent
+    - ~~`i32`~~ too small (only up to year `2038 AD`)
+1. Java:
+    - Use `long`
+    - ~~`int`~~ too small (only up to year `2038 AD`)
+1. Postgres:
+    - Use [`bigint`](https://www.postgresql.org/docs/current/datatype-numeric.html)
+    - ~~`integer`~~ too small (only up to year `2038 AD`)
+
 |Epoch seconds| UTC Timestamp|
 | ---|---|
 | `  600_000_000`|`1989-01-05 10:40:00 UTC`|
@@ -60,11 +68,10 @@
 |`10_000_000_000`|`2286-11-20 17:46:40 UTC`|
 
 
-- TODO: Java
-- TODO: Rust - chrono
-- TODO: Rust - native
-- TODO: Postgres
-- TODO: bash/linux
+# Epoch Nanoseconds
+|Epoch nanos| UTC Timestamp|
+| ---|---|
+|``|``|
 
 
 # Other Resources
