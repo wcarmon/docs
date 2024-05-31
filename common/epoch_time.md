@@ -42,10 +42,10 @@
     - Use [`i64`](https://doc.rust-lang.org/std/primitive.i64.html), covers as many years as chrono can represent
     - ~~`i32`~~ too small (only up to year `2038 AD`)
 1. Java:
-    - Use `long`
+    - Use `long`, covers as many years as chrono can represent
     - ~~`int`~~ too small (only up to year `2038 AD`)
 1. Postgres:
-    - Use [`bigint`](https://www.postgresql.org/docs/current/datatype-numeric.html)
+    - Use [`bigint`](https://www.postgresql.org/docs/current/datatype-numeric.html), covers as many years as chrono can represent
     - ~~`integer`~~ too small (only up to year `2038 AD`)
 
 |Epoch seconds| UTC Timestamp|
