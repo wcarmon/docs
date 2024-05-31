@@ -58,25 +58,36 @@ let dt = Utc.ymd(2014, 7, 8).and_hms(9, 10, 11); // `2014-07-08T09:10:11Z`
 
 ## From Epoch millis
 ```rust
-let epoch_millis: i64 = ...;
+let epoch_millis: i64 = ... ;
 
-let seconds = epoch_millis / 1000;
-let nanoseconds = (epoch_millis % 1000) * 1_000_000;
+let secs = epoch_millis / 1000;
+let nanos = (epoch_millis % 1000) * 1_000_000;
 let utc = DateTime::from_timestamp(
-    seconds,
-    nanoseconds as u32,
+    secs, nanos as u32,
 ).expect("failed to build DateTime");
 ```
 
 ## From Epoch seconds
 ```rust
-let epoch_seconds: i64 = ...;
-let nanoseconds = (epoch_seconds % 1000) * 1_000_000;
+let epoch_seconds: i64 = ... ;
+
+let nanos = (epoch_seconds % 1000) * 1_000_000;
 let utc = DateTime::from_timestamp(
-    epoch_seconds,
-    nanoseconds as u32,
+    epoch_seconds, nanos as u32,
 ).expect("failed to build DateTime");
 ```
+
+## From Epoch nanos
+```rust
+let epoch_nanos: i64 = ... ;
+
+let secs = epoch_nanos / 1_000_000_000;
+let nanos = (epoch_nanos % 1_000_000_000) as u32;
+let utc = DateTime::from_timestamp(
+    secs, nanos as u32
+).expect("failed to build DateTime");
+```
+
 
 # [Current Time](https://doc.rust-lang.org/std/time/struct.Instant.html#method.now)
 ```rust
