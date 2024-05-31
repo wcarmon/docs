@@ -1,12 +1,6 @@
 # Overview
 1. Representing time in a machine friendly way
 
-
-- TODO: epoch_seconds: u32, u64; min/max
-- TODO: epoch_millis: u32, u64; min/max
-- TODO: epoch_nanos: u32, u64; min/max
-
-
 # Epoch Millis
 1. Rust:
     - Use `i64`, covers years from `258195 BCE` to `258195 AD`
@@ -15,7 +9,9 @@
 1. Java:
     - Use `long`, covers years from `258195 BCE` to `258195 AD`
     - ~~int~~ too small
-
+1. Postgres:
+    - Use `bigint`, covers years from `258195 BCE` to `258195 AD`
+    - ~~integer~~ too small
 
 |Epoch millis| UTC Timestamp|
 | ---|---|
@@ -41,11 +37,8 @@
 |`8_210_200_000_000_000`|`262140-11-17 23:06:40 UTC`|
 
 
-- TODO: Java
-- TODO: Rust - chrono
-- TODO: Rust - native
-- TODO: Postgres
-- TODO: bash/linux
+- TODO: epoch_seconds: u32, u64; min/max
+- TODO: epoch_nanos: u32, u64; min/max
 
 
 # Epoch Seconds
