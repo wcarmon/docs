@@ -1,7 +1,7 @@
 # Overview
 1. Using dates, times, zones
 1. See [durations & periods](./duration.md) doc
-1. See TODO: link to common times doc
+1. See [Epoch time doc](../common/epoch_time.md)
 1. Using [chrono](https://docs.rs/chrono/latest/chrono/) lib
 
 
@@ -63,7 +63,7 @@ let epoch_millis: i64 = ... ;
 
 let utc = DateTime::from_timestamp_millis(epoch_millis)
         .ok_or(anyhow!("failed to build DateTime"))?
-        
+
 // -- inverse: utc.timestamp_millis()
 ```
 
