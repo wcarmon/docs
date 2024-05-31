@@ -56,6 +56,27 @@ let dt = Utc.ymd(2014, 7, 8).and_hms(9, 10, 11); // `2014-07-08T09:10:11Z`
 ```
 1. See also [Parse](datetime.md#parse-from-string)
 
+## From Epoch millis
+```rust
+let epoch_millis: i64 = ...;
+
+let seconds = epoch_millis / 1000;
+let nanoseconds = (epoch_millis % 1000) * 1_000_000;
+let utc = DateTime::from_timestamp(
+    seconds,
+    nanoseconds as u32,
+).expect("failed to build DateTime");
+```
+
+## From Epoch seconds
+```rust
+let epoch_seconds: i64 = ...;
+let nanoseconds = (epoch_seconds % 1000) * 1_000_000;
+let utc = DateTime::from_timestamp(
+    epoch_seconds,
+    nanoseconds as u32,
+).expect("failed to build DateTime");
+```
 
 # [Current Time](https://doc.rust-lang.org/std/time/struct.Instant.html#method.now)
 ```rust
