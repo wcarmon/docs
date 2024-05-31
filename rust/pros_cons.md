@@ -74,8 +74,12 @@
 1. Non-blocking code is complex (compared to Golang)
     1. although [Tokio](https://tokio.rs/) and Rayon are simpler to use correctly than Java 18 or c++ concurrency
     1. Example: Read thru the docs for Future & Poll
-1. Hard write a function which to accepts both `std::ops::Range` and `RangeInclusive`
-1. Hard write a function which to accepts both `HashSet` and `BTreeSet`
+1. Hard to abstract over Sets
+    - Hard write a function which to accepts both `HashSet` and `BTreeSet`
+    - Can partially mitigate by accepting iterator, but doesn't help if you need to use other set operations
+1. Hard to abstract over Maps
+    - Hard write a function which to accepts both `HashMap` and `BTreeMap`
+    - Can partially mitigate by accepting iterator, but doesn't help if you need to use other map operations
 1. [`match`](https://doc.rust-lang.org/rust-by-example/flow_control/match.html) creates excessive nesting
     1. Things like [if-let](https://doc.rust-lang.org/rust-by-example/flow_control/if_let.html) mitigate somewhat
 1. Cross compiling from linux container with target of Mac M1 chips (compare to Go, Java, Python, ...)
@@ -112,3 +116,8 @@
     1. need an extra file and have to reference in parent directory
     1. Compare to Go or Java or Python or C++ or C or TS or Kotlin or ...
 1. CLion: cannot exclude directories
+1. Hard to abstract over Ranges
+    - Hard write a function which to accepts both `std::ops::Range` and `RangeInclusive`
+    - Eg. when you need `.start` & `.end`
+    - [`RangeBounds`](https://doc.rust-lang.org/std/ops/trait.RangeBounds.html) trait kinda helps
+        - Need `dyn`, but `RangeBounds` is NOT object safe, so ...
