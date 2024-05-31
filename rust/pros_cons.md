@@ -77,9 +77,11 @@
 1. Hard to abstract over Sets
     - Hard write a function which to accepts both `HashSet` and `BTreeSet`
     - Can partially mitigate by accepting iterator, but doesn't help if you need to use other set operations
+    - Would need `dyn`
 1. Hard to abstract over Maps
     - Hard write a function which to accepts both `HashMap` and `BTreeMap`
     - Can partially mitigate by accepting iterator, but doesn't help if you need to use other map operations
+    - Would need `dyn`
 1. [`match`](https://doc.rust-lang.org/rust-by-example/flow_control/match.html) creates excessive nesting
     1. Things like [if-let](https://doc.rust-lang.org/rust-by-example/flow_control/if_let.html) mitigate somewhat
 1. Cross compiling from linux container with target of Mac M1 chips (compare to Go, Java, Python, ...)
