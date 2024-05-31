@@ -112,6 +112,12 @@ let s = format!("{}", ts.format("%d/%m/%Y %H:%M"));
 print!("{}", s);
 ```
 
+## Format `NaiveDate`
+```rust
+let d: NaiveDate = ... ;
+println!("formatted: {d}");
+```
+
 
 # [Parse](https://docs.rs/chrono/latest/chrono/struct.DateTime.html#impl-FromStr-for-DateTime%3CFixedOffset%3E) (from string)
 1. From standard [rfc3339](https://datatracker.ietf.org/doc/html/rfc3339)
@@ -131,6 +137,14 @@ let ts1 = DateTime::parse_from_str(
         "%Y %b %d %H:%M:%S%.3f %z")
     .map(|ts| ts.with_timezone(&Utc))
     .map_err(anyhow::Error::msg)
+```
+
+## Parse NaiveDate
+```rust
+let date_str = "2024-09-17";
+let d = NaiveDate::parse_from_str(date_str, "%Y-%m-%d")
+    .or(Err(format!("failed to parse date: {date_str}")))?;
+    // TODO: how to use with ?
 ```
 
 
