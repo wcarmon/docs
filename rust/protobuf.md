@@ -64,21 +64,24 @@ pub mod my {
 
 # Conversion
 ```rust
-// From Domain to proto should be infallible
+// -- Domain -> Proto should be infallible
+// -- (if not, impl TryFrom<MyDomainType>)
 
 impl From<MyDomainType> for my::pkg::Foo {
     fn from(value: MyDomainType) -> Self {
         Self {
-            // ... set fields
+            // ... set fields here
         }
     }
 }
 
-// -- Deserializing may fail
+// -- Deserializing may fail since rust has stronger types than proto
 impl TryFrom<my::pkg::Foo> for MyDomainType {
     type Error = anyhow::Error;
 
-    fn try_from(value: my::pkg::FooFill) -> Result<Self, Self::Error> {
+    fn try_from(value: my::pkg::Foo) -> Result<Self, Self::Error> {
+
+        // -- eg. Maybe you have a int64 timestmamp field
         let ts = DateTime::from_timestamp_millis(value.ts_millis)
             .ok_or(anyhow!("failed to build DateTime"))?;
 
@@ -86,14 +89,14 @@ impl TryFrom<my::pkg::Foo> for MyDomainType {
 
         Ok(Self {
             ts,
-            // ... set fields
+            // ... set fields here
         })
     }
 }
 ```
 
 
-# Write & Read
+# Examples: Write bytes & Read bytes
 ```rust
     let obj = MyDomainType {
         // ... set fields
