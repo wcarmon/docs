@@ -99,10 +99,10 @@ impl TryFrom<my::pkg::Foo> for MyDomainType {
 # Examples: Write bytes & Read bytes
 ```rust
     let obj = MyDomainType {
-        // ... set fields
+        // ... set fields here
     };
 
-    let proto: my::pkg::Foo = obj.into();
+    let my_proto: my::pkg::Foo = obj.into();
 
     let raw_bytes = my_proto.encode_to_vec();
     // See also: my_proto.encode(buf)
