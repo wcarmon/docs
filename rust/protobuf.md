@@ -115,7 +115,7 @@ impl TryFrom<my::pkg::Foo> for MyDomainType {
 ```rust
     let raw_bytes: Vec<u8> = ... ; // TODO: read from somewhere
 
-    // -- deref, coerce, then reference raw_bytes
+    // -- deref, coerce, then (re)reference raw_bytes
     let decoded = my::pkg::Foo::decode(&*raw_bytes)
         .context("failed to deserialize proto")?;
 
