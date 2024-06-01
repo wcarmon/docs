@@ -96,7 +96,7 @@ impl TryFrom<my::pkg::Foo> for MyDomainType {
 ```
 
 
-# Examples: Write bytes & Read bytes
+# Write bytes (Encode)
 ```rust
     let obj = MyDomainType {
         // ... set fields here
@@ -107,15 +107,15 @@ impl TryFrom<my::pkg::Foo> for MyDomainType {
     let raw_bytes: Vec<u8> = my_proto.encode_to_vec();
     // -- See also: my_proto.encode(buf)
 
-    // TODO: send raw bytes somewhere (eg. Postgres, Redis, Kafka, grpc, Hazelcast)
 ```
+    // TODO: send raw bytes somewhere (eg. Postgres, Redis, Kafka, gRPC, Hazelcast)
 
 
-# Read
+# Read bytes (Decode)
 ```rust
-    let raw_bytes: Vec<u8> = ... ; // TODO: Get from somewhere
+    let raw_bytes: Vec<u8> = ... ; // TODO: read from somewhere
 
-    // -- deref, coerce, then reference
+    // -- deref, coerce, then reference raw_bytes
     let decoded = my::pkg::Foo::decode(&*raw_bytes)
         .context("failed to deserialize proto")?;
 
