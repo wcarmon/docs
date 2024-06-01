@@ -1,19 +1,24 @@
 # Overview
-1. Checklist for using [prost](TODO) (for rust [Protocol buffers](TODO))
+1. Checklist for using [prost](https://github.com/tokio-rs/prost) (for rust [Protocol buffers](https://protobuf.dev/))
 
 # One-time setup
 1. [Download protoc](https://github.com/protocolbuffers/protobuf/releases/)
     1. eg. `protoc-27.0-linux-x86_64.zip`
 1. Install `protoc`
-    1. Either set `$PROTOC` env var (higher priority) or put binary on `$PATH` (lower priority)
-    1. eg. `chmod 755 $HOME/opt/protoc/bin/protoc; ln -sv $HOME/opt/protoc/bin/protoc $HOME/bin/protoc;`
+    1. Approach-1: Set `$PROTOC` env var (higher priority)
+    1. Approach-2: put binary on `$PATH` (lower priority)
+    1. eg.
+    ```bash
+    chmod 755 $HOME/opt/protoc/bin/protoc;
+    ln -sv $HOME/opt/protoc/bin/protoc $HOME/bin/protoc;
+    ```
     1. eg. Add `$HOME/opt/protoc/bin` to `PATH`
 1. In crate's `Cargo.toml`
     ```toml
     [dependencies]
+    // ... other deps
     prost = "..."
     prost-types = "..."
-    ...
 
     [build-dependencies]
     prost-build = { version = "..." }
