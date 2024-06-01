@@ -16,16 +16,17 @@
 1. In crate's `Cargo.toml`
     ```toml
     [dependencies]
-    // ... other deps
+    # ... other deps
     prost = "..."
     prost-types = "..."
 
     [build-dependencies]
     prost-build = { version = "..." }
     ```
-1. Add `$PROJ_ROOT/src/foo.rs` for the each `struct`
-1. Add `$PROJ_ROOT/protos/foo.proto` for each corresponding protocol buffer definition
-    1. Choose a package (you'll use it later)
+1. Add `$PROJ_ROOT/src/foo.rs` for the each `struct` (model the domain as you would normally)
+1. Add `$PROJ_ROOT/protos/foo.proto` for each corresponding [proto def](https://protobuf.dev/programming-guides/proto3/)
+    1. Choose a [package](https://protobuf.dev/programming-guides/proto3/#packages) (you'll use it later)
+    1. Or maybe the protos already exit
 1. In $PROJ_ROOT/build.rs
 ```rs
 use std::io::Result;
