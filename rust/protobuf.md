@@ -1,5 +1,6 @@
 # Overview
-1. Checklist for using [prost](https://github.com/tokio-rs/prost) (for rust [Protocol buffers](https://protobuf.dev/))
+1. Checklist for using [prost](https://crates.io/crates/prost) (for rust [Protocol buffers](https://protobuf.dev/))
+
 
 # One-time setup
 1. [Download protoc](https://github.com/protocolbuffers/protobuf/releases/)
@@ -27,7 +28,7 @@
 1. Add `$PROJ_ROOT/protos/foo.proto` for each corresponding [proto def](https://protobuf.dev/programming-guides/proto3/)
     1. Choose a [package](https://protobuf.dev/programming-guides/proto3/#packages) (you'll use it later)
     1. Or maybe the protos already exit
-1. In `$PROJ_ROOT/build.rs`:
+1. In [`$PROJ_ROOT/build.rs`](https://docs.rs/prost-build/latest/prost_build/):
 ```rs
 use std::io::Result;
 
@@ -107,9 +108,8 @@ impl TryFrom<my::pkg::Foo> for MyDomainType {
     let raw_bytes: Vec<u8> = my_proto.encode_to_vec();
     // -- See also: my_proto.encode(buf)
 
-```
     // TODO: send raw bytes somewhere (eg. Postgres, Redis, Kafka, gRPC, Hazelcast)
-
+```
 
 # Read bytes (Decode)
 ```rust
@@ -126,4 +126,8 @@ impl TryFrom<my::pkg::Foo> for MyDomainType {
 
 
 # Other Resources
-
+1. https://crates.io/crates/prost
+1. https://docs.rs/prost-build/latest/prost_build/
+1. https://docs.rs/prost/latest/prost/trait.Message.html#method.encode_to_vec
+1. https://github.com/tokio-rs/prost
+1. https://protobuf.dev/programming-guides/proto3/
