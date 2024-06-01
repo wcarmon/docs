@@ -105,9 +105,9 @@ impl TryFrom<my::pkg::Foo> for MyDomainType {
     let my_proto: my::pkg::Foo = obj.into();
 
     let raw_bytes: Vec<u8> = my_proto.encode_to_vec();
-    // See also: my_proto.encode(buf)
+    // -- See also: my_proto.encode(buf)
 
-    // TODO: send raw bytes somewhere
+    // TODO: send raw bytes somewhere (eg. Postgres, Redis, Kafka, grpc, Hazelcast)
 ```
 
 
