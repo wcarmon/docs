@@ -145,7 +145,7 @@ let ts1 = DateTime::parse_from_str(
 let date_str = "2024-09-17";
 let d = NaiveDate::parse_from_str(date_str, "%Y-%m-%d")
     .or(Err(format!("failed to parse date: {date_str}")))?;
-    // TODO: how to use with ?
+    // TODO: how to make this work with ?
 ```
 
 
