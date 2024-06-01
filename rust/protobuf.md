@@ -55,8 +55,8 @@ pub mod my {
     }
 }
 ```
-1. Add `$PROJ_ROOT/src/foo_proto.rs` for the mapping
-    1. See conversion examples below
+1. Add `$PROJ_ROOT/src/foo_proto.rs` for the conversion mappings
+    1. [See examples below](https://github.com/wcarmon/docs/blob/main/rust/protobuf.md#conversion)
 1. cargo generates proto structs/enums
     1. Generated structs [`impl Message`](https://docs.rs/prost/latest/prost/trait.Message.html)
     1. See `$PROJ_ROOT/target/debug/build/${CRATE_NAME}-${SOME_HASH}/${PROTO_PACKAGE}.rs`
