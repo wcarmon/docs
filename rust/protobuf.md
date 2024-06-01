@@ -9,8 +9,8 @@
     1. Approach-2: put binary on `$PATH` (lower priority)
     1. eg.
     ```bash
-    chmod 755 $HOME/opt/protoc/bin/protoc;
-    ln -sv $HOME/opt/protoc/bin/protoc $HOME/bin/protoc;
+    chmod 755 $HOME/opt/protoc/bin/protoc
+    ln -sv $HOME/opt/protoc/bin/protoc $HOME/bin/protoc
     ```
     1. eg. Add `$HOME/opt/protoc/bin` to `PATH`
 1. In crate's `Cargo.toml`
@@ -27,7 +27,7 @@
 1. Add `$PROJ_ROOT/protos/foo.proto` for each corresponding [proto def](https://protobuf.dev/programming-guides/proto3/)
     1. Choose a [package](https://protobuf.dev/programming-guides/proto3/#packages) (you'll use it later)
     1. Or maybe the protos already exit
-1. In $PROJ_ROOT/build.rs
+1. In `$PROJ_ROOT/build.rs`:
 ```rs
 use std::io::Result;
 
@@ -45,14 +45,15 @@ fn main() -> Result<()> {
     Ok(())
 }
 ```
-1. In `$PROJ_ROOT/libmain.rs` (or `$PROJ_ROOT/main.rs`)
+1. In `$PROJ_ROOT/lib.rs` (or `$PROJ_ROOT/main.rs`)
 ```rs
-    pub mod my {
-        pub mod pkg {
-            // -- final argument matches the package in *.proto
-            include!(concat!(env!("OUT_DIR"), "/my.pkg.rs"));
-        }
+// -- replace "my" and "pkg" with your proto package segments
+pub mod my {
+    pub mod pkg {
+        // -- final argument matches the package in *.proto
+        include!(concat!(env!("OUT_DIR"), "/my.pkg.rs"));
     }
+}
 ```
 1. Add `$PROJ_ROOT/src/foo_proto.rs` for the mapping
     1. See conversion examples below
