@@ -125,7 +125,7 @@ impl TryFrom<my::pkg::Foo> for MyDomainType {
 ```
 
 # Gotcha
-1. prost doesn't write directly to `std::io::Write`, so you must first write to `&[u8]` (or similar)
+1. prost doesn't write directly to [`std::io::Write`](./io.file.md), so you must first write to `&[u8]` (or similar)
 
 
 # Other Resources
