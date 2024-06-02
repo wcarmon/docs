@@ -3,14 +3,14 @@
 1. Important types and traits related to File IO
 1. Some patterns for File IO
 
-# Related Types
+# Important Types
 
 ## [`std::fmt::Write`](https://doc.rust-lang.org/std/fmt/trait.Write.html) Trait
 - For text (`String`, `&str`, etc)
 
 - Comparison:
+    - Java: [`java.io.Writer`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/Writer.html)
     - Golang: [`StringWriter`](https://pkg.go.dev/io#StringWriter)
-    - Java: [`Writer`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/Writer.html)
 
 ## [`std::io::Write`](https://doc.rust-lang.org/std/io/trait.Write.html) Trait
 - For bytes
@@ -18,8 +18,8 @@
 - lower level than `std::fmt::Write`
 - Two methods: [`write`](https://doc.rust-lang.org/std/io/trait.Write.html#tymethod.write) and [`flush`](https://doc.rust-lang.org/std/io/trait.Write.html#tymethod.flush)
 - Comparison:
+    - Java: [`java.io.OutputStream`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/OutputStream.html)
     - Golang: [`Writer`](https://pkg.go.dev/io#Writer)
-    - Java: [`OutputStream`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/OutputStream.html)
 
 ### [`std::io::BufWriter`](https://doc.rust-lang.org/std/io/struct.BufWriter.html)
 
