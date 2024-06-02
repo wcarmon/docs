@@ -24,6 +24,13 @@ flate2 = "1.0"
 
 # Decompress
 ```rust
+    let file: std::fs::File = File::open(tmp_file_path)?;
+
+    let mut buf: Vec<u8> = Vec::with_capacity(2048);
+    let mut dec = flate2::read::GzDecoder::new(file);
+    dec.read_to_end(&mut buf)?;
+
+    // .. use buf
 ```
 
 
