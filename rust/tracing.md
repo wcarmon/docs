@@ -247,7 +247,7 @@ fn outer() -> Result<(), anyhow::Error> {
             inner.set_parent(parent_cx); // link to parent
         })
         .join()
-        .unwrap();
+        .expect("failed to join");
     }
 
     Ok(())
