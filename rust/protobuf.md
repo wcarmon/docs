@@ -124,6 +124,9 @@ impl TryFrom<my::pkg::Foo> for MyDomainType {
         .context("failed to convert proto to domain object")?;
 ```
 
+# Gotcha
+1. prost doesn't write directly to `std::io::Write`, so you must first write to `&[u8]` (or similar)
+
 
 # Other Resources
 1. https://crates.io/crates/prost

@@ -24,7 +24,7 @@
 ### [`std::io::BufWriter`](https://doc.rust-lang.org/std/io/struct.BufWriter.html)
 
 - Comparison:
-    - Java: [`BufferedWriter`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/BufferedWriter.html)
+    - Java: [`java.io.BufferedWriter`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/BufferedWriter.html)
     - Golang: [`bufio.Writer`](https://pkg.go.dev/bufio#Writer)
 
 ## [`std::fs::File`](https://doc.rust-lang.org/std/fs/struct.File.html) struct
