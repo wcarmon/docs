@@ -136,15 +136,22 @@ let tmp_dir: PathBuf = env::temp_dir();
 ```
 
 ## Create [Temp file](https://docs.rs/tempfile/latest/tempfile/)
+- In `Cargo.toml`
+```toml
+tempfile = "..."
+```
 
 ```rust
 use tempfile::NamedTempFile;
 ...
 
-let mut file = NamedTempFile::new().unwrap();
-file.write_all("...".as_bytes()).unwrap();
+let mut file = NamedTempFile::new()
+    .context("failed to create temp file");
 
-// file is auto-deleted when it goes out of scope
+file.write_all("...".as_bytes())
+    .context("failed to write to file")?;
+
+// -- NOTE: file is auto-deleted when it goes out of scope
 ```
 
 ## Set file permissions
