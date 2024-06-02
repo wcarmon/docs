@@ -5,13 +5,15 @@
 
 # Related Types
 
-## [`std::fmt::Write`](https://doc.rust-lang.org/std/fmt/trait.Write.html) trait, for text (`String`, `&str`, etc)
+## [`std::fmt::Write`](https://doc.rust-lang.org/std/fmt/trait.Write.html) Trait
+- For text (`String`, `&str`, etc)
 
 - Comparison:
     - Golang: [`StringWriter`](https://pkg.go.dev/io#StringWriter)
     - Java: [`Writer`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/Writer.html)
 
-## [`std::io::Write`](https://doc.rust-lang.org/std/io/trait.Write.html) trait, for bytes
+## [`std::io::Write`](https://doc.rust-lang.org/std/io/trait.Write.html) Trait
+- For bytes
 
 - lower level than `std::fmt::Write`
 - Two methods: [`write`](https://doc.rust-lang.org/std/io/trait.Write.html#tymethod.write) and [`flush`](https://doc.rust-lang.org/std/io/trait.Write.html#tymethod.flush)
