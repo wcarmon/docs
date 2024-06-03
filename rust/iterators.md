@@ -32,6 +32,8 @@
 1. a `fn` should *accept* [`IntoIterator`](https://doc.rust-lang.org/std/iter/trait.IntoIterator.html)
     1. Allows passing [`Vec<T>`](https://doc.rust-lang.org/std/vec/struct.Vec.html#), [`HashSet<T>`](https://doc.rust-lang.org/std/collections/struct.HashSet.html), [`BTreeSet<T>`](https://doc.rust-lang.org/std/collections/struct.BTreeSet.html#), ...
 1. a `fn` should *return* [`FromIterator`](https://doc.rust-lang.org/std/iter/trait.FromIterator.html)
+1. Use `v.drain(..)` to move the items without moving the `Vec`
+
 
 ## Error handling idioms
 
