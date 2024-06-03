@@ -210,9 +210,11 @@ file.write_all("...".as_bytes())
 1. See also [walkdir crate](https://docs.rs/walkdir/latest/walkdir/)
 ```rust
 let dir: &Path = ... ;
+
 for dir_entry in fs::read_dir(dir)? {
     let entry = dir_entry?;
     let path = entry.path();
+
     if path.is_dir() {
         info!("found a dir: {:?}", path)
         continue;
