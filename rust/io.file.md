@@ -139,7 +139,7 @@ tempdir = "0.3"
 ```
 - Managed directory:
 ```rust
-let managed_dir = TempDir::new("whatever_")?.into_path();
+let managed_dir = TempDir::new("whatever")?.into_path();
 
 // -- all files auto deleted on drop(managed_dir)
 ```
@@ -147,13 +147,15 @@ let managed_dir = TempDir::new("whatever_")?.into_path();
 ```rust
 
 // -- You own the dir, nothing deleted on drop(...)
-let unmanaged_dir = TempDir::new("whatever_")?.into_path();
+let unmanaged_dir = TempDir::new("whatever")?.into_path();
+let foo = unmanaged_dir.join(...);
 
 // -- Cleanup later
 // fs::remove_dir_all(unmanaged_dir)?;
 
-// -- Not as helpful as tempdir crate
-// let tmp_dir_env_var: PathBuf = env::temp_dir();
+// -- Below is not as helpful as tempdir crate
+// let tmp_dir_from_env_var: PathBuf = env::temp_dir();
+// tmp_dir_from_env_var.join(...)
 ...
 ```
 
