@@ -131,9 +131,18 @@ bw.flush()?;
 ```
 
 ## Create [Temp dir](https://doc.rust-lang.org/std/env/fn.temp_dir.html)
-- (tempdir)
+- See https://docs.rs/tempdir/latest/tempdir/
+- In `Cargo.toml`:
+```toml
+[dependencies]
+tempdir = "0.3"
+```
+- In code:
 ```rust
-let tmp_dir: PathBuf = env::temp_dir();
+let dir = TempDir::new("open_portfolios_")?.into_path();
+
+// -- Not as helpful as tempdir crate
+// let tmp_dir_env_var: PathBuf = env::temp_dir();
 ...
 ```
 
