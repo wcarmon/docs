@@ -206,6 +206,27 @@ file.write_all("...".as_bytes())
 //TODO: https://doc.rust-lang.org/std/fs/struct.Metadata.html#method.len
 ```
 
+## List files in a directory
+```rust
+let dir: &Path = ... ;
+for dir_entry in fs::read_dir(dir)? {
+    let entry = dir_entry?;
+    let path = entry.path();
+    if path.is_dir() {
+        info!("found a dir: {:?}", path)
+        continue;
+    }
+
+    if path.is_file() {
+        info!("found a file: {:?}", path)
+        continue;
+    }
+
+    // ... use it here
+}
+```
+
+
 # Gotcha
 
 - `canonicalize` fails if path doesn't already exist
