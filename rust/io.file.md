@@ -131,7 +131,7 @@ bw.flush()?;
 ```
 
 ## Create [Temp dir](https://doc.rust-lang.org/std/env/fn.temp_dir.html)
-
+- (tempdir)
 ```rust
 let tmp_dir: PathBuf = env::temp_dir();
 ...
