@@ -207,6 +207,7 @@ file.write_all("...".as_bytes())
 ```
 
 ## List files in a directory
+1. See also [walkdir crate](https://docs.rs/walkdir/latest/walkdir/)
 ```rust
 let dir: &Path = ... ;
 for dir_entry in fs::read_dir(dir)? {
