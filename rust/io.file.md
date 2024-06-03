@@ -137,17 +137,17 @@ bw.flush()?;
 [dependencies]
 tempdir = "0.3"
 ```
-- Managed dir:
+- Managed directory:
 ```rust
-let managed_dir = TempDir::new("open_portfolios_")?.into_path();
+let managed_dir = TempDir::new("whatever_")?.into_path();
 
 // -- all files auto deleted on drop(managed_dir)
 ```
-- Unmanaged dir:
+- Unmanaged directory:
 ```rust
 
-// -- you own the dir, nothing deleted on drop(...)
-let unmanaged_dir = TempDir::new("open_portfolios_")?.into_path();
+// -- You own the dir, nothing deleted on drop(...)
+let unmanaged_dir = TempDir::new("whatever_")?.into_path();
 
 // -- Cleanup later
 // fs::remove_dir_all(unmanaged_dir)?;
