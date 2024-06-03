@@ -131,15 +131,26 @@ bw.flush()?;
 ```
 
 ## Create [Temp dir](https://doc.rust-lang.org/std/env/fn.temp_dir.html)
-- See https://docs.rs/tempdir/latest/tempdir/
+- See [tempdir-crate](https://docs.rs/tempdir/latest/tempdir/struct.TempDir.html)
 - In `Cargo.toml`:
 ```toml
 [dependencies]
 tempdir = "0.3"
 ```
-- In code:
+- Managed dir:
 ```rust
-let dir = TempDir::new("open_portfolios_")?.into_path();
+let managed_dir = TempDir::new("open_portfolios_")?.into_path();
+
+// -- all files auto deleted on drop(managed_dir)
+```
+- Unmanaged dir:
+```rust
+
+// -- you own the dir, nothing deleted on drop(...)
+let unmanaged_dir = TempDir::new("open_portfolios_")?.into_path();
+
+// -- Cleanup later
+// fs::remove_dir_all(unmanaged_dir)?;
 
 // -- Not as helpful as tempdir crate
 // let tmp_dir_env_var: PathBuf = env::temp_dir();
