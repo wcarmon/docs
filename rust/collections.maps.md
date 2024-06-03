@@ -42,6 +42,9 @@ m.insert(String::from("k1"), "foo"); // put or upsert
 
 let old_value = m.insert(String::from("k2"), "bar");
 ```
+- Similar to [`.put(...)`](https://docs.oracle.com/en%2Fjava%2Fjavase%2F21%2Fdocs%2Fapi%2F%2F/java.base/java/util/Map.html#put(K,V)) in `java.util.Map`
+- See also: [`HashMap::get_mut`](https://doc.rust-lang.org/std/collections/struct.HashMap.html#method.get_mut)
+
 
 # [Put all](https://doc.rust-lang.org/std/iter/trait.Extend.html#tymethod.extend)
 
