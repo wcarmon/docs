@@ -1,10 +1,11 @@
 # Overview
 1. Using durations
 1. See also [datetime](./datetime.md) doc
+1. See also [durations](../common/durations.md) doc
 
 
 # Terms
-## `Duration`
+## `Duration` [(`std::time::Duration`)](https://doc.rust-lang.org/std/time/struct.Duration.html)
 1. Represents hours, minutes, seconds, millis, microseconds and nanoseconds
 1. Max value is ~1 Billion Centuries
 1. Standard [`Duration`](https://doc.rust-lang.org/stable/std/time/struct.Duration.html)
@@ -16,7 +17,10 @@
 1. [JVM equivalent](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Duration.html)
 1. [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations)
 1. Internally stored as [seconds + nanos](https://doc.rust-lang.org/stable/src/core/time.rs.html#86)
-    - Same as Java
+    - [Same as Java](https://docs.oracle.com/en%2Fjava%2Fjavase%2F21%2Fdocs%2Fapi%2F%2F/java.base/java/time/Duration.html)
+    - duration.sec is `u64`, can represent between `1 sec` and `4bn centuries`
+    - duration.nanos: is `u32`, can represent between `1 nanosecond` and `4.2 seconds`
+
 
 
 # Construct

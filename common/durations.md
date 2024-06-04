@@ -23,6 +23,7 @@
     - `i32`: ~68 years
     - `u32`: ~136 years
     - `i64`: ~2_924_712_000 *centuries*
+    - `u64`: >4 billion *centuries*
 1. Java:
     - `short`: ~9 hrs
     - `int`: ~68 years
