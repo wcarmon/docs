@@ -15,18 +15,17 @@
     - Postgres: store as [`BIGINT`](https://www.postgresql.org/docs/current/datatype-numeric.html) for millis
 
 
-# Minutes
+# Milliseconds
 1. Rust:
-    - `i16`: ~22 days
-    - `u16`: ~45 days
-    - `i32`: ~40 *centuries*
-    - `u32`: ~81 *centuries*
+    - `i32`: ~24 days
+    - `u32`: ~45 days
+    - `i64`: ~2_924_700  *centuries*
 1. Java:
-    - `short`: ~22 days
-    - `int`: ~40 *centuries*
+    - `int`: ~24 days
+    - `long`: ~2_924_700  *centuries*
 1. Postges:
-    - `smallint`: ~22 days
-    - `INTEGER`: ~40 *centuries*
+    - `INTEGER`: ~24 days
+    - `BIGINT`: ~2_924_700  *centuries*
 
 
 # Seconds
@@ -47,17 +46,18 @@
     - `BIGINT`: ~2_924_712_000 *centuries*
 
 
-# Milliseconds
+# Minutes
 1. Rust:
-    - `i32`: ~24 days
-    - `u32`: ~45 days
-    - `i64`: ~2_924_700  *centuries*
+    - `i16`: ~22 days
+    - `u16`: ~45 days
+    - `i32`: ~40 *centuries*
+    - `u32`: ~81 *centuries*
 1. Java:
-    - `int`: ~24 days
-    - `long`: ~2_924_700  *centuries*
+    - `short`: ~22 days
+    - `int`: ~40 *centuries*
 1. Postges:
-    - `INTEGER`: ~24 days
-    - `BIGINT`: ~2_924_700  *centuries*
+    - `smallint`: ~22 days
+    - `INTEGER`: ~40 *centuries*
 
 
 # Conversion
