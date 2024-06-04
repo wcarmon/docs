@@ -17,12 +17,10 @@
 
 # Minutes
 1. Rust:
-    - `i32`: TODO
-    - `u32`: TODO
-    - `i64`: TODO
+    - `i32`: ~40 *centuries*
+    - `u32`: ~81 *centuries*
 1. Java:
-    - `int`: TODO
-    - `long`: TODO
+    - `int`: ~40 *centuries*
 1. Postges:
     - TODO
 
@@ -33,8 +31,8 @@
     - `u32`: ~136 years
     - `i64`: ~2_924_712_000 *centuries*
 1. Java:
-    - `int`: TODO
-    - `long`: TODO
+    - `int`: ~68 years
+    - `long`: ~2_924_712_000 *centuries*
 1. Postges:
     - TODO
 
@@ -43,10 +41,10 @@
 1. Rust:
     - `i32`: ~24 days
     - `u32`: ~45 days
-    - `i64`: ~292_471_208 years
+    - `i64`: ~2_924_700  *centuries*
 1. Java:
     - `int`: ~24 days
-    - `long`: ~292_471_208 years
+    - `long`: ~2_924_700  *centuries*
 1. Postges:
     - TODO
 
