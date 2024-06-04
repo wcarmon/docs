@@ -32,7 +32,7 @@
 1. Postges:
 
 # Conversion
-|Type|Days|Hours|Minutes|Seconds|Millis|Micros|Nanos|
+|use|Days|Hours|Minutes|Seconds|Millis|Micros|Nanos|
 |---:| ---:| ---:| ---:| ---:| ---:| ---:| ---:|
 |`u16`|...|...|...|...|65.5|65_535|65_535_000|
 |one|...|...|...|1|1_000|1_000_000|1_000_000_000|
