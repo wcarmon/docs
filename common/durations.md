@@ -18,14 +18,19 @@
 
 # Seconds
 1. Rust:
+    - `i16`: TODO
+    - `u16`: TODO
     - `i32`: ~68 years
     - `u32`: ~136 years
     - `i64`: ~2_924_712_000 *centuries*
 1. Java:
+    - `short`: TODO
     - `int`: ~68 years
     - `long`: ~2_924_712_000 *centuries*
 1. Postges:
-    - TODO
+    - `smallint`: TODO
+    - `integer`: ~68 years
+    - `bigint`: ~2_924_712_000 *centuries*
 
 
 # Milliseconds
@@ -37,7 +42,8 @@
     - `int`: ~24 days
     - `long`: ~2_924_700  *centuries*
 1. Postges:
-    - TODO
+    - `integer`: ~24 days
+    - `bigint`: ~2_924_700  *centuries*
 
 
 # Conversion
