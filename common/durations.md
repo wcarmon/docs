@@ -12,7 +12,7 @@
         - consider standard [Number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) for millis
 1. In database ...
     - Postgres: use [`BIGINT`](https://www.postgresql.org/docs/current/datatype-numeric.html) for millis
-    - SQLite: use `BIGINT` (alias for dynamic sized int) or `INTEGER` (which grows up to 8 bytes based on inserted value)
+    - SQLite: use [`BIGINT` (alias for dynamic sized int) or `INTEGER` (which grows up to 8 bytes based on inserted value)](https://www.sqlite.org/datatype3.html)
 1. Serialized ...
     - Proto: use [`int64`](https://protobuf.dev/programming-guides/proto3/#scalar) for millis
     - JSON: use [Number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) for millis
