@@ -2,6 +2,15 @@
 1. Representing durations in a machine friendly way
 
 
+# TL;DR;
+1. In memory:
+    - Rust: store as [`std::time::Duration`](https://doc.rust-lang.org/std/time/struct.Duration.html)
+    - Java: store as [`java.time.Duration`](https://docs.oracle.com/en%2Fjava%2Fjavase%2F21%2Fdocs%2Fapi%2F%2F/java.base/java/time/Duration.html)
+1. In proto, database, json, ... store as millis:
+    - Proto: store as [`int64`](https://protobuf.dev/programming-guides/proto3/#scalar) for millis
+    - Postgres: store as [`BIGINT`](https://www.postgresql.org/docs/current/datatype-numeric.html) for millis
+
+
 # Minutes
 1. Rust:
     - `i16`: ~22 days
