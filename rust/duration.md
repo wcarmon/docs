@@ -18,8 +18,8 @@
 1. [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations)
 1. Internally stored as [seconds + nanos](https://doc.rust-lang.org/stable/src/core/time.rs.html#86)
     - [Same as Java](https://docs.oracle.com/en%2Fjava%2Fjavase%2F21%2Fdocs%2Fapi%2F%2F/java.base/java/time/Duration.html)
-    - duration.sec is `u64`, can represent between `1 sec` and `4bn centuries`
-    - duration.nanos: is `u32`, can represent between `1 nanosecond` and `4.2 seconds`
+    - `Duration.sec` part is `u64`, can represent between `1 sec` and `4bn centuries`
+    - `Duration.nanos` part is `u32`, can represent between `1 nanosecond` and `4.2 seconds`
 
 
 
