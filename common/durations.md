@@ -6,7 +6,7 @@
 1. In memory:
     - Rust: store as [`std::time::Duration`](https://doc.rust-lang.org/std/time/struct.Duration.html)
     - Java: store as [`java.time.Duration`](https://docs.oracle.com/en%2Fjava%2Fjavase%2F21%2Fdocs%2Fapi%2F%2F/java.base/java/time/Duration.html)
-    - Go: store as [`time.Duration`](https://pkg.go.dev/time#Duration)
+    - Golang: store as [`time.Duration`](https://pkg.go.dev/time#Duration)
     - JS:
         - consider [day.js](https://day.js.org/docs/en/durations/durations)
         - consider standard [Number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) for millis
@@ -16,16 +16,17 @@
 
 
 # Milliseconds
+1. Use this unless you have a good reason to choose another
 1. Rust:
     - `i32`: ~24 days
     - `u32`: ~45 days
-    - `i64`: ~2_924_700  *centuries*
+    - `i64`: **~2_924_700  *centuries* **
 1. Java:
     - `int`: ~24 days
-    - `long`: ~2_924_700  *centuries*
+    - `long`: **~2_924_700  *centuries***
 1. Postges:
     - `INTEGER`: ~24 days
-    - `BIGINT`: ~2_924_700  *centuries*
+    - `BIGINT`: **~2_924_700  *centuries***
 
 
 # Seconds
