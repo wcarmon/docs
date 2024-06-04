@@ -20,13 +20,13 @@
 1. Rust:
     - `i32`: ~24 days
     - `u32`: ~45 days
-    - `i64`: **~2_924_700  *centuries* **
+    - **`i64`**: ~2_924_700  *centuries* ✅
 1. Java:
     - `int`: ~24 days
-    - `long`: **~2_924_700  *centuries***
+    - **`long`**: **~2_924_700  *centuries* ✅
 1. Postges:
     - `INTEGER`: ~24 days
-    - `BIGINT`: **~2_924_700  *centuries***
+    - **`BIGINT`**: **~2_924_700  *centuries* ✅
 
 
 # Seconds
