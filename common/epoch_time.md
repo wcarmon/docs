@@ -1,5 +1,6 @@
 # Overview
-1. Representing time in a machine friendly way
+1. Representing timestamps in a machine friendly way
+
 
 # Epoch Milliseconds
 1. Prefer this over seconds, or nanos
