@@ -3,16 +3,18 @@
 
 
 # TL;DR;
-1. In memory:
-    - Rust: store as [`std::time::Duration`](https://doc.rust-lang.org/std/time/struct.Duration.html)
-    - Java: store as [`java.time.Duration`](https://docs.oracle.com/en%2Fjava%2Fjavase%2F21%2Fdocs%2Fapi%2F%2F/java.base/java/time/Duration.html)
-    - Golang: store as [`time.Duration`](https://pkg.go.dev/time#Duration)
+1. In code ...
+    - Rust: use [`std::time::Duration`](https://doc.rust-lang.org/std/time/struct.Duration.html)
+    - Java: use [`java.time.Duration`](https://docs.oracle.com/en%2Fjava%2Fjavase%2F21%2Fdocs%2Fapi%2F%2F/java.base/java/time/Duration.html)
+    - Golang: use [`time.Duration`](https://pkg.go.dev/time#Duration)
     - JS:
         - consider [day.js](https://day.js.org/docs/en/durations/durations)
         - consider standard [Number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) for millis
-1. In proto, database, json, ... store as millis:
-    - Proto: store as [`int64`](https://protobuf.dev/programming-guides/proto3/#scalar) for millis
-    - Postgres: store as [`BIGINT`](https://www.postgresql.org/docs/current/datatype-numeric.html) for millis
+1. In database ...
+    - Postgres: use [`BIGINT`](https://www.postgresql.org/docs/current/datatype-numeric.html) for millis
+1. Serialized ...
+    - Proto: use [`int64`](https://protobuf.dev/programming-guides/proto3/#scalar) for millis
+    - JSON: use [Number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) for millis
 
 
 # Millisecond Representation
