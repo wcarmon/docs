@@ -16,7 +16,7 @@
 1. [Golang equivalent](https://pkg.go.dev/time#Duration)
 1. [JVM equivalent](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Duration.html)
 1. [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations)
-1. Internally stored as [seconds + nanos](https://doc.rust-lang.org/stable/src/core/time.rs.html#86) (which is elegant :-)
+1. Internally stored as [seconds + nanos](https://doc.rust-lang.org/stable/src/core/time.rs.html#86), which is elegant :-)
     - [Same as Java](https://docs.oracle.com/en%2Fjava%2Fjavase%2F21%2Fdocs%2Fapi%2F%2F/java.base/java/time/Duration.html)
     - `Duration.sec` part is `u64`, can represent between `1 sec` and `4 billion centuries`
     - `Duration.nanos` part is `u32`, can represent between `1 nanosecond` and `4.2 seconds`
