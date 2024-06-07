@@ -21,7 +21,7 @@ export const routes: Routes = [
 ```
 
 
-# Observing Routing events
+# Observing Routing Events
 ```ts
 
 export type NavScreen = 'screen-1' | 'screen-2' | 'screen-3';
@@ -46,6 +46,15 @@ export class NavStateService {
 
   ...
 }
+```
+
+# Router links
+```html
+  <a [routerLink]=['/foo']>
+    <img class="nav-icon"
+         [class.active]="foo1Active$ | async" />
+  </a>
+  ...
 ```
 
 
