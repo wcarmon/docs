@@ -25,7 +25,10 @@ RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
 
 # -- For Postgres debugging
-#yum install -q -y postgresql.x86_64
+# psql --host=$HOST --dbname=foo --port=5432 --username=my_user --password --command='SELECT 1'
+#RUN yum install -q -y amazon-linux-extras
+#RUN amazon-linux-extras install postgresql14 -y
+##RUN yum install -q -y postgresql.x86_64
 
 
 #RUN /usr/bin/keytool \
