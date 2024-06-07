@@ -58,6 +58,10 @@ export class NavStateService {
 ```
 
 
+# Trigger Route
+- TODO
+
+
 # Deep linking (via sessionState)
 - TODO
 
