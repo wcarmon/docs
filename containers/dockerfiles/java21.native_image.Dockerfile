@@ -16,12 +16,16 @@ FROM amazoncorretto:21 AS buildStage
 
 # -- Install dependencies
 RUN yum upgrade -y && \
-    yum install -q -y git wget unzip zip shadow-utils.x86_64 && \
+    yum install -q -y git shadow-utils.x86_64 tree which wget unzip zip && \
     update-ca-trust
 
 
 # -- Use bash
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
+
+
+# -- For Postgres debugging
+#yum install -q -y postgresql.x86_64
 
 
 #RUN /usr/bin/keytool \
