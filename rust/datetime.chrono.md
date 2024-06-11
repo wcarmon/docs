@@ -36,19 +36,14 @@
 
 
 # Equivalents in time-rs crate
-|chrono|time-rs|
+|chrono crate|time-rs crate|
 |---|---|
 |[`DateTime`](https://docs.rs/chrono/latest/chrono/struct.DateTime.html)|[`time::OffsetDateTime`](https://docs.rs/time/latest/time/struct.OffsetDateTime.html)|
 |[`NaiveDate`](https://docs.rs/chrono/latest/chrono/naive/struct.NaiveDate.html)|[`time::Date`](https://docs.rs/time/latest/time/struct.Date.html)|
 |[`NaiveDateTime`](https://docs.rs/chrono/latest/chrono/naive/struct.NaiveDate.html)|[`time::PrimitiveDateTime`](https://docs.rs/time/latest/time/struct.PrimitiveDateTime.html)|
 |[`NaiveTime`](https://docs.rs/chrono/latest/chrono/naive/struct.NaiveTime.html)|[`time::Time`](https://docs.rs/time/latest/time/struct.Time.html)|
-
-|[`DurationRound`]()|[`time::Duration`]()|
-|[`TimeDelta`]()|[`time::Duration`]()|
-|[`Datelike`]()|[``]()|
-|[`TimeZone`]()|[``]()|
-|[`UTC`]()|[``]()|
-|[``]()|[``]()|
+|[`TimeDelta`](https://docs.rs/chrono/latest/chrono/struct.TimeDelta.html)|[`time::Duration`](https://docs.rs/time/latest/time/struct.Duration.html)|
+|[`UTC`](https://docs.rs/chrono/latest/chrono/struct.Utc.html)|[`UtcOffset::UTC`](https://time-rs.github.io/api/time/struct.UtcOffset.html)|
 
 
 # Other resources
