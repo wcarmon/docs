@@ -153,6 +153,10 @@ subprojects {
 //      options.release.set(17)
     }
 
+    tasks.withType<JavaExec>().configureEach {
+        jvmArgs.plusAssign("--enable-preview")
+    }
+
 
     // ------------------------------------------------------
     // -- Kotlin Compiler
@@ -191,6 +195,8 @@ subprojects {
             showExceptions = true
             showStandardStreams = true
         }
+
+        jvmArgs.plusAssign("--enable-preview")
     }
 
 
