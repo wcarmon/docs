@@ -154,7 +154,8 @@ subprojects {
     }
 
     tasks.withType<JavaExec>().configureEach {
-        jvmArgs.plusAssign("--enable-preview")
+        // jvmArgs.plusAssign("--enable-preview")
+        jvmArgs = listOf("--enable-preview")
     }
 
 
@@ -196,7 +197,8 @@ subprojects {
             showStandardStreams = true
         }
 
-        jvmArgs.plusAssign("--enable-preview")
+        //jvmArgs.plusAssign("--enable-preview")
+        jvmArgs = listOf("--enable-preview")
     }
 
 
