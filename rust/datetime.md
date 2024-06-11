@@ -2,6 +2,7 @@
 1. Using dates, times, zones
 1. See [durations & periods](./duration.md) doc
 1. See [Epoch time doc](../common/epoch_time.md)
+1. See [chrono crate doc](./datetime.chrono.md)
 1. Using [chrono](https://docs.rs/chrono/latest/chrono/) lib
 
 
@@ -18,12 +19,6 @@
     1. Only useful/meaningful within the [process](https://en.wikipedia.org/wiki/Process_(computing))
     1. Current value not that important, only useful for comparisons (eg. [`add`](https://doc.rust-lang.org/std/time/struct.Instant.html#method.checked_add), [`sub`](https://doc.rust-lang.org/std/time/struct.Instant.html#method.sub), etc)
     1. User/Code cannot set/update
-1. [`chrono::DateTime`](https://docs.rs/chrono/latest/chrono/struct.DateTime.html): Date + time + timezone
-    1. More like a [Wall/Realtime clock](https://doc.rust-lang.org/std/time/struct.SystemTime.html)
-    1. Implemented as [`NaiveDateTime`](https://docs.rs/chrono/latest/chrono/naive/struct.NaiveDateTime.html) + [`Tz::Offset`](https://docs.rs/chrono/latest/chrono/offset/trait.Offset.html)
-    1. [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)
-    1. Golang equivalent: [`time.Time`](https://pkg.go.dev/time#Time)
-    1. Java equivalent: [`OffsetDateTime`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/OffsetDateTime.html)
 1. [`std::time::SystemTime`](https://doc.rust-lang.org/std/time/struct.SystemTime.html): system clock, wall clock, realtime clock
     1. Lacks parse & format features
     1. Golang equivalent: [`time.Now().UTC()`](https://pkg.go.dev/time#Time.UTC) (handles both [wall](https://pkg.go.dev/time) and [monotonic](https://pkg.go.dev/time#hdr-Monotonic_Clocks))
@@ -34,22 +29,9 @@
 1. [`std::time::Duration`](https://doc.rust-lang.org/std/time/struct.Duration.html): Seconds + nanoseconds
     1. Golang equivalent: [`time.Duration`](https://pkg.go.dev/time#Duration)
     1. Java equivalent: [`Duration`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Duration.html)
-1. [`chrono_tz`](https://github.com/chronotope/chrono-tz/) helps with more advanced timezone cases
 
 
-## No Timezone
-1. [`chrono::NaiveDateTime`](https://docs.rs/chrono/latest/chrono/naive/struct.NaiveDateTime.html): Date and time (no timezone)
-    1. Java equivalent: [`LocalDateTime`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/LocalDateTime.html)
-    1. internally stored as pair of `NaiveDate` and `NaiveTime`
-1. [`chrono::NaiveDate`](https://docs.rs/chrono/latest/chrono/naive/struct.NaiveDate.html): Date (no timezone)
-    1. internally stored as bits representing year, month, date (no timezone) 
-    1. Java equivalent: [`LocalDate`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/LocalDate.html)    
-1. [`chrono::NaiveTime`](https://docs.rs/chrono/latest/chrono/naive/struct.NaiveTime.html): Time (no timezone)
-    1. internally stored as `# seconds into the day` (`u32`) + `fraction of second` (`u32`)
-    1. Java equivalent: [`LocalTime`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/LocalTime.html)    
-
-
-# Construct
+# Usage: Construct
 ```rust
 // GOTCHA: this will panic!(...) if invalid
 // This is fine for test code, not for prod
@@ -67,7 +49,8 @@ let utc = DateTime::from_timestamp_millis(epoch_millis)
 // -- inverse: utc.timestamp_millis()
 ```
 
-## From Epoch seconds
+## ~~From Epoch seconds~~
+1. You don't gain much over millis, in terms of representable dates
 ```rust
 let epoch_seconds: i64 = ... ;
 
