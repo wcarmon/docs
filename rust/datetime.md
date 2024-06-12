@@ -201,26 +201,30 @@ TODO
 
 
 # Interop
-## [From Unix Seconds](https://docs.rs/chrono/latest/chrono/naive/struct.NaiveDateTime.html#method.from_timestamp)
+## [From Epoch Seconds](https://docs.rs/chrono/latest/chrono/naive/struct.NaiveDateTime.html#method.from_timestamp)
 ```rust
 let ndt = NaiveDateTime::from_timestamp(ux_sec, 0);
 let ts = DateTime::<Utc>::from_utc(ndt, Utc);
 ```
 
-## [From Unix Millis]()
+## [From Epoch Millis]()
 - TODO: DateTime::from_timestamp_millis(1711557020035)
 ```rust
+// time-rs
+let ts = OffsetDateTime::UNIX_EPOCH + Duration::milliseconds(ux_millis)
+
+// Chrono
 let nanos = ((ux_millis % 1000) * 1_000_000) as u32;
 let ndt = NaiveDateTime::from_timestamp(ux_millis / 1000, nanos);
 let ts = DateTime::<Utc>::from_utc(ndt, Utc);
 ```
 
-## [To Unix Seconds](https://docs.rs/chrono/latest/chrono/struct.DateTime.html#method.timestamp)
+## [To Epoch Seconds](https://docs.rs/chrono/latest/chrono/struct.DateTime.html#method.timestamp)
 ```rust
 let ux_sec = ts.timestamp()
 ```
 
-## [To Unix Millis](https://docs.rs/chrono/latest/chrono/struct.DateTime.html#method.timestamp_millis)
+## [To Epoch Millis](https://docs.rs/chrono/latest/chrono/struct.DateTime.html#method.timestamp_millis)
 ```rust
 let ux_millis = ts.timestamp_millis()
 ```
