@@ -46,7 +46,7 @@ plugins {
   /** if using javafx */
   id("org.openjfx.javafxplugin") version "0.1.0" apply false
 
-  id("io.freefair.lombok") version "8.4" apply true // if using lombok
+  id("io.freefair.lombok") version "8.6" apply true // if using lombok
 
   /** GraalVM */
   id("org.mikeneck.graalvm-native-image") version "1.4.1" apply false

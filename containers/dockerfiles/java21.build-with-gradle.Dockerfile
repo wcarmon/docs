@@ -14,7 +14,7 @@
 # ---------------------------------------------
 # -- Build stage
 # ---------------------------------------------
-FROM debian:bullseye AS buildStage
+FROM debian:bookworm AS buildStage
 WORKDIR /home/appbuilder
 
 # -- TODO: copy extra ca certs here
@@ -41,26 +41,18 @@ RUN groupadd -g 1010 appbuilder && \
     appbuilder
 
 
-# -- Copy sources
-# -- See also: .dockerignore
-COPY --chown=appbuilder:appbuilder . .
-RUN chown -R appbuilder:appbuilder /home/appbuilder
-
-
-USER appbuilder:appbuilder
-
-
 # -- Install sdkman, java, gradle
 ENV JAVA_HOME=/home/appbuilder/.sdkman/candidates/java/current
 ENV GRADLE_HOME=/home/appbuilder/.sdkman/candidates/gradle/current
 
 # NOTE: use `sdk list java` to see available versions
+# GOTCHA: this step is slow because of the java & gradle installs
 RUN curl --silent "https://get.sdkman.io" | bash && \
     chmod a+x "$HOME/.sdkman/bin/sdkman-init.sh" && \
     source "$HOME/.sdkman/bin/sdkman-init.sh" && \
     sdk install java 21.0.3-amzn && \
     sdk use java 21.0.3-amzn && \
-    sdk install gradle 8.8 && \
+    sdk install gradle 8.6 && \
     sdk use gradle 8.8
 
 
@@ -73,6 +65,15 @@ RUN $HOME/.sdkman/candidates/java/current/bin/keytool \
     -noprompt \
     -storepass changeit \
     -trustcacerts
+
+
+# -- Copy sources
+# -- See also: .dockerignore
+COPY --chown=appbuilder:appbuilder . .
+RUN chown -R appbuilder:appbuilder /home/appbuilder
+
+
+USER appbuilder:appbuilder
 
 
 # -- Build via Gradle
