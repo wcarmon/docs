@@ -53,7 +53,7 @@ RUN curl --silent "https://get.sdkman.io" | bash && \
     sdk install java 21.0.3-amzn && \
     sdk use java 21.0.3-amzn && \
     sdk install gradle 8.6 && \
-    sdk use gradle 8.8
+    sdk use gradle 8.6
 
 
 # -- Add cert to keytool (java sdk)
@@ -107,12 +107,15 @@ USER root
 WORKDIR /app
 EXPOSE 3000
 
+RUN wget -O /etc/apk/keys/amazoncorretto.rsa.pub  https://apk.corretto.aws/amazoncorretto.rsa.pub && \
+    echo "https://apk.corretto.aws/" >> /etc/apk/repositories && \
+    apk update && \
+    apk add amazon-corretto-21
+
 RUN update-ca-certificates && \
     apk --no-cache add ca-certificates
 
 COPY --from=buildStage /home/appbuilder/build/libs/*.jar /app/app.jar
-
-#TODO: need to copy/install java jdk
 
 RUN groupadd -g 1001 javaapp && \
     useradd \
