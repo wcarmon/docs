@@ -55,7 +55,7 @@ minikube stop;
 
 # Loading docker images
 ```sh
-readonly IMAGES=$(docker images --format "{{.Repository}}:{{.Tag}}" | grep $QUALIFIED_IMAGE_NAME | sort --reverse)
+readonly IMAGES=$(docker images --format "{{.Repository}}:{{.Tag}}" | grep $QUALIFIED_IMAGE_NAME | sort --reverse | grep -v latest)
 
 for IMAGE in $IMAGES; do
 

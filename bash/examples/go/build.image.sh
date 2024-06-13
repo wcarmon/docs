@@ -151,8 +151,8 @@ $DOCKER build \
 #
 #  echo
 #  echo "|-- Loading images into minikube ..."
-#  minikube image load "${QUALIFIED_IMAGE_NAME}:${TAG_LATEST}"
 #  minikube image load "${QUALIFIED_IMAGE_NAME}:${TAG_NUMBERED}"
+#  #minikube image load "${QUALIFIED_IMAGE_NAME}:${TAG_LATEST}"
 #  echo "|-- Successfully loaded images into minikube"
 #
 #  echo
@@ -161,7 +161,7 @@ $DOCKER build \
 #else
 #    echo
 #    echo "|-- To load images into minikube:"
-#    echo "minikube image load ${QUALIFIED_IMAGE_NAME}:${TAG_LATEST}"
+#    #echo "minikube image load ${QUALIFIED_IMAGE_NAME}:${TAG_LATEST}"
 #    echo "minikube image load ${QUALIFIED_IMAGE_NAME}:${TAG_NUMBERED}"
 #fi
 
