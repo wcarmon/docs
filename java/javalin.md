@@ -108,6 +108,33 @@ public final class GlobalExceptionHandler implements ExceptionHandler<Exception>
 1. TODO: tracing propagation
 
 
+# Kubernetes Liveness & Readiness probes
+```java
+    final Javalin svr = ... ;
+
+    svr.get("/", ctx -> {
+        ctx.status(200);
+        ctx.result("Server up");
+    });
+
+    svr.get("/api/v1/", ctx -> {
+        ctx.status(200);
+        ctx.result("API Server up");
+    });
+
+    svr.get("/api/v1/admin/ready", ctx -> {
+        ctx.status(200);
+        //ctx.result("");
+    });
+
+    svr.get("/api/v1/admin/alive", ctx -> {
+        ctx.status(200);
+        // TODO: check external systems connectivity here
+    });
+```
+1. See the [Pod/Deployment yamls here](../containers/kubernetes/k8s.pod.md)
+
+
 # Other Resources
 
 1. TODO

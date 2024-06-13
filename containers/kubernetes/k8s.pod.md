@@ -74,14 +74,78 @@ kubectl get pods -o=jsonpath='{.items[0].spec.containers[*].ports}'
 
 
 ## Liveness Probe
+1. Executed thru the life of the application
 1. **Always** define a [liveness probe](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#container-probes)
 1. Always set an initial delay on the liveness probe to allow init time
 1. Keep liveness probe light, they are executed relatively often
+1. HTTP example:
+```yaml
+spec:
+  containers:
+    - name: ...
+      image: ...
+      ports:
+        - containerPort: 8080
 
+      # -- Pinged thru the lifecycle of the container
+      livenessProbe:
+
+        # -- Max times readiness probe can fail before terminating
+        failureThreshold: 5
+
+        # -- Delay before first probe
+        initialDelaySeconds: 120
+
+        # -- probe frequency
+        periodSeconds: 120
+
+        # -- Minimum consecutive successes for the probe to be considered successful
+        successThreshold: 1
+
+        # -- HTTP GET timeout
+        timeoutSeconds: 30
+
+        httpGet:
+          # -- Matches containerPort above
+          port: 8080
+          path: /api/v1/admin/alive
+```
 
 ## Readiness Probe
+1. Executed on startup and when liveness probe fails
 1. **Always** define a [Readiness probe](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#container-probes)
 1. eg. ping the database & upstream services
+1. HTTP example
+```yaml
+spec:
+  containers:
+    - name: ...
+      image: ...
+      ports:
+        - containerPort: 8080
+
+      # -- OnStart: App must be ready by (failureThreshold * periodSeconds)
+      readinessProbe:
+        # -- Max times readiness probe can fail before terminating
+        failureThreshold: 18
+
+        # -- Delay before first probe
+        initialDelaySeconds: 3
+
+        # -- Probe frequency
+        periodSeconds: 5
+
+        # -- Minimum consecutive successes for the probe to be considered successful
+        successThreshold: 1
+
+        # -- HTTP GET timeout
+        timeoutSeconds: 10
+
+        httpGet:
+          # -- Matches containerPort above
+          port: 8080
+          path: /api/v1/admin/ready
+```
 
 
 --------
