@@ -62,7 +62,9 @@ public static void main(String... args) {
 
 ```java
     final Javalin svr = Javalin.create(cfg -> {
-        ...
+        cfg.showJavalinBanner = false;
+        cfg.bundledPlugins.enableDevLogging(); // request logging
+        // ...
     });
 
     svr.exception(Exception.class, exceptionHandler);
