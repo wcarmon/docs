@@ -83,6 +83,7 @@ RUN chown -R appbuilder:appbuilder /home/appbuilder
 
 # -- Build via Gradle
 # GOTCHA: remove all the ssl & keyStore stuff if you see errors about resolving public gradle plugins
+# GOTCHA: remove pmd and if not installed into build.gradle.kts
 RUN $HOME/.sdkman/candidates/gradle/current/bin/gradle \
     clean build jar shadowJar \
     --no-daemon \
@@ -99,7 +100,6 @@ RUN $HOME/.sdkman/candidates/gradle/current/bin/gradle \
     -q \
     -x check \
     -x pmd \
-    -x spotbugs \
     -x spotlessApply \
     -x spotlessCheck \
     -x test

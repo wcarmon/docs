@@ -18,7 +18,8 @@ plugins {
   id("org.jetbrains.kotlin.jvm") version "1.9.20-RC" apply true
 
   /** Formatter */
-  id("com.diffplug.spotless") version "6.23.3" apply true
+  // id("com.diffplug.spotless") version "6.23.3" apply true
+  id("com.diffplug.gradle.spotless") version "6.25.0" apply true
 
   /** Finds updated deps */
   id("com.github.ben-manes.versions") version "0.50.0" apply true
