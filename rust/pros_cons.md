@@ -68,6 +68,7 @@
     1. [`derive_builder`](https://docs.rs/derive_builder/latest/derive_builder/) can help mitigate
     1. The strong type system makes many (not all) validations unnecessary
 1. Hard to keep code looking current, modern syntax evolves quickly (same as JavaScript)
+    1. [Clippy](TODO) helps
 1. HTTP is very hard if you want anything more than the basics
     1. The frameworks built on hyper are complex when you need to customize (axum, warp, rocket)
         1. eg. custom error on json body parse failure
