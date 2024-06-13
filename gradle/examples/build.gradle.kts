@@ -237,6 +237,7 @@ subprojects {
         duplicatesStrategy = DuplicatesStrategy.WARN
 
         manifest {
+            // TODO: change this to your main class
             attributes["Main-Class"] = "com.wcarmon.something.EntryPoint"
         }
 
