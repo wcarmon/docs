@@ -4,6 +4,13 @@
 # 1. Tests previously run
 # 2. Static analysis previously run
 
+# NOTES:
+# 1. Uses sdkman to install jdk & gradle
+# 2. Builds jar build stage via gradle (installed via sdkman)
+# 3. Executes jar in deploy stage using jdk (installed via sdkman)
+
+
+
 # ---------------------------------------------
 # -- Build stage
 # ---------------------------------------------
@@ -51,10 +58,10 @@ ENV GRADLE_HOME=/home/appbuilder/.sdkman/candidates/gradle/current
 RUN curl --silent "https://get.sdkman.io" | bash && \
     chmod a+x "$HOME/.sdkman/bin/sdkman-init.sh" && \
     source "$HOME/.sdkman/bin/sdkman-init.sh" && \
-    sdk install java 19-amzn && \
-    sdk use java 19-amzn && \
-    sdk install gradle 7.5.1 && \
-    sdk use gradle 7.5.1
+    sdk install java 21.0.3-amzn && \
+    sdk use java 21.0.3-amzn && \
+    sdk install gradle 8.8 && \
+    sdk use gradle 8.8
 
 
 # -- Add cert to keytool (java sdk)
@@ -104,7 +111,7 @@ RUN update-ca-certificates && \
 
 COPY --from=buildStage /home/appbuilder/build/libs/*.jar /app/app.jar
 
-#TODO: need to copy/install java
+#TODO: need to copy/install java jdk
 
 RUN groupadd -g 1001 javaapp && \
     useradd \
