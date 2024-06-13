@@ -58,10 +58,53 @@ public static void main(String... args) {
 
 # Interceptors
 
+## Global Exception Handler
+
+```java
+    final Javalin svr = Javalin.create(cfg -> {
+        ...
+    });
+
+    svr.exception(Exception.class, exceptionHandler);
+```
+
+```java
+package com.wcarmon;
+
+import io.javalin.http.Context;
+import io.javalin.http.ExceptionHandler;
+import lombok.Builder;
+import lombok.extern.slf4j.Slf4j;
+
+import static java.util.Objects.requireNonNull;
+
+@Slf4j
+public final class GlobalExceptionHandler implements ExceptionHandler<Exception> {
+
+    @Override
+    public void handle(Exception ex, Context ctx) {
+        requireNonNull(ex, "ex is required and null.");
+        requireNonNull(ctx, "ctx is required and null.");
+
+        log.warn("Request failed", ex);
+        ctx.contentType("text/plain");
+
+        if (ex instanceof WebException wex) {
+            ctx.status(wex.statusCode());
+            ctx.result(wex.publicMessage());
+            return;
+        }
+
+        ctx.status(500);
+        ctx.result("Error");
+    }
+}
+```
+
 1. TODO: Auth
 1. TODO: logging
-1. TODO: global error handler
 1. TODO: tracing propagation
+
 
 # Other Resources
 
