@@ -27,7 +27,15 @@ minikube start --memory 5000 --cpus=4;
 minikube status;
 minikube version;
 minikube ip;
+```
+
+
+# Print logs
+```sh
 minikube logs;
+
+POD_NAME=foo
+minikube kubectl -- logs $POD_NAME --since=1h
 ```
 
 
