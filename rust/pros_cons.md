@@ -49,7 +49,7 @@
         1. You end up using things like: `collect::<Result<Vec<_>, anyhow::Error>>()?`
         2. maybe [`try_collect`](https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.try_collect) helps?
     1. eg. Error handling, particularly across libraries, and when using [serde](https://serde.rs/)
-    1. eg. Traits with overlapping applicability like [`Deref`](https://doc.rust-lang.org/std/ops/trait.Deref.html), [Borrow](https://doc.rust-lang.org/std/borrow/trait.Borrow.html), and [AsRef](https://doc.rust-lang.org/std/convert/trait.AsRef.html)
+    1. eg. Traits with overlapping applicability like [`Deref`](https://doc.rust-lang.org/std/ops/trait.Deref.html) (Associated types), [Borrow](https://doc.rust-lang.org/std/borrow/trait.Borrow.html), and [AsRef](https://doc.rust-lang.org/std/convert/trait.AsRef.html) (Generics)
     1. eg. Error messages are generally helpful, but complex (more helpful than c, c++, java, python, php, ruby)
     1. Many popular libs don't value simplicity (Compare to Go & Python ecosystems)
         1. Increasingly, Java has this problem (eg. look at Spring Web & WebFlux)
