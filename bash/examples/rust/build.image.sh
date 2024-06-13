@@ -160,6 +160,9 @@ $DOCKER build \
 # ---------------------------------------------
 #if command -v minikube &> /dev/null; then
 #  # -- See https://minikube.sigs.k8s.io/docs/handbook/pushing/#7-loading-directly-to-in-cluster-container-runtime
+#
+#  echo
+#  echo "|-- Loading images into minikube ..."
 #  minikube image load "${QUALIFIED_IMAGE_NAME}:${TAG_LATEST}"
 #  minikube image load "${QUALIFIED_IMAGE_NAME}:${TAG_NUMBERED}"
 #  echo "|-- Successfully loaded images into minikube"
