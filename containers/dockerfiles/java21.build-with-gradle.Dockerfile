@@ -123,11 +123,12 @@ RUN update-ca-certificates && \
 
 COPY --from=buildStage /home/appbuilder/build/libs/*.jar /app/app.jar
 
-RUN groupadd -g 1001 javaapp && \
-    useradd \
-    --gid javaapp \
-    --home-dir /home/javaapp  \
-    --uid 1001 \
+RUN addgroup -g 1001 javaapp && \
+    adduser \
+    -D \
+    -G javaapp \
+    -h /app  \
+    -u 1001 \
     javaapp
 
 RUN chown -R javaapp:javaapp /app
