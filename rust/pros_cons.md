@@ -107,6 +107,7 @@
 1. Popular url lib is non-standard
     1. https://github.com/servo/rust-url/issues/808
 1. Idiomatic testing guidance bloats source files
+    1. Move tests to separate root dir
 1. `use`ing the wrong `Write`: see [`std::fmt::Write`](https://doc.rust-lang.org/std/fmt/trait.Write.html) and [`std::io::Write`](https://doc.rust-lang.org/std/io/trait.Write.html)
     1. Maybe a CLion issue
 1. Tracing
