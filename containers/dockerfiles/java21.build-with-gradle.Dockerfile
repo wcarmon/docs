@@ -141,4 +141,5 @@ USER javaapp:javaapp
 # or
 # JAVA_TOOL_OPTIONS=--enable-preview --add-opens=java.base/java.nio=ALL-UNNAMED
 #
-CMD ["$HOME/.sdkman/candidates/java/current/bin/java", "-jar", "app.jar"]
+#CMD ["$HOME/.sdkman/candidates/java/current/bin/java", "-jar", "app.jar"]
+CMD ["/usr/bin/java", "--enable-preview", "-jar", "app.jar"]
