@@ -121,7 +121,7 @@ RUN wget -O /etc/apk/keys/amazoncorretto.rsa.pub  https://apk.corretto.aws/amazo
 RUN update-ca-certificates && \
     apk --no-cache add ca-certificates
 
-COPY --from=buildStage /home/appbuilder/build/libs/*.jar /app/app.jar
+COPY --from=buildStage /home/appbuilder/build/libs/app.jar /app/app.jar
 
 RUN addgroup -g 1001 javaapp && \
     adduser \
