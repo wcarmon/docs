@@ -62,10 +62,11 @@
         1. Generally two version of **everything** (Owned version, Borrowed version)
         1. `clone` can be an escape hatch
 1. Must actively code in rust frequently to keep it in mind (compare to Java or Go)
-1. No struct validation
+1. No struct validation at initialization
     1. Compare to Java, C++
-    1. Although, same as Go, C
+    1. Same problem in Go, C
     1. [`derive_builder`](https://docs.rs/derive_builder/latest/derive_builder/) can help mitigate
+    1. The strong type system makes many (not all) validations unnecessary
 1. Hard to keep code looking current, modern syntax evolves quickly (same as JavaScript)
 1. HTTP is very hard if you want anything more than the basics
     1. The frameworks built on hyper are complex when you need to customize (axum, warp, rocket)
