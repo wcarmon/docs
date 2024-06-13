@@ -86,7 +86,7 @@
     - Would need `dyn`
 1. [`match`](https://doc.rust-lang.org/rust-by-example/flow_control/match.html) creates excessive nesting
     1. Things like [if-let](https://doc.rust-lang.org/rust-by-example/flow_control/if_let.html) mitigate somewhat
-1. Cross compiling from linux container with target of Mac M1 chips (compare to Go, Java, Python, ...)
+1. Cross compiling is hard.  Eg. from Linux container with target of Mac M1 chips (compare to Go, Java, Python, ...)
     - Probably more of an issue with apple requiring xcode
     - See https://godot-rust.github.io/book/gdnative/export/macosx.html
     - See https://wapl.es/rust/2019/02/17/rust-cross-compile-linux-to-macos.html
@@ -96,19 +96,19 @@
 1. [Path](https://doc.rust-lang.org/std/path/struct.Path.html) is surprisingly tedious to use in practice (see [`to_string_lossy()`](https://doc.rust-lang.org/std/ffi/struct.OsStr.html#method.to_os_string))
     1. compare with Golang [`path/filepath`](https://pkg.go.dev/path/filepath)
     1. compare with Java [`Path`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/nio/file/Path.html)
-    1. Clion debugger cannot print `Path` nor `PathBuf`
-1. [clion](https://www.jetbrains.com/clion/) Editor
+    1. CLion debugger cannot print `Path` nor `PathBuf`
+1. [CLion](https://www.jetbrains.com/clion/) Editor
     1. Relatively slow error checker (compare to Intellij, Goland or WebStorm with eslint)
-1. [clion](https://www.jetbrains.com/clion/) Debugger
+1. [CLion](https://www.jetbrains.com/clion/) Debugger
     1. Cannot help you debug `Trait` implementations
         1. Compare with debugging golang, java, ... interface implementations
     1. Cannot print strings sometimes (eg. alias a type to a string)
     1. Cannot pretty print `Path` and `PathBuf` variables
-1. popular url lib is non-standard
+1. Popular url lib is non-standard
     1. https://github.com/servo/rust-url/issues/808
 1. Idiomatic testing guidance bloats source files
 1. `use`ing the wrong `Write`: see [`std::fmt::Write`](https://doc.rust-lang.org/std/fmt/trait.Write.html) and [`std::io::Write`](https://doc.rust-lang.org/std/io/trait.Write.html)
-    1. Maybe a clion issue
+    1. Maybe a CLion issue
 1. Tracing
     1. OpenTelemetry api is FAR TOO complex to use directly (compare to Go, Python, Java, ...)
     1. Tokio tracing lib helps a lot, but there are still gotchas (minefields)
