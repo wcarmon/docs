@@ -123,18 +123,13 @@ public final class GlobalExceptionHandler implements ExceptionHandler<Exception>
     });
 
     svr.get("/api/v1/admin/ready", ctx -> {
+        // TODO: ensure app is ready to start here
         ctx.status(200);
-        //ctx.result("");
     });
 
     svr.get("/api/v1/admin/alive", ctx -> {
+        // TODO: check connectivity to external systems here (eg. databases, required services)
         ctx.status(200);
-        // TODO: check external systems connectivity here
     });
 ```
 1. See the [Pod/Deployment yamls here](../containers/kubernetes/k8s.pod.md)
-
-
-# Other Resources
-
-1. TODO
