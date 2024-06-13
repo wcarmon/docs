@@ -126,6 +126,7 @@ spec:
 
       # -- OnStart: App must be ready by (failureThreshold * periodSeconds)
       readinessProbe:
+
         # -- Max times readiness probe can fail before terminating
         failureThreshold: 18
 
