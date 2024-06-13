@@ -45,13 +45,19 @@ RUN groupadd -g 1010 appbuilder && \
 ENV JAVA_HOME=/home/appbuilder/.sdkman/candidates/java/current
 ENV GRADLE_HOME=/home/appbuilder/.sdkman/candidates/gradle/current
 
+
+USER appbuilder:appbuilder
+
+
 # NOTE: use `sdk list java` to see available versions
 # GOTCHA: this step is slow because of the java & gradle installs
 RUN curl --silent "https://get.sdkman.io" | bash && \
     chmod a+x "$HOME/.sdkman/bin/sdkman-init.sh" && \
     source "$HOME/.sdkman/bin/sdkman-init.sh" && \
     sdk install java 21.0.3-amzn && \
-    sdk use java 21.0.3-amzn && \
+    sdk use java 21.0.3-amzn
+
+RUN source "$HOME/.sdkman/bin/sdkman-init.sh" && \
     sdk install gradle 8.6 && \
     sdk use gradle 8.6
 
@@ -71,9 +77,6 @@ RUN $HOME/.sdkman/candidates/java/current/bin/keytool \
 # -- See also: .dockerignore
 COPY --chown=appbuilder:appbuilder . .
 RUN chown -R appbuilder:appbuilder /home/appbuilder
-
-
-USER appbuilder:appbuilder
 
 
 # -- Build via Gradle
