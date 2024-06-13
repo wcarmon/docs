@@ -58,11 +58,13 @@ minikube stop;
 readonly IMAGES=$(docker images --format "{{.Repository}}:{{.Tag}}" | grep $QUALIFIED_IMAGE_NAME | sort --reverse)
 
 for IMAGE in $IMAGES; do
+
   echo
   echo "Loading image into Minikube: $IMAGE"
   minikube image load "$IMAGE"
 done
-echo "|-- Successfully loaded images into minikube"
+
+echo "|-- Successfully loaded docker images into minikube"
 ```
 
 
