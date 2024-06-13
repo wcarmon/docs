@@ -40,14 +40,16 @@ RUN groupadd -g 1010 appbuilder && \
     --uid 1010 \
     appbuilder
 
+# -- Prep or sdkman, Java, Gradle install
 
-# -- Install sdkman, java, gradle
 ENV JAVA_HOME=/home/appbuilder/.sdkman/candidates/java/current
 ENV GRADLE_HOME=/home/appbuilder/.sdkman/candidates/gradle/current
 
+RUN chown -R appbuilder:appbuilder /home/appbuilder
 
 USER appbuilder:appbuilder
 
+# -- Install sdkman, java, gradle
 
 # NOTE: use `sdk list java` to see available versions
 # GOTCHA: this step is slow because of the java & gradle installs
