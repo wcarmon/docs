@@ -143,5 +143,9 @@ public final class GlobalExceptionHandler implements ExceptionHandler<Exception>
         ctx.status(200);
     });
 
+    // Spring Web equivalent might be:
+    // - return (allGood)
+    //          ? new ResponseEntity<>("up", HttpStatus.OK)
+    //          : new ResponseEntity<>("down", HttpStatus.SERVICE_UNAVAILABLE)
 ```
 1. See the [Pod/Deployment yamls here](../containers/kubernetes/k8s.pod.md)
