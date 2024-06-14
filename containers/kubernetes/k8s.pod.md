@@ -75,6 +75,8 @@ kubectl get pods -o=jsonpath='{.items[0].spec.containers[*].ports}'
 
 ## Startup Probe
 1. Executed only on startup
+1. After successful startup probe, k8s switches to the Liveness probe
+1. If container fails Startup Probe, it will be restarted (same as Liveness Probe)
 
 ```yaml
 spec:
@@ -83,14 +85,36 @@ spec:
       image: ...
       ports:
         - containerPort: 8080
+
+      startupProbe:
+
+        # -- Max times readiness probe can fail before terminating
+        failureThreshold: 5
+
+        # -- Delay before first probe
+        initialDelaySeconds: 120
+
+        # -- probe frequency
+        periodSeconds: 120
+
+        # -- Minimum consecutive successes for the probe to be considered successful
+        successThreshold: 1
+
+        # -- HTTP GET timeout
+        timeoutSeconds: 30
+
+        httpGet:
+          # -- Matches containerPort above, Port on which the server is listening
+          port: 8080
+          path: /api/v1/admin/alive
+
 ```
 
 
 ## Liveness Probe
 1. Executed thru the life of the application
-1. If container fails a Liveness Probe, it will be terminated & restarted
+1. If container fails Liveness Probe, it will be terminated & restarted (Same as Startup Probe)
 1. **Always** define a [liveness probe](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#container-probes)
-1. Always set an initial delay on the liveness probe to allow init time
 1. Keep liveness probe light, they are executed relatively often
 1. HTTP example:
 ```yaml
@@ -125,9 +149,11 @@ spec:
           path: /api/v1/admin/alive
 ```
 
-## Readiness Probe
-1. **Always** define a [Readiness probe](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#container-probes)
-1. If container fails a Readiness Probe, it WON'T be terminated & restarted
+## [Readiness probe](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#container-probes)
+1. Useful for temporary/recoverable outages
+1. If container fails a Readiness Probe ...
+    1. The pod WON'T be terminated & restarted (stays alive)
+    1. The pod won't receive HTTP traffic from Services (specifically Endpoints)
     1. This is different from Liveness Probe
 1. eg. ping the database & upstream services
 1. HTTP example
@@ -139,7 +165,6 @@ spec:
       ports:
         - containerPort: 8080
 
-      # -- OnStart: App must be ready by (failureThreshold * periodSeconds)
       readinessProbe:
 
         # -- Max times readiness probe can fail before terminating
