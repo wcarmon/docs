@@ -73,8 +73,22 @@ kubectl get pods -o=jsonpath='{.items[0].spec.containers[*].ports}'
     1. so not hardcoded into the pod definition (more reusable)
 
 
+## Startup Probe
+1. Executed only on startup
+
+```yaml
+spec:
+  containers:
+    - name: ...
+      image: ...
+      ports:
+        - containerPort: 8080
+```
+
+
 ## Liveness Probe
 1. Executed thru the life of the application
+1. If container fails a Liveness Probe, it will be terminated & restarted
 1. **Always** define a [liveness probe](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#container-probes)
 1. Always set an initial delay on the liveness probe to allow init time
 1. Keep liveness probe light, they are executed relatively often
@@ -106,14 +120,15 @@ spec:
         timeoutSeconds: 30
 
         httpGet:
-          # -- Matches containerPort above
+          # -- Matches containerPort above, Port on which the server is listening
           port: 8080
           path: /api/v1/admin/alive
 ```
 
 ## Readiness Probe
-1. Executed on startup and when liveness probe fails
 1. **Always** define a [Readiness probe](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#container-probes)
+1. If container fails a Readiness Probe, it WON'T be terminated & restarted
+    1. This is different from Liveness Probe
 1. eg. ping the database & upstream services
 1. HTTP example
 ```yaml
@@ -143,7 +158,7 @@ spec:
         timeoutSeconds: 10
 
         httpGet:
-          # -- Matches containerPort above
+          # -- Matches containerPort above, Port on which the server is listening
           port: 8080
           path: /api/v1/admin/ready
 ```
