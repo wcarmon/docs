@@ -113,6 +113,7 @@ spec:
 
 ## Liveness Probe
 1. Executed thru the life of the application
+    1. Only after the Startup Probe (when present)
 1. If container fails Liveness Probe, it will be terminated & restarted (Same as Startup Probe)
 1. **Always** define a [liveness probe](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#container-probes)
 1. Keep liveness probe light, they are executed relatively often
