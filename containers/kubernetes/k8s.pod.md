@@ -166,6 +166,7 @@ spec:
       ports:
         - containerPort: 8080
 
+      # -- Pinged thru the lifecycle of the container
       readinessProbe:
 
         # -- Max times readiness probe can fail before terminating
