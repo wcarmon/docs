@@ -107,7 +107,7 @@ spec:
         httpGet:
           # -- Matches containerPort above, Port on which the server is listening
           port: 8080
-          path: /api/v1/admin/alive
+          path: /api/v1/admin/started
 
 ```
 
