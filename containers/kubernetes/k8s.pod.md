@@ -73,7 +73,7 @@ kubectl get pods -o=jsonpath='{.items[0].spec.containers[*].ports}'
     1. so not hardcoded into the pod definition (more reusable)
 
 
-## Startup Probe
+## [Startup Probe](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-startup-probes)
 1. Executed only on startup
 1. After successful startup probe, k8s switches to the Liveness probe
 1. If container fails Startup Probe, it will be restarted (same as Liveness Probe)
@@ -111,7 +111,7 @@ spec:
 ```
 
 
-## Liveness Probe
+## [Liveness Probe](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#container-probes)
 1. Executed thru the life of the application
     1. Only after the Startup Probe (when present)
 1. If container fails Liveness Probe, it will be terminated & restarted (Same as Startup Probe)
@@ -150,7 +150,7 @@ spec:
           path: /api/v1/admin/alive
 ```
 
-## [Readiness probe](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#container-probes)
+## [Readiness Probe](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#container-probes)
 1. Useful for temporary/recoverable outages
 1. If container fails a Readiness Probe ...
     1. The pod WON'T be terminated & restarted (stays alive)
