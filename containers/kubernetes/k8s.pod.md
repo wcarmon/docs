@@ -86,6 +86,7 @@ spec:
       ports:
         - containerPort: 8080
 
+      # -- Only on startup, thereafter, k8s uses the Liveness Probe
       startupProbe:
 
         # -- Max times readiness probe can fail before terminating
