@@ -158,7 +158,7 @@ spec:
     1. The pod won't receive HTTP traffic from Services (specifically Endpoints)
     1. This is different from Liveness Probe
 1. eg. ping the database & upstream services
-1. HTTP example
+1. HTTP example:
 ```yaml
 spec:
   containers:
