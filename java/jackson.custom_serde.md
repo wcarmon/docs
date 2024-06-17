@@ -1,5 +1,6 @@
 # Overview
-1. How to add a custom Serializer for a record
+1. How to add a custom Serializer & Deserializer for a record
+1. No annotation magic, full access to the JVM
 
 
 ```java
@@ -16,6 +17,18 @@ public record Foo(
 
             // ... validation here ...
         }
+
+    /** Custom deserializer */
+    @JsonCreator
+    public static Foo fromRawProperties(Map<String, Object> props) {
+        requireNonNull(props, "props is required and null.");
+
+        // ... read the map here
+
+        return Foo.builder()
+            // ... set fields here
+            .build();
+    }
 
     /** Custom serializer */
     static class Serializer extends JsonSerializer<Foo> {
