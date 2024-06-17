@@ -12,10 +12,12 @@ public record Foo(
         Instant ts) {
 
         Foo {
-            // ... validation
+            // ... set defaults here ...
+
+            // ... validation here ...
         }
 
-    // -- Custom serializer
+    /** Custom serializer */
     static class Serializer extends JsonSerializer<Foo> {
 
         @Override
@@ -35,6 +37,7 @@ public record Foo(
             jGen.writeStringField("uuid", entity.uuid);
 
             // -- Extra/synthetic field only for Serializer
+            // -- Useful in places like WebSockets where messages include type info
             jGen.writeStringField("type", entity.getClass().getSimpleName());
 
             jGen.writeEndObject();
