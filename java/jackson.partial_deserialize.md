@@ -1,7 +1,8 @@
 # Overview
-
 1. How to partially deserialize JSON with [Jackson](https://github.com/FasterXML/jackson)
     - eg. To retain some raw nested JSON
+1. See also: [custom serde doc](./jackson.custom_serde.md)
+
 
 # Step-1: Make a class to hold indexes of the original JSON
 
