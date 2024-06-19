@@ -12,6 +12,8 @@
     1. Better if you clone that create the repo locally first
 1. (might already be done) Rename master branch to main
     1. `git branch -m master main`
+    1. `git branch --delete --force master`
+    1. `git push origin --delete master`
 1. Update License (add your name or organization name)
 1. `settings.gradle.kts`
     1. rootProject.name = "foo-utils-jvm"
