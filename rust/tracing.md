@@ -54,11 +54,11 @@ tracing-subscriber = "..."
 1. Different [span lifecycle](https://docs.rs/tracing/latest/tracing/span/index.html#the-span-lifecycle) than [OpenTelemetry](TODO)
 1. Includes thread attributes by default
 
-# [OpenTelemetry](https://opentelemetry.io/docs/instrumentation/rust/) lib
+# Alternative: [OpenTelemetry](https://opentelemetry.io/docs/instrumentation/rust/) lib
 
 1. See [otel doc](./tracing.opentelemetry.md)
 
-## `tracing` Setup (for a binary crate)
+## Setup `tracing` (for a binary crate)
 
 ```rust
 use tracing_subscriber::layer::SubscriberExt;
