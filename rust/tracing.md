@@ -36,7 +36,7 @@ tracing-opentelemetry = "..."
 tracing-subscriber = "..."
 ```
 
-# [tracing](https://docs.rs/tracing/latest/tracing/) lib
+# [tracing](https://docs.rs/tracing/latest/tracing/) lib (part of Tokio)
 
 1. Concepts
     1. Span: TODO
@@ -58,7 +58,7 @@ tracing-subscriber = "..."
 
 1. See [otel doc](./tracing.opentelemetry.md)
 
-## Setup (in binary crate)
+## `tracing` Setup (for a binary crate)
 
 ```rust
 use tracing_subscriber::layer::SubscriberExt;
