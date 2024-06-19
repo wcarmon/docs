@@ -5,15 +5,20 @@
 # Steps
 1. Choose a name (eg. "foo-utils-jvm")
 1. Choose a License (eg. MIT)
-1. Create new repo in GitHub
+1. [Create new repo in GitHub](https://github.com/new)
+    1. Public
+    1. Set license (eg. MIT)
 1. clone (git+ssh)
+    1. Better if you clone that create the repo locally first
+1. (might already be done) Rename master branch to main
+    1. `git branch -m master main`
 1. Update License (add your name or organization name)
 1. `settings.gradle.kts`
     1. rootProject.name = "foo-utils-jvm"
 1. `gradle wrap`
-1. Open in IDE
-1. copy `.gitignore`
-1. copy `.gitattributes`
+1. Open in IDE (eg. Intellij)
+1. copy `.gitignore` from another repo
+1. copy `.gitattributes` from another repo
 1. `git add`
 1. Make `build.gradle.kts`
     1. set mvnArtifactId
