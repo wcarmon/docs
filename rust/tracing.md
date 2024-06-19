@@ -44,7 +44,7 @@ tracing-subscriber = "..."
     1. [Subscriber trait](https://docs.rs/tracing-core/0.1.30/tracing_core/subscriber/trait.Subscriber.html): TODO
         1. Subscriber responsible for associating spans with threads
     1. [Layer trait](https://docs.rs/tracing-subscriber/0.3.16/tracing_subscriber/layer/trait.Layer.html): TODO
-1. Idiomatic rust
+1. Uses idiomatic rust
 1. Compatible with [`Future`](https://doc.rust-lang.org/nightly/core/future/trait.Future.html)s, [example](https://docs.rs/tracing/latest/tracing/trait.Instrument.html)
 1. Compatible with [tokio](https://tokio.rs/)
 1. [Has convenient macros](https://docs.rs/tracing/latest/tracing/#macros)

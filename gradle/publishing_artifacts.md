@@ -23,6 +23,17 @@
 1. See [publishing_gpg.md](./publishing_gpg.md) doc
 
 
+# Get a publish token
+1. https://s01.oss.sonatype.org
+1. Click your id, upper right
+1. Click "Profile"
+1. Click "Access User Token" button
+1. Reenter password
+1. Update `$HOME/.gradle/gradle.properties`
+    1. First part is ossrhUsername
+    1. Second part is ossrhPassword
+
+
 # Build, Sign, Publish
 1. Bump the version in `build.gradle.kts`
 ```sh
