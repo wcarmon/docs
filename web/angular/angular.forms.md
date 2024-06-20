@@ -46,7 +46,8 @@
 ```ts
   onSubmit(): void {
 
-    if (!formGroup.valid) {
+    // if (!formGroup.valid) {
+    if (formGroup.invalid) {
       console.debug('rejecting submit for invalid form', formGroup.value);
       return;
     }
@@ -84,7 +85,7 @@
     TODO: Replace validator message with something custom here
   </span>
 ```
-1. `<button (click)="onSubmit($event)" [disabled]="!myForm.valid">`
+1. `<button (click)="onSubmit($event)" [disabled]="myForm.invalid">`
 
 
 ## CSS (Less)
@@ -139,7 +140,7 @@
     1. Tracks `dirty` and `touched` for all child `FormControls`
 1. Can be nested
 1. Supports [cross-field validation](https://v17.angular.io/guide/form-validation#cross-field-validation) 
-1. Idiomatic usage:    
+1. Idiomatic usage:
     1. Use `FormGroup` to model the domain entity (one per entity)
     1. Use `FormControl` to model the domain entity fields (one per field)
         1. Same names or use [`FormControlName`](https://v17.angular.io/api/forms/FormControlName) directive
