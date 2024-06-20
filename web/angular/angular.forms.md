@@ -1,5 +1,5 @@
 # Overview
-1. Idioms for low maintenance 
+1. Idioms for low maintenance forms
 
 
 # Why use Angular forms (as opposed to hand rolled form)
@@ -16,10 +16,11 @@
 # Cheatsheet
 ## Typescript
 1. Make a domain specific [TS interface](https://www.typescriptlang.org/static/TypeScript%20Interfaces-34f1ad12132fb463bd1dfe5b85c5b2e6.png) to model the form entity
-1. [Generate a component for the form](https://v17.angular.io/cli/generate#component-command)
-1. Include ReactiveForms module in your Component: eg. `imports: [ReactiveFormsModule],`
-1. Create one [`FormGroup`](https://v17.angular.io/api/forms/FormGroup) instance in component class (per domain entity)
-1. Create [`FormControl`](https://v17.angular.io/api/forms/FormControl) instance in component class, for each field
+1. [Generate an Angular Component for the form](https://v17.angular.io/cli/generate#component-command)
+1. Include the ReactiveForms module in your Component:
+    - eg. `imports: [ReactiveFormsModule],`
+1. Create one [`FormGroup`](https://v17.angular.io/api/forms/FormGroup) instance in component class (one per domain entity)
+1. Create multiple [`FormControl`](https://v17.angular.io/api/forms/FormControl) instances in the component class, (one for each entity field)
     1. Add validator functions (see examples below) to [formControl.validators](https://angular.dev/api/forms/AbstractControl#setValidators)
 1. Add `FormControl` instances to `FormGroup`
     1. Use the same name for the TS interface field and `FormGroup` field
