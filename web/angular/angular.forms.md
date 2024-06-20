@@ -161,9 +161,11 @@
 
 # Gotchas
 1. Async validators only run if all synchronous validators pass (for performance reasons)
-1. There's no built in validator for "isBlank"
-1. By default Angular disables all HTML5 `<input>` validation
+1. There's no built in validator for ["isBlank"](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html#isBlank())
+1. By default, Angular disables all HTML5 `<input>` validation
 1. Forms don't use rx, but they are observable
+    1. [`formGroup.statusChanges.subscribe(...)`](https://angular.dev/api/forms/FormGroup#statusChanges)
+    1. [`formGroup.valueChanges.subscribe(...)`](https://angular.dev/api/forms/FormGroup#valueChanges)
 
 
 # Other resources
