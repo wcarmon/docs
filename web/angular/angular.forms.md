@@ -10,9 +10,20 @@
 1. You'd manage validation, possibly `async` validation too
 1. Angular provides **reactive** ways to hook into the form lifecycle (eg. `statusChanges`, `valuesChanges`)
 1. Angular adds/removes [css classes](https://angular.io/guide/form-validation#control-status-css-classes) to HTML control element based on state
-    1. Either `.ng-valid` or `.ng-invalid` (validated, descriptions below)
-    1. Either `.ng-dirty` or `.ng-pristine` (mutated, descriptions below)
-    1. Either `.ng-touched` or `.ng-untouched` (visited, descriptions below)
+    1. Either `.ng-valid` or `.ng-invalid` for "validated", (details below)
+    1. Either `.ng-dirty` or `.ng-pristine` for "mutated", (details below)
+    1. Either `.ng-touched` or `.ng-untouched` for "visited", (details below)
+
+
+# Reactive Forms vs. ~~Template Forms~~
+1. Avoid ~~Template forms~~ because ...
+    1. They don't scale
+    1. Too much logic in HTML template
+    1. Makes HTML template more verbose
+    1. Mutability everywhere
+    1. Validation uses ~~directives~~, not functions
+    1. Harder to test
+    1. Harder to reason about data flow
 
 
 # Cheatsheet
@@ -72,26 +83,16 @@
   </span>
 ```
 1. Add `<button (click)="onSubmit(formGroup)" [disabled]="myForm.invalid">`
-    1. passing `formGroup` is only useful when you multiple forms on the page.
+    1. passing `formGroup` is only useful when you **multiple** forms on the page.
 - TODO: if you cannot reach form field, try `formGroup.controls.foo?.errors` or `formGroup.get('foo').errors`
 
 ## CSS (Less)
-1. use the `ng-` classes to make forms appear responsive 
- 
-
-# Reactive Forms vs. ~~Template Forms~~
-1. Avoid ~~Template forms~~ because ...
-    1. They don't scale
-    1. Too much logic in HTML template
-    1. More verbose HTML template
-    1. Mutability everywhere
-    1. Validation uses directives, not functions
-    1. Harder to test
-    1. Harder to reason about data flow
+1. use the `ng-` classes to make forms appear responsive
+1. Can use animation to transition between states
 
 
 # [`FormControl`](https://v17.angular.io/api/forms/FormControl)
-1. The source of truth for field value
+1. The source of truth for a field value
 1. Structure: Field value + Validation Errors + dirty/touched state
 1. `FormControl` is mutable, but field value is immutable
     1. Use [`.setValue(...)`](https://v17.angular.io/api/forms/FormControl#setValue) to replace **all** values
@@ -100,29 +101,30 @@
 1. Supports multiple validators (think function: [`(HTMLControl) => Map<ErrorKey, ErrorMessage>`](https://v17.angular.io/api/forms/ValidatorFn))
 1. Supports async validators (think function: `(HTMLControl) => Promise<Map<ErrorKey, ErrorMessage>>`)    
 1. TODO: restricting input
+1. TODO: gotchas/conflicts with standard html input validation
 
 
 ## Validators
 1. Validators are functions
 1. Validator fn can return a `Promise` (async validator)
-    1. Async validators only run if all synchronous validators pass (for performance reasons)
+    1. Async validators only run if **all** synchronous validators pass (for performance reasons)
 1. Custom validator is just a function, which with [this signature](https://v17.angular.io/api/forms/ValidatorFn)
     1. read value using `control.value`
-    1. success: `return null;`
-    1. failure: `return { someErrorKey: errorMessageText }`
+    1. on success: `return null;`
+    1. on failure: `return { someErrorKey: errorMessageText };`
 1. Built-in validators
     1. Required: [directive](https://angular.dev/api/forms/RequiredValidator), [sources](https://github.com/angular/angular/blob/main/packages/forms/src/validators.ts#L489)
     1. Max (value): [directive](https://angular.dev/api/forms/MaxValidator), [sources](https://github.com/angular/angular/blob/main/packages/forms/src/validators.ts#L473)
     1. Min (value): [directive](https://angular.dev/api/forms/MinValidator), [sources](https://github.com/angular/angular/blob/main/packages/forms/src/validators.ts#L457)
-    1. MaxLength: [directive](https://angular.dev/api/forms/MaxLengthValidator), [sources](https://github.com/angular/angular/blob/main/packages/forms/src/validators.ts#L535)
-    1. MinLength: [directive](https://angular.dev/api/forms/MinLengthValidator), [sources](https://github.com/angular/angular/blob/main/packages/forms/src/validators.ts#L517)
-    1. EmailValidator: [directive](https://angular.dev/api/forms/EmailValidator), [sources](https://github.com/angular/angular/blob/main/packages/forms/src/validators.ts#L506)
+    1. Max length: [directive](https://angular.dev/api/forms/MaxLengthValidator), [sources](https://github.com/angular/angular/blob/main/packages/forms/src/validators.ts#L535)
+    1. Min length: [directive](https://angular.dev/api/forms/MinLengthValidator), [sources](https://github.com/angular/angular/blob/main/packages/forms/src/validators.ts#L517)
+    1. Email: [directive](https://angular.dev/api/forms/EmailValidator), [sources](https://github.com/angular/angular/blob/main/packages/forms/src/validators.ts#L506)
     1. Pattern: [directive](https://angular.dev/api/forms/PatternValidator), [sources](https://github.com/angular/angular/blob/main/packages/forms/src/validators.ts#L547)
         1. [Official example](https://v17.angular.io/api/forms/Validators#pattern)
 		1. Eg. `Validators.pattern('^[a-zA-Z0-9_.+-]+$')`
 
 ## CSS classes (Field level)
-1. `ng-touched` and `ng-untouched`: field has (not) been touched yet
+1. `ng-touched` and `ng-untouched`: field has (not) been touched yet (think [focus](https://developer.mozilla.org/en-US/docs/Web/API/Element/focus_event) & [blur](https://developer.mozilla.org/en-US/docs/Web/API/Element/blur_event))
 1. `ng-dirty` and `ng-pristine`: field has (not) been modified yet
 1. `ng-valid` and `ng-invalid`: field content is (not) valid (see [Validators](./angular.forms.md#validators) above)
 
