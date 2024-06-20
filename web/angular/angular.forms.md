@@ -42,23 +42,49 @@
     1. Add validator functions (see examples below) to [formControl.validators](https://angular.dev/api/forms/AbstractControl#setValidators)
 1. Add `FormControl` instances to `FormGroup`
     1. Use the same name for the TS interface field and `FormGroup` field
-1. Add `onSubmit` method on component ... TODO
+1. Add `onSubmit` method on component
+```ts
+  onSubmit(): void {
+
+    if (!formGroup.valid) {
+      console.debug('rejecting submit for invalid form', formGroup.value);
+      return;
+    }
+
+    const entity = formGroup.value;
+
+    // TODO: do any normalization/type conversion here
+
+    // TODO: send entity to some service here
+
+    formGroup.reset();
+  }
+```
 1. After submit, [`formGroup.reset()`](https://angular.dev/api/forms/AbstractControl#reset)
 
 
 ## HTML
-1. Create a `<form [formGroup]="myForm" (ngSubmit)="onSubmit()">`
+1. Create a `<form [formGroup]="myForm">`
+    1. Optional: `(ngSubmit)="onSubmit()"`, not helpful when you have multiple forms though
 1. Create HTML elements for each field (eg. `<input>`, `<select>`, etc)
 1. On each field, set [`FormControlName`](https://v17.angular.io/api/forms/FormControlName) directive
 1. Set `id="..."` attribute on HTML input tag, for deep linking
-1. TODO: printing validation error div with *ngIf
-1. TODO: if foo.touched & foo.invalid or foo.hasError('errorKey')
+1. Print Form level errors (or multi field errors)
+    1. TODO
+1. Print all field errors
+```html
+  <div *ngIf="fooField.touched && fooField.invalid" class="error">
+    <span *ngFor="let errorMsg of Object.values(fooField.errors)">{{ errorMsg }}</span><br/>
+  </div>
+```
+    1. TODO: if cannot reach form field, try `formGroup.controls.foo?.errors` or `formGroup.get('foo').errors`
+1. Print specific error(s)
 ```html
   <span *ngIf="fooField.touched && fooField.hasError(someErrorKey)" class="error">
-    TODO: error message here
+    TODO: Replace validator message with something custom here
   </span>
 ```
-1. `<button type="submit" [disabled]="!myForm.valid">`
+1. `<button (click)="onSubmit($event)" [disabled]="!myForm.valid">`
 
 
 ## CSS (Less)
@@ -102,9 +128,7 @@
     1. Min (value): [directive](https://angular.dev/api/forms/MinValidator), [sources](https://github.com/angular/angular/blob/main/packages/forms/src/validators.ts#L457)
     1. MaxLength: [directive](https://angular.dev/api/forms/MaxLengthValidator), [sources](https://github.com/angular/angular/blob/main/packages/forms/src/validators.ts#L535)
     1. MinLength: [directive](https://angular.dev/api/forms/MinLengthValidator), [sources](https://github.com/angular/angular/blob/main/packages/forms/src/validators.ts#L517)
-    1. Pattern: [directive](TODO), [sources](TODO)
-    1. TODO: [directive](TODO), [sources](TODO)
-    1. TODO: [directive](TODO), [sources](TODO)
+    1. Pattern: [directive](https://angular.dev/api/forms/PatternValidator), [sources](https://github.com/angular/angular/blob/main/packages/forms/src/validators.ts#L547)
 
 
 # [`FormGroup`](https://v17.angular.io/api/forms/FormGroup)
