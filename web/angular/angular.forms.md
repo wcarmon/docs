@@ -128,7 +128,10 @@
     1. Min (value): [directive](https://angular.dev/api/forms/MinValidator), [sources](https://github.com/angular/angular/blob/main/packages/forms/src/validators.ts#L457)
     1. MaxLength: [directive](https://angular.dev/api/forms/MaxLengthValidator), [sources](https://github.com/angular/angular/blob/main/packages/forms/src/validators.ts#L535)
     1. MinLength: [directive](https://angular.dev/api/forms/MinLengthValidator), [sources](https://github.com/angular/angular/blob/main/packages/forms/src/validators.ts#L517)
+    1. EmailValidator: [directive](https://angular.dev/api/forms/EmailValidator), [sources](https://github.com/angular/angular/blob/main/packages/forms/src/validators.ts#L506)
     1. Pattern: [directive](https://angular.dev/api/forms/PatternValidator), [sources](https://github.com/angular/angular/blob/main/packages/forms/src/validators.ts#L547)
+        1. [Official example](https://v17.angular.io/api/forms/Validators#pattern)
+		1. Eg. `Validators.pattern('^[a-zA-Z0-9_.+-]+$')`
 
 
 # [`FormGroup`](https://v17.angular.io/api/forms/FormGroup)
