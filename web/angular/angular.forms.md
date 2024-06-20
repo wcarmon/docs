@@ -133,14 +133,15 @@
 1. Aggregates `FormControl`s of different types (Facade pattern)
     1. Tracks `dirty` and `touched` for all child `FormControls`
 1. Can be nested
-1. Supports [cross-field validation](https://v17.angular.io/guide/form-validation#cross-field-validation) 
+1. Supports [cross-field validation](https://v17.angular.io/guide/form-validation#cross-field-validation)
+    1. use [`formGroup.addValidators(...)`](https://v17.angular.io/api/forms/AbstractControl#addvalidators)
 1. Idiomatic usage:
     1. Use `FormGroup` to model the domain entity (one per entity)
     1. Use `FormControl` to model the domain entity fields (one per field)
         1. Same names or use [`FormControlName`](https://v17.angular.io/api/forms/FormControlName) directive
-    1. Use [`FormGroup.setValue(myEntity)`](https://v17.angular.io/api/forms/FormGroup#setValue) to update entire form
+    1. Changes: Use [`FormGroup.patchValue`](https://v17.angular.io/api/forms/FormGroup#patchvalue) to update specific field(s)
+    1. Changes: Use [`FormGroup.setValue(myEntity)`](https://v17.angular.io/api/forms/FormGroup#setValue) to update entire form
         1 Assumes property names match
-    1. Use [`FormGroup.patchValue`](https://v17.angular.io/api/forms/FormGroup#patchvalue) to update specific fields
     1. Use [`FormGroup.reset()`](https://v17.angular.io/api/forms/FormGroup#reset) on init and after successful form submit
         1. clears the `dirty` and `touched` flags, sets defaults, etc. 
 
@@ -150,11 +151,7 @@
 1. `ng-dirty`: one or more fields changed/modified (user changed value after init or last reset)
 1. `ng-pristine`: zero fields modified ([docs](https://angular.dev/api/forms/AbstractControl#pristine))
 1. `ng-valid`: all field content valid
-1. `ng-invalid`: at least one field has invalid content (see [Validators](TODO) below)
-
-
-- TODO: formGroup validator
-- TODO: formGroup updates (setValue, patchValue)
+1. `ng-invalid`: at least one field has invalid content (see [Validators](./angular.forms.md#validators) above)
 
 
 # [`ControlValueAccessor`](https://angular.dev/api/forms/ControlValueAccessor) interface
