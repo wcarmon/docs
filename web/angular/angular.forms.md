@@ -52,26 +52,26 @@
 1. Create a `<form [formGroup]="myForm">`
     1. Optional attribute: `(ngSubmit)="onSubmit()"`, but not so helpful when you have multiple forms.
 1. Create HTML elements for each field (eg. `<input>`, `<select>`, [material components](https://material.angular.io/components/categories), etc)
-    1. Gotcha material components only work with css-grid & css-flex, not `<table>`;
+    1. Gotcha material components only work with [css-grid](https://css-tricks.com/snippets/css/complete-guide-grid/) & [css-flex](https://css-tricks.com/snippets/css/a-guide-to-flexbox/), not `<table>`;
 1. On each field, set [`FormControlName`](https://v17.angular.io/api/forms/FormControlName) directive
 1. Set `id="..."` attribute on HTML input tag, for deep linking
 1. Print Form level errors (or multi field errors)
     1. TODO
-1. Print all field errors
+1. Print field errors:
 ```html
   <div *ngIf="fooField.touched && fooField.invalid" class="error">
     <span *ngFor="let errorMsg of Object.values(fooField.errors)">{{ errorMsg }}</span><br/>
   </div>
 ```
-    1. TODO: if cannot reach form field, try `formGroup.controls.foo?.errors` or `formGroup.get('foo').errors`
-1. Print specific error(s)
+1. Print only specific error(s):
 ```html
   <span *ngIf="fooField.touched && fooField.hasError(someErrorKey)" class="error">
     TODO: Replace validator message with something custom here
   </span>
 ```
-1. `<button (click)="onSubmit($event)" [disabled]="myForm.invalid">`
-
+1. Add `<button (click)="onSubmit(formGroup)" [disabled]="myForm.invalid">`
+    1. passing `formGroup` is only useful when you multiple forms on the page.
+- TODO: if you cannot reach form field, try `formGroup.controls.foo?.errors` or `formGroup.get('foo').errors`
 
 ## CSS (Less)
 1. use the `ng-` classes to make forms appear responsive 
