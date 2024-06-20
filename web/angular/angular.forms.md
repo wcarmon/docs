@@ -23,18 +23,18 @@
 1. Create multiple [`FormControl`](https://v17.angular.io/api/forms/FormControl) instances in the component class, (one for each entity field)
     1. Add validator functions (see [examples below](./angular.forms.md#validators)) to [formControl.validators](https://angular.dev/api/forms/AbstractControl#setValidators)
 1. Add `FormControl` instances to `FormGroup`
-    1. Use the same name for the TS interface field and `FormGroup` field
-1. Add `onSubmit` method on component
+    1. Use the **same name** for the TS interface field and `FormGroup` field
+1. Add `onSubmit($event: any)` method on component
 ```ts
-  onSubmit(): void {
+  onSubmit($event: Event): void {
 
-    // if (!formGroup.valid) {
-    if (formGroup.invalid) {
-      console.debug('rejecting submit for invalid form', formGroup.value);
+    // or if (!this.formGroup.valid) {
+    if (this.formGroup.invalid) {
+      console.debug('rejecting submit for invalid form', this.formGroup.value);
       return;
     }
 
-    const entity = formGroup.value;
+    const entity = this.formGroup.value;
 
     // TODO: do any normalization/type conversion here
 
