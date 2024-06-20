@@ -11,29 +11,40 @@
 1. Angular adds/removes [css classes](https://angular.io/guide/form-validation#control-status-css-classes) to HTML control element based on state
     1. `.ng-valid`/`.ng-invalid`, `.ng-dirty`/`.ng-pristine`, `ng.-touched`/`.ng-untouched` 
 
-## CSS classes
+
+## CSS classes (FormGroup level)
+1. `ng-touched`: at least one field touched, (or user ["blurred"](https://developer.mozilla.org/en-US/docs/Web/API/Element/blur_event) the control or control has lost focus)
+1. `ng-untouched`: zero fields touched (or control has not lost focus yet)
+1. `ng-dirty`: one or more fields changed/modified (user changed value after init or last reset)
+1. `ng-pristine`: zero fields modified ([docs](https://angular.dev/api/forms/AbstractControl#pristine))
+1. `ng-valid`: all field content valid
+1. `ng-invalid`: at least one field has invalid content (see [Validators](TODO) below)
+
+- TODO: ng-valid-key    One key for each validation.
+    - Example: ng-valid-required, useful when there are more than one thing that must be validated
+- TODO: ng-valid-key    One key for each validation.
+    - Example: ng-valid-required, useful when there are more than one thing that must be validated
+
+## CSS classes (Field level)
 1. `ng-touched` and `ng-untouched`: field has (not) been touched yet
 1. `ng-dirty` and `ng-pristine`: field has (not) been modified yet
-1. `ng-valid` and `ng-invalid`: field content is (not) valid (see [Validators](TODO))
-1. `` and ``:
+1. `ng-valid` and `ng-invalid`: field content is (not) valid (see [Validators](TODO) below)
 
-ng-valid-key One key for each validation. Example: ng-valid-required, useful when there are more than one thing that must be validated
-ng-pristine No fields has not been modified yet
-ng-dirty One or more fields has been modified
-ng-valid The form content is valid
-ng-invalid The form content is not valid
-ng-valid-key One key for each validation. Example: ng-valid-required, useful when there are more than one thing that must be validated
+
 
 # Cheatsheet
 ## Typescript
 1. Make a domain specific [TS interface](https://www.typescriptlang.org/static/TypeScript%20Interfaces-34f1ad12132fb463bd1dfe5b85c5b2e6.png) to model the form entity
 1. [Generate a component for the form](https://v17.angular.io/cli/generate#component-command)
-1. Include ReactiveForms module in Component: `imports: [ReactiveFormsModule],`
-1. Create one [`FormGroup`](https://v17.angular.io/api/forms/FormGroup) instance in component class
+1. Include ReactiveForms module in your Component: eg. `imports: [ReactiveFormsModule],`
+1. Create one [`FormGroup`](https://v17.angular.io/api/forms/FormGroup) instance in component class (per domain entity)
 1. Create [`FormControl`](https://v17.angular.io/api/forms/FormControl) instance in component class, for each field
-    1. Add validator functions (like [`required`](TODO), [`min`](TODO), [`max`](TODO))
+    1. Add validator functions (see examples below) to [formControl.validators](https://angular.dev/api/forms/AbstractControl#setValidators)
 1. Add `FormControl` instances to `FormGroup`
-    1. Use the same name for the TS interface field and `FormGroup` field 
+    1. Use the same name for the TS interface field and `FormGroup` field
+1. Add `onSubmit` method on component ... TODO
+1. After submit, [`formGroup.reset()`](https://angular.dev/api/forms/AbstractControl#reset)
+
 
 ## HTML
 1. Create a `<form [formGroup]="myForm" (ngSubmit)="onSubmit()">`
@@ -42,6 +53,11 @@ ng-valid-key One key for each validation. Example: ng-valid-required, useful whe
 1. Set `id="..."` attribute on HTML input tag, for deep linking
 1. TODO: printing validation error div with *ngIf
 1. TODO: if foo.touched & foo.invalid or foo.hasError('errorKey')
+```html
+  <span *ngIf="fooField.touched && fooField.hasError(someErrorKey)" class="error">
+    TODO: error message here
+  </span>
+```
 1. `<button type="submit" [disabled]="!myForm.valid">`
 
 
@@ -72,14 +88,33 @@ ng-valid-key One key for each validation. Example: ng-valid-required, useful whe
 1. TODO: restricting input
 
 
+## Validators
+1. Validators are functions
+1. Validator fn can return a `Promise` (async validator)
+    1. Async validators only run if all synchronous validators pass (for performance reasons)
+1. Custom validator is just a function, which with [this signature](https://v17.angular.io/api/forms/ValidatorFn)
+    1. read value using `control.value`
+    1. success: `return null;`
+    1. failure: `return { someErrorKey: errorMessageText }`
+1. Built-in validators
+    1. Required: [directive](https://angular.dev/api/forms/RequiredValidator), [sources](https://github.com/angular/angular/blob/main/packages/forms/src/validators.ts#L489)
+    1. Max (value): [directive](https://angular.dev/api/forms/MaxValidator), [sources](https://github.com/angular/angular/blob/main/packages/forms/src/validators.ts#L473)
+    1. Min (value): [directive](https://angular.dev/api/forms/MinValidator), [sources](https://github.com/angular/angular/blob/main/packages/forms/src/validators.ts#L457)
+    1. MaxLength: [directive](https://angular.dev/api/forms/MaxLengthValidator), [sources](https://github.com/angular/angular/blob/main/packages/forms/src/validators.ts#L535)
+    1. MinLength: [directive](https://angular.dev/api/forms/MinLengthValidator), [sources](https://github.com/angular/angular/blob/main/packages/forms/src/validators.ts#L517)
+    1. Pattern: [directive](TODO), [sources](TODO)
+    1. TODO: [directive](TODO), [sources](TODO)
+    1. TODO: [directive](TODO), [sources](TODO)
+
+
 # [`FormGroup`](https://v17.angular.io/api/forms/FormGroup)
 1. Aggregates `FormControl`s of different types (Facade pattern)
     1. Tracks `dirty` and `touched` for all child `FormControls`
 1. Can be nested
 1. Supports [cross-field validation](https://v17.angular.io/guide/form-validation#cross-field-validation) 
 1. Idiomatic usage:    
-    1. Use `FormGroup` to model the domain entity 
-    1. Use `FormControl` to model the domain entity fields
+    1. Use `FormGroup` to model the domain entity (one per entity)
+    1. Use `FormControl` to model the domain entity fields (one per field)
         1. Same names or use [`FormControlName`](https://v17.angular.io/api/forms/FormControlName) directive
     1. Use [`FormGroup.setValue(myEntity)`](https://v17.angular.io/api/forms/FormGroup#setValue) to update entire form
         1 Assumes property names match
@@ -100,9 +135,7 @@ ng-valid-key One key for each validation. Example: ng-valid-required, useful whe
 1. Forms don't use rx, but they are observable
 
 
-# Definitions
-1. `dirty`: user changed value after init or last reset
-1. `touched`: user ["blurred"](https://developer.mozilla.org/en-US/docs/Web/API/Element/blur_event) the control
-
-
 # Other resources
+1. [related css classes](https://www.c-sharpcorner.com/article/pristine-vs-dirty-touched-vs-untouched-valid-vs-invalid-in-angular/)
+1. [related css classes](https://stackoverflow.com/questions/25025102/angularjs-difference-between-pristine-dirty-and-touched-untouched)
+1. https://angular.dev/api/forms/FormGroup
