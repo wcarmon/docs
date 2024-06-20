@@ -169,6 +169,6 @@
 
 
 # Other resources
-1. [related css classes](https://www.c-sharpcorner.com/article/pristine-vs-dirty-touched-vs-untouched-valid-vs-invalid-in-angular/)
-1. [related css classes](https://stackoverflow.com/questions/25025102/angularjs-difference-between-pristine-dirty-and-touched-untouched)
+1. [related css classes #1](https://www.c-sharpcorner.com/article/pristine-vs-dirty-touched-vs-untouched-valid-vs-invalid-in-angular/)
+1. [related css classes #2](https://stackoverflow.com/questions/25025102/angularjs-difference-between-pristine-dirty-and-touched-untouched)
 1. https://angular.dev/api/forms/FormGroup
