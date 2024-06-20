@@ -11,6 +11,18 @@
 1. Angular adds/removes [css classes](https://angular.io/guide/form-validation#control-status-css-classes) to HTML control element based on state
     1. `.ng-valid`/`.ng-invalid`, `.ng-dirty`/`.ng-pristine`, `ng.-touched`/`.ng-untouched` 
 
+## CSS classes
+1. `ng-touched` and `ng-untouched`: field has (not) been touched yet
+1. `ng-dirty` and `ng-pristine`: field has (not) been modified yet
+1. `ng-valid` and `ng-invalid`: field content is (not) valid (see [Validators](TODO))
+1. `` and ``:
+
+ng-valid-key One key for each validation. Example: ng-valid-required, useful when there are more than one thing that must be validated
+ng-pristine No fields has not been modified yet
+ng-dirty One or more fields has been modified
+ng-valid The form content is valid
+ng-invalid The form content is not valid
+ng-valid-key One key for each validation. Example: ng-valid-required, useful when there are more than one thing that must be validated
 
 # Cheatsheet
 ## Typescript
