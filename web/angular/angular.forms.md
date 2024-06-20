@@ -21,7 +21,7 @@
     - eg. `imports: [ReactiveFormsModule],`
 1. Create one [`FormGroup`](https://v17.angular.io/api/forms/FormGroup) instance in component class (one per domain entity)
 1. Create multiple [`FormControl`](https://v17.angular.io/api/forms/FormControl) instances in the component class, (one for each entity field)
-    1. Add validator functions (see examples below) to [formControl.validators](https://angular.dev/api/forms/AbstractControl#setValidators)
+    1. Add validator functions (see [examples below](./angular.forms.md#validators)) to [formControl.validators](https://angular.dev/api/forms/AbstractControl#setValidators)
 1. Add `FormControl` instances to `FormGroup`
     1. Use the same name for the TS interface field and `FormGroup` field
 1. Add `onSubmit` method on component
