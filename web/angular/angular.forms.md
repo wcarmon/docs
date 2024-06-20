@@ -50,8 +50,9 @@
 
 ## In component HTML Template
 1. Create a `<form [formGroup]="myForm">`
-    1. Optional: `(ngSubmit)="onSubmit()"`, not helpful when you have multiple forms though
-1. Create HTML elements for each field (eg. `<input>`, `<select>`, etc)
+    1. Optional attribute: `(ngSubmit)="onSubmit()"`, but not so helpful when you have multiple forms.
+1. Create HTML elements for each field (eg. `<input>`, `<select>`, [material components](https://material.angular.io/components/categories), etc)
+    1. Gotcha material components only work with css-grid & css-flex, not `<table>`;
 1. On each field, set [`FormControlName`](https://v17.angular.io/api/forms/FormControlName) directive
 1. Set `id="..."` attribute on HTML input tag, for deep linking
 1. Print Form level errors (or multi field errors)
