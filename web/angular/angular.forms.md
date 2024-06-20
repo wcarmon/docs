@@ -10,9 +10,9 @@
 1. You'd manage validation, possibly `async` validation too
 1. Angular provides **reactive** ways to hook into the form lifecycle (eg. `statusChanges`, `valuesChanges`)
 1. Angular adds/removes [css classes](https://angular.io/guide/form-validation#control-status-css-classes) to HTML control element based on state
-    1. Either `.ng-valid` or `.ng-invalid`
-    1. Either `.ng-dirty` or `.ng-pristine`
-    1. Either `.ng-touched` or `.ng-untouched`
+    1. Either `.ng-valid` or `.ng-invalid` (validated, descriptions below)
+    1. Either `.ng-dirty` or `.ng-pristine` (mutated, descriptions below)
+    1. Either `.ng-touched` or `.ng-untouched` (visited, descriptions below)
 
 
 # Cheatsheet
