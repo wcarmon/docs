@@ -2,34 +2,15 @@
 1. Idioms for low maintenance 
 
 
-# Why use Angular forms (as opposed to hand rolled)
-1. You'd have to manage data flow ...
+# Why use Angular forms (as opposed to hand rolled form)
+1. Angular reactive forms save you time without being invasive (library, not framework)
+1. You'd manage data flow ...
     1. Changes from HTML element to model in class
     1. Changes from model in class to HTML element    
-1. You'd have to manage validation, possibly async validation too
-1. Angular provides reactive ways to hook into the form lifecycle (eg. `statusChanges`, `valuesChanges`)
+1. You'd manage validation, possibly `async` validation too
+1. Angular provides **reactive** ways to hook into the form lifecycle (eg. `statusChanges`, `valuesChanges`)
 1. Angular adds/removes [css classes](https://angular.io/guide/form-validation#control-status-css-classes) to HTML control element based on state
     1. `.ng-valid`/`.ng-invalid`, `.ng-dirty`/`.ng-pristine`, `ng.-touched`/`.ng-untouched` 
-
-
-## CSS classes (FormGroup level)
-1. `ng-touched`: at least one field touched, (or user ["blurred"](https://developer.mozilla.org/en-US/docs/Web/API/Element/blur_event) the control or control has lost focus)
-1. `ng-untouched`: zero fields touched (or control has not lost focus yet)
-1. `ng-dirty`: one or more fields changed/modified (user changed value after init or last reset)
-1. `ng-pristine`: zero fields modified ([docs](https://angular.dev/api/forms/AbstractControl#pristine))
-1. `ng-valid`: all field content valid
-1. `ng-invalid`: at least one field has invalid content (see [Validators](TODO) below)
-
-- TODO: ng-valid-key    One key for each validation.
-    - Example: ng-valid-required, useful when there are more than one thing that must be validated
-- TODO: ng-valid-key    One key for each validation.
-    - Example: ng-valid-required, useful when there are more than one thing that must be validated
-
-## CSS classes (Field level)
-1. `ng-touched` and `ng-untouched`: field has (not) been touched yet
-1. `ng-dirty` and `ng-pristine`: field has (not) been modified yet
-1. `ng-valid` and `ng-invalid`: field content is (not) valid (see [Validators](TODO) below)
-
 
 
 # Cheatsheet
@@ -134,6 +115,11 @@
         1. [Official example](https://v17.angular.io/api/forms/Validators#pattern)
 		1. Eg. `Validators.pattern('^[a-zA-Z0-9_.+-]+$')`
 
+## CSS classes (Field level)
+1. `ng-touched` and `ng-untouched`: field has (not) been touched yet
+1. `ng-dirty` and `ng-pristine`: field has (not) been modified yet
+1. `ng-valid` and `ng-invalid`: field content is (not) valid (see [Validators](./angular.forms.md#validators) above)
+
 
 # [`FormGroup`](https://v17.angular.io/api/forms/FormGroup)
 1. Aggregates `FormControl`s of different types (Facade pattern)
@@ -149,6 +135,18 @@
     1. Use [`FormGroup.patchValue`](https://v17.angular.io/api/forms/FormGroup#patchvalue) to update specific fields
     1. Use [`FormGroup.reset()`](https://v17.angular.io/api/forms/FormGroup#reset) on init and after successful form submit
         1. clears the `dirty` and `touched` flags, sets defaults, etc. 
+
+## CSS classes (`FormGroup` level)
+1. `ng-touched`: at least one field touched, (or user ["blurred"](https://developer.mozilla.org/en-US/docs/Web/API/Element/blur_event) the control or control has lost focus)
+1. `ng-untouched`: zero fields touched (or control has not lost focus yet)
+1. `ng-dirty`: one or more fields changed/modified (user changed value after init or last reset)
+1. `ng-pristine`: zero fields modified ([docs](https://angular.dev/api/forms/AbstractControl#pristine))
+1. `ng-valid`: all field content valid
+1. `ng-invalid`: at least one field has invalid content (see [Validators](TODO) below)
+
+
+- TODO: formGroup validator
+- TODO: formGroup updates (setValue, patchValue)
 
 
 # [`ControlValueAccessor`](https://angular.dev/api/forms/ControlValueAccessor) interface
