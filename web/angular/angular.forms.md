@@ -14,7 +14,7 @@
 
 
 # Cheatsheet
-## Typescript
+## In component Typescript
 1. Make a domain specific [TS interface](https://www.typescriptlang.org/static/TypeScript%20Interfaces-34f1ad12132fb463bd1dfe5b85c5b2e6.png) to model the form entity
 1. [Generate an Angular Component for the form](https://v17.angular.io/cli/generate#component-command)
 1. Include the ReactiveForms module in your Component:
@@ -28,25 +28,27 @@
 ```ts
   onSubmit($event: Event): void {
 
-    // or if (!this.formGroup.valid) {
-    if (this.formGroup.invalid) {
-      console.debug('rejecting submit for invalid form', this.formGroup.value);
+    const form = this.formGroup;
+
+    // or if (!form.valid) {
+    if (form.invalid) {
+      console.debug('rejecting submit for invalid form', form.value);
       return;
     }
 
-    const entity = this.formGroup.value;
+    const entity = form.value;
 
     // TODO: do any normalization/type conversion here
 
     // TODO: send entity to some service here
 
-    formGroup.reset();
+    form.reset();
   }
 ```
 1. After submit, [`formGroup.reset()`](https://angular.dev/api/forms/AbstractControl#reset)
 
 
-## HTML
+## In component HTML Template
 1. Create a `<form [formGroup]="myForm">`
     1. Optional: `(ngSubmit)="onSubmit()"`, not helpful when you have multiple forms though
 1. Create HTML elements for each field (eg. `<input>`, `<select>`, etc)
