@@ -13,6 +13,7 @@
     1. copy: which is safe, but slower
     1. ignore lifetimes: which is fast, but unsafe (concurrent mutability, use after free, etc)
     1. manually choose from the 2 options above, at every point, and manually reason about both safety and performance
+    1. find some other mechanism to free memory
 1. Think: `... must outlive ...`
 
 
