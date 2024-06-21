@@ -19,7 +19,6 @@
 1. Think: `X must outlive Y`
 
 
-
 # Scope/Applicability
 
 1. Only applies to **references** (borrowing)
