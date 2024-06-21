@@ -159,6 +159,27 @@
 1. eg. Checkboxes have an atypical way of representing their boolean value
 
 
+# Simplified getters
+```ts
+//  in component class
+
+getErrorMessages(foo: MyDomainObject, fieldName: string): string[] {
+  const control = foo.formGroup?.controls[fieldName];
+
+  if (!control) {
+    console.warn('[MyComponent] failed to find control with name=', fieldName);
+    return [];
+  }
+
+  if (!control.errors) {
+    return [];
+  }
+
+  return Object.values(control.errors);
+}
+```
+
+
 # Gotchas
 1. Async validators only run if all synchronous validators pass (for performance reasons)
 1. There's no built in validator for ["isBlank"](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html#isBlank())
