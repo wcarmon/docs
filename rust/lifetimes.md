@@ -66,7 +66,12 @@
 # Multi threading
 1. [thread::spawn](https://doc.rust-lang.org/std/thread/fn.spawn.html) requires that the fn & return value have `static` lifetime
     1. because both must switch call stacks
-1. ...
+1. anything used across threads will ...
+    1. have `'static` lifetime or
+    1. be owned & cloned or
+    1. be in an [`Arc`](https://doc.rust-lang.org/std/sync/struct.Arc.html)
+       1. still owned & "cloned", but shared internally
+    
 
 
 # Other Resources
