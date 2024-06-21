@@ -196,6 +196,19 @@
 ```
 
 
+# Triggering validation
+- eg. in response to some network event with new reference data
+```ts
+// ...
+// -- at the form level
+formGroup.updateValueAndValidity();
+
+// ...
+// -- or at the control level
+formControl.updateValueAndValidity()
+```
+
+
 # Gotchas
 1. Async validators only run if all synchronous validators pass (for performance reasons)
 1. There's no built in validator for ["isBlank"](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html#isBlank())
