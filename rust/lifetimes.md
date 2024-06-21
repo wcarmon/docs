@@ -56,6 +56,7 @@
 1. [thread::spawn](https://doc.rust-lang.org/std/thread/fn.spawn.html) requires that the fn have static lifetime
 1. `static` means *lives for the remaining lifetime of the running program*
 1. [constants and string literals](https://doc.rust-lang.org/rust-by-example/scope/lifetime/static_lifetime.html) have `static` lifetime
+1. [`Box::leak`](https://doc.rust-lang.org/std/boxed/struct.Box.html#method.leak) helps you make a static reference on the heap
 2. 
 
 # Other Resources
