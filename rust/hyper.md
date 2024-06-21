@@ -2,6 +2,7 @@
 
 1. Major concepts in [hyper](https://hyper.rs/)
 
+
 # Concepts
 
 ## Service
@@ -23,3 +24,11 @@
 ## Buf & Bytes
 
 1. [See doc](./hyper.bytes.md)
+
+
+# Example
+- TODO: global error handling
+- TODO: postgres w/async & connection pool
+- TODO: request interceptor
+- TODO: request logging
+- TODO: request scoped data, value added in interceptor
