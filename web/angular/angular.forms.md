@@ -163,20 +163,36 @@
 ```ts
 //  in component class
 
-getErrorMessages(foo: MyDomainObject, fieldName: string): string[] {
-  const control = foo.formGroup?.controls[fieldName];
+  getErrorMessages(foo: MyDomainObject, fieldName: string): string[] {
+    const control = foo.formGroup?.controls[fieldName];
 
-  if (!control) {
-    console.warn('[MyComponent] failed to find control with name=', fieldName);
-    return [];
+    if (!control) {
+      console.warn('[MyComponent] failed to find control with name=', fieldName);
+      return [];
+    }
+
+    if (!control.errors) {
+      return [];
+    }
+
+    return Object.values(control.errors);
   }
 
-  if (!control.errors) {
-    return [];
-  }
+  shouldShowErrors(foo: MyDomainObject, fieldName: string): boolean {
+    const control = foo.formGroup?.controls[fieldName];
 
-  return Object.values(control.errors);
-}
+    if (!control) {
+      console.warn('[MyComponent] failed to find control with name=', fieldName);
+      return false;
+    }
+
+    if (!control.errors) {
+      return false;
+    }
+
+    return control.touched && control.invalid;
+    // return control.invalid;
+  }
 ```
 
 
