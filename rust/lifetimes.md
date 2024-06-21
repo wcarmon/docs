@@ -52,6 +52,10 @@
 1. lifetimes define the contract enforced by the compiler (specifically, the borrow checker)
 
 
+# Multi threading
+1. [thread::spawn](https://doc.rust-lang.org/std/thread/fn.spawn.html) requires that the fn have static lifetime
+2. 
+
 # Other Resources
 
 1. TODO
