@@ -63,7 +63,8 @@
 
 # Multi threading
 1. [thread::spawn](https://doc.rust-lang.org/std/thread/fn.spawn.html) requires that the fn & return value have `static` lifetime
-    2. because both must switch call stacks
+    1. because both must switch call stacks
+1. ...
 
 
 # Other Resources
