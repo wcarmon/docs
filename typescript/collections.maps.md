@@ -1,5 +1,5 @@
 # Overview
-- TODO ...
+- Idioms for using js/ts maps
 
 
 # Idioms
@@ -7,8 +7,13 @@ TODO ...
 
 
 # Iteration
-- TODO: test locally
 ```ts
+for (const [key, value] of m) {
+  console.info(key, "=", value)
+}
+
+// or
+
 for (const [key, value] of myMap.entries()) {
   console.info(key, "=", value)
 }
@@ -23,4 +28,3 @@ myMap.forEach((value, key) => {
 
 # Other Resources
 1. https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/forEach
-
