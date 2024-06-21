@@ -55,7 +55,7 @@
 # Static lifetime
 1. `static` items outlive all other lifetimes
 1. `static` means *lives for the remaining lifetime of the running program*
-1. for trait bounds like `+ 'static`, read as `no temporary lifetimes`
+1. for trait bounds like `+ 'static`, read as *"no temporary lifetimes"*
     1. everything must be owned or `static`
 1. [constants and string literals](https://doc.rust-lang.org/rust-by-example/scope/lifetime/static_lifetime.html) have `static` lifetime
 1. [`Box::leak`](https://doc.rust-lang.org/std/boxed/struct.Box.html#method.leak) helps you make a static reference on the heap
