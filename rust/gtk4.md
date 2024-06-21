@@ -7,6 +7,7 @@
 1. gtk relies a lot on inheritance (patched over with trait and macro hacks)
 1. gtk keeps multiple refs to signals forever (patched with RefCell hacks)
 1. window objects are neither `Send` nor `Sync`
+    1. Use command pattern and [mpsc](https://docs.rs/crossbeam-channel/latest/crossbeam_channel/) to mutate window
 1. Setup is gtk version specific
 2. gtk setup on windows is nontrivial
 1. It will be very obvious from the start you're using the wrong pair of tools
