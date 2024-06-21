@@ -58,18 +58,18 @@
 1. for trait bounds like `+ 'static`, read as *"no temporary lifetimes"*
     1. everything must be owned or `static`
 1. [constants and string literals](https://doc.rust-lang.org/rust-by-example/scope/lifetime/static_lifetime.html) have `static` lifetime
-1. [`Box::leak`](https://doc.rust-lang.org/std/boxed/struct.Box.html#method.leak) helps you make a static reference on the heap
-1. owned can act like `static` because they can live as long as they need to
-1. `static` items don't call `drop`
+1. [`Box::leak`](https://doc.rust-lang.org/std/boxed/struct.Box.html#method.leak) helps you make a `'static` reference on the heap
+1. owned can act like `'static` because they can live as long as they need to
+1. `'static` items don't call [`drop`](TODO)
 
 
 # Multi threading
-1. [thread::spawn](https://doc.rust-lang.org/std/thread/fn.spawn.html) requires that the fn & return value have `static` lifetime
+1. [thread::spawn](https://doc.rust-lang.org/std/thread/fn.spawn.html) requires that the fn & return value have `'static` lifetime
     1. because both must switch call stacks
 1. anything used across threads will ...
     1. have `'static` lifetime or
     1. be owned & cloned or
-    1. be in an [`Arc`](https://doc.rust-lang.org/std/sync/struct.Arc.html)
+    1. be in an [`Arc<...>`](https://doc.rust-lang.org/std/sync/struct.Arc.html)
        1. still owned & "cloned", but shared internally
     
 
