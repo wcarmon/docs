@@ -20,7 +20,8 @@
 ```toml
 [dependencies]
 opentelemetry-semantic-conventions = "..."
-tracing = "..."
+tracing = "..."  # TODO: do I still need this?
+tracing-attributes = "0.1"
 ```
 
 # Dependencies for binary crate (Cargo.toml)
@@ -32,6 +33,7 @@ opentelemetry-jaeger = "..."
 opentelemetry-semantic-conventions = "..."
 
 tracing = "..."
+tracing-attributes = "..."
 tracing-opentelemetry = "..."
 tracing-subscriber = "..."
 ```
@@ -139,7 +141,7 @@ pub(crate) fn setup_tracing() -> Result<(), anyhow::Error> {
 1. See https://docs.rs/tracing/latest/tracing/attr.instrument.html
 
 ```rust
-use ::tracing::instrument;
+use tracing_attributes::instrument;
 ...
 
 
