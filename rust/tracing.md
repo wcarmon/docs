@@ -62,33 +62,41 @@ tracing-subscriber = "..."
 ## Setup `tracing` (for a binary crate)
 
 ```rust
-use tracing_subscriber::layer::SubscriberExt;
-...
+use tracing::level_filters::LevelFilter;
+use tracing_subscriber::layer::SubscriberExt; // enables Registry::default().with
+use tracing_subscriber::{Layer, Registry};
 
-// -- Build Tracers (OpenTelemetry concept)
-let jaeger_tracer = opentelemetry_jaeger::new_agent_pipeline()
-    .with_service_name("whatever-this-service-does")
-    .install_simple() // use batch in prod
-    .expect("failed to build jaeger tracer");
+pub(crate) fn setup_tracing() -> Result<(), anyhow::Error> {
+
+    // -- Build Tracers (OpenTelemetry concept)
+    // TODO: migrate to opentelemetry-otlp
+    let jaeger_tracer = opentelemetry_jaeger::new_agent_pipeline()
+        .with_service_name("auto-trader")
+        .install_simple() // TODO: use batch in prod
+        .context("failed to build jaeger tracer")?;
 
 
-// -- Build OpenTelemetry Layers for tracing lib
-let jaeger_layer = tracing_opentelemetry::layer().with_tracer(jaeger_tracer);
+    // -- Build OpenTelemetry Layers for tracing lib
+    let jaeger_layer = tracing_opentelemetry::layer().with_tracer(jaeger_tracer);
 
-// -- Write to local console
-let console_layer = tracing_subscriber::fmt::layer()
-    .with_writer(std::io::stderr)
-    .with_filter(LevelFilter::INFO);
+    // -- Write to local console
+    let console_layer = tracing_subscriber::fmt::layer()
+        .with_writer(std::io::stderr)
+        .with_filter(LevelFilter::INFO);
 
-// -- Add Layers to Subscriber (tracing lib concepts)
-let subscriber = Registry::default()
-    .with(console_layer)
-    .with(jaeger_layer);
+    // -- Add Layers to Subscriber (tracing lib concept)
+    let subscriber = Registry::default()
+        // GOTCHA: this part requires: use tracing_subscriber::layer::SubscriberExt;
+        .with(console_layer)
+        .with(jaeger_layer);
 
-// -- Apply globally (tracing lib concept)
-//    only in main.rs, never for a library
-tracing::subscriber::set_global_default(subscriber);
+    // -- Apply globally (tracing lib concept)
+    //    only in main.rs, never for a library
+    tracing::subscriber::set_global_default(subscriber)
+        .context("failed to set global tracer")?;
 
+    Ok(())
+}
 ```
 
 ## Span usage
