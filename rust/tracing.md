@@ -99,7 +99,7 @@ pub(crate) fn setup_tracing() -> Result<(), anyhow::Error> {
 }
 ```
 
-## Span usage
+## Span Usage
 
 ```rust
     let span = info_span!("my_span");
