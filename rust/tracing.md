@@ -44,15 +44,16 @@ tracing-subscriber = "..."
     1. [Subscriber trait](https://docs.rs/tracing-core/0.1.30/tracing_core/subscriber/trait.Subscriber.html): TODO
         1. Subscriber responsible for associating spans with threads
     1. [Layer trait](https://docs.rs/tracing-subscriber/0.3.16/tracing_subscriber/layer/trait.Layer.html): TODO
-1. Uses idiomatic rust
-1. Compatible with [`Future`](https://doc.rust-lang.org/nightly/core/future/trait.Future.html)s, [example](https://docs.rs/tracing/latest/tracing/trait.Instrument.html)
-1. Compatible with [tokio](https://tokio.rs/)
-1. [Has convenient macros](https://docs.rs/tracing/latest/tracing/#macros)
-1. Sometimes unintuitive
+1. `Pro`: Uses idiomatic rust
+1. `Pro`: Compatible with [`Future`](https://doc.rust-lang.org/nightly/core/future/trait.Future.html)s, [example](https://docs.rs/tracing/latest/tracing/trait.Instrument.html)
+1. `Pro`: Compatible with [tokio](https://tokio.rs/)
+1. `Pro`: [Has convenient macros](https://docs.rs/tracing/latest/tracing/#macros)
+1. `Pro`: Includes thread attributes by default
+1. `Cons`: Sometimes unintuitive
     1. eg. https://docs.rs/tracing-core/0.1.30/tracing_core/trait.Subscriber.html#tymethod.record
-1. Non-standard (compared to OpenTelemetry which works across coding languages)
-1. Different [span lifecycle](https://docs.rs/tracing/latest/tracing/span/index.html#the-span-lifecycle) than [OpenTelemetry](TODO)
-1. Includes thread attributes by default
+1. `Cons`: Non-standard when compared to OpenTelemetry usage in other coding languages
+1. `Cons`: Different [span lifecycle](https://docs.rs/tracing/latest/tracing/span/index.html#the-span-lifecycle) than [OpenTelemetry](TODO)
+
 
 # Alternative: [OpenTelemetry](https://opentelemetry.io/docs/instrumentation/rust/) lib
 
