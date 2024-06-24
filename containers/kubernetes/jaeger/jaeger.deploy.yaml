@@ -27,7 +27,7 @@
 # -- Debug the Image
 # -----------------------------------
 # kubectl delete pod debug-jaeger;
-# kubectl run debug-jaeger --image=jaegertracing/all-in-one:1.52 --env="SPAN_STORAGE_TYPE=badger"
+# kubectl run debug-jaeger --image=jaegertracing/all-in-one:1.58 --env="SPAN_STORAGE_TYPE=badger"
 # kubectl exec -it debug-jaeger -- /bin/ash;
 #
 #
@@ -40,7 +40,7 @@
 # -----------------------------------
 # -- Official Jaeger Ports:
 # -----------------------------------
-# - See https://www.jaegertracing.io/docs/1.52/deployment/
+# - See https://www.jaegertracing.io/docs/1.58/deployment/
 #
 #
 # -----------------------------------
@@ -95,7 +95,7 @@ spec:
               readOnly: false
 
       containers:
-        - image: jaegertracing/all-in-one:1.52
+        - image: jaegertracing/all-in-one:1.58
           imagePullPolicy: IfNotPresent
           name: jaeger
 

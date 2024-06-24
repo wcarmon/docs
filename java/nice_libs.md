@@ -69,5 +69,5 @@
 1. [`ghcr.io/graalvm/native-image-community`](https://github.com/graalvm/container/pkgs/container/native-image-community)
 1. [`gradle`](https://hub.docker.com/_/gradle)
 1. [`hazelcast/hazelcast`](https://docs.hazelcast.com/hazelcast/5.3/getting-started/get-started-docker)
-1. [`jaegertracing/all-in-one`](https://www.jaegertracing.io/docs/1.52/getting-started/)
+1. [`jaegertracing/all-in-one`](https://www.jaegertracing.io/docs/1.58/getting-started/)
 1. [`postgres`](https://hub.docker.com/_/postgres)

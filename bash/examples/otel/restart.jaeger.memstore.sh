@@ -32,7 +32,7 @@ readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
 # -- Config
 # ---------------------------------------------
 # -- See https://hub.docker.com/r/jaegertracing/all-in-one/tags
-readonly JAEGER_IMAGE="jaegertracing/all-in-one:1.52"
+readonly JAEGER_IMAGE="jaegertracing/all-in-one:1.58"
 
 #GOTCHA: -d is cross platform, --directory is not
 readonly TEMP_DIR=$(mktemp -d)
@@ -58,7 +58,7 @@ $DOCKER rm --force $JAEGER_CONTAINER_NAME || true &>/dev/null
 # -- Run
 # ---------------------------------------------
 
-# -- Ports: See https://www.jaegertracing.io/docs/1.52/deployment/
+# -- Ports: See https://www.jaegertracing.io/docs/1.58/deployment/
 # - 14250 = collector: model.proto
 # - 14269 = admin, health check
 # - 14271 = admin, health check
