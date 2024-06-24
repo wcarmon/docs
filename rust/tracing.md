@@ -139,12 +139,12 @@ pub(crate) fn setup_tracing() -> Result<(), anyhow::Error> {
 1. See https://docs.rs/tracing/latest/tracing/attr.instrument.html
 
 ```rust
-use tracing::{instrument};
+use ::tracing::instrument;
 ...
 
 
 #[instrument]
-fn do_something(foo: &str) -> anyhow::Result<String> {
+fn do_something(foo: &str) -> Result<String, anyhow::Error> {
 
     // these are automatically associated with the span
     debug!(aa = 7, "not that important");
