@@ -149,3 +149,10 @@ public final class GlobalExceptionHandler implements ExceptionHandler<Exception>
     //         : new ResponseEntity<>("down", HttpStatus.SERVICE_UNAVAILABLE)
 ```
 1. See the [Pod/Deployment yamls here](../containers/kubernetes/k8s.pod.md)
+
+
+# WebSocket timeout
+```java
+cfg.jetty.modifyWebSocketServletFactory(ws -> ws.setIdleTimeout(Duration.ofHours(4))
+);
+```
