@@ -11,6 +11,9 @@
 # Proof-of-Work
 1. Used by TODO
 1. Incentives: TODO
+1. On Conflict: Trust the "branch" that has the most computational work
+1. Hard to verify a block, but easy to confirm it's correct
+1. `Pro`: Anyone can verify blocks (no central authority)
 1. `Pro`: TODO
 1. `Con`: TODO
 1. `Con`: High infrastructure costs
@@ -28,7 +31,7 @@
 1. `Con`: TODO
 
 
-# Unorganized
+# TODO: Unorganized
 1. Validators == Miners
 
 
