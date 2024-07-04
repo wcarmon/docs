@@ -3,7 +3,8 @@
 
 
 # Network
-1. TODO
+1. Around since 2015 (6 years after Bitcoin)
+1. [Yellow Paper](https://ethereum.github.io/yellowpaper/paper.pdf) (the Official specification)
 
 
 # Mining/Verification
@@ -12,6 +13,7 @@
 
 # Consensus
 1. Ethereum 2 uses Proof-of-Stake
+1. Takes about 12 seconds to verify a block
 
 
 # Virtual Machine (EVM)
