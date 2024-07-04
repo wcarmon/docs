@@ -18,7 +18,7 @@
 ```sh
 DOWNLOADS_DIR=$HOME/Downloads
 GO_SDKS_DIR=$HOME/opt/golang
-GO_VERSION=1.20
+GO_VERSION=1.22
 
 NEW_GO_SDK_ROOT="$GO_SDKS_DIR/go$GO_VERSION"
 
@@ -42,11 +42,11 @@ ln -sv $NEW_GO_SDK_ROOT/bin/go $HOME/bin/go
 ln -sv $NEW_GO_SDK_ROOT/bin/gofmt $HOME/bin/gofmt
 
 
-# For Global
-sudo rm -fv /usr/bin/go
-sudo rm -fv /usr/bin/gofmt
-sudo ln -sv $NEW_GO_SDK_ROOT/bin/go /usr/bin/go
-sudo ln -sv $NEW_GO_SDK_ROOT/bin/gofmt /usr/bin/gofmt
+# -- For Global
+# sudo rm -fv /usr/bin/go
+# sudo rm -fv /usr/bin/gofmt
+# sudo ln -sv $NEW_GO_SDK_ROOT/bin/go /usr/bin/go
+# sudo ln -sv $NEW_GO_SDK_ROOT/bin/gofmt /usr/bin/gofmt
 ```
 
 
@@ -57,5 +57,5 @@ which gofmt;
 
 go version
 $HOME/bin/go version
-/usr/bin/go version
+# /usr/bin/go version
 ```
