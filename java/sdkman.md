@@ -44,6 +44,7 @@ sdk install kotlin 2.0.0;
 sdk install java 21.0.3-amzn;
 sdk install java 21.0.2-open;
 sdk install java 21.0.3-oracle;
+sdk install java 21.0.2-graalce;
 
 # v17 based
 sdk install java 17.0.7-oracle;
