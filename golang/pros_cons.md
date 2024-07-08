@@ -46,6 +46,8 @@
 # Bad news
 1. Go abstractions are higher than C, but much lower than Rust, Java, C++, etc
     1. eg. algebraic types, enums, etc
+1. When writing, feels low-level, like C
+    1. Compare to writing Java, Rust, etc    
 1. Verbose error handling & error propagation
     1. Compare to [Rust](https://doc.rust-lang.org/rust-by-example/std/result/question_mark.html), [Python](https://docs.python.org/3/library/exceptions.html), [C++](https://cplusplus.com/doc/tutorial/exceptions/) or [Java](https://docs.oracle.com/javase/tutorial/essential/exceptions/index.html)        
     1. No exceptions
