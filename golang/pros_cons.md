@@ -102,12 +102,13 @@
 1. Missing Data Structures: 
     1. ~~No LinkedList~~
         1. Mitigate: [pkg.go.dev/container](https://pkg.go.dev/container/list)
-    1. ~~No Queue~~
-        1. Mitigate: [pkg.go.dev/container](https://pkg.go.dev/container/list)
-    1. ~~No Heap~~
-        1. Mitigate: [pkg.go.dev/container](https://pkg.go.dev/container/heap)
+    1. No Queue
+        1. Partial Mitigate: [pkg.go.dev/container](https://pkg.go.dev/container/list)
+        1. No way to remove first or last
     1. No Stack
         1. Mitigate: roll your own via slice (`Pop` is non-trivial)    
+    1. ~~No Heap~~
+        1. Mitigate: [pkg.go.dev/container](https://pkg.go.dev/container/heap)
     1. No [Sets](https://en.wikipedia.org/wiki/Set_(abstract_data_type))
         1. Compare to [Rust](https://doc.rust-lang.org/std/collections/struct.HashSet.html) or [Java](https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/util/Set.html) or [C++](https://cplusplus.com/reference/unordered_set/unordered_set/)
         1. Also, no `SortedSet`, Compare to [Java](https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/util/SortedSet.html) or [Rust](https://doc.rust-lang.org/stable/std/collections/struct.BTreeSet.html) or [C++](https://en.cppreference.com/w/cpp/container/set)
