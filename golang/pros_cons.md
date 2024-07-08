@@ -113,6 +113,8 @@
     1. Although, performance can be faster without streams
     1. Java streams [require a special debugger](https://www.jetbrains.com/idea/guide/tips/debugging-streams/)
     1. [Golang 1.21 improved this](https://pkg.go.dev/slices)
+1. ~~Annoying to get map keys~~
+    1. Fixed: in [golang.org/x/exp](https://pkg.go.dev/golang.org/x/exp@v0.0.0-20240707233637-46b078467d37/maps)
 1. `max`/`min`/`abs` ~~functions don't work on all numeric types~~
     1. Fixed in 1.21 - https://tip.golang.org/ref/spec#Min_and_max
 1. ~~Sorting is unintuitive~~
