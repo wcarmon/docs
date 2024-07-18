@@ -19,7 +19,7 @@
 
 # [Sync](https://doc.rust-lang.org/std/marker/trait.Sync.html)
 1. Think: Shared references
-1. Safe to **share** a read-only reference across threads
+1. Safe to **share** a read-only (immutable) reference across threads
 1. Means "Threadsafe"
 1. Auto-implemented by the compiler when applicable ([unsafe trait](https://doc.rust-lang.org/book/ch19-01-unsafe-rust.html))
 1. (Mostly) a subset of `Send` Trait (even more strict than `Send`)
