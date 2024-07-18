@@ -7,18 +7,21 @@
 1. Supports arbitrary precision
 1. Simpler alternative to latitude & longitude values 
     1. They would be stored as `float64` in a database
-    1. Distance calculations would require two indexes, square roots, etc 
-1. Longer common prefix means closer together 
+    1. Distance calculations would require two indexes, square roots, etc
+1. Longer common prefix means points are closer together 
 
 
 # Concept
 1. a GeoHash is a 1 to 12 alphanumeric string
-    1. 4-chars: TODO
-    1. 5-chars: within 3 miles
-    1. 6-chars: TODO
+    1. 4-chars: within 12 - 25 miles, like a town
+    1. 5-chars: within 3 miles, like a neighborhood or some landmark
+    1. 6-chars: within ~ 0.5 mile (non-square)
     1. 7-chars: 100m - 500m (Android Coarse-grained GPS data)
     1. 8-chars: within 30m (Android Fine-grained GPS data)
     1. 9-chars: within 5m
+1. Only odd hash lengths are squares
+1. Each level broken into 32 equally sized rectangles
+1. A is a type of [Spacial index](http://postgis.net/workshops/postgis-intro/indexing.html)
 
 
 # Implementation
@@ -35,5 +38,6 @@
 
 
 # Other resources
+1. https://www.pubnub.com/guides/what-is-geohashing/
 1. https://en.wikipedia.org/wiki/Geohash
 1. https://docs.quadrant.io/quadrant-geohash-algorithm
