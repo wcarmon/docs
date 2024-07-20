@@ -36,18 +36,25 @@ sdk list visualvm;
 1. Fortunately, these commands are idempotent
 
 ```sh
-sdk install gradle 8.8;
+sdk install gradle 8.9;
 sdk install visualvm 2.1.8;
 sdk install kotlin 2.0.0;
 
-# v21 based
-sdk install java 21.0.3-amzn;
+
+# version 22 based
+sdk install java 22.0.2-amzn;
+sdk install java 22.0.1-open;
+sdk install java 22.0.2-oracle;
+
+
+# version 21 based (LTS)
+sdk install java 21.0.4-amzn;
 sdk install java 21.0.2-open;
-sdk install java 21.0.3-oracle;
+sdk install java 21.0.4-oracle;
 sdk install java 21.0.2-graalce;
 
-# v17 based
-sdk install java 17.0.7-oracle;
+# version 17 based
+sdk install java 17.0.12-oracle;
 sdk install java 22.3.2.r17-grl;
 ```
 
