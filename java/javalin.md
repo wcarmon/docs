@@ -83,6 +83,15 @@ import static java.util.Objects.requireNonNull;
 @Slf4j
 public final class GlobalExceptionHandler implements ExceptionHandler<Exception> {
 
+    private final ObjectMapper objectMapper;
+    
+    @Builder
+    private GlobalExceptionHandler(ObjectMapper objectMapper) {
+        requireNonNull(objectMapper, "objectMapper is required and null.");
+        
+        this.objectMapper = objectMapper;
+    }
+
     @Override
     public void handle(Exception ex, Context ctx) {
         requireNonNull(ex, "ex is required and null.");
@@ -92,8 +101,21 @@ public final class GlobalExceptionHandler implements ExceptionHandler<Exception>
         ctx.contentType("text/plain");
 
         if (ex instanceof WebException wex) {
+            
+            final String contentType;
+            final String responseBody;
+        
+            if (wex.fieldValidationErrors().isEmpty()) {
+                contentType = "text/plain";
+                responseBody = wex.publicMessage();
+            } else {
+                contentType = "application/json";
+                responseBody = objectMapper.writeValueAsString(wex.fieldValidationErrors());
+            }
+            
+            ctx.contentType(contentType);
             ctx.status(wex.statusCode());
-            ctx.result(wex.publicMessage());
+            ctx.result(responseBody);
             return;
         }
 
