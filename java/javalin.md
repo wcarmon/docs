@@ -103,6 +103,67 @@ public final class GlobalExceptionHandler implements ExceptionHandler<Exception>
 }
 ```
 
+### Example `WebException` class
+- allows sending correct statusCode & payload back to client 
+```java
+package com.wcarmon.web;
+
+import lombok.Builder;
+import org.apache.commons.lang3.StringUtils;
+import org.jetbrains.annotations.Nullable;
+
+import java.util.Map;
+
+import static com.google.common.base.Preconditions.checkArgument;
+
+/**
+ * Exception thrown by any class in the request path, converted to an appropriate HTTP error response
+ */
+public final class WebException extends RuntimeException {
+
+    /**
+     * Sensitive info goes here.
+     * context is logged, never send to client.
+     */
+    private final Map<String, Object> context;
+
+    /**
+     * No sensitive information here
+     */
+    private final String publicMessage;
+
+    private final int statusCode;
+
+    @Builder
+    private WebException(
+            int statusCode,
+            @Nullable String publicMessage,
+            @Nullable Throwable cause,
+            @Nullable Map<String, Object> context) {
+        super(publicMessage, cause);
+
+        checkArgument(statusCode >= 400, "statusCode must be >= 400");
+        checkArgument(statusCode < 600, "statusCode must be < 600");
+
+        this.context = context == null ? Map.of() : Map.copyOf(context);
+        this.publicMessage = StringUtils.defaultIfBlank(publicMessage, "").strip();
+        this.statusCode = statusCode;
+    }
+
+    public Map<String, Object> context() {
+        return context;
+    }
+
+    public String publicMessage() {
+        return publicMessage;
+    }
+
+    public int statusCode() {
+        return statusCode;
+    }
+}
+```
+
 1. TODO: Auth
 1. TODO: logging
 1. TODO: tracing propagation
