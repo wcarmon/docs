@@ -127,6 +127,9 @@ public final class WebException extends RuntimeException {
      */
     private final Map<String, Object> context;
 
+    /** Map[FieldName, ErrorMessage] */
+    private final Map<String, String> fieldValidationErrors;
+
     /**
      * No sensitive information here
      */
@@ -139,13 +142,16 @@ public final class WebException extends RuntimeException {
             int statusCode,
             @Nullable String publicMessage,
             @Nullable Throwable cause,
-            @Nullable Map<String, Object> context) {
+            @Nullable Map<String, Object> context,
+            @Nullable Map<String, String> fieldValidationErrors) {
+        
         super(publicMessage, cause);
 
         checkArgument(statusCode >= 400, "statusCode must be >= 400");
         checkArgument(statusCode < 600, "statusCode must be < 600");
 
         this.context = context == null ? Map.of() : Map.copyOf(context);
+        this.fieldValidationErrors = fieldValidationErrors == null ? Map.of() : Map.copyOf(fieldValidationErrors);
         this.publicMessage = StringUtils.defaultIfBlank(publicMessage, "").strip();
         this.statusCode = statusCode;
     }
@@ -153,6 +159,11 @@ public final class WebException extends RuntimeException {
     public Map<String, Object> context() {
         return context;
     }
+
+    /** Map[FieldName, ErrorMessage] */
+    public Map<String, String> fieldValidationErrors() {
+        return fieldValidationErrors;
+    } 
 
     public String publicMessage() {
         return publicMessage;
