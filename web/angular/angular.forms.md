@@ -123,6 +123,14 @@
         1. [Official example](https://v17.angular.io/api/forms/Validators#pattern)
 		1. Eg. `Validators.pattern('^[a-zA-Z0-9_.+-]+$')`
 
+### Server errors
+1. **Don't** integrate with `Validators`
+    1. Client side errors should prevent resubmit
+    1. Server errors shouldn't prevent resubmit (since they are only detected on the server)    
+1. Just display server errors either at the top or near the field
+1. Server should return `Map<FieldName, ErrorMessage>` 
+
+
 ## CSS classes (Field level)
 1. `ng-touched` and `ng-untouched`: field has (not) been touched yet (think [focus](https://developer.mozilla.org/en-US/docs/Web/API/Element/focus_event) & [blur](https://developer.mozilla.org/en-US/docs/Web/API/Element/blur_event))
 1. `ng-dirty` and `ng-pristine`: field has (not) been modified yet
