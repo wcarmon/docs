@@ -144,7 +144,10 @@ struct Employee {
 1. Steps
     1. struct for each state
     1. methods on each struct for valid state transitions
-    1. transition methods consume `self` (guarantees transitions happen at-most-once)
+    1. transition methods consume `self`
+       - guarantees transitions happen at-most-once
+    1. limit how internal state structs can be created (eg. `::new` consumes previous state)
+    1. Wrap an [`Rc`](TODO) if need to manage lifecycle
 
 
 # Other Resources
