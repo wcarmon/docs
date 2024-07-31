@@ -138,6 +138,15 @@ struct Employee {
     1. [example-2](https://rust-unofficial.github.io/patterns/patterns/behavioural/newtype.html)
     1. [example-3](https://doc.rust-lang.org/book/ch19-04-advanced-types.html)
 
+
+# TypeState pattern
+1. Goal: make illegal state unrepresentable
+1. Steps
+    1. struct for each state
+    1. methods on each struct for valid state transitions
+    1. transition methods consume `self` (guarantees transitions happen at-most-once)
+
+
 # Other Resources
 
 1. https://markoengelman.com/ddd-anemic-vs-rich-domain-model/
