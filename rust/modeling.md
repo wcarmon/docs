@@ -142,13 +142,15 @@ struct Employee {
 # TypeState pattern
 1. Goal: make illegal state unrepresentable
 1. Steps
+    1. Draw out the state transition diagram 
     1. struct for each state
     1. methods on each struct for valid state transitions
     1. transition methods consume `self`
        - guarantees transitions happen at-most-once
     1. limit how internal state structs can be created
         - `::new` consumes previous state)
-        - or private [`PhantomData`](TODO) field
+        - or [`#[non_exhaustive]`](https://doc.rust-lang.org/reference/attributes/type_system.html)
+        - or private [`PhantomData`](TODO) field impn intermediate state structs
     1. Wrap an [`Rc`](TODO) if need to manage lifecycle
 
 
