@@ -70,7 +70,7 @@ struct Employee {
 
 ### ... of the same thing
 
-- non empty vec library
+- [non empty vec library](https://docs.rs/nonempty/latest/nonempty/)
 - Vec with runtime enforcement
 
 ### ... of different things
