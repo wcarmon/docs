@@ -141,7 +141,7 @@ struct Employee {
 
 # TypeState pattern
 1. Goal: make illegal state unrepresentable
-1. Steps
+1. Steps:
     1. Draw out the state transition diagram 
     1. Make `struct` for each state
     1. Add methods on each (non-terminal) state struct for each state transition
