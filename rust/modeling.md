@@ -88,6 +88,9 @@ struct Employee {
 let age: u8 = 30; // compiler enforced non-negative
 ```
 
+# Floats in specific range
+- https://docs.rs/typed_floats/latest/typed_floats/
+
 ## Group of related fields ([Product Algebraic data type](https://en.wikipedia.org/wiki/Product_type))
 
 1. Use a [`struct`](./structs.md)
