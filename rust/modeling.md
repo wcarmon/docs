@@ -79,6 +79,9 @@ struct Employee {
 - bit fields
 - builder struct + validated impl struct hidden behind pub trait
 
+## One of Two peers
+- https://crates.io/crates/either
+
 ## Non-negative value
 
 1. Use [`u8`](https://doc.rust-lang.org/std/primitive.u8.html), [`u16`](https://doc.rust-lang.org/std/primitive.u16.html), [`u32`](https://doc.rust-lang.org/std/primitive.u32.html), [`u64`](https://doc.rust-lang.org/std/primitive.u64.html), or [`u128`](https://doc.rust-lang.org/std/primitive.u128.html)
