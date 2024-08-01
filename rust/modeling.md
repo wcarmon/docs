@@ -147,11 +147,11 @@ struct Employee {
     1. methods on each struct for valid state transitions
     1. transition methods consume `self`
        - guarantees transitions happen at-most-once
-    1. limit how internal state structs can be created
-        - `::new` consumes previous state)
+    1. limit how intermediate & terminal state structs are created
+        - `::new` method consumes previous state struct
         - or [`#[non_exhaustive]`](https://doc.rust-lang.org/reference/attributes/type_system.html)
-        - or private [`PhantomData`](TODO) field impn intermediate state structs
-    1. Wrap an [`Rc`](TODO) if need to manage lifecycle
+        - or private [`PhantomData`](https://doc.rust-lang.org/std/marker/struct.PhantomData.html) field on intermediate state struct
+    1. Wrap an [`Rc`](https://doc.rust-lang.org/std/rc/struct.Rc.html) if need to manage lifecycle
 
 
 # Other Resources
