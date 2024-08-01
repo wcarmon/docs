@@ -143,15 +143,15 @@ struct Employee {
 1. Goal: make illegal state unrepresentable
 1. Steps
     1. Draw out the state transition diagram 
-    1. struct for each state
-    1. methods on each struct for valid state transitions
-    1. transition methods consume `self`
-       - guarantees transitions happen at-most-once
+    1. Make `struct` for each state
+    1. Add methods on each (non-terminal) state struct for each state transition
+    1. each transition method must consume `self`
+       - guarantees transitions happen at-most once
     1. limit how intermediate & terminal state structs are created
         - `::new` method consumes previous state struct
         - or [`#[non_exhaustive]`](https://doc.rust-lang.org/reference/attributes/type_system.html)
         - or private [`PhantomData`](https://doc.rust-lang.org/std/marker/struct.PhantomData.html) field on intermediate state struct
-    1. Wrap an [`Rc`](https://doc.rust-lang.org/std/rc/struct.Rc.html) if need to manage lifecycle
+    1. If you must manage lifecycle in a field, wrap field in an [`Rc`](https://doc.rust-lang.org/std/rc/struct.Rc.html)
 
 
 # Other Resources
