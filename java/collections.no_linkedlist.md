@@ -32,6 +32,8 @@
 - `LinkedList` must iterate to find elements (except first and last) - `O(n)`
     - See above about [Iteration, Traversal & search](#iteration-traversal--search)
     - Note this also makes things like [binary search](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Arrays.html#binarySearch(byte%5B%5D,byte)) slower
+- `Deque` can access any element in constant time (when implemented as multiple arrays)
+
 
 ## [Append](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/List.html#add(E))
 
@@ -39,6 +41,7 @@
     - Solution: start with enough capacity to avoid resize
 - `LinkedList` must allocate [`Node`](https://hg.openjdk.java.net/jdk/jdk11/file/1ddf9a99e4ad/src/java.base/share/classes/java/util/LinkedList.java#l974) for each element & update pointers
     - So, `LinkedList::add` is slower than `ArrayList::add`, except for the resize case
+    - `LinkedList` can concatenate two lists in constant time
 
 ## [Delete](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/List.html#remove(int))/[Insert](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/List.html#add(int,E)) between elements
 
