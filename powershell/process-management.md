@@ -8,7 +8,11 @@ Get-Process | Sort-Object CPU -Descending | Select-Object -First 30 -Property Pr
 ```
 
 
-# Stop Service
+# Processes using Highest Memory
+- TODO
+
+
+# Stop a Service
 ```ps1
 Stop-Service -Name "Print Spooler"
 Stop-Service -Name "Smart Card"
@@ -16,7 +20,7 @@ Stop-Service -Name "..."
 ```
 
 
-# Stop Process
+# Stop a Process
 ```ps1
 Get-Process | Where-Object { $_.ProcessName -eq "msedge" } | Stop-Process -Force
 ```
