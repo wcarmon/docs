@@ -47,7 +47,7 @@
 
 - `LinkedList` can be faster here since `ArrayList` must shift elements
     - Since CPUs are optimized for array operations, benchmarks are required
-    - [System::arrayCopy](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html#arraycopy(java.lang.Object,int,java.lang.Object,int,int)) is extremely fast
+    - [System::arrayCopy](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html#arraycopy(java.lang.Object,int,java.lang.Object,int,int)) is extremely fast (cache lines, prefetcher)
 - `LinkedList` can be slower here because it requires **traversing** to the insertion/deletion point
 
 # Memory
