@@ -9,7 +9,9 @@ Get-Process | Sort-Object CPU -Descending | Select-Object -First 30 -Property Pr
 
 
 # Processes using Highest Memory
-- TODO
+```ps1
+Get-Process | Sort-Object WorkingSet -Descending | Select-Object -First 20 -Property ProcessName, Path
+```
 
 
 # Stop a Service
