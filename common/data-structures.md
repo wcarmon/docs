@@ -5,12 +5,29 @@
 # Core
 
 ## Array
+- Stored on the (thread) stack
+
+- TODO: Java
+- TODO: Rust: Vec
+- TODO: JS
+- TODO: Go
+
+## Linked List
+- Stored on the Heap
+
+### Single
 - TODO: Java
 - TODO: Rust
 - TODO: JS
 - TODO: Go
 
-## Linked List
+### Double
+- TODO: Java
+- TODO: Rust
+- TODO: JS
+- TODO: Go
+
+### Circular
 - TODO: Java
 - TODO: Rust
 - TODO: JS
@@ -20,7 +37,7 @@
 --------
 # Adapter Containers
 
-## HashMap/HashTable
+## HashMap/HashTable (Associative Array)
 - TODO: Java
 - TODO: Rust
 - TODO: JS
@@ -82,6 +99,12 @@
 - TODO: JS
 - TODO: Go
 
+## Set
+- TODO: Java
+- TODO: Rust
+- TODO: JS
+- TODO: Go
+
 
 --------
 # Advanced
@@ -104,14 +127,45 @@
 # Concurrent
 
 ## Threadsafe Map
+- TODO: Java
+- TODO: Rust
+- TODO: JS
+- TODO: Go
+
+
+## Threadsafe Set
+- TODO: Java
+- TODO: Rust
+- TODO: JS
+- TODO: Go
+
 
 ## Queue: SPSC
+- TODO: Java
+- TODO: Rust
+- TODO: JS
+- TODO: Go
+
 
 ## Queue: MPSC
+- TODO: Java
+- TODO: Rust
+- TODO: JS
+- TODO: Go
+
 
 ## Queue: SPMC
+- TODO: Java
+- TODO: Rust
+- TODO: JS
+- TODO: Go
+
 
 ## Queue: MPMC
+- TODO: Java
+- TODO: Rust
+- TODO: JS
+- TODO: Go
 
 
 ## Lock-free Queue
@@ -128,5 +182,7 @@
 - TODO: Go
 
 
+
 # Other resources
-1. TODO
+1. https://www.mygreatlearning.com/blog/data-structures-using-java/
+1. https://doc.rust-lang.org/std/collections/
