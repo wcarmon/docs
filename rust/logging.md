@@ -64,7 +64,7 @@ pub fn setup_simple_logger(log_file_name: &str) -> Result<(), anyhow::Error> {
 1. in `main.rs`
 ```rs
 ...
-setup_logger().expect("failed to setup logger");
+setup_simple_logger("app.log").expect("failed to setup logger");
 ...
 ```
 
