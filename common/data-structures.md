@@ -11,10 +11,21 @@
 - TODO: Go
 
 ## Linked List
+- TODO: Java
+- TODO: Rust
+- TODO: JS
+- TODO: Go
 
 
 --------
 # Adapter Containers
+
+## HashMap/HashTable
+- TODO: Java
+- TODO: Rust
+- TODO: JS
+- TODO: Go
+
 
 ## Stack
 - TODO: Java
@@ -30,7 +41,28 @@
 - TODO: Go
 
 
-## Tree
+## Dequeue
+- TODO: Java
+- TODO: Rust
+- TODO: JS
+- TODO: Go
+
+
+## Heap (Priority Queue)
+- TODO: Java
+- TODO: Rust
+- TODO: JS
+- TODO: Go
+
+
+## Binary Tree
+- TODO: Java
+- TODO: Rust
+- TODO: JS
+- TODO: Go
+
+
+## Binary Search Tree
 - TODO: Java
 - TODO: Rust
 - TODO: JS
@@ -56,6 +88,16 @@
 
 ## Bloomfilter
 - TODO
+
+# HyperLogLog
+- TODO: Java
+- TODO: Rust
+- TODO: JS
+- TODO: Go
+
+
+## Trie
+
 
 
 --------
