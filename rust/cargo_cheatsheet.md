@@ -11,7 +11,7 @@ cargo install --locked cargo-outdated
 ```
 
 1. periodically
-
+- CLion & RustRover inspections are actually better at finding outdated deps (`Newer crate version available`)
 ```sh
 cargo update --workspace --dry-run;
 cargo update --workspace --verbose;
