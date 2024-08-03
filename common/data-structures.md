@@ -107,9 +107,10 @@
 
 
 ## Ring Buffer (Cyclic Buffer)
-- TODO: Guava - https://www.javadoc.io/doc/com.google.guava/guava/latest/com/google/common/collect/EvictingQueue.html
-- TODO: Java LMAX - https://javadoc.io/doc/com.lmax/disruptor/latest/com.lmax.disruptor/com/lmax/disruptor/RingBuffer.html
 - TODO: Java
+    - https://www.javadoc.io/doc/com.google.guava/guava/latest/com/google/common/collect/EvictingQueue.html
+    - https://javadoc.io/doc/com.lmax/disruptor/latest/com.lmax.disruptor/com/lmax/disruptor/RingBuffer.html
+    - https://commons.apache.org/proper/commons-collections/javadocs/api-4.4/org/apache/commons/collections4/queue/CircularFifoQueue.html
 - TODO: Rust
 - TODO: JS
 - TODO: Go
@@ -162,7 +163,8 @@
 
 
 ## Queue: MPMC
-- TODO: Java
+- TODO: Java:
+    - https://docs.oracle.com/en%2Fjava%2Fjavase%2F22%2Fdocs%2Fapi%2F%2F/java.base/java/util/concurrent/ConcurrentLinkedDeque.html
 - TODO: Rust
 - TODO: JS
 - TODO: Go
@@ -187,19 +189,21 @@
 
 ## Trie
 - TODO: Java
+    - https://commons.apache.org/proper/commons-collections/javadocs/api-4.4/org/apache/commons/collections4/trie/PatriciaTrie.html
+    - https://commons.apache.org/proper/commons-collections/javadocs/api-4.4/org/apache/commons/collections4/trie/UnmodifiableTrie.html
 - TODO: Rust
 - TODO: JS
 - TODO: Go
 
 
-## Treaps
+## Treap
 - TODO: Java
 - TODO: Rust
 - TODO: JS
 - TODO: Go
 
 
-## Bloomfilter
+## BloomFilter
 - TODO: Java
 - TODO: Rust
 - TODO: JS
@@ -220,8 +224,10 @@
 - TODO: Go
 
 
-## MultiSet/Bag
+## MultiSet, Bag
 - TODO: Java
+    - https://commons.apache.org/proper/commons-collections/javadocs/api-4.4/org/apache/commons/collections4/bag/HashBag.html
+    - https://commons.apache.org/proper/commons-collections/javadocs/api-4.4/org/apache/commons/collections4/bag/TreeBag.html
 - TODO: Rust
 - TODO: JS
 - TODO: Go
