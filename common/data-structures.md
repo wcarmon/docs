@@ -4,13 +4,13 @@
 
 # Core
 
-## Array
+## Array/ArrayList/Vector
 - Stored on the (thread) stack
 
-- TODO: Java
-- TODO: Rust: Vec
-- TODO: JS
-- TODO: Go
+- TODO: Java: https://docs.oracle.com/en%2Fjava%2Fjavase%2F22%2Fdocs%2Fapi%2F%2F/java.base/java/util/ArrayList.html
+- TODO: Rust: https://doc.rust-lang.org/std/vec/struct.Vec.html
+- TODO: JS:
+- TODO: Go:
 
 ## Linked List
 - Stored on the Heap
@@ -22,7 +22,7 @@
 - TODO: Go
 
 ### Double
-- TODO: Java
+- TODO: Java: https://docs.oracle.com/en%2Fjava%2Fjavase%2F22%2Fdocs%2Fapi%2F%2F/java.base/java/util/LinkedList.html
 - TODO: Rust
 - TODO: JS
 - TODO: Go
@@ -35,38 +35,51 @@
 
 
 --------
-# Adapter Containers
+# Adapter Containers (All Single-Threaded)
 
-## HashMap/HashTable (Associative Array)
+## HashMap, HashTable (Associative Array)
 - TODO: Java
+- TODO: Rust
+- TODO: JS
+- TODO: Go
+
+
+## Ordered Map
+- TODO: Java
+    - https://docs.oracle.com/en%2Fjava%2Fjavase%2F22%2Fdocs%2Fapi%2F%2F/java.base/java/util/TreeMap.html
 - TODO: Rust
 - TODO: JS
 - TODO: Go
 
 
 ## Stack
-- TODO: Java
-- TODO: Rust
+- TODO: Java: https://docs.oracle.com/en%2Fjava%2Fjavase%2F22%2Fdocs%2Fapi%2F%2F/java.base/java/util/Stack.html
+- TODO: Rust: https://doc.rust-lang.org/std/vec/struct.Vec.html
 - TODO: JS
 - TODO: Go
 
 
 ## Queue
 - TODO: Java
-- TODO: Rust
+    - https://docs.oracle.com/en%2Fjava%2Fjavase%2F22%2Fdocs%2Fapi%2F%2F/java.base/java/util/concurrent/LinkedBlockingQueue.html
+- TODO: Rust: https://doc.rust-lang.org/std/collections/struct.VecDeque.html
 - TODO: JS
 - TODO: Go
 
 
 ## Dequeue
 - TODO: Java
+    - https://docs.oracle.com/en%2Fjava%2Fjavase%2F22%2Fdocs%2Fapi%2F%2F/java.base/java/util/ArrayDeque.html
+    - https://docs.oracle.com/en%2Fjava%2Fjavase%2F22%2Fdocs%2Fapi%2F%2F/java.base/java/util/concurrent/LinkedBlockingDeque.html
+    - https://docs.oracle.com/en%2Fjava%2Fjavase%2F22%2Fdocs%2Fapi%2F%2F/java.base/java/util/concurrent/ArrayBlockingQueue.html
 - TODO: Rust
 - TODO: JS
 - TODO: Go
 
 
-## Heap (Priority Queue)
+## Heap, Priority Queue
 - TODO: Java
+    - https://docs.oracle.com/en%2Fjava%2Fjavase%2F22%2Fdocs%2Fapi%2F%2F/java.base/java/util/PriorityQueue.html
 - TODO: Rust
 - TODO: JS
 - TODO: Go
@@ -87,13 +100,15 @@
 
 
 ## Graph
-- TODO: Java
+- TODO: Java, Guava
 - TODO: Rust
 - TODO: JS
 - TODO: Go
 
 
-## Ring Buffer
+## Ring Buffer (Cyclic Buffer)
+- TODO: Guava - https://www.javadoc.io/doc/com.google.guava/guava/latest/com/google/common/collect/EvictingQueue.html
+- TODO: Java LMAX - https://javadoc.io/doc/com.lmax/disruptor/latest/com.lmax.disruptor/com/lmax/disruptor/RingBuffer.html
 - TODO: Java
 - TODO: Rust
 - TODO: JS
@@ -107,27 +122,12 @@
 
 
 --------
-# Advanced
-
-## Bloomfilter
-- TODO
-
-# HyperLogLog
-- TODO: Java
-- TODO: Rust
-- TODO: JS
-- TODO: Go
-
-
-## Trie
-
-
-
---------
 # Concurrent
 
 ## Threadsafe Map
 - TODO: Java
+    - https://docs.oracle.com/en%2Fjava%2Fjavase%2F22%2Fdocs%2Fapi%2F%2F/java.base/java/util/concurrent/ConcurrentSkipListMap.html
+    - https://docs.oracle.com/en%2Fjava%2Fjavase%2F22%2Fdocs%2Fapi%2F%2F/java.base/java/util/concurrent/ConcurrentHashMap.html
 - TODO: Rust
 - TODO: JS
 - TODO: Go
@@ -176,6 +176,51 @@
 
 
 ## Lock-free Stack
+- TODO: Java
+- TODO: Rust
+- TODO: JS
+- TODO: Go
+
+
+--------
+# Advanced
+
+## Trie
+- TODO: Java
+- TODO: Rust
+- TODO: JS
+- TODO: Go
+
+
+## Treaps
+- TODO: Java
+- TODO: Rust
+- TODO: JS
+- TODO: Go
+
+
+## Bloomfilter
+- TODO: Java
+- TODO: Rust
+- TODO: JS
+- TODO: Go
+
+
+# HyperLogLog
+- TODO: Java
+- TODO: Rust
+- TODO: JS
+- TODO: Go
+
+
+## Merkle Tree
+- TODO: Java
+- TODO: Rust
+- TODO: JS
+- TODO: Go
+
+
+## MultiSet/Bag
 - TODO: Java
 - TODO: Rust
 - TODO: JS
