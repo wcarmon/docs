@@ -5,7 +5,8 @@
 
 # Summary of key ideas
 
-1. Prefer [`tracer`](TODO) or [`opentelemetry`](TODO)
+1. For just logging, Prefer [`env_logger`](https://docs.rs/env_logger/latest/env_logger/)
+1. For Tracing, Prefer [`tracer`]([TODO](https://docs.rs/tracing/latest/tracing/)) or [`opentelemetry`](TODO)
 1. If you must use logging directly, prefer the [log crate](https://docs.rs/log/latest/log/)
 1. Add logs where you **handle** an [`Error`](https://docs.rs/anyhow/latest/anyhow/struct.Error.html), not where you propagate (`?`)
 
@@ -23,14 +24,14 @@ simplelog = "..."
 
 ## Runtime Configuration
 ```rs
-pub fn setup_logger() -> Result<(), anyhow::Error> {
+pub fn setup_simple_logger(log_file_name: &str) -> Result<(), anyhow::Error> {
     // Parse levels using: LevelFilter::from_str("info")?
 
     // TODO: allow override levels from env var
 
     // -- Daily rolling log file, compress old files
     let out_file = FileRotate::new(
-        "app.log",
+        log_file_name,
         AppendCount::new(2),
         ContentLimit::Time(TimeFrequency::Daily),
         Compression::OnRotate(0),
