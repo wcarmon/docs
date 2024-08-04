@@ -79,6 +79,7 @@
     - [`::last()`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.last) (like `::peek`)
 - Heap allocated
 
+
 ### JS
 - TODO:
 
@@ -87,11 +88,24 @@
 
 
 ## Queue, FIFO
-- TODO: Java
-    - https://docs.oracle.com/en%2Fjava%2Fjavase%2F22%2Fdocs%2Fapi%2F%2F/java.base/java/util/concurrent/LinkedBlockingQueue.html
-- TODO: Rust: https://doc.rust-lang.org/std/collections/struct.VecDeque.html
-- TODO: JS
-- TODO: Go
+
+### Java
+- https://docs.oracle.com/en%2Fjava%2Fjavase%2F22%2Fdocs%2Fapi%2F%2F/java.base/java/util/concurrent/LinkedBlockingQueue.html
+- https://docs.oracle.com/en%2Fjava%2Fjavase%2F22%2Fdocs%2Fapi%2F%2F/java.base/java/util/LinkedList.html
+
+### Rust
+- Use [`VecDeque`](https://doc.rust-lang.org/std/collections/struct.VecDeque.html)
+    - Growable Ring-buffer
+    - [`::()`]()
+    - [`::()`]()
+    - [`::()`]()
+    - [`::()`]()
+
+### JS
+- TODO:
+
+### Go
+- TODO:
 
 
 ## Dequeue
@@ -138,9 +152,17 @@
     - https://www.javadoc.io/doc/com.google.guava/guava/latest/com/google/common/collect/EvictingQueue.html
     - https://javadoc.io/doc/com.lmax/disruptor/latest/com.lmax.disruptor/com/lmax/disruptor/RingBuffer.html
     - https://commons.apache.org/proper/commons-collections/javadocs/api-4.4/org/apache/commons/collections4/queue/CircularFifoQueue.html
-- TODO: Rust
-- TODO: JS
-- TODO: Go
+
+### Rust
+- Use [`VecDeque`](https://doc.rust-lang.org/std/collections/struct.VecDeque.html)
+    - Growable Ring-buffer
+
+### JS
+- TODO
+
+### Go
+- TODO
+
 
 ## Set
 - TODO: Java
