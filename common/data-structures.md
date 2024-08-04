@@ -4,7 +4,7 @@
 
 # Fundamental Structures
 
-## Array/ArrayList/Vector
+## ArrayList, Vector (Growable, Heap allocated Sequentially)
 
 ### Java
 - Use [`ArrayList`](https://docs.oracle.com/en%2Fjava%2Fjavase%2F22%2Fdocs%2Fapi%2F%2F/java.base/java/util/ArrayList.html)
@@ -13,14 +13,14 @@
 - Use [`Vec`](https://doc.rust-lang.org/std/vec/struct.Vec.html)
 
 ### JS
-- TODO
+- Use [`Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
 
 ### Go
-- Use [slice](TODO)
+- Use a [slice](https://pkg.go.dev/slices)
 
 
-## Linked List
-- Stored on the Heap
+## ~~Linked List~~
+- Only useful for interviews, [rarely useful in practice](/home/wcarmon/git-repos/docs/java/collections.no_linkedlist.md)
 
 ### Single
 - TODO: Java
@@ -84,8 +84,6 @@
     - [`::pop()`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.pop)
     - [`::is_empty()`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.is_empty)
     - [`::last()`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.last) (like `::peek`)
-- Heap allocated
-
 
 ### JS
 - TODO:
