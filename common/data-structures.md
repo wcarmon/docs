@@ -180,7 +180,7 @@
 
 ### Java
 - Use [`PriorityQueue`](https://docs.oracle.com/en%2Fjava%2Fjavase%2F22%2Fdocs%2Fapi%2F%2F/java.base/java/util/PriorityQueue.html) (**min**-heap)
-    - Backed by `Object[]`
+    - Backed by `Object[]`, growable
     - [`.offer(...)`](https://docs.oracle.com/en%2Fjava%2Fjavase%2F22%2Fdocs%2Fapi%2F%2F/java.base/java/util/PriorityQueue.html#offer(E))
     - [`.poll()`](https://docs.oracle.com/en%2Fjava%2Fjavase%2F22%2Fdocs%2Fapi%2F%2F/java.base/java/util/PriorityQueue.html#poll()) (remove smallest)
     - [`.isEmpty()`](https://docs.oracle.com/en%2Fjava%2Fjavase%2F22%2Fdocs%2Fapi%2F%2F/java.base/java/util/AbstractCollection.html#isEmpty())
@@ -198,48 +198,115 @@
 - TODO
 
 ### Go
-- TODO
+- TODO: https://pkg.go.dev/container/heap
 
 
 ## Binary Tree
-- TODO: Java
-- TODO: Rust
-- TODO: JS
-- TODO: Go
+
+### Java
+- TODO
+
+### Rust
+- TODO
+
+### JS
+- TODO
+
+### Go
+- TODO
 
 
 ## Binary Search Tree
-- TODO: Java
-- TODO: Rust
-- TODO: JS
-- TODO: Go
+
+### Java
+- TODO
+
+### Rust
+- TODO
+
+### JS
+- TODO
+
+### Go
+- TODO
 
 
 ## Graph
-- TODO: Java, Guava
-- TODO: Rust
-- TODO: JS
-- TODO: Go
 
+### Java
+- TODO
+
+### Rust
+- TODO
+
+### JS
+- TODO
+
+### Go
+- TODO
 
 
 ## Set
-- TODO: Java
-- TODO: Rust
-- TODO: JS
-- TODO: Go
+
+### Java
+- TODO
+
+### Rust
+- TODO
+
+### JS
+- TODO
+
+### Go
+- TODO
 
 
 --------
 # Concurrent
+1. `Lock-based`: Uses mutex or Lock
+    - Blocking
+    - Generally simpler & slower than options below
+1. `Wait-free`: Uses Atomics: [Java](https://docs.oracle.com/javase/tutorial/essential/concurrency/atomicvars.html), [Rust](https://doc.rust-lang.org/std/sync/atomic/index.html)
+    - Non-blocking
+    - Generally simple
+1. `Lock-free`: Uses [compare-and-swap CPU instructions](https://en.wikipedia.org/wiki/Compare-and-swap) in spin loop (maybe with backoff)
+    - Non-blocking
+    - Hard to do correctly
+    - Memory management is hard in non-GC languages
+    - Risk: [ABA problem](https://en.wikipedia.org/wiki/ABA_problem)
+        - Summary: Assume if value is `A`, it hasn't changed
 
-## Threadsafe Map
-- TODO: Java
-    - https://docs.oracle.com/en%2Fjava%2Fjavase%2F22%2Fdocs%2Fapi%2F%2F/java.base/java/util/concurrent/ConcurrentSkipListMap.html
-    - https://docs.oracle.com/en%2Fjava%2Fjavase%2F22%2Fdocs%2Fapi%2F%2F/java.base/java/util/concurrent/ConcurrentHashMap.html
-- TODO: Rust
-- TODO: JS
-- TODO: Go
+
+## Threadsafe Map (Lock/Mutex based)
+
+### Java
+- Use [`ConcurrentHashMap`](https://docs.oracle.com/en%2Fjava%2Fjavase%2F22%2Fdocs%2Fapi%2F%2F/java.base/java/util/concurrent/ConcurrentHashMap.html) (unordered)
+    - Uses granular `ReentrantLock`s (enclosed class `Segment` extends `ReentrantLock`)
+
+
+### Rust
+- TODO: https://docs.rs/dashmap/latest/dashmap/struct.DashMap.html (uses RwLock & Cache padding to avoid false sharing)
+- TODO: https://github.com/komora-io/concurrent-map (lock free)
+- TODO: https://docs.rs/chashmap/latest/chashmap/ (granular Locks)
+- TODO: scc (lockfree) - https://github.com/wvwwvwwv/scalable-concurrent-containers/?tab=readme-ov-file#hashmap
+
+### JS
+- TODO
+
+### Go
+- TODO
+
+
+## Threadsafe Map (Lock-free)
+
+### Java
+- Use [`ConcurrentSkipListMap`](https://docs.oracle.com/en%2Fjava%2Fjavase%2F22%2Fdocs%2Fapi%2F%2F/java.base/java/util/concurrent/ConcurrentSkipListMap.html) (ordered)
+    -
+
+### Rust
+### JS
+### Go
+
 
 
 ## Threadsafe Set
