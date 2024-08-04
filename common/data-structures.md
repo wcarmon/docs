@@ -6,29 +6,33 @@
 
 ## ArrayList, Vector (Growable, Heap allocated Sequentially)
 
-### Java
-- Use [`ArrayList`](https://docs.oracle.com/en%2Fjava%2Fjavase%2F22%2Fdocs%2Fapi%2F%2F/java.base/java/util/ArrayList.html)
+### Java: [`ArrayList`](https://docs.oracle.com/en%2Fjava%2Fjavase%2F22%2Fdocs%2Fapi%2F%2F/java.base/java/util/ArrayList.html)
 
-### Rust
-- Use [`Vec`](https://doc.rust-lang.org/std/vec/struct.Vec.html)
+### Rust: [`Vec`](https://doc.rust-lang.org/std/vec/struct.Vec.html)
 
-### JS
-- Use [`Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
+### JS: [`Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
 
-### Go
-- Use a [slice](https://pkg.go.dev/slices)
+### Go: [slice](https://pkg.go.dev/slices)
 
 
 ## ~~Linked List~~
 - Only useful for interviews, [rarely useful in practice](../java/collections.no_linkedlist.md)
 
-### Single linked
-- TODO: Java
-- TODO: Rust
-- TODO: JS
-- TODO: Go
+### Single linked (only for interviews)
 
-### Double linked
+#### Java
+- TODO
+
+#### Rust
+- TODO
+
+#### JS
+- TODO
+
+#### Go
+- TODO
+
+### Double linked (only for interviews)
 
 #### Java
 - Use [`LinkedList`](https://docs.oracle.com/en%2Fjava%2Fjavase%2F22%2Fdocs%2Fapi%2F%2F/java.base/java/util/LinkedList.html)
@@ -53,26 +57,20 @@
 # Adapter Containers (Single-Threaded)
 
 ## HashMap, HashTable (Associative Array)
-### Java
-- Use [`HashMap`](https://docs.oracle.com/en%2Fjava%2Fjavase%2F21%2Fdocs%2Fapi%2F%2F/java.base/java/util/HashMap.html)
+### Java: [`HashMap`](https://docs.oracle.com/en%2Fjava%2Fjavase%2F21%2Fdocs%2Fapi%2F%2F/java.base/java/util/HashMap.html)
 
-### Rust
-- Use [`HashMap`](https://doc.rust-lang.org/std/collections/struct.HashMap.html)
+### Rust: [`HashMap`](https://doc.rust-lang.org/std/collections/struct.HashMap.html)
 
-### JS
-- TODO
+### JS: [`Map`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map) or [`object`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
 
-### Go
-- TODO
+### Go: [`map`](https://go.dev/blog/maps)
 
 
 ## Ordered Map
 
-### Java
-- Use [`TreeMap`](https://docs.oracle.com/en%2Fjava%2Fjavase%2F22%2Fdocs%2Fapi%2F%2F/java.base/java/util/TreeMap.html)
+### Java: [`TreeMap`](https://docs.oracle.com/en%2Fjava%2Fjavase%2F22%2Fdocs%2Fapi%2F%2F/java.base/java/util/TreeMap.html)
 
-### Rust
-- Use [`BTreeMap`](https://doc.rust-lang.org/std/collections/struct.BTreeMap.html)
+### Rust: [`BTreeMap`](https://doc.rust-lang.org/std/collections/struct.BTreeMap.html)
 
 ### JS
 - TODO
