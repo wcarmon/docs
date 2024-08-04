@@ -60,6 +60,8 @@
     - This is a narrow case (you are close to memory exhaustion and expect a large allocation to help)
 - `LinkedList` creates more GC pressure (since it requires more memory)
     - This can make your app slower (more GC pauses)
+- LinkedList elements aren't generally in the same Cache lines (So CPU must do more work to traverse)
+
 
 # Counter arguments
 
