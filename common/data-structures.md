@@ -22,19 +22,27 @@
 ## ~~Linked List~~
 - Only useful for interviews, [rarely useful in practice](/home/wcarmon/git-repos/docs/java/collections.no_linkedlist.md)
 
-### Single
+### Single linked
 - TODO: Java
 - TODO: Rust
 - TODO: JS
 - TODO: Go
 
-### Double
-- TODO: Java: https://docs.oracle.com/en%2Fjava%2Fjavase%2F22%2Fdocs%2Fapi%2F%2F/java.base/java/util/LinkedList.html
-- TODO: Rust
-- TODO: JS
-- TODO: Go
+### Double linked
 
-### Circular
+#### Java
+- Use [`LinkedList`](https://docs.oracle.com/en%2Fjava%2Fjavase%2F22%2Fdocs%2Fapi%2F%2F/java.base/java/util/LinkedList.html)
+
+#### Rust
+- TODO
+
+#### JS
+- TODO
+
+#### Go
+- TODO:
+
+### Circular Linked List
 - TODO: Java
 - TODO: Rust
 - TODO: JS
