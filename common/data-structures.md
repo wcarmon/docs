@@ -1,16 +1,23 @@
 # Overview
-1. TODO
+1. Cheatsheet on common [Data Structures](https://en.wikipedia.org/wiki/Abstract_data_type)
 
 
-# Core
+# Fundamental Structures
 
 ## Array/ArrayList/Vector
-- Stored on the (thread) stack
 
-- TODO: Java: https://docs.oracle.com/en%2Fjava%2Fjavase%2F22%2Fdocs%2Fapi%2F%2F/java.base/java/util/ArrayList.html
-- TODO: Rust: https://doc.rust-lang.org/std/vec/struct.Vec.html
-- TODO: JS:
-- TODO: Go:
+### Java
+- Use [`ArrayList`](https://docs.oracle.com/en%2Fjava%2Fjavase%2F22%2Fdocs%2Fapi%2F%2F/java.base/java/util/ArrayList.html)
+
+### Rust
+- Use [`Vec`](https://doc.rust-lang.org/std/vec/struct.Vec.html)
+
+### JS
+- TODO
+
+### Go
+- Use [slice](TODO)
+
 
 ## Linked List
 - Stored on the Heap
