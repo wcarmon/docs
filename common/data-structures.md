@@ -263,18 +263,22 @@
 
 --------
 # Concurrent
-1. `Lock-based`: Uses mutex or Lock
-    - Blocking
-    - Generally simpler & slower than options below
 1. `Wait-free`: Uses Atomics: [Java](https://docs.oracle.com/javase/tutorial/essential/concurrency/atomicvars.html), [Rust](https://doc.rust-lang.org/std/sync/atomic/index.html)
     - Non-blocking
     - Generally simple
+    - No spin-loops, no CAS
 1. `Lock-free`: Uses [compare-and-swap CPU instructions](https://en.wikipedia.org/wiki/Compare-and-swap) in spin loop (maybe with backoff)
     - Non-blocking
     - Hard to do correctly
     - Memory management is hard in non-GC languages
     - Risk: [ABA problem](https://en.wikipedia.org/wiki/ABA_problem)
         - Summary: Assume if value is `A`, it hasn't changed
+1. `Lock-based`: Uses mutex or Lock
+    - Blocking
+    - Generally slower than other options
+    - Easy to reason about
+    - Risk:
+        - [priority inversion](TODO)
 
 
 ## Threadsafe Map (Lock/Mutex based)
