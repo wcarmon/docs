@@ -90,16 +90,21 @@
 ## Queue, FIFO
 
 ### Java
-- https://docs.oracle.com/en%2Fjava%2Fjavase%2F22%2Fdocs%2Fapi%2F%2F/java.base/java/util/concurrent/LinkedBlockingQueue.html
-- https://docs.oracle.com/en%2Fjava%2Fjavase%2F22%2Fdocs%2Fapi%2F%2F/java.base/java/util/LinkedList.html
+
+- Use [`LinkedList`](https://docs.oracle.com/en%2Fjava%2Fjavase%2F22%2Fdocs%2Fapi%2F%2F/java.base/java/util/LinkedList.html)
+    - [`.offer(...)`](https://docs.oracle.com/en%2Fjava%2Fjavase%2F22%2Fdocs%2Fapi%2F%2F/java.base/java/util/Queue.html#offer(E))
+    - [`.poll()`](https://docs.oracle.com/en%2Fjava%2Fjavase%2F22%2Fdocs%2Fapi%2F%2F/java.base/java/util/Queue.html#poll())
+    - [`.peek()`](https://docs.oracle.com/en%2Fjava%2Fjavase%2F22%2Fdocs%2Fapi%2F%2F/java.base/java/util/Queue.html#peek())
+    - [`.isEmpty()`](https://docs.oracle.com/en%2Fjava%2Fjavase%2F22%2Fdocs%2Fapi%2F%2F/java.base/java/util/Collection.html#isEmpty())
 
 ### Rust
+
 - Use [`VecDeque`](https://doc.rust-lang.org/std/collections/struct.VecDeque.html)
     - Growable Ring-buffer
-    - [`::()`]()
-    - [`::()`]()
-    - [`::()`]()
-    - [`::()`]()
+    - [`::push_back(...)`](https://doc.rust-lang.org/std/collections/struct.VecDeque.html#method.push_back)
+    - [`::pop_front()`](https://doc.rust-lang.org/std/collections/struct.VecDeque.html#method.pop_front)
+    - [`::is_empty()`](https://doc.rust-lang.org/std/collections/struct.VecDeque.html#method.is_empty)
+    - [`::front()`](https://doc.rust-lang.org/std/collections/struct.VecDeque.html#method.front)
 
 ### JS
 - TODO:
@@ -148,7 +153,7 @@
 
 
 ## Ring Buffer (Cyclic Buffer)
-- TODO: Java
+### Java
     - https://www.javadoc.io/doc/com.google.guava/guava/latest/com/google/common/collect/EvictingQueue.html
     - https://javadoc.io/doc/com.lmax/disruptor/latest/com.lmax.disruptor/com/lmax/disruptor/RingBuffer.html
     - https://commons.apache.org/proper/commons-collections/javadocs/api-4.4/org/apache/commons/collections4/queue/CircularFifoQueue.html
@@ -156,6 +161,7 @@
 ### Rust
 - Use [`VecDeque`](https://doc.rust-lang.org/std/collections/struct.VecDeque.html)
     - Growable Ring-buffer
+    - ...
 
 ### JS
 - TODO
@@ -214,6 +220,7 @@
 ## Queue: MPMC
 - TODO: Java:
     - https://docs.oracle.com/en%2Fjava%2Fjavase%2F22%2Fdocs%2Fapi%2F%2F/java.base/java/util/concurrent/ConcurrentLinkedDeque.html
+    - https://docs.oracle.com/en%2Fjava%2Fjavase%2F22%2Fdocs%2Fapi%2F%2F/java.base/java/util/concurrent/LinkedBlockingQueue.html
 - TODO: Rust
 - TODO: JS
 - TODO: Go
