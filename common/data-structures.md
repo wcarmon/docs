@@ -114,6 +114,7 @@
 
 
 ## Ring Buffer (Cyclic Buffer)
+
 ### Java
 
 - Use [`ArrayDeque`](https://docs.oracle.com/en%2Fjava%2Fjavase%2F22%2Fdocs%2Fapi%2F%2F/java.base/java/util/ArrayDeque.html) (standard Java)
@@ -132,7 +133,7 @@
 ### Rust
 - Use [`VecDeque`](https://doc.rust-lang.org/std/collections/struct.VecDeque.html)
     - Growable Ring-buffer
-    - ...
+    - (same as Queue above)
 
 ### JS
 - TODO
