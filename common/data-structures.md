@@ -269,16 +269,19 @@
     - No spin-loops, no CAS
 1. `Lock-free`: Uses [compare-and-swap CPU instructions](https://en.wikipedia.org/wiki/Compare-and-swap) in spin loop (maybe with backoff)
     - Non-blocking
-    - Hard to do correctly
+    - Very hard to implement correctly
     - Memory management is hard in non-GC languages
-    - Risk: [ABA problem](https://en.wikipedia.org/wiki/ABA_problem)
-        - Summary: Assume if value is `A`, it hasn't changed
+    - Risks:
+        - [ABA problem](https://en.wikipedia.org/wiki/ABA_problem)
+            - Summary: Assume if value is `A`, it hasn't changed
+        - Too much Retry/throw-away work
 1. `Lock-based`: Uses mutex or Lock
     - Blocking
     - Generally slower than other options
     - Easy to reason about
-    - Risk:
+    - Risks:
         - [priority inversion](TODO)
+        - [deadlock](TODO)
 
 
 ## Threadsafe Map (Lock/Mutex based)
