@@ -53,10 +53,17 @@
 # Adapter Containers (Single-Threaded)
 
 ## HashMap, HashTable (Associative Array)
-- TODO: Java
-- TODO: Rust
-- TODO: JS
-- TODO: Go
+### Java
+- Use [`HashMap`](https://docs.oracle.com/en%2Fjava%2Fjavase%2F21%2Fdocs%2Fapi%2F%2F/java.base/java/util/HashMap.html)
+
+### Rust
+- Use [`HashMap`](https://doc.rust-lang.org/std/collections/struct.HashMap.html)
+
+### JS
+- TODO
+
+### Go
+- TODO
 
 
 ## Ordered Map
