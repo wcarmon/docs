@@ -14,6 +14,11 @@
 
 ### Go: [slice](https://pkg.go.dev/slices)
 
+### C++: [`vector`](https://en.cppreference.com/w/cpp/container/vector)
+
+### Python: [`List`](https://docs.python.org/3/tutorial/datastructures.html#more-on-lists)
+
+
 
 ## ~~Linked List~~
 - Only useful for interviews, [rarely useful in practice](../java/collections.no_linkedlist.md)
@@ -48,6 +53,9 @@
 #### Go
 - TODO: simple struct example
 
+#### C++: [https://en.cppreference.com/w/cpp/container/list]
+
+
 ### Circular Linked List (only for interviews)
 - TODO: Java
 - TODO: Rust
@@ -67,6 +75,10 @@
 ### JS: [`Map`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map) or [`object`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
 
 ### Go: [`map`](https://go.dev/blog/maps)
+
+### C++: [https://en.cppreference.com/w/cpp/container/unordered_map](TODO)
+
+### Python: [dict](TODO)
 
 
 ## Ordered Map
@@ -146,6 +158,8 @@
 ### Go
 - TODO:
 
+### C++: [deque](https://en.cppreference.com/w/cpp/container/deque)
+
 
 ## Ring Buffer (Cyclic Buffer)
 
@@ -200,6 +214,10 @@
 
 ### Go
 - TODO: https://pkg.go.dev/container/heap
+
+### C++: [`priority_queue`](https://en.cppreference.com/w/cpp/container/priority_queue)
+
+### Python: [`heapq`](https://docs.python.org/3/library/heapq.html)
 
 
 ## Binary Tree
