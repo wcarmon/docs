@@ -76,7 +76,7 @@
 
 ### Go: [`map`](https://go.dev/blog/maps)
 
-### C++: [https://en.cppreference.com/w/cpp/container/unordered_map](TODO)
+### C++: [`unordered_map`](https://en.cppreference.com/w/cpp/container/unordered_map)
 
 ### Python: [dict](TODO)
 
@@ -92,6 +92,8 @@
 
 ### Go
 - TODO
+
+### C++: [`map`](https://en.cppreference.com/w/cpp/container/map)
 
 
 ## Stack, LIFO
