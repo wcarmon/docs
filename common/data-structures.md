@@ -176,6 +176,7 @@
 
 
 ## Heap, Priority Queue
+- Worst case `O(log(n))` for both insert and removal
 
 ### Java
 - Use [`PriorityQueue`](https://docs.oracle.com/en%2Fjava%2Fjavase%2F22%2Fdocs%2Fapi%2F%2F/java.base/java/util/PriorityQueue.html) (min-heap)
