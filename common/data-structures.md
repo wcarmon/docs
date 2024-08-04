@@ -113,6 +113,25 @@
 - TODO:
 
 
+## Ring Buffer (Cyclic Buffer)
+### Java
+    - TODO: https://www.javadoc.io/doc/com.google.guava/guava/latest/com/google/common/collect/EvictingQueue.html
+    - TODO: https://javadoc.io/doc/com.lmax/disruptor/latest/com.lmax.disruptor/com/lmax/disruptor/RingBuffer.html
+    - TODO: https://commons.apache.org/proper/commons-collections/javadocs/api-4.4/org/apache/commons/collections4/queue/CircularFifoQueue.html
+
+### Rust
+- Use [`VecDeque`](https://doc.rust-lang.org/std/collections/struct.VecDeque.html)
+    - Growable Ring-buffer
+    - ...
+
+### JS
+- TODO
+
+### Go
+- TODO
+
+
+
 ## Dequeue
 - TODO: Java
     - https://docs.oracle.com/en%2Fjava%2Fjavase%2F22%2Fdocs%2Fapi%2F%2F/java.base/java/util/ArrayDeque.html
@@ -151,23 +170,6 @@
 - TODO: JS
 - TODO: Go
 
-
-## Ring Buffer (Cyclic Buffer)
-### Java
-    - https://www.javadoc.io/doc/com.google.guava/guava/latest/com/google/common/collect/EvictingQueue.html
-    - https://javadoc.io/doc/com.lmax/disruptor/latest/com.lmax.disruptor/com/lmax/disruptor/RingBuffer.html
-    - https://commons.apache.org/proper/commons-collections/javadocs/api-4.4/org/apache/commons/collections4/queue/CircularFifoQueue.html
-
-### Rust
-- Use [`VecDeque`](https://doc.rust-lang.org/std/collections/struct.VecDeque.html)
-    - Growable Ring-buffer
-    - ...
-
-### JS
-- TODO
-
-### Go
-- TODO
 
 
 ## Set
