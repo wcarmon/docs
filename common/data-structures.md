@@ -43,12 +43,12 @@
 - TODO: Make a `struct` <-- TODO: non-trivial because of Option, Pin, Rc, etc
 
 #### JS
-- TODO
+- TODO: simple object example
 
 #### Go
-- TODO:
+- TODO: simple struct example
 
-### Circular Linked List
+### Circular Linked List (only for interviews)
 - TODO: Java
 - TODO: Rust
 - TODO: JS
@@ -60,6 +60,7 @@
 
 ## HashMap, HashTable (Associative Array)
 ### Java: [`HashMap`](https://docs.oracle.com/en%2Fjava%2Fjavase%2F21%2Fdocs%2Fapi%2F%2F/java.base/java/util/HashMap.html)
+- Backed by `Entry<K,V>[]`
 
 ### Rust: [`HashMap`](https://doc.rust-lang.org/std/collections/struct.HashMap.html)
 
