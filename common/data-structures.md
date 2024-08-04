@@ -311,6 +311,8 @@
     -
 
 ### Rust
+- TODO https://github.com/crossbeam-rs/crossbeam/tree/master/crossbeam-skiplist
+
 ### JS
 ### Go
 
@@ -331,10 +333,18 @@
 
 
 ## Queue: MPSC
-- TODO: Java
-- TODO: Rust
-- TODO: JS
-- TODO: Go
+
+### Java
+- TODO:
+
+### Rust
+- TODO: https://docs.rs/crossbeam/latest/crossbeam/queue/struct.ArrayQueue.html
+
+### JS
+- TODO
+
+### Go
+- TODO
 
 
 ## Queue: SPMC
