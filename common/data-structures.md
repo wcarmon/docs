@@ -412,7 +412,9 @@
 
 
 --------
-# Advanced
+# Advanced Data Structures
+- Should never need for an interview
+- Sometimes useful in practice
 
 ## Trie
 - TODO: Java
