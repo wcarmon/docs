@@ -284,11 +284,13 @@
 
 --------
 # Concurrent
-1. `Wait-free`: Uses Atomics: [Java](https://docs.oracle.com/javase/tutorial/essential/concurrency/atomicvars.html), [Rust](https://doc.rust-lang.org/std/sync/atomic/index.html)
+1. `Wait-free`:
+    - Uses Atomics: [Java](https://docs.oracle.com/javase/tutorial/essential/concurrency/atomicvars.html), [Rust](https://doc.rust-lang.org/std/sync/atomic/index.html)
     - Non-blocking
     - Generally simple
     - No spin-loops, no CAS
-1. `Lock-free`: Uses [compare-and-swap CPU instructions](https://en.wikipedia.org/wiki/Compare-and-swap) in spin loop (maybe with backoff)
+1. `Lock-free`:
+    - Uses [compare-and-swap CPU instructions](https://en.wikipedia.org/wiki/Compare-and-swap) in spin loop (maybe with backoff)
     - Non-blocking
     - Very hard to implement correctly
     - Memory management is hard in non-GC languages
@@ -296,7 +298,8 @@
         - [ABA problem](https://en.wikipedia.org/wiki/ABA_problem)
             - Summary: Assume if value is `A`, it hasn't changed
         - Too much Retry/throw-away work
-1. `Lock-based`: Uses mutex or Lock
+1. `Lock-based`:
+    - Uses mutex or Lock
     - Blocking
     - Generally slower than other options
     - Easy to reason about
@@ -340,6 +343,8 @@
 
 
 ## Threadsafe Set
+- Usually just the keys of a Threadsafe Map (Value is `bool` or empty `struct`)
+
 - TODO: Java
 - TODO: Rust
 - TODO: JS
@@ -392,14 +397,14 @@
 - TODO
 
 
-## Lock-free Queue
+## Lock-free Queue (MPMC)
 - TODO: Java
 - TODO: Rust
 - TODO: JS
 - TODO: Go
 
 
-## Lock-free Stack
+## Lock-free Stack (MPMC)
 - TODO: Java
 - TODO: Rust
 - TODO: JS
