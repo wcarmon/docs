@@ -53,7 +53,7 @@
 #### Go
 - TODO: simple struct example
 
-#### C++: [https://en.cppreference.com/w/cpp/container/list]
+#### C++: [list](https://en.cppreference.com/w/cpp/container/list)
 
 
 ### Circular Linked List (only for interviews)
@@ -338,6 +338,7 @@
 - TODO https://github.com/crossbeam-rs/crossbeam/tree/master/crossbeam-skiplist
 
 ### JS
+
 ### Go
 
 
