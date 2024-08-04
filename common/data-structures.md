@@ -2,7 +2,7 @@
 1. Cheatsheet on common [Data Structures](https://en.wikipedia.org/wiki/Abstract_data_type)
 
 
-# Fundamental Structures
+# Fundamental Structures (Single-Threaded)
 
 ## ArrayList, Vector (Growable, Heap allocated Sequentially)
 
@@ -20,7 +20,7 @@
 
 
 ## ~~Linked List~~
-- Only useful for interviews, [rarely useful in practice](/home/wcarmon/git-repos/docs/java/collections.no_linkedlist.md)
+- Only useful for interviews, [rarely useful in practice](../java/collections.no_linkedlist.md)
 
 ### Single linked
 - TODO: Java
@@ -50,7 +50,7 @@
 
 
 --------
-# Adapter Containers (All Single-Threaded)
+# Adapter Containers (Single-Threaded)
 
 ## HashMap, HashTable (Associative Array)
 - TODO: Java
@@ -60,11 +60,18 @@
 
 
 ## Ordered Map
-- TODO: Java
-    - https://docs.oracle.com/en%2Fjava%2Fjavase%2F22%2Fdocs%2Fapi%2F%2F/java.base/java/util/TreeMap.html
-- TODO: Rust
-- TODO: JS
-- TODO: Go
+
+### Java
+- Use [`TreeMap`](https://docs.oracle.com/en%2Fjava%2Fjavase%2F22%2Fdocs%2Fapi%2F%2F/java.base/java/util/TreeMap.html)
+
+### Rust
+- Use [`BTreeMap`](https://doc.rust-lang.org/std/collections/struct.BTreeMap.html)
+
+### JS
+- TODO
+
+### Go
+- TODO
 
 
 ## Stack, LIFO
