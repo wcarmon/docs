@@ -176,11 +176,18 @@
 
 
 ## Heap, Priority Queue
-- TODO: Java
-    - https://docs.oracle.com/en%2Fjava%2Fjavase%2F22%2Fdocs%2Fapi%2F%2F/java.base/java/util/PriorityQueue.html
-- TODO: Rust
-- TODO: JS
-- TODO: Go
+
+### Java
+- TODO: https://docs.oracle.com/en%2Fjava%2Fjavase%2F22%2Fdocs%2Fapi%2F%2F/java.base/java/util/PriorityQueue.html
+
+### Rust
+- TODO: https://doc.rust-lang.org/stable/std/collections/struct.BinaryHeap.html
+
+### JS
+- TODO
+
+### Go
+- TODO
 
 
 ## Binary Tree
