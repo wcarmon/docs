@@ -32,7 +32,7 @@ readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
 # -- Config
 # ---------------------------------------------
 # -- See https://hub.docker.com/r/jaegertracing/all-in-one/tags
-readonly JAEGER_IMAGE="jaegertracing/all-in-one:1.58"
+readonly JAEGER_IMAGE="jaegertracing/all-in-one:1.59"
 
 #GOTCHA: -d is cross platform, --directory is not
 readonly TEMP_DIR=$(mktemp -d)
@@ -58,7 +58,7 @@ $DOCKER rm --force $JAEGER_CONTAINER_NAME || true &>/dev/null
 # -- Run
 # ---------------------------------------------
 
-# -- Ports: See https://www.jaegertracing.io/docs/1.58/deployment/
+# -- Ports: See https://www.jaegertracing.io/docs/1.59/deployment/
 # - 14250 = collector: model.proto
 # - 14269 = admin, health check
 # - 14271 = admin, health check
@@ -68,11 +68,11 @@ $DOCKER rm --force $JAEGER_CONTAINER_NAME || true &>/dev/null
 # - 16687 = query service
 # - 4317 = collector: OpenTelemetry OTLP over grpc
 # - 4318 = collector: OpenTelemetry OTLP over http
-# - 6831 = compact thrift
-# - 6832 = binary thrift
+# - 6831 = compact thrift     <-- Deprecated
+# - 6832 = binary thrift      <-- Deprecated
 
 
-# NOTE: runs as user 10001
+# NOTE: executes as user 10001
 $DOCKER run -d \
   --cpus=1.5 \
   --memory=$MEMORY_LIMIT \
@@ -106,3 +106,7 @@ echo
 echo "|-- Jaeger UI: http://localhost:16686"
 echo
 echo "|-- Stats: docker stats $JAEGER_CONTAINER_NAME"
+
+
+# -- Most apps should send traces thru grpc to port 4317
+#sudo netstat -pant | grep -i 4317
