@@ -107,7 +107,6 @@ echo "|-- Jaeger UI: http://localhost:16686"
 echo
 echo "|-- Stats: docker stats $JAEGER_CONTAINER_NAME"
 
-
 echo
 echo "|-- print logs: docker logs $JAEGER_CONTAINER_NAME"
 echo "|-- tail logs: docker logs -f $JAEGER_CONTAINER_NAME"
