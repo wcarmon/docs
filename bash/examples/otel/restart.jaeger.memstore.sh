@@ -108,5 +108,9 @@ echo
 echo "|-- Stats: docker stats $JAEGER_CONTAINER_NAME"
 
 
+echo
+echo "|-- print logs: docker logs $JAEGER_CONTAINER_NAME"
+echo "|-- tail logs: docker logs -f $JAEGER_CONTAINER_NAME"
+
 # -- Most apps should send traces thru grpc to port 4317
 #sudo netstat -pant | grep -i 4317

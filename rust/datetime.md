@@ -219,16 +219,16 @@ let ndt = NaiveDateTime::from_timestamp(ux_millis / 1000, nanos);
 let ts = DateTime::<Utc>::from_utc(ndt, Utc);
 ```
 
-## [To Epoch Seconds](https://docs.rs/chrono/latest/chrono/struct.DateTime.html#method.timestamp)
-```rust
-let ux_sec = ts.timestamp()
-```
-
 ## [To Epoch Millis](https://docs.rs/chrono/latest/chrono/struct.DateTime.html#method.timestamp_millis)
 ```rust
-let ux_millis = ts.timestamp_millis()
+let ts = OffsetDateTime::now_utc();
+let epoch_millis = ts.timestamp_millis()  // TODO: fix this
 ```
 
+## [To Epoch Seconds](https://docs.rs/chrono/latest/chrono/struct.DateTime.html#method.timestamp)
+```rust
+let epoch_sec = ts.timestamp()
+```
 
 #  [`chrono::DateTime`](https://docs.rs/chrono/latest/chrono/struct.DateTime.html) to/from [`std::time::SystemTime`](https://doc.rust-lang.org/std/time/struct.SystemTime.html)
 ```rust
