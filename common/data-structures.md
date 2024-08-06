@@ -23,8 +23,10 @@
     1. Easy to drop oldest data
 1. Stack (LIFO)
     1. Backed by Array or Growable Array or Ring Buffer or Linked List
+    1. Useful for ... TODO
 1. Queue (FIFO)
     1. Backed by Array or Growable Array or Ring Buffer or Linked List
+    1. Useful for ... TODO
 1. [HashMap](https://en.wikipedia.org/wiki/Hash_table)
     1. `O(1)` lookup & insert
     1. Array of buckets
@@ -33,10 +35,18 @@
     1. Partially sorted
     1. Worst case `O(Log(n))` get max (or min)
     1. Worst case `O(Log(n))` insert
+    1. Useful for "Top n" items
 1. Binary Tree
-    1. TODO
+    1. Each node has 0, 1 or 2 children
+    1. Backed by nodes with pointers or an array (children at  `2i + 1` and `2i + 2`)
+        1. array items stored in breath first order
+    1. Useful for ... TODO
 1. Binary Search Tree (BST)
     1. TODO
+    1. Useful for ... TODO
+1. Graph
+    1. TODO
+    1. Useful for ... TODO
 
 </details>
 
