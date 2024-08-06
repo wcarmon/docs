@@ -287,6 +287,7 @@
 ### Java
 <details>
     <summary>Interview</summary>
+
 ```java
 class Node {
     int value;
@@ -294,10 +295,12 @@ class Node {
     Node right;
 }
 ```
+
 </details>
 
 <details>
     <summary>In practice</summary>
+
 ```java
 public record Node<T>(
         T value,
