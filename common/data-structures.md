@@ -104,7 +104,7 @@ class Node {
 
 
 ## Stack, LIFO
-- Backed by Array or Growable Array or Ring Buffer ~~or Linked List~~
+- Backed by Array or Growable Array or Ring Buffer
 
 <details>
     <summary>Java</summary>
@@ -307,10 +307,8 @@ class Node {
 1. Post-order: left, right, current
     1. Useful for deleting file tree
 
-### Java
-
 <details>
-    <summary>In practice</summary>
+    <summary>Java</summary>
 
 ```java
 public record Node<T>(
@@ -326,59 +324,164 @@ public record Node<T>(
 
 </details>
 
-### Rust
-- TODO
+<details>
+    <summary>Rust</summary>
 
-### JS
 - TODO
+```rust
+// TODO
+```
 
-### Go
+</details>
+
+<details>
+    <summary>JS</summary>
+
 - TODO
+```js
+// TODO
+```
+
+</details>
+
+<details>
+    <summary>Golang</summary>
+
+- TODO
+```go
+// TODO
+```
+
+</details>
 
 
 ## Binary Search Tree
 
-### Java
-- TODO
+<details>
+    <summary>Java</summary>
 
-### Rust
 - TODO
+```java
+// TODO
+```
 
-### JS
-- TODO
+</details>
 
-### Go
+<details>
+    <summary>Rust</summary>
+
 - TODO
+```rust
+// TODO
+```
+
+</details>
+
+<details>
+    <summary>JS</summary>
+
+- TODO
+```js
+// TODO
+```
+
+</details>
+
+<details>
+    <summary>Golang</summary>
+
+- TODO
+```go
+// TODO
+```
+
+</details>
 
 
 ## Graph
 
-### Java
-- TODO
+<details>
+    <summary>Java</summary>
 
-### Rust
 - TODO
+```java
+// TODO
+```
 
-### JS
-- TODO
+</details>
 
-### Go
+<details>
+    <summary>Rust</summary>
+
 - TODO
+```rust
+// TODO
+```
+
+</details>
+
+<details>
+    <summary>JS</summary>
+
+- TODO
+```js
+// TODO
+```
+
+</details>
+
+<details>
+    <summary>Golang</summary>
+
+- TODO
+```go
+// TODO
+```
+
+</details>
 
 
 ## Set
 
-### Java
-- TODO
+<details>
+    <summary>Java</summary>
 
-### Rust
 - TODO
+```java
+// TODO
+```
 
-### JS
-- TODO
+</details>
 
-### Go
+<details>
+    <summary>Rust</summary>
+
 - TODO
+```rust
+// TODO
+```
+
+</details>
+
+<details>
+    <summary>JS</summary>
+
+- TODO
+```js
+// TODO
+```
+
+</details>
+
+<details>
+    <summary>Golang</summary>
+
+- TODO
+```go
+// TODO
+```
+
+</details>
 
 
 --------
