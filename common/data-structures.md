@@ -490,12 +490,48 @@ public record Node<T>(
 - Sometimes useful in practice
 
 ## Trie
-- TODO: Java
-    - https://commons.apache.org/proper/commons-collections/javadocs/api-4.4/org/apache/commons/collections4/trie/PatriciaTrie.html
-    - https://commons.apache.org/proper/commons-collections/javadocs/api-4.4/org/apache/commons/collections4/trie/UnmodifiableTrie.html
-- TODO: Rust
-- TODO: JS
-- TODO: Go
+
+<details>
+    <summary>Java</summary>
+
+- TODO: evaluate: https://commons.apache.org/proper/commons-collections/javadocs/api-4.4/org/apache/commons/collections4/trie/PatriciaTrie.html
+- TODO: evaluate: https://commons.apache.org/proper/commons-collections/javadocs/api-4.4/org/apache/commons/collections4/trie/UnmodifiableTrie.html
+
+```rust
+// TODO
+```
+
+</details>
+
+<details>
+    <summary>Rust</summary>
+
+- TODO
+```rust
+// TODO
+```
+
+</details>
+
+<details>
+    <summary>JS</summary>
+
+- TODO
+```js
+// TODO
+```
+
+</details>
+
+<details>
+    <summary>Golang</summary>
+
+- TODO
+```go
+// TODO
+```
+
+</details>
 
 
 ## Treap
