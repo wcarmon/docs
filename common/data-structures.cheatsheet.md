@@ -48,7 +48,7 @@
 1. Useful for "Top n" items
 
 
-## Binary Tree
+## [Binary Tree](https://en.wikipedia.org/wiki/Binary_tree)
 1. Each node has 0, 1 or 2 children
 1. Backed by ...
     1. nodes with 2 pointers or
@@ -57,8 +57,11 @@
 1. Useful for ... TODO
 
 
-## Binary Search Tree (BST)
-1. TODO
+## [Binary Search Tree (BST)](https://en.wikipedia.org/wiki/Binary_search_tree)
+1. Ordered
+1. All items in `.left` are smaller
+1. All items in `.right` are larger
+1. Challenge: keeping tree balanced
 1. Useful for ... TODO
 
 
