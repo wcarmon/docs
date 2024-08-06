@@ -125,11 +125,16 @@ class Node {
 <details>
     <summary>Java</summary>
 
-- Use [`LinkedList`](https://docs.oracle.com/en%2Fjava%2Fjavase%2F22%2Fdocs%2Fapi%2F%2F/java.base/java/util/LinkedList.html)
-- TODO: Make a simple `Record`
+- [`LinkedList`](https://docs.oracle.com/en%2Fjava%2Fjavase%2F22%2Fdocs%2Fapi%2F%2F/java.base/java/util/LinkedList.html)
+
+- Alternative:
 
 ```java
-//TODO
+class Node {
+    int value;
+    Node next;
+    Node prev;
+}
 ```
 
 </details>
