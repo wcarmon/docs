@@ -43,6 +43,7 @@
 
 <details>
     <summary>Java</summary>
+
 - [`ArrayList`](https://docs.oracle.com/en/java/javase/22/docs/api/java.base/java/util/ArrayList.html)
 
 ```java
@@ -145,7 +146,7 @@
     <summary>Java</summary>
 
 ```java
-class Node {
+public class Node {
     int value;
     Node left;
     Node right;
