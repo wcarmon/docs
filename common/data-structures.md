@@ -234,6 +234,10 @@ class Node {
     - Growable Ring-buffer
     - (same as Queue above)
 
+```rust
+// TODO
+```
+
 </details>
 
 <details>
@@ -241,12 +245,20 @@ class Node {
 
 - TODO
 
+```js
+// TODO
+```
+
 </details>
 
 <details>
     <summary>Golang</summary>
 
 - TODO
+
+```go
+// TODO
+```
 
 </details>
 
@@ -278,11 +290,14 @@ class Node {
 
 </details>
 
-
 <details>
     <summary>JS</summary>
 
 - TODO
+
+```js
+// TODO
+```
 
 </details>
 
@@ -292,11 +307,25 @@ class Node {
 
 - TODO: https://pkg.go.dev/container/heap
 
+```go
+// TODO
+```
+
 </details>
 
-### C++: [`priority_queue`](https://en.cppreference.com/w/cpp/container/priority_queue)
+<details>
+    <summary>C++</summary>
 
-### Python: [`heapq`](https://docs.python.org/3/library/heapq.html)
+- [`priority_queue`](https://en.cppreference.com/w/cpp/container/priority_queue)
+
+</details>
+
+<details>
+    <summary>Python</summary>
+
+- [`heapq`](https://docs.python.org/3/library/heapq.html)
+
+</details>
 
 
 ## Binary Tree
