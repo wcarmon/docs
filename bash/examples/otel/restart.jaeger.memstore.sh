@@ -71,6 +71,12 @@ $DOCKER rm --force $JAEGER_CONTAINER_NAME || true &>/dev/null
 # - 6831 = compact thrift     <-- Deprecated
 # - 6832 = binary thrift      <-- Deprecated
 
+# TODO: These seem to do nothing
+#  -e LOG_LEVEL='debug' \
+#  -e OTEL_EXPORTER_OTLP_PROTOCOL='http/json' \
+#  -e OTEL_EXPORTER_OTLP_TRACES_PROTOCOL='http/json' \
+#  -e OTEL_LOG_LEVEL='debug' \
+#  -e COLLECTOR_OTLP_ENABLED=true \
 
 # NOTE: executes as user 10001
 $DOCKER run -d \

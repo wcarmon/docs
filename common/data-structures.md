@@ -284,13 +284,15 @@
 
 --------
 # Concurrent
+
+## Approaches:
 1. `Wait-free`:
     - Uses Atomics: [Java](https://docs.oracle.com/javase/tutorial/essential/concurrency/atomicvars.html), [Rust](https://doc.rust-lang.org/std/sync/atomic/index.html)
     - Non-blocking
-    - Generally simple
-    - No spin-loops, no CAS
+    - Generally simplest
+    - No spin-loops, no CAS, just CPU instructions
 1. `Lock-free`:
-    - Uses [compare-and-swap CPU instructions](https://en.wikipedia.org/wiki/Compare-and-swap) in spin loop (maybe with backoff)
+    - Uses [compare-and-swap CPU instructions](https://en.wikipedia.org/wiki/Compare-and-swap) in spin **loop** (maybe with backoff)
     - Non-blocking
     - Very hard to implement correctly
     - Memory management is hard in non-GC languages
@@ -301,11 +303,18 @@
 1. `Lock-based`:
     - Uses mutex or Lock
     - Blocking
-    - Generally slower than other options
+    - Generally slower than other options above
     - Easy to reason about
     - Risks:
-        - [priority inversion](TODO)
-        - [deadlock](TODO)
+        - [priority inversion](https://en.wikipedia.org/wiki/Priority_inversion)
+        - [deadlock](https://en.wikipedia.org/wiki/Deadlock)
+
+## Idioms
+1. Partition the data structure into independent parts, handle them single threaded
+    1. Atomically reserve parts of the structure
+1. Minimize the API (since each method must be protected)
+1. Exploit some application specific feature
+1. Test, Benchmark, keep it simple
 
 
 ## Threadsafe Map (Lock/Mutex based)
@@ -411,11 +420,16 @@
 - TODO: JS
 - TODO: Go
 
+# Lock-free, [Non-sequentially-consistency]()
+- fedor pikus
 
 --------
 # Advanced Data Structures
 - Should never need for an interview
 - Sometimes useful in practice
+
+<details>
+    <summary>Show</summary>
 
 ## Trie
 - TODO: Java
@@ -462,6 +476,7 @@
 - TODO: JS
 - TODO: Go
 
+</details>
 
 
 # Other resources
