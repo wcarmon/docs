@@ -420,8 +420,19 @@
 - TODO: JS
 - TODO: Go
 
-# Lock-free, [Non-sequentially-consistency]()
-- fedor pikus
+
+# Lock-free, [Non-sequentially-consistency](./sequential_consistency.png)
+- (See books by Fedor Pikus)
+1. Array of atomic references to single threaded structure (like `vec` or `vecdeque` or a `stack` or a `queue` or `tree`)
+1. Algorithm
+    1.
+
+## Java
+- TODO
+
+## Rust
+- https://doc.rust-lang.org/nightly/std/sync/atomic/struct.AtomicPtr.html#method.compare_exchange
+- https://docs.rs/crossbeam/latest/crossbeam/atomic/struct.AtomicCell.html#method.compare_exchange
 
 --------
 # Advanced Data Structures
@@ -429,7 +440,7 @@
 - Sometimes useful in practice
 
 <details>
-    <summary>Show</summary>
+    <summary>Show All</summary>
 
 ## Trie
 - TODO: Java
