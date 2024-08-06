@@ -148,7 +148,7 @@
 ### Rust
 
 - Use [`VecDeque`](https://doc.rust-lang.org/std/collections/struct.VecDeque.html)
-    - Growable Ring-buffer
+    - Growable Ring-buffer, often implemented as [a collection of fixed sized arrays](./deque.png)
     - [`::push_back(...)`](https://doc.rust-lang.org/std/collections/struct.VecDeque.html#method.push_back)
     - [`::pop_front()`](https://doc.rust-lang.org/std/collections/struct.VecDeque.html#method.pop_front)
     - [`::is_empty()`](https://doc.rust-lang.org/std/collections/struct.VecDeque.html#method.is_empty)
@@ -293,6 +293,7 @@
     - No spin-loops, no CAS, just CPU instructions
 1. `Lock-free`:
     - Uses [compare-and-swap CPU instructions](https://en.wikipedia.org/wiki/Compare-and-swap) in spin **loop** (maybe with backoff)
+        - Also known as a `CAS` loop (compare-and-swap)
     - Non-blocking
     - Very hard to implement correctly
     - Memory management is hard in non-GC languages
@@ -311,9 +312,11 @@
 
 ## Idioms
 1. Partition the data structure into independent parts, handle them single threaded
-    1. Atomically reserve parts of the structure
+    1. Atomically reserve parts of the structure, using AtomicRef or CAS
+    1. eg. Map<K, V>, but the Keys for one region are independent of other regions
 1. Minimize the API (since each method must be protected)
 1. Exploit some application specific feature
+    1. eg. Some parts of the data don't change, others do
 1. Test, Benchmark, keep it simple
 
 
@@ -375,19 +378,13 @@
 
 ### Rust
 - TODO: https://docs.rs/crossbeam/latest/crossbeam/queue/struct.ArrayQueue.html
+- TODO: https://doc.rust-lang.org/nightly/std/sync/mpsc/index.html (backed by crossbeam mpmc)
 
 ### JS
 - TODO
 
 ### Go
 - TODO
-
-
-## Queue: SPMC
-- TODO: Java
-- TODO: Rust
-- TODO: JS
-- TODO: Go
 
 
 ## Queue: MPMC
@@ -425,14 +422,19 @@
 - (See books by Fedor Pikus)
 1. Array of atomic references to single threaded structure (like `vec` or `vecdeque` or a `stack` or a `queue` or `tree`)
 1. Algorithm
-    1.
+    1. Each thread atomically `compareAndExchange` a sub-structure with `null` or [`None`](https://doc.rust-lang.org/std/option/enum.Option.html#variant.None)
+    1. If successfully acquired ...
+        1. Mutate the sub-structure in single threaded mode
+        1. When done, atomically `compareAndExchange` the mutated sub-structure back to the array
+    1. If failed to acquired ...
+        1. Try to acquire the next sub-structure, up `maxAttemptsLimit`
+1. Tradeoff: processing order is not as strict since each "partition" is independent
+1. [Kafka works this way](../kafka/architecture.md)
 
-## Java
-- TODO
+## Java: Use [`AtomicReference`](https://docs.oracle.com/en%2Fjava%2Fjavase%2F21%2Fdocs%2Fapi%2F%2F/java.base/java/util/concurrent/atomic/AtomicReference.html#compareAndExchange(V,V))
 
-## Rust
-- https://doc.rust-lang.org/nightly/std/sync/atomic/struct.AtomicPtr.html#method.compare_exchange
-- https://docs.rs/crossbeam/latest/crossbeam/atomic/struct.AtomicCell.html#method.compare_exchange
+## Rust: Use [crossbeam `AtomicCell`](https://docs.rs/crossbeam/latest/crossbeam/atomic/struct.AtomicCell.html#method.compare_exchange) or [std `AtomicPtr`](https://doc.rust-lang.org/nightly/std/sync/atomic/struct.AtomicPtr.html#method.compare_exchange)
+
 
 --------
 # Advanced Data Structures
