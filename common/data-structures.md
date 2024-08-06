@@ -104,17 +104,17 @@ class Node {
 
 
 ## Stack, LIFO
+- Backed by Array or Growable Array or Ring Buffer ~~or Linked List~~
 
 ### Java
 - Use [`ArrayList`](https://docs.oracle.com/en%2Fjava%2Fjavase%2F22%2Fdocs%2Fapi%2F%2F/java.base/java/util/ArrayList.html) (behind [`SequencedCollection`](https://docs.oracle.com/en%2Fjava%2Fjavase%2F22%2Fdocs%2Fapi%2F%2F/java.base/java/util/SequencedCollection.html) reference)
     - Backed by Array (not threadsafe, not `synchronized`)
-    - In practice, better than `java.util.Stack`
+    - Avoid [~~`java.util.Stack`~~](https://docs.oracle.com/en%2Fjava%2Fjavase%2F22%2Fdocs%2Fapi%2F%2F/java.base/java/util/Stack.html) (backed by [`Vector`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Vector.html) which uses `synchronized`, threadsafe, but slow)
     - [`.add()`](https://docs.oracle.com/en%2Fjava%2Fjavase%2F22%2Fdocs%2Fapi%2F%2F/java.base/java/util/ArrayList.html#add(java.lang.Object)) (like `::push`)
     - [`.removeLast()`](https://docs.oracle.com/en%2Fjava%2Fjavase%2F22%2Fdocs%2Fapi%2F%2F/java.base/java/util/ArrayList.html#removeLast()) (like `::pop`)
     - [`.isEmpty()`](https://docs.oracle.com/en%2Fjava%2Fjavase%2F22%2Fdocs%2Fapi%2F%2F/java.base/java/util/ArrayList.html#isEmpty())
     - [`.get(x.size() - 1)`](https://docs.oracle.com/en%2Fjava%2Fjavase%2F22%2Fdocs%2Fapi%2F%2F/java.base/java/util/ArrayList.html#getLast()) (like `::peek`)
 
-- Avoid [~~`java.util.Stack`~~](https://docs.oracle.com/en%2Fjava%2Fjavase%2F22%2Fdocs%2Fapi%2F%2F/java.base/java/util/Stack.html) (backed by [`Vector`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Vector.html) which uses `synchronized`, threadsafe, but slow)
 
 ### Rust
 - Use [`Vec`](https://doc.rust-lang.org/std/vec/struct.Vec.html)
@@ -131,6 +131,7 @@ class Node {
 
 
 ## Queue, FIFO
+- Backed by Array or Growable Array or Ring Buffer ~~or Linked List~~
 
 ### Java
 
