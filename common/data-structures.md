@@ -2,6 +2,41 @@
 1. Cheatsheet on common [Data Structures](https://en.wikipedia.org/wiki/Abstract_data_type)
 
 
+# Cheatsheet
+
+<details>
+    <summary>Show All</summary>
+
+# Basic
+1. Array (known, fixed size at compile time, stack allocated)
+1. Growable Array (eg. [`Vec`](https://doc.rust-lang.org/std/vec/struct.Vec.html), [`ArrayList`](https://docs.oracle.com/en/java/javase/22/docs/api/java.base/java/util/ArrayList.html))
+1. ~~Linked List~~
+
+
+# Adapters
+1. Stack (LIFO)
+    1. Backed by Array or Growable Array or Linked List
+1. Queue (FIFO)
+    1. Backed by Array or Growable Array or Linked List
+1. HashMap: [img1](TODO), [img2](TODO)
+    1. `O(1)` lookup & insert
+    1. Array of buckets
+        1. Each bucket has a linked list or tree
+1. [Heap](https://en.wikipedia.org/wiki/Heap_(data_structure)): [img1](./diagrams/heap-1.png), [img2](./diagrams/heap-2.png), [img3](./diagrams/heap-3.png)
+    1. Partially sorted
+    1. Worst case `O(Log(n))` get max (or min)
+    1. Worst case `O(Log(n))` insert
+1. [RingBuffer, Circular buffer](https://en.wikipedia.org/wiki/Circular_buffer)
+    1. Backed by Array or Growable Array
+    1. Two pointers to head & tail
+    1. `O(1)` push, pop and lookup
+    1. Useful for FIFO and LIFO
+    1. Avoids overflows
+    1. Easy to drop oldest data
+
+</details>
+
+
 # Fundamental Structures (Single-Threaded)
 
 ## ArrayList, Vector (Growable, Heap allocated Sequentially)
@@ -148,7 +183,7 @@
 ### Rust
 
 - Use [`VecDeque`](https://doc.rust-lang.org/std/collections/struct.VecDeque.html)
-    - Growable Ring-buffer, often implemented as [a collection of fixed sized arrays](./deque.png)
+    - Growable Ring-buffer, often implemented as [a collection of fixed sized arrays](./diagrams/deque.png)
     - [`::push_back(...)`](https://doc.rust-lang.org/std/collections/struct.VecDeque.html#method.push_back)
     - [`::pop_front()`](https://doc.rust-lang.org/std/collections/struct.VecDeque.html#method.pop_front)
     - [`::is_empty()`](https://doc.rust-lang.org/std/collections/struct.VecDeque.html#method.is_empty)
@@ -163,7 +198,12 @@
 ### C++: [deque](https://en.cppreference.com/w/cpp/container/deque)
 
 
-## Ring Buffer (Cyclic Buffer)
+## [Ring Buffer (Cyclic Buffer)](https://en.wikipedia.org/wiki/Circular_buffer)
+1. Memory efficient (can be stack allocated)
+1. Useful when you only care about the latest n-items
+    1. moving average, sliding window, streaming, ...
+1. Useful for FIFO or LIFO
+
 
 ### Java
 
@@ -418,7 +458,7 @@
 - TODO: Go
 
 
-# Lock-free, [Non-sequentially-consistency](./sequential_consistency.png)
+# Lock-free, [Non-sequentially-consistency](./diagrams/sequential_consistency.png)
 - (See books by Fedor Pikus)
 1. Array of atomic references to single threaded structure (like `vec` or `vecdeque` or a `stack` or a `queue` or `tree`)
 1. Algorithm
