@@ -55,6 +55,7 @@ class Node {
 ```java
 //TODO
 ```
+</details>
 
 <details>
     <summary>Rust</summary>
