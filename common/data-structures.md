@@ -171,10 +171,15 @@ class Node {
 
 
 ## [Ring Buffer (Cyclic Buffer)](https://en.wikipedia.org/wiki/Circular_buffer)
-1. Memory efficient (can be stack allocated)
+1. `O(1)` push, pop and lookup
+1. Easy to drop oldest data
+1. Memory efficient (can be stack allocated in some languages)
+    1. Backed by Array or Growable Array
+    1. Avoids overflows
 1. Useful when you only care about the latest n-items
     1. moving average, sliding window, streaming, ...
 1. Useful for FIFO or LIFO
+1. Impl: "arraylike" with two pointers to `head` & `tail`
 
 
 ### Java
