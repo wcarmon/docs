@@ -74,33 +74,119 @@ class Node {
 # Adapter Containers (Single-Threaded)
 
 ## HashMap, HashTable (Associative Array)
-### Java: [`HashMap`](https://docs.oracle.com/en%2Fjava%2Fjavase%2F21%2Fdocs%2Fapi%2F%2F/java.base/java/util/HashMap.html)
+
+<details>
+    <summary>Java</summary>
+
+- [`HashMap`](https://docs.oracle.com/en%2Fjava%2Fjavase%2F21%2Fdocs%2Fapi%2F%2F/java.base/java/util/HashMap.html)
 - Backed by `Entry<K,V>[]`
 
-### Rust: [`HashMap`](https://doc.rust-lang.org/std/collections/struct.HashMap.html)
+```java
+// TODO
+```
 
-### JS: [`Map`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map) or [`object`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
+</details>
 
-### Go: [`map`](https://go.dev/blog/maps)
+<details>
+    <summary>Rust</summary>
 
-### C++: [`unordered_map`](https://en.cppreference.com/w/cpp/container/unordered_map)
+- [`HashMap`](https://doc.rust-lang.org/std/collections/struct.HashMap.html)
 
-### Python: [dict](TODO)
+```rust
+// TODO
+```
+
+</details>
+
+
+<details>
+    <summary>JS</summary>
+
+- [`Map`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map) or [`object`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
+
+```js
+// TODO
+```
+
+</details>
+
+
+<details>
+    <summary>Golang</summary>
+
+- [`map`](https://go.dev/blog/maps)
+
+```go
+// TODO
+```
+
+</details>
+
+<details>
+    <summary>C++</summary>
+
+- [`unordered_map`](https://en.cppreference.com/w/cpp/container/unordered_map)
+
+```c++
+// TODO
+```
+
+</details>
 
 
 ## Ordered Map
 
-### Java: [`TreeMap`](https://docs.oracle.com/en%2Fjava%2Fjavase%2F22%2Fdocs%2Fapi%2F%2F/java.base/java/util/TreeMap.html)
+<details>
+    <summary>Java</summary>
 
-### Rust: [`BTreeMap`](https://doc.rust-lang.org/std/collections/struct.BTreeMap.html)
+- [`TreeMap`](https://docs.oracle.com/en%2Fjava%2Fjavase%2F22%2Fdocs%2Fapi%2F%2F/java.base/java/util/TreeMap.html)
 
-### JS
+```java
+// TODO
+```
+
+</details>
+
+<details>
+    <summary>Rust</summary>
+
+- [`BTreeMap`](https://doc.rust-lang.org/std/collections/struct.BTreeMap.html)
+```rust
+// TODO
+```
+
+</details>
+
+<details>
+    <summary>JS</summary>
+
 - TODO
 
-### Go
-- TODO
+```js
+// TODO
+```
 
-### C++: [`map`](https://en.cppreference.com/w/cpp/container/map)
+</details>
+
+<details>
+    <summary>Golang</summary>
+
+- TODO
+```go
+// TODO
+```
+
+</details>
+
+<details>
+    <summary>C++</summary>
+
+- [`map`](https://en.cppreference.com/w/cpp/container/map)
+```c++
+// TODO
+```
+
+</details>
 
 
 ## Stack, LIFO
@@ -153,7 +239,7 @@ class Node {
     <summary>Java</summary>
 
 - Use [`ArrayDeque`](https://docs.oracle.com/en%2Fjava%2Fjavase%2F22%2Fdocs%2Fapi%2F%2F/java.base/java/util/ArrayDeque.html) (standard Java)
-    - Avoid [~~`LinkedList`~~](https://docs.oracle.com/en%2Fjava%2Fjavase%2F22%2Fdocs%2Fapi%2F%2F/java.base/java/util/LinkedList.html)
+    - Avoid [~~`LinkedList`~~](https://docs.oracle.com/en%2Fjava%2Fjavase%2F22%2Fdocs%2Fapi%2F%2F/java.base/java/util/LinkedList.html) for anything other than interviews
     - [`.offerLast(...)`](https://docs.oracle.com/en%2Fjava%2Fjavase%2F22%2Fdocs%2Fapi%2F%2F/java.base/java/util/ArrayDeque.html#offerLast(E))
     - [`.pollFirst()`](https://docs.oracle.com/en%2Fjava%2Fjavase%2F22%2Fdocs%2Fapi%2F%2F/java.base/java/util/ArrayDeque.html#pollFirst())
     - [`.isEmpty()`](https://docs.oracle.com/en%2Fjava%2Fjavase%2F22%2Fdocs%2Fapi%2F%2F/java.base/java/util/ArrayDeque.html#isEmpty())
@@ -201,12 +287,12 @@ class Node {
 ## [Ring Buffer (Cyclic Buffer)](https://en.wikipedia.org/wiki/Circular_buffer)
 1. `O(1)` push, pop and lookup
 1. Easy to drop oldest data
+1. Useful for FIFO or LIFO
+1. Useful when you only care about the latest n-items
+    1. moving average, sliding window, streaming, ...
 1. Memory efficient (can be stack allocated in some languages)
     1. Backed by Array or Growable Array
     1. Avoids overflows
-1. Useful when you only care about the latest n-items
-    1. moving average, sliding window, streaming, ...
-1. Useful for FIFO or LIFO
 1. Impl: "arraylike" with two pointers to `head` & `tail`
 
 <details>
@@ -732,14 +818,14 @@ public record Node<T>(
 </details>
 
 ## MultiSet, Bag
-- TODO: Java
-    - https://commons.apache.org/proper/commons-collections/javadocs/api-4.4/org/apache/commons/collections4/bag/HashBag.html
-    - https://commons.apache.org/proper/commons-collections/javadocs/api-4.4/org/apache/commons/collections4/bag/TreeBag.html
+- `Set` performance, but allowing duplicates (counted)
 
 <details>
     <summary>Java</summary>
 
-- TODO
+- TODO: evaluate: https://commons.apache.org/proper/commons-collections/javadocs/api-4.4/org/apache/commons/collections4/bag/HashBag.html
+- TODO: evaluate: https://commons.apache.org/proper/commons-collections/javadocs/api-4.4/org/apache/commons/collections4/bag/TreeBag.html
+
 ```java
 // TODO
 ```
