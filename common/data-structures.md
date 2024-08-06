@@ -489,9 +489,6 @@ public record Node<T>(
 - Should never need for an interview
 - Sometimes useful in practice
 
-<details>
-    <summary>Show All</summary>
-
 ## Trie
 - TODO: Java
     - https://commons.apache.org/proper/commons-collections/javadocs/api-4.4/org/apache/commons/collections4/trie/PatriciaTrie.html
@@ -502,42 +499,218 @@ public record Node<T>(
 
 
 ## Treap
-- TODO: Java
-- TODO: Rust
-- TODO: JS
-- TODO: Go
+<details>
+    <summary>Java</summary>
+
+- TODO
+```java
+// TODO
+```
+
+</details>
+
+<details>
+    <summary>Rust</summary>
+
+- TODO
+```rust
+// TODO
+```
+
+</details>
+
+<details>
+    <summary>JS</summary>
+
+- TODO
+```js
+// TODO
+```
+
+</details>
+
+<details>
+    <summary>Golang</summary>
+
+- TODO
+```go
+// TODO
+```
+
+</details>
 
 
 ## BloomFilter
-- TODO: Java
-- TODO: Rust
-- TODO: JS
-- TODO: Go
 
+<details>
+    <summary>Java</summary>
+
+- TODO
+```java
+// TODO
+```
+
+</details>
+
+<details>
+    <summary>Rust</summary>
+
+- TODO
+```rust
+// TODO
+```
+
+</details>
+
+<details>
+    <summary>JS</summary>
+
+- TODO
+```js
+// TODO
+```
+
+</details>
+
+<details>
+    <summary>Golang</summary>
+
+- TODO
+```go
+// TODO
+```
+
+</details>
 
 # HyperLogLog
-- TODO: Java
-- TODO: Rust
-- TODO: JS
-- TODO: Go
 
+<details>
+    <summary>Java</summary>
+
+- TODO
+```java
+// TODO
+```
+
+</details>
+
+<details>
+    <summary>Rust</summary>
+
+- TODO
+```rust
+// TODO
+```
+
+</details>
+
+<details>
+    <summary>JS</summary>
+
+- TODO
+```js
+// TODO
+```
+
+</details>
+
+<details>
+    <summary>Golang</summary>
+
+- TODO
+```go
+// TODO
+```
+
+</details>
 
 ## Merkle Tree
-- TODO: Java
-- TODO: Rust
-- TODO: JS
-- TODO: Go
 
+<details>
+    <summary>Java</summary>
+
+- TODO
+```java
+// TODO
+```
+
+</details>
+
+<details>
+    <summary>Rust</summary>
+
+- TODO
+```rust
+// TODO
+```
+
+</details>
+
+<details>
+    <summary>JS</summary>
+
+- TODO
+```js
+// TODO
+```
+
+</details>
+
+<details>
+    <summary>Golang</summary>
+
+- TODO
+```go
+// TODO
+```
+
+</details>
 
 ## MultiSet, Bag
 - TODO: Java
     - https://commons.apache.org/proper/commons-collections/javadocs/api-4.4/org/apache/commons/collections4/bag/HashBag.html
     - https://commons.apache.org/proper/commons-collections/javadocs/api-4.4/org/apache/commons/collections4/bag/TreeBag.html
-- TODO: Rust
-- TODO: JS
-- TODO: Go
+
+<details>
+    <summary>Java</summary>
+
+- TODO
+```java
+// TODO
+```
 
 </details>
+
+<details>
+    <summary>Rust</summary>
+
+- TODO
+```rust
+// TODO
+```
+
+</details>
+
+<details>
+    <summary>JS</summary>
+
+- TODO
+```js
+// TODO
+```
+
+</details>
+
+<details>
+    <summary>Golang</summary>
+
+- TODO
+```go
+// TODO
+```
+
+</details>
+
 
 
 # Other resources
