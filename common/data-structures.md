@@ -20,8 +20,6 @@
 
 ### Python: [`List`](https://docs.python.org/3/tutorial/datastructures.html#more-on-lists)
 
-
-
 ## ~~Linked List~~
 - Only useful for interviews, [rarely useful in practice](../java/collections.no_linkedlist.md)
 

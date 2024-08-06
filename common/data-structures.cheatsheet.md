@@ -12,10 +12,12 @@
     <summary>Java</summary>
 
 - [Java Spec](https://docs.oracle.com/javase/specs/jls/se8/html/jls-10.html)
-- heap allocated, length is NOT part of the type
+- heap allocated
+- length is **NOT** part of the type
 
 ```java
-// TODO
+// TODO: int array example
+// TODO: 2d int array example
 ```
 
 </details>
@@ -27,7 +29,8 @@
 - known, fixed size at compile time, stack allocated
 
 ```rust
-// TODO
+// TODO: int array example
+// TODO: 2d int array example
 ```
 
 </details>
@@ -36,6 +39,12 @@
     <summary>JS</summary>
 
 - TODO
+
+```js
+// TODO: number array example
+// TODO: 2d number array example
+```
+
 </details>
 
 
@@ -47,7 +56,8 @@
 - [`ArrayList`](https://docs.oracle.com/en/java/javase/22/docs/api/java.base/java/util/ArrayList.html)
 
 ```java
-// TODO
+// TODO: number arraylist example
+// TODO: 2d number arraylist example
 ```
 
 </details>
@@ -58,7 +68,8 @@
 - [Rust `Vec`](https://doc.rust-lang.org/std/vec/struct.Vec.html)
 
 ```rust
-// TODO
+// TODO: i32 vec example
+// TODO: 2d i32 vec example
 ```
 
 </details>
@@ -67,6 +78,11 @@
     <summary>JS</summary>
 
 - TODO
+
+```js
+// TODO: number array example
+// TODO: 2d number array example
+```
 
 </details>
 
