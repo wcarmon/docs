@@ -106,7 +106,9 @@ class Node {
 ## Stack, LIFO
 - Backed by Array or Growable Array or Ring Buffer ~~or Linked List~~
 
-### Java
+<details>
+    <summary>Java</summary>
+
 - Use [`ArrayList`](https://docs.oracle.com/en%2Fjava%2Fjavase%2F22%2Fdocs%2Fapi%2F%2F/java.base/java/util/ArrayList.html) (behind [`SequencedCollection`](https://docs.oracle.com/en%2Fjava%2Fjavase%2F22%2Fdocs%2Fapi%2F%2F/java.base/java/util/SequencedCollection.html) reference)
     - Backed by Array (not threadsafe, not `synchronized`)
     - Avoid [~~`java.util.Stack`~~](https://docs.oracle.com/en%2Fjava%2Fjavase%2F22%2Fdocs%2Fapi%2F%2F/java.base/java/util/Stack.html) (backed by [`Vector`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Vector.html) which uses `synchronized`, threadsafe, but slow)
@@ -115,19 +117,33 @@ class Node {
     - [`.isEmpty()`](https://docs.oracle.com/en%2Fjava%2Fjavase%2F22%2Fdocs%2Fapi%2F%2F/java.base/java/util/ArrayList.html#isEmpty())
     - [`.get(x.size() - 1)`](https://docs.oracle.com/en%2Fjava%2Fjavase%2F22%2Fdocs%2Fapi%2F%2F/java.base/java/util/ArrayList.html#getLast()) (like `::peek`)
 
+</details>
 
-### Rust
+<details>
+    <summary>Rust</summary>
+
 - Use [`Vec`](https://doc.rust-lang.org/std/vec/struct.Vec.html)
     - [`::push(...)`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.push)
     - [`::pop()`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.pop)
     - [`::is_empty()`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.is_empty)
     - [`::last()`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.last) (like `::peek`)
 
-### JS
-- TODO:
+</details>
 
-### Golang
-- TODO:
+
+<details>
+    <summary>JS</summary>
+
+- TODO
+
+</details>
+
+<details>
+    <summary>Golang</summary>
+
+- TODO
+
+</details>
 
 
 ## Queue, FIFO
@@ -177,7 +193,7 @@ class Node {
 <details>
     <summary>C++</summary>
 
-- [`deque`](https://en.cppreference.com/w/cpp/container/deque)
+- Use [`deque`](https://en.cppreference.com/w/cpp/container/deque)
 
 </details>
 
