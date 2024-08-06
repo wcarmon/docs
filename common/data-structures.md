@@ -50,24 +50,48 @@ class Node {
 - Use [`LinkedList`](https://docs.oracle.com/en%2Fjava%2Fjavase%2F22%2Fdocs%2Fapi%2F%2F/java.base/java/util/LinkedList.html)
 - TODO: Make a simple `Record`
 
-#### Rust
+
+<details>
+    <summary>Rust</summary>
+
 - TODO: https://doc.rust-lang.org/std/collections/struct.LinkedList.html
 - TODO: Make a `struct` <-- TODO: non-trivial because of Option, Pin, Rc, etc
 
-#### JS
-- TODO: simple object example
+```rust
+//TODO
+```
 
-#### Go
+</details>
+
+<details>
+    <summary>JS</summary>
+
+- simple object example
+```
+//TODO
+```
+
+</details>
+
+<details>
+    <summary>Golang</summary>
+
 - TODO: simple struct example
+```
+//TODO
+```
 
-#### C++: [list](https://en.cppreference.com/w/cpp/container/list)
+</details>
 
+<details>
+    <summary>C++</summary>
 
-### Circular Linked List (only for interviews)
-- TODO: Java
-- TODO: Rust
-- TODO: JS
-- TODO: Go
+- [list](https://en.cppreference.com/w/cpp/container/list)
+```c++
+//TODO
+```
+
+</details>
 
 
 --------
