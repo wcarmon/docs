@@ -27,7 +27,7 @@
     - `Con`: Blocking
     - `Con`: Generally slower than other options above
     - Risks:
-        - [priority inversion](https://en.wikipedia.org/wiki/Priority_inversion)
+        - [Priority Inversion](https://en.wikipedia.org/wiki/Priority_inversion)
         - [deadlock](https://en.wikipedia.org/wiki/Deadlock)
 
 # Implementation Idioms
@@ -48,10 +48,8 @@
 
 
 ## Rust
-- TODO: https://docs.rs/dashmap/latest/dashmap/struct.DashMap.html (uses RwLock & Cache padding to avoid false sharing)
-- TODO: https://github.com/komora-io/concurrent-map (lock free)
-- TODO: https://docs.rs/chashmap/latest/chashmap/ (granular Locks)
-- TODO: scc (lockfree) - https://github.com/wvwwvwwv/scalable-concurrent-containers/?tab=readme-ov-file#hashmap
+- TODO: evaluate https://docs.rs/dashmap/latest/dashmap/struct.DashMap.html (uses RwLock & Cache padding to avoid false sharing)
+- TODO: evaluate https://docs.rs/chashmap/latest/chashmap/ (granular Locks)
 
 ## Go
 - TODO
@@ -61,10 +59,12 @@
 
 ## Java: Use [`ConcurrentSkipListMap`](https://docs.oracle.com/en%2Fjava%2Fjavase%2F22%2Fdocs%2Fapi%2F%2F/java.base/java/util/concurrent/ConcurrentSkipListMap.html) (ordered)
 
-## Rust: [crossbeam `SkipMap`](https://docs.rs/crossbeam-skiplist/latest/crossbeam_skiplist/struct.SkipMap.html)
+## Rust:
+- [crossbeam `SkipMap`](https://docs.rs/crossbeam-skiplist/latest/crossbeam_skiplist/struct.SkipMap.html) (ordered)
+- TODO: evaluate https://github.com/komora-io/concurrent-map (lock free, unordered)
+- TODO: evaluate https://github.com/wvwwvwwv/scalable-concurrent-containers?tab=readme-ov-file#hashmap
 
 ## Go: TODO
-
 
 
 # Threadsafe Set
