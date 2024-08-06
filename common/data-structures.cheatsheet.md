@@ -5,13 +5,67 @@
 
 
 # Basic
-1. Array
-    - [Java](https://docs.oracle.com/javase/specs/jls/se8/html/jls-10.html): heap allocated, length is NOT part of the type
-    - [Rust](https://doc.rust-lang.org/std/primitive.array.html): known, fixed size at compile time, stack allocated
-1. Growable Array
-    - [Java `ArrayList`](https://docs.oracle.com/en/java/javase/22/docs/api/java.base/java/util/ArrayList.html)
-    - [Rust `Vec`](https://doc.rust-lang.org/std/vec/struct.Vec.html)
+
+## Array
+
+<details>
+    <summary>Java</summary>
+
+- [Java](https://docs.oracle.com/javase/specs/jls/se8/html/jls-10.html): heap allocated, length is NOT part of the type
+
+```java
+// TODO
+```
+
+</details>
+
+<details>
+    <summary>Rust</summary>
+
+- [Rust array](https://doc.rust-lang.org/std/primitive.array.html): known, fixed size at compile time, stack allocated
+
+```rust
+// TODO
+```
+
+</details>
+
+<details>
+    <summary>JS</summary>
+
+- TODO
+</details>
+
+
+## Growable Array
+- [Java `ArrayList`](https://docs.oracle.com/en/java/javase/22/docs/api/java.base/java/util/ArrayList.html)
+- [Rust `Vec`](https://doc.rust-lang.org/std/vec/struct.Vec.html)
+
+<details>
+    <summary>Java</summary>
+</details>
+
+<details>
+    <summary>Rust</summary>
+</details>
+
+<details>
+    <summary>JS</summary>
+</details>
+
 1. ~~Linked List~~
+
+<details>
+    <summary>Java</summary>
+</details>
+
+<details>
+    <summary>Rust</summary>
+</details>
+
+<details>
+    <summary>JS</summary>
+</details>
 
 
 # Adapters
@@ -65,6 +119,18 @@
 1. Useful for ... TODO
 
 
-## Graph
-1. TODO
+## [Graph](https://en.wikipedia.org/wiki/Adjacency_list)
+1. (for interviews) store as [Adjacency list](https://en.wikipedia.org/wiki/Adjacency_list)
 1. Useful for ... TODO
+
+<details>
+    <summary>Java</summary>
+</details>
+
+<details>
+    <summary>Rust</summary>
+</details>
+
+<details>
+    <summary>JS</summary>
+</details>
