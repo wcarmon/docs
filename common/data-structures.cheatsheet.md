@@ -16,7 +16,7 @@
 
 # Adapters
 
-## [RingBuffer, Circular buffer](https://en.wikipedia.org/wiki/Circular_buffer)
+## [Ring Buffer, Circular Buffer](https://en.wikipedia.org/wiki/Circular_buffer)
 1. Backed by Array or Growable Array
 1. Two pointers to `head` & `tail`
 1. `O(1)` push, pop and lookup
