@@ -41,7 +41,7 @@
     1. Each "bucket" has a Linked List or Binary Tree
 
 
-## [Heap, PriorityQueue](https://en.wikipedia.org/wiki/Heap_(data_structure)): [img1](./diagrams/heap-1.png), [img2](./diagrams/heap-2.png), [img3](./diagrams/heap-3.png)
+## [Heap, PriorityQueue](https://en.wikipedia.org/wiki/Heap_(data_structure)): [img-1](./diagrams/heap-1.png), [img-2](./diagrams/heap-2.png), [img-3](./diagrams/heap-3.png)
 1. Partially sorted
 1. Worst case `O(Log(n))` get max (or min)
 1. Worst case `O(Log(n))` insert
@@ -50,8 +50,10 @@
 
 ## Binary Tree
 1. Each node has 0, 1 or 2 children
-1. Backed by nodes with pointers or an array (children at  `2i + 1` and `2i + 2`)
-    1. array items stored in breath first order
+1. Backed by ...
+    1. nodes with 2 pointers or
+    1. an array with children at index `2i + 1` and `2i + 2`
+        1. array items stored in [Breath First Order](TODO)
 1. Useful for ... TODO
 
 
