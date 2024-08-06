@@ -14,18 +14,6 @@
 
 
 # Adapters
-1. Stack (LIFO)
-    1. Backed by Array or Growable Array or Linked List
-1. Queue (FIFO)
-    1. Backed by Array or Growable Array or Linked List
-1. HashMap: [img1](TODO), [img2](TODO)
-    1. `O(1)` lookup & insert
-    1. Array of buckets
-        1. Each bucket has a linked list or tree
-1. [Heap](https://en.wikipedia.org/wiki/Heap_(data_structure)): [img1](./diagrams/heap-1.png), [img2](./diagrams/heap-2.png), [img3](./diagrams/heap-3.png)
-    1. Partially sorted
-    1. Worst case `O(Log(n))` get max (or min)
-    1. Worst case `O(Log(n))` insert
 1. [RingBuffer, Circular buffer](https://en.wikipedia.org/wiki/Circular_buffer)
     1. Backed by Array or Growable Array
     1. Two pointers to head & tail
@@ -33,6 +21,22 @@
     1. Useful for FIFO and LIFO
     1. Avoids overflows
     1. Easy to drop oldest data
+1. Stack (LIFO)
+    1. Backed by Array or Growable Array or Ring Buffer or Linked List
+1. Queue (FIFO)
+    1. Backed by Array or Growable Array or Ring Buffer or Linked List
+1. [HashMap](https://en.wikipedia.org/wiki/Hash_table)
+    1. `O(1)` lookup & insert
+    1. Array of buckets
+        1. Each bucket has a linked list or tree
+1. [Heap, PriorityQueue](https://en.wikipedia.org/wiki/Heap_(data_structure)): [img1](./diagrams/heap-1.png), [img2](./diagrams/heap-2.png), [img3](./diagrams/heap-3.png)
+    1. Partially sorted
+    1. Worst case `O(Log(n))` get max (or min)
+    1. Worst case `O(Log(n))` insert
+1. Binary Tree
+    1. TODO
+1. Binary Search Tree (BST)
+    1. TODO
 
 </details>
 
