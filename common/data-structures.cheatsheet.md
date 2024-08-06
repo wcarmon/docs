@@ -141,6 +141,38 @@
         1. array items stored in [Breath First Order](TODO)
 1. Useful for ... TODO
 
+<details>
+    <summary>Java</summary>
+
+```java
+class Node {
+    int value;
+    Node left;
+    Node right;
+}
+```
+
+</details>
+
+<details>
+    <summary>Rust</summary>
+
+```rust
+// TODO
+```
+
+</details>
+
+<details>
+    <summary>JS</summary>
+
+```js
+// TODO
+```
+
+</details>
+
+
 
 ## [Binary Search Tree (BST)](https://en.wikipedia.org/wiki/Binary_search_tree)
 1. Ordered

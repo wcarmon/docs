@@ -248,18 +248,6 @@ class Node {
     1. Useful for deleting file tree
 
 ### Java
-<details>
-    <summary>Interview</summary>
-
-```java
-class Node {
-    int value;
-    Node left;
-    Node right;
-}
-```
-
-</details>
 
 <details>
     <summary>In practice</summary>
