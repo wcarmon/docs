@@ -194,6 +194,39 @@ class Node {
 1. Avoids overflows
 1. Easy to drop oldest data
 
+<details>
+    <summary>Java</summary>
+
+- TODO:
+
+```java
+// TODO: ...
+```
+
+</details>
+
+<details>
+    <summary>Rust</summary>
+
+- TODO:
+
+```rust
+// TODO: ...
+```
+
+</details>
+
+<details>
+    <summary>JS</summary>
+
+- TODO:
+
+```js
+// TODO: ...
+```
+
+</details>
+
 
 ## Stack (LIFO)
 1. Backed by Array or Growable Array or Ring Buffer or Linked List
@@ -218,6 +251,8 @@ class Node {
 <details>
     <summary>Rust</summary>
 
+- [`Vec`](https://doc.rust-lang.org/std/vec/struct.Vec.html)
+
 ```rust
 // TODO
 ```
@@ -226,6 +261,8 @@ class Node {
 
 <details>
     <summary>JS</summary>
+
+- Use [`Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
 
 ```js
 // TODO
@@ -256,6 +293,8 @@ class Node {
 <details>
     <summary>Rust</summary>
 
+- TODO: use ...
+
 ```rust
 // TODO
 ```
@@ -264,6 +303,8 @@ class Node {
 
 <details>
     <summary>JS</summary>
+
+- TODO: use ...
 
 ```js
 // TODO
@@ -280,6 +321,8 @@ class Node {
 <details>
     <summary>Java</summary>
 
+- TODO: use ...
+
 ```java
 // TODO
 ```
@@ -289,6 +332,8 @@ class Node {
 <details>
     <summary>Rust</summary>
 
+- TODO: use ...
+
 ```rust
 // TODO
 ```
@@ -297,6 +342,8 @@ class Node {
 
 <details>
     <summary>JS</summary>
+
+- TODO: use ...
 
 ```js
 // TODO
@@ -314,6 +361,8 @@ class Node {
 <details>
     <summary>Java</summary>
 
+- TODO: use ...
+
 ```java
 // TODO
 ```
@@ -323,6 +372,8 @@ class Node {
 <details>
     <summary>Rust</summary>
 
+- TODO: use ...
+
 ```rust
 // TODO
 ```
@@ -331,6 +382,8 @@ class Node {
 
 <details>
     <summary>JS</summary>
+
+- TODO: use ...
 
 ```js
 // TODO
@@ -363,14 +416,18 @@ public class Node {
 <details>
     <summary>Rust</summary>
 
+- TODO: use ...
+
 ```rust
-// TODO
+// TODO: struct
 ```
 
 </details>
 
 <details>
     <summary>JS</summary>
+
+- TODO: use ...
 
 ```js
 // TODO
@@ -395,6 +452,8 @@ public class Node {
 <details>
     <summary>Java</summary>
 
+- TODO: use ...
+
 ```java
 // TODO
 ```
@@ -404,6 +463,8 @@ public class Node {
 <details>
     <summary>Rust</summary>
 
+- TODO: use ...
+
 ```rust
 // TODO
 ```
@@ -412,6 +473,8 @@ public class Node {
 
 <details>
     <summary>JS</summary>
+
+- TODO: use ...
 
 ```js
 // TODO
