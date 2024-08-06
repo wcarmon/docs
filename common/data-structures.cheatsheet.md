@@ -53,7 +53,7 @@
 <details>
     <summary>Java</summary>
 
-- [`ArrayList`](https://docs.oracle.com/en/java/javase/22/docs/api/java.base/java/util/ArrayList.html)
+- [`java.util.ArrayList`](https://docs.oracle.com/en/java/javase/22/docs/api/java.base/java/util/ArrayList.html)
 
 ```java
 // TODO: number arraylist example
@@ -65,7 +65,7 @@
 <details>
     <summary>Rust</summary>
 
-- [Rust `Vec`](https://doc.rust-lang.org/std/vec/struct.Vec.html)
+- [`Vec`](https://doc.rust-lang.org/std/vec/struct.Vec.html)
 
 ```rust
 // TODO: i32 vec example
