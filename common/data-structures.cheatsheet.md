@@ -58,6 +58,11 @@
 ```java
 // TODO: number arraylist example
 // TODO: 2d number arraylist example
+
+// TODO: access item at index
+// TODO: swap values at two indexes
+// TODO: iterate (for loop)
+// TODO: get size/length
 ```
 
 </details>
@@ -70,6 +75,11 @@
 ```rust
 // TODO: i32 vec example
 // TODO: 2d i32 vec example
+
+// TODO: access item at index
+// TODO: swap values at two indexes
+// TODO: iterate (for loop)
+// TODO: get size/length
 ```
 
 </details>
@@ -82,6 +92,11 @@
 ```js
 // TODO: number array example
 // TODO: 2d number array example
+
+// TODO: access item at index
+// TODO: swap values at two indexes
+// TODO: iterate (for loop)
+// TODO: get size/length
 ```
 
 </details>
