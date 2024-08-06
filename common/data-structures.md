@@ -25,25 +25,6 @@
 ## ~~Linked List~~
 - Only useful for interviews, [rarely useful in practice](../java/collections.no_linkedlist.md)
 
-### Single linked (only for interviews)
-
-#### Java
-```java
-class Node {
-    int value;
-    Node next;
-}
-```
-
-#### Rust
-- TODO
-
-#### JS
-- TODO
-
-#### Go
-- TODO
-
 ### Double linked (only for interviews)
 
 <details>
@@ -55,6 +36,7 @@ class Node {
 ```java
 //TODO
 ```
+
 </details>
 
 <details>

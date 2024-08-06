@@ -77,7 +77,10 @@
     <summary>Java</summary>
 
 ```java
-// TODO
+class Node {
+    int value;
+    Node next;
+}
 ```
 
 </details>
