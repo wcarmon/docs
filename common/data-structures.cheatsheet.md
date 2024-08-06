@@ -70,7 +70,8 @@
 
 </details>
 
-1. ~~Linked List~~
+
+## ~~Linked List~~
 
 <details>
     <summary>Java</summary>
@@ -115,10 +116,64 @@
 1. Backed by Array or Growable Array or Ring Buffer or Linked List
 1. Useful for ... TODO
 
+<details>
+    <summary>Java</summary>
+
+```java
+// TODO
+```
+
+</details>
+
+<details>
+    <summary>Rust</summary>
+
+```rust
+// TODO
+```
+
+</details>
+
+<details>
+    <summary>JS</summary>
+
+```js
+// TODO
+```
+
+</details>
+
 
 ## Queue (FIFO)
 1. Backed by Array or Growable Array or Ring Buffer or Linked List
 1. Useful for ... TODO
+
+<details>
+    <summary>Java</summary>
+
+```java
+// TODO
+```
+
+</details>
+
+<details>
+    <summary>Rust</summary>
+
+```rust
+// TODO
+```
+
+</details>
+
+<details>
+    <summary>JS</summary>
+
+```js
+// TODO
+```
+
+</details>
 
 
 ## [HashMap](https://en.wikipedia.org/wiki/Hash_table)
@@ -126,12 +181,66 @@
 1. Array of buckets
     1. Each "bucket" has a Linked List or Binary Tree
 
+<details>
+    <summary>Java</summary>
+
+```java
+// TODO
+```
+
+</details>
+
+<details>
+    <summary>Rust</summary>
+
+```rust
+// TODO
+```
+
+</details>
+
+<details>
+    <summary>JS</summary>
+
+```js
+// TODO
+```
+
+</details>
+
 
 ## [Heap, PriorityQueue](https://en.wikipedia.org/wiki/Heap_(data_structure)): [img-1](./diagrams/heap-1.png), [img-2](./diagrams/heap-2.png), [img-3](./diagrams/heap-3.png)
 1. Partially sorted
 1. Worst case `O(Log(n))` get max (or min)
 1. Worst case `O(Log(n))` insert
 1. Useful for "Top n" items
+
+<details>
+    <summary>Java</summary>
+
+```java
+// TODO
+```
+
+</details>
+
+<details>
+    <summary>Rust</summary>
+
+```rust
+// TODO
+```
+
+</details>
+
+<details>
+    <summary>JS</summary>
+
+```js
+// TODO
+```
+
+</details>
 
 
 ## [Binary Tree](https://en.wikipedia.org/wiki/Binary_tree)
@@ -189,12 +298,27 @@ public class Node {
 
 <details>
     <summary>Java</summary>
+
+```java
+// TODO
+```
+
 </details>
 
 <details>
     <summary>Rust</summary>
+
+```rust
+// TODO
+```
+
 </details>
 
 <details>
     <summary>JS</summary>
+
+```js
+// TODO
+```
+
 </details>
