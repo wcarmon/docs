@@ -1,5 +1,5 @@
 # Overview
-1. Cheatsheet on common [Data Structures](https://en.wikipedia.org/wiki/Abstract_data_type)
+1. Cheatsheet on common [Data Structures](https://en.wikipedia.org/wiki/Abstract_data_type) (mostly for interviews)
 1. See also: [Data Structures doc](./data-structures.md)
 1. See also: [Concurrent Data Structures doc](./data-structures.concurrent.md)
 

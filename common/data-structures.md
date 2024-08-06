@@ -6,7 +6,7 @@
 # Fundamental Structures
 - All are Single-Threaded
 
-## ArrayList, Vector (Growable, Heap allocated Sequentially)
+## ArrayList, Vector (Growable, Heap-allocated, Sequentially)
 
 ### Java: [`ArrayList`](https://docs.oracle.com/en%2Fjava%2Fjavase%2F22%2Fdocs%2Fapi%2F%2F/java.base/java/util/ArrayList.html)
 
@@ -28,7 +28,12 @@
 ### Single linked (only for interviews)
 
 #### Java
-- TODO
+```java
+class Node {
+    int value;
+    Node next;
+}
+```
 
 #### Rust
 - TODO
