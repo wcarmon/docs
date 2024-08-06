@@ -3,41 +3,41 @@
 1. See also: [Data structures doc](./data-structures.md)
 
 
-# Thread Safety Approaches:
-1. `Wait-free`:
+# Thread Safety Approaches
+1. `Wait-free`
     - Uses Atomics: [Java](https://docs.oracle.com/javase/tutorial/essential/concurrency/atomicvars.html), [Rust](https://doc.rust-lang.org/std/sync/atomic/index.html)
-    - Generally the simplest
-    - Non-blocking
-    - No spin-loops, no CAS, just CPU instructions
-1. `Lock-free`:
+    - `Pro`: Generally the simplest
+    - `Pro`: Non-blocking
+    - `Pro`: No spin-loops, no CAS, just CPU instructions
+1. `Lock-free`
     - Uses [compare-and-swap CPU instructions](https://en.wikipedia.org/wiki/Compare-and-swap) in spin **loop** (maybe with backoff)
         - Also known as a `CAS` loop (compare-and-swap)
-    - Non-blocking
-    - **Very hard** to implement correctly
+    - `Pro`: Non-blocking
+    - `Con`: **Very hard** to implement correctly
         - Generally requires deferred `free` (eg. [`Rc`](https://doc.rust-lang.org/std/rc/struct.Rc.html) or [Garbage collection](https://en.wikipedia.org/wiki/Garbage_collection_(computer_science)))
         - Generally only works with simple API (eg. FIFO or LIFO)
-    - Memory management is hard in non-GC languages
+    - `Con`: Memory management is hard in non-GC languages
     - Risks:
         - [ABA problem](https://en.wikipedia.org/wiki/ABA_problem)
             - Summary: Assume if value is `A`, it hasn't changed
         - Too much Retry/throw-away work
-1. `Lock-based`:
+1. `Lock-based`
     - Uses mutex or Lock
-    - Blocking
-    - Generally slower than other options above
-    - Easy to reason about
+    - `Pro`: Easy to reason about
+    - `Con`: Blocking
+    - `Con`: Generally slower than other options above
     - Risks:
         - [priority inversion](https://en.wikipedia.org/wiki/Priority_inversion)
         - [deadlock](https://en.wikipedia.org/wiki/Deadlock)
 
-# Implementation Idioms:
+# Implementation Idioms
 1. Partition the data structure into independent parts, handle them single threaded
     1. Atomically reserve parts of the structure, using AtomicRef or CAS
-    1. eg. Map<K, V>, but the Keys for one region are independent of other regions
+    1. eg. Multiple `Map<K, V>`s, Keys for one region are independent of other regions
 1. Minimize the API (since each method must be protected)
 1. Exploit some application specific feature
     1. eg. Some parts of the data don't change, others do
-1. Test, Benchmark, keep it simple
+1. Test, Benchmark, keep the API simple
 
 
 # Threadsafe Map (Lock/Mutex based)
