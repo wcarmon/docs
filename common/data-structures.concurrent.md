@@ -3,17 +3,19 @@
 1. See also: [Data structures doc](./data-structures.md)
 
 
-# Approaches:
+# Thread Safety Approaches:
 1. `Wait-free`:
     - Uses Atomics: [Java](https://docs.oracle.com/javase/tutorial/essential/concurrency/atomicvars.html), [Rust](https://doc.rust-lang.org/std/sync/atomic/index.html)
+    - Generally the simplest
     - Non-blocking
-    - Generally simplest
     - No spin-loops, no CAS, just CPU instructions
 1. `Lock-free`:
     - Uses [compare-and-swap CPU instructions](https://en.wikipedia.org/wiki/Compare-and-swap) in spin **loop** (maybe with backoff)
         - Also known as a `CAS` loop (compare-and-swap)
     - Non-blocking
-    - Very hard to implement correctly
+    - **Very hard** to implement correctly
+        - Generally requires deferred `free` (eg. [`Rc`](https://doc.rust-lang.org/std/rc/struct.Rc.html) or [Garbage collection](https://en.wikipedia.org/wiki/Garbage_collection_(computer_science)))
+        - Generally only works with simple API (eg. FIFO or LIFO)
     - Memory management is hard in non-GC languages
     - Risks:
         - [ABA problem](https://en.wikipedia.org/wiki/ABA_problem)
@@ -28,7 +30,7 @@
         - [priority inversion](https://en.wikipedia.org/wiki/Priority_inversion)
         - [deadlock](https://en.wikipedia.org/wiki/Deadlock)
 
-# Idioms
+# Idioms:
 1. Partition the data structure into independent parts, handle them single threaded
     1. Atomically reserve parts of the structure, using AtomicRef or CAS
     1. eg. Map<K, V>, but the Keys for one region are independent of other regions
