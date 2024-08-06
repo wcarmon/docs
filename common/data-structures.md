@@ -133,7 +133,8 @@ class Node {
 ## Queue, FIFO
 - Backed by Array or Growable Array or Ring Buffer ~~or Linked List~~
 
-### Java
+<details>
+    <summary>Java</summary>
 
 - Use [`ArrayDeque`](https://docs.oracle.com/en%2Fjava%2Fjavase%2F22%2Fdocs%2Fapi%2F%2F/java.base/java/util/ArrayDeque.html) (standard Java)
     - Avoid [~~`LinkedList`~~](https://docs.oracle.com/en%2Fjava%2Fjavase%2F22%2Fdocs%2Fapi%2F%2F/java.base/java/util/LinkedList.html)
@@ -142,8 +143,10 @@ class Node {
     - [`.isEmpty()`](https://docs.oracle.com/en%2Fjava%2Fjavase%2F22%2Fdocs%2Fapi%2F%2F/java.base/java/util/ArrayDeque.html#isEmpty())
     - [`.peekFirst()`](https://docs.oracle.com/en%2Fjava%2Fjavase%2F22%2Fdocs%2Fapi%2F%2F/java.base/java/util/Deque.html#peekFirst())
 
+</details>
 
-### Rust
+<details>
+    <summary>Rust</summary>
 
 - Use [`VecDeque`](https://doc.rust-lang.org/std/collections/struct.VecDeque.html)
     - Growable Ring-buffer, often implemented as [a collection of fixed sized arrays](./diagrams/deque.png)
@@ -152,13 +155,31 @@ class Node {
     - [`::is_empty()`](https://doc.rust-lang.org/std/collections/struct.VecDeque.html#method.is_empty)
     - [`::front()`](https://doc.rust-lang.org/std/collections/struct.VecDeque.html#method.front)
 
-### JS
+</details>
+
+
+<details>
+    <summary>JS</summary>
+
 - TODO:
 
-### Go
+</details>
+
+
+<details>
+    <summary>Golang</summary>
+
 - TODO:
 
-### C++: [deque](https://en.cppreference.com/w/cpp/container/deque)
+</details>
+
+
+<details>
+    <summary>C++</summary>
+
+- [`deque`](https://en.cppreference.com/w/cpp/container/deque)
+
+</details>
 
 
 ## [Ring Buffer (Cyclic Buffer)](https://en.wikipedia.org/wiki/Circular_buffer)
@@ -172,8 +193,8 @@ class Node {
 1. Useful for FIFO or LIFO
 1. Impl: "arraylike" with two pointers to `head` & `tail`
 
-
-### Java
+<details>
+    <summary>Java</summary>
 
 - Use [`ArrayDeque`](https://docs.oracle.com/en%2Fjava%2Fjavase%2F22%2Fdocs%2Fapi%2F%2F/java.base/java/util/ArrayDeque.html) (standard Java)
     - [`.offerLast(...)`](https://docs.oracle.com/en%2Fjava%2Fjavase%2F22%2Fdocs%2Fapi%2F%2F/java.base/java/util/ArrayDeque.html#offerLast(E))
@@ -188,22 +209,38 @@ class Node {
         - [`.peek()`](https://guava.dev/releases/15.0/api/docs/com/google/common/collect/ForwardingQueue.html#peek())
     - Apache Commons [`CircularFifoQueue`](https://commons.apache.org/proper/commons-collections/javadocs/api-4.4/org/apache/commons/collections4/queue/CircularFifoQueue.html)
 
-### Rust
+</details>
+
+<details>
+    <summary>Rust</summary>
+
 - Use [`VecDeque`](https://doc.rust-lang.org/std/collections/struct.VecDeque.html)
     - Growable Ring-buffer
     - (same as Queue above)
 
-### JS
+</details>
+
+<details>
+    <summary>JS</summary>
+
 - TODO
 
-### Go
+</details>
+
+<details>
+    <summary>Golang</summary>
+
 - TODO
+
+</details>
 
 
 ## Heap, Priority Queue
 - Worst case `O(log(n))` for both insert and removal
 
-### Java
+<details>
+    <summary>Java</summary>
+
 - Use [`PriorityQueue`](https://docs.oracle.com/en%2Fjava%2Fjavase%2F22%2Fdocs%2Fapi%2F%2F/java.base/java/util/PriorityQueue.html) (**min**-heap)
     - Backed by `Object[]`, growable
     - [`.offer(...)`](https://docs.oracle.com/en%2Fjava%2Fjavase%2F22%2Fdocs%2Fapi%2F%2F/java.base/java/util/PriorityQueue.html#offer(E))
@@ -211,7 +248,11 @@ class Node {
     - [`.isEmpty()`](https://docs.oracle.com/en%2Fjava%2Fjavase%2F22%2Fdocs%2Fapi%2F%2F/java.base/java/util/AbstractCollection.html#isEmpty())
     - [`.peek()`](https://docs.oracle.com/en%2Fjava%2Fjavase%2F22%2Fdocs%2Fapi%2F%2F/java.base/java/util/PriorityQueue.html#peek())
 
-### Rust
+</details>
+
+<details>
+    <summary>Rust</summary>
+
 - Use [`BinaryHeap`](https://doc.rust-lang.org/stable/std/collections/struct.BinaryHeap.html) (**max**-heap)
     - Backed by [`Vec`](https://doc.rust-lang.org/stable/std/vec/struct.Vec.html), growable
     - [`::push(...)`](https://doc.rust-lang.org/stable/std/collections/struct.BinaryHeap.html#method.push)
@@ -219,11 +260,23 @@ class Node {
     - [`::peek()`](https://doc.rust-lang.org/stable/std/collections/struct.BinaryHeap.html#method.peek)
     - [`::is_empty()`](https://doc.rust-lang.org/stable/std/collections/struct.BinaryHeap.html#method.is_empty)
 
-### JS
+</details>
+
+
+<details>
+    <summary>JS</summary>
+
 - TODO
 
-### Go
+</details>
+
+
+<details>
+    <summary>Golang</summary>
+
 - TODO: https://pkg.go.dev/container/heap
+
+</details>
 
 ### C++: [`priority_queue`](https://en.cppreference.com/w/cpp/container/priority_queue)
 
