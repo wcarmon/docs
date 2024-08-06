@@ -46,10 +46,15 @@ class Node {
 
 ### Double linked (only for interviews)
 
-#### Java
+<details>
+    <summary>Java</summary>
+
 - Use [`LinkedList`](https://docs.oracle.com/en%2Fjava%2Fjavase%2F22%2Fdocs%2Fapi%2F%2F/java.base/java/util/LinkedList.html)
 - TODO: Make a simple `Record`
 
+```java
+//TODO
+```
 
 <details>
     <summary>Rust</summary>
