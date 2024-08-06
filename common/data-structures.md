@@ -277,9 +277,39 @@
 
 
 ## Binary Tree
+1. Pre-order: current, left, right
+    1. Useful for TODO
+1. In-order:  left, current, right
+    1. Useful for sorted iteration
+1. Post-order: left, right, current
+    1. Useful for deleting file tree
 
 ### Java
-- TODO
+<details>
+    <summary>Interview</summary>
+```java
+class Node {
+    int value;
+    Node left;
+    Node right;
+}
+```
+</details>
+
+<details>
+    <summary>In practice</summary>
+```java
+public record Node<T>(
+        T value,
+        @Nullable Node<T> left,
+        @Nullable Node<T> right) {
+
+    Node {
+        requireNonNull(value, "value is required and null.");
+    }
+}
+```
+</details>
 
 ### Rust
 - TODO
