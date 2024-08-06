@@ -30,7 +30,7 @@
         - [priority inversion](https://en.wikipedia.org/wiki/Priority_inversion)
         - [deadlock](https://en.wikipedia.org/wiki/Deadlock)
 
-# Idioms:
+# Implementation Idioms:
 1. Partition the data structure into independent parts, handle them single threaded
     1. Atomically reserve parts of the structure, using AtomicRef or CAS
     1. eg. Map<K, V>, but the Keys for one region are independent of other regions
@@ -53,25 +53,17 @@
 - TODO: https://docs.rs/chashmap/latest/chashmap/ (granular Locks)
 - TODO: scc (lockfree) - https://github.com/wvwwvwwv/scalable-concurrent-containers/?tab=readme-ov-file#hashmap
 
-## JS
-- TODO
-
 ## Go
 - TODO
 
 
 # Threadsafe Map (Lock-free)
 
-## Java
-- Use [`ConcurrentSkipListMap`](https://docs.oracle.com/en%2Fjava%2Fjavase%2F22%2Fdocs%2Fapi%2F%2F/java.base/java/util/concurrent/ConcurrentSkipListMap.html) (ordered)
-    -
+## Java: Use [`ConcurrentSkipListMap`](https://docs.oracle.com/en%2Fjava%2Fjavase%2F22%2Fdocs%2Fapi%2F%2F/java.base/java/util/concurrent/ConcurrentSkipListMap.html) (ordered)
 
-## Rust
-- TODO https://github.com/crossbeam-rs/crossbeam/tree/master/crossbeam-skiplist
+## Rust: [crossbeam `SkipMap`](https://docs.rs/crossbeam-skiplist/latest/crossbeam_skiplist/struct.SkipMap.html)
 
-## JS
-
-## Go
+## Go: TODO
 
 
 
@@ -80,14 +72,12 @@
 
 - TODO: Java
 - TODO: Rust
-- TODO: JS
 - TODO: Go
 
 
 # Queue: SPSC
 - TODO: Java
 - TODO: Rust
-- TODO: JS
 - TODO: Go
 
 
@@ -99,9 +89,6 @@
 ## Rust
 - TODO: https://docs.rs/crossbeam/latest/crossbeam/queue/struct.ArrayQueue.html
 - TODO: https://doc.rust-lang.org/nightly/std/sync/mpsc/index.html (backed by crossbeam mpmc)
-
-## JS
-- TODO
 
 ## Go
 - TODO
@@ -117,9 +104,6 @@
 ## Rust
 - TODO:
 
-## JS
-- TODO
-
 ## Go
 - TODO
 
@@ -127,14 +111,12 @@
 # Lock-free Queue (MPMC)
 - TODO: Java
 - TODO: Rust
-- TODO: JS
 - TODO: Go
 
 
 # Lock-free Stack (MPMC)
 - TODO: Java
 - TODO: Rust
-- TODO: JS
 - TODO: Go
 
 
