@@ -11,7 +11,8 @@
 <details>
     <summary>Java</summary>
 
-- [Java](https://docs.oracle.com/javase/specs/jls/se8/html/jls-10.html): heap allocated, length is NOT part of the type
+- [Java Spec](https://docs.oracle.com/javase/specs/jls/se8/html/jls-10.html)
+- heap allocated, length is NOT part of the type
 
 ```java
 // TODO
@@ -22,7 +23,8 @@
 <details>
     <summary>Rust</summary>
 
-- [Rust array](https://doc.rust-lang.org/std/primitive.array.html): known, fixed size at compile time, stack allocated
+- [Rust array doc](https://doc.rust-lang.org/std/primitive.array.html)
+- known, fixed size at compile time, stack allocated
 
 ```rust
 // TODO
@@ -38,33 +40,62 @@
 
 
 ## Growable Array
-- [Java `ArrayList`](https://docs.oracle.com/en/java/javase/22/docs/api/java.base/java/util/ArrayList.html)
-- [Rust `Vec`](https://doc.rust-lang.org/std/vec/struct.Vec.html)
 
 <details>
     <summary>Java</summary>
+- [`ArrayList`](https://docs.oracle.com/en/java/javase/22/docs/api/java.base/java/util/ArrayList.html)
+
+```java
+// TODO
+```
+
 </details>
 
 <details>
     <summary>Rust</summary>
+
+- [Rust `Vec`](https://doc.rust-lang.org/std/vec/struct.Vec.html)
+
+```rust
+// TODO
+```
+
 </details>
 
 <details>
     <summary>JS</summary>
+
+- TODO
+
 </details>
 
 1. ~~Linked List~~
 
 <details>
     <summary>Java</summary>
+
+```java
+// TODO
+```
+
 </details>
 
 <details>
     <summary>Rust</summary>
+
+```rust
+// TODO
+```
+
 </details>
 
 <details>
     <summary>JS</summary>
+
+```js
+// TODO
+```
+
 </details>
 
 
