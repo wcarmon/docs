@@ -18,8 +18,8 @@
     let rt = Handle::current();
 
     // NOTE: ::block_on returns whatever T the future returns
-    let res = rt.block_on(async move || {
-        do_something().await()
+    let res = rt.block_on(async move {
+        do_something().await
     });
 
     // res is whatever the async block returns
@@ -28,7 +28,7 @@
 1. Build runner based on current thread
 ```rust
     let rt = runtime::Builder::new_current()
-        .enable_all()
+        .enable_all()       // Handles both IO futures and Timer futures
         .build()
         .context("failed to build tokio runtime")?;
 
