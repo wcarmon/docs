@@ -9,11 +9,11 @@
     1. returns a [Future](https://doc.rust-lang.org/std/future/trait.Future.html)
     1. rust compiler transforms `async fn` into an asynchronous routing (at compile time)
     1. Each call to [`.await`](https://doc.rust-lang.org/std/keyword.await.html) within the `async fn` **yield** control back to the thread
-       . The thread may do other work while the operation processes in the background.
+        1. The thread may do other work while the operation processes in the background.
 
 
 # Sync to async
-1. Use existing runtime (eg. either on `fn main` or some `runtime::Builder` on the call stack)
+1. Use existing runtime (eg. either on `#[tokio::main] async fn main` or some `runtime::Builder` on the call stack)
 ```rust
     let rt = Handle::current(); // use previously configured runtime
 
