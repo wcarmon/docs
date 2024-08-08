@@ -13,16 +13,17 @@
 
 
 # Sync to async
-1. Use existing runtime (eg. either on `fn main` or some `runtime::Builder` on the call stack
+1. Use existing runtime (eg. either on `fn main` or some `runtime::Builder` on the call stack)
 ```rust
-    let rt = Handle::current();
+    let rt = Handle::current(); // use previously configured runtime
 
-    // NOTE: ::block_on returns whatever T the future returns
+    // NOTE: .block_on(...) returns whatever T the Future<T> returns
+    // NOTE: notice this is an async block, not an async closure
     let res = rt.block_on(async move {
         do_something().await
     });
 
-    // res is whatever the async block returns
+    // here res is whatever the async block returns
 ```
 
 1. Build runner based on current thread
