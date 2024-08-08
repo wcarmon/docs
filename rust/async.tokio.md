@@ -23,13 +23,13 @@
         do_something().await
     });
 
-    // here res is whatever the async block returns
+    // res is whatever the async block returns
 ```
 
 1. Build runner based on current thread
 ```rust
     let rt = runtime::Builder::new_current()
-        .enable_all()       // Handles both IO futures and Timer futures
+        .enable_all()       // Handle both IO futures and Timer futures
         .build()
         .context("failed to build tokio runtime")?;
 
