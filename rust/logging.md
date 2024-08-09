@@ -16,6 +16,8 @@
 # EnvLogger
 ```rust
 fn main() {
+
+    // GOTCHA: only works if you aren't using tracing
     env_logger::builder()
         .format(|buf, record| {
             writeln!(
