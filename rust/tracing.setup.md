@@ -22,6 +22,35 @@ tracing-attributes = "0.1"
 ```
 
 
+# Cargo.toml where the init function is defined
+```toml
+anyhow = "1.0"
+derive_builder = "0.20"
+log = "0.4"
+
+# -- Alternative to env_logger, writes to terminal and to tokio-console
+console-subscriber = "0.4"
+
+# -- Provides: TracerProvider,
+opentelemetry = "0.24"
+
+# -- Exports spans/logs/metrics via OTLP
+opentelemetry-otlp = { version = "0.17", features = ["grpc-tonic"] }
+
+# -- Provides constants for resource and span attribute keys
+opentelemetry-semantic-conventions = "0.16"
+
+# -- Provides: Resource
+opentelemetry_sdk = { version = "0.24", features = ["rt-tokio"] }
+
+# -- Collect traces, provides Layers, Registry, ...
+tracing-subscriber = "0.3"
+
+# -- Adapter: connects tracer & OpenTelemetry
+tracing-opentelemetry = "0.25"
+```
+
+
 # TracingConfig `struct` for configuration
 ```rust
 #[derive(Builder, Clone, Debug)]
@@ -204,6 +233,6 @@ fn main() {
     // ... run the normal logic here
 
     shutdown_tracing(Duration::from_secs(5));
-    rt.shutdown_timeout(Duration::from_secs(1));
+    // rt.shutdown_timeout(Duration::from_secs(1));
 }
 ```
