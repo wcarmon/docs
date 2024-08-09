@@ -214,6 +214,7 @@ fn main() {
 
     // -- Send spans in background thread
     let rt = tokio::runtime::Builder::new_multi_thread()
+        .worker_threads(4) // or std::thread::available_parallelism()
         .enable_all()
         .build()
         .expect("failed to build tokio runtime");

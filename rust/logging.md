@@ -13,6 +13,27 @@
 1. Add logs where you **handle** an [`Error`](https://docs.rs/anyhow/latest/anyhow/struct.Error.html), not where you propagate (`?`)
 
 
+# EnvLogger
+```rust
+fn main() {
+    env_logger::builder()
+        .format(|buf, record| {
+            writeln!(
+                buf,
+                "{} [{:?}] [{}]: {:?}",
+                buf.timestamp_micros(),
+                thread::current().id(),
+                record.level(),
+                record.args()
+            )
+        })
+        .init();
+
+    // ... app logic
+}
+```
+
+
 # [Simplelog](https://docs.rs/simplelog/latest/simplelog/)
 
 ## Cargo.toml
