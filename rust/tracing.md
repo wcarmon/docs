@@ -57,15 +57,11 @@ tracing-subscriber = "..."
 1. `Cons`: Different [span lifecycle](https://docs.rs/tracing/latest/tracing/span/index.html#the-span-lifecycle) than [OpenTelemetry](TODO)
 
 
-# Alternative: [OpenTelemetry](https://opentelemetry.io/docs/instrumentation/rust/) lib
-
-1. See [otel doc](./tracing.opentelemetry.md)
-
-## Setup `tracing` (for a binary crate)
+# Setup `tracing` (for a binary crate)
 
 - See [setup doc](./tracing.setup.md)
 
-## Span Usage
+# Span Usage
 
 ```rust
     let span = info_span!("my_span");
@@ -121,6 +117,11 @@ fn do_something(foo: &str) -> Result<String, anyhow::Error> {
     //GOTCHA: attributes/fields must be declared in the attribute
 
     Ok("output".to_owned())
+}
+
+#[instrument(err)]
+fn do_something_dangerous() -> Result<String, anyhow::Error> {
+    todo!("boo")
 }
 ```
 
