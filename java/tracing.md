@@ -33,7 +33,9 @@
     @Provides
     @Singleton
     OpenTelemetry openTelemetry() {
-        OtlpGrpcSpanExporter jaegerOtlpExporter =
+        final String jaegerEndpoint = DEFAULT_JAEGER_ENDPOINT;
+    
+        OtlpGrpcSpanExporter otlpExporter =
                 OtlpGrpcSpanExporter.builder()
                         .setEndpoint(jaegerEndpoint) // eg. you can default to DEFAULT_JAEGER_ENDPOINT
                         .setTimeout(30, TimeUnit.SECONDS)
@@ -44,7 +46,7 @@
 
         SdkTracerProvider tracerProvider =
                 SdkTracerProvider.builder()
-                        .addSpanProcessor(BatchSpanProcessor.builder(jaegerOtlpExporter).build())
+                        .addSpanProcessor(BatchSpanProcessor.builder(otlpExporter).build())
                         .setResource(Resource.getDefault().merge(serviceNameResource))
                         .build();
 
