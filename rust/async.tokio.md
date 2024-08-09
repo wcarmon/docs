@@ -43,6 +43,7 @@
 
 # TODO/Unorganized
 
+- https://ryhl.io/blog/async-what-is-blocking/
 - https://rust-lang.github.io/async-book/01_getting_started/02_why_async.html
 - https://rust-lang.github.io/async-book/01_getting_started/04_async_await_primer.html
 - https://rust-lang.github.io/async-book/02_execution/02_future.html

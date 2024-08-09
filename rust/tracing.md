@@ -25,7 +25,7 @@ tracing-attributes = "0.1"
 ```
 
 # Dependencies for binary crate (Cargo.toml)
-
+- GOTCHA: remove env_logger, it conflicts with `tokio-console` and with `tracing`
 ```toml
 [dependencies]
 opentelemetry = "..."
