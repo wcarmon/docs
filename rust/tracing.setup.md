@@ -150,21 +150,20 @@ pub fn init_tracing(
     let otlp_layer = tracing_opentelemetry::layer().with_tracer(tracer);
     let filtered_otlp_layer = otlp_layer.with_filter(build_anti_spam_filter());
 
-    // -- Prints to console
-    // -- Exposes to tokio-console on port 6669
-    let console_layer = ConsoleLayer::builder().with_default_env().spawn();
-
     // -- Reads RUST_LOG env variable
     let env_filter = build_fmt_filter().context("failed to build env_filter for to format logs")?;
 
     // -- Pretty prints to console
     let format_layer = tracing_subscriber::fmt::layer().with_filter(env_filter);
 
+    // -- Exposes to tokio-console on port 6669
+    // let console_layer = ConsoleLayer::builder().with_default_env().spawn();
+
     // -- Add Layers to Subscriber (tracing lib concept)
     let subscriber = Registry::default()
-        .with(otlp_layer)
-        .with(console_layer)
+        .with(filtered_otlp_layer)
         .with(format_layer)
+        // .with(console_layer)
         .init(); // invokes set_global_default(...) to set global
 
     // -- Apply globally (OpenTelemetry concept)
