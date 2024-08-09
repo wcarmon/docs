@@ -9,34 +9,12 @@
     1. [Migration from log lib](https://docs.rs/tracing/latest/tracing/#for-log-users)
     1. [Migration from slog](https://github.com/slog-rs/slog#slog-rs---the-logging-for-rust)
 1. [tracing](https://docs.rs/tracing/latest/tracing) API is close enough to OpenTelemetry
-    1. [Compatiblity lib](https://crates.io/crates/tracing-opentelemetry)
+    1. [Compatibility lib](https://crates.io/crates/tracing-opentelemetry)
         1. [tracing::`Span`](https://docs.rs/tracing/latest/tracing/struct.Span.html) -> [OpenTelemetry::`Span`](https://docs.rs/opentelemetry/latest/opentelemetry/trace/trait.Span.html)
         1. [tracing::`Event`](https://docs.rs/tracing/latest/tracing/event/struct.Event.html) -> [OpenTelemetry::`Event`](https://docs.rs/opentelemetry/latest/opentelemetry/trace/struct.Event.html)
     1. Differences:
         1. OpenTelemetry spans lack level
 
-# Dependencies for library crate (Cargo.toml)
-
-```toml
-[dependencies]
-opentelemetry-semantic-conventions = "..."
-tracing = "..."  # TODO: do I still need this?
-tracing-attributes = "0.1"
-```
-
-# Dependencies for binary crate (Cargo.toml)
-- GOTCHA: remove env_logger, it conflicts with `tokio-console` and with `tracing`
-```toml
-[dependencies]
-opentelemetry = "..."
-opentelemetry-jaeger = "..."
-opentelemetry-semantic-conventions = "..."
-
-tracing = "..."
-tracing-attributes = "..."
-tracing-opentelemetry = "..."
-tracing-subscriber = "..."
-```
 
 # [tracing](https://docs.rs/tracing/latest/tracing/) lib (part of Tokio)
 
@@ -57,11 +35,11 @@ tracing-subscriber = "..."
 1. `Cons`: Different [span lifecycle](https://docs.rs/tracing/latest/tracing/span/index.html#the-span-lifecycle) than [OpenTelemetry](TODO)
 
 
-# Setup `tracing` (for a binary crate)
+# Setup `tracing`
 
 - See [setup doc](./tracing.setup.md)
 
-# Span Usage
+# Usage
 
 ```rust
     let span = info_span!("my_span");
