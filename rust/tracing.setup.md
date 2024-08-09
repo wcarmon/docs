@@ -1,16 +1,24 @@
 # Overview
-1. How to setup/configure tokio based tracing
+1. How to setup/configure tokio based [tracing](https://docs.rs/tracing/latest/tracing/)
 
 # Cargo.toml for libraries (`lib.rs`)
 
 ```toml
-# TODO
+[dependencies]
+# ...
+tracing = "0.1"
+tracing-attributes = "0.1"
 ```
+
 
 # Cargo.toml for application (`main.rs`)
 
 ```toml
-# TODO
+[dependencies]
+# ...
+opentelemetry = "0.24"
+tracing = "0.1"
+tracing-attributes = "0.1"
 ```
 
 
@@ -161,5 +169,39 @@ pub fn shutdown_tracing(sleep_time: Duration) {
 
     global::shutdown_tracer_provider();
     sleep(sleep_time);
+}
+```
+
+
+# main.rs
+- GOTCHA: remove `env_logger::init()` if present, it conflicts
+```rust
+// -- Env vars:
+// RUST_LOG=debug
+// RUSTFLAGS=--cfg tokio_unstable
+// ...
+fn main() {
+    // ...
+
+    let rt = tokio::runtime::Builder::new_multi_thread()
+        .enable_all()
+        .build()
+        .expect("failed to build tokio runtime");
+
+    let _ = rt.block_on(async {
+        let tracing_conf = TracingConfigBuilder::default()
+            .endpoint("http://localhost:4317".to_string())
+            .flush_frequency(Duration::from_millis(500))
+            .service_name("rs-sandbox".to_string())
+            .tracer_name(String::new())
+            .build()?;
+
+        init_tracing(&tracing_conf).context("failed to initialize tracing")
+    });
+
+    // ... run the normal logic here
+
+    shutdown_tracing(Duration::from_secs(5));
+    rt.shutdown_timeout(Duration::from_secs(1));
 }
 ```
