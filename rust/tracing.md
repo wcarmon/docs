@@ -290,6 +290,12 @@ fn outer() -> Result<(), anyhow::Error> {
 1. [`convert_otel_span_into_jaeger_span(...)`](TODO)  ([src in `opentelemetry-jaeger`](TODO))
 1. [`Uploader::upload(jaeger::Batch)`](TODO) ([src in `opentelemetry-jaeger`](TODO))
 
+
+# TODO/Unorganized
+- Env vars
+    - `RUST_LOG=debug|info|warn|trace`
+    - `RUSTFLAGS=--cfg tokio_unstable`
+
 # Other Resources
 
 1. https://docs.rs/tracing-opentelemetry/latest/tracing_opentelemetry/

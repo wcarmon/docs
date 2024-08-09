@@ -7,6 +7,7 @@
 
 1. For just logging, Prefer [`env_logger`](https://docs.rs/env_logger/latest/env_logger/)
     - GOTCHA: `env_logger` conflicts with `tokio-console` and with `tracing`
+    - Env var: `RUST_LOG=debug|info|warn|trace`
 1. For Tracing, Prefer [`tracer`]([TODO](https://docs.rs/tracing/latest/tracing/)) or [`opentelemetry`](TODO)
 1. If you must use logging directly, prefer the [log crate](https://docs.rs/log/latest/log/)
 1. Add logs where you **handle** an [`Error`](https://docs.rs/anyhow/latest/anyhow/struct.Error.html), not where you propagate (`?`)
