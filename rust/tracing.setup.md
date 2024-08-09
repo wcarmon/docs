@@ -183,20 +183,22 @@ pub fn shutdown_tracing(sleep_time: Duration) {
 fn main() {
     // ...
 
+    // -- Send spans in background thread
     let rt = tokio::runtime::Builder::new_multi_thread()
         .enable_all()
         .build()
         .expect("failed to build tokio runtime");
 
+    // -- OTLP exporter requies a runtime
     let _ = rt.block_on(async {
         let tracing_conf = TracingConfigBuilder::default()
             .endpoint("http://localhost:4317".to_string())
             .flush_frequency(Duration::from_millis(500))
-            .service_name("rs-sandbox".to_string())
+            .service_name("my-app-name".to_string())
             .tracer_name(String::new())
             .build()?;
 
-        init_tracing(&tracing_conf).context("failed to initialize tracing")
+        init_tracing(&tracing_conf).context("failed to init tracing")
     });
 
     // ... run the normal logic here
