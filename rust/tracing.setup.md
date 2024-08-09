@@ -148,6 +148,7 @@ pub fn init_tracing(
 
     // -- Build OpenTelemetry Layers for tracing lib
     let otlp_layer = tracing_opentelemetry::layer().with_tracer(tracer);
+    let filtered_otlp_layer = otlp_layer.with_filter(build_anti_spam_filter());
 
     // -- Prints to console
     // -- Exposes to tokio-console on port 6669
@@ -184,6 +185,32 @@ fn build_fmt_filter() -> Result<filter::EnvFilter, anyhow::Error> {
     env_var
         .parse::<filter::EnvFilter>()
         .context("failed to parse env var: RUST_LOG")
+}
+
+// Don't send tokio internal events to Jaeger
+fn build_anti_spam_filter() -> FilterFn {
+    filter_fn(|meta| {
+        let target = meta.target().to_string();
+        if target.starts_with("console_subscriber::")
+            || target.starts_with("h2::client")
+            || target.starts_with("h2::codec::")
+            || target.starts_with("h2::frame::")
+            || target.starts_with("h2::hpack::")
+            || target.starts_with("h2::proto::")
+            || target.starts_with("hyper_util::client::")
+            || target.starts_with("runtime::resource::")
+            || target.starts_with("tokio::sync::")
+            || target.starts_with("tokio::task")
+            || target.starts_with("tokio::time::")
+            || target.starts_with("tokio::util::")
+            || target.starts_with("tonic::transport::")
+            || target.starts_with("tower::buffer::")
+        {
+            return false;
+        }
+
+        true
+    })
 }
 ```
 
