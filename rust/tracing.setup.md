@@ -1,7 +1,7 @@
 # Overview
 1. How to setup/configure tokio based [tracing](https://docs.rs/tracing/latest/tracing/)
 
-# Cargo.toml for libraries (`lib.rs`)
+# `Cargo.toml` for libraries (`lib.rs`)
 
 ```toml
 [dependencies]
@@ -11,7 +11,7 @@ tracing-attributes = "0.1"
 ```
 
 
-# Cargo.toml for application (`main.rs`)
+# `Cargo.toml` for application (`main.rs`)
 
 ```toml
 [dependencies]
@@ -22,7 +22,7 @@ tracing-attributes = "0.1"
 ```
 
 
-# Cargo.toml where the init function is defined
+# `Cargo.toml` wherever the `init_tracing` function is defined
 ```toml
 anyhow = "1.0"
 derive_builder = "0.20"
