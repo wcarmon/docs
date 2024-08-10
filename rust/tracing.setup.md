@@ -150,20 +150,24 @@ pub fn init_tracing(
     let otlp_layer = tracing_opentelemetry::layer().with_tracer(tracer);
     let filtered_otlp_layer = otlp_layer.with_filter(build_anti_spam_filter());
 
+    // -- Exposes to tokio-console on port 6669
+    // let tokio_console_layer = ConsoleLayer::builder()
+    //     .with_default_env()
+    //     .spawn();
+
     // -- Reads RUST_LOG env variable
     let env_filter = build_fmt_filter().context("failed to build env_filter for to format logs")?;
 
-    // -- Pretty prints to console
-    let format_layer = tracing_subscriber::fmt::layer().with_filter(env_filter);
-
-    // -- Exposes to tokio-console on port 6669
-    // let console_layer = ConsoleLayer::builder().with_default_env().spawn();
+    // -- Pretty prints to console, no spans on console
+    let color_term_layer = WCColorTerminalLayer::default()
+        .with_filter(env_filter)
+        .with_filter(build_anti_spam_filter());
 
     // -- Add Layers to Subscriber (tracing lib concept)
     let subscriber = Registry::default()
+        .with(color_term_layer)
         .with(filtered_otlp_layer)
-        .with(format_layer)
-        // .with(console_layer)
+        //.with(tokio_console_layer)
         .init(); // invokes set_global_default(...) to set global
 
     // -- Apply globally (OpenTelemetry concept)
@@ -171,19 +175,6 @@ pub fn init_tracing(
     global::set_tracer_provider(tracer_provider);
 
     Ok(())
-}
-
-// Pretty prints logs
-// Level is based on env variable: RUST_LOG
-// (see env_logger or tracing crate for details on RUST_LOG)
-fn build_fmt_filter() -> Result<filter::EnvFilter, anyhow::Error> {
-    // -- See: ConsoleLayer::builder().with_default_env().init();
-
-    let env_var = std::env::var("RUST_LOG").context("missing required env var: RUST_LOG")?;
-
-    env_var
-        .parse::<filter::EnvFilter>()
-        .context("failed to parse env var: RUST_LOG")
 }
 
 // Don't send tokio internal events to Jaeger
@@ -210,6 +201,19 @@ fn build_anti_spam_filter() -> FilterFn {
 
         true
     })
+}
+
+// Pretty prints logs
+// Level is based on env variable: RUST_LOG
+// (see env_logger or tracing crate for details on RUST_LOG)
+fn build_fmt_filter() -> Result<filter::EnvFilter, anyhow::Error> {
+    // -- See: ConsoleLayer::builder().with_default_env().init();
+
+    let env_var = std::env::var("RUST_LOG").context("missing required env var: RUST_LOG")?;
+
+    env_var
+        .parse::<filter::EnvFilter>()
+        .context("failed to parse env var: RUST_LOG")
 }
 ```
 

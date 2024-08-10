@@ -28,7 +28,7 @@
 
 1. Build runner based on current thread
 ```rust
-    let rt = runtime::Builder::new_current()
+    let rt = runtime::Builder::new_current_thread()
         .enable_all()       // Handle both IO futures and Timer futures
         .build()
         .context("failed to build tokio runtime")?;
