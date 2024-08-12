@@ -53,26 +53,28 @@ CREATE TABLE auth.users
 ```
 
 
-# Verify
+# Verify password
 ```rust
-    // -- Read candidate password from HTTP request
+    // -- Read candidate password from HTTP/gRPC request
     let password_str: String = "..."; // read from HTTP request
     let password_bytes: &[u8] = password_str.as_bytes();
     // let password_bytes: &[u8] = b"..."; // or just read bytes directly
 
+    // -- Same config (or compatible with config) used for building the hash
     let argon_config = Config::default();
 
     let hash_in_database: String = <read hash from database>;
 
+    // -- intentionally slow, determine if password matches
     let password_matches = argon2::verify_encoded(
         &hash_in_database, password_bytes)
         .context("failed to verify password")?;
 
     if password_matches {
-        // Handle password match (eg. build JWT, redirect, etc)
+        // Handle match (eg. build JWT, redirect, etc)
 
     } else {
-        // Handle password mismatch (eg. return error response)
+        // Handle mismatch (eg. return error response)
     }
 ```
 
