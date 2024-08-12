@@ -176,3 +176,7 @@ public record GitInfo(
     }
 }
 ```
+
+# TODO: example AdminController for Javalin
+
+# TODO: example AdminController for Spring
