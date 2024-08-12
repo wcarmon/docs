@@ -66,7 +66,7 @@ CREATE TABLE auth.users
 
     let hash_in_database: String = <read hash from database>;
 
-    // -- intentionally slow, determine if password matches
+    // -- Intentionally slow, determine if password matches
     let password_matches = argon2::verify_encoded(
         &hash_in_database, password_bytes)
         .context("failed to verify password")?;
