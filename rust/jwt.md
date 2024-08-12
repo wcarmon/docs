@@ -81,7 +81,7 @@ pub fn parse_claims(jwt: String) -> Result<AuthClaims, anyhow::Error> {
         bail!("Expired token");
     }
 
-    Err(e.into())
+    e.into()
 }
 ```
 
