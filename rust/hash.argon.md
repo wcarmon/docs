@@ -10,7 +10,8 @@ rust-argon2 = "2"
 ```
 
 
-# Encrypt (Set password for a user)
+# Encrypt
+- Set password for a user
 ```rust
     let desired_password = "...".as_bytes();
     // let desired_password = b"...";  // if you already have a &[u8]
