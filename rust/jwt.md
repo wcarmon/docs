@@ -57,42 +57,41 @@ struct AuthClaims {
 # Verify (Parse claims)
 
 ```rust
-    pub fn parse_claims(jwt: String) -> Result<AuthClaims, anyhow::Error> {
-        ensure!(!jwt.trim().is_empty(), "JWT token required");
+pub fn parse_claims(jwt: String) -> Result<AuthClaims, anyhow::Error> {
+    ensure!(!jwt.trim().is_empty(), "JWT token required");
 
-        let res = decode::<AuthClaims>(
-            &jwt,
-            &DecodingKey::from_secret(jwt_secret),
-            &Validation::new(algorithm));
+    let res = decode::<AuthClaims>(
+        &jwt,
+        &DecodingKey::from_secret(jwt_secret),
+        &Validation::new(algorithm));
 
-        if let Ok(parsed) = &res {
-            return Ok(parsed.claims.clone());
-        }
-
-        let e = res.err().unwrap();
-        if let ErrorKind::ExpiredSignature = e.kind() {
-            // ... handle expired token here (eg. return a special error type)
-            // ... eg. suggest a refresh
-            bail!("Expired token");
-        }
-
-        Err(e.into())
+    if let Ok(parsed) = &res {
+        return Ok(parsed.claims.clone());
     }
 
+    let e = res.err().unwrap();
+    if let ErrorKind::ExpiredSignature = e.kind() {
+        // ... handle expired token here (eg. return a special error type)
+        // ... eg. suggest a refresh
+        bail!("Expired token");
+    }
 
+    Err(e.into())
+}
 ```
 
-# Rejected
 
+# Rejected
+1. ~~https://github.com/mikkyang/rust-jwt~~
+    1. Nice, but seems abandoned
 1. ~~https://github.com/jedisct1/rust-jwt-simple~~
     1. Con: lots of dependencies
 1. ~~https://github.com/durch/rust-jwt~~
 
 # Idioms
 
-1. Always select the algorithm for parsing (don't let the token decide)
+1. Always select the [algorithm](https://github.com/Keats/jsonwebtoken/blob/master/src/algorithms.rs#L16) on the server for parsing (don't allow the token decide)
 
 # Other Resources
 
 1. https://github.com/Keats/jsonwebtoken
-1. https://github.com/mikkyang/rust-jwt
