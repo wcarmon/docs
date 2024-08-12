@@ -1,6 +1,6 @@
 # Overview
 1. How to use [argon2](https://en.wikipedia.org/wiki/Argon2) in rust
-    - https://crates.io/crates/rust-argon2
+    - Specifically: https://crates.io/crates/rust-argon2
 
 # Cargo.toml
 ```toml
@@ -10,20 +10,20 @@ rust-argon2 = "2"
 ```
 
 
-# Encrypt (set password for user)
+# Encrypt (Set password for a user)
 ```rust
     let desired_password = "...".as_bytes();
-    // let desired_password = b"...";
+    // let desired_password = b"...";  // if you already have a &[u8]
 
     let argon_config = Config::default();
 
     // -- See https://en.wikipedia.org/wiki/Salt_(cryptography)
-    let salt_len = thread_rng().gen_range(8..32);
-    let salt = gen_random_string(salt_len);
+    let salt_len = thread_rng().gen_range(16..32);
+    let salt = gen_random_string(salt_len).as_bytes();
 
     let argon_hash = argon2::hash_encoded(
         desired_password,
-        salt.as_bytes(),
+        salt,
         &argon_config)
         .context("failed to hash password")?;
 
@@ -31,8 +31,8 @@ rust-argon2 = "2"
 ```
 
 
-# Example `Users` table
-```
+# Example `users` table
+```sql
 -- Postgres
 CREATE TABLE auth.users
 (
