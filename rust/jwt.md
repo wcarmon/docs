@@ -59,6 +59,8 @@ struct AuthClaims {
 # Verify (Parse claims)
 
 ```rust
+use jsonwebtoken::{decode, DecodingKey, Validation};
+
 pub fn parse_claims(jwt: String) -> Result<AuthClaims, anyhow::Error> {
     ensure!(!jwt.trim().is_empty(), "JWT token required");
 
@@ -73,8 +75,9 @@ pub fn parse_claims(jwt: String) -> Result<AuthClaims, anyhow::Error> {
 
     let e = res.err().unwrap();
     if let ErrorKind::ExpiredSignature = e.kind() {
-        // ... handle expired token here (eg. return a special error type)
-        // ... eg. suggest a refresh
+        // ... Handle expired token here
+        // ... (eg. return a special error type)
+        // ... Caller (Endpoint) can suggest a refresh to Client
         bail!("Expired token");
     }
 
