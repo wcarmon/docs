@@ -1,6 +1,6 @@
 # Overview
 
-1. How to Create, Sign & verify a jwt
+1. How to Create, Sign & Verify a [jwt](https://jwt.io/)
 1. Candidate libs for [jwt](https://jwt.io/)
     - Specifically: https://docs.rs/jsonwebtoken/latest/jsonwebtoken/
 
@@ -18,7 +18,7 @@ serde = {version = "1", features = ["derive"] }
 # Config
 ```rust
     // -- Read from config
-    let jwt_secret: &[u8] = "foo-bar".as_ref(); // use a UUID or something
+    let jwt_secret: &[u8] = "foo-bar".as_ref(); // use a password generator
     let algorithm = Algorithm::HS512;
     let token_life = Duration::minutes(45);
 ```
@@ -47,8 +47,10 @@ struct AuthClaims {
         sub: email,
     };
 
-    let header = Header::new(algorithm);
-    let token = encode(&header, &claims, &EncodingKey::from_secret(jwt_secret))?;
+    let token = encode(
+        &Header::new(algorithm),
+        &claims,
+        &EncodingKey::from_secret(jwt_secret))?;
 
     // -- Send token back to user via REST, gRPC, WebSocket, etc
 ```
