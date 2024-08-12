@@ -50,6 +50,8 @@ CREATE TABLE auth.users
     --
     -- Alternatively, can use blob or bytea
     password_hash        VARCHAR(176)       NOT NULL,
+
+    -- Table constraints go here
 )
 ```
 
