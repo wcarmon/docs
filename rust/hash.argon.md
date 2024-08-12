@@ -31,7 +31,7 @@ rust-argon2 = "2"
 ```
 
 
-# Example `users` table
+# Example `users` Table
 ```sql
 -- Postgres
 CREATE TABLE auth.users
@@ -53,7 +53,7 @@ CREATE TABLE auth.users
 ```
 
 
-# Verify password
+# Verify Password
 ```rust
     // -- Read candidate password from HTTP/gRPC request
     let password_str: String = "..."; // read from HTTP request
