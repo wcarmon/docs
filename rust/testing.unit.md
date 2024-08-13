@@ -23,6 +23,16 @@ mod tests {
 ```
 
 
+# Async tests
+```rust
+#[tokio::test]
+async fn should_be_nice() -> Result<(), anyhow::Error> {
+
+   // GOTCHA: cannot use ? operator here
+}
+```
+
+
 # Other Resources
 1. Basics:
     1. https://doc.rust-lang.org/rust-by-example/testing/unit_testing.html

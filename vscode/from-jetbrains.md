@@ -2,6 +2,16 @@
 1. How to do typical things in vscode
 
 
+# Motivation
+1. They only really support IDEA, Goland and WebStorm well (Perhaps c++ in Clion).
+    - RustRover is buggy and has font issues (they probably don't regression test)
+    - Gateway is buggy alphaware
+    - Gateway only has one guy supporting it
+1. vscode supports remote development
+1. neovim is comparatively lighter on memory & CPU
+1. Jetbrains plugins are harder to write and to debug than for vscode
+
+
 --------
 # Editor: Key Bindings
 |Action|Jetbrains|vscode|Destructive in vsc|Destructive in JB|
@@ -89,6 +99,10 @@
 
 
 --------
+# Debugger
+
+
+--------
 # Settings/Profile
 1. Export to github gist (easier), or local file
 1. Import using gist url on (eg. https://gist.github.com/<username>/...)
@@ -101,6 +115,8 @@
 1. 020: Local edit history (eg. local vcs)
 1. 030: Sort json
 1. 060: block comment
+1. 065: Debugger with Breakpoint (Rust)
+1. 066: Debugger with Breakpoint (Java)
 1. 070: Conditional breakpoint
 1. 080: Key promoter
 1. 090: Change font in file explorer  <-- zoomlevel?
@@ -119,7 +135,7 @@
 1. 110: Navigate: Go to declaration
 1. 120: Editor: Refactor: comment/uncomment line
 1. 130: Editor: show context actions
-1. 140: Editor: smart complete line (CTRL+ENTER)
+1. 140: Editor: smart complete line (CTRL+ENTER) (eg. semicolon for java, rust, ts)
 1. 150: Navigate: Search by symbol
 1. 160: Editor: Completion: by camel case
 1. 170: Editor: Refactor: Rename - https://code.visualstudio.com/docs/editor/refactoring#_rename-symbol
@@ -150,6 +166,21 @@
 1. x: ace jump:
     1. https://github.com/DavidLGoldberg/jumpy2
     1. https://github.com/metaseed/metaGo
+
+
+# TODO
+1. Debugger: arbitrary expression at breakpoint
+1. Debugger: view variable contents at breakpoint
+1. Decompile source for dependency
+1. Editor: organize/optimize imports
+1. Editor: Run specific test in current file
+1. Inspect all files in a directory
+1. Java Get sources for decompiled local jar
+1. Run: set environment vars for run/debug
+1. Run: set JVM args for run/debug
+1. Rust: attach *.rs file to parent lib.rs or main.rs
+1. Rust: Intention: add missing fields for new struct
+
 
 1. keyboard shortcut: git commit & push: 
     1. https://tecadmin.net/shortcuts-for-git-integration-in-visual-studio-code/
