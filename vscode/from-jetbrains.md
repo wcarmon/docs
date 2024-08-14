@@ -138,13 +138,13 @@
 1. 140: Editor: smart complete line (CTRL+ENTER) (eg. semicolon for java, rust, ts)
 1. 150: Navigate: Search by symbol
 1. 160: Editor: Completion: by camel case
-1. 170: Editor: Refactor: Rename - https://code.visualstudio.com/docs/editor/refactoring#_rename-symbol
+1. 170: Editor: Refactor: Rename symbol - https://code.visualstudio.com/docs/editor/refactoring#_rename-symbol
 1. 180: Editor: camel to snake case (rust/python)
 1. 190: Editor: Postfix completion
 1. 200: Navigate: go to class
 1. 210: VCS: git commit <--- CTRL+K
 1. 220: Navigate: show/hide file explorer (project view)
-1. 230: Editor: replace in all files
+1. 230: Editor: replace in all "project" files
 1. 240: Run inspections
 1. 250: Navigate: Show usages of symbol
 1. 260: Show file structure (methods/variables summary)
@@ -173,16 +173,23 @@
 1. Debugger: see changed variables on loops/iteration
 1. Debugger: view variable contents at breakpoint
 1. Decompile source for dependency
+1. Editor: new scratch file (java)
+1. Editor: new scratch file (json)
+1. Editor: new scratch file (rust)
+1. Editor: new scratch file (text)
 1. Editor: organize/optimize imports
 1. Editor: Run specific test in current file
+1. Editor: show param info for fn/method
 1. Inspect all files in a directory
 1. Java Get sources for decompiled local jar
 1. Navigate: Find text across files
 1. Navigate: Fuzzy find across files
+1. Navigate: Open file based on fuzzy name
 1. Run: set environment vars for run/debug
 1. Run: set JVM args for run/debug
 1. Rust: attach *.rs file to parent lib.rs or main.rs
 1. Rust: Intention: add missing fields for new struct initialization
+1. SQL Editor: execute selected sql statement
 1. View: compare editor to file in tree view
 1. View: compare editor to file to external file
 1. View: compare file in tree view to another file "in project"
