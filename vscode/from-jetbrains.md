@@ -170,6 +170,8 @@
 
 # TODO
 1. Debugger: arbitrary expression at breakpoint
+1. Debugger: remote debug (another process)
+1. Debugger: remove all breakpoints
 1. Debugger: see changed variables on loops/iteration
 1. Debugger: view variable contents at breakpoint
 1. Decompile source for dependency
