@@ -9,6 +9,7 @@
 1. Install [`gcloud`](https://cloud.google.com/sdk/docs/install)
 <details>
     <summary>Linux Bash</summary>
+
 ```bash
 sudo apt-get update; sudo apt-get install apt-transport-https ca-certificates gnupg curl
 curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo gpg --dearmor -o /usr/share/keyrings/cloud.google.gpg
@@ -20,10 +21,12 @@ gcloud components update
 1. Authorize `gcloud`
 <details>
     <summary>Linux Bash</summary>
+
 ```bash
 gcloud init;
 gcloud auth login;
 ```
+</details>
 1. Choose [project](https://cloud.google.com/resource-manager/docs/creating-managing-projects)
 1.
 
