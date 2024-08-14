@@ -5,6 +5,7 @@
 # Setup
 1. [Create a bucket](https://cloud.google.com/storage/docs/creating-buckets)
 1. Create a [service account](./service_account.md)
+1. Download credentials `*.json` file for service account
 1. Set Privileges on the bucket for the service account
 1. Install [`gcloud`](https://cloud.google.com/sdk/docs/install)
     <details>
@@ -19,19 +20,23 @@
     ```
     </details>
 1. Authorize `gcloud`
-    - <details>
-        <summary>Linux Bash</summary>
-
     ```bash
     gcloud init;
     gcloud auth login;
     ```
-    </details>
-1. Choose [project](https://cloud.google.com/resource-manager/docs/creating-managing-projects)
-1.
-
-
-
-
-# Other resources
-1. TODO
+1. Choose [Project](https://cloud.google.com/resource-manager/docs/creating-managing-projects)
+    ```bash
+    gcloud projects list;
+    gcloud config set project wc-chrono;
+    ```
+1. Verify
+    ```bash
+    gcloud storage buckets list;
+    gsutil ls;
+    gsutil ls gs://wc-sandbox-00
+    ```
+1. Set env var for service credentials json file
+    - `GOOGLE_APPLICATION_CREDENTIALS=/path/to/service.key.json`
+1. (Optional) Enable versioning
+    - `gsutil versioning set on gs://your-bucket-name`
+    - Verify: `gsutil versioning get gs://your-bucket-name`
