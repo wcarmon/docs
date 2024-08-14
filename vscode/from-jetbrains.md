@@ -160,7 +160,7 @@
 1. 360: Java: refactor stream to loop
 1. 370: Live template
 1. 380: invert boolean - https://code.visualstudio.com/docs/java/java-refactoring#_invert-conditions
-1. 390: Fold selection
+1. 390: Fold selection (fn, method, block, rust module, java class, java record, ...)
 1. 400: Expand folded selection
 1. 410: adjust font size with mouse wheel - `editor.fontSize`
 1. x: ace jump:
@@ -177,13 +177,20 @@
 1. Editor: Run specific test in current file
 1. Inspect all files in a directory
 1. Java Get sources for decompiled local jar
+1. Navigate: Find text across files
+1. Navigate: Fuzzy find across files
 1. Run: set environment vars for run/debug
 1. Run: set JVM args for run/debug
 1. Rust: attach *.rs file to parent lib.rs or main.rs
-1. Rust: Intention: add missing fields for new struct
+1. Rust: Intention: add missing fields for new struct initialization
+1. View: compare editor to file in tree view
+1. View: compare editor to file to external file
+1. View: compare file in tree view to another file "in project"
+1. View: compare file in tree view to external file
+1. View: Show/Hide tree view of file system
 
 
-1. keyboard shortcut: git commit & push: 
+1. Keyboard shortcut: git commit & push:
     1. https://tecadmin.net/shortcuts-for-git-integration-in-visual-studio-code/
     1. https://stackoverflow.com/questions/46382883/shortcut-to-push-code-to-git-in-vscode
 1. consider https://marketplace.visualstudio.com/items?itemName=wmaurer.change-case
