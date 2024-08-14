@@ -162,7 +162,7 @@ let foo = unmanaged_dir.join(...);
 ## Create [Temp file](https://docs.rs/tempfile/latest/tempfile/)
 - In `Cargo.toml`
 ```toml
-tempfile = "..."
+tempfile = "3"
 ```
 - Code:
 ```rust
@@ -170,10 +170,10 @@ use tempfile::NamedTempFile;
 ...
 
 let mut file = NamedTempFile::new()
-    .context("failed to create temp file");
+    .context("failed to create temp file")?;
 
-file.write_all("...".as_bytes())
-    .context("failed to write to file")?;
+file.write_all("...".as_bytes()).try_into()?;
+// file.flush();
 
 // -- NOTE: file is auto-deleted when it goes out of scope
 ```

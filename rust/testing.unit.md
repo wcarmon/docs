@@ -28,7 +28,7 @@ mod tests {
 #[tokio::test]
 async fn should_be_nice() -> Result<(), anyhow::Error> {
 
-   // GOTCHA: cannot use ? operator here
+   // ...
 }
 ```
 

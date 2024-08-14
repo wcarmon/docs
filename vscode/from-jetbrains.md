@@ -175,22 +175,28 @@
 1. Debugger: see changed variables on loops/iteration
 1. Debugger: view variable contents at breakpoint
 1. Decompile source for dependency
+1. Editor: Calculate math expression, inline result  (eg. "1+1" ... replace with 2)
+1. Editor: Java: override defaulted methods on implemented interface (CTRL+O)
 1. Editor: new scratch file (java)
 1. Editor: new scratch file (json)
 1. Editor: new scratch file (rust)
 1. Editor: new scratch file (text)
 1. Editor: organize/optimize imports
 1. Editor: Run specific test in current file
+1. Editor: rust: override defaulted trait methods
 1. Editor: show param info for fn/method
 1. Inspect all files in a directory
-1. Java Get sources for decompiled local jar
+1. Inspect: find duplicate code blocks
+1. Intention: change fn parameters to match what I actually pass
+1. Intention: change return type signature to match what I actually return
+1. Intention: Java: Get sources for decompiled local jar
+1. Intention: Rust: add missing fields for new struct initialization
+1. Intention: Rust: attach *.rs file to parent lib.rs or main.rs
 1. Navigate: Find text across files
 1. Navigate: Fuzzy find across files
 1. Navigate: Open file based on fuzzy name
 1. Run: set environment vars for run/debug
 1. Run: set JVM args for run/debug
-1. Rust: attach *.rs file to parent lib.rs or main.rs
-1. Rust: Intention: add missing fields for new struct initialization
 1. SQL Editor: execute selected sql statement
 1. View: compare editor to file in tree view
 1. View: compare editor to file to external file
