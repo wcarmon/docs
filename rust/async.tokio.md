@@ -41,6 +41,75 @@
     // res is whatever the async block returns
 ```
 
+# Convert [Tokio `File`](https://docs.rs/tokio/latest/tokio/fs/struct.File.html) to [`Stream`](https://docs.rs/futures/latest/futures/stream/trait.Stream.html)
+
+```rust
+// Adapter
+// Converts a `tokio::fs::File` into a `futures::Stream` of bytes
+pub struct TokioFileToStream {
+    chunk_size: usize,
+
+    // -- Internal state mutated on each poll
+    file_to_read: tokio::fs::File,
+
+    size_hint_upper_bound: Option<usize>,
+}
+
+impl TokioFileToStream {
+    pub fn from_tokio_file(
+        file_to_read: tokio::fs::File,
+        chunk_size: usize,
+        // Optional optimization for Stream::size_hint
+        file_size: Option<u64>,
+    ) -> Self {
+        let size_hint_upper_bound = file_size.map(|sz| (sz / chunk_size as u64) as usize);
+
+        Self {
+            chunk_size,
+            size_hint_upper_bound,
+            file_to_read,
+        }
+    }
+}
+
+impl Stream for TokioFileToStream {
+    type Item = Result<Vec<u8>, anyhow::Error>;
+
+    fn poll_next(
+        mut self: Pin<&mut Self>,
+        cx: &mut std::task::Context<'_>,
+    ) -> Poll<Option<Self::Item>> {
+        let mut buf = vec![0u8; self.chunk_size];
+        let read_future = self.file_to_read.read(&mut buf[..]);
+
+        let mut pinned = pin!(read_future);
+        let poll = pinned.as_mut().poll(cx);
+
+        // -- Chain/Adapt future
+        match poll {
+            Pending => Pending,
+
+            Ready(read_count_res) => {
+                let num_bytes_read = read_count_res.context("read file failed")?;
+
+                if num_bytes_read == 0 {
+                    // -- EOF
+                    return Ready(None);
+                }
+
+                buf.truncate(num_bytes_read);
+                Ready(Some(Ok(buf)))
+            }
+        }
+    }
+
+    fn size_hint(&self) -> (usize, Option<usize>) {
+        (0, self.size_hint_upper_bound)
+    }
+}
+```
+
+
 # TODO/Unorganized
 
 - https://ryhl.io/blog/async-what-is-blocking/
