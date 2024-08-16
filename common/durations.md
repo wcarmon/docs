@@ -50,7 +50,7 @@
     - `BIGINT`: ~2_924_712_000 *centuries*
 
 
-# Minute Representation
+# ~~Minutes Representation~~
 1. Rust:
     - `i16`: 1 minute to ~22 days
     - `u16`: 1 minute to ~45 days
