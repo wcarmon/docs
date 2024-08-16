@@ -18,27 +18,27 @@
     - JSON: use [Number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) for millis
 
 
-# Millisecond Representation
-1. Use this unless you have a good reason to choose another
+# Milliseconds Representation
+1. Use millis unless you have a good reason to choose another
 1. Rust:
     - `i32`: ~24 days
     - `u32`: ~45 days
     - **`i64`**: ~2_924_700  *centuries* ✅
 1. Java:
     - `int`: ~24 days
-    - **`long`**: **~2_924_700  *centuries* ✅
+    - **`long`**: ~2_924_700  *centuries* ✅
 1. Postges:
     - `INTEGER`: ~24 days
-    - **`BIGINT`**: **~2_924_700  *centuries* ✅
+    - **`BIGINT`**: ~2_924_700  *centuries* ✅
 
 
-# Second Representation
+# Seconds Representation
 1. Rust:
     - `i16`: 1 sec to ~9 hrs
     - `u16`: 1 sec to ~18 hrs
-    - `i32`: 1 sec to ~68 years
+    - `i32`: 1 sec to ~68 years ✅
     - `u32`: 1 sec to ~136 years
-    - `i64`: 1 sec to ~2_924_712_000 *centuries*
+    - `i64`: 1 sec to ~2_924_712_000 *centuries* ✅
     - `u64`: 1 sec to >4 billion *centuries*
 1. Java:
     - `short`: 1 sec to ~9 hrs

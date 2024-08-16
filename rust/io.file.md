@@ -173,7 +173,7 @@ let mut file = NamedTempFile::new()
     .context("failed to create temp file")?;
 
 file.write_all("...".as_bytes())?;
-// file.flush();
+// file.flush()?;
 
 // -- NOTE: file is auto-deleted when it goes out of scope
 ```
