@@ -3,8 +3,8 @@
 
 
 # TL;DR;
-1. By Default, Use `millis`
-1. By Default, Use `i64` (rust), `long` (JVM), `int64` (golang)
+1. By default, Use `millis`
+1. By default, Use `i64` (rust), `long` (JVM), `int64` (golang, protobuf)
 1. In code ...
     - Rust: use [`std::time::Duration`](https://doc.rust-lang.org/std/time/struct.Duration.html)
     - Java: use [`java.time.Duration`](https://docs.oracle.com/en%2Fjava%2Fjavase%2F21%2Fdocs%2Fapi%2F%2F/java.base/java/time/Duration.html)
