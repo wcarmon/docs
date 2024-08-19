@@ -68,7 +68,7 @@
 ## [`Rc`](https://doc.rust-lang.org/std/rc/struct.Rc.html)
 1. Prefer `Arc` or `Box` unless you know exactly **why** this is needed
 1. This is a single-threaded optimization for `Arc`, not useful for multi-threaded programming
-1. Useful for safely sharing ownership across variables (immutably)    
+1. Useful for safely sharing ownership across variables within the thread (immutably)
 1. Useful for [`dyn`](./traits.md) Traits    
 1. `Intuition`:
     1. a [`Box`](https://doc.rust-lang.org/std/boxed/struct.Box.html) with shared ownership and runtime safety enforcement

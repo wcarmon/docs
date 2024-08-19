@@ -49,22 +49,36 @@
 # Create/Construct/Build
 
 ## Now
+1. chrono
+```rust
+- TODO
+```
+1. `std::time`
 ```rust
 - TODO
 ```
 
 
 ## To/From epoch millis
+- date +%s%3N  # produces epoch millis
+1. chrono
 ```rust
-// date +%s%3N  # produces epoch millis
+- TODO
+```
+1. `std::time`
+```rust
 - TODO
 ```
 
 
 ## To/From epoch seconds
+- `date '+%s'` produces epoch seconds
+1. chrono
 ```rust
-// date '+%s'   # produces epoch seconds
-
+- TODO
+```
+1. `std::time`
+```rust
 - TODO
 ```
 
