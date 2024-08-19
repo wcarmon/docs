@@ -51,15 +51,15 @@
 ## Now
 1. chrono
 ```rust
-let now = chrono::Utc::now();
+    let now = chrono::Utc::now();
 ```
 1. `std::time`
 ```rust
-let now = std::time::SystemTime::now();
+    let now = std::time::SystemTime::now();
 ```
 
 
-## From epoch millis
+## From Epoch millis
 1. chrono
 ```rust
     let epoch_millis = 1724092128110;
@@ -74,7 +74,7 @@ let now = std::time::SystemTime::now();
 ```
 
 
-## From epoch seconds
+## From Epoch seconds
 1. chrono
 ```rust
     let epoch_seconds = 1734093128;
@@ -86,10 +86,11 @@ let now = std::time::SystemTime::now();
 ```rust
     let epoch_seconds = 1734093128;
     let ts = UNIX_EPOCH + Duration::from_secs(epoch_seconds);
+    ...
 ```
 
 
-# To epoch millis
+# To Epoch millis
 - date +%s%3N  # produces epoch millis
 1. chrono
 ```rust
@@ -106,7 +107,7 @@ let now = std::time::SystemTime::now();
 ```
 
 
-# To epoch seconds
+# To Epoch seconds
 - `date '+%s'` produces epoch seconds
 1. chrono
 ```rust
