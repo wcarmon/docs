@@ -71,6 +71,7 @@
 ```rust
     let epoch_millis = 1724092128110;
     let ts = UNIX_EPOCH + Duration::from_millis(epoch_millis);
+    ...
 ```
 
 
@@ -91,7 +92,7 @@
 
 
 # To Epoch millis
-- date +%s%3N  # produces epoch millis
+- `date +%s%3N;`  # Produces Epoch millis
 1. chrono
 ```rust
     let ts = ...
@@ -108,7 +109,7 @@
 
 
 # To Epoch seconds
-- `date '+%s'` produces epoch seconds
+- `date '+%s'`;  # Produces Epoch seconds from bash
 1. chrono
 ```rust
     let ts = ...
