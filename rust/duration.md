@@ -109,22 +109,34 @@ let dur = std::time::Instant::now() - start;
 ```
 1. `std::time`
 ```rust
-    let d = std::time::Duration::from_hours(1) + std::time::Duration::from_mins(15);
+    use std::time::Duration;
+
+    let d = Duration::from_hours(1) + Duration::from_mins(15);
     assert_eq!(d.as_secs(), 4_500);
     assert_eq!(d.as_secs() / 60, 75); // minutes (awkward)
 
+    let d = Duration::from_hours(1) - Duration::from_mins(15);
+    assert_eq!(d.as_secs(), 2700);
+    assert_eq!(d.as_secs() / 60, 45);
 ```
 
-# Add/Subtract durations to/from Timestamps
+
+# Add Duration to Timestamps (or Subtract from)
 1. chrono
 ```rust
-- TODO
+let ts: DateTime<Utc> = Utc::now() + TimeDelta::minutes(10);
+println!("{:?}", ts);
+...
 ```
 1. `std::time`
 ```rust
-- TODO
-```
+use std::time::Duration;
+use std::time::SystemTime;
+...
 
+let ts: SystemTime = SystemTime::now() + Duration::from_mins(10);
+// GOTCHA: printing is remarkably difficult!
+```
 
 
 # [Round](TODO)
