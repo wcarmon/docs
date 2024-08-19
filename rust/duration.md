@@ -8,18 +8,19 @@
 1. Can represent hours, minutes, seconds, millis, microseconds and nanoseconds
     1. Max representable value is ~1 Billion Centuries
 1. Standard library: [`std::time::Duration`](https://doc.rust-lang.org/stable/std/time/struct.Duration.html)
+    1. Internally stored as [`secs: u64, nanos_within_second: u32`](https://doc.rust-lang.org/stable/src/core/time.rs.html#86)
+    1. Only allows zero and positive duration (unlike chrono)
 1. chrono crate: [`TimeDelta`](https://docs.rs/chrono/latest/chrono/struct.TimeDelta.html)
     1. chrono has more (convenience) methods
     1. Allows negative duration (unlike std)
     1. [`Duration`](https://docs.rs/chrono/latest/chrono/struct.Duration.html) is an alias for `TimeDelta`
-    1. Stored internally as `secs: i64, nanos_within_second: u32`
+    1. Internally stored as [`secs: i64, nanos_within_second: u32`](https://docs.rs/chrono/latest/src/chrono/time_delta.rs.html#60-63)
 1. [Golang equivalent](https://pkg.go.dev/time#Duration)
     1. roughly equivalent, a narrower type
 1. [JVM equivalent](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Duration.html)
-1. Internally stored as [seconds + nanos](https://doc.rust-lang.org/stable/src/core/time.rs.html#86), which is elegant :-)
-    - [Same as Java](https://docs.oracle.com/en%2Fjava%2Fjavase%2F21%2Fdocs%2Fapi%2F%2F/java.base/java/time/Duration.html)
-    - `Duration.sec` part is `u64`, can represent between `1 sec` and `4 billion centuries`
-    - `Duration.nanos` part is `u32`, can represent between `1 nanosecond` and `4.2 seconds`
+    1. Internally stored as [seconds + nanos](https://docs.oracle.com/en%2Fjava%2Fjavase%2F21%2Fdocs%2Fapi%2F%2F/java.base/java/time/Duration.html)
+        - `Duration.sec` part is `u64`, and can represent between `1 sec` and `4 billion centuries`
+        - `Duration.nanos` part is `u32`, and can represent between `1 nanosecond` and `4.2 seconds`
 1. See [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations)
 
 
