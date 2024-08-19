@@ -5,6 +5,16 @@
 # One-time setup
 1. [Download protoc](https://github.com/protocolbuffers/protobuf/releases/)
     1. eg. `protoc-27.0-linux-x86_64.zip`
+    ```
+    mkdir -p $HOME/opt/protoc;
+    mv -nv $HOME/Downloads/protoc*x86_64.zip $HOME/opt/protoc/ ;
+    cd $HOME/opt/protoc;
+    unzip protoc*x86_64.zip;
+    rm -v ./protoc*x86_64.zip;
+
+    # -- verify
+    $HOME/opt/protoc/bin/protoc --version
+    ```
 1. Install `protoc`
     1. Approach-1: Set `$PROTOC` env var (higher priority)
     1. Approach-2: put binary on `$PATH` (lower priority)
