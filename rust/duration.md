@@ -174,14 +174,14 @@ assert!(Duration::from_mins(99) > Duration::from_mins(1));
 #  Convert [`chrono::TimeDelta`](https://docs.rs/chrono/latest/chrono/struct.TimeDelta.html) to/from [`std::time::Duration`](https://doc.rust-lang.org/stable/std/time/struct.Duration.html)
 ```rust
 // -- chrono to std
-let c_dur = chrono::TimeDelta::seconds(1);
-let s_dur = chrono::TimeDelta::to_std(&c_dur)
+let c_dur = TimeDelta::seconds(1);
+let s_dur = TimeDelta::to_std(&c_dur)
     .map_err(anyhow::Error::msg)
 
 
 // -- std to chrono
 let s_dir = std::time::Duration::from_secs(1u64);
-let c_dir = chrono::TimeDelta::from_std(s_dur)
+let c_dir = TimeDelta::from_std(s_dur)
     .map_err(anyhow::Error::msg)
 ```
 1. [`::to_std()`](https://docs.rs/chrono/latest/chrono/struct.Duration.html#method.to_std), [`::from_std()`](https://docs.rs/chrono/latest/chrono/struct.Duration.html#method.from_std)
@@ -193,13 +193,16 @@ let c_dir = chrono::TimeDelta::from_std(s_dur)
 ```rust
 let d0 = std::time::Duration::from_secs(1);
 
-// blocking
+// -- blocking
 thread::sleep(d);
+
+// -- Non-blocking/Asynchronous
+tokio::time::sleep(d);
 ```
 
 
 # Idioms
-1. chrono `TimeDelta` is easier to use `std::time::Duration`
+1. `chrono::TimeDelta` is much easier to use `std::time::Duration`
 1. Standard lib might require `#![feature(duration_constructors)]` and `#![feature(duration_abs_diff)]`
 
 
