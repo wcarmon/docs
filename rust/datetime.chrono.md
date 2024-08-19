@@ -62,7 +62,10 @@ let now = std::time::SystemTime::now();
 ## From epoch millis
 1. chrono
 ```rust
-- TODO
+    let epoch_millis = 1724092128110;
+    let ts = DateTime::from_timestamp_millis(epoch_millis)
+        .expect("failed to parse epoch millis");
+    ...
 ```
 1. `std::time`
 ```rust
@@ -73,7 +76,10 @@ let now = std::time::SystemTime::now();
 ## From epoch seconds
 1. chrono
 ```rust
-- TODO
+    let epoch_seconds = 1734093128;
+    let ts = DateTime::from_timestamp(epoch_seconds, 0)
+        .expect("failed to parse epoch seconds");
+    ...
 ```
 1. `std::time`
 ```rust
