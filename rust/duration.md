@@ -82,7 +82,7 @@ let d = std::time::Duration::from_millis(3_600_000);
 
 
 # Measure Time
-1. [Chrono](https://docs.rs/chrono/latest/chrono/struct.DateTime.html#impl-Sub%3CDateTime%3CTz%3E%3E-for-DateTime%3CTz%3E)
+1. [chrono](https://docs.rs/chrono/latest/chrono/struct.DateTime.html#impl-Sub%3CDateTime%3CTz%3E%3E-for-DateTime%3CTz%3E)
 ```rust
 let start = chrono::Utc::now();
 do_something();
@@ -90,7 +90,7 @@ let dur = chrono::Utc::now() - start;
 
 // see also chrono::Duration::span
 ```
-1. [Standard](https://doc.rust-lang.org/stable/std/time/struct.Instant.html#impl-Sub%3CInstant%3E-for-Instant)
+1. [`std::time`](https://doc.rust-lang.org/stable/std/time/struct.Instant.html#impl-Sub%3CInstant%3E-for-Instant)
 ```rust
 let start = std::time::Instant::now();
 do_something();
@@ -98,34 +98,52 @@ let dur = std::time::Instant::now() - start;
 ```
 
 
-# Add/Sub time
-1. Chrono
+# Add/Subtract durations
+1. chrono
 ```rust
-TODO
+    let d = TimeDelta::hours(1) + TimeDelta::minutes(30);
+    assert_eq!(d.num_minutes(), 90);
+
+    let d = TimeDelta::hours(1) - TimeDelta::minutes(30);
+    assert_eq!(d.num_minutes(), 30);
 ```
-1. Standard
+1. `std::time`
 ```rust
-TODO
+    let d = std::time::Duration::from_hours(1) + std::time::Duration::from_mins(15);
+    assert_eq!(d.as_secs(), 4_500);
+    assert_eq!(d.as_secs() / 60, 75); // minutes (awkward)
+
 ```
+
+# Add/Subtract durations to/from Timestamps
+1. chrono
+```rust
+- TODO
+```
+1. `std::time`
+```rust
+- TODO
+```
+
 
 
 # [Round](TODO)
-1. Chrono
+1. chrono
 ```rust
 TODO
 ```
-1. Standard
+1. `std::time`
 ```rust
 TODO
 ```
 
 
 # [Truncate](TODO)
-1. Chrono
+1. chrono
 ```rust
 TODO
 ```
-1. Standard
+1. `std::time`
 ```rust
 TODO
 ```
@@ -133,9 +151,17 @@ TODO
 
 # Comparing
 - TODO: is_before/is_after
+1. chrono
+```rust
+TODO
+```
+1. `std::time`
+```rust
+TODO
+```
 
 
-#  Convert [`chrono::Duration`](https://docs.rs/chrono/latest/chrono/struct.Duration.html) to/from [`std::time::Duration`](https://doc.rust-lang.org/stable/std/time/struct.Duration.html)
+#  Convert [`chrono::TimeDelta`](https://docs.rs/chrono/latest/chrono/struct.TimeDelta.html) to/from [`std::time::Duration`](https://doc.rust-lang.org/stable/std/time/struct.Duration.html)
 ```rust
 // -- chrono to std
 let chr_dur = chrono::Duration::seconds(1);
