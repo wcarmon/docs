@@ -7,13 +7,14 @@
 # `Duration`: a span of time
 1. Can represent hours, minutes, seconds, millis, microseconds and nanoseconds
     1. Max representable value is ~1 Billion Centuries
+    1. Not as useful for days, weeks, months, years since they vary in length
 1. Standard library: [`std::time::Duration`](https://doc.rust-lang.org/stable/std/time/struct.Duration.html)
     1. Internally stored as [`secs: u64, nanos_within_second: u32`](https://doc.rust-lang.org/stable/src/core/time.rs.html#86)
-    1. Only allows zero and positive duration (unlike chrono)
+    1. Must be non-negative (unlike chrono)
 1. chrono crate: [`TimeDelta`](https://docs.rs/chrono/latest/chrono/struct.TimeDelta.html)
-    1. chrono has more (convenience) methods
+    1. chrono has more convenience methods
     1. Allows negative duration (unlike std)
-    1. [`Duration`](https://docs.rs/chrono/latest/chrono/struct.Duration.html) is an alias for `TimeDelta`
+    1. [`Duration`](https://docs.rs/chrono/latest/chrono/struct.Duration.html) is an [alias for `TimeDelta`](https://docs.rs/chrono/latest/chrono/type.Duration.html)
     1. Internally stored as [`secs: i64, nanos_within_second: u32`](https://docs.rs/chrono/latest/src/chrono/time_delta.rs.html#60-63)
 1. [Golang equivalent](https://pkg.go.dev/time#Duration)
     1. roughly equivalent, a narrower type
