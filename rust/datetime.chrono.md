@@ -64,12 +64,13 @@ let now = std::time::SystemTime::now();
 ```rust
     let epoch_millis = 1724092128110;
     let ts = DateTime::from_timestamp_millis(epoch_millis)
-        .expect("failed to parse epoch millis");
+        .context("failed to parse epoch millis")?;
     ...
 ```
 1. `std::time`
 ```rust
-- TODO
+    let epoch_millis = 1724092128110;
+    let ts = UNIX_EPOCH + Duration::from_millis(epoch_millis);
 ```
 
 
@@ -78,12 +79,13 @@ let now = std::time::SystemTime::now();
 ```rust
     let epoch_seconds = 1734093128;
     let ts = DateTime::from_timestamp(epoch_seconds, 0)
-        .expect("failed to parse epoch seconds");
+        .context("failed to parse epoch seconds")?;
     ...
 ```
 1. `std::time`
 ```rust
-- TODO
+    let epoch_seconds = 1734093128;
+    let ts = UNIX_EPOCH + Duration::from_secs(epoch_seconds);
 ```
 
 
@@ -91,12 +93,13 @@ let now = std::time::SystemTime::now();
 - date +%s%3N  # produces epoch millis
 1. chrono
 ```rust
-let ts = ...
-let epoch_millis = ts.timestamp_millis() // eg. 1724092128110
+    let ts = ...
+    let epoch_millis = ts.timestamp_millis() // eg. 1724092128110
 ```
 1. `std::time`
 ```rust
-    let epoch_millis = SystemTime::now()
+    let ts = ...
+    let epoch_millis = ts
         .duration_since(UNIX_EPOCH)
         .expect("failed to get epoch millis")
         .as_millis();
@@ -107,11 +110,16 @@ let epoch_millis = ts.timestamp_millis() // eg. 1724092128110
 - `date '+%s'` produces epoch seconds
 1. chrono
 ```rust
-- TODO
+    let ts = ...
+    let epoch_seconds = ts.timestamp_millis() / 1000;  // eg. 1724092
 ```
 1. `std::time`
 ```rust
-- TODO
+    let ts = ...
+    let epoch_millis = ts
+        .duration_since(UNIX_EPOCH)
+        .expect("failed to get epoch millis")
+        .as_secs();
 ```
 
 ## yyyy-mm-dd hh:mm:ss
