@@ -62,7 +62,7 @@ let d = std::time::Duration::from_millis(3_600_000);
 
 
 # Read to primitive type
-1. `chrono::TimeDelta`:
+1. `chrono::TimeDelta`
 ```rust
     let d = chrono::TimeDelta::hours(1);
     assert_eq!(d.num_hours(), 1);
@@ -70,7 +70,7 @@ let d = std::time::Duration::from_millis(3_600_000);
     assert_eq!(d.num_seconds(), 3_600);
     assert_eq!(d.num_milliseconds(), 3_600_000);
 ```
-1. `std::time::Duration`:
+1. `std::time::Duration`
 ```rust
     let d = std::time::Duration::from_hours(2);
 
@@ -81,7 +81,7 @@ let d = std::time::Duration::from_millis(3_600_000);
 ```
 
 
-# Measure Time
+# Measure Time (Diff two timestamps)
 1. [chrono](https://docs.rs/chrono/latest/chrono/struct.DateTime.html#impl-Sub%3CDateTime%3CTz%3E%3E-for-DateTime%3CTz%3E)
 ```rust
 let start = chrono::Utc::now();
@@ -98,7 +98,7 @@ let dur = std::time::Instant::now() - start;
 ```
 
 
-# Add/Subtract durations
+# Add/Subtract Durations
 1. chrono
 ```rust
     let d = TimeDelta::hours(1) + TimeDelta::minutes(30);
@@ -139,30 +139,29 @@ let ts: SystemTime = SystemTime::now() + Duration::from_mins(10);
 ```
 
 
-# [Round](TODO)
+# Round/Truncate
 1. chrono
 ```rust
-TODO
+    let d = TimeDelta::milliseconds(123_456_789);
+
+    assert_eq!(d.num_days(), 1);
+    assert_eq!(d.num_hours(), 34);
+    assert_eq!(d.num_minutes(), 2_057);
+    assert_eq!(d.num_seconds(), 123_456);
+    assert_eq!(d.num_milliseconds(), 123_456_789);
 ```
 1. `std::time`
 ```rust
-TODO
-```
+    let d = Duration::from_millis(123_456_789);
 
-
-# [Truncate](TODO)
-1. chrono
-```rust
-TODO
-```
-1. `std::time`
-```rust
-TODO
+    assert_eq!(d.as_secs() / 60, 2_057); // minutes (awkward)
+    assert_eq!(d.as_secs(), 123_456);
+    assert_eq!(d.as_millis(), 123_456_789);
 ```
 
 
 # Comparing
-- TODO: is_before/is_after
+- TODO: is_longer/is_shorter
 1. chrono
 ```rust
 TODO

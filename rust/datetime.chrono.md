@@ -74,6 +74,28 @@
 ```
 
 
+# [Truncate](TODO)
+1. chrono
+```rust
+TODO
+```
+1. `std::time`
+```rust
+TODO
+```
+
+
+# Comparing
+- TODO: is_before/is_after
+1. chrono
+```rust
+TODO
+```
+1. `std::time`
+```rust
+TODO
+```
+
 
 # Other resources
 1. TODO
