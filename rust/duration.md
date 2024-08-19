@@ -47,6 +47,10 @@ let d = TimeDelta::try_hours(1).context("invalid hours")?;
 ```
 1. `std::time::Duration`: [from seconds](https://doc.rust-lang.org/stable/std/time/struct.Duration.html#method.from_secs), [from millis](https://doc.rust-lang.org/stable/std/time/struct.Duration.html#method.from_millis), [from micros](https://doc.rust-lang.org/stable/std/time/struct.Duration.html#method.from_micros)
 ```rust
+#![feature(duration_constructors)]
+
+...
+
 let d = Duration::from_hours(1);
 let d = Duration::from_mins(60);
 let d = Duration::from_secs(3_600);
@@ -60,22 +64,21 @@ let d = Duration::from_millis(3_600_000);
 # Read to primitive type
 1. `chrono::TimeDelta`:
 ```rust
-let dur = ...
-println!("Duration in hours: {}", dur.num_hours());
-println!("Duration in minutes: {}", dur.num_minutes());
-println!("Duration in seconds: {}", dur.num_seconds());
-println!("Duration in millis: {}", dur.num_milliseconds());
+    let d = chrono::TimeDelta::hours(1);
+    assert_eq!(d.num_hours(), 1);
+    assert_eq!(d.num_minutes(), 60);
+    assert_eq!(d.num_seconds(), 3_600);
+    assert_eq!(d.num_milliseconds(), 3_600_000);
 ```
 1. `std::time::Duration`:
 ```rust
-let dur = ...
+    let d = std::time::Duration::from_hours(2);
+
+    assert_eq!(d.as_secs() / 3600, 2); // hours (awkward)
+    assert_eq!(d.as_secs() / 60, 120); // minutes (awkward)
+    assert_eq!(d.as_secs(), 7_200);
+    assert_eq!(d.as_millis(), 7_200_000);
 ```
-
-1. TODO: as seconds
-1. TODO: as millis
-1. TODO: as minutes
-1. TODO: as hours
-
 
 
 # Measure Time
