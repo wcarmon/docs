@@ -4,26 +4,23 @@
 1. See also [durations](../common/durations.md) doc
 
 
-# Terms
-## `Duration`: a span of time
+# `Duration`: a span of time
 1. Can represent hours, minutes, seconds, millis, microseconds and nanoseconds
-1. Max value is ~1 Billion Centuries
-1. Standard [`std::time::Duration`](https://doc.rust-lang.org/stable/std/time/struct.Duration.html)
-
-1. Chrono crate has [`TimeDelta`](https://docs.rs/chrono/latest/chrono/struct.TimeDelta.html)
-    1. They might eventually migrate to std
-    1. They have more (convenience) methods
-    1. Allows negative duration
+    1. Max representable value is ~1 Billion Centuries
+1. Standard library: [`std::time::Duration`](https://doc.rust-lang.org/stable/std/time/struct.Duration.html)
+1. chrono crate: [`TimeDelta`](https://docs.rs/chrono/latest/chrono/struct.TimeDelta.html)
+    1. chrono has more (convenience) methods
+    1. Allows negative duration (unlike std)
     1. [`Duration`](https://docs.rs/chrono/latest/chrono/struct.Duration.html) is an alias for `TimeDelta`
     1. Stored internally as `secs: i64, nanos_within_second: u32`
 1. [Golang equivalent](https://pkg.go.dev/time#Duration)
+    1. roughly equivalent, a narrower type
 1. [JVM equivalent](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Duration.html)
-1. [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations)
 1. Internally stored as [seconds + nanos](https://doc.rust-lang.org/stable/src/core/time.rs.html#86), which is elegant :-)
     - [Same as Java](https://docs.oracle.com/en%2Fjava%2Fjavase%2F21%2Fdocs%2Fapi%2F%2F/java.base/java/time/Duration.html)
     - `Duration.sec` part is `u64`, can represent between `1 sec` and `4 billion centuries`
     - `Duration.nanos` part is `u32`, can represent between `1 nanosecond` and `4.2 seconds`
-
+1. See [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations)
 
 
 # Construct/Build
