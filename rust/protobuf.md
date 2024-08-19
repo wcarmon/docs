@@ -17,6 +17,7 @@
     ```
 1. Install `protoc`
     1. Approach-1: Set `$PROTOC` env var (higher priority)
+        1. maybe set to `PROTOC=$HOME/opt/protoc/bin/protoc`
     1. Approach-2: put binary on `$PATH` (lower priority)
     1. eg.
     ```bash
