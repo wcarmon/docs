@@ -16,9 +16,11 @@
     $HOME/opt/protoc/bin/protoc --version
     ```
 1. Install `protoc`
-    1. Approach-1: Set `$PROTOC` env var (higher priority)
+    1. Approach-1:
+        `sudo apt-get install protobuf-compiler`
+    1. Approach-2: Set `$PROTOC` env var (higher priority)
         1. maybe set to `PROTOC=$HOME/opt/protoc/bin/protoc`
-    1. Approach-2: put binary on `$PATH` (lower priority)
+    1. Approach-3: put binary on `$PATH` (lower priority)
     1. eg.
     ```bash
     chmod 755 $HOME/opt/protoc/bin/protoc
