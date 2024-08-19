@@ -47,16 +47,16 @@ let d = TimeDelta::try_hours(1).context("invalid hours")?;
 ```
 1. `std::time::Duration`: [from seconds](https://doc.rust-lang.org/stable/std/time/struct.Duration.html#method.from_secs), [from millis](https://doc.rust-lang.org/stable/std/time/struct.Duration.html#method.from_millis), [from micros](https://doc.rust-lang.org/stable/std/time/struct.Duration.html#method.from_micros)
 ```rust
-#![feature(duration_constructors)]
+#![feature(duration_constructors)]   // enables the functions below
 
 ...
 
-let d = Duration::from_hours(1);
-let d = Duration::from_mins(60);
-let d = Duration::from_secs(3_600);
+let d = std::time::Duration::from_hours(1);
+...   = std::time::Duration::from_mins(60);
+...   = std::time::Duration::from_secs(3_600);
 
-let d = Duration::from_millis(3_600_000);
-...   = Duration::from_micros(3_600_000_000);
+let d = std::time::Duration::from_millis(3_600_000);
+...   = std::time::Duration::from_micros(3_600_000_000);
 ...
 ```
 
@@ -84,17 +84,17 @@ let d = Duration::from_millis(3_600_000);
 # Measure Time
 1. [Chrono](https://docs.rs/chrono/latest/chrono/struct.DateTime.html#impl-Sub%3CDateTime%3CTz%3E%3E-for-DateTime%3CTz%3E)
 ```rust
-let start = Utc::now();
+let start = chrono::Utc::now();
 do_something();
-let dur = Utc::now() - start;
+let dur = chrono::Utc::now() - start;
 
 // see also chrono::Duration::span
 ```
 1. [Standard](https://doc.rust-lang.org/stable/std/time/struct.Instant.html#impl-Sub%3CInstant%3E-for-Instant)
 ```rust
-let start = Instant::now();
+let start = std::time::Instant::now();
 do_something();
-let dur = Instant::now() - start;
+let dur = std::time::Instant::now() - start;
 ```
 
 
