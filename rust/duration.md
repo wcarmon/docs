@@ -5,14 +5,17 @@
 
 
 # Terms
-## `Duration` [(`std::time::Duration`)](https://doc.rust-lang.org/std/time/struct.Duration.html)
-1. Represents hours, minutes, seconds, millis, microseconds and nanoseconds
+## `Duration`: a span of time
+1. Can represent hours, minutes, seconds, millis, microseconds and nanoseconds
 1. Max value is ~1 Billion Centuries
-1. Standard [`Duration`](https://doc.rust-lang.org/stable/std/time/struct.Duration.html)
-1. Chrono [`Duration`](https://docs.rs/chrono/latest/chrono/struct.Duration.html)
+1. Standard [`std::time::Duration`](https://doc.rust-lang.org/stable/std/time/struct.Duration.html)
+
+1. Chrono crate has [`TimeDelta`](https://docs.rs/chrono/latest/chrono/struct.TimeDelta.html)
     1. They might eventually migrate to std
     1. They have more (convenience) methods
     1. Allows negative duration
+    1. [`Duration`](https://docs.rs/chrono/latest/chrono/struct.Duration.html) is an alias for `TimeDelta`
+    1. Stored internally as `secs: i64, nanos_within_second: u32`
 1. [Golang equivalent](https://pkg.go.dev/time#Duration)
 1. [JVM equivalent](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Duration.html)
 1. [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations)
@@ -23,8 +26,8 @@
 
 
 
-# Construct
-1. Chrono
+# Construct/Build
+1. `chrono::TimeDelta`
 ```rust
 let d = TimeDelta::try_weeks(1).context("invalid weeks")?;
 let d = TimeDelta::try_days(1).context("invalid days")?;
@@ -42,6 +45,20 @@ let d = Duration::from_millis(1);
 let d = Duration::from_micros(1);
 let d = Duration::from_nanos(1);
 ```
+
+## To/From epoch millis
+- TODO
+
+## To/From epoch seconds
+- TODO
+
+
+# Read to primitive type
+1. TODO: as seconds
+1. TODO: as millis
+1. TODO: as minutes
+1. TODO: as hours
+
 
 
 # Measure Time
@@ -61,18 +78,7 @@ let dur = Instant::now() - start;
 ```
 
 
-# [Sleep](https://doc.rust-lang.org/stable/std/thread/fn.sleep.html)
-1. There's usually a better way structure code than sleep (see [Rayon](https://docs.rs/rayon/latest/rayon/), See [Crossbeam](https://docs.rs/crossbeam/latest/crossbeam/), See [tokio](https://docs.rs/tokio/latest/tokio/time/fn.sleep.html))
-1. Standard
-```rust
-let d0 = std::time::Duration::from_secs(1);
-
-// blocking
-thread::sleep(d);
-```
-
-
-# Add/Sub
+# Add/Sub time
 1. Chrono
 ```rust
 TODO
@@ -105,20 +111,35 @@ TODO
 ```
 
 
-#  [`chrono::Duration`](https://docs.rs/chrono/latest/chrono/struct.Duration.html) to/from [`std::time::Duration`](https://doc.rust-lang.org/stable/std/time/struct.Duration.html)
+# Comparing
+- TODO: is_before/is_after
+
+
+#  Convert [`chrono::Duration`](https://docs.rs/chrono/latest/chrono/struct.Duration.html) to/from [`std::time::Duration`](https://doc.rust-lang.org/stable/std/time/struct.Duration.html)
 ```rust
-// to std
+// -- chrono to std
 let chr_dur = chrono::Duration::seconds(1);
 let std_d = chrono::Duration::to_std(&chr_dur)
     .map_err(anyhow::Error::msg)
 
 
-// to chrono
+// -- std to chrono
 let std_d = std::time::Duration::from_secs(1u64);
 let chr_dur = chrono::Duration::from_std(std_d)
     .map_err(anyhow::Error::msg)
 ```
 1. [`::to_std()`](https://docs.rs/chrono/latest/chrono/struct.Duration.html#method.to_std), [`::from_std()`](https://docs.rs/chrono/latest/chrono/struct.Duration.html#method.from_std)
+
+
+# [Sleep](https://doc.rust-lang.org/stable/std/thread/fn.sleep.html)
+1. There's usually a better way structure code than sleep (see [Rayon](https://docs.rs/rayon/latest/rayon/), See [Crossbeam](https://docs.rs/crossbeam/latest/crossbeam/), See [tokio](https://docs.rs/tokio/latest/tokio/time/fn.sleep.html))
+1. Standard
+```rust
+let d0 = std::time::Duration::from_secs(1);
+
+// blocking
+thread::sleep(d);
+```
 
 
 # Idioms
