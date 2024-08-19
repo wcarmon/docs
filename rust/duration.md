@@ -16,9 +16,9 @@
     1. Allows negative duration (unlike std)
     1. [`Duration`](https://docs.rs/chrono/latest/chrono/struct.Duration.html) is an [alias for `TimeDelta`](https://docs.rs/chrono/latest/chrono/type.Duration.html)
     1. Internally stored as [`secs: i64, nanos_within_second: u32`](https://docs.rs/chrono/latest/src/chrono/time_delta.rs.html#60-63)
-1. [Golang equivalent](https://pkg.go.dev/time#Duration)
-    1. roughly equivalent, a narrower type
-1. [JVM equivalent](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Duration.html)
+1. Golang equivalent: [`time.Duration`](https://pkg.go.dev/time#Duration)
+    1. [roughly equivalent](https://github.com/wcarmon/docs/blob/main/golang/duration.md), but a golang uses a narrower type, so less expressive
+1. JVM equivalent: [`java.time.Duration`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Duration.html)
     1. Internally stored as [seconds + nanos](https://docs.oracle.com/en%2Fjava%2Fjavase%2F21%2Fdocs%2Fapi%2F%2F/java.base/java/time/Duration.html)
         - `Duration.sec` part is `u64`, and can represent between `1 sec` and `4 billion centuries`
         - `Duration.nanos` part is `u32`, and can represent between `1 nanosecond` and `4.2 seconds`
