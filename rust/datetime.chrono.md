@@ -46,5 +46,34 @@
 |[`UTC`](https://docs.rs/chrono/latest/chrono/struct.Utc.html)|[`UtcOffset::UTC`](https://time-rs.github.io/api/time/struct.UtcOffset.html)|
 
 
+# Create/Construct/Build
+
+## Now
+```rust
+- TODO
+```
+
+
+## To/From epoch millis
+```rust
+// date +%s%3N  # produces epoch millis
+- TODO
+```
+
+
+## To/From epoch seconds
+```rust
+// date '+%s'   # produces epoch seconds
+
+- TODO
+```
+
+## yyyy-mm-dd hh:mm:ss
+```rust
+- TODO
+```
+
+
+
 # Other resources
 1. TODO

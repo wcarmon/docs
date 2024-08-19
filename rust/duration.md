@@ -25,11 +25,19 @@
 1. See [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations)
 
 
-# Construct/Build
+# Create/Construct/Build
 1. `chrono::TimeDelta`
 ```rust
+// -- On invalid input, panic
+let d = TimeDelta::hours(1);
+let d = TimeDelta::minutes(60);
+let d = TimeDelta::seconds(3_600);
+let d = TimeDelta::milliseconds(3_600_000);
+
+// -- On invalid input, Option::None (no panic)
 let d = TimeDelta::try_weeks(1).context("invalid weeks")?;
 let d = TimeDelta::try_days(1).context("invalid days")?;
+
 let d = TimeDelta::try_hours(1).context("invalid hours")?;
 ...   = TimeDelta::try_minutes(1).context(...)?;
 ...   = TimeDelta::try_seconds(1).context(...)?;
@@ -45,14 +53,17 @@ let d = Duration::from_micros(1);
 let d = Duration::from_nanos(1);
 ```
 
-## To/From epoch millis
-- TODO
-
-## To/From epoch seconds
-- TODO
-
 
 # Read to primitive type
+1. `chrono::TimeDelta`
+```rust
+let dur = ...
+println!("Duration in seconds: {}, dur.num_seconds());
+    println!("Duration in millis: {}", duration.num_milliseconds());
+    println!("Duration in seconds: {}", duration.num_seconds());
+    println!("Duration in minutes: {}", duration.num_minutes());
+    println!("Duration in hours: {}", duration.num_hours());
+```
 1. TODO: as seconds
 1. TODO: as millis
 1. TODO: as minutes
