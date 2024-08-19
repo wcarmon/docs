@@ -161,28 +161,27 @@ let ts: SystemTime = SystemTime::now() + Duration::from_mins(10);
 
 
 # Comparing
-- TODO: is_longer/is_shorter
 1. chrono
 ```rust
-TODO
+assert!(TimeDelta::minutes(99) > TimeDelta::minutes(1));
 ```
 1. `std::time`
 ```rust
-TODO
+assert!(Duration::from_mins(99) > Duration::from_mins(1));
 ```
 
 
 #  Convert [`chrono::TimeDelta`](https://docs.rs/chrono/latest/chrono/struct.TimeDelta.html) to/from [`std::time::Duration`](https://doc.rust-lang.org/stable/std/time/struct.Duration.html)
 ```rust
 // -- chrono to std
-let chr_dur = chrono::Duration::seconds(1);
-let std_d = chrono::Duration::to_std(&chr_dur)
+let c_dur = chrono::TimeDelta::seconds(1);
+let s_dur = chrono::TimeDelta::to_std(&c_dur)
     .map_err(anyhow::Error::msg)
 
 
 // -- std to chrono
-let std_d = std::time::Duration::from_secs(1u64);
-let chr_dur = chrono::Duration::from_std(std_d)
+let s_dir = std::time::Duration::from_secs(1u64);
+let c_dir = chrono::TimeDelta::from_std(s_dur)
     .map_err(anyhow::Error::msg)
 ```
 1. [`::to_std()`](https://docs.rs/chrono/latest/chrono/struct.Duration.html#method.to_std), [`::from_std()`](https://docs.rs/chrono/latest/chrono/struct.Duration.html#method.from_std)
