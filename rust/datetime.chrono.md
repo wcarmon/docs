@@ -123,9 +123,14 @@
         .as_secs();
 ```
 
-## yyyy-mm-dd hh:mm:ss
+## From [iso8601](TODO) (yyyy-mm-dd hh:mm:ss)
+1. chrono
 ```rust
-- TODO
+TODO
+```
+1. `std::time`
+```rust
+TODO
 ```
 
 
