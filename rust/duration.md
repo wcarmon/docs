@@ -9,13 +9,13 @@
     1. Max representable value is ~1 Billion Centuries
     1. Not as useful for days, weeks, months, years since they vary in length
 1. Standard library: [`std::time::Duration`](https://doc.rust-lang.org/stable/std/time/struct.Duration.html)
-    1. Internally stored as [`secs: u64, nanos_within_second: u32`](https://doc.rust-lang.org/stable/src/core/time.rs.html#86)
+    1. Internally stored as [`secs: u64, sub_second_nanos: u32`](https://doc.rust-lang.org/stable/src/core/time.rs.html#86)
     1. Must be non-negative (unlike chrono)
 1. chrono crate: [`TimeDelta`](https://docs.rs/chrono/latest/chrono/struct.TimeDelta.html)
     1. chrono has more convenience methods
     1. Allows negative duration (unlike std)
     1. [`Duration`](https://docs.rs/chrono/latest/chrono/struct.Duration.html) is an [alias for `TimeDelta`](https://docs.rs/chrono/latest/chrono/type.Duration.html)
-    1. Internally stored as [`secs: i64, nanos_within_second: u32`](https://docs.rs/chrono/latest/src/chrono/time_delta.rs.html#60-63)
+    1. Internally stored as [`secs: i64, sub_second_nanos: u32`](https://docs.rs/chrono/latest/src/chrono/time_delta.rs.html#60-63)
 1. Golang equivalent: [`time.Duration`](https://pkg.go.dev/time#Duration)
     1. [roughly equivalent](https://github.com/wcarmon/docs/blob/main/golang/duration.md), but a golang uses a narrower type, so less expressive
 1. JVM equivalent: [`java.time.Duration`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/time/Duration.html)
@@ -45,25 +45,32 @@ let d = TimeDelta::try_hours(1).context("invalid hours")?;
 ...   = TimeDelta::try_microseconds(1).context(...)?;
 ...   = TimeDelta::try_nanoseconds(1).context(...)?;
 ```
-1. `std::time::Duration`: [seconds](https://doc.rust-lang.org/stable/std/time/struct.Duration.html#method.from_secs), [millis](https://doc.rust-lang.org/stable/std/time/struct.Duration.html#method.from_millis), [micros](https://doc.rust-lang.org/stable/std/time/struct.Duration.html#method.from_micros)
+1. `std::time::Duration`: [from seconds](https://doc.rust-lang.org/stable/std/time/struct.Duration.html#method.from_secs), [from millis](https://doc.rust-lang.org/stable/std/time/struct.Duration.html#method.from_millis), [from micros](https://doc.rust-lang.org/stable/std/time/struct.Duration.html#method.from_micros)
 ```rust
-let d = Duration::from_secs(1);
-let d = Duration::from_millis(1);
-let d = Duration::from_micros(1);
-let d = Duration::from_nanos(1);
+let d = Duration::from_hours(1);
+let d = Duration::from_mins(60);
+let d = Duration::from_secs(3_600);
+
+let d = Duration::from_millis(3_600_000);
+...   = Duration::from_micros(3_600_000_000);
+...
 ```
 
 
 # Read to primitive type
-1. `chrono::TimeDelta`
+1. `chrono::TimeDelta`:
 ```rust
 let dur = ...
-println!("Duration in seconds: {}, dur.num_seconds());
-    println!("Duration in millis: {}", duration.num_milliseconds());
-    println!("Duration in seconds: {}", duration.num_seconds());
-    println!("Duration in minutes: {}", duration.num_minutes());
-    println!("Duration in hours: {}", duration.num_hours());
+println!("Duration in hours: {}", dur.num_hours());
+println!("Duration in minutes: {}", dur.num_minutes());
+println!("Duration in seconds: {}", dur.num_seconds());
+println!("Duration in millis: {}", dur.num_milliseconds());
 ```
+1. `std::time::Duration`:
+```rust
+let dur = ...
+```
+
 1. TODO: as seconds
 1. TODO: as millis
 1. TODO: as minutes
