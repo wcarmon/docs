@@ -122,6 +122,7 @@
 1. Useful for safely sharing ownership across threads (immutably)
 1. Useful for `dyn` Traits
 1. `&` is simpler than `Arc`, but only works across threads when **All** members are Sync/Send
+1. Don't be afraid to use.  Basically every reference in java is an `Arc`, overhead is minimal
 1. `Intuition`:
     1. a threadsafe [`Rc`](https://doc.rust-lang.org/std/rc/struct.Rc.html)
     1. a shared, threadsafe [`Box`](https://doc.rust-lang.org/std/boxed/struct.Box.html) with runtime safety enforcement
