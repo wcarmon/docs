@@ -51,16 +51,15 @@
 ## Now
 1. chrono
 ```rust
-- TODO
+let now = chrono::Utc::now();
 ```
 1. `std::time`
 ```rust
-- TODO
+let now = std::time::SystemTime::now();
 ```
 
 
-## To/From epoch millis
-- date +%s%3N  # produces epoch millis
+## From epoch millis
 1. chrono
 ```rust
 - TODO
@@ -71,7 +70,34 @@
 ```
 
 
-## To/From epoch seconds
+## From epoch seconds
+1. chrono
+```rust
+- TODO
+```
+1. `std::time`
+```rust
+- TODO
+```
+
+
+# To epoch millis
+- date +%s%3N  # produces epoch millis
+1. chrono
+```rust
+let ts = ...
+let epoch_millis = ts.timestamp_millis() // eg. 1724092128110
+```
+1. `std::time`
+```rust
+    let epoch_millis = SystemTime::now()
+        .duration_since(UNIX_EPOCH)
+        .expect("failed to get epoch millis")
+        .as_millis();
+```
+
+
+# To epoch seconds
 - `date '+%s'` produces epoch seconds
 1. chrono
 ```rust
