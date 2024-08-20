@@ -301,32 +301,23 @@ TODO
 ```rust
 // A time "Today" (from the time zone's perspective)
 //
-// @param hour: 0-24
-// @param minute: 0-59
-// @param sec: 0-59
-// @param tz: chrono_tz::Tz ref
-//
-// eg. 8am "today" in Tokyo:  build_time_in_zone(8, 0, 0, &Tokyo)?
-// eg. 4pm "today" in NYC:    build_time_in_zone(16, 0, 0, &New_York)?
+// let eight_am = NaiveTime::from_hms_opt(8, 0, 0).ok_or_else(|| anyhow!("Invalid time"))?;
+// let four_pm = NaiveTime::from_hms_opt(16, 0, 0).ok_or_else(|| anyhow!("Invalid time"))?;
+// let ... = build_time_in_zone(eight_am, &Tokyo)?;
+// let ... = build_time_in_zone(four_pm, &New_York)?;
 fn build_time_in_zone(
-    hour: u8,
-    minute: u8,
-    second: u8,
+    time: NaiveTime,
     tz: &Tz,
 ) -> Result<DateTime<Tz>, anyhow::Error> {
-    ensure!(hour < 24, "invalid hour");
-    ensure!(minute < 60, "invalid minute");
-    ensure!(second < 60, "invalid second");
-
     let now_in_zone = Utc::now().with_timezone(tz);
 
     tz.with_ymd_and_hms(
         now_in_zone.year(),
         now_in_zone.month(),
         now_in_zone.day(),
-        hour as u32,
-        minute as u32,
-        second as u32,
+        time.hour(),
+        time.minute(),
+        time.second(),
     )
         .single()
         .ok_or_else(|| anyhow!("failed to calculate time in tz={}", tz))
@@ -334,7 +325,7 @@ fn build_time_in_zone(
 ```
 
 
-# Parts of datetime
+# Get parts of datetime
 1. `chrono`
 ```rust
     let ts = DateTime::from_timestamp_millis(1724182159339).unwrap();
