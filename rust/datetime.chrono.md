@@ -125,7 +125,7 @@ TODO
 ```
 
 
-# To Epoch millis
+# Convert to Epoch millis
 - `date +%s%3N;`  # bash command produces Epoch millis
 1. chrono
 ```rust
@@ -142,7 +142,7 @@ TODO
 ```
 
 
-# To Epoch seconds
+# Convert to Epoch seconds
 - `date '+%s';`  # bash command produces Epoch seconds
 1. chrono
 ```rust
@@ -228,6 +228,7 @@ TODO
     let ts0 = Utc.with_ymd_and_hms(2024, 1, 1, 0, 0, 0)
                        .single()
                        .ok_or_else(|| anyhow!("Invalid datetime"))?;
+
     let ts1 = Utc.with_ymd_and_hms(2024, 12, 31, 0, 0, 0)
                        .single()
                        .ok_or_else(|| anyhow!("Invalid datetime"))?;
@@ -243,7 +244,7 @@ TODO
 
 
 # Formatting
-- See [`format` syntax](https://docs.rs/chrono/latest/chrono/format/strftime/index.html#specifiers)
+- See [`format`](https://docs.rs/chrono/latest/chrono/format/strftime/index.html#specifiers) syntax
 1. `chrono`
 ```rust
     let ts = DateTime::from_timestamp_millis(1724182159339)
@@ -252,12 +253,13 @@ TODO
     assert_eq!(ts.to_rfc3339(), ts.format("%+").to_string());
 
     assert_eq!("2024-08-20",            ts.format("%Y-%m-%d").to_string());
-    assert_eq!("2024-08-20T19:29:19",   ts.format("%Y-%m-%dT%H:%M:%S").to_string());
     assert_eq!("2024-Aug-20",           ts.format("%Y-%b-%d").to_string());
     assert_eq!("August 20, 2024",       ts.format("%B %d, %Y").to_string());
     assert_eq!("2024-08-20T19:29:19.339+00:00", ts.to_rfc3339());
 
-    // -- truncated to nearest second
+    // -- RFC Truncated to nearest second
+    assert_eq!("2024-08-20T19:29:19",   ts.format("%Y-%m-%dT%H:%M:%S").to_string());
+
     let nearest_sec = ts
         .with_nanosecond(0)
         .ok_or_else(|| anyhow!("Failed to remove nanos"))?;
@@ -268,7 +270,7 @@ TODO
 TODO
 ```
 
-# Change timezone
+# Change Timezone
 1. `chrono`
     1. need [`chrono-tz`](https://docs.rs/chrono-tz/latest/chrono_tz/) crate
 ```rust
