@@ -232,7 +232,15 @@ TODO
 TODO
 ```
 
+
+# Formatting
+- TODO
+
+
+# TODO/Unorganized
+
 - TODO: replace all unwrap/expect with anyhow
+
 
 # Other resources
 1. TODO
