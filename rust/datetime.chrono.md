@@ -222,10 +222,19 @@ TODO
 
 
 # Comparing
-- TODO: is_before/is_after
+- `DateTime<Utc>` implements [`Ord`](https://docs.rs/chrono/latest/chrono/struct.DateTime.html#impl-Ord-for-DateTime%3CTz%3E) and [`PartialOrd`](https://docs.rs/chrono/latest/chrono/struct.DateTime.html#impl-PartialOrd%3CDateTime%3CTz2%3E%3E-for-DateTime%3CTz%3E), so ...
 1. chrono
 ```rust
-TODO
+    let ts0 = Utc.with_ymd_and_hms(2024, 1, 1, 0, 0, 0)
+                       .single()
+                       .ok_or_else(|| anyhow!("Invalid datetime"))?;
+    let ts1 = Utc.with_ymd_and_hms(2024, 12, 31, 0, 0, 0)
+                       .single()
+                       .ok_or_else(|| anyhow!("Invalid datetime"))?;
+
+    if ts0 < ts1 {
+        // ...
+    }
 ```
 1. `std::time`
 ```rust
@@ -234,7 +243,14 @@ TODO
 
 
 # Formatting
-- TODO
+1. `chrono`
+```rust
+TODO
+```
+1. `std::time`
+```rust
+TODO
+```
 
 
 # TODO/Unorganized
