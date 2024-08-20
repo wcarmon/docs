@@ -222,7 +222,7 @@ TODO
 
 
 # Comparing
-- `DateTime<Utc>` implements [`Ord`](https://docs.rs/chrono/latest/chrono/struct.DateTime.html#impl-Ord-for-DateTime%3CTz%3E) and [`PartialOrd`](https://docs.rs/chrono/latest/chrono/struct.DateTime.html#impl-PartialOrd%3CDateTime%3CTz2%3E%3E-for-DateTime%3CTz%3E), so ...
+- `DateTime<Utc>` implements [`Ord`](https://docs.rs/chrono/latest/chrono/struct.DateTime.html#impl-Ord-for-DateTime%3CTz%3E) and [`PartialOrd`](https://docs.rs/chrono/latest/chrono/struct.DateTime.html#impl-PartialOrd%3CDateTime%3CTz2%3E%3E-for-DateTime%3CTz%3E), and [`Eq`](https://docs.rs/chrono/latest/chrono/struct.DateTime.html#method.eq) so ...
 1. chrono
 ```rust
     let ts0 = Utc.with_ymd_and_hms(2024, 1, 1, 0, 0, 0)
@@ -233,7 +233,11 @@ TODO
                        .single()
                        .ok_or_else(|| anyhow!("Invalid datetime"))?;
 
-    if ts0 < ts1 {
+    if ts0 == ts1 {
+        // ...
+    }
+
+    if ts0 <= ts1 {
         // ...
     }
 ```
@@ -269,6 +273,14 @@ TODO
 ```rust
 TODO
 ```
+
+
+## Format `NaiveDate`
+```rust
+let d: NaiveDate = ...
+println!("formatted: {d}");
+```
+
 
 
 # Change Timezone
@@ -329,6 +341,7 @@ fn build_time_in_zone(
 
 
 # Get parts of datetime
+1. [Hour](https://docs.rs/chrono/latest/chrono/struct.DateTime.html#method.hour), [Minute](https://docs.rs/chrono/latest/chrono/struct.DateTime.html#method.minute), [Second](https://docs.rs/chrono/latest/chrono/struct.DateTime.html#method.second)
 1. `chrono`
 ```rust
     let ts = DateTime::from_timestamp_millis(1724182159339).unwrap();
@@ -339,10 +352,12 @@ fn build_time_in_zone(
     assert_eq!(ts.month(), 8);
     assert_eq!(ts.day(), 20);
 
-    assert_eq!(ts.hour(), 19);
-    assert_eq!(ts.minute(), 29);
-    assert_eq!(ts.second(), 19);
+    assert_eq!(ts.hour(), 19);      // 0-23
+    assert_eq!(ts.minute(), 29);    // 0-59
+    assert_eq!(ts.second(), 19);    // 0-59
 ```
+1. see also [`hour12()`](https://docs.rs/chrono/latest/chrono/trait.Timelike.html#method.hour12)
+
 
 
 # n Days Ago
@@ -361,6 +376,19 @@ fn build_time_in_zone(
     let got = ts - TimeDelta::days(5);
     assert_eq!(want, got);
 ```
+
+
+# Inject a clock
+```rust
+fn do_something(clock: fn() -> DateTime<Utc>) {
+    let now = clock();
+    ...
+}
+```
+
+
+# Add/Subtract Durations/Periods
+- See [duration](./duration.md) doc
 
 
 # Other resources

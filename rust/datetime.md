@@ -31,6 +31,11 @@
     1. Java equivalent: [`Duration`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Duration.html)
 
 
+# Libs
+1. [chrono crate doc](./datetime.chrono.md)
+1. [time-rs crate doc](./datetime.time-rs.md)
+
+
 # Usage: Construct
 ```rust
 // GOTCHA: this will panic!(...) if invalid
@@ -73,36 +78,6 @@ let utc = DateTime::from_timestamp(
 ```
 
 
-# [Current Time](https://doc.rust-lang.org/std/time/struct.Instant.html#method.now)
-```rust
-let wall0 = Utc::now();      // chrono
-let wall1 = SystemTime::now();  // std
-
-let monotonic0 = Instant::now(); // std
-```
-
-
-# [Format](https://docs.rs/chrono/latest/chrono/struct.DateTime.html#method.format) (to string)
-1. To standard [rfc3339](https://datatracker.ietf.org/doc/html/rfc3339)
-```rust
-let ts = Utc::now();
-let s = format!("{}", ts.format("%+")); // rfc3339
-print!("{}", s);
-```
-1. To [other formats](https://docs.rs/chrono/latest/chrono/format/strftime/index.html#specifiers)
-```rust
-let ts = Utc::now();
-let s = format!("{}", ts.format("%d/%m/%Y %H:%M"));
-print!("{}", s);
-```
-
-## Format `NaiveDate`
-```rust
-let d: NaiveDate = ... ;
-println!("formatted: {d}");
-```
-
-
 # [Parse](https://docs.rs/chrono/latest/chrono/struct.DateTime.html#impl-FromStr-for-DateTime%3CFixedOffset%3E) (from string)
 1. From standard [rfc3339](https://datatracker.ietf.org/doc/html/rfc3339)
 ```rust
@@ -131,48 +106,6 @@ let d = NaiveDate::parse_from_str(date_str, "%Y-%m-%d")
     // TODO: how to make this work with ?
 ```
 
-
-# Inject a clock
-```rust
-fn do_something(clock: fn() -> DateTime<Utc>) {
-    let now = clock();
-    ...
-}
-```
-
-
-# [Equality](https://docs.rs/chrono/latest/chrono/struct.DateTime.html#method.eq)
-```rust
-ts0 == ts1
-```
-
-
-# [Before & After](https://docs.rs/chrono/latest/chrono/struct.DateTime.html#impl-PartialOrd%3CDateTime%3CTz2%3E%3E-for-DateTime%3CTz%3E)
-```rust
-ts0 < ts1
-ts0 >= ts1
-
-// or
-
-match ts0.cmp(&ts1){
-    Ordering::Less => println!("Before"),
-    Ordering::Equal => println!("Same"),
-    Ordering::Greater => println!("After"),
-}
-```
-
-
-# Add/Subtract Durations/Periods
-- See [duration](./duration.md) doc
-
-
-# Parts of day ([Hour](https://docs.rs/chrono/latest/chrono/struct.DateTime.html#method.hour), [Minute](https://docs.rs/chrono/latest/chrono/struct.DateTime.html#method.minute), [Second](https://docs.rs/chrono/latest/chrono/struct.DateTime.html#method.second))
-```rust
-let h = ts.hour()   // 0-23
-let m = ts.minute() // 0-59
-let s = ts.second() // 0-59
-```
-1. see also [`hour12()`](https://docs.rs/chrono/latest/chrono/trait.Timelike.html#method.hour12)
 
 
 # Timezones
