@@ -243,9 +243,24 @@ TODO
 
 
 # Formatting
+- See [format](https://docs.rs/chrono/latest/chrono/format/strftime/index.html#specifiers)
 1. `chrono`
 ```rust
-TODO
+    let ts = DateTime::from_timestamp_millis(1724182159339).unwrap();
+
+    assert_eq!(ts.to_rfc3339(), ts.format("%+").to_string());
+
+    assert_eq!("2024-08-20",            ts.format("%Y-%m-%d").to_string());
+    assert_eq!("2024-08-20T19:29:19",   ts.format("%Y-%m-%dT%H:%M:%S").to_string());
+    assert_eq!("2024-Aug-20",           ts.format("%Y-%b-%d").to_string());
+    assert_eq!("August 20, 2024",       ts.format("%B %d, %Y").to_string());
+    assert_eq!("2024-08-20T19:29:19.339+00:00", ts.to_rfc3339());
+
+    // -- truncated to nearest second
+    let nearest_sec = ts
+        .with_nanosecond(0)
+        .ok_or_else(|| anyhow!("Failed to get current time"))?;
+    assert_eq!("2024-08-20T19:29:19+00:00", nearest_sec.to_rfc3339());
 ```
 1. `std::time`
 ```rust
