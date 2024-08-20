@@ -116,6 +116,15 @@ TODO
 ```
 
 
+## From parts
+```rust
+    // 2024-Sep-13 11:33:44 UTC
+    let ts = Utc.with_ymd_and_hms(2024, 9, 13, 11, 33, 44)
+        .single()
+        .ok_or_else(|| anyhow!("Invalid datetime"))?;
+```
+
+
 # To Epoch millis
 - `date +%s%3N;`  # bash command produces Epoch millis
 1. chrono
