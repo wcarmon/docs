@@ -28,9 +28,9 @@
 
 # Cons of Chrono library
 1. Not very ergonomic/idiomatic in rust
-    1. Error handling (incompatible with `?` operator, how they use panic, etc)
-    1. fn naming scheme
-1. Does NOT use standard types for failure (like `Result`, `Option`)
+    1. Error handling uses `Option` and `MappedLocalTime` (incompatible with `?` operator, etc)
+    1. fn naming scheme & deprecations
+1. Does NOT use standard types for failure (like `Result`)
     1. Compare to time-rs crate
 1. Larger memory representations than time-rs crate
 
