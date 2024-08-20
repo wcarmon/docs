@@ -22,6 +22,9 @@
 
 ## From Epoch millis
 - TODO
+```rust
+// TODO: let ts = OffsetDateTime::UNIX_EPOCH + Duration::milliseconds(ux_millis)
+```
 
 
 ## From Epoch seconds (unix timestamp)

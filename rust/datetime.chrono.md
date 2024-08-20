@@ -147,7 +147,7 @@ TODO
 1. chrono
 ```rust
     let ts = ...
-    let epoch_seconds = ts.timestamp_millis() / 1000;  // eg. 1724092
+    let epoch_seconds = ts.timestamp();  // eg. 1724092
 ```
 1. `std::time`
 ```rust
@@ -389,6 +389,17 @@ fn do_something(clock: fn() -> DateTime<Utc>) {
 ```
 
 
+#  Convert [`chrono::DateTime`](https://docs.rs/chrono/latest/chrono/struct.DateTime.html) to/from [`std::time::SystemTime`](https://doc.rust-lang.org/std/time/struct.SystemTime.html)
+```rust
+// to std
+let std_ts: SystemTime = Utc::now().into();
+
+// to chrono
+let chrono_ts: DateTime<Utc> = SystemTime::now().into();
+```
+1. [Official doc](https://docs.rs/chrono/latest/chrono/struct.DateTime.html#impl-From%3CSystemTime%3E-for-DateTime%3CUtc%3E)
+
+
 # Add/Subtract Durations/Periods
 - See [duration](./duration.md) doc
 
@@ -401,5 +412,14 @@ fn do_something(clock: fn() -> DateTime<Utc>) {
 1. See [Duration](./duration.md) doc
 
 
+# Idioms
+1. Avoid [~~`elapsed`~~](https://doc.rust-lang.org/std/time/struct.Instant.html#method.elapsed) since it hard codes [`Instant::now()`](https://doc.rust-lang.org/std/time/struct.Instant.html#method.now)
+
+
 # Other resources
-1. TODO
+1. https://doc.rust-lang.org/std/time/index.html
+1. https://docs.rs/chrono/latest/chrono/
+1. https://docs.rs/chrono/latest/chrono/struct.DateTime.html
+1. https://doc.rust-lang.org/std/time/struct.Instant.html
+1. https://doc.rust-lang.org/std/time/struct.SystemTime.html
+

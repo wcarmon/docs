@@ -120,46 +120,6 @@ let ndt = NaiveDateTime::from_timestamp(ux_sec, 0);
 let ts = DateTime::<Utc>::from_utc(ndt, Utc);
 ```
 
-## [From Epoch Millis]()
-- TODO: DateTime::from_timestamp_millis(1711557020035)
-```rust
-// time-rs
-let ts = OffsetDateTime::UNIX_EPOCH + Duration::milliseconds(ux_millis)
-
-// Chrono
-let nanos = ((ux_millis % 1000) * 1_000_000) as u32;
-let ndt = NaiveDateTime::from_timestamp(ux_millis / 1000, nanos);
-let ts = DateTime::<Utc>::from_utc(ndt, Utc);
-```
-
-## [To Epoch Millis](https://docs.rs/chrono/latest/chrono/struct.DateTime.html#method.timestamp_millis)
-```rust
-let ts = OffsetDateTime::now_utc();
-let epoch_millis = ts.timestamp_millis()  // TODO: fix this
-```
-
-## [To Epoch Seconds](https://docs.rs/chrono/latest/chrono/struct.DateTime.html#method.timestamp)
-```rust
-let epoch_sec = ts.timestamp()
-```
-
-#  [`chrono::DateTime`](https://docs.rs/chrono/latest/chrono/struct.DateTime.html) to/from [`std::time::SystemTime`](https://doc.rust-lang.org/std/time/struct.SystemTime.html)
-```rust
-// to std
-let std_ts: SystemTime = Utc::now().into();
-
-// to chrono
-let chrono_ts: DateTime<Utc> = SystemTime::now().into();
-```
-1. [Official doc](https://docs.rs/chrono/latest/chrono/struct.DateTime.html#impl-From%3CSystemTime%3E-for-DateTime%3CUtc%3E)
-
-
-# Idioms
-1. Avoid [~~`elapsed`~~](https://doc.rust-lang.org/std/time/struct.Instant.html#method.elapsed) since it hard codes [`Instant::now()`](https://doc.rust-lang.org/std/time/struct.Instant.html#method.now)
-
-
-- TODO: consider https://docs.rs/time/latest/time/
-- TODO: convert DateTime between time zones (UTC, NYC, AZ, Chicago)
 
 
 # Other Resources
