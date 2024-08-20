@@ -92,7 +92,7 @@
 
 
 ## From string in [iso8601](https://en.wikipedia.org/wiki/ISO_8601) format (`yyyy-mm-dd hh:mm:ss`)
-1. chrono - [see format](https://docs.rs/chrono/latest/chrono/format/strftime/index.html)
+1. `chrono` - [see format](https://docs.rs/chrono/latest/chrono/format/strftime/index.html)
 ```rust
 
     // -- Alternative format example
@@ -118,7 +118,7 @@ TODO
 
 ## From parts
 ```rust
-    // 2024-Sep-13 11:33:44 UTC
+    // -- 2024-Sep-13 11:33:44 UTC
     let ts = Utc.with_ymd_and_hms(2024, 9, 13, 11, 33, 44)
         .single()
         .ok_or_else(|| anyhow!("Invalid datetime"))?;
@@ -243,7 +243,7 @@ TODO
 
 
 # Formatting
-- See [format](https://docs.rs/chrono/latest/chrono/format/strftime/index.html#specifiers)
+- See [`format` syntax](https://docs.rs/chrono/latest/chrono/format/strftime/index.html#specifiers)
 1. `chrono`
 ```rust
     let ts = DateTime::from_timestamp_millis(1724182159339).unwrap();
@@ -259,8 +259,33 @@ TODO
     // -- truncated to nearest second
     let nearest_sec = ts
         .with_nanosecond(0)
-        .ok_or_else(|| anyhow!("Failed to get current time"))?;
+        .ok_or_else(|| anyhow!("Failed to remove nanos"))?;
     assert_eq!("2024-08-20T19:29:19+00:00", nearest_sec.to_rfc3339());
+```
+1. `std::time`
+```rust
+TODO
+```
+
+# Change timezone
+1. `chrono`
+```rust
+    let chicago = utc.with_timezone(&chrono_tz::America::Chicago);
+    let london = utc.with_timezone(&chrono_tz::Europe::London);
+    let los_angeles = utc.with_timezone(&chrono_tz::America::Los_Angeles);
+    let moscow = utc.with_timezone(&chrono_tz::Europe::Moscow);
+    let nyc = utc.with_timezone(&chrono_tz::America::New_York);
+    let paris = utc.with_timezone(&chrono_tz::Europe::Paris);
+    let tokyo = utc.with_timezone(&chrono_tz::Asia::Tokyo);
+
+    let fmt = "%Y-%m-%dT%H:%M:%S";
+    assert_eq!("2024-08-20T12:29:19", los_angeles.format(fmt).to_string());
+    assert_eq!("2024-08-20T14:29:19", chicago.format(fmt).to_string());
+    assert_eq!("2024-08-20T15:29:19", nyc.format(fmt).to_string());
+    assert_eq!("2024-08-20T20:29:19", london.format(fmt).to_string());
+    assert_eq!("2024-08-20T21:29:19", paris.format(fmt).to_string());
+    assert_eq!("2024-08-20T22:29:19", moscow.format(fmt).to_string());
+    assert_eq!("2024-08-21T04:29:19", tokyo.format(fmt).to_string());
 ```
 1. `std::time`
 ```rust
