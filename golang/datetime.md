@@ -134,22 +134,22 @@ t.Month()
 
 
 # Interop
-## [From Unix Seconds](https://pkg.go.dev/time#Unix)
+## [From Unix Seconds](https://pkg.go.dev/time#Unix) (Epoch seconds)
 ```go
 ts := time.Unix(uxSec, 0).UTC()
 ```
 
-## [From Unix Millis](https://pkg.go.dev/time#UnixMilli)
-```go
-ts := time.UnixMilli(uxMillis).UTC()
-```
-
-## [To Unix Seconds](https://pkg.go.dev/time#Time.Unix)
+## [To Unix Seconds](https://pkg.go.dev/time#Time.Unix) (Epoch seconds)
 ```go
 uxSec := ts.Unix()
 ```
 
-## [To Unix Millis](https://pkg.go.dev/time#Time.UnixMilli)
+## [From Unix Millis](https://pkg.go.dev/time#UnixMilli) (Epoch millis)
+```go
+ts := time.UnixMilli(uxMillis).UTC()
+```
+
+## [To Unix Millis](https://pkg.go.dev/time#Time.UnixMilli) (Epoch millis)
 ```go
 uxMillis := t.UnixMilli()
 ```
