@@ -48,7 +48,7 @@
 
 # Create/Construct/Build
 
-## Now
+## From Now
 1. chrono
 ```rust
     let now = chrono::Utc::now();
@@ -91,6 +91,31 @@
 ```
 
 
+## From string in [iso8601](https://en.wikipedia.org/wiki/ISO_8601) format (`yyyy-mm-dd hh:mm:ss`)
+1. chrono - [see format](https://docs.rs/chrono/latest/chrono/format/strftime/index.html)
+```rust
+
+    // -- Alternative format example
+    // let s = "2024-08-20 12:34:56";
+    // let fmt = "%Y-%m-%d %H:%M:%S";
+
+    let s = "2024-03-14T12:34:56";
+    let fmt = "%Y-%m-%dT%H:%M:%S";
+
+    // let first_19_chars = &s.chars().take(19).collect::<String>();
+
+    let naive = NaiveDateTime::parse_from_str(s, fmt)
+        .expect("Failed to parse datetime");
+
+    let ts: DateTime<Utc> = Utc.from_utc_datetime(&naive);
+    ...
+```
+1. `std::time`
+```rust
+TODO
+```
+
+
 # To Epoch millis
 - `date +%s%3N;`  # bash command produces Epoch millis
 1. chrono
@@ -122,30 +147,6 @@
         .duration_since(UNIX_EPOCH)
         .expect("failed to get epoch millis")
         .as_secs();
-```
-
-## From string in [iso8601](https://en.wikipedia.org/wiki/ISO_8601) format (`yyyy-mm-dd hh:mm:ss`)
-1. chrono - [see format](https://docs.rs/chrono/latest/chrono/format/strftime/index.html)
-```rust
-
-    // -- Alternative format example
-    // let s = "2024-08-20 12:34:56";
-    // let fmt = "%Y-%m-%d %H:%M:%S";
-
-    let s = "2024-03-14T12:34:56";
-    let fmt = "%Y-%m-%dT%H:%M:%S";
-
-    // let first_19_chars = &s.chars().take(19).collect::<String>();
-
-    let naive = NaiveDateTime::parse_from_str(s, fmt)
-        .expect("Failed to parse datetime");
-
-    let ts: DateTime<Utc> = Utc.from_utc_datetime(&naive);
-    ...
-```
-1. `std::time`
-```rust
-TODO
 ```
 
 
