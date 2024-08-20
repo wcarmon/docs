@@ -149,10 +149,61 @@ TODO
 ```
 
 
-# [Truncate](TODO)
+# Truncate to the nearest ...
 1. chrono
 ```rust
-TODO
+    let ts = ...
+
+    let nearest_second = ts
+        .with_nanosecond(0)
+        .ok_or_else(|| anyhow!("failed to remove nanos"))?;
+
+    // -- meaning: first second of same minute
+    let nearest_minute = ts
+        .with_second(0)
+        .ok_or_else(|| anyhow!("failed to remove seconds"))?
+        .with_nanosecond(0)
+        .ok_or_else(|| anyhow!("failed to remove nanos"))?;
+
+    // -- alternative
+    let nearest_minute = Utc.with_ymd_and_hms(
+            ts.year(), ts.month(), ts.day(), ts.hour(), ts.minute(), 0)
+        .single()
+        .ok_or_else(|| anyhow!("Invalid datetime"))?;
+
+
+    // -- meaning: first minute of same hour
+    let nearest_hour = ts
+        .with_minute(0)
+        .ok_or_else(|| anyhow!("failed to remove minutes"))?
+        .with_second(0)
+        .ok_or_else(|| anyhow!("failed to remove seconds"))?
+        .with_nanosecond(0)
+        .ok_or_else(|| anyhow!("failed to remove nanos"))?;
+
+    // -- alternative
+    let nearest_hour = Utc.with_ymd_and_hms(
+            ts.year(), ts.month(), ts.day(), ts.hour(), 0, 0)
+        .single()
+        .ok_or_else(|| anyhow!("Invalid datetime"))?;
+
+
+    // -- meaning: first hour of same day in UTC
+    let nearest_day = ts
+        .with_hour(0)
+        .ok_or_else(|| anyhow!("failed to remove hours"))?
+        .with_minute(0)
+        .ok_or_else(|| anyhow!("failed to remove minutes"))?
+        .with_second(0)
+        .ok_or_else(|| anyhow!("failed to remove seconds"))?
+        .with_nanosecond(0)
+        .ok_or_else(|| anyhow!("failed to remove nanos"))?;
+
+    // -- alternative:
+    let nearest_day = Utc.with_ymd_and_hms(
+            ts.year(), ts.month(), ts.day(), 0, 0, 0)
+        .single()
+        .ok_or_else(|| anyhow!("Invalid datetime"))?;
 ```
 1. `std::time`
 ```rust
@@ -171,6 +222,7 @@ TODO
 TODO
 ```
 
+- TODO: replace all unwrap/expect with anyhow
 
 # Other resources
 1. TODO
