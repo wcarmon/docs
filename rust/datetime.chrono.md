@@ -105,7 +105,7 @@
     // let first_19_chars = &s.chars().take(19).collect::<String>();
 
     let naive = NaiveDateTime::parse_from_str(s, fmt)
-        .expect("Failed to parse datetime");
+        .context("Failed to parse datetime")?;
 
     let ts: DateTime<Utc> = Utc.from_utc_datetime(&naive);
     ...
@@ -246,7 +246,8 @@ TODO
 - See [`format` syntax](https://docs.rs/chrono/latest/chrono/format/strftime/index.html#specifiers)
 1. `chrono`
 ```rust
-    let ts = DateTime::from_timestamp_millis(1724182159339).unwrap();
+    let ts = DateTime::from_timestamp_millis(1724182159339)
+        .ok_or_else(|| anyhow!("Invalid timestamp"))?;
 
     assert_eq!(ts.to_rfc3339(), ts.format("%+").to_string());
 
@@ -366,11 +367,6 @@ fn build_time_in_zone(
     let got = ts - TimeDelta::days(5);
     assert_eq!(want, got);
 ```
-
-
-# TODO/Unorganized
-
-- TODO: replace all unwrap/expect with anyhow
 
 
 # Other resources
