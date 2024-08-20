@@ -124,7 +124,7 @@
         .as_secs();
 ```
 
-## From string in [iso8601](https://en.wikipedia.org/wiki/ISO_8601) format (yyyy-mm-dd hh:mm:ss)
+## From string in [iso8601](https://en.wikipedia.org/wiki/ISO_8601) format (`yyyy-mm-dd hh:mm:ss`)
 1. chrono - [see format](https://docs.rs/chrono/latest/chrono/format/strftime/index.html)
 ```rust
 
