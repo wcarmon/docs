@@ -107,26 +107,6 @@ let d = NaiveDate::parse_from_str(date_str, "%Y-%m-%d")
 ```
 
 
-
-# Timezones
-1. [change timezone](https://rust-lang-nursery.github.io/rust-cookbook/datetime/duration.html#convert-a-local-time-to-another-timezone)
-
-
-# [Months](https://docs.rs/chrono/latest/chrono/trait.Datelike.html#tymethod.month)
-```rust
-ts.month()  // Jan=1, Feb=2, ... Dec=12
-ts.month0() // Jan=0, Feb=1, ... Dec=11
-```
-
-
-# Timing operations
-1. See [Duration](./duration.md) doc
-
-
-# Sleep
-1. See [Duration](./duration.md) doc
-
-
 # Run periodically
 ```rust
 TODO

@@ -310,6 +310,8 @@ println!("formatted: {d}");
 ```rust
 TODO
 ```
+1. [See also](https://rust-lang-nursery.github.io/rust-cookbook/datetime/duration.html#convert-a-local-time-to-another-timezone)
+
 
 
 # Time in a Timezone
@@ -349,15 +351,15 @@ fn build_time_in_zone(
     assert_eq!(ts.timezone(), Utc);
 
     assert_eq!(ts.year(), 2024);
-    assert_eq!(ts.month(), 8);
+    assert_eq!(ts.month(), 8);      // Jan=1, Feb=2, ... Dec=12
+    assert_eq!(ts.month0(), 7);     // Jan=0, Feb=1, ... Dec=11
     assert_eq!(ts.day(), 20);
 
     assert_eq!(ts.hour(), 19);      // 0-23
     assert_eq!(ts.minute(), 29);    // 0-59
     assert_eq!(ts.second(), 19);    // 0-59
 ```
-1. see also [`hour12()`](https://docs.rs/chrono/latest/chrono/trait.Timelike.html#method.hour12)
-
+1. See also [`hour12()`](https://docs.rs/chrono/latest/chrono/trait.Timelike.html#method.hour12)
 
 
 # n Days Ago
@@ -389,6 +391,14 @@ fn do_something(clock: fn() -> DateTime<Utc>) {
 
 # Add/Subtract Durations/Periods
 - See [duration](./duration.md) doc
+
+
+# Timing operations
+1. See [Duration](./duration.md) doc
+
+
+# Sleep
+1. See [Duration](./duration.md) doc
 
 
 # Other resources
