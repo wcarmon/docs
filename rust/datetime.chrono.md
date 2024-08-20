@@ -1,7 +1,7 @@
 # Overview
 1. Using dates, times, zones with chrono crate
 1. See [Epoch time doc](../common/epoch_time.md)
-
+1. See [Duration doc](../duration.md)
 
 # Key Concepts
 1. [`chrono::DateTime`](https://docs.rs/chrono/latest/chrono/struct.DateTime.html): Date + time + timezone
