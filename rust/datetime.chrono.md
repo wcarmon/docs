@@ -118,7 +118,7 @@ TODO
 
 ## From parts
 ```rust
-    // -- 2024-Sep-13 11:33:44 UTC
+    // -- Meaning 2024-Sep-13 11:33:44 UTC
     let ts = Utc.with_ymd_and_hms(2024, 9, 13, 11, 33, 44)
         .single()
         .ok_or_else(|| anyhow!("Invalid datetime"))?;
@@ -336,14 +336,35 @@ fn build_time_in_zone(
 # Parts of datetime
 1. `chrono`
 ```rust
-TODO
+    let ts = DateTime::from_timestamp_millis(1724182159339).unwrap();
+
+    assert_eq!(ts.timezone(), Utc);
+
+    assert_eq!(ts.year(), 2024);
+    assert_eq!(ts.month(), 8);
+    assert_eq!(ts.day(), 20);
+
+    assert_eq!(ts.hour(), 19);
+    assert_eq!(ts.minute(), 29);
+    assert_eq!(ts.second(), 19);
 ```
 
 
 # n Days Ago
 1. `chrono`
 ```rust
-TODO
+    // -- Sept 13th
+    let ts = Utc.with_ymd_and_hms(2024, 9, 13, 0, 0, 1)
+        .single()
+        .ok_or_else(|| anyhow!("Invalid datetime"))?;
+
+    // -- Sept 8th
+    let want = Utc.with_ymd_and_hms(2024, 9, 8, 0, 0, 1)
+        .single()
+        .ok_or_else(|| anyhow!("Invalid datetime"))?;
+
+    let got = ts - TimeDelta::days(5);
+    assert_eq!(want, got);
 ```
 
 
