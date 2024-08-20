@@ -269,7 +269,10 @@ TODO
 
 # Change timezone
 1. `chrono`
+    1. need [`chrono-tz`](https://docs.rs/chrono-tz/latest/chrono_tz/) crate
 ```rust
+    let utc = DateTime::from_timestamp_millis(1724182159339).unwrap();
+
     let chicago = utc.with_timezone(&chrono_tz::America::Chicago);
     let london = utc.with_timezone(&chrono_tz::Europe::London);
     let los_angeles = utc.with_timezone(&chrono_tz::America::Los_Angeles);
@@ -288,6 +291,24 @@ TODO
     assert_eq!("2024-08-21T04:29:19", tokyo.format(fmt).to_string());
 ```
 1. `std::time`
+```rust
+TODO
+```
+
+
+# Time in timezone
+- TODO: eg. 4pm in NYC today
+
+
+# Parts of datetime
+1. `chrono`
+```rust
+TODO
+```
+
+
+# n Days Ago
+1. `chrono`
 ```rust
 TODO
 ```

@@ -63,11 +63,11 @@ export function nDaysAgo(numDays: number): Date {
 
 
 # Java/JVM interop
-- TODO
+- TODO (epoch millis)
 
 
 # Rust interop
-- TODO
+- TODO (epoch millis)
 
 
 # Timezones
