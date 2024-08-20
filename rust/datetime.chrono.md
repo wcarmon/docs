@@ -109,6 +109,22 @@
 
     let ts: DateTime<Utc> = Utc.from_utc_datetime(&naive);
     ...
+
+
+    // -- TODO: evaluate these:
+    // let ts0 = "2022-09-27T13:41:59Z"
+    //         .parse::<DateTime<Utc>>()
+    //         .map_err(anyhow::Error::msg)
+    //
+    // let ts1 = DateTime::parse_from_rfc3339("2022-11-19T23:39:51-07:00")
+    //     .map(|ts| ts.with_timezone(&Utc))
+    //     .map_err(anyhow::Error::msg)
+    //
+    // let ts2 = DateTime::parse_from_str(
+    //     "2023 Sep 21 12:39:14.294 +0000",
+    //     "%Y %b %d %H:%M:%S%.3f %z")
+    // .map(|ts| ts.with_timezone(&Utc))
+    // .map_err(anyhow::Error::msg)
 ```
 1. `std::time`
 ```rust
@@ -122,6 +138,28 @@ TODO
     let ts = Utc.with_ymd_and_hms(2024, 9, 13, 11, 33, 44)
         .single()
         .ok_or_else(|| anyhow!("Invalid datetime"))?;
+```
+
+
+## Parse `NaiveDate`
+```rust
+    let date_str = "2024-09-17";
+    let d = NaiveDate::parse_from_str(date_str, "%Y-%m-%d")?;
+
+    assert_eq!(2024, d.year());
+    assert_eq!(9, d.month());
+    assert_eq!(8, d.month0());
+    assert_eq!(17, d.day());
+```
+
+## Parse `NaiveTime`
+```rust
+    let time_str = "11:22:33";
+    let t = NaiveTime::parse_from_str(time_str, "%H:%M:%S")?;
+
+    assert_eq!(11, t.hour());
+    assert_eq!(22, t.minute());
+    assert_eq!(33, t.second());
 ```
 
 

@@ -36,90 +36,10 @@
 1. [time-rs crate doc](./datetime.time-rs.md)
 
 
-# Usage: Construct
-```rust
-// GOTCHA: this will panic!(...) if invalid
-// This is fine for test code, not for prod
-let dt = Utc.ymd(2014, 7, 8).and_hms(9, 10, 11); // `2014-07-08T09:10:11Z`
-```
-1. See also [Parse](datetime.md#parse-from-string)
-
-## From Epoch millis
-```rust
-let epoch_millis: i64 = ... ;
-
-let utc = DateTime::from_timestamp_millis(epoch_millis)
-        .ok_or(anyhow!("failed to build DateTime"))?
-
-// -- inverse: utc.timestamp_millis()
-```
-
-## ~~From Epoch seconds~~
-1. You don't gain much over millis, in terms of representable dates
-```rust
-let epoch_seconds: i64 = ... ;
-
-let nanos = (epoch_seconds % 1000) * 1_000_000;
-let utc = DateTime::from_timestamp(
-    epoch_seconds,
-    nanos as u32,
-).ok_or(anyhow!("failed to build DateTime"))
-```
-
-## From Epoch nanos
-```rust
-let epoch_nanos: i64 = ... ;
-
-let secs = epoch_nanos / 1_000_000_000;
-let nanos = (epoch_nanos % 1_000_000_000) as u32;
-let utc = DateTime::from_timestamp(
-    secs, nanos as u32
-).ok_or(anyhow!("failed to build DateTime"))
-```
-
-
-# [Parse](https://docs.rs/chrono/latest/chrono/struct.DateTime.html#impl-FromStr-for-DateTime%3CFixedOffset%3E) (from string)
-1. From standard [rfc3339](https://datatracker.ietf.org/doc/html/rfc3339)
-```rust
-let ts0 = "2022-09-27T13:41:59Z"
-        .parse::<DateTime<Utc>>()
-        .map_err(anyhow::Error::msg)
-
-let ts1 = DateTime::parse_from_rfc3339("2022-11-19T23:39:51-07:00")
-        .map(|ts| ts.with_timezone(&Utc))
-        .map_err(anyhow::Error::msg)
-```
-1. From [other formats](https://docs.rs/chrono/latest/chrono/format/strftime/index.html#specifiers) using [`parse_from_str`](https://docs.rs/chrono/latest/chrono/struct.DateTime.html#method.parse_from_str)
-```rust
-let ts1 = DateTime::parse_from_str(
-        "2023 Sep 21 12:39:14.294 +0000",
-        "%Y %b %d %H:%M:%S%.3f %z")
-    .map(|ts| ts.with_timezone(&Utc))
-    .map_err(anyhow::Error::msg)
-```
-
-## Parse NaiveDate
-```rust
-let date_str = "2024-09-17";
-let d = NaiveDate::parse_from_str(date_str, "%Y-%m-%d")
-    .or(Err(format!("failed to parse date: {date_str}")))?;
-    // TODO: how to make this work with ?
-```
-
-
 # Run periodically
 ```rust
 TODO
 ```
-
-
-# Interop
-## [From Epoch Seconds](https://docs.rs/chrono/latest/chrono/naive/struct.NaiveDateTime.html#method.from_timestamp)
-```rust
-let ndt = NaiveDateTime::from_timestamp(ux_sec, 0);
-let ts = DateTime::<Utc>::from_utc(ndt, Utc);
-```
-
 
 
 # Other Resources
