@@ -296,8 +296,41 @@ TODO
 ```
 
 
-# Time in timezone
-- TODO: eg. 4pm in NYC today
+# Time in a Timezone
+```rust
+// A time "Today" (from the time zone's perspective)
+//
+// @param hour: 0-24
+// @param minute: 0-59
+// @param sec: 0-59
+// @param tz: chrono_tz::Tz ref
+//
+// eg. 8am "today" in Tokyo:  build_time_in_zone(8, 0, 0, &Tokyo)?
+// eg. 4pm "today" in NYC:    build_time_in_zone(16, 0, 0, &New_York)?
+fn build_time_in_zone(
+    hour: u8,
+    minute: u8,
+    second: u8,
+    tz: &Tz,
+) -> Result<DateTime<Tz>, anyhow::Error> {
+    ensure!(hour < 24, "invalid hour");
+    ensure!(minute < 60, "invalid minute");
+    ensure!(second < 60, "invalid second");
+
+    let now_in_zone = Utc::now().with_timezone(tz);
+
+    tz.with_ymd_and_hms(
+        now_in_zone.year(),
+        now_in_zone.month(),
+        now_in_zone.day(),
+        hour as u32,
+        minute as u32,
+        second as u32,
+    )
+        .single()
+        .ok_or_else(|| anyhow!("failed to calculate time in tz={}", tz))
+}
+```
 
 
 # Parts of datetime
