@@ -75,7 +75,7 @@
 ```
 
 
-## From Epoch seconds
+## From Epoch seconds (unix timestamp)
 1. chrono
 ```rust
     let epoch_seconds = 1734093128;
@@ -92,11 +92,11 @@
 
 
 # To Epoch millis
-- `date +%s%3N;`  # Produces Epoch millis
+- `date +%s%3N;`  # bash command produces Epoch millis
 1. chrono
 ```rust
     let ts = ...
-    let epoch_millis = ts.timestamp_millis() // eg. 1724092128110
+    let epoch_millis = ts.timestamp_millis(); // eg. 1724092128110
 ```
 1. `std::time`
 ```rust
@@ -109,7 +109,7 @@
 
 
 # To Epoch seconds
-- `date '+%s'`;  # Produces Epoch seconds from bash
+- `date '+%s';`  # bash command produces Epoch seconds
 1. chrono
 ```rust
     let ts = ...
@@ -118,16 +118,30 @@
 1. `std::time`
 ```rust
     let ts = ...
-    let epoch_millis = ts
+    let epoch_seconds = ts
         .duration_since(UNIX_EPOCH)
         .expect("failed to get epoch millis")
         .as_secs();
 ```
 
-## From [iso8601](TODO) (yyyy-mm-dd hh:mm:ss)
-1. chrono
+## From string in [iso8601](https://en.wikipedia.org/wiki/ISO_8601) format (yyyy-mm-dd hh:mm:ss)
+1. chrono - [see format](https://docs.rs/chrono/latest/chrono/format/strftime/index.html)
 ```rust
-TODO
+
+    // -- Alternative format example
+    // let s = "2024-08-20 12:34:56";
+    // let fmt = "%Y-%m-%d %H:%M:%S";
+
+    let s = "2024-03-14T12:34:56";
+    let fmt = "%Y-%m-%dT%H:%M:%S";
+
+    // let first_19_chars = &s.chars().take(19).collect::<String>();
+
+    let naive = NaiveDateTime::parse_from_str(s, fmt)
+        .expect("Failed to parse datetime");
+
+    let ts: DateTime<Utc> = Utc.from_utc_datetime(&naive);
+    ...
 ```
 1. `std::time`
 ```rust
