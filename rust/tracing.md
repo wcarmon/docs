@@ -3,6 +3,10 @@
 1. Idioms for [Tracing](https://opentelemetry.io/docs/concepts/signals/traces/) (and associated Logging)
 1. How to use [tracing](https://docs.rs/tracing/latest/tracing/) and [OpenTelemetry](https://opentelemetry.io/docs/instrumentation/rust/)
 
+# Setup
+- [`Cargo.toml`, initialization, etc](./tracing.setup.md)
+
+
 # Summary of key ideas
 
 1. [tracing](https://docs.rs/tracing/latest/tracing) lib handles both tracing and [logging](./logging.md)
