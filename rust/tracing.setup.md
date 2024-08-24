@@ -53,6 +53,10 @@ tracing-opentelemetry = "0.25"
 
 # TracingConfig `struct` for configuration
 ```rust
+use anyhow::ensure;
+use chrono::TimeDelta;
+use derive_builder::Builder;
+
 #[derive(Builder, Clone, Debug)]
 #[builder(build_fn(error = "anyhow::Error", validate = "Self::validate"))]
 pub struct TracingConfig {
@@ -69,7 +73,7 @@ pub struct TracingConfig {
     // Empty string is fine
     pub tracer_name: String,
 
-    pub flush_frequency: Duration,
+    pub flush_frequency: TimeDelta,
 }
 
 impl TracingConfigBuilder {
@@ -177,7 +181,7 @@ pub fn init_tracing(
     Ok(())
 }
 
-// Don't send tokio internal events to Jaeger
+// -- Don't send tokio internal events to Jaeger
 fn build_anti_spam_filter() -> FilterFn {
     filter_fn(|meta| {
         let target = meta.target().to_string();
@@ -223,7 +227,7 @@ fn build_fmt_filter() -> Result<filter::EnvFilter, anyhow::Error> {
 use opentelemetry::global;
 
 // NOTE: sleep_time must be as long as the flush frequency on otlp_exporter
-pub fn shutdown_tracing(sleep_time: Duration) {
+pub fn shutdown_tracing(sleep_time: TimeDelta) {
     warn!("Giving OTLP Exporter time to flush spans");
 
     global::shutdown_tracer_provider();
@@ -244,7 +248,7 @@ fn main() {
 
     let tracing_conf = TracingConfigBuilder::default()
         .endpoint("http://localhost:4317".to_string())
-        .flush_frequency(Duration::from_millis(500))
+        .flush_frequency(TimeDelta::from_millis(500))
         .service_name("my-app-name".to_string())
         .tracer_name(String::new())
         .build()
@@ -264,7 +268,7 @@ fn main() {
 
     // ... run the normal logic here
 
-    shutdown_tracing(Duration::from_secs(5));
-    // rt.shutdown_timeout(Duration::from_secs(1));
+    shutdown_tracing(TimeDelta::from_secs(5));
+    // rt.shutdown_timeout(TimeDelta::from_secs(1));
 }
 ```
