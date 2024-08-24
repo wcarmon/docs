@@ -233,6 +233,9 @@ pub fn shutdown_tracing(sleep_time: TimeDelta) {
     warn!("Giving OTLP Exporter time to flush spans");
 
     global::shutdown_tracer_provider();
+
+    let sleep_time = sleep_time.to_std()
+        .expect("failed to convert sleep_time to std::time::Duration");
     sleep(sleep_time);
 }
 ```
