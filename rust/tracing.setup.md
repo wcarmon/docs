@@ -128,7 +128,7 @@ pub fn init_tracing(
         .tonic() // requires tokio
         .with_endpoint(&conf.endpoint)
         .with_protocol(Grpc)
-        .with_timeout(conf.flush_frequency);
+        .with_timeout(conf.flush_frequency.to_std()?);
 
     let pipeline = opentelemetry_otlp::new_pipeline()
         .tracing()
@@ -225,6 +225,7 @@ fn build_fmt_filter() -> Result<filter::EnvFilter, anyhow::Error> {
 # `fn` to shutdown
 ```rust
 use opentelemetry::global;
+use tracing::warn;
 
 // NOTE: sleep_time must be as long as the flush frequency on otlp_exporter
 pub fn shutdown_tracing(sleep_time: TimeDelta) {
