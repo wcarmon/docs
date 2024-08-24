@@ -34,8 +34,8 @@
         .context("failed to build tokio runtime")?;
 
     // NOTE: ::block_on returns whatever T the future returns
-    let res = rt.block_on(async move || {
-        do_something().await()
+    let res = rt.block_on(async move {
+        do_something_async().await
     });
 
     // res is whatever the async block returns
