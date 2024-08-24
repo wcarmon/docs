@@ -250,7 +250,7 @@ fn main() {
 
     let tracing_conf = TracingConfigBuilder::default()
         .endpoint("http://localhost:4317".to_string())
-        .flush_frequency(TimeDelta::from_millis(500))
+        .flush_frequency(TimeDelta::milliseconds(500))
         .service_name("my-app-name".to_string())
         .tracer_name(String::new())
         .build()
@@ -270,7 +270,7 @@ fn main() {
 
     // ... run the normal logic here
 
-    shutdown_tracing(TimeDelta::from_secs(5));
-    // rt.shutdown_timeout(TimeDelta::from_secs(1));
+    shutdown_tracing(TimeDelta::seconds(5));
+    // rt.shutdown_timeout(TimeDelta::seconds(1));
 }
 ```
