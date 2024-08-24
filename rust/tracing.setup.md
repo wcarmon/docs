@@ -233,7 +233,7 @@ pub fn shutdown_tracing(sleep_time: Duration) {
 
 
 # main.rs
-- GOTCHA: remove `env_logger::init()` if present, it conflicts
+- GOTCHA: remove `env_logger::init()` if present (env_logger conflicts with tracing)
 ```rust
 // -- Env vars:
 // RUST_LOG=debug
