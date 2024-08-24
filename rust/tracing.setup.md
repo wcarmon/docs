@@ -220,6 +220,7 @@ fn build_fmt_filter() -> Result<filter::EnvFilter, anyhow::Error> {
         .context("failed to parse env var: RUST_LOG")
 }
 ```
+- See [`WCColorTerminalLayer`](./WCColorTerminalLayer.rs)
 
 
 # `fn` to shutdown
