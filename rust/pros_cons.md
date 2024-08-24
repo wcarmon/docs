@@ -126,3 +126,4 @@
     - Eg. when you need `.start` & `.end`
     - [`RangeBounds`](https://doc.rust-lang.org/std/ops/trait.RangeBounds.html) trait kinda helps
         - Need `dyn`, but `RangeBounds` is NOT object safe, so ...
+1. [match patterns can be excessively complex](https://doc.rust-lang.org/reference/patterns.html#identifier-patterns)
