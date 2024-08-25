@@ -33,6 +33,12 @@ async fn should_be_nice() -> Result<(), anyhow::Error> {
 ```
 
 
+# Serial vs Parallel tests
+1. If your tests manipulate shared things like env vars,
+    - Use a crate like [serial_test](https://docs.rs/serial_test/latest/serial_test/)
+1. Conceptually similar to [JUnit `@ResourceLock`](https://junit.org/junit5/docs/5.3.0-M1/user-guide/index.html#writing-tests-parallel-execution-synchronization)
+
+
 # Other Resources
 1. Basics:
     1. https://doc.rust-lang.org/rust-by-example/testing/unit_testing.html
