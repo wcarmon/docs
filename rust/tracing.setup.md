@@ -225,6 +225,7 @@ fn build_fmt_filter() -> Result<filter::EnvFilter, anyhow::Error> {
 
 # `fn` to shutdown
 ```rust
+use chrono::TimeDelta;
 use opentelemetry::global;
 use tracing::warn;
 

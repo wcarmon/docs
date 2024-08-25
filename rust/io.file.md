@@ -139,7 +139,7 @@ tempdir = "0.3"
 ```
 - Managed directory:
 ```rust
-let managed_dir = TempDir::new("whatever")?.into_path();
+let managed_dir = TempDir::with_prefix("whatever")?.into_path();
 
 // -- all files auto deleted on drop(managed_dir)
 ```
@@ -147,7 +147,7 @@ let managed_dir = TempDir::new("whatever")?.into_path();
 ```rust
 
 // -- You own the dir, nothing deleted on drop(...)
-let unmanaged_dir = TempDir::new("whatever")?.into_path();
+let unmanaged_dir = TempDir::with_prefix("whatever")?.into_path();
 let foo = unmanaged_dir.join(...);
 
 // -- Cleanup later
