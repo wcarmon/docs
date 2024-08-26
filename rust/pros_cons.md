@@ -39,6 +39,16 @@
 1. Slow builds (Compared to Go, Java, TS, ...)
 1. Syntax is dense, especially with lifetimes
 1. "Sometimes" file-names and module-names are associated (eg `mod foo` must be in `foo.rs`)
+1. JetBrains specific
+    1. RustRover has broken fonts and they cannot recreate (compared to CLion, Intellij, Goland)
+    1. RustRover is poorly supported (compared to other Jetbrains products)
+        1. They respond, they just don't fix anything
+        1. They regularly introduce regressions
+    1. CLion rust plugin is about as buggy (however CLion is stable)
+    1. Auto-import fails when using macros (`macro_rules!`)
+    1. Plugin makes editor unresponsive
+        1. I believe they are doing analysis on the main/UI thread
+        1. Happens even with a 32 core AMD Ryzen 9 with 63 GB of ram (allocating 6 gb to the IDE)
 1. Not many jobs (as of 2023), compared to Golang, C++, Java, Python
 1. [Strings are overly complex](./strings.md) compared to Go, Python, Java, ...
     1. But rust strings are simple and safe compared to c & c++
