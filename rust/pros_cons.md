@@ -49,6 +49,9 @@
     1. Plugin makes editor unresponsive
         1. I believe they are doing analysis on the main/UI thread
         1. Happens even with a 32 core AMD Ryzen 9 with 63 GB of ram (allocating 6 gb to the IDE)
+    1. Editing a macro is very painful
+        1. They are doing work on the main/ui thread
+        1. See lots of related tickets open
 1. Not many jobs (as of 2023), compared to Golang, C++, Java, Python
 1. [Strings are overly complex](./strings.md) compared to Go, Python, Java, ...
     1. But rust strings are simple and safe compared to c & c++
