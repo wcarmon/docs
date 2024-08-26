@@ -221,6 +221,27 @@ where
 }
 ```
 
+# Example: A `fn` which accepts multiple types of maps
+```rust
+    fn example() {
+        let mut h_map: HashMap<String, String> = HashMap::new();
+        // ...
+
+        let mut b_map: BTreeMap<String, String> = BTreeMap::new();
+        // ...
+
+        reads_both_map_types(h_map.iter());
+        reads_both_map_types(b_map.iter());
+    }
+
+    fn reads_both_map_types<'a, M>(iter: M)
+    where
+        M: Iterator<Item=(&'a String, &'a String)>,
+    {
+        iter.for_each(|(k, v)| println!("{}: {}", k, v));
+    }
+```
+
 # More Examples
 
 ## Iterate lines of a File
