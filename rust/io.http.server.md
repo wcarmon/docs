@@ -39,7 +39,7 @@
 
 
 # High-level Candidates
-1. Best: [**Rocket**](https://rocket.rs/)
+1. Maybe the best: [**Rocket**](https://rocket.rs/)
 1. Next best: [**Actix**](https://actix.rs/)
 1. [Tide](https://github.com/http-rs/tide)
 1. [Warp](https://github.com/seanmonstar/warp)
@@ -48,9 +48,10 @@
 
 ## [Rocket](https://rocket.rs/v0.5/guide/overview/) (best)
 1. At the level of Spring Web
-1. `Con`: Farings (middleware) are exhausting and framework heavy (too far abstracted from actual behavior)
 1. `Con`: Faring setup doesn't play well with DI
+1. `Con`: Farings (middleware) are exhausting and framework heavy (too far abstracted from actual behavior)
 1. `Con`: Route annotations only work on functions not on methods (not impl)
+1. `Con`: Seems abandoned
 1. `Pro`: Simplicity is a virtue
 1. `Pro`: Books written about Rocket
 1. `Pro`: [async support](https://rocket.rs/v0.5/guide/overview/#futures-and-async) (as of 0.5)
