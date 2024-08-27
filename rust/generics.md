@@ -12,6 +12,7 @@
 1. Associated Types are a simplification or specialized version of Generics
 1. "Output types"
     1. eg. See how [`Iterator`](TODO) uses `Item` as an associated type for output of [`.next()`](TODO)
+1. Eg. `Error` type for most failable traits
 
 
 ## Comparison

@@ -52,6 +52,8 @@
     1. Editing a macro is very painful
         1. They are doing work on the main/ui thread
         1. See lots of related tickets open
+    1. Things just stop working after a while...
+        1. feature: specify type explicitly
 1. Not many jobs (as of 2023), compared to Golang, C++, Java, Python
 1. [Strings are overly complex](./strings.md) compared to Go, Python, Java, ...
     1. But rust strings are simple and safe compared to c & c++

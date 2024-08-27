@@ -29,10 +29,13 @@
 1. Very Low-level, most high-level libs are based on this
     1. Warp
     1. Rocket
-1. At the same level as [Go http](TODO)
-1. Slightly below the level of [Javalin](TODO)
-1. Gives you granular control over routing, state injection (like a db connection pool, request validation, headers, authentication, lifetimes, ...)
-  
+1. At the same level as [Go http](https://pkg.go.dev/net/http)
+1. Slightly below the level of [Javalin](https://javalin.io/)
+1. `Pro`: Gives you granular control over routing, state injection (like a db connection pool, request validation, headers, authentication, lifetimes, ...)
+1. `Con`: `Pin<Box<dyn Future<...>>>`
+1. `Con`: error handling is very hard & complex (even with anyhow & thiserror)
+1. `Pro`: close to the metal
+
 
 # High-level Candidates
 1. Best: [**Rocket**](https://rocket.rs/)
