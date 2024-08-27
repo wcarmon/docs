@@ -11,6 +11,9 @@
     1. Each call to [`.await`](https://doc.rust-lang.org/std/keyword.await.html) within the `async fn` **yield** control back to the thread
         1. The thread may do other work while the operation processes in the background.
 
+1. [`async` block](TODO)
+    1. returns a [`Future`](TODO)
+
 
 # Sync to async
 1. Use existing runtime (eg. either on `#[tokio::main] async fn main` or some `runtime::Builder` on the call stack)
