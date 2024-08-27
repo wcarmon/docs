@@ -33,7 +33,8 @@
 1. Slightly below the level of [Javalin](https://javalin.io/)
 1. `Pro`: Gives you granular control over routing, state injection (like a db connection pool, request validation, headers, authentication, lifetimes, ...)
 1. `Con`: `Pin<Box<dyn Future<...>>>`
-1. `Con`: error handling is very hard & complex (even with anyhow & thiserror)
+1. `Con`: error handling is very hard & complex (even with anyhow)
+1. `Con`: `impl Service<Request<...>>` approach makes it hard to invoke async tasks in handlers
 1. `Pro`: close to the metal
 
 

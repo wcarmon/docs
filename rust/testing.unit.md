@@ -1,10 +1,20 @@
 # Overview
 1. Tips for testing
 
+
 # Assertions
 1. [`assert!`](https://doc.rust-lang.org/std/macro.assert.html)
 1. [`assert_eq!`](https://doc.rust-lang.org/std/macro.assert_eq.html)
 1. [`assert_ne!`](https://doc.rust-lang.org/std/macro.assert_ne.html)
+
+
+# Suggested assertion library
+1. [assert2](https://docs.rs/assert2/latest/assert2/)
+
+
+# Suggested runner library
+1. [cargo-nextest](https://nexte.st/)
+    1. Install: `cargo install cargo-nextest --locked`
 
 
 # Live template candidates
