@@ -112,6 +112,7 @@ fn do_something_dangerous() -> Result<String, anyhow::Error> {
 ## record extra span attributes (after span created)
 
 1. 32 fields/attributes max
+    1. Standard fields/attributes: https://opentelemetry.io/docs/specs/semconv/attributes-registry/http/
 
 - TODO: add attributes using record: https://docs.rs/tracing/latest/tracing/span/struct.Span.html#method.record
 - TODO: must use `tracing::field::Empty`: https://docs.rs/tracing/latest/tracing/#recording-fields
@@ -121,9 +122,10 @@ fn do_something_dangerous() -> Result<String, anyhow::Error> {
 
 ```rust
 info_span!("...", foo = tracing::field::Empty).entered();
+// allocate field `foo`, so we can set later
 ...
 
-Span::current().record("foo", 88);
+Span::current().record("foo", 88); // record field previously allocated
 ```
 
 # Associating logs with spans, adding attributes
