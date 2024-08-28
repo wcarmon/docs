@@ -37,6 +37,7 @@
 1. `Con`: Naturally more framework than library (like spring-web), but unlike spring, Actix allows lower level access
 1. `Con`: [extractors api](https://actix.rs/docs/extractors/) is overly complex
 1. `Con`: Complexity on [middleware factory](https://docs.rs/actix-web/latest/actix_web/middleware/index.html#example), although [`wrap_fn`](https://docs.rs/actix-web/4.4.0/actix_web/struct.App.html#method.wrap_fn) should mitigate
+1. `Con`: `tracing-actix-web` is version locked on an older version
 1. `Con`: Global error handling more complex than Rocket
 1. `Pro`: actively maintained
 1. `Pro`: Extremely well designed
@@ -44,11 +45,11 @@
 1. `Pro`: low level control when you need it
 1. `Pro`: multiple recent books are based on this
 1. `Pro`: Relatively simple global error handling (see [`wrap_fn`](https://docs.rs/actix-web/4.4.0/actix_web/struct.App.html#method.wrap_fn))
-1. `Pro`: trivial to [normalize trailing slashes](https://docs.rs/actix-web/latest/actix_web/middleware/enum.TrailingSlash.html#variant.Trim)
-4. `Pro`: ecosystem is large enough to support things like tracing
 1. `Pro`: Relatively simple request scoped data (see [`req.extensions_mut`](https://docs.rs/actix-web/latest/actix_web/struct.HttpRequest.html#method.extensions_mut) to write and [`web::ReqData`](https://docs.rs/actix-web/latest/actix_web/web/struct.ReqData.html) to read)
 1. `Pro`: Simple [response building](https://docs.rs/actix-web/4.4.0/actix_web/struct.HttpResponseBuilder.html), even with [json](https://docs.rs/actix-web/4.4.0/actix_web/struct.HttpResponseBuilder.html#method.json)
 1. `Pro`: Simple query string parsing (see [this](https://actix.rs/docs/extractors/#query) and [this](https://docs.rs/actix-web/latest/actix_web/web/struct.Query.html#method.from_query))
+1. `Pro`: trivial to [normalize trailing slashes](https://docs.rs/actix-web/latest/actix_web/middleware/enum.TrailingSlash.html#variant.Trim)
+4. `Pro`: ecosystem is large enough to support things like tracing
 
 
 ## [Rocket](https://rocket.rs/v0.5/guide/overview/) (best)
