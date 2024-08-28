@@ -54,6 +54,7 @@
         1. See lots of related tickets open
     1. Things just stop working after a while...
         1. feature: specify type explicitly
+    1. In build panel, file links navigate to the wrong file when name is common (eg. Cargo.toml or main.rs, lib.rs)
 1. Not many jobs (as of 2023), compared to Golang, C++, Java, Python
 1. [Strings are overly complex](./strings.md) compared to Go, Python, Java, ...
     1. But rust strings are simple and safe compared to c & c++

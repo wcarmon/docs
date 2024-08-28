@@ -32,9 +32,10 @@
 1. At the same level as [Go http](https://pkg.go.dev/net/http)
 1. Slightly below the level of [Javalin](https://javalin.io/)
 1. `Pro`: Gives you granular control over routing, state injection (like a db connection pool, request validation, headers, authentication, lifetimes, ...)
+1. `Con`: `impl Service<Request<...>>` approach makes it hard to invoke async tasks in handlers
 1. `Con`: `Pin<Box<dyn Future<...>>>`
 1. `Con`: error handling is very hard & complex (even with anyhow)
-1. `Con`: `impl Service<Request<...>>` approach makes it hard to invoke async tasks in handlers
+1. `Con`: websockets are VERY hard
 1. `Pro`: close to the metal
 
 
@@ -48,13 +49,13 @@
 
 ## [Rocket](https://rocket.rs/v0.5/guide/overview/) (best)
 1. At the level of Spring Web
+1. More declarative than imperative, but so feature rich it rarely matters
 1. `Con`: Faring setup doesn't play well with DI
 1. `Con`: Farings (middleware) are exhausting and framework heavy (too far abstracted from actual behavior)
 1. `Con`: Route annotations only work on functions not on methods (not impl)
 1. `Con`: Seems abandoned
-1. `Pro`: Simplicity is a virtue
-1. `Pro`: Books written about Rocket
 1. `Pro`: [async support](https://rocket.rs/v0.5/guide/overview/#futures-and-async) (as of 0.5)
+1. `Pro`: Books written about Rocket
 1. `Pro`: Custom middleware is intuitive (See [Fairing](https://api.rocket.rs/v0.4/rocket/fairing/trait.Fairing.html) info)
 1. `Pro`: Custom request parsing is intuitive
 1. `Pro`: Excellent documentation
@@ -63,6 +64,7 @@
 1. `Pro`: Flexible [routing options](https://api.rocket.rs/v0.4/rocket/macro.routes.html)
 1. `Pro`: Global error handling via [Catchers](https://rocket.rs/v0.5/guide/requests/#error-catchers)
 1. `Pro`: Request scoped data is easy to read & write (see [`req.local_cache`](https://api.rocket.rs/v0.4/rocket/request/struct.Request.html#method.local_cache))
+1. `Pro`: Simplicity is a virtue
 
 
 ## [Actix](https://actix.rs/) (2nd best)
@@ -86,6 +88,7 @@
 ## [Warp](https://github.com/seanmonstar/warp)
 1. `Con`: Complexity on custom query string parsing (compare to Rocket & Actix)
 1. `Con`: Overly complex code for custom middleware (compare to Rocket & Actix)
+1. `Con`: routing is a messy nested DSL, especially for websockets
 1. `Con`: Some magic required for request scoped data (makes debugging, reasoning harder)
 1. `Pro`: Global error handling not too complex
 1. `Pro`: Recent book written about warp
@@ -103,3 +106,7 @@
 1. `Pro`: Global error handling is not too bad, but less intuitive than alternatives above
 1. `Pro`: Maintained by tokio team
 1. `Pro`: Tracing is a first class use case
+
+
+## [~~poem~~]
+1. `Con`: `poem::middleware::Middleware` is just as painful as hyper (`BoxFuture`, `pin`, `async move`, ...)
