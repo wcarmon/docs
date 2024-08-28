@@ -39,8 +39,8 @@
 
 
 # High-level Candidates
-1. Maybe the best: [**Rocket**](https://rocket.rs/)
-1. Next best: [**Actix**](https://actix.rs/)
+1. Best: [**Actix**](https://actix.rs/)
+1. next best: [**Rocket**](https://rocket.rs/)
 1. [Tide](https://github.com/http-rs/tide)
 1. [Warp](https://github.com/seanmonstar/warp)
 1. ~~Axum~~
@@ -72,6 +72,10 @@
 1. `Con`: Complexity on [middleware factory](https://docs.rs/actix-web/latest/actix_web/middleware/index.html#example), although [`wrap_fn`](https://docs.rs/actix-web/4.4.0/actix_web/struct.App.html#method.wrap_fn) should mitigate
 1. `Con`: Global error handling more complex than Rocket
 1. `Pro`: Flexible [routing options](https://actix.rs/docs/url-dispatch/)
+1. `Pro`: Extremely well designed
+1. `Pro`: actively maintained
+1. `Pro`: low level control when you need it
+4. `Pro`: ecosystem is large enough to support things like tracing 
 1. `Pro`: multiple recent books are based on this
 1. `Pro`: Relatively simple global error handling (see [`wrap_fn`](https://docs.rs/actix-web/4.4.0/actix_web/struct.App.html#method.wrap_fn))
 1. `Pro`: Relatively simple request scoped data (see [`req.extensions_mut`](https://docs.rs/actix-web/latest/actix_web/struct.HttpRequest.html#method.extensions_mut) to write and [`web::ReqData`](https://docs.rs/actix-web/latest/actix_web/web/struct.ReqData.html) to read)
