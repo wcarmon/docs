@@ -24,27 +24,30 @@
 1. Some control over how requests are multiplexed across OS threads
 
 
-# Low level
-## [Hyper](https://hyper.rs/)
-1. Very Low-level, most high-level libs are based on this
-    1. Warp
-    1. Rocket
-1. At the same level as [Go http](https://pkg.go.dev/net/http)
-1. Slightly below the level of [Javalin](https://javalin.io/)
-1. `Pro`: Gives you granular control over routing, state injection (like a db connection pool, request validation, headers, authentication, lifetimes, ...)
-1. `Con`: `impl Service<Request<...>>` approach makes it hard to invoke async tasks in handlers
-1. `Con`: `Pin<Box<dyn Future<...>>>`
-1. `Con`: error handling is very hard & complex (even with anyhow)
-1. `Con`: websockets are VERY hard
-1. `Pro`: close to the metal
-
-
 # High-level Candidates
 1. Best: [**Actix**](https://actix.rs/)
 1. next best: [**Rocket**](https://rocket.rs/)
 1. [Tide](https://github.com/http-rs/tide)
 1. [Warp](https://github.com/seanmonstar/warp)
 1. ~~Axum~~
+
+
+## [Actix](https://actix.rs/) (2nd best)
+1. `Con`: Documentation doesn't highlight how good the library is.  Docs focus too much on "magic" features.
+1. `Con`: Naturally more framework than library (like spring-web), but unlike spring, Actix allows lower level access
+1. `Con`: [extractors api](https://actix.rs/docs/extractors/) is overly complex
+1. `Con`: Complexity on [middleware factory](https://docs.rs/actix-web/latest/actix_web/middleware/index.html#example), although [`wrap_fn`](https://docs.rs/actix-web/4.4.0/actix_web/struct.App.html#method.wrap_fn) should mitigate
+1. `Con`: Global error handling more complex than Rocket
+1. `Pro`: Flexible [routing options](https://actix.rs/docs/url-dispatch/)
+1. `Pro`: Extremely well designed
+1. `Pro`: actively maintained
+1. `Pro`: low level control when you need it
+4. `Pro`: ecosystem is large enough to support things like tracing 
+1. `Pro`: multiple recent books are based on this
+1. `Pro`: Relatively simple global error handling (see [`wrap_fn`](https://docs.rs/actix-web/4.4.0/actix_web/struct.App.html#method.wrap_fn))
+1. `Pro`: Relatively simple request scoped data (see [`req.extensions_mut`](https://docs.rs/actix-web/latest/actix_web/struct.HttpRequest.html#method.extensions_mut) to write and [`web::ReqData`](https://docs.rs/actix-web/latest/actix_web/web/struct.ReqData.html) to read)
+1. `Pro`: Simple [response building](https://docs.rs/actix-web/4.4.0/actix_web/struct.HttpResponseBuilder.html), even with [json](https://docs.rs/actix-web/4.4.0/actix_web/struct.HttpResponseBuilder.html#method.json)
+1. `Pro`: Simple query string parsing (see [this](https://actix.rs/docs/extractors/#query) and [this](https://docs.rs/actix-web/latest/actix_web/web/struct.Query.html#method.from_query))
 
 
 ## [Rocket](https://rocket.rs/v0.5/guide/overview/) (best)
@@ -67,24 +70,6 @@
 1. `Pro`: Simplicity is a virtue
 
 
-## [Actix](https://actix.rs/) (2nd best)
-1. `Con`: Documentation doesn't highlight how good the library is.  Docs focus too much on "magic" features.
-1. `Con`: Naturally more framework than library (like spring-web), but unlike spring, Actix allows lower level access
-1. `Con`: [extractors api](https://actix.rs/docs/extractors/) is overly complex
-1. `Con`: Complexity on [middleware factory](https://docs.rs/actix-web/latest/actix_web/middleware/index.html#example), although [`wrap_fn`](https://docs.rs/actix-web/4.4.0/actix_web/struct.App.html#method.wrap_fn) should mitigate
-1. `Con`: Global error handling more complex than Rocket
-1. `Pro`: Flexible [routing options](https://actix.rs/docs/url-dispatch/)
-1. `Pro`: Extremely well designed
-1. `Pro`: actively maintained
-1. `Pro`: low level control when you need it
-4. `Pro`: ecosystem is large enough to support things like tracing 
-1. `Pro`: multiple recent books are based on this
-1. `Pro`: Relatively simple global error handling (see [`wrap_fn`](https://docs.rs/actix-web/4.4.0/actix_web/struct.App.html#method.wrap_fn))
-1. `Pro`: Relatively simple request scoped data (see [`req.extensions_mut`](https://docs.rs/actix-web/latest/actix_web/struct.HttpRequest.html#method.extensions_mut) to write and [`web::ReqData`](https://docs.rs/actix-web/latest/actix_web/web/struct.ReqData.html) to read)
-1. `Pro`: Simple [response building](https://docs.rs/actix-web/4.4.0/actix_web/struct.HttpResponseBuilder.html), even with [json](https://docs.rs/actix-web/4.4.0/actix_web/struct.HttpResponseBuilder.html#method.json)
-1. `Pro`: Simple query string parsing (see [this](https://actix.rs/docs/extractors/#query) and [this](https://docs.rs/actix-web/latest/actix_web/web/struct.Query.html#method.from_query))
-
-
 ## [Tide](https://github.com/http-rs/tide)
 1. `Con`: Not as mature as alternatives above
 
@@ -96,6 +81,10 @@
 1. `Con`: Some magic required for request scoped data (makes debugging, reasoning harder)
 1. `Pro`: Global error handling not too complex
 1. `Pro`: Recent book written about warp
+
+
+## [~~poem~~]
+1. `Con`: `poem::middleware::Middleware` is just as painful as hyper (`BoxFuture`, `pin`, `async move`, ...)
 
 
 ## [~~Axum~~](https://docs.rs/axum/latest/axum/)
@@ -112,5 +101,18 @@
 1. `Pro`: Tracing is a first class use case
 
 
-## [~~poem~~]
-1. `Con`: `poem::middleware::Middleware` is just as painful as hyper (`BoxFuture`, `pin`, `async move`, ...)
+# Low level
+## [Hyper](https://hyper.rs/)
+1. Very Low-level, most high-level libs are based on this
+    1. Warp
+    1. Rocket
+1. At the same level as [Go http](https://pkg.go.dev/net/http)
+1. Slightly below the level of [Javalin](https://javalin.io/)
+1. `Pro`: Gives you granular control over routing, state injection (like a db connection pool, request validation, headers, authentication, lifetimes, ...)
+1. `Con`: Managing ownership is hard
+1. `Con`: `impl Service<Request<...>>` approach makes it hard to invoke async tasks in handlers
+1. `Con`: `Pin<Box<dyn Future<...>>>`
+1. `Con`: error handling is very hard & complex (even with anyhow)
+1. `Con`: websockets are VERY hard
+1. `Pro`: close to the metal
+
