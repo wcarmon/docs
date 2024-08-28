@@ -38,13 +38,14 @@
 1. `Con`: [extractors api](https://actix.rs/docs/extractors/) is overly complex
 1. `Con`: Complexity on [middleware factory](https://docs.rs/actix-web/latest/actix_web/middleware/index.html#example), although [`wrap_fn`](https://docs.rs/actix-web/4.4.0/actix_web/struct.App.html#method.wrap_fn) should mitigate
 1. `Con`: Global error handling more complex than Rocket
-1. `Pro`: Flexible [routing options](https://actix.rs/docs/url-dispatch/)
-1. `Pro`: Extremely well designed
 1. `Pro`: actively maintained
+1. `Pro`: Extremely well designed
+1. `Pro`: Flexible [routing options](https://actix.rs/docs/url-dispatch/)
 1. `Pro`: low level control when you need it
-4. `Pro`: ecosystem is large enough to support things like tracing 
 1. `Pro`: multiple recent books are based on this
 1. `Pro`: Relatively simple global error handling (see [`wrap_fn`](https://docs.rs/actix-web/4.4.0/actix_web/struct.App.html#method.wrap_fn))
+1. `Pro`: trivial to [normalize trailing slashes](https://docs.rs/actix-web/latest/actix_web/middleware/enum.TrailingSlash.html#variant.Trim)
+4. `Pro`: ecosystem is large enough to support things like tracing
 1. `Pro`: Relatively simple request scoped data (see [`req.extensions_mut`](https://docs.rs/actix-web/latest/actix_web/struct.HttpRequest.html#method.extensions_mut) to write and [`web::ReqData`](https://docs.rs/actix-web/latest/actix_web/web/struct.ReqData.html) to read)
 1. `Pro`: Simple [response building](https://docs.rs/actix-web/4.4.0/actix_web/struct.HttpResponseBuilder.html), even with [json](https://docs.rs/actix-web/4.4.0/actix_web/struct.HttpResponseBuilder.html#method.json)
 1. `Pro`: Simple query string parsing (see [this](https://actix.rs/docs/extractors/#query) and [this](https://docs.rs/actix-web/latest/actix_web/web/struct.Query.html#method.from_query))
@@ -53,10 +54,10 @@
 ## [Rocket](https://rocket.rs/v0.5/guide/overview/) (best)
 1. At the level of Spring Web
 1. More declarative than imperative, but so feature rich it rarely matters
+1. `Con`: Seems abandoned
 1. `Con`: Faring setup doesn't play well with DI
 1. `Con`: Farings (middleware) are exhausting and framework heavy (too far abstracted from actual behavior)
 1. `Con`: Route annotations only work on functions not on methods (not impl)
-1. `Con`: Seems abandoned
 1. `Pro`: [async support](https://rocket.rs/v0.5/guide/overview/#futures-and-async) (as of 0.5)
 1. `Pro`: Books written about Rocket
 1. `Pro`: Custom middleware is intuitive (See [Fairing](https://api.rocket.rs/v0.4/rocket/fairing/trait.Fairing.html) info)
