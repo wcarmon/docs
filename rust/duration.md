@@ -206,6 +206,10 @@ tokio::time::sleep(d);
 1. Standard lib might require `#![feature(duration_constructors)]` and `#![feature(duration_abs_diff)]`
 
 
+# Serde
+1. TODO: TimeDelta -> millis
+
+
 # Comparison to Java
 |[Rust (chrono)](https://docs.rs/chrono/latest/chrono)|Rust (std)|Java|
 |---|---|---|

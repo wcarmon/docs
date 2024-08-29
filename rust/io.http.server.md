@@ -34,12 +34,13 @@
 
 ## [Actix](https://actix.rs/) (2nd best)
 1. `Con`: Documentation doesn't highlight how good the library is.  Docs focus too much on "magic" features.
-1. `Con`: Naturally more framework than library (like spring-web), but unlike spring, Actix allows lower level access
 1. `Con`: [extractors api](https://actix.rs/docs/extractors/) is overly complex
-1. `Con`: Complexity on [middleware factory](https://docs.rs/actix-web/latest/actix_web/middleware/index.html#example), although [`wrap_fn`](https://docs.rs/actix-web/4.4.0/actix_web/struct.App.html#method.wrap_fn) should mitigate
 1. `Con`: `tracing-actix-web` is version locked on an older version
+1. `Con`: Complexity on [middleware factory](https://docs.rs/actix-web/latest/actix_web/middleware/index.html#example), although [`wrap_fn`](https://docs.rs/actix-web/4.4.0/actix_web/struct.App.html#method.wrap_fn) should mitigate
 1. `Con`: Global error handling more complex than Rocket
-1. `Pro`: actively maintained
+1. `Con`: Naturally more framework than library (like spring-web), but unlike spring, Actix allows lower level access
+1. `Pro`: Actively maintained
+1. `Pro`: Allows you to get "under" the framework in key places (eg. raw handler params)
 1. `Pro`: Extremely well designed
 1. `Pro`: Flexible [routing options](https://actix.rs/docs/url-dispatch/)
 1. `Pro`: low level control when you need it
