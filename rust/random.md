@@ -20,7 +20,7 @@
 |[`cksac/fake-rs`](https://crates.io/crates/fake)|[`DiUS/Faker`](https://github.com/DiUS/java-faker)|
 
 
-# Fake data
+# Generating Fake data
 1. See also: [`fake` crate](https://crates.io/crates/fake)
 ```rust
 use fake::faker::color::en::*
@@ -37,7 +37,7 @@ use fake::{Fake, Faker};
 
 |Data Type|Generate|
 |---|---|
-|[`bool`](https://doc.rust-lang.org/std/primitive.bool.html)|`rng.gen_bool(0.5)`|
+|[`bool`](https://doc.rust-lang.org/std/primitive.bool.html)|[`rng.gen_bool(0.5)`](https://rust-random.github.io/rand/rand/trait.Rng.html#method.gen_bool)|
 |[`chrono::DateTime<Utc>`](TODO)|`TODO`|
 |[`chrono::NaiveDate`](TODO)|`TODO`|
 |[`chrono::NaiveTime`](TODO)|`TODO`|
@@ -49,8 +49,8 @@ use fake::{Fake, Faker};
 |[`HashSet<String>`](TODO)|`TODO`|
 |[`HashSet<u64>`](TODO)|`TODO`|
 |[`rust_decimal::Decimal`](TODO)|`TODO`|
-|[email](https://en.wikipedia.org/wiki/Email_address)|`SafeEmail().fake()`|
-|[uuid](https://docs.rs/uuid/latest/uuid/)|`uuid::Uuid::new_v4()`|
+|[email](https://en.wikipedia.org/wiki/Email_address)|[`SafeEmail().fake()`](https://github.com/cksac/fake-rs/blob/master/fake/src/faker/impls/internet.rs#L46)|
+|[uuid](https://docs.rs/uuid/latest/uuid/)|[`uuid::Uuid::new_v4()`](https://docs.rs/uuid/latest/uuid/struct.Uuid.html#method.new_v4)|
 |`i128`|`TODO`|
 |`i16`|`TODO`|
 |`i32`|`TODO`|
