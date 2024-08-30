@@ -468,14 +468,21 @@ let chrono_ts: DateTime<Utc> = SystemTime::now().into();
 # Serde
 
 ## chrono
+1. Use the official [serde modules](https://docs.rs/chrono/latest/chrono/serde/index.html#modules)
+    1. Serializer is basically `serializer.serialize_i64(ts.timestamp_millis())`
+    1. Deserializer is basically `DateTime::from_timestamp_millis(i64::deserialize(deserializer)?).ok_or_else(...)`
 ```rust
-//TODO
+pub struct Example1 {
+    //TODO
+}
 ```
 
 
 ## `std::time`
 ```rust
-//TODO
+pub struct Example2 {
+    //TODO
+}
 ```
 
 
