@@ -12,6 +12,9 @@
     1. Java equivalent: [`OffsetDateTime`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/OffsetDateTime.html)
     1. Rust time-rs crate: [`OffsetDateTime`](https://docs.rs/time/latest/time/struct.OffsetDateTime.html)
 1. [`chrono_tz`](https://github.com/chronotope/chrono-tz/) helps with more advanced timezone cases
+1. ~~`std::time::SystemTime`~~ is the closest concept.
+    1. SOOO painful to use (comparing to nearest millis, serde, handling pre-epoch times, etc)
+    1. Avoid if possible, use `chrono::DateTime<Utc>` instead
 
 
 ## Without Timezone
