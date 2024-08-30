@@ -468,12 +468,17 @@ let chrono_ts: DateTime<Utc> = SystemTime::now().into();
 # Serde
 
 ## chrono
-1. Use the official [serde modules](https://docs.rs/chrono/latest/chrono/serde/index.html#modules) (eg. [`ts_milliseconds`](https://docs.rs/chrono/latest/chrono/serde/ts_milliseconds/index.html) or [`ts_milliseconds_option`](https://docs.rs/chrono/latest/chrono/serde/ts_milliseconds_option/index.html))
+1. Use the [official serde modules](https://docs.rs/chrono/latest/chrono/serde/index.html#modules) (eg. [`ts_milliseconds`](https://docs.rs/chrono/latest/chrono/serde/ts_milliseconds/index.html) or [`ts_milliseconds_option`](https://docs.rs/chrono/latest/chrono/serde/ts_milliseconds_option/index.html))
     1. Serializer is basically `serializer.serialize_i64(ts.timestamp_millis())`
     1. Deserializer is basically `DateTime::from_timestamp_millis(i64::deserialize(deserializer)?).ok_or_else(...)`
 ```rust
 pub struct Example1 {
-    //TODO
+
+    #[serde(with = "chrono::serde::ts_milliseconds")]
+    pub chrono_ts: DateTime<Utc>,
+
+    #[serde(with = "chrono::serde::ts_milliseconds_option")]
+    pub maybe_ts: Option<DateTime<Utc>>,
 }
 ```
 
@@ -481,7 +486,9 @@ pub struct Example1 {
 ## `std::time`
 ```rust
 pub struct Example2 {
-    //TODO
+
+    #[serde(with = "crate::std_system_time_epoch_millis")]
+    pub sys_ts: SystemTime,
 }
 ```
 
