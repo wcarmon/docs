@@ -83,7 +83,11 @@
 
 # Postgres
 
-1. TODO
+1. [`tokio_postgres`](https://docs.rs/tokio-postgres/latest/tokio_postgres/)
+
+# DB Connection pool
+
+1. [`deadpool-postgres`](https://crates.io/crates/deadpool-postgres)
 
 # Protocol buffers
 
