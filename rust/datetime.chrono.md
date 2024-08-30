@@ -484,6 +484,7 @@ pub struct Example1 {
 
 
 ## `std::time`
+1. See [my serde module examples](./serde/std_time_systime.rs)
 ```rust
 pub struct Example2 {
 

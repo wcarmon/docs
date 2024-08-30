@@ -209,7 +209,7 @@ tokio::time::sleep(d);
 # Serde
 
 ## chrono
-1. See [serde module examples](./serde/chrono_timedelta.rs)
+1. See [my serde module examples](./serde/chrono_timedelta.rs)
 ```rust
 pub struct Foo {
 
@@ -222,7 +222,7 @@ pub struct Foo {
 ```
 
 ## `std::time`
-1. See [serde module examples](./serde/std_time_duration.rs)
+1. See [my serde module examples](./serde/std_time_duration.rs)
 ```rust
 pub struct Bar {
 
