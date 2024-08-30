@@ -59,11 +59,12 @@ use fake::{Fake, Faker};
 |`Option<f64>`|`TODO`|
 |`Option<i64>`|`TODO`|
 |`Option<u64>`|`TODO`|
-|`PathBuf`|`TODO`|
+|[`PathBuf`](https://doc.rust-lang.org/std/path/struct.PathBuf.html)|`TODO`|
 |`String` with specific chars|`TODO`|
 |`u128`|`TODO`|
 |`u16`|`TODO`|
 |`u32`|`TODO`|
+|`u64`|`TODO`|
 |`u8`|`TODO`|
 |`Vec<char>`|`TODO`|
 |`Vec<f64>`|`TODO`|
@@ -73,7 +74,6 @@ use fake::{Fake, Faker};
 |Hex color (eg. `#00aacc`)|`HexColor().fake::<String>()`|
 |Human Name|`Name(EN).fake()`|
 |TCP Port|`TODO`|
-|u64|`TODO`|
 |Words|`Words(0..max_items).fake::<Vec<String>>().into_iter().collect()`|
 |~~`std::time::Duration`~~ (prefer `chrono::TimeDelta`)|TODO|
 |~~`std::time::SystemTime`~~ (prefer `chrono::DateTime<Utc>`)|TODO|
