@@ -172,11 +172,18 @@ TODO
 ```
 1. `std::time`
 ```rust
-    let ts = ...
-    let epoch_millis = ts
-        .duration_since(UNIX_EPOCH)
-        .expect("failed to get epoch millis")
-        .as_millis();
+    let ts: std::time::SystemTime = ...
+
+    let epoch_millis = if ts >= UNIX_EPOCH {
+        ts.duration_since(UNIX_EPOCH)
+            .context("failed to diff two std::time::SystemTimes")?
+            .as_millis() as i64
+    } else {
+        // -- GOTCHA: duration_since only works for post epoch times, so we must flip
+        -1 * UNIX_EPOCH.duration_since(ts)
+            .context("failed to diff two std::time::SystemTimes")?
+            .as_millis() as i64
+    };
 ```
 
 
