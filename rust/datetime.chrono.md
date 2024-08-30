@@ -185,6 +185,7 @@ TODO
             .as_millis() as i64
     };
 ```
+- See https://doc.rust-lang.org/std/time/struct.SystemTime.html#method.duration_since
 
 
 # Convert to Epoch seconds
