@@ -225,7 +225,8 @@ pub struct Foo {
 1. See [serde module examples](./serde/std_time_duration.rs)
 ```rust
 pub struct Bar {
-    // TODO: more here
+    #[serde(with = "crate::std_duration_millis")]
+    pub std_dur: std::time::Duration,
 }
 ```
 
