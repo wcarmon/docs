@@ -145,7 +145,7 @@
     1. More helpful color failure messages
 1. [`speculoos`](https://github.com/oknozor/speculoos) like hamcrest
     1. More ergonomic code, slightly less helpful failure messages
-
+    1. Has `FloatAssertions`, like [`is_close_to`](https://docs.rs/speculoos/latest/speculoos/numeric/trait.FloatAssertions.html#tymethod.is_close_to)
 
 # Test / Fake data
 
