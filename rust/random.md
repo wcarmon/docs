@@ -32,17 +32,35 @@ use fake::{Fake, Faker};
 // ...
 
     let mut rng = rand::thread_rng();
-
-    // ...
 ```
 
-|Data type|Generate|
+|Data Type|Generate|
 |---|---|
-|`bool`|`rng.gen_bool(0.5)`|
-|email|`SafeEmail().fake()`|
+|[`bool`](https://doc.rust-lang.org/std/primitive.bool.html)|`rng.gen_bool(0.5)`|
+|[email](https://en.wikipedia.org/wiki/Email_address)|`SafeEmail().fake()`|
 |Human Name|`Name(EN).fake()`|
-|uuid|`uuid::Uuid::new_v4()`|
+|[uuid](https://docs.rs/uuid/latest/uuid/)|`uuid::Uuid::new_v4()`|
 |Words|`Words(0..max_items).fake::<Vec<String>>().into_iter().collect()`|
+|[`chrono::DateTime<Utc>`](TODO)|`TODO`|
+|[`chrono::NaiveDate`](TODO)|`TODO`|
+|[`chrono::NaiveTime`](TODO)|`TODO`|
+|[`rust_decimal::Decimal`](TODO)|`TODO`|
+|~~`std::time::SystemTime`~~ (prefer `chrono::DateTime<Utc>`)||
+|`f32`|`TODO`|
+|`f64`|`TODO`|
+|`i128`|`TODO`|
+|`i16`|`TODO`|
+|`i32`|`TODO`|
+|`i64`|`TODO`|
+|`i8`|`TODO`|
+|`u128`|`TODO`|
+|`u16`|`TODO`|
+|`u32`|`TODO`|
+|`u8`|`TODO`|
+|`Vec<char>`|`TODO`|
+|`Vec<u8>`|`TODO`|
+|TCP Port|`TODO`|
+|u64|`TODO`|
 |TODO|`TODO`|
 
 
