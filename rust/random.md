@@ -75,8 +75,8 @@ use fake::{Fake, Faker};
 |Human Name|`Name(EN).fake()`|
 |TCP Port|`TODO`|
 |Words|`Words(0..max_items).fake::<Vec<String>>().into_iter().collect()`|
-|~~`std::time::Duration`~~ (prefer `chrono::TimeDelta`)|TODO|
-|~~`std::time::SystemTime`~~ (prefer `chrono::DateTime<Utc>`)|TODO|
+|~~`std::time::Duration`~~ <br/>(prefer `chrono::TimeDelta`)|TODO|
+|~~`std::time::SystemTime`~~ <br/>(prefer `chrono::DateTime<Utc>`)|TODO|
 
 
 # Other Resources
