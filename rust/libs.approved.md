@@ -28,11 +28,12 @@
 
 # DateTime
 
-1. TODO
+1. chrono
 
 # Error handling
 
-1. TODO
+1. thiserror (switch to this before you go live)
+2. anyhow (quick & dirty, rapid prototype)
 
 # gRPC
 
@@ -48,11 +49,12 @@
 
 # HTTP Server
 
-1. TODO
+1. actix-web
 
 # IDE
 
-1. TODO
+1. CLion
+2. VSCode
 
 # JWT
 
@@ -70,15 +72,15 @@
 
 # Observability / Structured Logging
 
-1. TODO
+1. tracing
 
 # Observability / Tracing
 
-1. TODO
+1. tracing
 
 # Protocol buffers
 
-1. TODO
+1. prost
 
 # Random
 
@@ -115,8 +117,9 @@
 
 # Test / Assertions
 
+1. assert2
 1. https://github.com/oknozor/speculoos
 
 # Test / Fake data
 
-1. TODO
+1. [fake](https://docs.rs/fake/latest/fake/)
