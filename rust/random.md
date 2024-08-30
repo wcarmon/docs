@@ -30,8 +30,7 @@ use fake::faker::phone_number::en::PhoneNumber;
 use fake::locales::EN;
 use fake::{Fake, Faker};
 
-// ...
-
+    // ...
     let mut rng = rand::thread_rng();
 ```
 
