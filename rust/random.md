@@ -37,30 +37,42 @@ use fake::{Fake, Faker};
 |Data Type|Generate|
 |---|---|
 |[`bool`](https://doc.rust-lang.org/std/primitive.bool.html)|`rng.gen_bool(0.5)`|
-|[email](https://en.wikipedia.org/wiki/Email_address)|`SafeEmail().fake()`|
-|Human Name|`Name(EN).fake()`|
-|[uuid](https://docs.rs/uuid/latest/uuid/)|`uuid::Uuid::new_v4()`|
-|Words|`Words(0..max_items).fake::<Vec<String>>().into_iter().collect()`|
 |[`chrono::DateTime<Utc>`](TODO)|`TODO`|
 |[`chrono::NaiveDate`](TODO)|`TODO`|
 |[`chrono::NaiveTime`](TODO)|`TODO`|
+|[`f32`](TODO)|`TODO`|
+|[`f64`](TODO)|`TODO`|
+|[`HashSet<f64>`](TODO)|`TODO`|
+|[`HashSet<i64>`](TODO)|`TODO`|
+|[`HashSet<String>`](TODO)|`TODO`|
+|[`HashSet<u64>`](TODO)|`TODO`|
 |[`rust_decimal::Decimal`](TODO)|`TODO`|
-|~~`std::time::SystemTime`~~ (prefer `chrono::DateTime<Utc>`)||
-|`f32`|`TODO`|
-|`f64`|`TODO`|
+|[email](https://en.wikipedia.org/wiki/Email_address)|`SafeEmail().fake()`|
+|[uuid](https://docs.rs/uuid/latest/uuid/)|`uuid::Uuid::new_v4()`|
 |`i128`|`TODO`|
 |`i16`|`TODO`|
 |`i32`|`TODO`|
 |`i64`|`TODO`|
 |`i8`|`TODO`|
+|`Option<f64>`|`TODO`|
+|`Option<i64>`|`TODO`|
+|`Option<u64>`|`TODO`|
+|`PathBuf`|`TODO`|
 |`u128`|`TODO`|
 |`u16`|`TODO`|
 |`u32`|`TODO`|
 |`u8`|`TODO`|
 |`Vec<char>`|`TODO`|
+|`Vec<f64>`|`TODO`|
+|`Vec<i64>`|`TODO`|
+|`Vec<u64>`|`TODO`|
 |`Vec<u8>`|`TODO`|
+|Human Name|`Name(EN).fake()`|
+|Words|`Words(0..max_items).fake::<Vec<String>>().into_iter().collect()`|
+|~~`std::time::SystemTime`~~ (prefer `chrono::DateTime<Utc>`)||
 |TCP Port|`TODO`|
 |u64|`TODO`|
+|`String` with specific chars|`TODO`|
 |TODO|`TODO`|
 
 
