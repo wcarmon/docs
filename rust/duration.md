@@ -207,7 +207,27 @@ tokio::time::sleep(d);
 
 
 # Serde
-1. TODO: TimeDelta -> millis
+
+## chrono
+1. See [serde module examples](./serde/chrono_timedelta.rs)
+```rust
+pub struct Foo {
+
+    #[serde(with = "crate::chrono_timedelta_millis")]
+    pub dur: chrono::TimeDelta,
+
+    #[serde(with = "crate::chrono_timedelta_millis_opt")]
+    pub maybe_dur: Option<chrono::TimeDelta>,
+}
+```
+
+## `std::time`
+1. See [serde module examples](./serde/std_time_duration.rs)
+```rust
+pub struct Bar {
+    // TODO: more here
+}
+```
 
 
 # Comparison to Java

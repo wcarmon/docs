@@ -142,7 +142,10 @@
 # Test / Assertions
 
 1. [`assert2`](https://docs.rs/assert2/latest/assert2/)
+    1. More helpful color failure messages
 1. [`speculoos`](https://github.com/oknozor/speculoos) like hamcrest
+    1. More ergonomic code, slightly less helpful failure messages
+
 
 # Test / Fake data
 
