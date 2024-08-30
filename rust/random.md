@@ -22,7 +22,29 @@
 
 # Fake data
 
-- TODO
+```rust
+use fake::faker::internet::en::SafeEmail;
+use fake::faker::lorem::en::*;
+use fake::faker::phone_number::en::PhoneNumber;
+use fake::locales::EN;
+use fake::{Fake, Faker};
+
+// ...
+
+    let mut rng = rand::thread_rng();
+
+    // ...
+```
+
+|Data type|Generate|
+|---|---|
+|`bool`|`rng.gen_bool(0.5)`|
+|email|`SafeEmail().fake()`|
+|Human Name|`Name(EN).fake()`|
+|uuid|`uuid::Uuid::new_v4()`|
+|Words|`Words(0..max_items).fake::<Vec<String>>().into_iter().collect()`|
+|TODO|`TODO`|
+
 
 
 # Other Resources
