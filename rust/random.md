@@ -23,7 +23,8 @@
 # Fake data
 1. See also: [`fake` crate](https://crates.io/crates/fake)
 ```rust
-use fake::faker::internet::en::SafeEmail;
+use fake::faker::color::en::*
+use fake::faker::internet::en::*;
 use fake::faker::lorem::en::*;
 use fake::faker::phone_number::en::PhoneNumber;
 use fake::locales::EN;
@@ -70,6 +71,7 @@ use fake::{Fake, Faker};
 |`Vec<i64>`|`TODO`|
 |`Vec<u64>`|`TODO`|
 |`Vec<u8>`|`TODO`|
+|Hex color (eg. `#00aacc`)|`HexColor().fake::<String>()`|
 |Human Name|`Name(EN).fake()`|
 |TCP Port|`TODO`|
 |u64|`TODO`|
