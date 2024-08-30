@@ -180,7 +180,7 @@ TODO
             .as_millis() as i64
     } else {
         // -- GOTCHA: duration_since only works for post epoch times, so we must flip
-        -1 * UNIX_EPOCH.duration_since(ts)
+        -1 * UNIX_EPOCH.duration_since(*ts)
             .context("failed to diff two std::time::SystemTimes")?
             .as_millis() as i64
     };

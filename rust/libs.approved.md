@@ -5,39 +5,41 @@
 
 # Criteria
 
-1. Docs
+1. Well documented
 1. Friendly license
-1. Idiomatic rust
-1. Minimal deps
-1. Tests
+1. Idiomatic/Ergonomic Rust
+1. Minimal dependencies
+1. "Simple enough"
+1. Do one thing, do it well
+1. "Enough" Tests
 1. Alive/Active (unless mature and feature complete)
-1. N-1 edition or newer (2018, 2021)
+1. Recent Rust edition or newer (eg. 2021)
+
+# DateTime
+
+1. [chrono](https://docs.rs/chrono/latest/chrono/)
+
+# Error handling
+
+1. [thiserror](https://docs.rs/thiserror/latest/thiserror/) - Use: mature, robust, production-ready code
+1. [anyhow](https://docs.rs/anyhow/latest/anyhow/) - Use: quick & dirty, rapid prototype, created by the same author/team as `thiserror`
 
 # Async IO
 
-1. https://github.com/tokio-rs/tokio
+1. [tokio](https://github.com/tokio-rs/tokio)
 
 # Concurrency (CPU, Data parallelism)
 
-1. High-level: https://github.com/rayon-rs/rayon
-1. Low-level: https://github.com/crossbeam-rs/crossbeam
+1. High-level: [rayon](https://github.com/rayon-rs/rayon)
+1. Low-level: [crossbeam](https://github.com/crossbeam-rs/crossbeam)
 
 # DI
 
 1. TODO
 
-# DateTime
+# Random
 
-1. chrono
-
-# Error handling
-
-1. thiserror (switch to this before you go live)
-2. anyhow (quick & dirty, rapid prototype)
-
-# gRPC
-
-1. TODO
+1. https://github.com/rust-random/rand
 
 # Hashing
 
@@ -45,11 +47,12 @@
 
 # HTTP Client
 
-1. https://github.com/seanmonstar/reqwest
+1. [reqwest](https://docs.rs/reqwest/latest/reqwest/)
 
 # HTTP Server
 
-1. actix-web
+1. [actix-web](https://actix.rs/)
+    1. [Why?](./io.http.server.md)
 
 # IDE
 
@@ -58,7 +61,7 @@
 
 # JWT
 
-1. TODO
+1. [jsonwebtoken](https://docs.rs/jsonwebtoken/latest/jsonwebtoken/)
 
 # Macro dev
 
@@ -72,19 +75,27 @@
 
 # Observability / Structured Logging
 
-1. tracing
+1. [tracing](https://github.com/tokio-rs/tracing)
 
 # Observability / Tracing
 
-1. tracing
+1. [tracing](https://github.com/tokio-rs/tracing)
+
+# Postgres
+
+1. TODO
 
 # Protocol buffers
 
-1. prost
+1. [prost](https://github.com/tokio-rs/prost)
 
-# Random
+# gRPC
 
-1. https://github.com/rust-random/rand
+1. TODO
+
+# Kafka
+
+1. TODO
 
 # Retry
 
@@ -108,17 +119,22 @@
 
 # Serde / Yaml
 
-1. https://serde.rs
+1. not well supported
 
 # String / Case conversion
 
 1. https://github.com/cmoncrief/rust-morph
 1. https://github.com/withoutboats/heck
 
+
+# Big
+1. [num_bigfloat](https://docs.rs/num-bigfloat/latest/num_bigfloat/index.html)
+    1. ergonomic, well documented, tests, ...
+
 # Test / Assertions
 
-1. assert2
-1. https://github.com/oknozor/speculoos
+1. [assert2](https://docs.rs/assert2/latest/assert2/)
+1. [speculoos](https://github.com/oknozor/speculoos) like hamcrest
 
 # Test / Fake data
 
