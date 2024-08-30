@@ -123,19 +123,23 @@
 
 # String / Case conversion
 
-1. https://github.com/cmoncrief/rust-morph
-1. https://github.com/withoutboats/heck
+1. TODO: https://github.com/cmoncrief/rust-morph
+1. TODO: https://github.com/withoutboats/heck
 
 
 # Big
-1. [num_bigfloat](https://docs.rs/num-bigfloat/latest/num_bigfloat/index.html)
+1. [`num_bigfloat`](https://docs.rs/num-bigfloat/latest/num_bigfloat/index.html)
     1. ergonomic, well documented, tests, ...
+- TODO: evaluate https://docs.rs/rust_decimal/latest/rust_decimal/  (probably good enough)
+- TODO: evaluate https://github.com/akubera/bigdecimal-rs
+- Rejected: ~~`num-rational`~~
+
 
 # Test / Assertions
 
-1. [assert2](https://docs.rs/assert2/latest/assert2/)
-1. [speculoos](https://github.com/oknozor/speculoos) like hamcrest
+1. [`assert2`](https://docs.rs/assert2/latest/assert2/)
+1. [`speculoos`](https://github.com/oknozor/speculoos) like hamcrest
 
 # Test / Fake data
 
-1. [fake](https://docs.rs/fake/latest/fake/)
+1. [`fake`](https://docs.rs/fake/latest/fake/)
