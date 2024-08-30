@@ -213,10 +213,10 @@ tokio::time::sleep(d);
 ```rust
 pub struct Foo {
 
-    #[serde(with = "crate::chrono_timedelta_millis")]
+    #[serde(with = "crate::timedelta_milliseconds")]
     pub dur: chrono::TimeDelta,
 
-    #[serde(with = "crate::chrono_timedelta_millis_opt")]
+    #[serde(with = "crate::timedelta_milliseconds_opt")]
     pub maybe_dur: Option<chrono::TimeDelta>,
 }
 ```
@@ -225,6 +225,7 @@ pub struct Foo {
 1. See [serde module examples](./serde/std_time_duration.rs)
 ```rust
 pub struct Bar {
+
     #[serde(with = "crate::std_duration_millis")]
     pub std_dur: std::time::Duration,
 }
