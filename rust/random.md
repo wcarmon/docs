@@ -21,7 +21,7 @@
 
 
 # Fake data
-
+1. See also: [`fake` crate](https://crates.io/crates/fake)
 ```rust
 use fake::faker::internet::en::SafeEmail;
 use fake::faker::lorem::en::*;
@@ -40,6 +40,7 @@ use fake::{Fake, Faker};
 |[`chrono::DateTime<Utc>`](TODO)|`TODO`|
 |[`chrono::NaiveDate`](TODO)|`TODO`|
 |[`chrono::NaiveTime`](TODO)|`TODO`|
+|[`chrono::TimeDelta`](TODO)|`TODO`|
 |[`f32`](TODO)|`TODO`|
 |[`f64`](TODO)|`TODO`|
 |[`HashSet<f64>`](TODO)|`TODO`|
@@ -54,10 +55,12 @@ use fake::{Fake, Faker};
 |`i32`|`TODO`|
 |`i64`|`TODO`|
 |`i8`|`TODO`|
+|`Option<chrono::DateTime<Utc>>`|`TODO`|
 |`Option<f64>`|`TODO`|
 |`Option<i64>`|`TODO`|
 |`Option<u64>`|`TODO`|
 |`PathBuf`|`TODO`|
+|`String` with specific chars|`TODO`|
 |`u128`|`TODO`|
 |`u16`|`TODO`|
 |`u32`|`TODO`|
@@ -68,13 +71,11 @@ use fake::{Fake, Faker};
 |`Vec<u64>`|`TODO`|
 |`Vec<u8>`|`TODO`|
 |Human Name|`Name(EN).fake()`|
-|Words|`Words(0..max_items).fake::<Vec<String>>().into_iter().collect()`|
-|~~`std::time::SystemTime`~~ (prefer `chrono::DateTime<Utc>`)||
 |TCP Port|`TODO`|
 |u64|`TODO`|
-|`String` with specific chars|`TODO`|
-|TODO|`TODO`|
-
+|Words|`Words(0..max_items).fake::<Vec<String>>().into_iter().collect()`|
+|~~`std::time::Duration`~~ (prefer `chrono::TimeDelta`)|TODO|
+|~~`std::time::SystemTime`~~ (prefer `chrono::DateTime<Utc>`)|TODO|
 
 
 # Other Resources
