@@ -10,6 +10,14 @@
 
 # Suggested assertion library
 1. [assert2](https://docs.rs/assert2/latest/assert2/)
+    1. Auto handles some `.into()` conversions
+    1. Has helpful color failure messages
+1. Runner up: [`speculoos`](https://github.com/oknozor/speculoos)
+    1. Works like hamcrest
+    1. `Con`: All error messages are red
+    1. `Con`: Clion doesn't link to path locations as it does for `assert` or `assert2`
+    1. `Pro`: Has `FloatAssertions`, like [`is_close_to`](https://docs.rs/speculoos/latest/speculoos/numeric/trait.FloatAssertions.html#tymethod.is_close_to)
+    1. `Pro`: More ergonomic code, slightly less helpful failure messages than `std::assert` or `assert2`
 
 
 # Suggested runner library

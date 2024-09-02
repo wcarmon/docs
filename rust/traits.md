@@ -35,6 +35,7 @@
     1. [`Ord`](https://doc.rust-lang.org/std/cmp/trait.Ord.html) and [`PartialOrd`](https://doc.rust-lang.org/std/cmp/trait.PartialEq.html) allow your type with `<`, `>`, etc operators, allows as key for [`BTreeMap`](https://doc.rust-lang.org/std/collections/struct.BTreeMap.html) or [`BTreeSet`](https://doc.rust-lang.org/std/collections/struct.BTreeSet.html), and [allows sorting](https://doc.rust-lang.org/std/primitive.slice.html#method.sort)
     1. [`RangeBounds`](https://doc.rust-lang.org/std/ops/trait.RangeBounds.html) allows your type to work in ranges (like `..`, `a..`, `..b`)
     1. [`Try`](https://doc.rust-lang.org/std/ops/trait.Try.html) allows your type to work with the `?` operator (error propagation)
+        1. [`FromResidual`](https://doc.rust-lang.org/std/ops/trait.FromResidual.html) is related
     1. `Deref`, `AsRef`, `Borrow` allows you to make your own pointers
 1. Traits unify the rust community by standardizing how we do common things
 1. Traits turn some runtime issues into compilation issues
