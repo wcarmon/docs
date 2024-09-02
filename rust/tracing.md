@@ -128,6 +128,16 @@ info_span!("...", foo = tracing::field::Empty).entered();
 Span::current().record("foo", 88); // record field previously allocated
 ```
 
+# Set current span
+
+```rust
+let _ = span.enter();
+
+// ... do some work
+
+// _ is dropped at the end
+```
+
 # Associating logs with spans, adding attributes
 
 ```rust
