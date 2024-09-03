@@ -1168,9 +1168,5 @@
 
 # TODO: disable save confirmation
 # TODO: try line-art and line-art2 plugins in /usr/share/gimp/2.0/gimpressionist/
-# TODO: Default color profile policy
-# TODO: Default: canvas size dialog: fill with: white
-# TODO: Scaling: default interpolation: cubic
-# TODO: Scaling: default x & y resolution
 # TODO: keyboard shortcut for grayscale
-# TODO: gimp tricks for removing background
+# TODO: gimp tricks for removing background - https://docs.gimp.org/en/gimp-tutorial-quickie-separate.html
