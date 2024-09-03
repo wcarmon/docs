@@ -1,5 +1,3 @@
-(color-profile-policy convert)
-
 (default-image
     (width 1920)
     (height 1080)
@@ -20,6 +18,22 @@
     (feather no)
     (feather-radius 10))
 
+(stroke-options
+    (style solid)
+    (antialias yes)
+    (feather no)
+    (feather-radius 10)
+    (method line)
+    (width 6)
+    (unit pixels)
+    (cap-style butt)
+    (join-style miter)
+    (miter-limit 10)
+    (dash-offset 0)
+    (dash-info 0)
+    (emulate-brush-dynamics no))
+
+(color-profile-policy convert)
 (export-file-type jpg)
 (image-resize-fill-type background)
 (image-resize-layer-set all)
@@ -27,9 +41,9 @@
 (interpolation-type cubic)
 #(monitor-xresolution 82)
 #(monitor-yresolution 81)
-(num-processors 3)
+(num-processors 16)
 (undo-levels 20)
-(undo-size 2g)
+(undo-size 6g)
 
 
 # The variable ${gimp_dir} is set to the value of the environment variable
@@ -1040,11 +1054,6 @@
 # 
 # (path-new-name "Path")
 
-# Sets the default folder path for the 'Export Path' dialog.  This is a
-# single filename.
-# 
-# 
-
 # Sets the default 'Export the active path' state for the 'Export Path'
 # dialog.  Possible values are yes and no.
 # 
@@ -1052,8 +1061,6 @@
 
 # Sets the default folder path for the 'Import Path' dialog.  This is a
 # single filename.
-# 
-# 
 
 # Sets the default 'Merge imported paths' state for the 'Import Path' dialog.
 #  Possible values are yes and no.
