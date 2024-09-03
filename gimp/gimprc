@@ -1,3 +1,37 @@
+(color-profile-policy convert)
+
+(default-image
+    (width 1920)
+    (height 1080)
+    (unit pixels)
+    (xresolution 600)
+    (yresolution 600)
+    (resolution-unit inches)
+    (image-type rgb)
+    (precision u8-gamma)
+    (color-managed yes)
+    (color-profile NULL)
+    (fill-type background)
+    (comment "Created with GIMP"))
+
+(fill-options
+    (style solid)
+    (antialias yes)
+    (feather no)
+    (feather-radius 10))
+
+(export-file-type jpg)
+(image-resize-fill-type background)
+(image-resize-layer-set all)
+(import-raw-plug-in "${gimp_plug_in_dir}/plug-ins/file-raw-placeholder/file-raw-placeholder")
+(interpolation-type cubic)
+#(monitor-xresolution 82)
+#(monitor-yresolution 81)
+(num-processors 3)
+(undo-levels 20)
+(undo-size 2g)
+
+
 # The variable ${gimp_dir} is set to the value of the environment variable
 # GIMP2_DIRECTORY or, if that is not set, the compiled-in default value is
 # used.  If GIMP2_DIRECTORY is not an absolute path, it is interpreted
@@ -25,11 +59,6 @@
 # 
 # (swap-compression "fast")
 
-# Sets how many threads GIMP should use for operations that support it.  This
-# is an integer value.
-# 
-# (num-processors 1)
-
 # When the amount of pixel data exceeds this limit, GIMP will start to swap
 # tiles to disk.  This is a lot slower but it makes it possible to work on
 # images that wouldn't fit into memory otherwise.  If you have a lot of RAM,
@@ -44,16 +73,6 @@
 # no.
 # 
 # (use-opencl no)
-
-# Specifies the language to use for the user interface.  This is a string
-# value.
-# 
-# 
-
-# Sets the level of interpolation used for scaling and other transformations.
-#  Possible values are none, linear, cubic, nohalo and lohalo.
-# 
-# (interpolation-type cubic)
 
 # Tools such as fuzzy-select and bucket fill find regions based on a
 # seed-fill algorithm.  The seed fill starts at the initially selected pixel
@@ -216,21 +235,6 @@
 # 
 # (global-font yes)
 
-# Sets the default image in the "File/New" dialog.  This is a parameter list.
-# 
-# (default-image
-#     (width 1920)
-#     (height 1080)
-#     (unit pixels)
-#     (xresolution 300)
-#     (yresolution 300)
-#     (resolution-unit inches)
-#     (image-type rgb)
-#     (precision u8-gamma)
-#     (color-managed yes)
-#     (color-profile NULL)
-#     (fill-type background)
-#     (comment "Created with GIMP"))
 
 # Specify a default image grid.  This is a parameter list.
 # 
@@ -245,20 +249,6 @@
 #     (yoffset 0)
 #     (offset-unit inches))
 
-# Sets the minimal number of operations that can be undone. More undo levels
-# are kept available until the undo-size limit is reached.  This is an
-# integer value.
-# 
-# (undo-levels 5)
-
-# Sets an upper limit to the memory that is used per image to keep operations
-# on the undo stack. Regardless of this setting, at least as many undo-levels
-# as configured can be undone.  The integer size can contain a suffix of 'B',
-# 'K', 'M' or 'G' which makes GIMP interpret the size as being specified in
-# bytes, kilobytes, megabytes or gigabytes. If no suffix is specified the
-# size defaults to being specified in kilobytes.
-# 
-# (undo-size 1g)
 
 # Sets the size of the previews in the Undo History.  Possible values are
 # tiny, extra-small, small, medium, large, extra-large, huge, enormous and
@@ -1165,3 +1155,15 @@
 # This is a colon-separated list of folders to search.
 # 
 # (script-fu-path "${gimp_dir}/scripts:${gimp_data_dir}/scripts")
+
+
+# ln -sv $HOME/git-repos/docs/gimp/gimprc $HOME/.config/GIMP/2.10/gimprc
+
+# TODO: disable save confirmation
+# TODO: try line-art and line-art2 plugins in /usr/share/gimp/2.0/gimpressionist/
+# TODO: Default color profile policy
+# TODO: Default: canvas size dialog: fill with: white
+# TODO: Scaling: default interpolation: cubic
+# TODO: Scaling: default x & y resolution
+# TODO: keyboard shortcut for grayscale
+# TODO: gimp tricks for removing background
