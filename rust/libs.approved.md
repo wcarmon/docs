@@ -147,3 +147,9 @@
 # Test / Fake data
 
 1. [`fake`](https://docs.rs/fake/latest/fake/)
+
+
+# Number formatting
+1. https://crates.io/crates/num-format
+1. https://crates.io/crates/thousands
+    1. old, but feature complete
