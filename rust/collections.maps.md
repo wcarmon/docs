@@ -29,18 +29,18 @@ let m = HashMap::from([
 # [Size](https://doc.rust-lang.org/std/collections/struct.HashMap.html#method.len)
 
 ```rust
-m.len()
-m.is_empty()
+    m.len()
+    m.is_empty()
 ```
 
 # [Insert/Update/Put/Upsert](https://doc.rust-lang.org/std/collections/struct.HashMap.html#method.insert)
 
 ```rust
-let m: HashMap<String, &str> = ...
-...
-m.insert(String::from("k1"), "foo"); // put or upsert
+    let m: HashMap<String, &str> = ...
+    ...
+    m.insert(String::from("k1"), "foo"); // put or upsert
 
-let old_value = m.insert(String::from("k2"), "bar");
+    let old_value = m.insert(String::from("k2"), "bar");
 ```
 - Similar to [`.put(...)`](https://docs.oracle.com/en%2Fjava%2Fjavase%2F21%2Fdocs%2Fapi%2F%2F/java.base/java/util/Map.html#put(K,V)) in `java.util.Map`
 - See also: [`HashMap::get_mut`](https://doc.rust-lang.org/std/collections/struct.HashMap.html#method.get_mut)
@@ -49,17 +49,17 @@ let old_value = m.insert(String::from("k2"), "bar");
 # [Put all](https://doc.rust-lang.org/std/iter/trait.Extend.html#tymethod.extend)
 
 ```rust
-m.extend(m2)
+    m.extend(m2)
 ```
 
 # [Remove](https://doc.rust-lang.org/std/collections/struct.HashMap.html#method.remove)
 
 ```rust
-let old_value = m.remove(key1);
+    let old_value = m.remove(key1);
 
-let old_entry = m.remove_entry(key1);
+    let old_entry = m.remove_entry(key1);
 
-m.clear();
+    m.clear();
 ```
 
 # [Get/Retrieve](https://doc.rust-lang.org/std/collections/struct.HashMap.html#method.get)
@@ -68,50 +68,50 @@ m.clear();
 1. Avoid `m[key1]` because failed lookup [panics](https://www.lurklurk.org/effective-rust/panic.html)
 
 ```rust
-let m: HashMap<String, &str> = ...
-...
-match m.get("k1") {
-    Some(&v) => println!("value: {}", v),
-    None => println!("no value"),
-}
+    let m: HashMap<String, &str> = ...
+    ...
+    match m.get("k1") {
+        Some(&v) => println!("value: {}", v),
+        None => println!("no value"),
+    }
 ```
 
 ## [Get & mutate in-place](https://doc.rust-lang.org/std/collections/struct.HashMap.html#method.get_mut)
 
 ```rust
-// mutate in place
-m.get_mut("k1")
- .map(|v| *v = "bar");
+    // mutate in place
+    m.get_mut("k1")
+     .map(|v| *v = "bar");
 ```
 
 # [Check for key](https://doc.rust-lang.org/std/collections/struct.HashMap.html#method.contains_key)
 
 ```rust
-// can query by reference or by owned key
-if m.contains_key(&key1) {
-    ...
-}
+    // can query by reference or by owned key
+    if m.contains_key(&key1) {
+        ...
+    }
 ```
 
 # [Iterate](https://doc.rust-lang.org/std/collections/struct.HashMap.html#method.iter)
 
 ```rust
-// -- Iterate entries
-for (key, value) in m {
-    ...
-}
+    // -- Iterate entries
+    for (key, value) in m {
+        ...
+    }
 
-// or .into_iter()
+    // or .into_iter()
 
-// -- keys only (less efficient than entry iter)
-for key in m.keys() {
-    ...
-}
+    // -- keys only (less efficient than entry iter)
+    for key in m.keys() {
+        ...
+    }
 
-// -- values only (less efficient than entry iter)
-for v in m.values() {
-    ...
-}
+    // -- values only (less efficient than entry iter)
+    for v in m.values() {
+        ...
+    }
 ```
 
 # [Get Keys](https://doc.rust-lang.org/std/collections/struct.HashMap.html#method.keys)
