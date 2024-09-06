@@ -130,19 +130,32 @@ TODO: try m.clone()
 # [Put-if-absent](https://doc.rust-lang.org/stable/std/collections/hash_map/enum.Entry.html#method.or_insert)
 
 ```rust
-let old_value = m.entry(key1).or_insert(my_dflt_val);
+    let old_value = m.entry(key1).or_insert(my_dflt_val);
 ```
+
+# [Put-if-present (replace)](https://doc.rust-lang.org/std/collections/hash_map/enum.Entry.html)
+```rust
+    if let Occupied(mut entry) = m.entry(key) {
+        // -- Replace value
+        let _old_entity = entry.insert(new_value);
+
+    } else {
+        // -- TODO: handle not found here
+    }
+```
+- [Java equivalent](https://docs.oracle.com/en/java/javase/22/docs/api/java.base/java/util/Map.html#replace(K,V))
+
 
 # [Filter/Retain](https://doc.rust-lang.org/std/collections/struct.HashMap.html#method.retain)
 
 ```rust
-m.retain(|k, v| k.len() > 3);
+    m.retain(|k, v| k.len() > 3);
 ```
 
 # [Sort](https://doc.rust-lang.org/std/collections/struct.BTreeMap.html#impl-FromIterator%3C(K%2C%20V)%3E-for-BTreeMap%3CK%2C%20V%2C%20Global%3E)
 
 ```rust
-let sorted = BTreeMap::from_iter(m);
+    let sorted = BTreeMap::from_iter(m);
 ```
 
 # [Print](https://doc.rust-lang.org/std/collections/struct.HashMap.html#method.fmt)
@@ -151,11 +164,11 @@ let sorted = BTreeMap::from_iter(m);
 use std::fmt::Write;
 ...
 
-let mut s = String::new();
+    let mut s = String::new();
 
-write!(&mut s, "m={:?}", m)?
+    write!(&mut s, "m={:?}", m)?
 
-print!("{:?}", m);
+    print!("{:?}", m);
 ```
 
 1. For writing to [file](https://doc.rust-lang.org/std/fs/struct.File.html), use [`std::io::Write`](https://doc.rust-lang.org/std/io/trait.Write.html)
