@@ -6,11 +6,13 @@
 1. A modelling layer over Kafka
 1. Features:
     - [GitOps](TODO)
-    - [AsyncAPI](TODO) (modelling),
+    - [AsyncAPI](https://v2.asyncapi.com/docs)
     - [a parser](TODO)
     - [testing](TODO)
     - [provisioning tools](TODO)
     - [chargeback](TODO)
+    - ACLs?
+    - Schemas?
 
 
 # Alternatives
@@ -19,6 +21,7 @@
 1. [Terraform](TODO)
     - TODO: value proposition
 1. [JulieOps](TODO)
+    - both use [GitOps](TODO) to provision & maintain Topics
     - TODO: value proposition
 
 
