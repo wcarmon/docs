@@ -22,5 +22,13 @@
 - TODO
 
 
+# Executed by
+- TODO
+
+
+# Debugging
+- TODO
+
+
 # Other resources
 1. https://github.com/specmesh/docs/wiki
