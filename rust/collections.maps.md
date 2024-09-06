@@ -12,18 +12,18 @@
 1. Via ctor
 
 ```rust
-// map owns keys
-// map borrows values
-let mut m: HashMap<String, &str> = HashMap::with_capacity(64);
-...
+    // Key: map owns
+    // Value: map borrows
+    let mut m: HashMap<String, &str> = HashMap::with_capacity(64);
+    ...
 ```
 
 1. Via entries
 
 ```rust
-let m = HashMap::from([
-    ("a".to_owned(), "one"),
-    ("b".to_owned(), "two")]);
+    let m = HashMap::from([
+        ("a".to_owned(), "one"),
+        ("b".to_owned(), "two")]);
 ```
 
 # [Size](https://doc.rust-lang.org/std/collections/struct.HashMap.html#method.len)
