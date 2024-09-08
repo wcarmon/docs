@@ -124,7 +124,7 @@ fn do_something_dangerous() -> Result<String, anyhow::Error> {
 # Get current span
 
 ```rust
-info_span!("...", foo = tracing::field::Empty).entered();
+info_span!("...", foo = tracing::field::Empty).entered();  // not .enter()
 // allocate field `foo`, so we can set later
 ...
 
@@ -134,7 +134,7 @@ Span::current().record("foo", 88); // record field previously allocated
 # Set current span
 
 ```rust
-let _ = span.enter();
+let _ = span.entered();
 
 // ... do some work
 

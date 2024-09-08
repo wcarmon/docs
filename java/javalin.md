@@ -219,14 +219,14 @@ public final class WebException extends RuntimeException {
     // -- Startup Probe
     svr.get("/api/v1/admin/started", ctx -> {
         // TODO: ensure app is ready to start here
-        // NOTE: app restarted when this fails, only called during startup
+        // NOTE: app container restarted when this fails, only called during startup
         ctx.status(200);
     });
 
     // -- Liveness Probe
     svr.get("/api/v1/admin/alive", ctx -> {
         // TODO: check connectivity to external systems here (eg. databases, required services)
-        // NOTE: app restarted when this fails, only called after Startup Probe
+        // NOTE: app container restarted when this fails, only called after Startup Probe
         ctx.status(200);
     });
 
