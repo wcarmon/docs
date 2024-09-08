@@ -66,8 +66,8 @@ use tracing::{instrument, Span};
 
     span.record("error", anyhow!("something went wrong").into());
 
-    // in case you didn't have a reference
-    // tracing::Span::current() has reference to last entered span (on this thread)
+    // If required, reference the current span (last entered span on this thread):
+    // tracing::Span::current()
     let current_span = Span::current();
 
     // manually set parent span
