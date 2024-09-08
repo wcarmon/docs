@@ -202,7 +202,7 @@ public final class WebException extends RuntimeException {
 1. TODO: tracing propagation
 
 
-# Kubernetes Liveness & Readiness probes
+# Kubernetes Liveness, Readiness & Startup probes
 ```java
     final Javalin svr = ... ;
 
