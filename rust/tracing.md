@@ -46,6 +46,9 @@
 # Usage
 
 ```rust
+use tracing::{instrument, Span};
+...
+
     let span = info_span!("my_span");
     let guard = span.enter();
 
