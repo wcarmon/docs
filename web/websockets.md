@@ -15,7 +15,7 @@
 1. json as [string/text](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket/send#string) is fine since the browser natively supports
     1. ArrayBuffer, Blob, ... don't make as much sense unless you have really strict IO constraints
     1. [in actix, `Session::text(...)`](https://docs.rs/actix-ws/latest/actix_ws/struct.Session.html#method.text)
-    1. [in Javalin](https://javalin.io/documentation#wscontext)
+    1. [in Javalin](https://javalin.io/documentation#wscontext) use [`send(jsonStr)`](https://github.com/javalin/javalin/blob/master/javalin/src/main/java/io/javalin/websocket/WsContext.kt#L48)
     1. [in core Java 11+](https://docs.oracle.com/en%2Fjava%2Fjavase%2F21%2Fdocs%2Fapi%2F%2F/java.net.http/java/net/http/WebSocket.html#sendText(java.lang.CharSequence,boolean))
 1. Each message should have ...
     1. a `type` property at the root of the message object
@@ -32,7 +32,7 @@
     1. receive messages here
     1. most of the time spent here
     1. [in actix](https://docs.rs/actix-ws/latest/actix_ws/struct.MessageStream.html) `next` or [`recv`](https://docs.rs/actix-ws/latest/actix_ws/struct.MessageStream.html#method.recv)
-    1. [in Javalin](https://javalin.io/documentation#websockets)
+    1. [in Javalin](https://javalin.io/documentation#websockets) ([see sources](https://github.com/javalin/javalin/blob/master/javalin/src/main/java/io/javalin/websocket/WsConnection.kt#L36))
     1. [in core Java 11+](https://docs.oracle.com/en%2Fjava%2Fjavase%2F21%2Fdocs%2Fapi%2F%2F/java.net.http/java/net/http/WebSocket.Listener.html#onText(java.net.http.WebSocket,java.lang.CharSequence,boolean))
 3. [`onError`](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket/error_event)
     1. Terminal
@@ -46,9 +46,10 @@
 - TODO: ping pong protocol
 1. ping pong can happen at any time
 1. Let the tools manage this if possible
-1. [`java.net.http.WebSocket`](https://docs.oracle.com/en%2Fjava%2Fjavase%2F21%2Fdocs%2Fapi%2F%2F/java.net.http/java/net/http/WebSocket.html) auto handles ping-ping messages
 1. [actix-ws](TODO) you must handle
     1. [`ping`](https://docs.rs/actix-ws/0.3.0/actix_ws/struct.Session.html#method.ping) and [`pong`](https://docs.rs/actix-ws/0.3.0/actix_ws/struct.Session.html#method.pong)
+1. In Javalin, you can [`enableAutomaticPings`](https://javalin.io/documentation#wscontext), [see sources](https://github.com/javalin/javalin/blob/master/javalin/src/main/java/io/javalin/websocket/WsAutomaticPing.kt)
+1. [`java.net.http.WebSocket`](https://docs.oracle.com/en%2Fjava%2Fjavase%2F21%2Fdocs%2Fapi%2F%2F/java.net.http/java/net/http/WebSocket.html) auto handles ping-ping messages
 
 
 # Other Resources
