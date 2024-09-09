@@ -6,6 +6,10 @@
 
 - See [setup doc](../setup.node.md)
 
+# Install pnpm
+- https://pnpm.io/installation
+
+
 # NG
 
 ```bash
@@ -31,7 +35,8 @@ ng add @angular/material
 
 ```bash
 cd $APP_NAME
-ng serve --open
+# ng serve --open
+pnpm start;
 ```
 
 # package.json

@@ -10,6 +10,7 @@
     - Otherwise, just use [gRPC](https://grpc.io/)
 1. WebSockets can be CPU/IO taxing and therefore drain a mobile device's battery.
 1. After connecting, WebSocket message don't have headers (unless you add your own to the message structure)
+    1. Even the handshake won't allow headers, so auth requires Auth Messages
     1. [OpenTelemetry Context propagation](https://opentelemetry.io/docs/concepts/context-propagation/) requires you to send your own [traceparent](https://www.w3.org/TR/trace-context/#traceparent-header) as part of a message (and inject and extract)
 1. json as [string/text](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket/send#string) is fine since the browser [natively supports JSON](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse)
     1. ~~ArrayBuffer~~, ~~Blob~~, etc don't make as much sense, unless you have really strict IO constraints
@@ -21,12 +22,13 @@
         1. in `serde` crate, [use `Internally tagged`](https://serde.rs/enum-representations.html).  So on the `enum`, add `#[serde(tag = "type")]`
         1. [in Jackson](https://www.javadoc.io/doc/com.fasterxml.jackson.core/jackson-annotations/2.17.2/com/fasterxml/jackson/annotation/JsonTypeInfo.html)
     1. a [`traceparent`](https://www.w3.org/TR/trace-context/#traceparent-header) field for OpenTelemetry tracing context propagation
+    1. a [correlation id](https://www.enterpriseintegrationpatterns.com/patterns/messaging/CorrelationIdentifier.html)
 1. Intellij [`*.http` files support websockets](https://www.jetbrains.com/help/idea/http-client-in-product-code-editor.html#websocket) directly (easy way to build a client)
 
 
 ## Events
 1. `onConnect` or [`onOpen`](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket/message_event)
-    1. Handle authentication here
+    1. Handle authentication after connection via Auth messages
     1. Establish sub-protocol (if you support multiple)
 2. [`onMessage`](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket/message_event)
     1. Receive messages here
