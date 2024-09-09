@@ -47,14 +47,25 @@
 1. Custom headers not supported on handshake nor on messages
 1. You can add metadata to your message structure
 
+
 ## Auth Pattern #1
 1. Use RESTful login mechanism
 1. Use same token from RESTful login in each WebSocket Message
 1. Server requires every message have a token (eg. [JWT](https://jwt.io/))
+1. Pro: Stateless sessions
+
 
 ## Auth Pattern #2
 1. Model `LoginRequest` and `LoginResponse` as messages
 1. Server require each message (except `LoginRequest`) to have a token (eg. [JWT](https://jwt.io/))
+1. Pro: Stateless sessions
+
+
+## Auth Pattern #3
+1. Client passes first message with a valid token
+1. Server verifies token and marks session as authenticated
+1. Server keeps track of which sessions are authenticated, rejects processing messages for unauthenticated sessions
+1. Con: Stateful sessions
 
 
 # Heartbeat (Connectivity verification)
