@@ -48,7 +48,7 @@
 1. If possible, let the library manage this (there are some tedious rules for edge cases)
 1. actix-ws you must handle
     1. You invoke [`pong`](https://docs.rs/actix-ws/0.3.0/actix_ws/struct.Session.html#method.pong) in response to a [`AggregatedMessage::Ping`](https://docs.rs/actix-ws/0.3.0/actix_ws/enum.AggregatedMessage.html#variant.Ping)
-    1. You invoke [`ping`](https://docs.rs/actix-ws/0.3.0/actix_ws/struct.Session.html#method.ping) and check for a [`AggregatedMessage::Pong`](https://docs.rs/actix-ws/0.3.0/actix_ws/enum.AggregatedMessage.html#variant.Pong), or err implies closed
+    1. You invoke [`ping`](https://docs.rs/actix-ws/0.3.0/actix_ws/struct.Session.html#method.ping), then check for a [`AggregatedMessage::Pong`](https://docs.rs/actix-ws/0.3.0/actix_ws/enum.AggregatedMessage.html#variant.Pong), or err implies closed
 1. In Javalin, you can [`enableAutomaticPings`](https://javalin.io/documentation#wscontext), [see sources](https://github.com/javalin/javalin/blob/master/javalin/src/main/java/io/javalin/websocket/WsAutomaticPing.kt)
 1. [`java.net.http.WebSocket`](https://docs.oracle.com/en%2Fjava%2Fjavase%2F21%2Fdocs%2Fapi%2F%2F/java.net.http/java/net/http/WebSocket.html) auto handles ping-ping messages
 
