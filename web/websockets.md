@@ -18,36 +18,37 @@
     1. [in core Java 11+](https://docs.oracle.com/en%2Fjava%2Fjavase%2F21%2Fdocs%2Fapi%2F%2F/java.net.http/java/net/http/WebSocket.html#sendText(java.lang.CharSequence,boolean))
 1. Each message should have ...
     1. a **`type`** property at the root of the message object
-        1. in `serde` crate, [use `Internally tagged`](https://serde.rs/enum-representations.html) (eg. `#[serde(tag = "type")]` on the enum)
+        1. in `serde` crate, [use `Internally tagged`](https://serde.rs/enum-representations.html).  So on the `enum`, add `#[serde(tag = "type")]`
         1. [in Jackson](https://www.javadoc.io/doc/com.fasterxml.jackson.core/jackson-annotations/2.17.2/com/fasterxml/jackson/annotation/JsonTypeInfo.html)
-    1. a [`traceparent`](https://www.w3.org/TR/trace-context/#traceparent-header) field for OpenTelemetry tracing
-1. Intellij [`*.http` files support websockets](https://www.jetbrains.com/help/idea/http-client-in-product-code-editor.html#websocket)
+    1. a [`traceparent`](https://www.w3.org/TR/trace-context/#traceparent-header) field for OpenTelemetry tracing context propagation
+1. Intellij [`*.http` files support websockets](https://www.jetbrains.com/help/idea/http-client-in-product-code-editor.html#websocket) directly (easy way to build a client)
 
 
 ## Events
-1. [`onConnect` or `onOpen`](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket/message_event)
-    1. handle auth here
-    1. establish sub-protocol (if you support multiple)
+1. `onConnect` or [`onOpen`](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket/message_event)
+    1. Handle authentication here
+    1. Establish sub-protocol (if you support multiple)
 2. [`onMessage`](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket/message_event)
-    1. receive messages here
-    1. most of the time spent here
+    1. Receive messages here
+    1. Most of the websocket lifespan spent here
     1. [in actix](https://docs.rs/actix-ws/latest/actix_ws/struct.MessageStream.html) `next` or [`recv`](https://docs.rs/actix-ws/latest/actix_ws/struct.MessageStream.html#method.recv)
     1. [in Javalin](https://javalin.io/documentation#websockets) ([see sources](https://github.com/javalin/javalin/blob/master/javalin/src/main/java/io/javalin/websocket/WsConnection.kt#L36))
     1. [in core Java 11+](https://docs.oracle.com/en%2Fjava%2Fjavase%2F21%2Fdocs%2Fapi%2F%2F/java.net.http/java/net/http/WebSocket.Listener.html#onText(java.net.http.WebSocket,java.lang.CharSequence,boolean))
 3. [`onError`](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket/error_event)
     1. Terminal event
-    1. client might choose to reconnect here
+    1. Client might reconnect here
 4. [`onClose`](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket/close_event)
     1. Terminal event
-    1. client might choose to reconnect here
+    1. Client might reconnect here
 
 
-# Liveness (Connectivity verification)
-- TODO: ping pong protocol
-1. ping pong can happen at any time
-1. Let the tools manage this if possible
-1. [actix-ws](TODO) you must handle
-    1. [`ping`](https://docs.rs/actix-ws/0.3.0/actix_ws/struct.Session.html#method.ping) and [`pong`](https://docs.rs/actix-ws/0.3.0/actix_ws/struct.Session.html#method.pong)
+# Heartbeat (Connectivity verification)
+1. [mdn docs](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API/Writing_WebSocket_servers#pings_and_pongs_the_heartbeat_of_websockets) and [rfc6455](https://datatracker.ietf.org/doc/html/rfc6455#section-5.5.2) info on Ping/Ping frames
+1. Ping/Pong can happen at any time
+1. If possible, let the library manage this (there are some tedious rules for edge cases)
+1. actix-ws you must handle
+    1. You invoke [`pong`](https://docs.rs/actix-ws/0.3.0/actix_ws/struct.Session.html#method.pong) in response to a [`AggregatedMessage::Ping`](https://docs.rs/actix-ws/0.3.0/actix_ws/enum.AggregatedMessage.html#variant.Ping)
+    1. You invoke [`ping`](https://docs.rs/actix-ws/0.3.0/actix_ws/struct.Session.html#method.ping) and check for a [`AggregatedMessage::Pong`](https://docs.rs/actix-ws/0.3.0/actix_ws/enum.AggregatedMessage.html#variant.Pong), or err implies closed
 1. In Javalin, you can [`enableAutomaticPings`](https://javalin.io/documentation#wscontext), [see sources](https://github.com/javalin/javalin/blob/master/javalin/src/main/java/io/javalin/websocket/WsAutomaticPing.kt)
 1. [`java.net.http.WebSocket`](https://docs.oracle.com/en%2Fjava%2Fjavase%2F21%2Fdocs%2Fapi%2F%2F/java.net.http/java/net/http/WebSocket.html) auto handles ping-ping messages
 
