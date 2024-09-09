@@ -53,12 +53,14 @@
 1. Use same token from RESTful login in each WebSocket Message
 1. Server requires every message have a token (eg. [JWT](https://jwt.io/))
 1. Pro: Stateless sessions
+1. Con: Each message requires auth token
 
 
 ## Auth Pattern #2
 1. Model `LoginRequest` and `LoginResponse` as messages
 1. Server require each message (except `LoginRequest`) to have a token (eg. [JWT](https://jwt.io/))
 1. Pro: Stateless sessions
+1. Con: Each message requires auth token
 
 
 ## Auth Pattern #3
@@ -66,6 +68,7 @@
 1. Server verifies token and marks session as authenticated
 1. Server keeps track of which sessions are authenticated, rejects processing messages for unauthenticated sessions
 1. Con: Stateful sessions
+1. Pro: Each message doesn't need token
 
 
 # Heartbeat (Connectivity verification)
