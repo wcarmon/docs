@@ -19,7 +19,7 @@
     1. [in core Java 11+](https://docs.oracle.com/en%2Fjava%2Fjavase%2F21%2Fdocs%2Fapi%2F%2F/java.net.http/java/net/http/WebSocket.html#sendText(java.lang.CharSequence,boolean))
 1. Each message should have ...
     1. a **`type`** property at the root of the message object
-        1. in `serde` crate, [use `Adjacently tagged` or `Internally tagged`](https://serde.rs/enum-representations.html).  So on the `enum`, add `#[serde(tag = "type")]`
+        1. in `serde` crate, [use `Adjacently tagged`](https://serde.rs/enum-representations.html).  So on the `enum`, add `#[serde(tag = "type", content = "data")]`
         1. [in Jackson](https://www.javadoc.io/doc/com.fasterxml.jackson.core/jackson-annotations/2.17.2/com/fasterxml/jackson/annotation/JsonTypeInfo.html)
     1. a [`traceparent`](https://www.w3.org/TR/trace-context/#traceparent-header) field for OpenTelemetry tracing context propagation
     1. a [correlation id](https://www.enterpriseintegrationpatterns.com/patterns/messaging/CorrelationIdentifier.html)
