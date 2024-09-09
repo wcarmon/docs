@@ -14,11 +14,14 @@
     1. OpenTelemetry Context propagation requires you to send your own [traceparent](https://www.w3.org/TR/trace-context/#traceparent-header) as part of a message (and inject and extract)
 1. json as [string/text](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket/send#string) is fine since the browser natively supports
     1. ArrayBuffer, Blob, ... don't make as much sense unless you have really strict IO constraints
+    1. [in actix, `Session::text(...)`](https://docs.rs/actix-ws/latest/actix_ws/struct.Session.html#method.text)
+    1. [in Javalin](https://javalin.io/documentation#wscontext)
+    1. [in core Java 11+](https://docs.oracle.com/en%2Fjava%2Fjavase%2F21%2Fdocs%2Fapi%2F%2F/java.net.http/java/net/http/WebSocket.html#sendText(java.lang.CharSequence,boolean))
 1. Each message should have ...
     1. a `type` property at the root of the message object
         1. [in Jackson](https://www.javadoc.io/doc/com.fasterxml.jackson.core/jackson-annotations/2.17.2/com/fasterxml/jackson/annotation/JsonTypeInfo.html)
         1. in rust `serde` crate, [use `Internally tagged`](https://serde.rs/enum-representations.html)
-    1. a [`traceparent`](TODO) field for OpenTelemetry tracing
+    1. a [`traceparent`](https://www.w3.org/TR/trace-context/#traceparent-header) field for OpenTelemetry tracing
 
 
 ## Events
@@ -28,6 +31,9 @@
 2. onMessage
     1. receive messages here
     1. most of the time spent here
+    1. [in actix](https://docs.rs/actix-ws/latest/actix_ws/struct.MessageStream.html)
+    1. [in Javalin](https://javalin.io/documentation#websockets)
+    1. [in core Java 11+](https://docs.oracle.com/en%2Fjava%2Fjavase%2F21%2Fdocs%2Fapi%2F%2F/java.net.http/java/net/http/WebSocket.Listener.html#onText(java.net.http.WebSocket,java.lang.CharSequence,boolean))
 3. onError
     1. TODO
 4. onClose
