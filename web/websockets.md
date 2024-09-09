@@ -20,7 +20,7 @@
 1. Each message should have ...
     1. a `type` property at the root of the message object
         1. [in Jackson](https://www.javadoc.io/doc/com.fasterxml.jackson.core/jackson-annotations/2.17.2/com/fasterxml/jackson/annotation/JsonTypeInfo.html)
-        1. in rust `serde` crate, [use `Internally tagged`](https://serde.rs/enum-representations.html)
+        1. in rust `serde` crate, [use `Internally tagged`](https://serde.rs/enum-representations.html) (eg. `#[serde(tag = "type")]` on the enum)
     1. a [`traceparent`](https://www.w3.org/TR/trace-context/#traceparent-header) field for OpenTelemetry tracing
 
 
