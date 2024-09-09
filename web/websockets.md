@@ -3,9 +3,9 @@
 
 
 # Key points
-1. WebSockets start the handshake via HTTP, then use TCP thereafter.
-1. WebSockets are [well supported](https://caniuse.com/websockets) in modern browsers
-1. WebSockets are probably the best way (2024) to push unsolicited data to browser from a server
+1. WebSockets start the [handshake](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API/Writing_WebSocket_servers#the_websocket_handshake) via HTTP, then use TCP thereafter.
+1. WebSockets are [well supported](https://caniuse.com/websockets) in modern browsers and server technologies
+1. WebSockets are probably the best way (2025) to push unsolicited data to browser from a server
 1. WebSockets are only useful when one side is the browser
     - otherwise, just use [gRPC](https://grpc.io/)
 1. WebSockets can be CPU/IO taxing and therefore drain a mobile device's battery
@@ -25,19 +25,20 @@
 
 
 ## Events
-1. onConnect
+1. [`onConnect` or `onOpen`](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket/message_event)
     1. handle auth here
     1. establish sub-protocol (if you support multiple)
-2. onMessage
+2. [`onMessage`](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket/message_event)
     1. receive messages here
     1. most of the time spent here
     1. [in actix](https://docs.rs/actix-ws/latest/actix_ws/struct.MessageStream.html)
     1. [in Javalin](https://javalin.io/documentation#websockets)
     1. [in core Java 11+](https://docs.oracle.com/en%2Fjava%2Fjavase%2F21%2Fdocs%2Fapi%2F%2F/java.net.http/java/net/http/WebSocket.Listener.html#onText(java.net.http.WebSocket,java.lang.CharSequence,boolean))
-3. onError
-    1. TODO
-4. onClose
-    1. TODO
+3. [`onError`](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket/error_event)
+    1. Terminal
+    1. client might choose to reconnect here
+4. [`onClose`](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket/close_event)
+    1. Terminal
     1. client might choose to reconnect here
 
 
@@ -54,6 +55,6 @@
 1. [in Javalin](https://javalin.io/documentation#websockets)
 1. [in actix](https://actix.rs/docs/websockets/)
 1. [in Java 11+](https://docs.oracle.com/en%2Fjava%2Fjavase%2F21%2Fdocs%2Fapi%2F%2F/java.net.http/java/net/http/WebSocket.html)
-1. [in golang](https://pkg.go.dev/golang.org/x/net/websocket)
+1. [in core golang](https://pkg.go.dev/golang.org/x/net/websocket) or via [gorilla](https://pkg.go.dev/github.com/gorilla/websocket)
 1. https://www.w3.org/2012/10/Qualcomm-paper.pdf
 
