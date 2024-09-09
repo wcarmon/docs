@@ -10,7 +10,7 @@
     - Otherwise, just use [gRPC](https://grpc.io/)
 1. WebSockets can be CPU/IO taxing and therefore drain a mobile device's battery.
 1. After connecting, WebSocket message don't have headers (unless you add your own to the message structure)
-    1. Even the handshake won't allow headers, so auth requires Auth Messages
+    1. Even the handshake won't allow headers, see [Auth](TODO) section below
     1. [OpenTelemetry Context propagation](https://opentelemetry.io/docs/concepts/context-propagation/) requires you to send your own [traceparent](https://www.w3.org/TR/trace-context/#traceparent-header) as part of a message (and inject and extract)
 1. json as [string/text](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket/send#string) is fine since the browser [natively supports JSON](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse)
     1. ~~ArrayBuffer~~, ~~Blob~~, etc don't make as much sense, unless you have really strict IO constraints
@@ -28,7 +28,6 @@
 
 ## Events
 1. `onConnect` or [`onOpen`](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket/message_event)
-    1. Handle authentication after connection via Auth messages
     1. Establish sub-protocol (if you support multiple)
 2. [`onMessage`](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket/message_event)
     1. Receive messages here
@@ -42,6 +41,20 @@
 4. [`onClose`](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket/close_event)
     1. Terminal event
     1. Client might reconnect here
+
+
+# Auth
+1. Custom headers not supported on handshake nor on messages
+1. You can add metadata to your message structure
+
+## Auth Pattern #1
+1. Use RESTful login mechanism
+1. Use same token from RESTful login in each WebSocket Message
+1. Server requires every message have a token (eg. [JWT](https://jwt.io/))
+
+## Auth Pattern #2
+1. Model `LoginRequest` and `LoginResponse` as messages
+1. Server require each message (except `LoginRequest`) to have a token (eg. [JWT](https://jwt.io/))
 
 
 # Heartbeat (Connectivity verification)
