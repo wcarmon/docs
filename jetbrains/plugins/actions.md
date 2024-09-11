@@ -38,11 +38,11 @@
 ```
 
 # Action Groups
-- ConsoleEditorPopupMenu: TODO: seems to do nothing
+- Groups determine where actions are triggered (visually)
+- [All predefined action groups](https://github.com/JetBrains/intellij-community/blob/master/platform/ide-core/src/com/intellij/openapi/actionSystem/IdeActions.java)
 - `EditorPopupMenu`: Adds to context menu (right click) in editor
 - `ToolsMenu`: Adds to "Tools" menu (at the top)
-- [Other action groups](https://github.com/JetBrains/intellij-community/blob/master/platform/ide-core/src/com/intellij/openapi/actionSystem/IdeActions.java)
-
+- `ConsoleEditorPopupMenu`: TODO: seems to do nothing
 
 # [`DataContext`](https://github.com/JetBrains/intellij-community/blob/master/platform/core-ui/src/openapi/actionSystem/DataContext.java)
 1. Gives an action info on how it was invoked (context info)
@@ -52,6 +52,7 @@
 - TODO: action parameters
 - TODO: AnActionEvent: https://github.com/JetBrains/intellij-community/blob/master/platform/editor-ui-api/src/com/intellij/openapi/actionSystem/AnActionEvent.java
 - TODO: ActionPlaces: https://github.com/JetBrains/intellij-community/blob/master/platform/ide-core/src/com/intellij/openapi/actionSystem/ActionPlaces.java
+
 
 # Other resources
 1. TODO
