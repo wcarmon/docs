@@ -30,18 +30,6 @@
 |Auto-Formatter|[`rustfmt`](https://github.com/rust-lang/rustfmt) (usually invoked via `cargo fmt`)|
 
 
-# [Go](https://go.dev/)
-|Category|Best Tools|
-|---:|:---|
-|Compiler|[`go build`](https://go.dev/doc/tutorial/compile-install)|
-|Static Analyzer|[golangci-lint](https://github.com/golangci/golangci-lint)|
-|Automated Tester|[`go test`](https://go.dev/doc/tutorial/add-a-test)|
-|IDE|[Goland](https://www.jetbrains.com/go/) or [vsc](https://code.visualstudio.com/)|
-|AI|[Tabnine](https://www.tabnine.com/), [Copilot](https://github.com/features/copilot)|
-|Profiler|[Goland CPU Profiler](https://www.jetbrains.com/help/go/cpu-profiler.html), [Goland Memory profiler](https://www.jetbrains.com/help/go/memory-profiler.html), [Goland Mutex profiler](https://www.jetbrains.com/help/go/mutex-profiler.html#InterpretingTheResults)|
-|Auto-Formatter|[`gofmt` or `go fmt`](https://pkg.go.dev/cmd/gofmt)|
-
-
 # [Java](https://www.oracle.com/java/technologies/downloads/)
 |Category|Best Tools|
 |---:|:---|
@@ -52,6 +40,18 @@
 |AI|[Tabnine](https://www.tabnine.com/), [Copilot](https://github.com/features/copilot)|
 |Profiler|[VisualVM](https://visualvm.github.io/download.html), [Yourkit](https://www.yourkit.com/), [JProfiler](https://www.ej-technologies.com/products/jprofiler/overview.html)|
 |Auto-Formatter|[Spotless](https://github.com/diffplug/spotless)|
+
+
+# [Go](https://go.dev/)
+|Category|Best Tools|
+|---:|:---|
+|Compiler|[`go build`](https://go.dev/doc/tutorial/compile-install)|
+|Static Analyzer|[golangci-lint](https://github.com/golangci/golangci-lint)|
+|Automated Tester|[`go test`](https://go.dev/doc/tutorial/add-a-test)|
+|IDE|[Goland](https://www.jetbrains.com/go/) or [vsc](https://code.visualstudio.com/)|
+|AI|[Tabnine](https://www.tabnine.com/), [Copilot](https://github.com/features/copilot)|
+|Profiler|[Goland CPU Profiler](https://www.jetbrains.com/help/go/cpu-profiler.html), [Goland Memory profiler](https://www.jetbrains.com/help/go/memory-profiler.html), [Goland Mutex profiler](https://www.jetbrains.com/help/go/mutex-profiler.html#InterpretingTheResults)|
+|Auto-Formatter|[`gofmt` or `go fmt`](https://pkg.go.dev/cmd/gofmt)|
 
 
 # [Typescript](https://www.typescriptlang.org/)
@@ -88,6 +88,10 @@
 |AI|[Tabnine](https://www.tabnine.com/), [Copilot](https://github.com/features/copilot) 
 |Profiler|[Google orbit](https://github.com/google/orbit), [Valgrind tools](https://valgrind.org/info/tools.html) |
 |Auto-Formatter|[ClangFormat](https://clang.llvm.org/docs/ClangFormat.html), [astyle](https://astyle.sourceforge.net/)|
+|Automated Tester|[Catch2](TODO), [googletest](TODO)|
+|Build|[Cmake](TODO) + [Clang](TODO) + [Ninga](TODO)|
+|Mocks|[FakeIt](https://github.com/eranpeer/FakeIt), [trompeloeil](https://github.com/rollbear/trompeloeil)|
+|Packager|[vcpkg](TODO) or [conan](TODO)|
 
 
 # [C](https://en.wikipedia.org/wiki/C_(programming_language))
