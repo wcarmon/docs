@@ -131,11 +131,11 @@ bw.flush()?;
 ```
 
 ## Create [Temp dir](https://doc.rust-lang.org/std/env/fn.temp_dir.html)
-- See [tempdir-crate](https://docs.rs/tempdir/latest/tempdir/struct.TempDir.html)
+- See [tempfile crate](https://docs.rs/tempfile/latest/tempfile/struct.TempDir.html)
 - In `Cargo.toml`:
 ```toml
 [dependencies]
-tempdir = "0.3"
+tempfile = "3"
 ```
 - Managed directory:
 ```rust
