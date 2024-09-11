@@ -1,4 +1,5 @@
 # Overview
+1. Info on [Extensions](https://plugins.jetbrains.com/docs/intellij/plugin-extensions.html)
 1. Info on [Extension Points](https://plugins.jetbrains.com/docs/intellij/explore-api.html#1-extension-points-eps)
 1. There are >1000 extension points as of 2024
 
