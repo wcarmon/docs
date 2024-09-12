@@ -104,6 +104,7 @@ let p: PathBuf = "/tmp/path/to/foo.txt".parse()?;
 // -- Truncate/overwrite:
 let mut f = OpenOptions::new()
         .create(true)
+        .truncate(true)
         .write(true) // yes, write is required
         .open(p)?; 
 
@@ -111,7 +112,7 @@ let mut f = OpenOptions::new()
 let mut f = OpenOptions::new().append(true).open(p)?;
 
 let data = "whatever";
-write!(f, "{data}")?;
+write!(f, "{data}")?; // requires:  use std::io::Write;
 
 
 // ----------------------------------------------------
