@@ -123,6 +123,7 @@ pub fn init_tracing(
 ) -> Result<(), anyhow::Error> {
 
     // -- See https://opentelemetry.io/docs/concepts/resources/
+    // -- Jaeger maps this to Span.Process.ServiceName
     let resources = Resource::new(
         vec![KeyValue::new(SERVICE_NAME, conf.service_name.clone())]);
 
