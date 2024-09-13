@@ -34,13 +34,15 @@ console-subscriber = "0.4"
 # -- Provides: TracerProvider,
 opentelemetry = "0.24"
 
-# -- Exports spans/logs/metrics via OTLP
+# -- Exports spans/logs/metrics via OTLP,
+# -- has SpanExporter struct
+# -- has exporter::tonic::trace::TonicTracesClient (as SpanExporter)
 opentelemetry-otlp = { version = "0.17", features = ["grpc-tonic"] }
 
 # -- Provides constants for resource and span attribute keys
 opentelemetry-semantic-conventions = "0.16"
 
-# -- Provides: Resource
+# -- Provides: Resource, SpanExporter trait
 opentelemetry_sdk = { version = "0.24", features = ["rt-tokio"] }
 
 # -- Collect traces, provides Layers, Registry, ...
@@ -124,7 +126,9 @@ pub fn init_tracing(
     let resources = Resource::new(
         vec![KeyValue::new(SERVICE_NAME, conf.service_name.clone())]);
 
-    let otlp_exporter = opentelemetry_otlp::new_exporter()
+    // -- Uses opentelemetry_otlp::exporter::tonic::trace::TonicTracesClient as SpanExporter
+    // -- This factory can build SpanExporter, MetricsExporter and LogExporter
+    let otlp_exporter_factory = opentelemetry_otlp::new_exporter()
         .tonic() // requires tokio
         .with_endpoint(&conf.endpoint)
         .with_protocol(Grpc)
@@ -132,7 +136,7 @@ pub fn init_tracing(
 
     let pipeline = opentelemetry_otlp::new_pipeline()
         .tracing()
-        .with_exporter(otlp_exporter)
+        .with_exporter(otlp_exporter_factory)
         .with_trace_config(
             trace::Config::default()
                 // TODO: reasonable defaults here
