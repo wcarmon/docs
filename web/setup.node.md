@@ -39,6 +39,7 @@ npm install -g npm@9.6.0
 
 # Outdated/Stale packages
 ```bash
+pnpm outdated
 npm outdated
 ```
 
