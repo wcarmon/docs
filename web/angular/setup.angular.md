@@ -146,6 +146,14 @@ pnpm i --save-dev prettier
 1. Components and Services need [`autoBind(this);`](https://www.npmjs.com/package/auto-bind)
 1. Don't use ~~ActivatedRoute~~, subscribe to Router events instead
 
+
+# Disable local cli cache
+1. `ng serve` doesn't always update the code in the browser, which wastes my time!
+```bash
+ng config cli.cache.enabled false
+```
+
+
 # Other Resources
 
 1. https://angular.io/cli
