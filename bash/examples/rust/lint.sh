@@ -52,12 +52,12 @@ cargo fix \
 --allow-staged
 
 # -- More than you want to know :-)
-#cargo clippy --all -- -W clippy::pedantic -W clippy::nursery -W clippy::cargo
-
+# cargo clippy --all -- -W clippy::pedantic -W clippy::nursery -W clippy::cargo
 # cargo clippy --all
 
 
 # GOTCHA: Order matters, so put allow (A) at the end
+# GOTCHA: -- matters
 #cargo clippy --all -- \
 #  -W clippy::nursery \
 #  -W clippy::pedantic \
