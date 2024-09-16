@@ -2,6 +2,27 @@
 1. TODO
 
 
+# package.json
+- TODO
+
+
+# Init
+- TODO
+
+
+# Span
+- [`tracer.startSpan(...)`](TODO)
+    - no side effects
+    - no context mutation
+    - pure function
+    - You are responsible for calling **`span.end()`** in `finally` block
+    - https://open-telemetry.github.io/opentelemetry-js/interfaces/_opentelemetry_api.Tracer.html#startSpan
+- [`tracer.startActiveSpan(...)`](TODO)
+    - You are responsible for calling **`span.end()`** in `finally` block
+    - Mutates the context for the duration of the closure argument
+    - https://open-telemetry.github.io/opentelemetry-js/interfaces/_opentelemetry_api.Tracer.html#startActiveSpan
+
+
 # Exporter
 - TODO:
 
@@ -37,6 +58,31 @@ export function buildTraceParentHeader(ctx: SpanContext): string {
 
     return `${ver}-${traceId}-${spanId}-${flagsStr}`;
 }
+```
+
+
+# fetch
+- TODO
+
+```typescript
+        span.setAttribute("http.request.header.traceparent", traceparentHeader);
+        span.setAttribute(ATTR_HTTP_REQUEST_METHOD, "GET");
+        span.setAttribute(ATTR_URL_FULL, url);
+        span.setAttribute(ATTR_USER_AGENT_ORIGINAL, navigator.userAgent);
+```
+
+## Error handling
+
+```typescript
+        if (resp.status != 200) {
+            const respBody = await resp.text();
+            span.setStatus({
+                code: SpanStatusCode.ERROR,
+                message: respBody,
+            });
+
+            // maybe console.error(...) or throw new Error(...)
+        }
 ```
 
 
