@@ -34,6 +34,7 @@ import {context, SpanContext, SpanKind, trace} from "@opentelemetry/api";
 // ...
 
     const span = tracer.startSpan(...);
+    // ...
 
     try {
         // -- pass parent SpanContext
