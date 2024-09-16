@@ -25,105 +25,8 @@
     - [more official docs](https://open-telemetry.github.io/opentelemetry-js/interfaces/_opentelemetry_api.Tracer.html#startActiveSpan)
 
 
-## Internal SpanContext propagation (Parent/Child Spans)
-1. Without global state (no magic)
-
-### Parent via [`SpanContext`](https://github.com/open-telemetry/opentelemetry-js/blob/main/api/src/trace/span_context.ts#L25)
-```typescript
-import {context, SpanContext, SpanKind, trace} from "@opentelemetry/api";
-// ...
-
-    const span = tracer.startSpan(...);
-    // ...
-
-    try {
-        // -- pass parent SpanContext
-        await this.myService.doSomeStuff(span.spanContext());
-
-        // ... optionally set other span attributes here
-
-    } catch (error) {
-        span.setStatus({
-            code: SpanStatusCode.ERROR,
-            message: `${error}`,
-        })
-
-        // ... optionally set other error span attributes here
-
-        throw error;
-
-    } finally {
-        span.end();  // <-- VERY IMPORTANT
-    }
-```
-
-### Child via [`SpanContext`](https://github.com/open-telemetry/opentelemetry-js/blob/main/api/src/trace/span_context.ts#L25)
-```typescript
-export async function doSomeStuff(parentSpanContext: SpanContext) {
-
-    const cx = trace.setSpanContext(context.active(), parentSpanContext);
-
-    const span = tracer.startSpan(
-        "do-some-stuff",
-        {
-            kind: SpanKind.CLIENT,
-            root: false,
-        },
-        cx,  // <-- Span constructor reads then sets parent traceId and spanId
-    );
-
-    try {
-        // ... do some stuff
-
-    } catch (error) {
-        span.setStatus({
-            code: SpanStatusCode.ERROR,
-            message: `${error}`,
-        })
-
-        throw error;
-
-    } finally {
-        span.end();  // <-- VERY IMPORTANT
-    }
-}
-```
-
-
-### Parent from [`Context`](TODO)
-```typescript
-import {context, SpanContext, SpanKind, trace} from "@opentelemetry/api";
-// ...
-
-    const span = tracer.startSpan(...);
-    // ...
-
-    const cx = trace.setSpanContext(context.active(), span.spanContext());
-    try {
-        await this.myService.doSomeStuff(cx);
-
-    } catch (error) {
-        span.setStatus({
-            code: SpanStatusCode.ERROR,
-            message: `${error}`,
-        })
-
-        // ... optionally set other error span attributes here
-
-        throw error;
-
-    } finally {
-        span.end();  // <-- VERY IMPORTANT
-    }
-
-```
-
-
-### Child from [`Context`](TODO)
-```typescript
-// TODO
-```
-
+# Propagation (within browser)
+- see [doc](./tracing.propagation.md)
 
 
 # Exporter
@@ -131,6 +34,7 @@ import {context, SpanContext, SpanKind, trace} from "@opentelemetry/api";
 
 
 # Traceparent
+1. Helps propagate from browser to server
 1. Convert from [`SpanContext`](TODO) to a [`traceparent`](TODO) header string
 1. `traceparent` is basically a serialized `SpanContext`
 ```typescript
