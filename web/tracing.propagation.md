@@ -1,14 +1,15 @@
 # Overview
-1. Info on SpanContext propagation within the browser (Parent/Child Spans)
+1. Info on `SpanContext` propagation within the browser (Parent/Child Spans)
 
 
 # Without magic
 1. No impact on global state
+1. Explicit/manual propagation
 
 ## Parent via [`SpanContext`](https://github.com/open-telemetry/opentelemetry-js/blob/main/api/src/trace/span_context.ts#L25)
-```typescript
+```ts
 import {context, SpanContext, SpanKind, trace} from "@opentelemetry/api";
-// ...
+
 
     const span = tracer.startSpan(...);
     // ...
@@ -35,7 +36,7 @@ import {context, SpanContext, SpanKind, trace} from "@opentelemetry/api";
 ```
 
 ## Child via [`SpanContext`](https://github.com/open-telemetry/opentelemetry-js/blob/main/api/src/trace/span_context.ts#L25)
-```typescript
+```ts
 export async function doSomeStuff(parentSpanContext: SpanContext) {
 
     const cx = trace.setSpanContext(context.active(), parentSpanContext);
@@ -68,7 +69,7 @@ export async function doSomeStuff(parentSpanContext: SpanContext) {
 
 
 ## Parent via [`Context`](https://github.com/open-telemetry/opentelemetry-js/blob/main/api/src/api/context.ts#L34)
-```typescript
+```ts
 import {context, SpanContext, SpanKind, trace} from "@opentelemetry/api";
 // ...
 
@@ -97,7 +98,7 @@ import {context, SpanContext, SpanKind, trace} from "@opentelemetry/api";
 
 
 ## Child from [`Context`](TODO)
-```typescript
+```ts
 // TODO
 ```
 

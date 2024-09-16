@@ -25,8 +25,8 @@
     - [more official docs](https://open-telemetry.github.io/opentelemetry-js/interfaces/_opentelemetry_api.Tracer.html#startActiveSpan)
 
 
-# Propagation (within browser)
-- see [doc](./tracing.propagation.md)
+# `SpanContext` Propagation (within browser)
+- see [the doc](./tracing.propagation.md)
 
 
 # Exporter
