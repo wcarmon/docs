@@ -8,14 +8,14 @@
 
 ## Parent via [`SpanContext`](https://github.com/open-telemetry/opentelemetry-js/blob/main/api/src/trace/span_context.ts#L25)
 ```ts
-import {context, SpanContext, SpanKind, trace} from "@opentelemetry/api";
+import {context, SpanContext, SpanKind, SpanStatusCode, trace} from "@opentelemetry/api";
 
 
     const span = tracer.startSpan(...);
     // ...
 
     try {
-        // -- pass parent SpanContext
+        // -- Pass parent SpanContext
         await this.myService.doSomeStuff(span.spanContext());
 
         // ... optionally set other span attributes here
@@ -70,14 +70,14 @@ export async function doSomeStuff(parentSpanContext: SpanContext) {
 
 ## Parent via [`Context`](https://github.com/open-telemetry/opentelemetry-js/blob/main/api/src/api/context.ts#L34)
 ```ts
-import {context, SpanContext, SpanKind, trace} from "@opentelemetry/api";
-// ...
+import {context, SpanStatusCode, trace} from "@opentelemetry/api";
 
     const span = tracer.startSpan(...);
     // ...
 
     const cx = trace.setSpanContext(context.active(), span.spanContext());
     try {
+        // -- Pass parent Context
         await this.myService.doSomeStuff(cx);
 
     } catch (error) {
