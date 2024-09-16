@@ -12,6 +12,7 @@
 
 # Span
 - [`tracer.startSpan(...)`](https://github.com/open-telemetry/opentelemetry-js/blob/main/api/src/trace/tracer.ts#L41)
+    - [sources](https://github.com/open-telemetry/opentelemetry-js/blob/main/packages/opentelemetry-sdk-trace-base/src/Tracer.ts#L65)
     - No side effects (Pure function)
     - No context mutation (No impact on global [`ContextManager`](https://github.com/open-telemetry/opentelemetry-js/blob/main/api/src/context/types.ts#L49))
     - If you pass [`Context`](https://github.com/open-telemetry/opentelemetry-js/blob/main/api/src/context/types.ts#L20), your new span [will be a child span](https://github.com/open-telemetry/opentelemetry-js/blob/main/api/src/trace/tracer.ts#L34)
@@ -22,6 +23,36 @@
     - You are responsible for calling **`span.end()`** in `finally` block
     - Mutates the context for the duration of the closure argument
     - [more official docs](https://open-telemetry.github.io/opentelemetry-js/interfaces/_opentelemetry_api.Tracer.html#startActiveSpan)
+
+
+# Parent/Child Span
+- From parent [`SpanContext`](https://github.com/open-telemetry/opentelemetry-js/blob/main/api/src/trace/span_context.ts#L25)
+```typescript
+    const parentSpanContext: SpanContext = ...
+    const cx = trace.setSpanContext(context.active(), parentSpanContext);
+
+    const span = tracer.startSpan(
+        "do-some-stuff",
+        {
+            kind: SpanKind.CLIENT,
+            root: false,
+        },
+        cx,
+    );
+
+    try {
+        // ... do some stuff
+
+    } finally {
+        span.end();
+    }
+```
+- From [`Context`](TODO)
+```typescript
+// TODO
+```
+
+
 
 
 # Exporter
