@@ -32,8 +32,10 @@
     const span = tracer.startSpan(...);
 
     try {
+        // -- pass parent SpanContext
         await this.myService.doSomeStuff(span.spanContext());
-        // maybe set other span attributes here
+
+        // ... optionally set other span attributes here
 
     } catch (error) {
         span.setStatus({
@@ -41,7 +43,7 @@
             message: `${error}`,
         })
 
-        // maybe set other error span attributes here
+        // ... optionally set other error span attributes here
 
         throw error;
 
@@ -53,7 +55,8 @@
 
 ### Child via [`SpanContext`](https://github.com/open-telemetry/opentelemetry-js/blob/main/api/src/trace/span_context.ts#L25)
 ```typescript
-    const parentSpanContext: SpanContext = ...
+export async function doSomeStuff(parentSpanContext: SpanContext) {
+
     const cx = trace.setSpanContext(context.active(), parentSpanContext);
 
     const span = tracer.startSpan(
@@ -79,6 +82,7 @@
     } finally {
         span.end();  // <-- VERY IMPORTANT
     }
+}
 ```
 
 
