@@ -25,10 +25,14 @@
     - [more official docs](https://open-telemetry.github.io/opentelemetry-js/interfaces/_opentelemetry_api.Tracer.html#startActiveSpan)
 
 
-## Parent/Child Span
+## Internal SpanContext propagation (Parent/Child Spans)
+1. Without global state (no magic)
 
 ### Parent via [`SpanContext`](https://github.com/open-telemetry/opentelemetry-js/blob/main/api/src/trace/span_context.ts#L25)
 ```typescript
+import {context, SpanContext, SpanKind, trace} from "@opentelemetry/api";
+// ...
+
     const span = tracer.startSpan(...);
 
     try {
@@ -50,7 +54,6 @@
     } finally {
         span.end();  // <-- VERY IMPORTANT
     }
-
 ```
 
 ### Child via [`SpanContext`](https://github.com/open-telemetry/opentelemetry-js/blob/main/api/src/trace/span_context.ts#L25)
@@ -65,7 +68,7 @@ export async function doSomeStuff(parentSpanContext: SpanContext) {
             kind: SpanKind.CLIENT,
             root: false,
         },
-        cx,
+        cx,  // <-- Span constructor reads then sets parent traceId and spanId
     );
 
     try {
@@ -88,7 +91,30 @@ export async function doSomeStuff(parentSpanContext: SpanContext) {
 
 ### Parent from [`Context`](TODO)
 ```typescript
-// TODO
+import {context, SpanContext, SpanKind, trace} from "@opentelemetry/api";
+// ...
+
+    const span = tracer.startSpan(...);
+    // ...
+
+    const cx = trace.setSpanContext(context.active(), span.spanContext());
+    try {
+        await this.myService.doSomeStuff(cx);
+
+    } catch (error) {
+        span.setStatus({
+            code: SpanStatusCode.ERROR,
+            message: `${error}`,
+        })
+
+        // ... optionally set other error span attributes here
+
+        throw error;
+
+    } finally {
+        span.end();  // <-- VERY IMPORTANT
+    }
+
 ```
 
 
