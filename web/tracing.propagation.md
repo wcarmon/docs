@@ -99,7 +99,32 @@ import {context, SpanStatusCode, trace} from "@opentelemetry/api";
 
 ## Child from [`Context`](TODO)
 ```ts
-// TODO
+export async getFooBars(cx: Context): Promise<void> {
+
+    const span = this.tracerService.tracer.startSpan(
+        "do-more-stuff",
+        {
+            kind: SpanKind.CLIENT,
+            root: false,
+        },
+        cx,  // <-- Span constructor reads then sets parent traceId and spanId
+    );
+
+    try {
+        // ... do some stuff
+
+    } catch (error) {
+        span.setStatus({
+            code: SpanStatusCode.ERROR,
+            message: `${error}`,
+        })
+
+        throw error;
+
+    } finally {
+        span.end();  // <-- VERY IMPORTANT
+    }
+}
 ```
 
 
