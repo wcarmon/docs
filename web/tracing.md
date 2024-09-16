@@ -12,17 +12,16 @@
 
 # Span
 - [`tracer.startSpan(...)`](https://github.com/open-telemetry/opentelemetry-js/blob/main/api/src/trace/tracer.ts#L41)
-    - no side effects (No impact on global [`ContextManager`](https://github.com/open-telemetry/opentelemetry-js/blob/main/api/src/context/types.ts#L49))
-    - no context mutation
-    - pure function
-    - if you pass [`Context`](https://github.com/open-telemetry/opentelemetry-js/blob/main/api/src/context/types.ts#L20), your new span [will be a child span](https://github.com/open-telemetry/opentelemetry-js/blob/main/api/src/trace/tracer.ts#L34)
+    - No side effects (Pure function)
+    - No context mutation (No impact on global [`ContextManager`](https://github.com/open-telemetry/opentelemetry-js/blob/main/api/src/context/types.ts#L49))
+    - If you pass [`Context`](https://github.com/open-telemetry/opentelemetry-js/blob/main/api/src/context/types.ts#L20), your new span [will be a child span](https://github.com/open-telemetry/opentelemetry-js/blob/main/api/src/trace/tracer.ts#L34)
     - You are responsible for calling **`span.end()`** in `finally` block
-    - https://open-telemetry.github.io/opentelemetry-js/interfaces/_opentelemetry_api.Tracer.html#startSpan
+    - [more official docs](https://open-telemetry.github.io/opentelemetry-js/interfaces/_opentelemetry_api.Tracer.html#startSpan)
 - [`tracer.startActiveSpan(...)`](https://github.com/open-telemetry/opentelemetry-js/blob/main/api/src/trace/tracer.ts#L87)
-    - has side effects on global [`ContextManager`](https://github.com/open-telemetry/opentelemetry-js/blob/main/api/src/context/types.ts#L49)
+    - Has side effects on global [`ContextManager`](https://github.com/open-telemetry/opentelemetry-js/blob/main/api/src/context/types.ts#L49)
     - You are responsible for calling **`span.end()`** in `finally` block
     - Mutates the context for the duration of the closure argument
-    - https://open-telemetry.github.io/opentelemetry-js/interfaces/_opentelemetry_api.Tracer.html#startActiveSpan
+    - [more official docs](https://open-telemetry.github.io/opentelemetry-js/interfaces/_opentelemetry_api.Tracer.html#startActiveSpan)
 
 
 # Exporter
