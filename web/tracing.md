@@ -3,7 +3,15 @@
 
 
 # package.json
-- TODO
+```bash
+pnpm i @opentelemetry/api;
+pnpm i @opentelemetry/core;
+pnpm i @opentelemetry/otlp-exporter-base;
+pnpm i @opentelemetry/resources;
+pnpm i @opentelemetry/sdk-trace-base;
+pnpm i @opentelemetry/sdk-trace-web;
+pnpm i @opentelemetry/semantic-conventions;
+```
 
 
 # Init
@@ -35,7 +43,7 @@
 
 # Traceparent
 1. Helps propagate from browser to server
-1. Convert from [`SpanContext`](TODO) to a [`traceparent`](TODO) header string
+1. Convert from [`SpanContext`](https://github.com/open-telemetry/opentelemetry-js/blob/main/api/src/trace/span_context.ts#L25) to a [`traceparent`](https://www.w3.org/TR/trace-context/#traceparent-header) header string
 1. `traceparent` is basically a serialized `SpanContext`
 ```typescript
 import {SpanContext, TraceFlags} from "@opentelemetry/api";

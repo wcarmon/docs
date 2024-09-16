@@ -3,8 +3,12 @@
 
 
 # Without magic
-1. No impact on global state
-1. Explicit/manual propagation
+1. Pro: No impact on global state
+1. Pro: No deep nesting
+1. Pro: Simpler to reason about
+1. Pro: Easier to integrate with any orthogonal concern
+1. Con: Explicit/manual propagation (slightly more code)
+
 
 ## Parent via [`SpanContext`](https://github.com/open-telemetry/opentelemetry-js/blob/main/api/src/trace/span_context.ts#L25)
 ```ts
