@@ -25,8 +25,33 @@
     - [more official docs](https://open-telemetry.github.io/opentelemetry-js/interfaces/_opentelemetry_api.Tracer.html#startActiveSpan)
 
 
-# Parent/Child Span
-- From parent [`SpanContext`](https://github.com/open-telemetry/opentelemetry-js/blob/main/api/src/trace/span_context.ts#L25)
+## Parent/Child Span
+
+### Parent via [`SpanContext`](https://github.com/open-telemetry/opentelemetry-js/blob/main/api/src/trace/span_context.ts#L25)
+```typescript
+    const span = tracer.startSpan(...);
+
+    try {
+        await this.myService.doSomeStuff(span.spanContext());
+        // maybe set other span attributes here
+
+    } catch (error) {
+        span.setStatus({
+            code: SpanStatusCode.ERROR,
+            message: `${error}`,
+        })
+
+        // maybe set other error span attributes here
+
+        throw error;
+
+    } finally {
+        span.end();  // <-- VERY IMPORTANT
+    }
+
+```
+
+### Child via [`SpanContext`](https://github.com/open-telemetry/opentelemetry-js/blob/main/api/src/trace/span_context.ts#L25)
 ```typescript
     const parentSpanContext: SpanContext = ...
     const cx = trace.setSpanContext(context.active(), parentSpanContext);
@@ -43,15 +68,30 @@
     try {
         // ... do some stuff
 
+    } catch (error) {
+        span.setStatus({
+            code: SpanStatusCode.ERROR,
+            message: `${error}`,
+        })
+
+        throw error;
+
     } finally {
-        span.end();
+        span.end();  // <-- VERY IMPORTANT
     }
 ```
-- From [`Context`](TODO)
+
+
+### Parent from [`Context`](TODO)
 ```typescript
 // TODO
 ```
 
+
+### Child from [`Context`](TODO)
+```typescript
+// TODO
+```
 
 
 
