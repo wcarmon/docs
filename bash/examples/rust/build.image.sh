@@ -248,5 +248,7 @@ echo "$DOCKER logs $CONTAINER_NAME"
 
 
 # -- Cleanup
-# docker container prune --force
-# docker image prune --force
+echo
+echo "|-- Cleanup:"
+echo "docker container prune --force"
+echo "docker image prune -a --force"
