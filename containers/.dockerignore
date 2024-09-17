@@ -41,6 +41,7 @@ _todo.md
 Dockerfile
 Dockerfile*
 docs/
+last-version.txt
 logs/
 modules
 modules*

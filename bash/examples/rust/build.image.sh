@@ -25,8 +25,10 @@ readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
 # ---------------------------------------------
 # semver: https://semver.org/
 # eg. "1.2.3" or "4.5"
+# TODO: document what happens if blank/absent
+# TODO: document what happens if present
 set +u
-readonly SEMVER=$1
+SEMVER=$1
 set -u
 
 
@@ -39,6 +41,8 @@ set -u
 readonly PROJ_ROOT="$PARENT_DIR"
 
 readonly DOCKERFILE=./Dockerfile
+
+readonly VERSION_FILE=./last-version.txt
 
 
 # Optional
@@ -64,8 +68,40 @@ readonly QUALIFIED_IMAGE_NAME="todo-a"
 # ---------------------------------------------
 # -- Derived
 # ---------------------------------------------
+readonly ABS_VERSION_FILE=$(realpath "$VERSION_FILE")
 readonly TAG_LATEST="latest${TAG_SUFFIX}"
 readonly TAG_NUMBERED="${SEMVER}${TAG_SUFFIX}"
+
+
+# ---------------------------------------------
+# -- Version bumps
+# ---------------------------------------------
+
+# -- Remove all spaces, check for value
+if [[ -z "${SEMVER// }" ]]; then
+  # -- Require version file exists
+  if [[ ! -f "$ABS_VERSION_FILE" ]]; then
+    echo
+    echo "|-- Failed to find version file at $ABS_VERSION_FILE"
+    exit 20
+  fi
+
+  echo
+  echo "|-- Found version file at $ABS_VERSION_FILE"
+
+  VERSION_FILE_CONTENT=$(grep -v '^\s*#' $ABS_VERSION_FILE | sed '/^\s*$/d' | xargs)
+  echo ""
+  echo "|-- Version file contents: $VERSION_FILE_CONTENT (old)"
+
+  #-- Parse version
+  MAJOR=$(echo "$VERSION_FILE_CONTENT" | cut -d. -f1)
+  MINOR=$(echo "$VERSION_FILE_CONTENT" | cut -d. -f2)
+  PATCH=$(echo "$VERSION_FILE_CONTENT" | cut -d. -f3)
+
+  #-- Bump version
+  NEW_PATCH=$((PATCH + 1))
+  SEMVER="$MAJOR.$MINOR.$NEW_PATCH"
+fi
 
 
 # ---------------------------------------------
@@ -134,8 +170,8 @@ info!("build_ts: {build_ts}");
 }
 
 echo
-echo "|-- Latest commit ts: $BUILD_TS"
-echo "|-- Latest commit: $GIT_HASH"
+echo "|-- Latest commit ts: '$BUILD_TS'"
+echo "|-- Latest commit hash: '$GIT_HASH'"
 
 write_git_info "my-binary-crate-1/src/gitinfo.rs" "$BUILD_TS" "$GIT_HASH"
 write_git_info "my-binary-crate-2/src/gitinfo.rs" "$BUILD_TS" "$GIT_HASH"
@@ -153,6 +189,14 @@ $DOCKER build \
   --tag "${QUALIFIED_IMAGE_NAME}:${TAG_LATEST}" \
   --tag "${QUALIFIED_IMAGE_NAME}:${TAG_NUMBERED}" \
   .
+
+
+# ---------------------------------------------
+# -- Update version file
+# ---------------------------------------------
+echo "$SEMVER" > $ABS_VERSION_FILE;
+echo ""
+echo "|-- Overwrote version in $ABS_VERSION_FILE"
 
 
 # ---------------------------------------------
