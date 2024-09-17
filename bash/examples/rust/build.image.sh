@@ -4,8 +4,9 @@
 # -- Builds docker image for app
 # --
 # -- Assumptions:
-# -- 1. Docker installed: https://docs.docker.com/get-docker/
-# -- 2. Docker buildx installed
+# -- 1. Docker 27+ installed: https://docs.docker.com/get-docker/
+# --    See Linux Mint instructions in gdocs
+# -- 2. Docker buildx installed - https://docs.docker.com/go/buildx/
 # ---------------------------------------------
 #set -x # uncomment to debug script
 set -e # exit on first error
@@ -41,6 +42,7 @@ set -u
 # Dir contains Dockerfile
 readonly PROJ_ROOT="$PARENT_DIR"
 
+readonly DOCKER_BUILD_ROOT=.
 readonly DOCKERFILE=./Dockerfile
 
 readonly VERSION_FILE=./last-version.txt
@@ -49,7 +51,7 @@ readonly VERSION_FILE=./last-version.txt
 # Optional
 # Useful as a version suffix when image repo contains multiple variants
 # (eg. "-debian" or "-alpine")
-readonly TAG_SUFFIX="-debian"
+readonly TAG_SUFFIX="-alpine"
 
 
 # -- Everything before the version
@@ -130,7 +132,7 @@ readonly BUILD_TS="$(git log -1 --format='%ci')";
 readonly GIT_HASH="$(git log -1 --format='%H')";
 
 function write_git_info() {
-  local LOCAL_SINK="$1"
+  local LOCAL_SINK=$(realpath "$1")
   local LOCAL_BUILD_TS="$2"
   local LOCAL_GIT_HASH="$3"
 
@@ -189,7 +191,7 @@ $DOCKER build \
   --file ${DOCKERFILE} \
   --tag "${QUALIFIED_IMAGE_NAME}:${TAG_LATEST}" \
   --tag "${QUALIFIED_IMAGE_NAME}:${TAG_NUMBERED}" \
-  .
+  $DOCKER_BUILD_ROOT
 
 
 # ---------------------------------------------
@@ -232,15 +234,15 @@ $DOCKER images -a | grep ${QUALIFIED_IMAGE_NAME}
 
 echo
 echo "|-- Debug using:"
-echo "$DOCKER run --rm -it $QUALIFIED_IMAGE_NAME:latest /bin/ash"
-echo
+echo "$DOCKER run --rm -it $QUALIFIED_IMAGE_NAME:$TAG_LATEST /bin/ash"
+echo "$DOCKER run --rm -it $QUALIFIED_IMAGE_NAME:$TAG_LATEST /bin/bash"
 
-
+# TODO: change this
 readonly CONTAINER_NAME=my_svr
 echo
 echo "|-- Run using:"
 echo "$DOCKER stop $CONTAINER_NAME"
-echo "$DOCKER run --name $CONTAINER_NAME -d -p 13000:3000 -p 13001:3001 $QUALIFIED_IMAGE_NAME:latest"
+echo "$DOCKER run --name $CONTAINER_NAME -d -p 13000:3000 -p 13001:3001 $QUALIFIED_IMAGE_NAME:$TAG_LATEST"
 echo "$DOCKER ps -a | grep $CONTAINER_NAME"
 echo "$DOCKER logs $CONTAINER_NAME"
 

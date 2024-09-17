@@ -13,7 +13,15 @@
 # -- 3. docker-credential-gcloud
 # --    - `gcloud components install docker-credential-gcr`
 # --    - `ln -sv ... $HOME/bin/`   <-- TODO: improve this
-# -- 4. Docker Image repository exists
+# -- 4. Docker Image repository exists (eg. Artifact Repository)
+# --    - https://console.cloud.google.com/artifacts
+# --    - Create repository
+# --        - Format: Docker
+# --        - Mode: Standard
+# --        - Location type: Region (us-east1 or us-east5)
+# --        - Encryption: Google-managed encryption key
+# --        - Immutable image tags: Disabled
+# --        - Cleanup policies: Dry run
 # ---------------------------------------------
 #set -x # uncomment to debug script
 set -e # exit on first error

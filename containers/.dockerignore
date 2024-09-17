@@ -18,6 +18,8 @@
 **/.toolstarget
 **/.vs
 **/.vscode
+**/__todo.md
+**/_todo.md
 **/charts
 **/compose*
 **/docker-compose*
@@ -27,6 +29,8 @@
 **/npm-debug.log
 **/obj
 **/secrets.dev.y*ml
+**/tests/
+**/todo.md
 **/values.dev.y*ml
 *.iso
 *.md
@@ -36,8 +40,6 @@
 .gcloudignore
 .git
 .gitignore
-__todo.md
-_todo.md
 Dockerfile
 Dockerfile*
 docs/
@@ -53,3 +55,4 @@ target/
 tests/
 todo.md
 vendor/
+version.txt
