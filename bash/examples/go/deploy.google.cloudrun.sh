@@ -5,12 +5,14 @@
 # --
 # -- Assumptions:
 # -- 1. Docker installed: https://docs.docker.com/get-docker/
-# -- 2. setup credential helper
-# --      create `config.json` via `gcloud auth configure-docker us-east1-docker.pkg.dev`:
-# --    - https://cloud.google.com/artifact-registry/docs/docker/pushing-and-pulling
+# -- 2. Setup credential helper
+# --    - Created `config.json`
+#           - run `gcloud auth configure-docker us-east1-docker.pkg.dev`:
+# --    - Verify: cat $HOME/.docker/config.json
+# --    - Docs: https://cloud.google.com/artifact-registry/docs/docker/pushing-and-pulling
 # -- 3. docker-credential-gcloud
 # --    - `gcloud components install docker-credential-gcr`
-# --    - `ln -sv ... $HOME/bin/`
+# --    - `ln -sv ... $HOME/bin/`   <-- TODO: improve this
 # -- 4. Docker Image repository exists
 # ---------------------------------------------
 #set -x # uncomment to debug script
@@ -41,24 +43,17 @@ readonly SHORT_IMAGE_NAME="foo"
 # Optional
 # Useful as a version suffix when image repo contains multiple variants
 # (eg. "-debian" or "-alpine")
-readonly TAG_SUFFIX="-go"
+readonly TAG_SUFFIX=""
 
-# AWS Elastic Container Registry:
-#   - Format: TODO
-#   - eg. "ecr.us-east-1.amazonaws.com"
-#
 # Google Cloud Artifact Registry:
 #   - Format: HOST-NAME/PROJECT-ID
 #   - eg. "us-east1-docker.pkg.dev/my-project-id"
 #   - See https://console.cloud.google.com/artifacts
-readonly IMAGE_REPO_URI=ecr.us-east-1.amazonaws.com
-#readonly IMAGE_REPO_URI=us-east1-docker.pkg.dev/foo-bar
+readonly IMAGE_REPO_URI=us-east1-docker.pkg.dev/foo-bar
 
-# AWS:          TODO
 # Google cloud: gcloud artifacts repositories list
 readonly REPOSITORY_NAME=quux
 
-# AWS:          TODO
 # Google cloud: gcloud run services list
 readonly SERVICE_NAME=foo-server
 
@@ -70,7 +65,6 @@ readonly QUALIFIED_IMAGE_NAME="${IMAGE_REPO_URI}/${REPOSITORY_NAME}/${SHORT_IMAG
 
 readonly TAG_NUMBERED="${SEMVER}${TAG_SUFFIX}"
 
-# AWS:          TODO
 # Google Cloud: HOST-NAME/PROJECT-ID/REPOSITORY/IMAGE:TAG
 readonly IMAGE_TO_DEPLOY="${QUALIFIED_IMAGE_NAME}:${TAG_NUMBERED}"
 

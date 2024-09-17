@@ -36,6 +36,8 @@
 .gcloudignore
 .git
 .gitignore
+__todo.md
+_todo.md
 Dockerfile
 Dockerfile*
 docs/
@@ -47,4 +49,6 @@ passphrase.txt
 passwords.txt
 README.md
 target/
+tests/
+todo.md
 vendor/
