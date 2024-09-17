@@ -68,7 +68,7 @@ RUN cargo build \
 # ---------------------------------------------
 # -- Deploy stage
 # ---------------------------------------------
-FROM alpine:3
+FROM debian:bookworm
 
 WORKDIR /app
 EXPOSE 8080
@@ -79,6 +79,7 @@ EXPOSE 8080
 # -- Copy artifacts
 COPY --from=builder /usr/src/myapp/target/x86_64-unknown-linux-gnu/release/binary1 /app/app-server
 
+# TODO: fix this block
 RUN addgroup -g 1001 appuser && \
     adduser \
     -D \
