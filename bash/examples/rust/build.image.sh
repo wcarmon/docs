@@ -5,6 +5,7 @@
 # --
 # -- Assumptions:
 # -- 1. Docker installed: https://docs.docker.com/get-docker/
+# -- 2. Docker buildx installed
 # ---------------------------------------------
 #set -x # uncomment to debug script
 set -e # exit on first error
@@ -70,7 +71,6 @@ readonly QUALIFIED_IMAGE_NAME="todo-a"
 # ---------------------------------------------
 readonly ABS_VERSION_FILE=$(realpath "$VERSION_FILE")
 readonly TAG_LATEST="latest${TAG_SUFFIX}"
-readonly TAG_NUMBERED="${SEMVER}${TAG_SUFFIX}"
 
 
 # ---------------------------------------------
@@ -79,6 +79,7 @@ readonly TAG_NUMBERED="${SEMVER}${TAG_SUFFIX}"
 
 # -- Remove all spaces, check for value
 if [[ -z "${SEMVER// }" ]]; then
+
   # -- Require version file exists
   if [[ ! -f "$ABS_VERSION_FILE" ]]; then
     echo
@@ -86,11 +87,9 @@ if [[ -z "${SEMVER// }" ]]; then
     exit 20
   fi
 
-  echo
   echo "|-- Found version file at $ABS_VERSION_FILE"
 
   VERSION_FILE_CONTENT=$(grep -v '^\s*#' $ABS_VERSION_FILE | sed '/^\s*$/d' | xargs)
-  echo ""
   echo "|-- Version file contents: $VERSION_FILE_CONTENT (old)"
 
   #-- Parse version
@@ -102,6 +101,8 @@ if [[ -z "${SEMVER// }" ]]; then
   NEW_PATCH=$((PATCH + 1))
   SEMVER="$MAJOR.$MINOR.$NEW_PATCH"
 fi
+
+readonly TAG_NUMBERED="${SEMVER}${TAG_SUFFIX}"
 
 
 # ---------------------------------------------
@@ -162,7 +163,7 @@ mod gitinfo;
 info!("GIT_HASH={GIT_HASH}");
 
 // info!("BUILD_TS={BUILD_TS}");
-let build_ts = DateTime::parse_from_str(BUILD_TS, "%Y-%m-%d %H:%M:%S %z")
+let build_ts = chrono::DateTime::parse_from_str(BUILD_TS, "%Y-%m-%d %H:%M:%S %z")
     .expect("Failed to parse build timestamp")
     .to_utc();
 info!("build_ts: {build_ts}");
