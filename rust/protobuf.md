@@ -50,8 +50,11 @@
 use std::io::Result;
 
 fn main() -> Result<()> {
+    // -- For gRPC (implies protobuf too)
     tonic_build::configure()
-        .build_server(false)
+        .build_client(true)
+        .build_server(true)
+        .build_transport(true)
         .compile(
             &[
                 "protos/http.proto",
