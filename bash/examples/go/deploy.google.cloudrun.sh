@@ -117,13 +117,13 @@ $GCLOUD run services list
 
 echo
 echo "|-- Deployed service info:"
-$GCLOUD run services describe chrono-server \
+$GCLOUD run services describe $SERVICE_NAME \
   --region=us-east1
 
 echo
 echo "|-- Revisions:"
 $GCLOUD run revisions list \
-  --service chrono-server \
+  --service $SERVICE_NAME \
   --region=us-east1
 
 #NOTE: logs explorer is MUCH better than the Cloud Run logs

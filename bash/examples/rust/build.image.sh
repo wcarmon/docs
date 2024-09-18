@@ -27,8 +27,9 @@ readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
 # ---------------------------------------------
 # semver: https://semver.org/
 # eg. "1.2.3" or "4.5"
-# TODO: document what happens if blank/absent
-# TODO: document what happens if present
+#
+# If present, SEMVER overrides whatever is in $PARENT_DIR/last-version.txt
+# If absent, attempts to read from $PARENT_DIR/last-version.txt
 set +u
 SEMVER=$1
 set -u
