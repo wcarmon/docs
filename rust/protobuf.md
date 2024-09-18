@@ -40,7 +40,7 @@
 1. Add `$PROJ_ROOT/src/foo.rs` for the each `struct` (model the domain as you would normally)
 1. Add `$PROJ_ROOT/protos/foo.proto` for each corresponding [proto def](https://protobuf.dev/programming-guides/proto3/)
     1. Choose a [package](https://protobuf.dev/programming-guides/proto3/#packages) (you'll use it later)
-    1. Or maybe the protos already exit
+    1. Or maybe the protos already exist
 1. In [`$PROJ_ROOT/build.rs`](https://docs.rs/prost-build/latest/prost_build/):
 ```rs
 use std::io::Result;
