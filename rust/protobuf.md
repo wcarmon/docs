@@ -35,7 +35,11 @@
     prost-types = "..."
 
     [build-dependencies]
-    prost-build = { version = "..." }
+    # -- gRPC (prost implied)
+    tonic-build = "..."
+
+    # -- only required without gRPC/tonic ...
+    prost-build = "..."
     ```
 1. Add `$PROJ_ROOT/src/foo.rs` for the each `struct` (model the domain as you would normally)
 1. Add `$PROJ_ROOT/protos/foo.proto` for each corresponding [proto def](https://protobuf.dev/programming-guides/proto3/)
