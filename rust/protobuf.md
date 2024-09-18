@@ -39,7 +39,7 @@
     tonic-build = "..."
 
     # -- only required without gRPC/tonic ...
-    prost-build = "..."
+    #prost-build = "..."
     ```
 1. Add `$PROJ_ROOT/src/foo.rs` for the each `struct` (model the domain as you would normally)
 1. Add `$PROJ_ROOT/protos/foo.proto` for each corresponding [proto def](https://protobuf.dev/programming-guides/proto3/)
@@ -49,16 +49,26 @@
 ```rs
 use std::io::Result;
 
-use prost_build::compile_protos;
-
 fn main() -> Result<()> {
-    compile_protos(
-        &[
-            "protos/foo.proto",
-            // TODO: other proto files here
-        ],
-        &["src/", "protos/"],
-    )?;
+    tonic_build::configure()
+        .build_server(false)
+        .compile(
+            &[
+                "protos/http.proto",
+                "protos/model.proto",
+                // ...
+            ],
+            &["src/", "protos/"],
+        )?;
+
+    // -- Protobuf only (no gRPC)
+    // prost_build::compile_protos(
+    //     &[
+    //         "protos/foo.proto",
+    //         // TODO: other proto files here
+    //     ],
+    //     &["src/", "protos/"],
+    // )?;
 
     Ok(())
 }
