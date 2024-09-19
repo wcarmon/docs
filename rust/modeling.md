@@ -131,7 +131,7 @@ struct Employee {
 ## Augmenting external types (new methods)
 
 - Adding method(s) to a type defined in another crate
-- Equivalent: [Kotlin extensions](https://kotlinlang.org/docs/extensions.html), [C# extension methods](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/extension-methods), [Java with Manifold](https://github.com/manifold-systems/manifold/tree/master/manifold-deps-parent/manifold-ext), [JS monkeypatching](https://en.wikipedia.org/wiki/Monkey_patch)
+- Rough Equivalent: [Kotlin extensions](https://kotlinlang.org/docs/extensions.html), [C# extension methods](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/extension-methods), [Java with Manifold](https://github.com/manifold-systems/manifold/tree/master/manifold-deps-parent/manifold-ext), [JS monkeypatching](https://en.wikipedia.org/wiki/Monkey_patch)
 
 
 ### Option-A: new Trait
@@ -140,7 +140,6 @@ struct Employee {
 1. Add new methods to the Trait (`impl FooExt {...}`)
 1. `impl FooExt for SomeExternalType { ... }`
 1. Let some of your functions accept/return `FooExt`
-
 
 ### Option-B: [newtype pattern](https://doc.rust-lang.org/rust-by-example/generics/new_types.html)
 
