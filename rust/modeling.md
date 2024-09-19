@@ -128,17 +128,24 @@ struct Employee {
 1. See [fearless concurrency doc](https://doc.rust-lang.org/book/ch16-00-concurrency.html)
 1. [Send](https://doc.rust-lang.org/std/marker/trait.Send.html) and [Sync](https://doc.rust-lang.org/std/sync/) marker [traits](./traits.md) may help
 
-## Augmenting external types
+## Augmenting external types (new methods)
 
-- adding method(s) to a type defined in another crate
+- Adding method(s) to a type defined in another crate
+- Equivalent: [Kotlin extensions](https://kotlinlang.org/docs/extensions.html), [C# extension methods](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/extension-methods), [Java with Manifold](https://github.com/manifold-systems/manifold/tree/master/manifold-deps-parent/manifold-ext), [JS monkeypatching](https://en.wikipedia.org/wiki/Monkey_patch)
 
-### Option-A: Define [Trait](./traits.md) with new methods
 
-1. `impl MyTrait for ExternalType`
-1. Functions can accept/return *MyTrait*
+### Option-A: new Trait
 
-### Option-B: Wrap external types using [newtype pattern](https://doc.rust-lang.org/rust-by-example/generics/new_types.html)
+1. Define [Trait](./traits.md) (eg. `FooExt`)
+1. Add new methods to the Trait (`impl FooExt {...}`)
+1. `impl FooExt for SomeExternalType { ... }`
+1. Let some of your functions accept/return `FooExt`
 
+
+### Option-B: [newtype pattern](https://doc.rust-lang.org/rust-by-example/generics/new_types.html)
+
+1. Create a wrapper struct `FooWrapper` (or some name logical for your domain)
+Wrap external types using
 1. proxy or [shrinkwrap](https://docs.rs/shrinkwraprs/latest/shrinkwraprs/) external types
     1. [example-1](https://doc.rust-lang.org/rust-by-example/generics/new_types.html)
     1. [example-2](https://rust-unofficial.github.io/patterns/patterns/behavioural/newtype.html)

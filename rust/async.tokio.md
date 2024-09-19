@@ -115,7 +115,8 @@ impl Stream for TokioFileToStream {
 
 
 # TODO/Unorganized
-
+- Tokio Streams are like Rx Observables or Reactor Flux, etc
+- TODO: AsyncRead
 - https://ryhl.io/blog/async-what-is-blocking/
 - https://rust-lang.github.io/async-book/01_getting_started/02_why_async.html
 - https://rust-lang.github.io/async-book/01_getting_started/04_async_await_primer.html

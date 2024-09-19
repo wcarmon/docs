@@ -53,6 +53,11 @@ readonly MAX_TRACES=1000000
 $DOCKER stop $JAEGER_CONTAINER_NAME || true &>/dev/null
 $DOCKER rm --force $JAEGER_CONTAINER_NAME || true &>/dev/null
 
+# -- Stop containers with port conflicts
+$DOCKER stop jaeger_badger || true &>/dev/null
+$DOCKER stop jaeger_custom_storage || true &>/dev/null
+#$DOCKER stop jaeger_memstore || true &>/dev/null
+
 
 # ---------------------------------------------
 # -- Run
