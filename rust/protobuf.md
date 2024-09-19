@@ -1,6 +1,6 @@
 # Overview
 1. Checklist for using [prost](https://crates.io/crates/prost) (for rust [Protocol buffers](https://protobuf.dev/))
-
+1. See also [grpc doc](./io.grpc.server.md)
 
 # One-time setup
 1. [Download protoc](https://github.com/protocolbuffers/protobuf/releases/)
@@ -62,7 +62,7 @@ fn main() -> Result<()> {
         // -- Add extra derive attribute to some message type
         // -- See https://docs.rs/prost-build-config/latest/prost_build_config/
         // -- See https://docs.rs/prost-build/latest/prost_build/struct.Config.html#method.message_attribute
-        .message_attribute("MyMessageType","#[derive(Eq, Hash, PartialEq)]",)
+        .message_attribute("MyMessageType","#[derive(Eq, Hash)]",)
         .compile(
             &[
                 "protos/http.proto",
