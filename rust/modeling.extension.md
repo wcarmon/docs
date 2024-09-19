@@ -50,7 +50,7 @@
 
 # Pattern-B: [newtype](https://doc.rust-lang.org/rust-by-example/generics/new_types.html) (More powerful)
 
-1. Concept: [proxy pattern](TODO)
+1. Concept: [proxy pattern](https://refactoring.guru/design-patterns/proxy)
 1. Create a wrapper (tuple) struct `FooWrapper` (or some name logical for your domain)
 1. Add methods to expose features on the inner type
 1. Create a `FooWrapper::new(inner_type)` method to accept the inner type
