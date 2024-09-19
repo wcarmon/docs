@@ -19,22 +19,33 @@
 - [JS monkeypatching](https://en.wikipedia.org/wiki/Monkey_patch)
 
 
-# Pattern-A: Extension Trait
+# Pattern-A: Extension Trait (Simpler)
 
 1. Define [Trait](./traits.md) (eg. `FooExt`)
 1. Add new method stubs to the Trait (`impl FooExt {...}`)
 1. `impl FooExt for SomeExternalType { ... }`
-1. Let some of your functions accept/return `dyn FooExt`
-1. Con: you lose access to the properties on the external type
+1. Use `SomeExternalType` normally, but import your `trait`, (eg. `use a::b::c::FooExt`)
+
+
+# Pros & Cons
+1. `Pro`: simple
+1. `Pro`: can feel a bit magical, but the compiler/IDE can resolve methods correctly
+1. `Con`: Conflicting extension traits
+1. `Con`: Homograph traits are confusing (eg. [`std::io::Write`](https://doc.rust-lang.org/std/io/trait.Write.html)  and [`std::fmt::Write`](https://doc.rust-lang.org/std/fmt/trait.Write.html))
+
 
 ## Examples
-- TODO
+- [`std::os::unix::fs::PermissionsExt`](https://doc.rust-lang.org/std/os/unix/fs/trait.PermissionsExt.html)
+- [`std::os::linux::fs::MetadataExt`](https://doc.rust-lang.org/std/os/linux/fs/trait.MetadataExt.html)
+- [``]()
+- [``]()
+
 
 ## Other resources
 1. https://www.howtocodeit.com/articles/ultimate-guide-rust-newtypes
 
 
-# Pattern-B: [newtype](https://doc.rust-lang.org/rust-by-example/generics/new_types.html)
+# Pattern-B: [newtype](https://doc.rust-lang.org/rust-by-example/generics/new_types.html) (More powerful)
 
 1. Concept: [proxy pattern](TODO)
 1. Create a wrapper (tuple) struct `FooWrapper` (or some name logical for your domain)
@@ -50,9 +61,17 @@
 1. Avoid ~~`Deref`~~ since it breaks encapsulation and has some side effects for `*` operator
 1. (If using serde), add [`#[serde(transparent)]`](https://serde.rs/container-attrs.html#transparent) so the wrapper is ignored for serialization & deserialization
 
+
+# Pros & Cons
+1. `Pro`: can "add" or "remove" methods from types
+1. `Pro`: stronger type safety & semantics (eg. [`NonZeroI32`](https://doc.rust-lang.org/std/num/type.NonZeroI32.html))
+1. `Pro`: Type system enforces invariants (assuming newtype has validation)
+1. `Con`: boilerplate
+
+
 ## Helpful crates:
-    1. [shrinkwrap](https://docs.rs/shrinkwraprs/latest/shrinkwraprs/)
-    1. Skip the ~~`nutype`~~ crate, it's feature rich, but it's "frameworky" and becomes a dependency for everything downstream
+    1. [derive_more](https://crates.io/crates/derive_more)
+    1. Avoid/Skip the ~~`nutype`~~ crate, it's feature rich, but it's "frameworky" and becomes a dependency for everything downstream
 
 
 ## Examples
@@ -62,6 +81,7 @@
 
 
 ## Other resources
-1. https://www.howtocodeit.com/articles/ultimate-guide-rust-newtypes
+1. https://rust-unofficial.github.io/patterns/patterns/behavioural/newtype.html
 1. https://doc.rust-lang.org/book/ch19-03-advanced-traits.html?highlight=orphan#using-the-newtype-pattern-to-implement-external-traits-on-external-types
 1. https://www.lurklurk.org/effective-rust/newtype.html
+1. https://www.howtocodeit.com/articles/ultimate-guide-rust-newtypes
