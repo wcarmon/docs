@@ -62,10 +62,7 @@ fn main() -> Result<()> {
         // -- Add extra derive attribute to some message type
         // -- See https://docs.rs/prost-build-config/latest/prost_build_config/
         // -- See https://docs.rs/prost-build/latest/prost_build/struct.Config.html#method.message_attribute
-        .message_attribute(
-            "MyMessageType",
-            "#[derive(Eq, Hash)]",
-        )
+        .message_attribute("MyMessageType","#[derive(Eq, Hash, PartialEq)]",)
         .compile(
             &[
                 "protos/http.proto",
