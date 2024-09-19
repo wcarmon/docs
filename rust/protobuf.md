@@ -72,7 +72,10 @@ fn main() -> Result<()> {
                 "protos/model.proto",
                 // ... other protos
             ],
-            &["src/", "protos/"],
+            &[
+                "src/",     # for reference resolution??
+                "protos/",
+            ],
         )?;
 
     // -- Protobuf only (no gRPC)
