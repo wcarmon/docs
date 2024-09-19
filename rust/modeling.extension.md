@@ -37,7 +37,11 @@
 ## Examples
 - [`std::os::unix::fs::PermissionsExt`](https://doc.rust-lang.org/std/os/unix/fs/trait.PermissionsExt.html)
 - [`std::os::linux::fs::MetadataExt`](https://doc.rust-lang.org/std/os/linux/fs/trait.MetadataExt.html)
-- [``]()
+- [`std::thread::JoinHandle`](https://doc.rust-lang.org/std/thread/struct.JoinHandle.html)
+- [`walkdir::DirEntry`](https://docs.rs/walkdir/latest/walkdir/struct.DirEntry.html) (`cfg` specific `trait` example)
+- [`opentelemetry::baggage::BaggageExt`](https://docs.rs/opentelemetry/latest/opentelemetry/baggage/trait.BaggageExt.html)
+- [`opentelemetry::trace::TraceContextExt`](https://docs.rs/opentelemetry/latest/opentelemetry/trace/trait.TraceContextExt.html)
+- [`AtomicElisionExt`](https://github.com/Amanieu/parking_lot/blob/master/src/elision.rs#L11) ([Associated Type](https://doc.rust-lang.org/rust-by-example/generics/assoc_items/types.html) example)
 - [``]()
 
 
