@@ -129,26 +129,7 @@ struct Employee {
 1. [Send](https://doc.rust-lang.org/std/marker/trait.Send.html) and [Sync](https://doc.rust-lang.org/std/sync/) marker [traits](./traits.md) may help
 
 ## Augmenting external types (new methods)
-
-- Adding method(s) to a type defined in another crate
-- Rough Equivalent: [Kotlin extensions](https://kotlinlang.org/docs/extensions.html), [C# extension methods](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/extension-methods), [Java with Manifold](https://github.com/manifold-systems/manifold/tree/master/manifold-deps-parent/manifold-ext), [JS monkeypatching](https://en.wikipedia.org/wiki/Monkey_patch)
-
-
-### Option-A: new Trait
-
-1. Define [Trait](./traits.md) (eg. `FooExt`)
-1. Add new methods to the Trait (`impl FooExt {...}`)
-1. `impl FooExt for SomeExternalType { ... }`
-1. Let some of your functions accept/return `FooExt`
-
-### Option-B: [newtype pattern](https://doc.rust-lang.org/rust-by-example/generics/new_types.html)
-
-1. Create a wrapper struct `FooWrapper` (or some name logical for your domain)
-Wrap external types using
-1. proxy or [shrinkwrap](https://docs.rs/shrinkwraprs/latest/shrinkwraprs/) external types
-    1. [example-1](https://doc.rust-lang.org/rust-by-example/generics/new_types.html)
-    1. [example-2](https://rust-unofficial.github.io/patterns/patterns/behavioural/newtype.html)
-    1. [example-3](https://doc.rust-lang.org/book/ch19-04-advanced-types.html)
+- See [extensions doc](./modeling.extension.md)
 
 
 # TypeState pattern
