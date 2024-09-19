@@ -52,14 +52,25 @@ use std::io::Result;
 fn main() -> Result<()> {
     // -- For gRPC (implies protobuf too)
     tonic_build::configure()
+        // -- Generate a client
         .build_client(true)
+
+        // -- Generate a server
         .build_server(true)
         .build_transport(true)
+
+        // -- Add extra derive attribute to some message type
+        // -- See https://docs.rs/prost-build-config/latest/prost_build_config/
+        // -- See https://docs.rs/prost-build/latest/prost_build/struct.Config.html#method.message_attribute
+        .message_attribute(
+            "MyMessageType",
+            "#[derive(Eq, Hash)]",
+        )
         .compile(
             &[
                 "protos/http.proto",
                 "protos/model.proto",
-                // ...
+                // ... other protos
             ],
             &["src/", "protos/"],
         )?;
