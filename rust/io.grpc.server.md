@@ -1,6 +1,6 @@
 # Overview
-1. TODO
-1. See also [grpc doc](./protobuf.md)
+1. Lessons learned from using gRPC
+1. See also [protobuf doc](./protobuf.md)
 
 
 # Request/Response (not streaming)
