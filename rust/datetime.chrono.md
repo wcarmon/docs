@@ -346,7 +346,7 @@ println!("formatted: {d}");
 1. `chrono`
     1. need [`chrono-tz`](https://docs.rs/chrono-tz/latest/chrono_tz/) crate
 ```rust
-    // -- DateTime<Utc> -> DateTime<SomewhereElse> (same instant, same epoch millis)
+    // -- DateTime<Utc> to DateTime<SomewhereElse> (same instant, same epoch millis)
     let utc = DateTime::from_timestamp_millis(1724182159339).unwrap();
 
     let chicago = utc.with_timezone(&chrono_tz::America::Chicago);
@@ -377,7 +377,7 @@ println!("formatted: {d}");
         .single()
         .expect("failed to convert ts to zoned-ts");
 
-    // -- DateTime<Somewhere> -> DateTime<Utc> (same instant, same epoch millis)
+    // -- DateTime<Somewhere> to DateTime<Utc> (same instant, same epoch millis)
     let same_time_in_utc = ts_in_tz.to_utc();
 
     let fmt = "%Y-%m-%d %H:%M:%S %Z";
