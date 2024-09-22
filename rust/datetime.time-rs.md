@@ -4,7 +4,9 @@
 1. See [Datetime doc](../datetime.md)
 1. See [chrono crate doc](../datetime.chrono.md)
 
+
 # Key Concepts
+1. Avoid this, [use chrono instead](./datetime.chrono.md)
 
 
 # Cons of time-rs library
