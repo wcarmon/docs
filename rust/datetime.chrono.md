@@ -346,6 +346,7 @@ println!("formatted: {d}");
 1. `chrono`
     1. need [`chrono-tz`](https://docs.rs/chrono-tz/latest/chrono_tz/) crate
 ```rust
+    // -- DateTime<Utc> -> DateTime<SomewhereElse> (same instant, same epoch millis)
     let utc = DateTime::from_timestamp_millis(1724182159339).unwrap();
 
     let chicago = utc.with_timezone(&chrono_tz::America::Chicago);
@@ -364,6 +365,25 @@ println!("formatted: {d}");
     assert_eq!("2024-08-20T21:29:19", paris.format(fmt).to_string());
     assert_eq!("2024-08-20T22:29:19", moscow.format(fmt).to_string());
     assert_eq!("2024-08-21T04:29:19", tokyo.format(fmt).to_string());
+
+
+    // -- Build new timestamp in a timezone
+    let tz = chrono_tz::America::New_York;
+    let date = NaiveDate::from_ymd_opt(2024, 9, 22).expect("invalid date");
+    let time = NaiveTime::from_hms_opt(12, 15, 0).expect("invalid time");
+
+    let ts = NaiveDateTime::new(date, time);
+    let ts_in_tz = ts.and_local_timezone(tz)
+        .single()
+        .expect("failed to convert ts to zoned ts");
+
+    // -- DateTime<Somewhere> -> DateTime<Utc> (same instant, same epoch millis)
+    let same_time_in_utc = ts_in_tz.to_utc();
+
+    assert!("2024-09-22 12:15:00 EDT" == ts_in_tz.format("%Y-%m-%d %H:%M:%S %Z").to_string());
+    assert!("2024-09-22 16:15:00 UTC" == same_time_in_utc.format("%Y-%m-%d %H:%M:%S %Z").to_string());
+    assert!(same_time_in_utc.timestamp_millis() == ts_in_tz.timestamp_millis()) // same instant
+
 ```
 1. `std::time`
 ```rust
