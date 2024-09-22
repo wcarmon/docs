@@ -144,7 +144,7 @@ TODO
 ```
 
 
-## Parse `NaiveDate`
+## Parse `NaiveDate` (yyyy-mm-dd)
 ```rust
     let date_str = "2024-09-17";
     let d = NaiveDate::parse_from_str(date_str, "%Y-%m-%d")?;
@@ -155,7 +155,7 @@ TODO
     assert_eq!(17, d.day());
 ```
 
-## Parse `NaiveTime`
+## Parse `NaiveTime` (HH:MM:SS)
 ```rust
     let time_str = "11:22:33";
     let t = NaiveTime::parse_from_str(time_str, "%H:%M:%S")?;
