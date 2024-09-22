@@ -372,10 +372,10 @@ println!("formatted: {d}");
     let date = NaiveDate::from_ymd_opt(2024, 9, 22).expect("invalid date");
     let time = NaiveTime::from_hms_opt(12, 15, 0).expect("invalid time");
 
-    let ts = NaiveDateTime::new(date, time);
-    let ts_in_tz = ts.and_local_timezone(tz)
+    let ts_in_tz = NaiveDateTime::new(date, time)
+        .and_local_timezone(tz)
         .single()
-        .expect("failed to convert ts to zoned ts");
+        .expect("failed to convert ts to zoned-ts");
 
     // -- DateTime<Somewhere> -> DateTime<Utc> (same instant, same epoch millis)
     let same_time_in_utc = ts_in_tz.to_utc();
