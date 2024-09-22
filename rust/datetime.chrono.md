@@ -380,10 +380,10 @@ println!("formatted: {d}");
     // -- DateTime<Somewhere> -> DateTime<Utc> (same instant, same epoch millis)
     let same_time_in_utc = ts_in_tz.to_utc();
 
-    assert!("2024-09-22 12:15:00 EDT" == ts_in_tz.format("%Y-%m-%d %H:%M:%S %Z").to_string());
-    assert!("2024-09-22 16:15:00 UTC" == same_time_in_utc.format("%Y-%m-%d %H:%M:%S %Z").to_string());
+    let fmt = "%Y-%m-%d %H:%M:%S %Z";
+    assert!("2024-09-22 12:15:00 EDT" == ts_in_tz.format(fmt).to_string());
+    assert!("2024-09-22 16:15:00 UTC" == same_time_in_utc.format(fmt).to_string());
     assert!(same_time_in_utc.timestamp_millis() == ts_in_tz.timestamp_millis()) // same instant
-
 ```
 1. `std::time`
 ```rust
