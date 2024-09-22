@@ -141,6 +141,16 @@ TODO
     let ts = Utc.with_ymd_and_hms(2024, 9, 13, 11, 33, 44)
         .single()
         .ok_or_else(|| anyhow!("Invalid datetime"))?;
+
+    let dt = NaiveDate::from_ymd_opt(2024, 1, 1)
+        .expect("invalid date"); // without proper error handling
+        // .ok_or_else(|| MyErrType::InvalidDate { year, month, day })?; // with custom error
+        // .ok_or_else(|| anyhow!("Invalid date"))?; // with anyhow
+
+    let time = NaiveTime::from_hms_opt(22, 3, 5)
+        .expect("invalid time"); // without proper error handling
+        // .ok_or_else(|| MyErrType::InvalidTime { hour, minute, sec })?; // with custom error
+        // .ok_or_else(|| anyhow!("Invalid time"))?; // with anyhow
 ```
 
 
