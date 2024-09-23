@@ -120,17 +120,6 @@
 - NOTE: `#[tokio::main]` expands to `::block_on`
 
 
-# Accessing the current Runtime
-```rust
-    // Access previously configured runtime
-    // panics if called outside the tokio runtime
-    //
-    // propagates automatically (only) thru async functions
-    // synchronous functions must pass manually
-    let rt = Handle::current();
-```
-
-
 # Manually propagate `tokio::runtime::Handle`, callee waits (encapsulates async)
 ```rust
 // caller invokes like a normal function
@@ -183,6 +172,17 @@ fn do_some_work(rt: &Handle) -> BoxFuture<'static, Result<u64, anyhow::Error>> {
 }
 ```
 
+
+# Accessing the current Runtime
+- Only useful for `async` functions
+```rust
+    // Access previously configured runtime
+    // panics if called outside the tokio runtime
+    //
+    // propagates automatically (only) thru async functions
+    // synchronous functions must pass manually
+    let rt = Handle::current();
+```
 
 
 # Convert [Tokio `File`](https://docs.rs/tokio/latest/tokio/fs/struct.File.html) to [`Stream`](https://docs.rs/futures/latest/futures/stream/trait.Stream.html)
