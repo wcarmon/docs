@@ -67,13 +67,13 @@
 ```
 
 
-# Idioms for Waiting
+# Idioms for waiting
 
 ## Option-A
-- [`::spawn`](https://docs.rs/tokio/latest/tokio/runtime/struct.Handle.html#method.spawn) then `::block_on(spawn_handle)` (Background task example below)
+- [`::spawn`](https://docs.rs/tokio/latest/tokio/runtime/struct.Handle.html#method.spawn) then [`::block_on(spawn_handle)`](https://docs.rs/tokio/latest/tokio/runtime/struct.Handle.html#method.block_on) (Background task [example below](https://github.com/wcarmon/docs/blob/main/rust/async.tokio.md#example-async-task-in-background))
 
 ## Option-B
-- [`::block_on(...)`](https://docs.rs/tokio/latest/tokio/runtime/struct.Handle.html#method.block_on) (Foreground task example below)
+- [`::block_on(...)`](https://docs.rs/tokio/latest/tokio/runtime/struct.Handle.html#method.block_on) (Foreground task [example below](https://github.com/wcarmon/docs/blob/main/rust/async.tokio.md#example-async-task-in-foreground))
 
 ## Option-C
 - Channel pattern
