@@ -80,6 +80,8 @@
 ## Option-C
 - Channel pattern
 - start a consumer [`loop`](https://doc.rust-lang.org/reference/expressions/loop-expr.html) which waits on a [`tokio::sync::mpsc`](https://docs.rs/tokio/latest/tokio/sync/mpsc/index.html)
+- [`mpsc` example](https://docs.rs/tokio/latest/tokio/sync/mpsc/fn.channel.html#examples)
+- [`oneshot` example](https://docs.rs/tokio/1.40.0/tokio/sync/oneshot/index.html)
 
 
 # Example: Async task in background
@@ -161,12 +163,13 @@ fn do_some_work(rt: &Handle) -> Result<u64, anyhow::Error> {
 
 
 # Manually propagate `Handle`, caller waits
-```Cargo.toml
+- Add to `Cargo.toml`
+```toml
 [dependencies]
 futures = "0.3"
 ```
 
-- Caller
+- Caller code:
 ```rust
     let rt = ...
 
@@ -176,7 +179,7 @@ futures = "0.3"
     );
 ```
 
-- Callee
+- Callee code:
 ```rust
 use futures::future::BoxFuture;
 use tokio::runtime::Handle;
@@ -189,7 +192,7 @@ fn do_some_work(rt: &Handle) -> BoxFuture<'static, Result<u64, anyhow::Error>> {
         Err(anyhow!("simulate failure"))
     });
 
-    // -- return a future so the caller can wait
+    // -- Return a future so the caller can wait
     Box::pin(async move {
         h.await?
     })
