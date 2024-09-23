@@ -66,9 +66,9 @@
 ```
 
 
-# Waiting
-- Option-A: `::block_on(...)`
-- Option-B: `::spawn` then `::block_on(spawn_handle)`
+# Idioms for Waiting
+- Option-A: `::spawn` then `::block_on(spawn_handle)` (Background task)
+- Option-B: `::block_on(...)` (Foreground task)
 - Option-C:  channel pattern: start a consumer [`loop`](https://doc.rust-lang.org/reference/expressions/loop-expr.html) which waits on a [`tokio::sync::mpsc`](https://docs.rs/tokio/latest/tokio/sync/mpsc/index.html)
 
 
