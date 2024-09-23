@@ -11,6 +11,8 @@
 1. Tokio [Task](TODO)s are "green-threads" managed by the tokio runtime
     1.  Similar to Golang goroutines or Kotlin coroutines
 1. [Future](https://doc.rust-lang.org/nightly/core/future/trait.Future.html): TODO
+1. [Runtime](https://docs.rs/tokio/latest/tokio/runtime/struct.Runtime.html): TODO
+1. [runtime::Handle](https://docs.rs/tokio/latest/tokio/runtime/struct.Handle.html): a threadsafe way to share a Runtime (more idiomatic than `Arc<Runtime>`)
 
 
 ## [`async` block](TODO)
