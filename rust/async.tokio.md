@@ -5,6 +5,9 @@
 
 
 # Key Concepts
+1. async is hard
+    1. much harder than sync rust
+    1. harder than async in other multithreaded languages like Java & Go
 1. Tokio [Task](TODO)s are "green-threads" managed by the tokio runtime
     1.  Similar to Golang goroutines or Kotlin coroutines
 1. Future: TODO
