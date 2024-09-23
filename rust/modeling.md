@@ -134,6 +134,7 @@ struct Employee {
 
 # TypeState pattern
 1. Goal: make illegal state unrepresentable
+    - not always possible
 1. Steps:
     1. Draw out the state transition diagram 
     1. Make `struct` for each state
@@ -145,6 +146,20 @@ struct Employee {
         - or [`#[non_exhaustive]`](https://doc.rust-lang.org/reference/attributes/type_system.html)
         - or private [`PhantomData`](https://doc.rust-lang.org/std/marker/struct.PhantomData.html) field on intermediate state struct
     1. If you must manage lifecycle in a field, wrap field in an [`Rc`](https://doc.rust-lang.org/std/rc/struct.Rc.html)
+
+
+# Things the type system cannot directly enforce
+1. Each of these requires imperative validation code in a `::new` or [builder](https://docs.rs/derive_builder/latest/derive_builder/)
+
+## Cases
+1. Given: `struct Foo {a :u32, b :u32}`, ensure `a < b`
+1. Given: `struct Foo {left :T, right :T}`, ensure `a != b`
+1. Ensure Path represents a file (or a directory), fs might change over time
+1. Ensure Path exists, fs might change over time
+1. Ensure Collection has at least one value
+1. Ensure u8 is under 100 (and similar numeric constraints with the representable numeric type) 
+1. Ensure string matches regex (and similar constraints like "contains x", "is trimmed", "starts with", "has length", etc) 
+1. Ensure csv string has no duplicates
 
 
 # Other Resources
