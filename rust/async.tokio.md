@@ -4,6 +4,17 @@
 
 # Tokio
 
+## [`async` block](TODO)
+1. Prefer regular functions & async blocks over ~~async functions~~
+1. returns a [`Future`](https://doc.rust-lang.org/nightly/core/future/trait.Future.html)
+1. Related tokio functions/methods:
+    - [`tokio::runtime::Handle::block_on`](https://docs.rs/tokio/latest/tokio/runtime/struct.Handle.html#method.block_on)
+    - [`tokio::runtime::Handle::spawn`](https://docs.rs/tokio/latest/tokio/runtime/struct.Handle.html#method.spawn)
+    - [`tokio::runtime::Runtime::block_on`](https://docs.rs/tokio/latest/tokio/runtime/struct.Runtime.html#method.block_on)
+    - [`tokio::runtime::Runtime::spawn`](https://docs.rs/tokio/latest/tokio/runtime/struct.Runtime.html#method.spawn)
+    - [`tokio::spawn`](https://docs.rs/tokio/latest/tokio/task/fn.spawn.html)
+
+
 ## [`async fn`](https://doc.rust-lang.org/std/keyword.async.html)
 1. **Avoid these**
     1. They don't play well with Traits
@@ -13,15 +24,14 @@
 1. rust compiler transforms `async fn` into an asynchronous routing (at compile time)
 1. Each call to [`.await`](https://doc.rust-lang.org/std/keyword.await.html) within the `async fn` **yield** control back to the thread
     1. The thread may do other work while the operation processes in the background.
+1. Related tokio functions/methods:
+    - ~~`tokio::runtime::Handle::enter`~~
+    - ~~`tokio::runtime::Handle::spawn_blocking`~~
+    - ~~`tokio::runtime::Runtime::enter`~~
+    - ~~`tokio::task::spawn_blocking`~~
 
 
-## [`async` block](TODO)
-1. Prefer these over
-1. returns a [`Future`](TODO)
-1. Prefer these
-
-
-# Create a new Runtime
+# Create a new [Runtime](https://tikv.github.io/doc/tokio/runtime/index.html)
 ```rust
     let max_threads = 4;
     let rt = runtime::Builder::new_multi_thread()
