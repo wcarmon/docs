@@ -13,6 +13,7 @@
 1. [Future](https://doc.rust-lang.org/nightly/core/future/trait.Future.html): TODO
 1. [Runtime](https://docs.rs/tokio/latest/tokio/runtime/struct.Runtime.html): TODO
 1. [runtime::Handle](https://docs.rs/tokio/latest/tokio/runtime/struct.Handle.html): a threadsafe way to share a Runtime (more idiomatic than `Arc<Runtime>`)
+1. Propagate simple types (Threadsafe, `Send + Sync`)
 
 
 ## [`async` block](https://doc.rust-lang.org/nightly/reference/expressions/block-expr.html#async-blocks)
