@@ -8,14 +8,14 @@
 1. async is hard
     1. much harder than sync rust
     1. harder than async in other multithreaded languages like Java & Go
-1. Tokio [Task](https://docs.rs/tokio/latest/tokio/task/index.html)s are "green-threads" managed by the tokio runtime
+1. Tokio [Task](https://docs.rs/tokio/latest/tokio/task/index.html)s are non-blocking "green-threads" managed by the tokio runtime
     1.  Similar to Golang goroutines or Kotlin coroutines
 1. [Future](https://doc.rust-lang.org/nightly/core/future/trait.Future.html): TODO
 1. [Runtime](https://docs.rs/tokio/latest/tokio/runtime/struct.Runtime.html): TODO
 1. [runtime::Handle](https://docs.rs/tokio/latest/tokio/runtime/struct.Handle.html): a threadsafe way to share a Runtime (more idiomatic than `Arc<Runtime>`)
 
 
-## [`async` block](TODO)
+## [`async` block](https://doc.rust-lang.org/nightly/reference/expressions/block-expr.html#async-blocks)
 1. Prefer regular functions & async blocks over ~~async functions~~
 1. `async` block builds and returns a [`Future`](https://doc.rust-lang.org/nightly/core/future/trait.Future.html)
 1. Related tokio functions/methods:
@@ -31,7 +31,7 @@
 1. **Avoid these**
     1. They don't play well with Traits
     1. [They are infectious](https://journal.stuffwithstuff.com/2015/02/01/what-color-is-your-function/)
-    1. Hard to use [standard profilers](TODO) to find bottlenecks
+    1. Hard to use [standard profilers](https://nnethercote.github.io/perf-book/profiling.html) to find bottlenecks
 1. `async fn` defines a fn which operates asynchronously
 1. returns a [Future](https://doc.rust-lang.org/std/future/trait.Future.html)
 1. rust compiler transforms `async fn` into an asynchronous routing (at compile time)
@@ -64,6 +64,12 @@
         .build()
         .context("failed to build tokio runtime")?;
 ```
+
+
+# Waiting
+- Option-A: `::block_on(...)`
+- Option-B: `::spawn` then `::block_on(spawn_handle)`
+- Option-C:  channel pattern: start a consumer [`loop`](https://doc.rust-lang.org/reference/expressions/loop-expr.html) which waits on a [`tokio::sync::mpsc`](https://docs.rs/tokio/latest/tokio/sync/mpsc/index.html)
 
 
 # Example: Async task in background
