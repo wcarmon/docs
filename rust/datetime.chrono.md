@@ -65,7 +65,7 @@
 ## From Epoch millis
 1. chrono
 ```rust
-    let epoch_millis = 1724092128110;
+    let epoch_millis: i64 = 1724092128110;
     let ts = DateTime::from_timestamp_millis(epoch_millis)
         .context("failed to parse epoch millis")?;
     ...
@@ -81,7 +81,7 @@
 ## From Epoch seconds (unix timestamp)
 1. chrono
 ```rust
-    let epoch_seconds = 1734093128;
+    let epoch_seconds: i64 = 1734093128;
     let ts = DateTime::from_timestamp(epoch_seconds, 0)
         .context("failed to parse epoch seconds")?;
     ...
