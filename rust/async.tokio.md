@@ -36,6 +36,9 @@
     - ~~`tokio::runtime::Runtime::enter`~~
     - ~~`tokio::runtime::Handle::spawn_blocking`~~
     - ~~`tokio::task::spawn_blocking`~~
+1. [async closures]() are also async functions
+    1. Good: `async move {...}`
+    1. Bad: `async move || {...}`
 
 
 # Create a new [Runtime](https://tikv.github.io/doc/tokio/runtime/index.html)
@@ -115,17 +118,17 @@
 
 # Accessing the current Runtime
 ```rust
-// TODO
+
+    // use previously configured runtime
+    // panics if called outside the tokio runtime
+    let rt = Handle::current();
 ```
 
 
-
 # Sync to async
-1. Use existing runtime (eg. either on `#[tokio::main] async fn main` or some `runtime::Builder` on the call stack)
 ```rust
-    let rt = Handle::current(); // use previously configured runtime
 
-    // NOTE: .block_on(...) returns whatever T the Future<T> returns
+
     // NOTE: notice this is an async block, not an async closure
     let res = rt.block_on(async move {
         do_something().await
