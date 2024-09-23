@@ -62,7 +62,7 @@
 - [Task](https://docs.rs/tokio/latest/tokio/task/) may not complete (eg. when [Runtime shutdown](https://docs.rs/tokio/latest/tokio/runtime/struct.Runtime.html#method.shutdown_background), [JoinHandle::abort](https://docs.rs/tokio/latest/tokio/task/struct.JoinHandle.html#method.abort), etc.)
 - Same for `Runtime::spawn`, `Handle::spawn`, `tokio::spawn`
 ```rust
-    let handle: JoinHandle<Result<u32, Error>> = rt.spawn(async move {
+    let handle: JoinHandle<Result<u32, anyhow::Error>> = rt.spawn(async move {
         // ... do something here ...
 
         Ok(3)
@@ -92,14 +92,23 @@
 # Example: Async task in foreground
 - Same for `Runtime::block_on`, `Handle::block_on`
 ```rust
-// TODO
 
-    // NOTE: ::block_on returns whatever T the future returns
-    let res = rt.block_on(async move {
-        do_something_async().await
+    // NOTE: ::block_on returns whatever future resolves to
+    let res: Result<u16, anyhow::Error> = rt.block_on(async move {
+
+        // -- Sleep example
+        tokio::time::sleep(
+            std::time::Duration::from_secs(1)).await;
+
+        Ok(7)
     });
 
-    // res is whatever the async block returns
+    let v = match res {
+        Ok(v) => v,
+        Err(e) => return Err(e),
+    };
+
+    assert_eq!(v, 7);
 ```
 - NOTE: `#[tokio::main]` expands to `::block_on`
 
