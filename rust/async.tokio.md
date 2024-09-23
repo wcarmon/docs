@@ -43,7 +43,7 @@
     let max_threads = 4;
     let rt = runtime::Builder::new_multi_thread()
         .worker_threads(max_threads)
-        .enable_all()
+        .enable_all()       // Handle both IO futures and Timer futures
         .build()
         .expect("failed to build tokio runtime");
 ```
@@ -57,9 +57,9 @@
 ```
 
 
-# Example: Async task in background (via `::spawn`)
+# Example: Async task in background
 - `tokio::task::spawn` may execute on same or different thread (tokio runtime decides)
-- task may not complete (eg. when [Runtime shutdown](https://docs.rs/tokio/latest/tokio/runtime/struct.Runtime.html#method.shutdown_background), [JoinHandle::abort](https://docs.rs/tokio/latest/tokio/task/struct.JoinHandle.html#method.abort), etc.)
+- [Task](https://docs.rs/tokio/latest/tokio/task/) may not complete (eg. when [Runtime shutdown](https://docs.rs/tokio/latest/tokio/runtime/struct.Runtime.html#method.shutdown_background), [JoinHandle::abort](https://docs.rs/tokio/latest/tokio/task/struct.JoinHandle.html#method.abort), etc.)
 - Same for `Runtime::spawn`, `Handle::spawn`, `tokio::spawn`
 ```rust
     let handle: JoinHandle<Result<u32, Error>> = rt.spawn(async move {
@@ -68,30 +68,28 @@
         Ok(3)
     });
 
-    // -- wait, blocking current thread
+    // -- Wait, blocking current thread
     let res = rt.block_on(handle);
 
-    // -- outer Result jas JoinError
+    // -- Outer Result jas JoinError
     let res = match res {
         Ok(inner_res) => inner_res,
         Err(source) => {
-            // return Err(FailedToJoinTask(source)) // with custom error type
-            return Err(anyhow::Error::from(source)) // with anyhow
+            return Err(MyError::FailedToJoinTask(source)) // with custom error type
+            // return Err(anyhow::Error::from(source)) // with anyhow
         }
     };
 
-    // -- inner Result has your custom error type
+    // -- Inner Result has your custom error type (from the async block)
     let value = match res {
         Ok(v) => v,
-        Err(source) => {
-            return Err(source)
-        }
+        Err(source) => return Err(source),
     };
 
     assert_eq!(value, 3);
 ```
 
-# Example: Async task in foreground (via `::block_on`)
+# Example: Async task in foreground
 - Same for `Runtime::block_on`, `Handle::block_on`
 ```rust
 // TODO
