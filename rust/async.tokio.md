@@ -1,18 +1,58 @@
 # Overview
 
-1. TODO
+1. Examples of how to use async code smoothly with other rust features
 
 # Tokio
 
-1. [`async fn`](https://doc.rust-lang.org/std/keyword.async.html)
-    1. `async fn` defines a fn which operates asynchronously
-    1. returns a [Future](https://doc.rust-lang.org/std/future/trait.Future.html)
-    1. rust compiler transforms `async fn` into an asynchronous routing (at compile time)
-    1. Each call to [`.await`](https://doc.rust-lang.org/std/keyword.await.html) within the `async fn` **yield** control back to the thread
-        1. The thread may do other work while the operation processes in the background.
+## [`async fn`](https://doc.rust-lang.org/std/keyword.async.html)
+1. **Avoid these**
+    1. They don't play well with Traits
+    1. [They are infectious](https://journal.stuffwithstuff.com/2015/02/01/what-color-is-your-function/)
+1. `async fn` defines a fn which operates asynchronously
+1. returns a [Future](https://doc.rust-lang.org/std/future/trait.Future.html)
+1. rust compiler transforms `async fn` into an asynchronous routing (at compile time)
+1. Each call to [`.await`](https://doc.rust-lang.org/std/keyword.await.html) within the `async fn` **yield** control back to the thread
+    1. The thread may do other work while the operation processes in the background.
 
-1. [`async` block](TODO)
-    1. returns a [`Future`](TODO)
+
+## [`async` block](TODO)
+1. Prefer these over
+1. returns a [`Future`](TODO)
+1. Prefer these
+
+
+# Create a new Runtime
+```rust
+    let max_threads = 4;
+    let rt = runtime::Builder::new_multi_thread()
+        .worker_threads(max_threads)
+        .enable_all()
+        .build()
+        .expect("failed to build tokio runtime");
+```
+
+1. Create a new Runtime based on current thread (not as useful)
+```rust
+    let rt = runtime::Builder::new_current_thread()
+        .enable_all()       // Handle both IO futures and Timer futures
+        .build()
+        .context("failed to build tokio runtime")?;
+```
+
+
+# TODO
+
+
+
+```
+    // NOTE: ::block_on returns whatever T the future returns
+    let res = rt.block_on(async move {
+        do_something_async().await
+    });
+
+    // res is whatever the async block returns
+```
+
 
 
 # Sync to async
@@ -24,21 +64,6 @@
     // NOTE: notice this is an async block, not an async closure
     let res = rt.block_on(async move {
         do_something().await
-    });
-
-    // res is whatever the async block returns
-```
-
-1. Build runner based on current thread
-```rust
-    let rt = runtime::Builder::new_current_thread()
-        .enable_all()       // Handle both IO futures and Timer futures
-        .build()
-        .context("failed to build tokio runtime")?;
-
-    // NOTE: ::block_on returns whatever T the future returns
-    let res = rt.block_on(async move {
-        do_something_async().await
     });
 
     // res is whatever the async block returns
