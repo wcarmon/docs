@@ -82,6 +82,7 @@
 - start a consumer [`loop`](https://doc.rust-lang.org/reference/expressions/loop-expr.html) which waits on a [`tokio::sync::mpsc`](https://docs.rs/tokio/latest/tokio/sync/mpsc/index.html)
 - [`mpsc` example](https://docs.rs/tokio/latest/tokio/sync/mpsc/fn.channel.html#examples)
 - [`oneshot` example](https://docs.rs/tokio/1.40.0/tokio/sync/oneshot/index.html)
+- NOTE: `std::sync::mpsc` is probably simpler to use than tokio's channel
 
 
 # Example: Async task in background
