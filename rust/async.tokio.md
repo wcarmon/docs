@@ -91,11 +91,13 @@
         Ok(3)
     });
 
-    // -- Wait, blocking current thread
-    let res = rt.block_on(handle);
+    // ... do other things
 
-    // -- Outer Result jas JoinError
-    let res = match res {
+    // -- Wait, block current thread
+    let outer_res = rt.block_on(handle);
+
+    // -- Outer Result has JoinError
+    let inner_res = match outer_res {
         Ok(inner_res) => inner_res,
         Err(source) => {
             return Err(MyError::FailedToJoinTask(source)) // with custom error type
@@ -104,7 +106,7 @@
     };
 
     // -- Inner Result has your custom error type (from the async block)
-    let value = match res {
+    let value = match inner_res {
         Ok(v) => v,
         Err(source) => return Err(source),
     };
