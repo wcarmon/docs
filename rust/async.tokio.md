@@ -70,10 +70,12 @@
 # Idioms for waiting
 
 ## Option-A
-- [`::spawn`](https://docs.rs/tokio/latest/tokio/runtime/struct.Handle.html#method.spawn) then [`::block_on(spawn_handle)`](https://docs.rs/tokio/latest/tokio/runtime/struct.Handle.html#method.block_on) (Background task [example below](https://github.com/wcarmon/docs/blob/main/rust/async.tokio.md#example-async-task-in-background))
+- [`::spawn`](https://docs.rs/tokio/latest/tokio/runtime/struct.Handle.html#method.spawn) then [`::block_on(spawn_handle)`](https://docs.rs/tokio/latest/tokio/runtime/struct.Handle.html#method.block_on)
+- Background task [example below](https://github.com/wcarmon/docs/blob/main/rust/async.tokio.md#example-async-task-in-background)
 
 ## Option-B
-- [`::block_on(...)`](https://docs.rs/tokio/latest/tokio/runtime/struct.Handle.html#method.block_on) (Foreground task [example below](https://github.com/wcarmon/docs/blob/main/rust/async.tokio.md#example-async-task-in-foreground))
+- [`::block_on(...)`](https://docs.rs/tokio/latest/tokio/runtime/struct.Handle.html#method.block_on)
+- Foreground task [example below](https://github.com/wcarmon/docs/blob/main/rust/async.tokio.md#example-async-task-in-foreground)
 
 ## Option-C
 - Channel pattern
@@ -81,8 +83,6 @@
 
 
 # Example: Async task in background
-- `tokio::task::spawn` may execute on same or different thread (tokio runtime decides)
-- [Task](https://docs.rs/tokio/latest/tokio/task/) may not complete (eg. when [Runtime shutdown](https://docs.rs/tokio/latest/tokio/runtime/struct.Runtime.html#method.shutdown_background), [JoinHandle::abort](https://docs.rs/tokio/latest/tokio/task/struct.JoinHandle.html#method.abort), etc.)
 - Same for `Runtime::spawn`, `Handle::spawn`, `tokio::spawn`
 ```rust
     let handle: JoinHandle<Result<u32, anyhow::Error>> = rt.spawn(async move {
@@ -111,6 +111,9 @@
 
     assert_eq!(value, 3);
 ```
+- `tokio::task::spawn` may execute on same or different thread (tokio runtime decides)
+- [Task](https://docs.rs/tokio/latest/tokio/task/) may not complete (eg. when [Runtime shutdown](https://docs.rs/tokio/latest/tokio/runtime/struct.Runtime.html#method.shutdown_background), [JoinHandle::abort](https://docs.rs/tokio/latest/tokio/task/struct.JoinHandle.html#method.abort), etc.)
+
 
 # Example: Async task in foreground
 - Same for `Runtime::block_on`, `Handle::block_on`
