@@ -141,23 +141,26 @@
 - NOTE: `#[tokio::main]` expands to `::block_on`
 
 
-# Manually propagate `tokio::runtime::Handle`, callee waits (encapsulates async)
+# Manually propagate `Handle`, callee waits
+- Encapsulates async
 ```rust
-// caller invokes like a normal function
+// -- Caller invokes like a normal function
 
 fn do_some_work(rt: &Handle) -> Result<u64, anyhow::Error> {
-    let h: JoinHandle<Result<u64, anyhow::Error>> = rt.spawn(async move {
+
+    let h: JoinHandle<Result<u64, Error>> = rt.spawn(async move {
         // .. do something interesting ...
 
         Err(anyhow!("simulate ajsdlfjaklsjdfla"))
     });
 
+    // -- Callee (this fn) waits
     rt.block_on(h)?
 }
 ```
 
 
-# Manually propagate `tokio::runtime::Handle`, let caller wait
+# Manually propagate `Handle`, caller waits
 ```Cargo.toml
 [dependencies]
 futures = "0.3"
