@@ -131,15 +131,56 @@
 ```
 
 
-# Idioms for waiting
+# Manually propagate `tokio::runtime::Handle`, callee waits (encapsulates async)
+```rust
+// caller invokes like a normal function
+
+fn do_some_work(rt: &Handle) -> Result<u64, anyhow::Error> {
+    let h: JoinHandle<Result<u64, anyhow::Error>> = rt.spawn(async move {
+        // .. do something interesting ...
+
+        Err(anyhow!("simulate ajsdlfjaklsjdfla"))
+    });
+
+    rt.block_on(h)?
+}
+```
+
+
+# Manually propagate `tokio::runtime::Handle`, let caller wait
 ```Cargo.toml
 [dependencies]
 futures = "0.3"
 ```
 
+- Caller
 ```rust
-// todo
+    let rt = ...
 
+    let res: Result<u64, anyhow::Error> = rt.block_on(
+        // -- manually propagate the tokio::runtime::Handle
+        do_some_work(rt.handle())
+    );
+```
+
+- Callee
+```rust
+use futures::future::BoxFuture;
+use tokio::runtime::Handle;
+
+fn do_some_work(rt: &Handle) -> BoxFuture<'static, Result<u64, anyhow::Error>> {
+
+    let h: JoinHandle<Result<u64, anyhow::Error>> = rt.spawn(async move {
+        // .. do something interesting ...
+
+        Err(anyhow!("simulate failure"))
+    });
+
+    // -- return a future so the caller can wait
+    Box::pin(async move {
+        h.await?
+    })
+}
 ```
 
 
