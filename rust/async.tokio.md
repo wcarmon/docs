@@ -85,7 +85,6 @@
 - [tokio `oneshot` example](https://docs.rs/tokio/1.40.0/tokio/sync/oneshot/index.html)
 
 
-
 # Example: Async task in background
 - Same for `Runtime::spawn`, `Handle::spawn`, `tokio::spawn`
 ```rust
