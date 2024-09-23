@@ -125,17 +125,17 @@
 ```
 
 
-# Sync to async
-```rust
-
-
-    // NOTE: notice this is an async block, not an async closure
-    let res = rt.block_on(async move {
-        do_something().await
-    });
-
-    // res is whatever the async block returns
+# Idioms for waiting
+```Cargo.toml
+[dependencies]
+futures = "0.3"
 ```
+
+```rust
+// todo
+
+```
+
 
 
 # Convert [Tokio `File`](https://docs.rs/tokio/latest/tokio/fs/struct.File.html) to [`Stream`](https://docs.rs/futures/latest/futures/stream/trait.Stream.html)
