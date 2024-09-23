@@ -10,7 +10,7 @@
     1. harder than async in other multithreaded languages like Java & Go
 1. Tokio [Task](TODO)s are "green-threads" managed by the tokio runtime
     1.  Similar to Golang goroutines or Kotlin coroutines
-1. Future: TODO
+1. [Future](https://doc.rust-lang.org/nightly/core/future/trait.Future.html): TODO
 
 
 ## [`async` block](TODO)
@@ -29,6 +29,7 @@
 1. **Avoid these**
     1. They don't play well with Traits
     1. [They are infectious](https://journal.stuffwithstuff.com/2015/02/01/what-color-is-your-function/)
+    1. Hard to use [standard profilers](TODO) to find bottlenecks
 1. `async fn` defines a fn which operates asynchronously
 1. returns a [Future](https://doc.rust-lang.org/std/future/trait.Future.html)
 1. rust compiler transforms `async fn` into an asynchronous routing (at compile time)
@@ -121,9 +122,11 @@
 
 # Accessing the current Runtime
 ```rust
-
-    // use previously configured runtime
+    // Access previously configured runtime
     // panics if called outside the tokio runtime
+    //
+    // propagates automatically (only) thru async functions
+    // synchronous functions must pass manually
     let rt = Handle::current();
 ```
 
