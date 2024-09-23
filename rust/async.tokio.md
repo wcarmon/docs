@@ -34,7 +34,7 @@
     1. [They are infectious](https://journal.stuffwithstuff.com/2015/02/01/what-color-is-your-function/)
     1. Hard to use [standard profilers](https://nnethercote.github.io/perf-book/profiling.html) to find bottlenecks
     1. Hard to use with [rayon scopes](https://docs.rs/rayon/latest/rayon/fn.scope.html)
-    1. Still useful in functions with heavy IO (eg. Database DAO, S3, Local File system, etc)
+    1. Still useful in functions with heavy IO (eg. Database DAO, S3, Local File system, actix handlers, etc)
 1. `async fn` defines a fn which operates asynchronously
 1. returns a [Future](https://doc.rust-lang.org/std/future/trait.Future.html)
 1. rust compiler transforms `async fn` into an asynchronous routing (at compile time)
