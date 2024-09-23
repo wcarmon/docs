@@ -57,12 +57,42 @@
 ```
 
 
-# ::spawn example
+# Example: Async task in background (via `::spawn`)
+- `tokio::task::spawn` may execute on same or different thread (tokio runtime decides)
+- task may not complete (eg. when [Runtime shutdown](https://docs.rs/tokio/latest/tokio/runtime/struct.Runtime.html#method.shutdown_background), [JoinHandle::abort](https://docs.rs/tokio/latest/tokio/task/struct.JoinHandle.html#method.abort), etc.)
+- Same for `Runtime::spawn`, `Handle::spawn`, `tokio::spawn`
 ```rust
-// TODO
+    let handle: JoinHandle<Result<u32, Error>> = rt.spawn(async move {
+        // ... do something here ...
+
+        Ok(3)
+    });
+
+    // -- wait, blocking current thread
+    let res = rt.block_on(handle);
+
+    // -- outer Result jas JoinError
+    let res = match res {
+        Ok(inner_res) => inner_res,
+        Err(source) => {
+            // return Err(FailedToJoinTask(source)) // with custom error type
+            return Err(anyhow::Error::from(source)) // with anyhow
+        }
+    };
+
+    // -- inner Result has your custom error type
+    let value = match res {
+        Ok(v) => v,
+        Err(source) => {
+            return Err(source)
+        }
+    };
+
+    assert_eq!(value, 3);
 ```
 
-# ::block_on example
+# Example: Async task in foreground (via `::block_on`)
+- Same for `Runtime::block_on`, `Handle::block_on`
 ```rust
 // TODO
 
@@ -73,6 +103,7 @@
 
     // res is whatever the async block returns
 ```
+- NOTE: `#[tokio::main]` expands to `::block_on`
 
 
 # Accessing the current Runtime
