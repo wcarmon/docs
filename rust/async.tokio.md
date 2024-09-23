@@ -1,18 +1,25 @@
 # Overview
 
 1. Examples of how to use async code smoothly with other rust features
+1. Key concepts for async with [tokio](https://docs.rs/tokio/latest/tokio/)
 
-# Tokio
+
+# Key Concepts
+1. Tokio [Task](TODO)s are "green-threads" managed by the tokio runtime
+    1.  Similar to Golang goroutines or Kotlin coroutines
+1. Future: TODO
+
 
 ## [`async` block](TODO)
 1. Prefer regular functions & async blocks over ~~async functions~~
-1. returns a [`Future`](https://doc.rust-lang.org/nightly/core/future/trait.Future.html)
+1. `async` block builds and returns a [`Future`](https://doc.rust-lang.org/nightly/core/future/trait.Future.html)
 1. Related tokio functions/methods:
-    - [`tokio::runtime::Handle::block_on`](https://docs.rs/tokio/latest/tokio/runtime/struct.Handle.html#method.block_on)
     - [`tokio::runtime::Handle::spawn`](https://docs.rs/tokio/latest/tokio/runtime/struct.Handle.html#method.spawn)
-    - [`tokio::runtime::Runtime::block_on`](https://docs.rs/tokio/latest/tokio/runtime/struct.Runtime.html#method.block_on)
     - [`tokio::runtime::Runtime::spawn`](https://docs.rs/tokio/latest/tokio/runtime/struct.Runtime.html#method.spawn)
     - [`tokio::spawn`](https://docs.rs/tokio/latest/tokio/task/fn.spawn.html)
+    - [`tokio::runtime::Handle::block_on`](https://docs.rs/tokio/latest/tokio/runtime/struct.Handle.html#method.block_on)
+    - [`tokio::runtime::Runtime::block_on`](https://docs.rs/tokio/latest/tokio/runtime/struct.Runtime.html#method.block_on)
+1. `::spawn` calls create a [`tokio::task::JoinHandle`](https://tikv.github.io/doc/tokio/task/struct.JoinHandle.html)
 
 
 ## [`async fn`](https://doc.rust-lang.org/std/keyword.async.html)
@@ -26,8 +33,8 @@
     1. The thread may do other work while the operation processes in the background.
 1. Related tokio functions/methods:
     - ~~`tokio::runtime::Handle::enter`~~
-    - ~~`tokio::runtime::Handle::spawn_blocking`~~
     - ~~`tokio::runtime::Runtime::enter`~~
+    - ~~`tokio::runtime::Handle::spawn_blocking`~~
     - ~~`tokio::task::spawn_blocking`~~
 
 
@@ -41,7 +48,7 @@
         .expect("failed to build tokio runtime");
 ```
 
-1. Create a new Runtime based on current thread (not as useful)
+- Create a new Runtime based on current thread (not as useful)
 ```rust
     let rt = runtime::Builder::new_current_thread()
         .enable_all()       // Handle both IO futures and Timer futures
@@ -50,17 +57,27 @@
 ```
 
 
-# TODO
-
-
-
+# ::spawn example
+```rust
+// TODO
 ```
+
+# ::block_on example
+```rust
+// TODO
+
     // NOTE: ::block_on returns whatever T the future returns
     let res = rt.block_on(async move {
         do_something_async().await
     });
 
     // res is whatever the async block returns
+```
+
+
+# Accessing the current Runtime
+```rust
+// TODO
 ```
 
 
@@ -156,6 +173,8 @@ impl Stream for TokioFileToStream {
 - https://rust-lang.github.io/async-book/01_getting_started/02_why_async.html
 - https://rust-lang.github.io/async-book/01_getting_started/04_async_await_primer.html
 - https://rust-lang.github.io/async-book/02_execution/02_future.html
+- https://docs.rs/tokio/latest/tokio/task/index.html
+
 
 # Other Resources
 
