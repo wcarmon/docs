@@ -509,6 +509,11 @@ pub struct Example1 {
 
     #[serde(with = "chrono::serde::ts_milliseconds_option")]
     pub maybe_ts: Option<DateTime<Utc>>,
+
+
+    // NOTE: NaiveDate & NaiveTime natively implements Serialize using fmt::Display
+    // NOTE: NaiveDate & NaiveTime natively implements Deserialize using format::parse
+    // (requires serde feature flag on chrono crate)
 }
 ```
 
