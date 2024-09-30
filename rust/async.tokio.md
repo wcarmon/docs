@@ -35,6 +35,7 @@
     1. Hard to use with [`OnceLock::get_or_init`](https://doc.rust-lang.org/stable/std/sync/struct.OnceLock.html#method.get_or_init)
     1. Hard to use with [rayon scopes](https://docs.rs/rayon/latest/rayon/fn.scope.html)
     1. Hard to use with [Traits](TODO)
+    1. Call stacks are overly complex & sometimes useless
     1. Still useful in functions with heavy IO (eg. Database DAO, S3, Local File system, actix handlers, etc)
 1. `async fn` defines a fn which operates asynchronously
 1. returns a [Future](https://doc.rust-lang.org/std/future/trait.Future.html)
