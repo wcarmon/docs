@@ -28,7 +28,7 @@ readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
 cd "$PARENT_DIR" >/dev/null 2>&1
 
 echo
-echo "|-- Building (Debug) all dirs containing Cargo.toml under ${PARENT_DIR}"
+echo "|-- Building all dirs containing Cargo.toml under ${PARENT_DIR}"
 
 for DIR in $(find . -type f -name "Cargo.toml" -exec dirname {} \; | sort -u); do
 
