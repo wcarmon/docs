@@ -48,7 +48,7 @@ $KEYTOOL -import \
 ```bash
 MY_CERT=$HOME/my_cert.der
 find $HOME \
--type f
+-type f \
 -name keytool \
 -exec {}
     -import \
