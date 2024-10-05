@@ -50,7 +50,12 @@ public static void main(String... args) {
     final int port = 8080; // or from args, config file, etc
 
     final Javalin server = injector.getInstance(Javalin.class);
+
+    // -- Use port==0 to choose a random port
+    // -- Blocks only until server starts
     server.start(port);
+
+    final int actualPort = server.getPort();
 }
 ```
 
