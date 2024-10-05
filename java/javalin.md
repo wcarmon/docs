@@ -28,10 +28,8 @@ public Javalin javalin(
     // ... other handlers ...
 ) {
 
-    final Javalin server = Javalin.create();
-
-    // -- Config
-    server.updateConfig(cfg -> cfg.showJavalinBanner = false);
+    final Javalin server = Javalin.create(
+        cfg -> cfg.showJavalinBanner = false);
 
     // -- Routes
     server.get("/api/vi/foo",
