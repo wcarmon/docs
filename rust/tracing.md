@@ -20,6 +20,18 @@
         1. OpenTelemetry spans lack level
 
 
+# Gotchas
+1. Performance overhead for instrumentation
+1. Performance overhead for reporting spans over the network (or even local disk IO
+1. OpenTelemetry regularly breaks semver guarantees
+1. OpenTelemetry libs can version lock you into old dependencies
+1. Types & traits with the same name in different packages (designed for frustration/confusion)
+1. Jaeger UI didn't support auth
+1. Jaeger: Sustainable external storage is either very complex or expensive (Cassandra, Elastic, ...)
+1. Correct internal Propagation is hard (async, threads, ...)
+1. Propagation at servers and clients is hard
+
+
 # [tracing](https://docs.rs/tracing/latest/tracing/) lib (part of Tokio)
 
 1. Concepts
