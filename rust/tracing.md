@@ -31,6 +31,8 @@
 1. Correct internal Propagation is hard (async, threads, ...)
 1. Propagation at servers and clients is hard
 1. [tokio-console](https://github.com/tokio-rs/console) has no features for finding perf bottlenecks (eg. slowest method).  It's not a profiler
+1. Upgrading is hard because some otel deps bump their dependencies and others don't
+    1. [Example: `tracing-opentelemetry` v0.26 depends on `opentelemetry` v0.25](https://github.com/tokio-rs/tracing-opentelemetry/blob/v0.26.0/Cargo.toml#L26)
 
 
 # [tracing](https://docs.rs/tracing/latest/tracing/) lib (part of Tokio)
