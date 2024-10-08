@@ -293,7 +293,9 @@ impl Stream for TokioFileToStream {
 - https://rust-lang.github.io/async-book/01_getting_started/02_why_async.html
 - https://rust-lang.github.io/async-book/01_getting_started/04_async_await_primer.html
 - https://rust-lang.github.io/async-book/02_execution/02_future.html
+- https://rust-lang.github.io/async-book/04_pinning/01_chapter.html
 - https://docs.rs/tokio/latest/tokio/task/index.html
+- https://blog.cloudflare.com/pin-and-unpin-in-rust/
 
 
 # Other Resources

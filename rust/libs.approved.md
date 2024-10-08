@@ -147,6 +147,8 @@
 # Test / Fake data
 
 1. [`fake`](https://docs.rs/fake/latest/fake/)
+    1. feature rich but hard to use for Strings/Words/Sentences (messy `use` model for locales)
+    1. See things like `Dummy` an `FakeBase`
 
 
 # Number formatting
