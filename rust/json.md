@@ -7,6 +7,9 @@
 
 1. Keep it simple
 1. Move complexity out of the serde process
+1. GOTCHA: serde barely supports custom errors
+    1. you lose all structure if you follow the [Parse, Don't validate pattern](https://lexi-lambda.github.io/blog/2019/11/05/parse-don-t-validate/) using just serde
+    1. [They convert your errors to strings](https://lexi-lambda.github.io/blog/2019/11/05/parse-don-t-validate/)
 1. Deserialize to **simple** types, then convert using core Rust
     1. [See `TryFrom` trait](https://doc.rust-lang.org/std/convert/trait.TryFrom.html)
     1. [`#[serde(try_from = "SimpleSerdeFriendlyType")]`](https://serde.rs/container-attrs.html#try_from)
