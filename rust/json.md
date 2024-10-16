@@ -7,6 +7,8 @@
 
 1. Keep it simple
 1. Move complexity out of the serde process
+1. Serialization is easy/mature/well-supported
+1. Deserialization is hard
 1. GOTCHA: [serde supports custom errors](https://serde.rs/error-handling.html), but `serde_json` does **NOT**
     1. you lose all structure if you follow the [Parse, Don't validate pattern](https://lexi-lambda.github.io/blog/2019/11/05/parse-don-t-validate/) using just serde
     1. [They convert your errors to strings](https://lexi-lambda.github.io/blog/2019/11/05/parse-don-t-validate/) (via `Display` trait)
