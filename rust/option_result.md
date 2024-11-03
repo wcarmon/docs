@@ -1,5 +1,9 @@
 # Overview
 
+# methods
+- `map` (pass infallible fn) & `and_then` (pass failable fn) transform the `Ok` variant
+- ...
+
 - TODO: https://blog.logrocket.com/understanding-rust-option-results-enums/#:~:text=Rust's%20Result,failed%20with%20an%20error%20E
 - TODO: https://doc.rust-lang.org/rust-by-example/error/multiple_error_types/option_result.html
 - TODO: https://doc.rust-lang.org/std/option/enum.Option.html
