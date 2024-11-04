@@ -14,6 +14,7 @@
 ## Cargo expand (for macros)
 1. Expands attributes on structs, fields, etc
 1. [`cargo install cargo-expand`](https://github.com/dtolnay/cargo-expand)
+1. works even when code doesn't compile
 ```bash
 cd $DIR_WITH_CARGO_TOML
 
