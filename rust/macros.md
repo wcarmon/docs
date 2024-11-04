@@ -15,6 +15,8 @@
 1. Expands attributes on structs, fields, etc
 1. [`cargo install cargo-expand`](https://github.com/dtolnay/cargo-expand)
 ```bash
+cd $DIR_WITH_CARGO_TOML
+
 TEST_RS_FILE_WITHOUT_EXTENSION=my_test
 cargo expand --test $TEST_RS_FILE_WITHOUT_EXTENSION --color=always --theme=Dracula --tests
 ```
