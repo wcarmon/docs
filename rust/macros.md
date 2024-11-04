@@ -13,8 +13,12 @@
 
 ## Cargo expand (for macros)
 1. Expands attributes on structs, fields, etc
+1. Works even when code doesn't compile
+
+## Steps
 1. [`cargo install cargo-expand`](https://github.com/dtolnay/cargo-expand)
-1. works even when code doesn't compile
+1. put example code in one rs file (eg. `tests/example.rs`)
+1. put test module (with assertions) in separate file (eg. `tests/example_tests.rs`)
 ```bash
 cd $DIR_WITH_CARGO_TOML
 
