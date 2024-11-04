@@ -20,9 +20,8 @@
 1. build & debug with breakpoints
 
 
-# Cargo expand (for macros)
-1. Expands attributes on structs, fields, etc
-1. [`cargo install cargo-expand`](https://github.com/dtolnay/cargo-expand)
+# Macros
+1. [see doc](./macros.md)
 
 
 # Mutating 3rd party dependencies/libs
