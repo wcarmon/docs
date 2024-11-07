@@ -24,12 +24,26 @@
 1. Copy cli flag for `-agentpath:...` 
 1. Add `-agentpath:...` flag to jvm options for my java program
     1. eg. `/path/to/java -Dcom.sun.management.jmxremote -agentpath:/home/myself/.sdkman/candidates/visualvm/current/visualvm/lib/deployed/jdk16/linux-amd64/libprofilerinterface.so=/home/myself/.sdkman/candidates/visualvm/current/visualvm/lib,5140`
+        1. linux uses `libprofilerinterface.so`
     1. eg. `/path/to/java.exe -Dcom.sun.management.jmxremote -agentpath:c:/Users/myself/opt/VisualVM/.../windows-amd64/profilerinterface.dll=c:\...\profiler\lib,5140 -jar app.jar`
-    1. 
+        1. windows uses `profilerinterface.dll`
+1. Click "Profile" button on lower right
+1. VisualVM will wait for the app to connect
 
 
 # gradle
 1. TODO
+
+```build.gradle.kts
+...TODO
+```
+
+```build.gradle
+tasks.test {
+    jvmArgs = [
+    ]
+}
+```
 
 
 # gradle test
