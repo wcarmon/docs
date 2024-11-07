@@ -15,9 +15,12 @@
 1. Only works on local applications
 1. Uses JMX agent internally
     1. enables taking heap dumps
+1. Must use same (OS) user for profiler and the app 
+
 
 ### Usage
 1. Start new process and profile its start
+1. Point to the same JVM the app uses
 1. Choose a port
 1. Profile: memory or cpu
     1. Memory: defaults are fine
@@ -29,6 +32,8 @@
         1. windows uses `profilerinterface.dll`
 1. Click "Profile" button on lower right
 1. VisualVM will wait for the app to connect
+    1. "Connecting to the target VM..."
+1. Start the application (with the flags above)
 
 
 # gradle
