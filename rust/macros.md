@@ -2,6 +2,12 @@
 
 - TODO: https://cheats.rs/#macros-attributes
 
+# Idioms
+1. Write the code by hand first
+1. make it compile & make tests pass
+1. extract & generalize into the macro
+
+
 # Gotchas
 1. Horrible support in Jetbrains products
 1. When derive proc macro fails, compiler doesn't show failing line
