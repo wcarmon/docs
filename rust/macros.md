@@ -6,6 +6,7 @@
 1. Write the code by hand first
 1. make it compile & make tests pass
 1. extract & generalize into the macro
+1. use `cargo clean` when you see unexpected behavior
 
 
 # Gotchas
