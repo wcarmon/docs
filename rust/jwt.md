@@ -2,7 +2,17 @@
 
 1. How to Create, Sign & Verify a [jwt](https://jwt.io/)
 1. Candidate libs for [jwt](https://jwt.io/)
-    - Specifically: https://docs.rs/jsonwebtoken/latest/jsonwebtoken/
+    - Specifically: jsonwebtoken [rust docs](https://docs.rs/jsonwebtoken/latest/jsonwebtoken/), [github](https://github.com/Keats/jsonwebtoken]
+
+# GOTCHA
+1. JWT is heavily criticized
+    1. https://paragonie.com/blog/2017/03/jwt-json-web-tokens-is-bad-standard-that-everyone-should-avoid
+    1. http://cryto.net/~joepie91/blog/2016/06/13/stop-using-jwt-for-sessions/
+1. Safe use patterns
+    1. Never rely or even read the `alg` header passed in a token
+    1. Only use symmetric key
+    1. Only short-lived tokens
+    1. Only single-use token
 
 
 # Cargo.toml
@@ -84,6 +94,11 @@ pub fn parse_claims(jwt: String) -> Result<AuthClaims, anyhow::Error> {
     e.into()
 }
 ```
+
+
+# TODO: evaluate
+- https://github.com/rib/jsonwebtokens
+- https://github.com/jedisct1/rust-jwt-simple
 
 
 # Rejected
