@@ -67,7 +67,7 @@
         1. TODO    
 1. [Immutability](../common/immutability.md) is hard
     1. Mitigate: `struct` shallow copy is trivial
-        1. But `struct` shallow copy "fails" when structs has pointer/reference field
+        1. But `struct` shallow copy "fails" when struct has pointer/reference field
         1. eg. `struct`s often use `*big.Float` in finance
     1. Also `*big.Float` API favors memory reuse over immutability
     1. Compare to Java [`record`](https://docs.oracle.com/en/java/javase/17/language/records.html#GUID-6699E26F-4A9B-4393-A08B-1E47D4B2D263)s or `final` class props or lombok [`@Value`](https://projectlombok.org/features/Value)
