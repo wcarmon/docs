@@ -100,6 +100,7 @@ pub fn parse_claims(jwt: String) -> Result<AuthClaims, anyhow::Error> {
 # TODO: evaluate
 - https://github.com/rib/jsonwebtokens
 - https://github.com/jedisct1/rust-jwt-simple
+    1. same json requirement as jsonwebtoken
 
 
 # Rejected
