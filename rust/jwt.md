@@ -3,6 +3,7 @@
 1. How to Create, Sign & Verify a [jwt](https://jwt.io/)
 1. Candidate libs for [jwt](https://jwt.io/)
     - Specifically: jsonwebtoken [rust docs](https://docs.rs/jsonwebtoken/latest/jsonwebtoken/), [github](https://github.com/Keats/jsonwebtoken]
+    - Con: forces you to use serde crate for your claims
 
 # GOTCHA
 1. JWT is heavily criticized
