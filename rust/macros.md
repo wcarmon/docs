@@ -20,6 +20,8 @@
 
 # Debugging
 
+1. worst case: use `panic!("{:?}", x)` to print things
+
 ## Cargo expand (for macros)
 1. Expands attributes on structs, fields, etc
 1. Works even when code doesn't compile
