@@ -3,17 +3,20 @@
 - TODO: https://cheats.rs/#macros-attributes
 
 # Idioms
-1. Slow down
-1. Write the code by hand first
+1. Slow down :-)
+1. Write the code by hand first (in a regular *.rs file)
 1. make it compile & make tests pass
-1. extract & generalize into the macro
+    1. compiler error messages are helpful and point to correct lines
+1. extract & generalize code block into the macro
 1. use `cargo clean` when you see unexpected behavior
+1. use `cargo expand <module>` to bring broken code back into regular rs file
+    1. ... so the compiler can help you
 
 
 # Gotchas
 1. Horrible support in Jetbrains products
 1. When derive proc macro fails, compiler doesn't show failing line
-    - `-Zmacro-backtrace` does not help
+    - `-Zmacro-backtrace` does NOT help
 1. Jetbrains Debugger doesn't work inside proc macro code
 1. Error messages won't tell you which line in the macro is broken
 
