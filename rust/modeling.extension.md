@@ -61,7 +61,7 @@
 1. `impl AsRef<TheInnerType> for FooWrapper`
 1. `#[derive(...)]` the same traits (or `impl` manually when complex)
 1. Add [`#[repr(transparent)]`](https://doc.rust-lang.org/reference/type-layout.html#the-transparent-representation) so the struct has the same layout in memory as the underlying type
-1. Avoid ~~`Deref`~~ since it breaks encapsulation and has some side effects for `*` operator
+1. Only use `Deref` when you want to auto-expose all the read-only fns on the inner type
 1. (If using serde), add [`#[serde(transparent)]`](https://serde.rs/container-attrs.html#transparent) so the wrapper is ignored for serialization & deserialization
 
 
