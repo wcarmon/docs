@@ -18,6 +18,7 @@
     5. low latency CDNs
     6. Desktop applications GUIs
     7. Embedded systems
+    8. Audio processing
 1. Evolving quickly enough
 1. [Algorithms](https://en.cppreference.com/w/cpp/algorithm)
     1. Better than [Java streams](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/stream/Stream.html)
