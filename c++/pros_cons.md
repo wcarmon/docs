@@ -93,7 +93,9 @@
 1. Dumping ground for ideas
 1. Operator overloading means you don't really know what anything does
 1. safe concurrency is a nightmare
-1. no consistency around naming things (Compared to Rust, Java, Go, etc)
+1. no consistency around naming things
+    2. Compare to Rust, Java, Go, etc)
+    3. CamelCase, snake_case, leading & trailing underscores
 1. Focus is on the language, not problem solving
 1. Most jobs are about babysitting legacy systems.  Nothing new
 1. Banned from the Linux kernel
