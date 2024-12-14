@@ -38,6 +38,8 @@
 1. Complexity everywhere
 2. Programmer must do things the tools could easily do
 1. Doing the idiomatic thing is more verbose than anti-patterns
+    1. not that there are many agreements on how to do things
+    2. compare to Go, Rust/clippy, java, etc
 1. Versions
     1. C++ 11 is a different language from pre 11
     1. C++ 17/20/23 feel like a different language from C++ 11/14
