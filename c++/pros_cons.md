@@ -42,15 +42,16 @@
 1. (kinda) Safe pointers (References, Smart pointers)
     1. Unlike Go, C, ...
 1. High quality, popular libraries
-    2. Unreal engine
-    3. Qt
+    1. Unreal engine
+    1. Qt
+    1. quantlib
 1. One of few options for embedded systems
-    2. rust support isn't there yet
+    1. rust support isn't there yet
 
 
 # Bad news
 1. Complexity everywhere
-2. Programmer must do things the tools could easily do
+1. Programmer must do things the tools could easily do
 1. Doing the idiomatic thing is more verbose than anti-patterns
     1. not that there are many agreements on how to do things
     2. compare to Go, Rust/clippy, java, etc
