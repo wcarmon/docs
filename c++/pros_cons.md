@@ -86,4 +86,5 @@
 1. Undefined behavior
 1. Exceptions and how they interact with everything else
 1. modules are poorly supported
-3. 
+3. Safety is opt-in
+    4. compare to Rust, Java, Go, etc
