@@ -42,13 +42,16 @@
     1. C++ 11 is a different language from pre 11
     1. C++ 17/20/23 feel like a different language from C++ 11/14
     1. Many teams haven't upgraded for that reason
+    2. Most c++ shops are stuck on an old version
+    3. Most popular libraries don't target modern C++
 1. Cross compilation is VERY complex
 1. Modules are not well supported yet
     1. Which makes compilation slower
 1. Slow compilation
 1. Very unsafe at runtime if used incorrectly
     1. Static analysis, testing & sanitizers help
-1. No string templates
+1. ~~No string templates~~
+    1. std::format
     1. Compare to [Java string templates](https://openjdk.org/jeps/459)
     1. Compare to [Kotlin interpolation](https://kotlinlang.org/docs/java-to-kotlin-idioms-strings.html)
     1. Compare to [Python fstrings](https://realpython.com/python-f-strings/)
@@ -70,6 +73,7 @@
     2. old ways never die
 1. Templates
     1. also error messages are unhelpful
+    2. sooo complex
 1. Dumping ground for ideas
 1. Operator overloading means you don't really know what anything does
 1. safe concurrency is a nightmare
@@ -79,5 +83,5 @@
 1. Banned from the Linux kernel
 1. Undefined behavior
 1. Exceptions and how they interact with everything else
-1. 
+1. modules are poorly supported
 3. 
