@@ -32,6 +32,11 @@
 1. Inheritance, which is useful for GUI code
 1. (kinda) Safe pointers (References, Smart pointers)
     1. Unlike Go, C, ...
+1. High quality, popular libraries
+    2. Unreal engine
+    3. Qt
+1. One of few options for embedded systems
+    2. rust support isn't there yet
 
 
 # Bad news
