@@ -10,6 +10,15 @@
 1. Light on memory
 1. Fast at runtime
 1. Control over hardware
+2. Heavily used in ...
+    1. Video game development 
+    2. Database development
+    3. Low latency Trading systems
+    4. Cloud infra
+    5. low latency CDNs
+    6. Desktop applications GUIs
+    7. Embedded systems
+    8. Audio processing
 1. Evolving quickly enough
 1. [Algorithms](https://en.cppreference.com/w/cpp/algorithm)
     1. Better than [Java streams](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/stream/Stream.html)
@@ -32,23 +41,34 @@
 1. Inheritance, which is useful for GUI code
 1. (kinda) Safe pointers (References, Smart pointers)
     1. Unlike Go, C, ...
+1. High quality, popular libraries
+    1. Unreal engine
+    1. Qt
+    1. quantlib
+1. One of few options for embedded systems
+    1. rust support isn't there yet
 
 
 # Bad news
 1. Complexity everywhere
-2. Programmer must do things the tools could easily do
+1. Programmer must do things the tools could easily do
 1. Doing the idiomatic thing is more verbose than anti-patterns
+    1. not that there are many agreements on how to do things
+    2. compare to Go, Rust/clippy, java, etc
 1. Versions
     1. C++ 11 is a different language from pre 11
     1. C++ 17/20/23 feel like a different language from C++ 11/14
     1. Many teams haven't upgraded for that reason
+    2. Most c++ shops are stuck on an old version
+    3. Most popular libraries don't target modern C++
 1. Cross compilation is VERY complex
 1. Modules are not well supported yet
     1. Which makes compilation slower
 1. Slow compilation
 1. Very unsafe at runtime if used incorrectly
     1. Static analysis, testing & sanitizers help
-1. No string templates
+1. ~~No string templates~~
+    1. std::format
     1. Compare to [Java string templates](https://openjdk.org/jeps/459)
     1. Compare to [Kotlin interpolation](https://kotlinlang.org/docs/java-to-kotlin-idioms-strings.html)
     1. Compare to [Python fstrings](https://realpython.com/python-f-strings/)
@@ -70,14 +90,18 @@
     2. old ways never die
 1. Templates
     1. also error messages are unhelpful
+    2. sooo complex
 1. Dumping ground for ideas
 1. Operator overloading means you don't really know what anything does
 1. safe concurrency is a nightmare
-1. no consistency around naming things (Compared to Rust, Java, Go, etc)
+1. no consistency around naming things
+    2. Compare to Rust, Java, Go, etc)
+    3. CamelCase, snake_case, leading & trailing underscores
 1. Focus is on the language, not problem solving
 1. Most jobs are about babysitting legacy systems.  Nothing new
 1. Banned from the Linux kernel
 1. Undefined behavior
 1. Exceptions and how they interact with everything else
-1. 
-3. 
+1. modules are poorly supported
+3. Safety is opt-in
+    4. compare to Rust, Java, Go, etc
