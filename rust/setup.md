@@ -1,5 +1,6 @@
 # Overview
-1. TODO
+1. How to install and update rust toolchain
+1. See [clippy doc too](./static_analysis.md)
 
 
 # Install
