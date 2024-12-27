@@ -1,6 +1,6 @@
 # Overview
 
-1. How to setup [Angular](https://angular.io/) and [Angular CLI](https://angular.io/cli)
+1. How to setup [Angular](https://angular.io/) and [Angular CLI](https://angular.dev/tools/cli)
 
 # NodeJS
 
@@ -13,9 +13,18 @@
 # NG
 
 ```bash
+pnpm self-update
 pnpm setup
 pnpm install -g @angular/cli
 ```
+
+
+# FS watchers
+```bash
+echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf;
+sudo sysctl -p --system
+```
+
 
 # New Angular app
 
@@ -36,8 +45,9 @@ ng add @angular/material
 ```bash
 cd $APP_NAME
 # ng serve --open
-pnpm start;
+pnpm start
 ```
+
 
 # package.json
 
@@ -80,7 +90,7 @@ pnpm i --save-dev prettier
 
 # [angular.json](https://angular.io/guide/workspace-config) (Angular workspace config)
 
-1. The format/structure changes between versions
+1. GOTCHA: The format/structure changes between versions
 1. Add your global styles
     - Add to:  projects.<projectName&gt;.architect.build.options.styles
     - Add to:  projects.<projectName&gt;.architect.test.options.styles
