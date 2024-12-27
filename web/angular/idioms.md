@@ -20,8 +20,8 @@
 1. If using k8s ingress, use the path as `--base-href`
 1. Priority
     1. Highest: `ng build --base-href="..."`  <-- do it here
-    1. Middle:  `baseHref` in `angular.json`  <-- don't use
-    1. Lowest: `<base href="...">` in `index.html`  <-- don't use
+    1. Middle:  `baseHref` in `angular.json`  <-- do NOT use
+    1. Lowest: `<base href="...">` in `index.html`  <-- do NOT use
 1. Must add to [`angular.json`](https://angular.io/guide/workspace-config#angular-workspace-configuration)
     1. [`/projects/<project-name>/architect/build/options/baseHref`](https://angular.io/guide/workspace-config#base-href)
     1. Set the `baseHref` here (cli argument in `ng build ...`)

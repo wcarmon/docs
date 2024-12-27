@@ -26,7 +26,7 @@ readonly SCRIPTS_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")")
 # ---------------------------------------------
 readonly PROJ_ROOT="$PARENT_DIR"
 
-readonly OUTPUT_ROOT=$PROJ_ROOT/dist/pos-recon
+readonly OUTPUT_ROOT=$PROJ_ROOT/dist/some-proj
 
 # ---------------------------------------------
 # -- Build
