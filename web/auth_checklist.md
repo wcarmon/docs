@@ -27,6 +27,13 @@
 --------
 # [Cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies)
 1. Eg. `Set-Cookie: session_id=...; Secure; HttpOnly; SameSite=Lax; Max-Age=14400`
+1. Cookies are debatable ...
+    1. Chrome & Firefox only send cookies in certain cases
+    1. Even as the developer of both client and server, it might not send cookies
+    1. Behavior changes between browser versions
+    1. Cookies + CORS is a nightmare
+    1. Cookies might NOT be sent as part of image loading
+
 
 ## HttpOnly
 1. javascript cannot access nor manipulate
