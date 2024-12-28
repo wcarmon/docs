@@ -87,6 +87,10 @@ const sig = signal(['test'], {equal: _.isEqual});
 ```
 
 
+## Forms
+1. TODO
+
+
 - TODO: `batch`: group emissions, TODO: rx equivalent
 - TODO: `untracked`: avoids infinite loop, for network IO
 
