@@ -75,8 +75,8 @@ const sig = signal(['test'], {equal: _.isEqual});
 
 
 # Angular Components
-1. TODO: OnPush
 1. TODO: enabling on components
+    1. `changeDetection: ChangeDetectionStrategy.OnPush,`
 1. Templates
 ```html
 ...
