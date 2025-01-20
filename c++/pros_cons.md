@@ -5,6 +5,8 @@
 
 # Good news
 
+1. Jobs
+2. Rapidly evolving
 1. Expressive
     1. If it can be done in another language, C++ can do it
 1. Light on memory
@@ -52,6 +54,8 @@
 # Bad news
 1. Complexity everywhere
 1. Programmer must do things the tools could easily do
+1. Slow builds
+    1. compared to rust, c, Java, and obviously golang
 1. Doing the idiomatic thing is more verbose than anti-patterns
     1. not that there are many agreements on how to do things
     2. compare to Go, Rust/clippy, java, etc
