@@ -7,6 +7,7 @@
 ## [Download protoc](https://github.com/protocolbuffers/protobuf/releases/)
 1. eg. `protoc-29.3-linux-x86_64.zip`
 
+1. Unpackage
 ```
 mkdir -p $HOME/opt/protoc;
 mv -nv $HOME/Downloads/protoc*x86_64.zip $HOME/opt/protoc/ ;
@@ -22,10 +23,11 @@ $HOME/opt/protoc/bin/protoc --version
     1. (After downloading) Set `$PROTOC` env var (higher priority)
         1. maybe set to `PROTOC=$HOME/opt/protoc/bin/protoc`
 
-### Alternative Approach-A:
+### Alternative install Approach-A:
 - `sudo apt-get install protobuf-compiler`
 
-### Alternative Approach-3: put binary on `$PATH` (lower priority)
+### Alternative install Approach-B:
+1. put binary on `$PATH` (lower priority than `$PROTOC`)
 1. eg.
 ```bash
 chmod 755 $HOME/opt/protoc/bin/protoc
@@ -50,7 +52,8 @@ tonic-build = "..."
 ```
 
 ## Sources (model)
-1. Add `$PROJ_ROOT/src/foo.rs` for the each `struct` (model the domain as you would normally)
+1. Add `$PROJ_ROOT/src/foo.rs` for the each `struct`
+    1. model the domain as you would normally
 1. Add `$PROJ_ROOT/protos/foo.proto` for each corresponding [proto def](https://protobuf.dev/programming-guides/proto3/)
     1. Choose a [package](https://protobuf.dev/programming-guides/proto3/#packages) (you'll use it later)
     1. Or maybe the protos already exist
