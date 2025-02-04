@@ -77,7 +77,7 @@ fn main() -> Result<()> {
         // -- See https://docs.rs/prost-build-config/latest/prost_build_config/
         // -- See https://docs.rs/prost-build/latest/prost_build/struct.Config.html#method.message_attribute
         .message_attribute("MyMessageType","#[derive(Eq, Hash)]",)
-        .compile(
+        .compile_protos(
             &[
                 "protos/http.proto",
                 "protos/model.proto",
