@@ -3,8 +3,9 @@
 1. See also [grpc doc](./io.grpc.server.md)
 
 # One-time setup
-1. [Download protoc](https://github.com/protocolbuffers/protobuf/releases/)
-    1. eg. `protoc-27.0-linux-x86_64.zip`
+
+## [Download protoc](https://github.com/protocolbuffers/protobuf/releases/)
+    1. eg. `protoc-29.3-linux-x86_64.zip`
     ```
     mkdir -p $HOME/opt/protoc;
     mv -nv $HOME/Downloads/protoc*x86_64.zip $HOME/opt/protoc/ ;
@@ -15,36 +16,45 @@
     # -- verify
     $HOME/opt/protoc/bin/protoc --version
     ```
-1. Install `protoc`
-    1. Approach-1:
-        `sudo apt-get install protobuf-compiler`
-    1. Approach-2: Set `$PROTOC` env var (higher priority)
+
+## Install `protoc`
+    1. (After downloading) Set `$PROTOC` env var (higher priority)
         1. maybe set to `PROTOC=$HOME/opt/protoc/bin/protoc`
-    1. Approach-3: put binary on `$PATH` (lower priority)
-    1. eg.
-    ```bash
-    chmod 755 $HOME/opt/protoc/bin/protoc
-    ln -sv $HOME/opt/protoc/bin/protoc $HOME/bin/protoc
-    ```
-    1. eg. Add `$HOME/opt/protoc/bin` to `PATH`
-1. In crate's `Cargo.toml`
-    ```toml
-    [dependencies]
-    # ... other deps
-    prost = "..."
-    prost-types = "..."
 
-    [build-dependencies]
-    # -- gRPC (prost implied)
-    tonic-build = "..."
+### Alternative Approach-A:
+- `sudo apt-get install protobuf-compiler`
 
-    # -- only required without gRPC/tonic ...
-    #prost-build = "..."
-    ```
+### Alternative Approach-3: put binary on `$PATH` (lower priority)
+1. eg.
+```bash
+chmod 755 $HOME/opt/protoc/bin/protoc
+ln -sv $HOME/opt/protoc/bin/protoc $HOME/bin/protoc
+```
+1. eg. Add `$HOME/opt/protoc/bin` to `PATH`
+
+
+## Setup `Cargo.toml`
+```toml
+[dependencies]
+# ... other deps
+prost = "..."
+prost-types = "..."
+
+[build-dependencies]
+# -- gRPC (prost implied)
+tonic-build = "..."
+
+# -- only required without gRPC/tonic ...
+#prost-build = "..."
+```
+
+## Sources (model)
 1. Add `$PROJ_ROOT/src/foo.rs` for the each `struct` (model the domain as you would normally)
 1. Add `$PROJ_ROOT/protos/foo.proto` for each corresponding [proto def](https://protobuf.dev/programming-guides/proto3/)
     1. Choose a [package](https://protobuf.dev/programming-guides/proto3/#packages) (you'll use it later)
     1. Or maybe the protos already exist
+
+## Cargo Build code
 1. In [`$PROJ_ROOT/build.rs`](https://docs.rs/prost-build/latest/prost_build/):
 ```rs
 use std::io::Result;
@@ -87,6 +97,8 @@ fn main() -> Result<()> {
     Ok(())
 }
 ```
+
+## Sources (entry point)
 1. In `$PROJ_ROOT/lib.rs` (or `$PROJ_ROOT/main.rs`)
 ```rs
 // -- replace "my" and "pkg" with your proto package segments
@@ -104,7 +116,8 @@ pub mod my {
     1. See `$PROJ_ROOT/target/debug/build/${CRATE_NAME}-${SOME_HASH}/${PROTO_PACKAGE}.rs`
 
 
-# Conversion
+--------
+# Usage: Type Conversion
 ```rust
 // -- Domain -> Proto should be infallible
 // -- (if not, impl TryFrom<MyDomainType>)
@@ -138,7 +151,7 @@ impl TryFrom<my::pkg::Foo> for MyDomainType {
 ```
 
 
-# Write bytes (Encode)
+# Usage: Write bytes (Encode)
 ```rust
     let obj = MyDomainType {
         // ... set fields here
@@ -152,7 +165,7 @@ impl TryFrom<my::pkg::Foo> for MyDomainType {
     // TODO: send raw bytes somewhere (eg. Postgres, Redis, Kafka, gRPC, Hazelcast)
 ```
 
-# Read bytes (Decode)
+# Usage: Read bytes (Decode)
 ```rust
     let raw_bytes: Vec<u8> = ... ; // TODO: read from somewhere
 
@@ -165,6 +178,8 @@ impl TryFrom<my::pkg::Foo> for MyDomainType {
         .context("failed to convert proto to domain object")?;
 ```
 
+
+--------
 # Gotcha
 1. prost doesn't write directly to [`std::io::Write`](./io.file.md), so you must first write to `&[u8]` (or similar)
 1. prost has their own Buf struct: `prost::bytes::Buf`

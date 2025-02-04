@@ -18,12 +18,11 @@
 # --    - Create repository
 # --        - Format: Docker
 # --        - Mode: Standard
-# --        - Location type: Region (us-east1 or us-east5)
+# --        - Location type: Region (us-east5)
 # --        - Encryption: Google-managed encryption key
 # --        - Immutable image tags: Disabled
 # --        - Cleanup policies: Dry run
 # --  5. Authenticate with the container registry:
-# --        gcloud auth configure-docker us-east1-docker.pkg.dev
 # --        gcloud auth configure-docker us-east5-docker.pkg.dev
 # ---------------------------------------------
 #set -x # uncomment to debug script
