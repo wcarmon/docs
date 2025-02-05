@@ -7,6 +7,9 @@
 1. `Pro`: Square product
 1. `Pro`: Supports indexes
 1. `Pro`: Developer controls the SQL
+1. `Pro`: Mature Jetbrains plugin
+1. `Pro`: compile time generation (type safety)
+1. `Pro`: helpful error messages
 1. `Con`:
 1. `Con`:
 
