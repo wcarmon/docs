@@ -1,5 +1,5 @@
 # Overview
-1. Database options
+1. Relational Database options
 
 
 # SQLite
@@ -11,8 +11,29 @@
 
 
 # SQLDelight
-1. TODO
+1. `Pro`: thoughtfully designed
+1. `Pro`: Square product
+1. `Pro`:
+1. `Pro`:
+1. `Con`:
+1. `Con`:
+1. `Con`:
+1. `Con`:
 
 
 # ObjectBox
 1. TODO
+
+
+# Room
+1. `Con`: deep integration in to coroutines
+1. `Con`: yet another bloated ORM
+
+
+# Jooq
+1. TODO
+
+
+# Abandonware
+1. ~~greenDAO~~
+1. ~~Realm~~
