@@ -48,12 +48,12 @@
 ```kts
 dependencies {
     // -- For the API
-    implementation("org.slf4j:slf4j-api:2.0.5") // or latest
+    implementation("org.slf4j:slf4j-api:2.0.16") // or latest
     
     // -- For the implementation
-    implementation("ch.qos.logback:logback-classic:1.4.5")  // or latest
-    implementation("ch.qos.logback:logback-core:1.4.5")     // or latest    
-    implementation("ch.qos.logback:logback-access:1.4.5")   // or latest
+    implementation("ch.qos.logback:logback-classic:1.5.16")  // or latest
+    implementation("ch.qos.logback:logback-core:1.5.16")     // or latest
+    implementation("ch.qos.logback:logback-access:1.5.16")   // or latest
 
     // -- To forward other log statements (logging bridge)
     // -- See https://logging.apache.org/log4j/2.x/faq.html#missing_core
