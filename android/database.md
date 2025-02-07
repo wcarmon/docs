@@ -14,6 +14,7 @@
 
 # ObjectBox
 1. `Con`: Goofy query syntax
+2. `Con`: every entity must have an id of type `long`
 
 
 # ~~Room~~
