@@ -77,4 +77,10 @@ message FooResponseChunk {
 
 
 
+# Gotcha
+1. server side interceptors are useless since you cannot get the method name
+    1. `req.extensions().get::<GrpcMethod>()` is always `None`
+    1. See https://github.com/hyperium/tonic/issues/772
+
+
 # Other Resources
