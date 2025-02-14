@@ -193,8 +193,9 @@ impl TryFrom<my::pkg::Foo> for MyDomainType {
 1. `prost-build`: uses `optional` for all user defined types
     1. https://github.com/tokio-rs/prost/issues/521
     1. https://github.com/tokio-rs/prost/issues/945
-1. Enums can be a bit unintuitive, but there are enough features in place to make it work
-    1. read using `my_proto.my_enum_field()`, not `my_proto.my_enum_field`
+1. [Enums can be a bit unintuitive](https://github.com/tokio-rs/prost?tab=readme-ov-file#enumerations), but there are enough features in place to make it work
+    1. read/deserialize using `my_proto.my_enum_field()`, not `my_proto.my_enum_field` (`TryFrom` or pure `fn`)
+    1. write/serialize by converting to the enum type (`From` or pure `fn`)
 1. generated types are not convenient enough to represent the domain, so conversion required
 
 
