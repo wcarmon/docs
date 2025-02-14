@@ -188,6 +188,9 @@ impl TryFrom<my::pkg::Foo> for MyDomainType {
 1. prost doesn't write directly to [`std::io::Write`](./io.file.md), so you must first write to `&[u8]` (or similar)
 1. prost has their own Buf struct: `prost::bytes::Buf`
     1. Solution is to use deref coercion: `&*my_buffer`
+1. `prost-build`: uses `optional` for all user defined types
+    1. https://github.com/tokio-rs/prost/issues/521
+    1. https://github.com/tokio-rs/prost/issues/945
 
 
 # Other Resources
