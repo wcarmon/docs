@@ -191,6 +191,7 @@ impl TryFrom<my::pkg::Foo> for MyDomainType {
 1. `prost-build`: uses `optional` for all user defined types
     1. https://github.com/tokio-rs/prost/issues/521
     1. https://github.com/tokio-rs/prost/issues/945
+1. generated types are not convenient enough to represent the domain, so conversion required
 
 
 # Other Resources
