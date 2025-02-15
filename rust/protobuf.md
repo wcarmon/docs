@@ -173,6 +173,8 @@ impl TryFrom<my::pkg::Foo> for MyDomainType {
 
 # Usage: Read bytes (Decode)
 ```rust
+    use prost::Message;     // imports the `decode` method
+
     let raw_bytes: Vec<u8> = ... ; // TODO: read from somewhere
 
     // -- deref, coerce, then (re)reference raw_bytes
@@ -195,7 +197,7 @@ impl TryFrom<my::pkg::Foo> for MyDomainType {
     1. https://github.com/tokio-rs/prost/issues/945
 1. [Enums can be a bit unintuitive](https://github.com/tokio-rs/prost?tab=readme-ov-file#enumerations), but there are enough features in place to make it work
     1. read/deserialize using `my_proto.my_enum_field()`, not `my_proto.my_enum_field` (`TryFrom` or pure `fn`)
-    1. write/serialize by converting to the enum type (`From` or pure `fn`)
+    1. write/serialize by converting to `i32` (`From` or pure `fn`)
 1. generated types are not convenient enough to represent the domain, so conversion required
 
 
