@@ -91,6 +91,7 @@ fn main() -> Result<()> {
             ],
         )?;
 
+    // -- ================================================
     // -- Protobuf only (no gRPC)
     // prost_build::compile_protos(
     //     &[
@@ -99,6 +100,17 @@ fn main() -> Result<()> {
     //     ],
     //     &["src/", "protos/"],
     // )?;
+
+    // -- ================================================
+    // -- Protobuf only, with extra config (no gRPC)
+    // let mut config = Config::new();
+    // config.message_attribute("MyProto", "#[derive(Eq, Hash)]");
+    //
+    // config.compile_protos(
+    //     &["protos/foo.proto", "protos/bar.proto"],
+    //     &["src/", "protos/"],
+    // )?;
+
 
     Ok(())
 }
