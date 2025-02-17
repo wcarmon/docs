@@ -54,7 +54,7 @@ tonic-build = "..."
 ## Sources (model)
 1. Add `$PROJ_ROOT/src/foo.rs` for the each `struct`
     1. model the domain as you would normally
-1. Add `$PROJ_ROOT/protos/foo.proto` for each corresponding [proto def](https://protobuf.dev/programming-guides/proto3/)
+1. Add `$PROJ_ROOT/proto/foo.proto` for each corresponding [proto def](https://protobuf.dev/programming-guides/proto3/)
     1. Choose a [package](https://protobuf.dev/programming-guides/proto3/#packages) (you'll use it later)
     1. Or maybe the protos already exist
     1. Add `Proto` suffix to your `message`s to distinguish them in code
@@ -81,13 +81,13 @@ fn main() -> Result<()> {
         .message_attribute("MyMessageType","#[derive(Eq, Hash)]",)
         .compile_protos(
             &[
-                "protos/http.proto",
-                "protos/model.proto",
+                "proto/http.proto",
+                "proto/model.proto",
                 // ... other protos
             ],
             &[
                 "src/",     # for reference resolution??
-                "protos/",
+                "proto/",
             ],
         )?;
 
@@ -95,10 +95,10 @@ fn main() -> Result<()> {
     // -- Protobuf only (no gRPC)
     // prost_build::compile_protos(
     //     &[
-    //         "protos/foo.proto",
+    //         "proto/foo.proto",
     //         // TODO: other proto files here
     //     ],
-    //     &["src/", "protos/"],
+    //     &["src/", "proto/"],
     // )?;
 
     // -- ================================================
@@ -107,8 +107,8 @@ fn main() -> Result<()> {
     // config.message_attribute("MyProto", "#[derive(Eq, Hash)]");
     //
     // config.compile_protos(
-    //     &["protos/foo.proto", "protos/bar.proto"],
-    //     &["src/", "protos/"],
+    //     &["proto/foo.proto", "proto/bar.proto"],
+    //     &["src/", "proto/"],
     // )?;
 
 
