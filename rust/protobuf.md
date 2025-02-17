@@ -79,6 +79,11 @@ fn main() -> Result<()> {
         // -- See https://docs.rs/prost-build-config/latest/prost_build_config/
         // -- See https://docs.rs/prost-build/latest/prost_build/struct.Config.html#method.message_attribute
         .message_attribute("MyMessageType","#[derive(Eq, Hash)]",)
+
+        // -- For each externally defined proto
+        // -- assuming you have `package foo.bar.baz;` in your proto
+        // .extern_path(".foo.bar.baz", "::foo::bar::baz")
+
         .compile_protos(
             &[
                 "proto/http.proto",
