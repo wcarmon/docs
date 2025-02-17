@@ -215,6 +215,7 @@ impl TryFrom<my::pkg::Foo> for MyDomainType {
     1. read/deserialize using `my_proto.my_enum_field()`, not `my_proto.my_enum_field` (`TryFrom` or pure `fn`)
     1. write/serialize by converting to `i32` (`From` or pure `fn`)
 1. generated types are not convenient enough to represent the domain, so conversion required
+1. in `lib.rs`, define module for my protos defined in another crate
 1. package names must not have parent/child relationship
     1. Bad: use `com.foo.aa` in `com.foo.aa.bb`
     1. Good: use `com.foo.aa.common` in `com.foo.aa.bb`
