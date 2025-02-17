@@ -126,6 +126,10 @@ pub mod my {
         include!(concat!(env!("OUT_DIR"), "/my.pkg.rs"));
     }
 }
+
+// also include modules for any dependent protos
+// prost will write generated rs from other crates into $PROJ_ROOT/target/debug/build/...
+
 ```
 1. Add `$PROJ_ROOT/src/foo_proto.rs` for the conversion mappings
     1. [See examples below](https://github.com/wcarmon/docs/blob/main/rust/protobuf.md#conversion)
