@@ -82,7 +82,7 @@ fn main() -> Result<()> {
 
         // -- For each externally defined proto
         // -- assuming you have `package foo.bar.baz;` in your proto
-        // .extern_path(".foo.bar.baz", "::foo::bar::baz")
+        // .extern_path(".foo.bar.baz", "::name_of_crate::foo::bar::baz")
 
         .compile_protos(
             &[
