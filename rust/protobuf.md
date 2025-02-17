@@ -79,6 +79,7 @@ fn main() -> Result<()> {
         // -- See https://docs.rs/prost-build-config/latest/prost_build_config/
         // -- See https://docs.rs/prost-build/latest/prost_build/struct.Config.html#method.message_attribute
         .message_attribute("MyMessageType","#[derive(Eq, Hash)]",)
+        // -- Also include message_attribute for my protos defined in another crate
         .compile_protos(
             &[
                 "proto/http.proto",
@@ -216,6 +217,7 @@ impl TryFrom<my::pkg::Foo> for MyDomainType {
     1. write/serialize by converting to `i32` (`From` or pure `fn`)
 1. generated types are not convenient enough to represent the domain, so conversion required
 1. in `lib.rs`, define module for my protos defined in another crate
+1. in `build.rs` message_attribute must be defined for protos defined in another crate
 1. package names must not have parent/child relationship
     1. Bad: use `com.foo.aa` in `com.foo.aa.bb`
     1. Good: use `com.foo.aa.common` in `com.foo.aa.bb`
