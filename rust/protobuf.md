@@ -79,7 +79,6 @@ fn main() -> Result<()> {
         // -- See https://docs.rs/prost-build-config/latest/prost_build_config/
         // -- See https://docs.rs/prost-build/latest/prost_build/struct.Config.html#method.message_attribute
         .message_attribute("MyMessageType","#[derive(Eq, Hash)]",)
-        // -- Also include message_attribute for my protos defined in another crate
         .compile_protos(
             &[
                 "proto/http.proto",
@@ -127,10 +126,6 @@ pub mod my {
         include!(concat!(env!("OUT_DIR"), "/my.pkg.rs"));
     }
 }
-
-// also include modules for any dependent protos
-// prost will write generated rs from other crates into $PROJ_ROOT/target/debug/build/...
-
 ```
 1. Add `$PROJ_ROOT/src/foo_proto.rs` for the conversion mappings
     1. [See examples below](https://github.com/wcarmon/docs/blob/main/rust/protobuf.md#conversion)
@@ -216,8 +211,6 @@ impl TryFrom<my::pkg::Foo> for MyDomainType {
     1. read/deserialize using `my_proto.my_enum_field()`, not `my_proto.my_enum_field` (`TryFrom` or pure `fn`)
     1. write/serialize by converting to `i32` (`From` or pure `fn`)
 1. generated types are not convenient enough to represent the domain, so conversion required
-1. in `lib.rs`, define module for my protos defined in another crate
-1. in `build.rs` message_attribute must be defined for protos defined in another crate
 1. package names must not have parent/child relationship
     1. Bad: use `com.foo.aa` in `com.foo.aa.bb`
     1. Good: use `com.foo.aa.common` in `com.foo.aa.bb`
