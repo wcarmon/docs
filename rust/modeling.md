@@ -144,7 +144,12 @@ struct Employee {
     1. limit how intermediate & terminal state structs are created
         - `::new` method consumes previous state struct
         - or [`#[non_exhaustive]`](https://doc.rust-lang.org/reference/attributes/type_system.html)
+            - no runtime cost
+            - intent isn't so obvious (poor affordance)
         - or private [`PhantomData`](https://doc.rust-lang.org/std/marker/struct.PhantomData.html) field on intermediate state struct
+            - no runtime cost
+            - affects pattern matching (must use `..` outside the crate)
+            - `PhantomData` has many other unrelated usages
     1. If you must manage lifecycle in a field, wrap field in an [`Rc`](https://doc.rust-lang.org/std/rc/struct.Rc.html)
 
 
