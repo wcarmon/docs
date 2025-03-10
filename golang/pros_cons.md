@@ -78,6 +78,7 @@
 1. `struct` provides no way to enforce invariants
     1. compare to Java, C++, or any language with constructors
     1. Rust has same problem, but compiler can generate builder [via macro](https://docs.rs/derive_builder/latest/derive_builder/)
+    2. Newtype pattern might help
     1. Requires extra **manual** coding discipline (eg. manually invoke a struct validation `func`)
 1. `struct` fields don't support default values (compare to [Rust](https://doc.rust-lang.org/std/default/trait.Default.html), Java, C++)
     1. normally, you'd mitigate with a constructor, but Golang lacks those
