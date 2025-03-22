@@ -78,6 +78,7 @@
 1. `struct` provides no way to enforce invariants
     1. compare to Java, C++, or any language with constructors
     1. Rust has same problem, but compiler can generate builder [via macro](https://docs.rs/derive_builder/latest/derive_builder/)
+    2. Newtype pattern might help
     1. Requires extra **manual** coding discipline (eg. manually invoke a struct validation `func`)
 1. Verbose error handling & error propagation
     1. Compare to [Rust](https://doc.rust-lang.org/rust-by-example/std/result/question_mark.html), [Python](https://docs.python.org/3/library/exceptions.html), [C++](https://cplusplus.com/doc/tutorial/exceptions/) or [Java](https://docs.oracle.com/javase/tutorial/essential/exceptions/index.html)        
