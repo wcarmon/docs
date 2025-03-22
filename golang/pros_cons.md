@@ -50,6 +50,8 @@
     1. Compare to writing Java, Rust, Typescript, Python, etc
     1. Minimal data structures: No LinkedList, No Stack, No Queue, No Sets, No TreeMap, etc
 1. Missing Data Structures: 
+    1. ~~No Heap~~
+        1. Mitigate: [pkg.go.dev/container](https://pkg.go.dev/container/heap)
     1. ~~No LinkedList~~
         1. Mitigate: [pkg.go.dev/container](https://pkg.go.dev/container/list)
     1. No Queue
@@ -57,14 +59,12 @@
         1. No way to remove first or last
     1. No Stack
         1. Mitigate: roll your own via slice (`Pop` is non-trivial)    
-    1. ~~No Heap~~
-        1. Mitigate: [pkg.go.dev/container](https://pkg.go.dev/container/heap)
     1. No [Sets](https://en.wikipedia.org/wiki/Set_(abstract_data_type))
         1. Compare to [Rust](https://doc.rust-lang.org/std/collections/struct.HashSet.html) or [Java](https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/util/Set.html) or [C++](https://cplusplus.com/reference/unordered_set/unordered_set/)
         1. Also, no `SortedSet`, Compare to [Java](https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/util/SortedSet.html) or [Rust](https://doc.rust-lang.org/stable/std/collections/struct.BTreeSet.html) or [C++](https://en.cppreference.com/w/cpp/container/set)
         1. Mitigate: use `map[T]bool` for "HashSet", use 3rd party lib for sorted set
     1. No TreeMap
-        1. TODO    
+        1. TODO
 1. [Immutability](../common/immutability.md) is hard
     1. Mitigate: `struct` shallow copy is trivial
         1. But `struct` shallow copy "fails" when struct has pointer/reference field
@@ -79,9 +79,6 @@
     1. compare to Java, C++, or any language with constructors
     1. Rust has same problem, but compiler can generate builder [via macro](https://docs.rs/derive_builder/latest/derive_builder/)
     1. Requires extra **manual** coding discipline (eg. manually invoke a struct validation `func`)
-1. `struct` fields don't support default values (compare to [Rust](https://doc.rust-lang.org/std/default/trait.Default.html), Java, C++)
-    1. normally, you'd mitigate with a constructor, but Golang lacks those
-    1. Requires extra **manual** coding discipline (eg. manually invoke a field defaulter, checking if not already set)
 1. Verbose error handling & error propagation
     1. Compare to [Rust](https://doc.rust-lang.org/rust-by-example/std/result/question_mark.html), [Python](https://docs.python.org/3/library/exceptions.html), [C++](https://cplusplus.com/doc/tutorial/exceptions/) or [Java](https://docs.oracle.com/javase/tutorial/essential/exceptions/index.html)        
     1. No exceptions
@@ -128,6 +125,9 @@
     1. Although, performance can be faster without streams
     1. Java streams [require a special debugger](https://www.jetbrains.com/idea/guide/tips/debugging-streams/)
     1. [Golang 1.21 improved this](https://pkg.go.dev/slices)
+1. `struct` fields don't support default values (compare to [Rust](https://doc.rust-lang.org/std/default/trait.Default.html), Java, C++)
+    1. normally, you'd mitigate with a constructor, but Golang lacks those
+    1. Requires extra **manual** coding discipline (eg. manually invoke a field defaulter, checking if not already set)
 1. ~~Annoying to get map keys~~
     1. Fixed: in [golang.org/x/exp](https://pkg.go.dev/golang.org/x/exp@v0.0.0-20240707233637-46b078467d37/maps)
 1. `max`/`min`/`abs` ~~functions don't work on all numeric types~~
