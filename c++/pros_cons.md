@@ -6,6 +6,11 @@
 # Good news
 
 1. Jobs
+    1. Trading
+    1. Embedded
+    1. Game development
+    1. Graphics
+    1. Machine learning
 2. Rapidly evolving
 1. Expressive
     1. If it can be done in another language, C++ can do it
@@ -49,10 +54,19 @@
     1. quantlib
 1. One of few options for embedded systems
     1. rust support isn't there yet
+1. constexpr can replace many uses of macros
 
 
 # Bad news
 1. Complexity everywhere
+    1. Decades worth of deprecated features
+    1. too many ways to do everything
+        1. pointers, references, smart-pointers
+        1. allocation, new, delete, free, malloc, ...
+        1. NULL, nullptr, ...
+        1. macros, constexpr, ...
+        1. [variant](c++ feature to avoid: https://bitbashing.io/std-visit.html), enum, union, 
+1. Must fight for best practices (as opposed to them being default)
 1. Programmer must do things the tools could easily do
 1. Slow builds
     1. compared to rust, c, Java, and obviously golang
@@ -71,13 +85,10 @@
 1. Slow compilation
 1. Very unsafe at runtime if used incorrectly
     1. Static analysis, testing & sanitizers help
-1. ~~No string templates~~
-    1. std::format
-    1. Compare to [Java string templates](https://openjdk.org/jeps/459)
-    1. Compare to [Kotlin interpolation](https://kotlinlang.org/docs/java-to-kotlin-idioms-strings.html)
-    1. Compare to [Python fstrings](https://realpython.com/python-f-strings/)
-    1. Compare to [Rust `format!` macro](https://doc.rust-lang.org/std/macro.format.html)
 1. [Testing was added long after the ecosystem was established](https://github.com/catchorg/Catch2)
+    1. though Google test and catch2 are pretty good
+1. Package management is still a mess
+    1. conan often lacks the latest versions
 1. Building & distributing code is not as smooth as other popular languages ([CMake](https://cmake.org/))
     1. Go: Compare to [`go build`](https://pkg.go.dev/cmd/go#hdr-Compile_packages_and_dependencies) and [`go get`](https://pkg.go.dev/cmd/go/internal/get)
     1. Java: Compare to [gradle](https://gradle.org/) & [maven repos](https://mvnrepository.com/)
@@ -89,12 +100,18 @@
     2. Unless they are in gaming or military
     3. Mostly maintaining mission critical legacy systems that are too hard to update
 1. Macros
+    1. TODO
 1. Infinite backward compatibility
     1. too many ways to do things
     2. old ways never die
 1. Templates
-    1. also error messages are unhelpful
-    2. sooo complex
+    1. sooo complex beyond the basics
+    1. error messages are unhelpful & cryptic
+    1. debugging is hard
+    1. slow compilation
+    1. code size bloat
+    1. https://stackoverflow.com/questions/622659/what-are-the-good-and-bad-points-of-c-templates
+    1. https://ofekshilon.com/2012/09/01/meta-programming-is-still-evil/
 1. Dumping ground for ideas
 1. Operator overloading means you don't really know what anything does
 1. safe concurrency is a nightmare
@@ -105,7 +122,29 @@
 1. Most jobs are about babysitting legacy systems.  Nothing new
 1. Banned from the Linux kernel
 1. Undefined behavior
+    1. TODO
 1. Exceptions and how they interact with everything else
+    1. community misalignment on how and when to use
+    1. memory leaks when thrown
 1. modules are poorly supported
-3. Safety is opt-in
-    4. compare to Rust, Java, Go, etc
+1. Safety is opt-in
+    1. compare to Rust, Java, Go, etc
+1. Inconsistent behavior across compilers
+1. [Diamond inheritance](https://en.wikipedia.org/wiki/Multiple_inheritance)
+1. Public vs Private inheritance
+1. friend
+1. move semantics should be the default 
+    1. their syntax is kinda annoying
+1. immutability should be the default
+1. typedef
+1. no naming conventions
+1. static linking is non-trivial
+    1. compare to golang
+    1. compare to rust
+1. ~~No string templates~~
+    1. std::format
+    1. Compare to [Java string templates](https://openjdk.org/jeps/459)
+    1. Compare to [Kotlin interpolation](https://kotlinlang.org/docs/java-to-kotlin-idioms-strings.html)
+    1. Compare to [Python fstrings](https://realpython.com/python-f-strings/)
+    1. Compare to [Rust `format!` macro](https://doc.rust-lang.org/std/macro.format.html)
+ 
