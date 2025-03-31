@@ -1,5 +1,9 @@
 # Overview
-1. TODO
+1. Pros & cons of duckdb
+
+
+# Pros
+1. Can load multiple sources & duck files into a connection
 
 
 # Cons
@@ -14,6 +18,3 @@
 1. Examples online are all in python
 1. Cannot open the same file multiple times    
 
-
-# Other resources
-1. TODO
