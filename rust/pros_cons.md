@@ -34,6 +34,11 @@
 1. [Feature flags](https://doc.rust-lang.org/cargo/reference/features.html) are excellent
 1. Rich enums (compare to Go)
 1. (2025) Used by companies in: Crypto, Gaming, AI & Machine Learning, Zero-Knowledge Proofs (ZKP), Gambling, and High-Frequency Trading (HFT)/Finance, Embedded, Security
+1. [Traits](https://doc.rust-lang.org/std/all.html#traits) help group & organize code around patterns (`Hash`, `Eq`, `PartialEq`, `Ord`, `PartialOrd`, `Default`, `Clone`, `From`, `TryFrom`, `AsRef`, `Display`, `Deref`, `Add`, ...)
+    1. Compare to c++
+    1. Java is similar but not as streamlined
+        - `Comparable`, `Writer`, `Reader`, ... are interfaces
+        - `::hash`, `::equals`, `::toString` are part of `Object`
 
 
 # Bad news
