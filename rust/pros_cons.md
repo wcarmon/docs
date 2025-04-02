@@ -33,12 +33,14 @@
 1. [Cargo](https://doc.rust-lang.org/cargo/) is excellent
 1. [Feature flags](https://doc.rust-lang.org/cargo/reference/features.html) are excellent
 1. Rich enums (compare to Go)
+1. (2025) Used by companies in: Crypto, Gaming, AI & Machine Learning, Zero-Knowledge Proofs (ZKP), Gambling, and High-Frequency Trading (HFT)/Finance, Embedded, Security
+
 
 # Bad news
 
 1. Slow builds
     1. slow compared to Go, Java, TS, ...
-    1. C++ is much worse   
+    1. C++ is much worse
 1. Syntax is dense, especially with lifetimes
 1. "Sometimes" file-names and module-names are associated (eg `mod foo` must be in `foo.rs`)
 1. JetBrains specific
