@@ -14,6 +14,8 @@
 1. Incompatible with newtype pattern
 1. Don't don't have any examples of macro usage or customizations
     1. Tests have some examples
+1. feels like a battle (huge waste of type for any non-trivial model)
+
 
 # Other resources
 1. TODO
