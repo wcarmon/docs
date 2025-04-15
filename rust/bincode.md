@@ -4,6 +4,7 @@
 
 # Cons
 1. Relatively immature (compared to json or protobuf)
+1. Incompatible with other languages (compare to protobuf or json or bson ...)
 1. Serious incompatibilities with serde crate
     1. Mitigate: don't use with serde interface
 1. Annoying issues with enums
