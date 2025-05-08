@@ -51,6 +51,16 @@
     span.end(); // or drop(span) or let it happen automatically
 ```
 
+
+# GOTCHAS & Pain points
+1. They are locked on an old version of tokio (10 versions behind)
+1. They regularly break semver
+    1. Significant breaking changes in `minor` and in `patch` releases
+1. The performance overhead is significant
+1. They API is convoluted and confusing
+    1. Prefer tokio's tracing tools if anything
+
+
 # Other Resources
 
 1. https://docs.rs/opentelemetry/
