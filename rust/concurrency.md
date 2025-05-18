@@ -7,6 +7,10 @@
 - TODO: https://github.com/sebasmagri/rust-concurrency-patterns
 - TODO: https://ferrous-systems.com/blog/embedded-concurrency-patterns/
 - TODO: https://blog.logrocket.com/deep-dive-concurrency-rust-programming-language/
+- TODO: Ordering determines when your changes are visible to another thread ```
+Ordering::{Release, Acquire, AcqRel, Relaxed}
+```
+
 
 # Map
 1. https://docs.rs/dashmap/latest/dashmap
