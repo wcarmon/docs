@@ -6,11 +6,12 @@
 
 # TL;DR;
 1. Download [./jetbrains-keymaps/win_keyboard_macos_5.xml](./jetbrains-keymaps/win_keyboard_macos_5.xml)
-1. Copy into ...
+    1. Keymap **5** works without any other remapping from other tools
+1. Copy `*.xml` into ...
+    1. **Mac**: `$HOME/Library/Application Support/JetBrains/IntelliJIdea<version>/keymaps/`
     1. Linux: `$HOME/.config/JetBrains/IntelliJIdea<version>/keymaps/` 
-    1. Mac: `$HOME/Library/Application Support/JetBrains/IntelliJIdea<version>/keymaps/`
     1. win: `%APPDATA%\JetBrains\IntelliJIdea<version>\keymaps\`
-    1. You can replace `IntelliJIdea` with other products like `GoLand`, `IdeaIC`, `PyCharm`, or `DataGrip`
+    1. Replace `IntelliJIdea` with other products like `GoLand`, `IdeaIC`, `PyCharm`, or `DataGrip`
 1. Restart IDE
 1. Select & use keymap
 
@@ -133,11 +134,13 @@
     1. `Mission Control` > Disable `Move left a space`  (conflicts with `Move caret to previous word`)
     1. `Mission Control` > Disable `Move right a space` (conflicts with `Move caret to next word`)
     1. `Keyboard` > Disable `Move focus to status menus` (conflicts with `Toggle line breakpoint`)
-    1. `Services` > Disable `Open man Page in Terminal`
-    1. `Services` > Disable `Open man Page Index in Terminal`
-    1. `Services` > Disable `Show Map`
-    1. `Services` > Disable `Add to Reading List`
-    1. `Services` > Disable `Open URL`
+    1. `Services` > Disable everything
+        1. Specifically: Everything under Files and folders, Internet, Messaging, Pictures, Text
+        1. `Services` > Disable `Open man Page in Terminal`
+        1. `Services` > Disable `Open man Page Index in Terminal`
+        1. `Services` > Disable `Show Map`
+        1. `Services` > Disable `Add to Reading List`
+        1. `Services` > Disable `Open URL`
 
 | Category | Feature                          | Linux, win, XWin shortcut  | MacOS keymap shortcut | Add mapping (on MacOS)                            |
 |----------|----------------------------------|----------------------------|-----------------------|---------------------------------------------------|
