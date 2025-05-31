@@ -2,6 +2,15 @@
 
 - Configuring win keyboard shortcuts for chrome on MacOS
 
+# Things to remap
+
+|Linux/win keyboard|macOS keyboard|Purpose|
+|---|---|---|
+|`CTRL` + `SHIFT` + `I`|`⌘ command` + `⌥ option` + `J`|Open developer console|
+|`CTRL` + `←`|`⌥ option` + `←`|Previous word|
+|`CTRL` + `→`|`⌥ option` + `→`|Next word|
+
+
 # ~~Changing Keyboard shortcuts via hidutil~~ (Use [BetterTouchTool](https://folivora.ai/) instead)
 
 1. Open terminal
