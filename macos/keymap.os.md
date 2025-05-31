@@ -50,7 +50,8 @@
 
 1. Most cross platform apps have OS specific key maps (eg. Chrome, IDEA, Outlook, ...)
 
-## Steps: Via command line
+
+## ~~Steps: Via command line~~ (Use BetterTouchTool instead)
 
 1. Make constants for each relevant [keycode](https://www.freebsddiary.org/APC/usb_hid_usages.php)
 

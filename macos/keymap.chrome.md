@@ -2,7 +2,7 @@
 
 - Configuring win keyboard shortcuts for chrome on MacOS
 
-# Changing Keyboard shortcuts via hidutil
+# ~~Changing Keyboard shortcuts via hidutil~~ (Use [BetterTouchTool](https://folivora.ai/) instead)
 
 1. Open terminal
 1. Define the key constants in [keymap.os](./keymap.os.md#steps-via-command-line) doc
