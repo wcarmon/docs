@@ -41,6 +41,8 @@
 1. Keymap: 110: Navigate: Go to declaration
 1. Keymap: 120: Editor: Refactor: comment/uncomment line
 1. Keymap: 120: Go to file
+1. Keymap: 120: Navigate to next method
+1. Keymap: 120: Navigate to previous method
 1. Keymap: 130: Editor: show context actions
 1. Keymap: 140: Editor: smart complete line (CTRL+ENTER) (eg. semicolon for java, rust, ts)
 1. Keymap: 150: Navigate: Search by symbol
