@@ -11,11 +11,12 @@
 |Run|`Alt + 4`|todo|
 |Debug|`Alt + 5`|todo|
 |Tabnine Chat|`ALT + CTRL + I`|`ALT + CTRL + I`|
+|Show/Hide Left Sidebar|ALT + 1|CTRL + B|
 |todo|todo|todo|
 
 
 --------
-# Editor: Key Bindings
+# Editor: Key Bindings (Default)
 |Action|JetBrains|vscode|Destructive in vsc|Destructive in JB|
 |---:|---:|---:|:---:|:---:|
 |Column select|`ALT + SHIFT + INS`|`ALT + SHIFT + DOWN`|TODO|TODO|
@@ -26,7 +27,7 @@
 |Toggle case on selection|`CTRL + SHIFT+U`|`transform` action|TODO|TODO|
 
 
-# Navigation: Key Bindings
+# Navigation: Key Bindings (Default)
 |Action|JetBrains|vscode|Destructive in vsc|Destructive in JB|
 |---:|---:|---:|:---:|:---:|
 |Ace Jump|(custom)|TODO|TODO|TODO|
@@ -40,7 +41,7 @@
 
 
 # Port to vscode
-|Action|vscode binding(s)|
+|Action/Command|vscode binding(s)|
 |---:|---:|
 |Delete line|`CTRL + Y`, `CTRL + SHIFT + K`|
 |Duplicate line|`CTRL + D`|
@@ -50,8 +51,15 @@
 |Sort lines|`ALT + SHIFT + L`|
 
 
+# Change these ... conflicts
+|Action/Command|vscode default|my custom|Conflicts with|
+|---|---|---|---|
+|Go to Definition|`F12`|todo|guake/yakuake|
+|todo|todo|todo|todo|
+
+
 # Same Defaults (in JetBrains and vscode)
-|Action|JetBrains & vscode|Custom|
+|Action/Command|JetBrains & vscode|Custom|
 |---:|---:|:---:|
 |Find in file|`CTRL + F`|--|
 |Go to line|`CTRL + G`|--|

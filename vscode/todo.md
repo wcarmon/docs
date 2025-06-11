@@ -1,29 +1,3 @@
-# TODO
-1. Decompile source for dependency
-1. Editor: Java: override defaulted methods on implemented interface (CTRL+O)
-1. Editor: organize/optimize imports
-1. Editor: rust: override defaulted trait methods
-1. Editor: show param info for fn/method
-1. Inspect all files in a directory
-1. Inspect: find duplicate code blocks
-1. Intention: Java: Get sources for decompiled local jar
-1. Intention: Rust: add missing fields for new struct initialization
-1. Intention: Rust: attach *.rs file to parent lib.rs or main.rs
-1. Intention: change fn parameters to match what I actually pass
-1. Intention: change return type signature to match what I actually return
-1. Navigate: Find text across files
-1. Navigate: Fuzzy find across files
-1. Navigate: Open file based on fuzzy name
-1. Run: set JVM args for run/debug
-1. Run: set environment vars for run/debug
-1. SQL Editor: execute selected sql statement
-1. View: compare editor to file in tree view
-1. View: compare editor to file to external file
-1. View: compare file in tree view to another file "in project"
-1. View: compare file in tree view to external file
-1. View: Show/Hide tree view of file system
-
-
 # Migrate these
 1. Debugger: arbitrary expression at breakpoint
 1. Debugger: remote debug (another process)
@@ -52,9 +26,10 @@
 1. GIT: 150: amend commit
 1. GIT: 160: git tag
 1. GIT: 200: Local edit history (eg. local vcs)
-1. Keymap: 000: Go to definition (CTRL + B)
+1. Keymap: 000: Go to definition (IDEA: CTRL + B) <--- remap
 1. Keymap: 010: Reformat code
 1. Keymap: 020: Basic code completion
+1. Keymap: 025: Show/Hide tree view of file system <-- CTRL+B
 1. Keymap: 030: Open terminal
 1. Keymap: 030: Syntax aware selection
 1. Keymap: 040: Copy absolute path of current file to clipboard
@@ -146,4 +121,26 @@
 1. ace jump:
     1. https://github.com/DavidLGoldberg/jumpy2
     1. https://github.com/metaseed/metaGo
+1. Java: Decompile source for dependency
+1. Editor: Java: override defaulted methods on implemented interface (CTRL+O)
+1. Editor: organize/optimize imports
+1. Editor: rust: override defaulted trait methods
+1. Editor: show param info for fn/method
+1. Inspect all files in a directory
+1. Inspect: find duplicate code blocks
+1. Intention: Java: Get sources for decompiled local jar
+1. Intention: Rust: add missing fields for new struct initialization
+1. Intention: Rust: attach *.rs file to parent lib.rs or main.rs
+1. Intention: change fn parameters to match what I actually pass
+1. Intention: change return type signature to match what I actually return
+1. Navigate: Find text across files
+1. Navigate: Fuzzy find across files
+1. Navigate: Open file based on fuzzy name
+1. Run: set JVM args for run/debug
+1. Run: set environment vars for run/debug
+1. SQL Editor: execute selected sql statement
+1. View: compare editor to file in tree view
+1. View: compare editor to file to external file
+1. View: compare file in tree view to another file "in project"
+1. View: compare file in tree view to external file
 
