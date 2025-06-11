@@ -62,7 +62,7 @@
 
 
 --------
-# TODO: 
+# TODO: migrate these
 1. 010: Clipboard history (multi-clipboard)
 1. 020: Local edit history (eg. local vcs)
 1. 030: Sort json

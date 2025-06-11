@@ -50,5 +50,9 @@
 |Undo|`CTRL+Z`|--|
 
 
+# TODO: migrate these
+1. go to definition
+
+
 # Other resources
 1. TODO

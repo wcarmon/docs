@@ -8,6 +8,7 @@
 |Settings|Import Settings|todo|
 |Settings|Export Settings|todo|
 |todo|Open Tabnine chat on right|todo|
+|Extensions|todo|show extensions|
 |todo|todo|todo|
 
 

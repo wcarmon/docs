@@ -23,20 +23,23 @@
 1. TODO
 
 
-# TODO
-1. amend commit
-1. checkout another branch
-1. compare file in another revision
-1. git commit
-1. git fetch
-1. git merge
-1. git pull
-1. git push
-1. git status
-1. git tag
-1. revert file to some commit
-1. show current branch
-1. signing commits
+# TODO: migrate these
+1. 010: show current branch
+1. 020: git commit
+1. 030: keymap: commit
+1. 040: git status
+1. 050: git push
+1. 060: keymap: push
+1. 070: revert file to some commit
+1. 080: compare file in another revision
+1. 090: git pull
+1. 100: git merge
+1. 110: signing commits
+1. 120: generate helpful commit message based on changes
+1. 130: checkout another branch
+1. 140: git fetch
+1. 150: amend commit
+1. 160: git tag
 
 
 # Other resources
