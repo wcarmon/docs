@@ -39,6 +39,10 @@
 1. https://code.visualstudio.com/docs/sourcecontrol/overview#_resolving-conflicts
 
 
+# Git file history
+
+
+
 # View diffs
 1. https://code.visualstudio.com/docs/sourcecontrol/overview#_viewing-diffs
 
@@ -63,7 +67,7 @@
 1. 140: git fetch
 1. 150: amend commit
 1. 160: git tag
-
+1. 200: Local edit history (eg. local vcs)
 
 # Other resources
 1. https://code.visualstudio.com/docs/sourcecontrol/overview

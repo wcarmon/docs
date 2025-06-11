@@ -8,9 +8,9 @@
 |---|---|---|
 |File tree|`ALT + 1`|`CTRL + SHIFT + E`|
 |Git changes|`CTRL + K`|`CTRL + SHIFT + G`|
-|Run|todo|todo|
-|Debug|todo|todo|
-|Debug|todo|todo|
+|Run|`Alt + 4`|todo|
+|Debug|`Alt + 5`|todo|
+|Tabnine Chat|`ALT + CTRL + I`|`ALT + CTRL + I`|
 |todo|todo|todo|
 
 
@@ -62,19 +62,10 @@
 |Undo|`CTRL + Z`|--|
 
 
-# Unorganized
-|JetBrains Action|JetBrains shortcut|vscode action|vscode shortcut|
+# TODO: Unorganized
+|JetBrains Action|JetBrains shortcut|vscode Command|vscode shortcut|
 |---|---|---|---|
 |Restart IDE|--|Reload Window|--|
-
-- TODO: are they called actions in vscode
-
-
-# TODO: migrate these
-1. go to definition
-1. toggle: show/hide type hints
-1. focus on tabnine chat
-1. Copy absolute path of current file to clipboard
 
 
 # Other resources

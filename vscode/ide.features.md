@@ -29,30 +29,3 @@
 |Category|Goland|vscode|
 |---|---|---|
 |todo|todo|todo|
-
-
-
-# Prioritized CLion & IDEA shortcuts
-1. 010: Reformat code
-1. 020: Basic code completion
-1. 030: Syntax aware selection
-1. 040: Delete line in editor
-1. 050: Comment/uncomment line
-1. 060: Find in files
-1. 070: Find in current file
-1. 080: Go to file
-1. 090: Open project tool window
-1. 100: Context actions
-1. 110: Rename refactor
-1. 120: Search everywhere
-1. 130: Go to symbol
-1. 140: Go to class
-1. 150: Reload after cargo.toml or build.gradle change
-1. 160: Parameter info
-1. 170: Recent files
-1. 180: Replace (CTRL+R)
-1. 190: File structure popup
-1. 200: Live templates
-1. 210: Directory Diff
-1. 220: Switch keymap
-1. Rust: toggle inlay hints for obvious cases
