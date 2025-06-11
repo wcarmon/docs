@@ -55,3 +55,4 @@
 1. 200: Live templates
 1. 210: Directory Diff
 1. 220: Switch keymap
+1. Rust: toggle inlay hints for obvious cases

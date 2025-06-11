@@ -7,7 +7,7 @@
 
 
 # Git status
-1. TODO
+1. `Ctrl + Shift + G`
 
 
 # Show changed files
