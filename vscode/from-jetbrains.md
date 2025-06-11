@@ -209,3 +209,6 @@
     1. https://tecadmin.net/shortcuts-for-git-integration-in-visual-studio-code/
     1. https://stackoverflow.com/questions/46382883/shortcut-to-push-code-to-git-in-vscode
 1. consider https://marketplace.visualstudio.com/items?itemName=wmaurer.change-case
+
+
+
