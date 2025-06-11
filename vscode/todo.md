@@ -30,38 +30,38 @@
 
 
 ## TODO: Keyboard shortcuts
-1. 100: Editor: Reformat code
-1. 110: Navigate: Go to declaration
-1. 120: Editor: Refactor: comment/uncomment line
-1. 130: Editor: show context actions
-1. 140: Editor: smart complete line (CTRL+ENTER) (eg. semicolon for java, rust, ts)
-1. 150: Navigate: Search by symbol
-1. 160: Editor: Completion: by camel case
-1. 170: Editor: Refactor: Rename symbol - https://code.visualstudio.com/docs/editor/refactoring#_rename-symbol
-1. 180: Editor: camel to snake case (rust/python)
-1. 190: Editor: Postfix completion
-1. 200: Navigate: go to class
-1. 210: VCS: git commit <--- CTRL+K
-1. 220: Navigate: show/hide file explorer (project view)
-1. 230: Editor: replace in all "project" files
-1. 240: Run inspections
-1. 250: Navigate: Show usages of symbol
-1. 260: Show file structure (methods/variables summary)
-1. 270: Directory diff
-1. 280: Editor: Refactor: Introduce variable - https://code.visualstudio.com/docs/editor/refactoring#_extract-variable
-1. 290: Editor: Refactor: inline variable - https://code.visualstudio.com/docs/java/java-refactoring#_inline-local-variable
-1. 300: Editor: Refactor: extract fn/method - https://code.visualstudio.com/docs/editor/refactoring#_extract-method
-1. 310: Move method/fn up/down -
-1. 320: Java: var to explicit type - https://code.visualstudio.com/docs/java/java-refactoring#_change-var-type-to-resolved-type
-1. 330: Override method (on interface) - https://code.visualstudio.com/docs/java/java-refactoring#_overrideimplement-methods
-1. 340: Search Explorer view by letters (Speed search in trees)
-1. 350: Generate getters/accessors - https://code.visualstudio.com/docs/java/java-refactoring#_generate-getters-and-setters
-1. 360: Java: refactor stream to loop
-1. 370: Live template
-1. 380: invert boolean - https://code.visualstudio.com/docs/java/java-refactoring#_invert-conditions
-1. 390: Fold selection (fn, method, block, rust module, java class, java record, ...)
-1. 400: Expand folded selection
-1. 410: adjust font size with mouse wheel - `editor.fontSize`
+1. Keymap: 100: Editor: Reformat code
+1. Keymap: 110: Navigate: Go to declaration
+1. Keymap: 120: Editor: Refactor: comment/uncomment line
+1. Keymap: 130: Editor: show context actions
+1. Keymap: 140: Editor: smart complete line (CTRL+ENTER) (eg. semicolon for java, rust, ts)
+1. Keymap: 150: Navigate: Search by symbol
+1. Keymap: 160: Editor: Completion: by camel case
+1. Keymap: 170: Editor: Refactor: Rename symbol - https://code.visualstudio.com/docs/editor/refactoring#_rename-symbol
+1. Keymap: 180: Editor: camel to snake case (rust/python)
+1. Keymap: 190: Editor: Postfix completion
+1. Keymap: 200: Navigate: go to class
+1. Keymap: 210: VCS: git commit <--- CTRL+K
+1. Keymap: 220: Navigate: show/hide file explorer (project view)
+1. Keymap: 230: Editor: replace in all "project" files
+1. Keymap: 240: Run inspections
+1. Keymap: 250: Navigate: Show usages of symbol
+1. Keymap: 260: Show file structure (methods/variables summary)
+1. Keymap: 270: Directory diff
+1. Keymap: 280: Editor: Refactor: Introduce variable - https://code.visualstudio.com/docs/editor/refactoring#_extract-variable
+1. Keymap: 290: Editor: Refactor: inline variable - https://code.visualstudio.com/docs/java/java-refactoring#_inline-local-variable
+1. Keymap: 300: Editor: Refactor: extract fn/method - https://code.visualstudio.com/docs/editor/refactoring#_extract-method
+1. Keymap: 310: Move method/fn up/down -
+1. Keymap: 320: Java: var to explicit type - https://code.visualstudio.com/docs/java/java-refactoring#_change-var-type-to-resolved-type
+1. Keymap: 330: Override method (on interface) - https://code.visualstudio.com/docs/java/java-refactoring#_overrideimplement-methods
+1. Keymap: 340: Search Explorer view by letters (Speed search in trees)
+1. Keymap: 350: Generate getters/accessors - https://code.visualstudio.com/docs/java/java-refactoring#_generate-getters-and-setters
+1. Keymap: 360: Java: refactor stream to loop
+1. Keymap: 370: Live template
+1. Keymap: 380: invert boolean - https://code.visualstudio.com/docs/java/java-refactoring#_invert-conditions
+1. Keymap: 390: Fold selection (fn, method, block, rust module, java class, java record, ...)
+1. Keymap: 400: Expand folded selection
+1. Keymap: 410: adjust font size with mouse wheel - `editor.fontSize`
 1. x: ace jump:
     1. https://github.com/DavidLGoldberg/jumpy2
     1. https://github.com/metaseed/metaGo
@@ -104,43 +104,57 @@
 1. View: Show/Hide tree view of file system
 
 
-
 1. Keyboard shortcut: git commit & push:
     1. https://tecadmin.net/shortcuts-for-git-integration-in-visual-studio-code/
     1. https://stackoverflow.com/questions/46382883/shortcut-to-push-code-to-git-in-vscode
 1. consider https://marketplace.visualstudio.com/items?itemName=wmaurer.change-case
 
 
-
 # TODO: Prioritized CLion & IDEA shortcuts
-1. 010: Reformat code
-1. 020: Basic code completion
-1. 030: Syntax aware selection
-1. 040: Delete line in editor
-1. 050: Comment/uncomment line
-1. 060: Find in files
-1. 070: Find in current file
-1. 080: Go to file
-1. 090: Open project tool window
-1. 100: Context actions
-1. 110: Rename refactor
-1. 120: Search everywhere
-1. 130: Go to symbol
-1. 140: Go to class
-1. 150: Reload after cargo.toml or build.gradle change
-1. 160: Parameter info
-1. 170: Recent files
-1. 180: Replace (CTRL+R)
-1. 190: File structure popup
-1. 200: Live templates
-1. 210: Directory Diff
-1. 220: Switch keymap
+
 1. Rust: toggle inlay hints for obvious cases
 
 
 
 # TODO: migrate these
-1. keymap: go to definition
-1. keymap: toggle: show/hide type hints
-1. keymap: open terminal
-1. keymap: Copy absolute path of current file to clipboard
+1. GIT: 030: keymap: commit
+1. GIT: 040: git status
+1. GIT: 050: git push
+1. GIT: 060: keymap: push
+1. GIT: 070: revert file to some commit
+1. GIT: 080: compare file in another revision
+1. GIT: 090: git pull
+1. GIT: 100: git merge
+1. GIT: 110: signing commits
+1. GIT: 120: generate helpful commit message based on changes
+1. GIT: 130: checkout another branch
+1. GIT: 140: git fetch
+1. GIT: 150: amend commit
+1. GIT: 160: git tag
+1. GIT: 200: Local edit history (eg. local vcs)
+1. Keymap: 010: Reformat code
+1. Keymap: 020: Basic code completion
+1. Keymap: 030: Syntax aware selection
+1. Keymap: 040: Delete line in editor
+1. Keymap: 050: Comment/uncomment line
+1. Keymap: 060: Find in files
+1. Keymap: 070: Find in current file
+1. Keymap: 080: Go to file
+1. Keymap: 090: Open project tool window
+1. Keymap: 100: Context actions
+1. Keymap: 110: Rename refactor
+1. Keymap: 120: Search everywhere
+1. Keymap: 130: Go to symbol
+1. Keymap: 140: Go to class
+1. Keymap: 150: Reload after cargo.toml or build.gradle change
+1. Keymap: 160: Parameter info
+1. Keymap: 170: Recent files
+1. Keymap: 180: Replace (CTRL+R)
+1. Keymap: 190: File structure popup
+1. Keymap: 200: Live templates
+1. Keymap: 210: Directory Diff
+1. Keymap: 220: Switch keymap
+1. Keymap: 999: Copy absolute path of current file to clipboard
+1. Keymap: 999: go to definition
+1. Keymap: 999: open terminal
+1. Keymap: 999: toggle: show/hide type hints
