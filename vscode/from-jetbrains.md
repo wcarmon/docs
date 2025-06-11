@@ -3,6 +3,8 @@
 
 
 # Motivation
+1. Jetbrains has fallen behind on AI
+1. Java is falling out of favor
 1. They only really support IDEA, Goland and WebStorm well (Perhaps c++ in Clion).
     - RustRover is buggy and has font issues (they probably don't regression test)
     - Gateway is buggy alphaware
@@ -12,56 +14,13 @@
 1. Jetbrains plugins are harder to write and to debug than for vscode
 
 
---------
-# Editor: Key Bindings
-|Action|Jetbrains|vscode|Destructive in vsc|Destructive in JB|
-|---:|---:|---:|:---:|:---:|
-|Column select|`ALT+SHIFT+INS`|`ALT+SHIFT+DOWN`|TODO|TODO|
-|Change font size (Change zoom level)|`CTRL+Mouse wheel`|`CTRL+ +`, `CTRL+ -`|TODO|TODO|
-|Copy line|`CTRL+C` (without selection)|TODO|TODO|TODO|
-|Extend selection|`CTRL+W`|`ALT+SHIFT+RIGHT`|**Yes**|no|
-|Move line|`CTRL+SHIFT+DOWN`|`ALT+DOWN`|TODO|TODO|
-|Toggle case on selection|`CTRL+SHIFT+U`|`transform` action|TODO|TODO|
+# Keybindings
+1. See [keymap doc](./from-jetbrains.keymap.md)
 
 
 # Editor: Features
 1. Change Line Height: `editor.lineHeight`
 
-
-# Navigation: Key Bindings
-|Action|Jetbrains|vscode|Destructive in vsc|Destructive in JB|
-|---:|---:|---:|:---:|:---:|
-|Ace Jump|(custom)|TODO|TODO|TODO|
-|Center editor group|TODO|`CTRL+2`|TODO|TODO|
-|Close active editor|TODO|`CTRL+W`|TODO|no|
-|First editor group|TODO|`CTRL+1`|TODO|TODO|
-|Run anything|`CTRL+SHIFT+A`|`CTRL+SHIFT+P`|TODO|Type info|
-|Settings|`ALT+CTRL+S`|`CTRL+,`|no|TODO|
-|Switch tab|TODO|TODO|TODO|TODO|
-|Un-close active editor|TODO|TODO|TODO|TODO|
-
-
-# Key Bindings: ported to vscode
-|Action|vscode binding(s)|
-|---:|---:|
-|Delete line|`CTRL+Y`, `CTRL+SHIFT+K`|
-|Duplicate line|`CTRL+D`|
-|Last edit location|`CTRL+SHIFT+Backspace`, `CTRL+K CTRL+Q` <br>`navigateToLastEditLocation`|
-|Recently opened files|`CTRL+E`|
-|Replace in file|`CTRL+R`|
-|Sort lines|`ALT+SHIFT+L`|
-
-
-# Key Bindings: Same Defaults (in Jetbrains and vscode)
-|Action|Jetbrains & vscode|Custom|
-|---:|---:|:---:|
-|Find in file|`CTRL+F`|--|
-|Go to line|`CTRL+G`|--|
-|Move editor into next group|`ALT+S`|yes|
-|Redo|`CTRL+SHIFT+Z`|--|
-|Switch tabs|`CTRL+Tab`|--|
-|Toggle line comment|`CTRL+/`|--|
-|Undo|`CTRL+Z`|--|
 
 
 --------
@@ -74,7 +33,6 @@
 # Status Bar & Runtime Info
 1. [Git: current branch](https://code.visualstudio.com/docs/sourcecontrol/overview#_git-status-bar-actions)
 1. Memory usage: TODO
-
 
 
 --------
