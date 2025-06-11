@@ -18,6 +18,15 @@
 1. See [keymap doc](./from-jetbrains.keymap.md)
 
 
+# Settings
+|Scope|Path|
+|---|---|
+|Per user|`$HOME/.config/Code/User/settings.json` (linux)  ([other platforms](https://code.visualstudio.com/docs/configure/settings#_user-settingsjson-location))|
+|Per project|`$PROJ_ROOT/.vscode/settings.json`|
+
+- [More info](https://code.visualstudio.com/docs/configure/settings)
+
+
 # Editor: Features
 1. Change Line Height: `editor.lineHeight`
 
