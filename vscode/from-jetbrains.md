@@ -18,7 +18,13 @@
 1. See [keymap doc](./from-jetbrains.keymap.md)
 
 
-# Settings
+# Settings/Profile
+- Export to github gist (easier), or local file
+- Import using gist url on (eg. https://gist.github.com/<username>/...)
+
+## Github
+
+## Local file
 |Scope|Path|
 |---|---|
 |Per user|`$HOME/.config/Code/User/settings.json` ([for mac & windows...](https://code.visualstudio.com/docs/configure/settings#_user-settingsjson-location))|
@@ -52,11 +58,6 @@
 - [Golang](./from-jetbrains.debugger.go.md)
 - [Java](./from-jetbrains.debugger.java.md)
 - [Rust](./from-jetbrains.debugger.rust.md)
-
-
-# Settings/Profile
-1. Export to github gist (easier), or local file
-1. Import using gist url on (eg. https://gist.github.com/<username>/...)
 
 
 

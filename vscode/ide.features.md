@@ -5,8 +5,8 @@
 |Quality|Inspect code|todo|
 |Git|todo|todo|
 |Editor|Extract method/function|todo|
-|todo|Import Settings|todo|
-|todo|Export Settings|todo|
+|Settings|Import Settings|todo|
+|Settings|Export Settings|todo|
 |todo|Open Tabnine chat on right|todo|
 |todo|todo|todo|
 
@@ -31,7 +31,7 @@
 
 
 
-# Prioritized CLion, IDEA shortcuts
+# Prioritized CLion & IDEA shortcuts
 1. 010: Reformat code
 1. 020: Basic code completion
 1. 030: Syntax aware selection
