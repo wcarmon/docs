@@ -5,6 +5,9 @@
 |Quality|Inspect code|todo|
 |Git|todo|todo|
 |Editor|Extract method/function|todo|
+|todo|Import Settings|todo|
+|todo|Export Settings|todo|
+|todo|Open Tabnine chat on right|todo|
 |todo|todo|todo|
 
 
