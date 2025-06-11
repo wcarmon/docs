@@ -1,9 +1,9 @@
 # Overview
 1. How to create an authorization token for interacting with github
-1. How to access github via the command line & Jetbrains products (Goland, IntelliJ, PyCharm, etc.)
+1. How to access github via the command line & JetBrains products (Goland, IntelliJ, PyCharm, etc.)
 
 
-# Jetbrains
+# JetBrains
 1. install/enable [Github plugin](https://plugins.jetbrains.com/plugin/13115-github) (bundled)
 1. See https://www.jetbrains.com/help/idea/github.html
 

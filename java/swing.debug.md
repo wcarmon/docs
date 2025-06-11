@@ -15,7 +15,7 @@
 
 1. See also [git repo](https://github.com/swingexplorer/swingexplorer/tree/master)
 1. See also [maven repo](https://mvnrepository.com/artifact/org.swingexplorer/swingexplorer-core/1.7.0)
-1. See also: [Jetbrains plugin](https://plugins.jetbrains.com/plugin/8385-swingexplorer-integration-v2) (I don't know how to use)
+1. See also: [JetBrains plugin](https://plugins.jetbrains.com/plugin/8385-swingexplorer-integration-v2) (I don't know how to use)
 
 --------
 

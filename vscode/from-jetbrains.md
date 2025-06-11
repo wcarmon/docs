@@ -3,7 +3,7 @@
 
 
 # Motivation
-1. Jetbrains has fallen behind on AI
+1. JetBrains has fallen behind on AI
 1. Java is falling out of favor
 1. They only really support IDEA, Goland and WebStorm well (Perhaps c++ in Clion).
     - RustRover is buggy and has font issues (they probably don't regression test)
@@ -11,7 +11,7 @@
     - Gateway only has one guy supporting it
 1. vscode supports remote development
 1. neovim is comparatively lighter on memory & CPU
-1. Jetbrains plugins are harder to write and to debug than for vscode
+1. JetBrains plugins are harder to write and to debug than for vscode
 
 
 # Key Bindings

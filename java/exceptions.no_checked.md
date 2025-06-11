@@ -56,7 +56,7 @@
     - [C#](https://docs.microsoft.com/en-us/dotnet/csharp/tour-of-csharp/) *(microsoft)*
     - [Swift](https://swift.org/) *(Apple)*
     - [Golang](https://golang.org/) *(Google)*
-    - [Kotlin](https://kotlinlang.org/) *(Jetbrains & Google)*
+    - [Kotlin](https://kotlinlang.org/) *(JetBrains & Google)*
     - [Javascript](https://www.javascript.com/) *(Mozilla)*
     - [Typescript](https://www.typescriptlang.org/) *(microsoft)*
     - [Rust](https://www.rust-lang.org/) *(Mozilla)*
@@ -73,7 +73,7 @@
 
 ### [Kotlin](https://kotlinlang.org/)
 
-- The most popular non-java jvm language, backed by Google & Jetbrains
+- The most popular non-java jvm language, backed by Google & JetBrains
 - The preferred language for Android development
 
 ### [Scala](https://www.scala-lang.org/)

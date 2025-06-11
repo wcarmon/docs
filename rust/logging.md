@@ -104,7 +104,7 @@ error!("...", ...);
 ```
 
 ## GOTCHAS
-1. In Jetbrains products on on windows, **Disable** `Enable terminal emulation in output console`
+1. In JetBrains products on on windows, **Disable** `Enable terminal emulation in output console`
     1. See https://www.jetbrains.com/help/clion/terminal-in-the-output-console.html#enable
 
 # Other Resources

@@ -6,7 +6,7 @@
 - See [Official docs](https://go.dev/doc/install)
 
 # Goland
-- See [Jetbrains docs](https://www.jetbrains.com/help/go/installation-guide.html)
+- See [JetBrains docs](https://www.jetbrains.com/help/go/installation-guide.html)
 
 # VSCode
 - See [visual studio docs](https://code.visualstudio.com/docs/languages/go)

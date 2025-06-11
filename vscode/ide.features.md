@@ -1,5 +1,5 @@
 # Common Use Cases
-|Category|Jetbrains|vscode|
+|Category|JetBrains|vscode|
 |---|---|---|
 |todo|New scratch file|todo|
 |Quality|Inspect code|todo|

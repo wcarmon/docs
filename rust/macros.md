@@ -14,10 +14,10 @@
 
 
 # Gotchas
-1. Horrible support in Jetbrains products
+1. Horrible support in JetBrains products
 1. When derive proc macro fails, compiler doesn't show failing line
     - `-Zmacro-backtrace` does NOT help
-1. Jetbrains Debugger doesn't work inside proc macro code
+1. JetBrains Debugger doesn't work inside proc macro code
 1. Error messages won't tell you which line in the macro is broken
 
 

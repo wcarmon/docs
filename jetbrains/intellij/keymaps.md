@@ -26,7 +26,7 @@
 1. `PyCharm2023.1`
 
 
-# Jetbrains shortcuts
+# JetBrains shortcuts
 - See [jetbrains-shortcuts](../../macos/keymap.jetbrains.md) doc
 
 

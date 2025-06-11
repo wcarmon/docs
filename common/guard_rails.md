@@ -24,7 +24,7 @@
 |Compiler|[`rustc`](https://doc.rust-lang.org/rustc/what-is-rustc.html) (usually invoked via `cargo build` or thru IDE)|
 |Static Analyzer|[Clippy](https://github.com/rust-lang/rust-clippy)|
 |Automated Tester|[`cargo test`](https://doc.rust-lang.org/cargo/commands/cargo-test.html)|
-|IDE|Most Jetbrains tools like [Goland, CLion or Intellij](https://www.jetbrains.com/rust/)|
+|IDE|Most JetBrains tools like [Goland, CLion or Intellij](https://www.jetbrains.com/rust/)|
 |AI|[Tabnine](https://www.tabnine.com/), [Copilot](https://github.com/features/copilot)|
 |Profiler|[TODO](https://nnethercote.github.io/perf-book/profiling.html)|
 |Auto-Formatter|[`rustfmt`](https://github.com/rust-lang/rustfmt) (usually invoked via `cargo fmt`)|

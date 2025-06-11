@@ -9,7 +9,7 @@
 1. Find the path of `adb` (or `sdkmanager`)
     1. see scripts below
 1. Find android studio path
-- eg. Jetbrains installs into `$HOME/.local/share/JetBrains/Toolbox/apps/AndroidStudio/`
+- eg. JetBrains installs into `$HOME/.local/share/JetBrains/Toolbox/apps/AndroidStudio/`
 ```bash
 ANDROID_SDK_HOME="$(dirname $(dirname $(find $HOME -type f -name "adb" 2>/dev/null | sort --reverse | head -1)))"
 

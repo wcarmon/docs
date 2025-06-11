@@ -1,18 +1,22 @@
 # Overview
-1. Migrating keymappings from Jetbrains to vscode
+1. Migrating keymappings from JetBrains to vscode
 
 
 --------
 # Sidebars (vscode) == Tool window (JetBrains)
-|Shows...|Jetbrains|vscode|
+|Shows...|JetBrains|vscode|
 |---|---|---|
 |File tree|`ALT + 1`|`CTRL + SHIFT + E`|
+|Git changes|`CTRL + K`|`CTRL + SHIFT + G`|
+|Run|todo|todo|
+|Debug|todo|todo|
+|Debug|todo|todo|
 |todo|todo|todo|
 
 
 --------
 # Editor: Key Bindings
-|Action|Jetbrains|vscode|Destructive in vsc|Destructive in JB|
+|Action|JetBrains|vscode|Destructive in vsc|Destructive in JB|
 |---:|---:|---:|:---:|:---:|
 |Column select|`ALT + SHIFT + INS`|`ALT + SHIFT + DOWN`|TODO|TODO|
 |Change font size (Change zoom level)|`CTRL + Mouse wheel`|`CTRL+ +`, `CTRL+ -`|TODO|TODO|
@@ -23,7 +27,7 @@
 
 
 # Navigation: Key Bindings
-|Action|Jetbrains|vscode|Destructive in vsc|Destructive in JB|
+|Action|JetBrains|vscode|Destructive in vsc|Destructive in JB|
 |---:|---:|---:|:---:|:---:|
 |Ace Jump|(custom)|TODO|TODO|TODO|
 |Center editor group|TODO|`CTRL + 2`|TODO|TODO|
@@ -35,7 +39,7 @@
 |Un-close active editor|TODO|TODO|TODO|TODO|
 
 
-# Key Bindings: ported to vscode
+# Port to vscode
 |Action|vscode binding(s)|
 |---:|---:|
 |Delete line|`CTRL + Y`, `CTRL + SHIFT + K`|
@@ -46,8 +50,8 @@
 |Sort lines|`ALT + SHIFT + L`|
 
 
-# Key Bindings: Same Defaults (in Jetbrains and vscode)
-|Action|Jetbrains & vscode|Custom|
+# Same Defaults (in JetBrains and vscode)
+|Action|JetBrains & vscode|Custom|
 |---:|---:|:---:|
 |Find in file|`CTRL + F`|--|
 |Go to line|`CTRL + G`|--|
@@ -56,6 +60,14 @@
 |Switch tabs|`CTRL + Tab`|--|
 |Toggle line comment|`CTRL+/`|--|
 |Undo|`CTRL + Z`|--|
+
+
+# Unorganized
+|JetBrains Action|JetBrains shortcut|vscode action|vscode shortcut|
+|---|---|---|---|
+|Restart IDE|--|Reload Window|--|
+
+- TODO: are they called actions in vscode
 
 
 # TODO: migrate these

@@ -1,5 +1,5 @@
 # Overview
-1. An [IDE](https://en.wikipedia.org/wiki/Integrated_development_environment) from [Jetbrains](https://www.jetbrains.com/)
+1. An [IDE](https://en.wikipedia.org/wiki/Integrated_development_environment) from [JetBrains](https://www.jetbrains.com/)
 1. Alternative to [VSCode](https://code.visualstudio.com/)
 
 
@@ -55,7 +55,7 @@
 1. See [running](./running.md) and [debugging](./debugging.md) docs
 
 
-# Keymap: Jetbrains shortcuts
+# Keymap: JetBrains shortcuts
 - See [jetbrains-shortcuts](../macos/jetbrains-shortcuts.md) doc
 
 # Import Live templates

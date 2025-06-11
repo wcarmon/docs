@@ -5,7 +5,7 @@
 # Candidates
 
 ## Intellij
-1. `Pro`: included with Jetbrains license
+1. `Pro`: included with JetBrains license
 1. `Pro`: 15+ layout options
 1. `Pro`: Export to image or UML
 1. `Pro`: Unlimited tables

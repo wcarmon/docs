@@ -1,5 +1,5 @@
 # Overview
-1. Migrating Git Version control features from Jetbrains to vscode
+1. Migrating Git Version control features from JetBrains to vscode
 
 
 # Current branch

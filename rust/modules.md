@@ -67,7 +67,7 @@
 1. For a sub-module, create a directory **AND** matching file for the module
     1. eg. `foo/*.rs` and `foo.rs`
     1. The names **MUST** match
-    1. Jetbrains [Rust plugin](https://www.jetbrains.com/rust/) enforces this
+    1. JetBrains [Rust plugin](https://www.jetbrains.com/rust/) enforces this
     1. `foo.rs` defines the public interface for your (sub) module
 1. parent/super modules can only access `pub` members & modules on sub-module types
 1. sub-module can access private members of parent/super modules

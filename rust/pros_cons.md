@@ -50,7 +50,7 @@
 1. "Sometimes" file-names and module-names are associated (eg `mod foo` must be in `foo.rs`)
 1. JetBrains specific
     1. RustRover has broken fonts and they cannot recreate (compared to CLion, Intellij, Goland)
-    1. RustRover is poorly supported (compared to other Jetbrains products)
+    1. RustRover is poorly supported (compared to other JetBrains products)
         1. They respond, they just don't fix anything
         1. They regularly introduce regressions
     1. CLion rust plugin is about as buggy (however CLion is stable)
