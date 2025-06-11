@@ -1,5 +1,7 @@
 # Overview
 
+1. STOP USING iterm2, use [kitty](https://sw.kovidgoyal.net/kitty/) or [alacritty](https://alacritty.org/)
+
 1. Configuring win keyboard shortcuts for [iTerm2](https://iterm2.com/documentation.html) app on MacOS
 1. Assumes you already applied changes for [chrome](./keymap.chrome.md) and [slack](./keymap.slack.md)
 
