@@ -3,6 +3,14 @@
 
 
 --------
+# Sidebars (vscode) == Tool window (JetBrains)
+|Shows...|Jetbrains|vscode|
+|---|---|---|
+|File tree|`ALT + 1`|`CTRL + SHIFT + E`|
+|todo|todo|todo|
+
+
+--------
 # Editor: Key Bindings
 |Action|Jetbrains|vscode|Destructive in vsc|Destructive in JB|
 |---:|---:|---:|:---:|:---:|
