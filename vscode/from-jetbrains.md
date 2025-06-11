@@ -14,7 +14,7 @@
 1. Jetbrains plugins are harder to write and to debug than for vscode
 
 
-# Keybindings
+# Key Bindings
 1. See [keymap doc](./from-jetbrains.keymap.md)
 
 
@@ -22,8 +22,6 @@
 1. Change Line Height: `editor.lineHeight`
 
 
-
---------
 # Panels
 
 1. Move terminal/console: [official docs](https://code.visualstudio.com/docs/editor/custom-layout#_panel)
@@ -35,32 +33,18 @@
 1. Memory usage: TODO
 
 
---------
 # VCS
 
-## Git: commit
-1. [View: source control](TODO)
-1. TODO: Default commit message
-1. `CTRL+K` -> TODO (no default)
-
-## Git: Merge
-1. TODO
-
-## Conflict resolution
-1. https://code.visualstudio.com/docs/sourcecontrol/overview#_resolving-conflicts
-
-## View diffs
-1. https://code.visualstudio.com/docs/sourcecontrol/overview#_viewing-diffs
-
-## Log
-1. TODO
+- See [version control doc](./from-jetbrains.vcs.md)
 
 
---------
 # Debugger
 
+- [Golang](./from-jetbrains.debugger.go.md)
+- [Java](./from-jetbrains.debugger.java.md)
+- [Rust](./from-jetbrains.debugger.rust.md)
 
---------
+
 # Settings/Profile
 1. Export to github gist (easier), or local file
 1. Import using gist url on (eg. https://gist.github.com/<username>/...)
