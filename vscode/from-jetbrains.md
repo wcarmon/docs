@@ -70,16 +70,25 @@
 1. 065: Debugger with Breakpoint (Rust)
 1. 066: Debugger with Breakpoint (Java)
 1. 070: Conditional breakpoint
-1. 080: Key promoter
-1. 090: Change font in file explorer  <-- zoomlevel?
-1. 100: Caps lock indicator
-1. 120: View Productivity guide (personal usage stats)
+1. 075: Lines Sorter
+1. 080: Ace jump
+1. 085: CamelCase
+1. 090: Json Sorter
+1. 095: Shifter
+1. 100: String Manipulation
+1. 105: yaml sorter
+1. 110: InnerBuilder
+1. 115: Key promoter
+1. 120: Change font in file explorer  <-- zoomlevel?
+1. 130: Caps lock indicator
+1. 140: View Productivity guide (personal usage stats)
 1. open project in **new window** - https://stackoverflow.com/questions/43362133/visual-studio-code-open-tab-in-new-window-on-another-screen-floating
 1. Port non-conflicting JetBrains keybindings to vscode
 1. See https://gist.github.com/bradtraversy/b28a0a361880141af928ada800a671d9
 1. See https://github.com/JetBrains/intellij-community/blob/master/platform/platform-resources/src/keymaps/Default%20for%20XWin.xml
 1. See https://marketplace.visualstudio.com/items?itemName=isudox.vscode-jetbrains-keybindings
 1. TODO: https://code.visualstudio.com/docs/editor/refactoring
+
 
 
 ## TODO: Keyboard shortcuts
