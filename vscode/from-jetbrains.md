@@ -88,7 +88,7 @@
 1. See https://github.com/JetBrains/intellij-community/blob/master/platform/platform-resources/src/keymaps/Default%20for%20XWin.xml
 1. See https://marketplace.visualstudio.com/items?itemName=isudox.vscode-jetbrains-keybindings
 1. TODO: https://code.visualstudio.com/docs/editor/refactoring
-
+1. Directory specific extensions
 
 
 ## TODO: Keyboard shortcuts

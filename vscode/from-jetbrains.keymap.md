@@ -52,6 +52,8 @@
 
 # TODO: migrate these
 1. go to definition
+1. toggle: show/hide type hints
+1. focus on tabnine chat
 
 
 # Other resources

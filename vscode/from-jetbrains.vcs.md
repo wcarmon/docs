@@ -2,10 +2,34 @@
 1. Migrating Git Version control features from Jetbrains to vscode
 
 
-# Git: commit
+# Current branch
+1. TODO
+
+
+# Git status
+1. TODO
+
+
+# Show changed files
+1. TODO
+
+
+# Generate commit message
+1. TODO
+
+
+# Commit
 1. [View: source control](TODO)
 1. TODO: Default commit message
 1. `CTRL+K` -> TODO (no default)
+
+
+# Fetch
+1. TODO
+
+
+# Merge
+1. TODO
 
 
 # Git: Merge
@@ -23,9 +47,8 @@
 1. TODO
 
 
+--------
 # TODO: migrate these
-1. 010: show current branch
-1. 020: git commit
 1. 030: keymap: commit
 1. 040: git status
 1. 050: git push
