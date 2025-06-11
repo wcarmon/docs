@@ -57,4 +57,5 @@
 
 
 # Other resources
-1. TODO
+1. [Linux default keymap](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-linux.pdf)
+1. [All default keymaps](https://code.visualstudio.com/docs/configure/keybindings#_keyboard-shortcuts-reference)
