@@ -95,7 +95,6 @@
 1. Keymap: 280: Parameter info
 1. Keymap: 290: Editor: Refactor: inline variable - https://code.visualstudio.com/docs/java/java-refactoring#_inline-local-variable
 1. Keymap: 300: Editor: Refactor: extract fn/method - https://code.visualstudio.com/docs/editor/refactoring#_extract-method
-1. Keymap: 300: Recent files
 1. Keymap: 310: Move method/fn up/down -
 1. Keymap: 310: toggle: show/hide type hints
 1. Keymap: 320: Java: var to explicit type - https://code.visualstudio.com/docs/java/java-refactoring#_change-var-type-to-resolved-type
