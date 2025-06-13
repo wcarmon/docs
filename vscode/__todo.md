@@ -33,7 +33,6 @@
 1. Editor: 700: Rust: Format code
 1. Editor: 700: Syntax highlighting for embedded HTML (in strings)
 1. Editor: 700: Syntax highlighting for embedded SQL (in strings)
-1. Editor: 700: column select & edit
 1. Editor: 700: cut line
 1. Editor: 700: duplicate line
 1. Editor: 700: show method params (like CTRL+P)
