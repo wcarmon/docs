@@ -1,9 +1,9 @@
 # Overview
-1. Migrating Git Version control features from JetBrains to vscode
+1. Using Git in vscode
 
 
 # Current branch
-1. TODO
+1. See git branch indicator on lower left
 
 
 # Git status
@@ -14,7 +14,15 @@
 1. TODO
 
 
-# Generate commit message
+# Show changed lines in current file
+1. https://code.visualstudio.com/docs/sourcecontrol/overview#_gutter-indicators
+
+
+# Generate commit message (AI)
+1. TODO: click sparkle icon on right of commit message
+
+
+# Revert uncommitted change
 1. TODO
 
 
@@ -24,11 +32,15 @@
 1. `CTRL+K` -> TODO (no default)
 
 
-# Fetch
+# Sign commit
 1. TODO
 
 
-# Merge
+# Fetch
+1. TODO: git.autofetch
+
+
+# [Merge](https://code.visualstudio.com/docs/sourcecontrol/overview#_merge-conflicts)
 1. TODO
 
 
@@ -40,7 +52,7 @@
 
 
 # Git file history
-
+1. TODO
 
 
 # View diffs

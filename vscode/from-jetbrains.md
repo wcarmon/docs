@@ -18,7 +18,13 @@
 1. See [keymap doc](./from-jetbrains.keymap.md)
 
 
-# Settings/Profile
+# [Settings/Profile](https://code.visualstudio.com/docs/configure/settings)
+- User (scoped) Settings
+    - Applies to all projects
+    - lives in `$HOME` ([Path is OS specific](https://code.visualstudio.com/docs/configure/settings#_user-settingsjson-location))
+- Workspace (scoped) settings
+    - Applies to current project
+    - lives in the workspace (`$PROJ_ROOT/.vscode/settings.json`)
 - Export to github gist (easier), or local file
 - Import using gist url on (eg. https://gist.github.com/<username>/...)
 

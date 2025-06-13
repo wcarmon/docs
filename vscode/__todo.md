@@ -87,6 +87,7 @@
 1. Keymap: 240: Run inspections
 1. Keymap: 250: Navigate: Show usages of symbol
 1. Keymap: 260: Reload after cargo.toml or build.gradle change
+1. Editor: 100: Vertical split editor group
 1. Keymap: 260: Show file structure (methods/variables summary)
 1. Keymap: 270: Directory diff
 1. Keymap: 280: Editor: Refactor: Introduce variable - https://code.visualstudio.com/docs/editor/refactoring#_extract-variable
@@ -135,7 +136,6 @@
 1. 700: Navigate to previous edit position
 1. 700: Complete line (like CTRL+Enter)
 1. 700: Java: setup multiple JDKs
-1. 700: Editor: Git: gutter indicator of changed lines
 1. 700: Show recently edited files
 1. 080: Ace jump
 1. 085: CamelCase
@@ -153,7 +153,6 @@
 1. See https://marketplace.visualstudio.com/items?itemName=isudox.vscode-jetbrains-keybindings
 1. TODO: https://code.visualstudio.com/docs/editor/refactoring
 1. Directory specific extensions
-1. Vertical split editor group
 1. Show local file edit history
 1. Keyboard shortcut: git commit & push:
     1. https://tecadmin.net/shortcuts-for-git-integration-in-visual-studio-code/
