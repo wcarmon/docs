@@ -1,4 +1,5 @@
 # Migrate these
+1. Debugger: 600: Conditional breakpoint
 1. Debugger: 700: Go: use breakpoints
 1. Debugger: 700: Java: Use breakpoints
 1. Debugger: 700: Rust: use breakpoints
@@ -7,25 +8,35 @@
 1. Debugger: remove all breakpoints
 1. Debugger: see changed variables on loops/iteration
 1. Debugger: view variable contents at breakpoint
+1. Editor: 010: Clipboard history (multi-clipboard)
+1. Editor: 030: Sort json
+1. Editor: 060: block comment
+1. Editor: 075: Lines Sorter
 1. Editor: 100: Run specific test in current file
 1. Editor: 200: move line up/down
 1. Editor: 200: multiple clipboards
 1. Editor: 300: Calculate math expression, inline result  (eg. "1+1" ... replace with 2)
 1. Editor: 300: new scratch file (java)
 1. Editor: 300: new scratch file (json)
-1. Editor: 300: new scratch file (rust)
 1. Editor: 300: new scratch file (text)
 1. Editor: 400: Java: InnerBuilder
+1. Editor: 700: Go Live templates
 1. Editor: 700: Go: Format code
+1. Editor: 700: Java Live templates
 1. Editor: 700: Java: Format code
 1. Editor: 700: Quick intentions (like ALT+Insert)
 1. Editor: 700: Refactor: Rename method/function
 1. Editor: 700: Refactor: Rename variable
+1. Editor: 700: Rust Live templates
 1. Editor: 700: Rust: Format code
+1. Editor: 700: Syntax highlighting for embedded HTML (in strings)
+1. Editor: 700: Syntax highlighting for embedded SQL (in strings)
 1. Editor: 700: column select & edit
 1. Editor: 700: cut line
 1. Editor: 700: duplicate line
+1. Editor: 700: show method params (like CTRL+P)
 1. Editor: 700: split view
+1. Editor: 900: new scratch file (rust)
 1. GIT: 030: keymap: commit
 1. GIT: 040: git status
 1. GIT: 050: git push
@@ -107,6 +118,7 @@
 1. Settings: Rust: toggle inlay hints for obvious cases
 1. Tabnine: 300: auto review code before commit
 1. Tabnine: 300: generate tests for selected method
+1. Terminal: 700: Show/hide built-in terminal
 1. Windsurf: 500: auto review code before commit
 1. Windsurf: 500: generate tests for selected method
 
@@ -114,33 +126,19 @@
 
 # Unorganized
 
-1. 700: Run/Debug: Java: set env vars
+1. Run/Debug: 700: Java: set env vars
 1. 700: Rust: Reload after changing dependencies (Cargo.toml)
-1. 700: Terminal: Show/hide built-in terminal
 1. 700: Java: Reload after changing dependencies (build.gradle, pom.xml)
 1. 700: Go: Reload after changing dependencies (go.mod?)
-1. 700: Editor: Syntax highlighting for embedded HTML (in strings)
-1. 700: Editor: Syntax highlighting for embedded SQL (in strings)
-1. 700: Editor: show method params (like CTRL+P)
 1. 700: Navigation: Find usages of symbol at cursor
-1. 700: Editor: Live templates
 1. 700: Navigate to previous cursor position
 1. 700: Navigate to previous edit position
 1. 700: Complete line (like CTRL+Enter)
 1. 700: Java: setup multiple JDKs
 1. 700: Editor: Git: gutter indicator of changed lines
 1. 700: Show recently edited files
-
-1. 010: Clipboard history (multi-clipboard)
-1. 030: Sort json
-1. 060: block comment
-1. 065: Debugger with Breakpoint (Rust)
-1. 066: Debugger with Breakpoint (Java)
-1. 070: Conditional breakpoint
-1. 075: Lines Sorter
 1. 080: Ace jump
 1. 085: CamelCase
-1. 090: Json Sorter
 1. 095: Shifter
 1. 100: String Manipulation
 1. 105: yaml sorter
