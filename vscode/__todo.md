@@ -1,4 +1,5 @@
 # Migrate these
+1. Change font of file explorer (like Jetbrains mono sans - Ubuntu mono, DejaVu Sans Mono)
 1. Debugger: 600: Conditional breakpoint
 1. Debugger: 700: Go: use breakpoints
 1. Debugger: 700: Java: Use breakpoints
@@ -9,6 +10,7 @@
 1. Debugger: see changed variables on loops/iteration
 1. Debugger: view variable contents at breakpoint
 1. Editor: 010: Clipboard history (multi-clipboard)
+1. Editor: 200: Navigate to next error/warning
 1. Editor: 030: Sort json
 1. Editor: 060: block comment
 1. Editor: 075: Lines Sorter
@@ -46,7 +48,7 @@
 1. GIT: 090: git pull
 1. GIT: 100: git merge
 1. GIT: 110: signing commits
-1. GIT: 120: generate helpful commit message based on changes <-- copilot, tabnine, ...
+1. GIT: 120: generate helpful commit message based on changes <-- copilot?, (tabnine does not support yet)
 1. GIT: 130: checkout another branch
 1. GIT: 140: git fetch
 1. GIT: 150: amend commit
