@@ -36,6 +36,7 @@
 |Per user|`$HOME/.config/Code/User/settings.json` ([for mac & windows...](https://code.visualstudio.com/docs/configure/settings#_user-settingsjson-location))|
 |Per project|`$PROJ_ROOT/.vscode/settings.json`|
 
+- `keybindings.json` is in the same directory
 - [More info](https://code.visualstudio.com/docs/configure/settings)
 
 

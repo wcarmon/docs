@@ -2,6 +2,11 @@
 1. Migrating keymappings from JetBrains to vscode
 
 
+# User keybindings
+1. `$HOME/.config/Code/User/keybindings.json` (User scoped keybindings)
+1. `$HOME/.config/Code/User/settings.json` (User scoped settings)
+
+
 --------
 # Sidebars (vscode) == Tool window (JetBrains)
 |Shows...|JetBrains|vscode|
