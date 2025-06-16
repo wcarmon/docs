@@ -20,18 +20,6 @@
 |todo|todo|todo|
 
 
---------
-# Editor: Key Bindings (Default)
-|Action|JetBrains|vscode|Destructive in vsc|Destructive in JB|
-|---:|---:|---:|:---:|:---:|
-|Column select|`ALT + SHIFT + INS`|`ALT + SHIFT + DOWN`|TODO|TODO|
-|Change font size (Change zoom level)|`CTRL + Mouse wheel`|`CTRL+ +`, `CTRL+ -`|TODO|TODO|
-|Copy line|`CTRL + C` (without selection)|TODO|TODO|TODO|
-|Extend selection|`CTRL + W`|`ALT + SHIFT+RIGHT`|**Yes**|no|
-|Move line|`CTRL + SHIFT+DOWN`|`ALT + DOWN`|TODO|TODO|
-|Toggle case on selection|`CTRL + SHIFT+U`|`transform` action|TODO|TODO|
-
-
 # Navigation: Key Bindings (Default)
 |Action|JetBrains|vscode|Destructive in vsc|Destructive in JB|
 |---:|---:|---:|:---:|:---:|
@@ -45,26 +33,15 @@
 |Un-close active editor|TODO|TODO|TODO|TODO|
 
 
-# Easy to port to vscode (No conflicts)
-|Action/Command|vscode binding(s)|
-|---:|---:|
-|Delete line|`CTRL + Y`, `CTRL + SHIFT + K`|
-|Duplicate line|`CTRL + D`|
-|Last edit location|`CTRL + SHIFT + Backspace`, `CTRL + K, CTRL + Q` <br>`navigateToLastEditLocation`|
-|Recently opened files|`CTRL + E`|
-|Replace in file|`CTRL + R`|
-|Sort lines|`ALT + SHIFT + L`|
-
-
 # OS conflicts
 |Action/Command|vscode default|my custom|Conflicts with|
-|---|---|---|---|
+|---:|:---:|:---:|:---|
 |Go to Definition|`F12`|todo|guake/yakuake|
 
 
 # vscode - JetBrains Conflicts (High priority)
 |Shortcut|vscode command|JetBrains action|
-|---|---|---|
+|---:|:---|:---|
 |`ctrl+H`|replace|type hierarchy|
 |`ctrl+K`|enter keep preview mode editor open|JetBrains,commit project to vcs|
 |`ctrl+N`|new file|go to class|
@@ -80,7 +57,7 @@
 
 # vscode - JetBrains Conflicts (Low priority)
 |Shortcut|vscode command|JetBrains action|
-|---|---|---|
+|---:|:---|:---|
 |`alt+enter`|select all occurrences of find match|show intention actions and quick-fixes|
 |`ctrl+d`|add selection to next find match|JetBrains,duplicate current line|
 |`ctrl+enter`|insert line below|JetBrains,smart line split|
@@ -97,6 +74,17 @@
 |`f9`|toggle breakpoint|resume program|
 
 
+# Easy to port to vscode (No conflicts)
+|Action/Command|vscode binding(s)|
+|---:|---:|
+|Delete line|`CTRL + Y`, `CTRL + SHIFT + K`|
+|Duplicate line|`CTRL + D`|
+|Last edit location|`CTRL + SHIFT + Backspace`, `CTRL + K, CTRL + Q` <br>`navigateToLastEditLocation`|
+|Recently opened files|`CTRL + E`|
+|Replace in file|`CTRL + R`|
+|Sort lines|`ALT + SHIFT + L`|
+
+
 # Same Defaults (in JetBrains and vscode)
 |Action/Command|JetBrains & vscode|Custom|
 |---:|---:|:---:|
@@ -107,6 +95,18 @@
 |Switch tabs|`CTRL + Tab`|--|
 |Toggle line comment|`CTRL+/`|--|
 |Undo|`CTRL + Z`|--|
+
+
+--------
+# Editor: Key Bindings (Default)
+|Action|JetBrains|vscode|Destructive in vsc|Destructive in JB|
+|---:|---:|---:|:---:|:---:|
+|Column select|`ALT + SHIFT + INS`|`ALT + SHIFT + DOWN`|TODO|TODO|
+|Change font size (Change zoom level)|`CTRL + Mouse wheel`|`CTRL+ +`, `CTRL+ -`|TODO|TODO|
+|Copy line|`CTRL + C` (without selection)|TODO|TODO|TODO|
+|Extend selection|`CTRL + W`|`ALT + SHIFT+RIGHT`|**Yes**|no|
+|Move line|`CTRL + SHIFT+DOWN`|`ALT + DOWN`|TODO|TODO|
+|Toggle case on selection|`CTRL + SHIFT+U`|`transform` action|TODO|TODO|
 
 
 # TODO: Unorganized
