@@ -33,7 +33,7 @@
 |Un-close active editor|TODO|TODO|TODO|TODO|
 
 
-# OS conflicts
+# Conflicts: OS (Linux)
 |Action/Command|vscode default|my custom|Conflicts with|
 |---:|:---:|:---:|:---|
 |Go to Definition|`F12`|todo|guake/yakuake|
