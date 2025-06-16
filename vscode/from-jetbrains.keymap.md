@@ -45,7 +45,7 @@
 |Un-close active editor|TODO|TODO|TODO|TODO|
 
 
-# Port to vscode
+# Easy to port to vscode (No conflicts)
 |Action/Command|vscode binding(s)|
 |---:|---:|
 |Delete line|`CTRL + Y`, `CTRL + SHIFT + K`|
@@ -56,11 +56,45 @@
 |Sort lines|`ALT + SHIFT + L`|
 
 
-# Change these ... conflicts
+# OS conflicts
 |Action/Command|vscode default|my custom|Conflicts with|
 |---|---|---|---|
 |Go to Definition|`F12`|todo|guake/yakuake|
-|todo|todo|todo|todo|
+
+
+# vscode - JetBrains Conflicts (High priority)
+|Shortcut|vscode command|JetBrains action|
+|---|---|---|
+|`ctrl+H`|replace|type hierarchy|
+|`ctrl+K`|enter keep preview mode editor open|JetBrains,commit project to vcs|
+|`ctrl+N`|new file|go to class|
+|`ctrl+P`|quick open, go to file|parameter info|
+|`ctrl+shift+A`|toggle block comment|find action|
+|`ctrl+shift+enter`|insert line above|complete statement|
+|`ctrl+shift+K`|delete line|push commits|
+|`ctrl+shift+N`|new window/instance|go to file|
+|`ctrl+shift+V`|open markdown preview|paste from recent buffers...|
+|`ctrl+T`|show all symbols|update project from vcs|
+|`ctrl+W`|close window/instance|JetBrains,extend selection|
+
+
+# vscode - JetBrains Conflicts (Low priority)
+|Shortcut|vscode command|JetBrains action|
+|---|---|---|
+|`alt+enter`|select all occurrences of find match|show intention actions and quick-fixes|
+|`ctrl+d`|add selection to next find match|JetBrains,duplicate current line|
+|`ctrl+enter`|insert line below|JetBrains,smart line split|
+|`ctrl+o`|open file|override methods|
+|`ctrl+shift+e`|show explorer / toggle focus|recent locations popup|
+|`ctrl+shift+f`|show search|find in path|
+|`ctrl+shift+f10`|peek definition|run context configuration from editor|
+|`ctrl+shift+h`|replace in files|method hierarchy|
+|`ctrl+shift+i`|format document|open quick definition lookup|
+|`ctrl+shift+j`|toggle search details|smart line join|
+|`ctrl+shift+space`|trigger parameter hints|smart code completion|
+|`f11`|toggle full screen|toggle bookmark|
+|`f5`|start / continue|JetBrains,copy|
+|`f9`|toggle breakpoint|resume program|
 
 
 # Same Defaults (in JetBrains and vscode)
