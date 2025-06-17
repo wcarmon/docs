@@ -1,6 +1,6 @@
-lean# VSCode Keyboard shortcut cheatsheet
+# VSCode Keyboard shortcut cheatsheet
 
-# Navigation
+# Navigate
 
 |Action|Shortcut|
 |---:|:---|
@@ -10,18 +10,20 @@ lean# VSCode Keyboard shortcut cheatsheet
 |Go back (cursor position)|`ALT + CTRL + -`|
 |Go forward (cursor position)|`ALT + CTRL + =`|
 |Go to next warning|`F8`|
-|[Focus on Primary Sidebar](https://code.visualstudio.com/api/ux-guidelines/sidebars#primary-sidebar)|`CTRL + 0`|
-|[Focus on 1st Editor Group](https://code.visualstudio.com/docs/configure/custom-layout#_editor-groups)|`CTRL + 1`|
-|[Focus on 2nd Editor Group](https://code.visualstudio.com/docs/configure/custom-layout#_editor-groups)|`CTRL + 2`|
 |Focus on Next tab|`CTRL + Tab`|
 |Focus on 1st editor|`ALT + 1`|
 |Focus on 2nd editor|`ALT + 2`|
 |Focus on 3rd editor|`ALT + 3`|
+|[Focus on Primary Sidebar](https://code.visualstudio.com/api/ux-guidelines/sidebars#primary-sidebar)|`CTRL + 0`|
+|[Focus on 1st Editor Group](https://code.visualstudio.com/docs/configure/custom-layout#_editor-groups)|`CTRL + 1`|
+|[Focus on 2nd Editor Group](https://code.visualstudio.com/docs/configure/custom-layout#_editor-groups)|`CTRL + 2`|
 |[Terminal](https://code.visualstudio.com/docs/terminal/getting-started)|``CTRL + ` ``|
 
 - TODO: ace jump
 
-# Selection
+
+# Select
+
 |Action|Shortcut|
 |---:|:---|
 |[Expand selection](https://code.visualstudio.com/docs/editing/codebasics#_shrinkexpand-selection)|`ALT + SHIFT + →`|
@@ -31,7 +33,7 @@ lean# VSCode Keyboard shortcut cheatsheet
 |[Unfold all](https://code.visualstudio.com/docs/editing/codebasics#_folding)|`CTRL + K  CTRL + J`|
 
 
-# Editing
+# Edit
 
 |Action|Shortcut|
 |---:|:---|
