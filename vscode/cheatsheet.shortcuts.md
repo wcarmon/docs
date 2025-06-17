@@ -1,7 +1,7 @@
 # VSCode Keyboard shortcut cheatsheet
 
 |Shortcut|Action|
-|---:|:---:|:---|
+|---:|:---|
 |`ALT + ↑`, `ALT + ↓`|Move line|
 |`CTRL + .`|[Quick fix](https://code.visualstudio.com/docs/editing/refactoring#_code-actions-quick-fixes-and-refactorings)|
 |`CTRL + SHIFT + O`|[Go to Symbol in file](https://code.visualstudio.com/docs/editing/editingevolved#_go-to-symbol)|
