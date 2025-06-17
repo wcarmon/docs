@@ -74,11 +74,12 @@
 |`f9`|toggle breakpoint|resume program|
 
 
-# Easy to port to vscode (No conflicts)
+# Custom: Easy to port to vscode (No conflicts)
 |Action/Command|vscode binding(s)|
 |---:|---:|
 |Delete line|`CTRL + Y`, `CTRL + SHIFT + K`|
 |Duplicate line|`CTRL + D`|
+|Go forward|`ALT + CTRL + =`|
 |Last edit location|`CTRL + SHIFT + Backspace`, `CTRL + K, CTRL + Q` <br>`navigateToLastEditLocation`|
 |Recently opened files|`CTRL + E`|
 |Replace in file|`CTRL + R`|
