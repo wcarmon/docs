@@ -1,4 +1,4 @@
-# VSCode Keyboard shortcut cheatsheet
+lean# VSCode Keyboard shortcut cheatsheet
 
 |Action|Shortcut|
 |---:|:---|
@@ -9,7 +9,7 @@
 |[Rename](https://code.visualstudio.com/docs/editing/editingevolved#_rename-symbol)|`F2`|
 |[Expand selection](https://code.visualstudio.com/docs/editing/codebasics#_shrinkexpand-selection)|`ALT + SHIFT + →`|
 |[Shrink selection](https://code.visualstudio.com/docs/editing/codebasics#_shrinkexpand-selection)|`ALT + SHIFT + ←`|
-|[Terminal](https://code.visualstudio.com/docs/terminal/getting-started)|`CTRL + \\``|
+|[Terminal](https://code.visualstudio.com/docs/terminal/getting-started)|``CTRL + ` ``|
 |Go to previous edit|`CTRL + Shift + Backspace`|
 |Go back (cursor position)|`ALT + CTRL + -`|
 |Go forward (cursor position)|`ALT + CTRL + =`|
