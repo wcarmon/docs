@@ -19,6 +19,7 @@
 |[Focus on 2nd Editor Group](https://code.visualstudio.com/docs/configure/custom-layout#_editor-groups)|`CTRL + 2`|
 |[Terminal](https://code.visualstudio.com/docs/terminal/getting-started)|``CTRL + ` ``|
 |Focus on Search Results|`F4`|
+|Find in selected directory|`ALT + SHIFT + F`|
 
 
 - TODO: ace jump
