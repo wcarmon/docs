@@ -14,6 +14,5 @@ brew install --cask font-jetbrains-mono
 
 
 # Settings > Editor: Font Family:
-```
-'JetBrains Mono', 'Ubuntu mono', 'DejaVu Sans Mono', 'monospace', monospace
-```
+- `'JetBrains Mono', 'Ubuntu mono', 'DejaVu Sans Mono', 'monospace', monospace`
+- `'JetBrains Mono Medium', 'Ubuntu mono', 'DejaVu Sans Mono', 'monospace', monospace`
