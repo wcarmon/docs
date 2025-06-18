@@ -66,6 +66,7 @@
 
 ## Keyboard
 - Disable all
+- (at a minimum) Uncheck all the ones related to `Move focus *`
 
 ## Input Sources
 - Disable all
@@ -85,8 +86,10 @@
 ## Spotlight
 - Retain all
 
+
 ## Accessibility
 - Disable all
+
 
 ## App Shortcuts
 - Disable all
@@ -107,23 +110,22 @@
 1. Use [BetterTouchTool](https://folivora.ai/)
 
 
+# Other keyboard settings
+
+1. `System Preferences` > `Keyboard` > `Text` tab
+    1. uncheck `Use smart quotes and dashes`
+1. `System Preferences` > `Keyboard` > `Text Input` > `Text Replacements`    
+    1. remove any replacements
+
+
 # Disable greek letters for option key
 
 1. `System Preferences` > `Keyboard` > `Input Sources` Tab
 1. click `+` at bottom left
 1. add and select `Other` > `Unicode Hex Input`
 1. In top menu, on right, change input source to `U+`
-
-
-# Other keyboard settings
-
-1. `System Preferences` > `Keyboard` > `Text` tab
-    1. uncheck `Use smart quotes and dashes`
-    1. remove any replacements
-
-1. `System Preferences` > `Keyboard` > `Keyboard shortcuts` > `Keyboard`
-    1. Uncheck all the ones related to `Move focus *`
-
+1. TODO: this doesn't help anymore
+    
 
 # Other Resources
 
