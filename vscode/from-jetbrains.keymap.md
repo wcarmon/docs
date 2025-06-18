@@ -115,6 +115,7 @@
 |---|---|---|---|
 |Restart IDE|--|Reload Window|--|
 
+- (On MacOS) vscode treats `cmd` and `ctrl` as different keycodes
 
 # Other resources
 1. [Linux default keymap](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-linux.pdf)

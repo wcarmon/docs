@@ -18,6 +18,8 @@
 |[Focus on 1st Editor Group](https://code.visualstudio.com/docs/configure/custom-layout#_editor-groups)|`CTRL + 1`|
 |[Focus on 2nd Editor Group](https://code.visualstudio.com/docs/configure/custom-layout#_editor-groups)|`CTRL + 2`|
 |[Terminal](https://code.visualstudio.com/docs/terminal/getting-started)|``CTRL + ` ``|
+|Focus on Search Results|`F4`|
+
 
 - TODO: ace jump
 
