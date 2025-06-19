@@ -45,4 +45,5 @@
 |Move line|`ALT + ↑`, `ALT + ↓`|
 |Format|`CTRL + SHIFT + I`|
 |Move editor to next Broup|`ALT + S`|
+|Show fn params|`CTRL + SHIFT + Space`|
 |Toggle case|todo|
