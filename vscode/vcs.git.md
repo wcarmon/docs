@@ -30,6 +30,9 @@
 1. [View: source control](TODO)
 1. TODO: Default commit message
 1. `CTRL+K` -> TODO (no default)
+1. Use `+` to only [Stage](https://code.visualstudio.com/docs/sourcecontrol/overview#_commit) specific files
+    1. Unstaged changes won't be in the commit
+
 
 
 # Sign commit

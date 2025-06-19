@@ -47,3 +47,9 @@
 |Move editor to next Broup|`ALT + S`|
 |Show fn params|`CTRL + SHIFT + Space`|
 |Toggle case|todo|
+
+
+# Rust
+|Action|Shortcut|
+|---:|:---|
+|Jump to nearest parent Crate|`CTRL + SHIFT + U`|
