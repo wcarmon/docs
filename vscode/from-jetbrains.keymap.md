@@ -36,7 +36,7 @@
 # Conflicts: OS (Linux)
 |Action/Command|vscode default|my custom|Conflicts with|
 |---:|:---:|:---:|:---|
-|Go to Definition|`F12`|`CTRL + M`|guake/yakuake|
+|Go to Definition|`F12`|`CTRL + \`|guake/yakuake|
 
 
 # Conflicts: vscode <-> JetBrains (High priority)
