@@ -157,5 +157,19 @@
         "key": "shift+alt+-",
         "command": "workbench.action.navigateBack",
         "when": "canNavigateBack"
+    },
+    {
+        "key": "ctrl+alt+left",
+        "command": "-workbench.action.moveEditorToPreviousGroup"
+    },
+    {
+        "key": "ctrl+alt+left",
+        "command": "editor.action.smartSelect.shrink",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+alt+right",
+        "command": "editor.action.smartSelect.expand",
+        "when": "editorTextFocus"
     }
 ]
