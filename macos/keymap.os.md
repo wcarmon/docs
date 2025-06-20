@@ -119,6 +119,12 @@
     1. remove any replacements
 
 
+# Trackpad
+1. Disable Dictionary
+    1. Settings > Trackpad > Trackpad Gestures > Point & Click
+        1. Look up & data detectors: Off
+
+
 # Disable greek letters for option key
 
 1. `System Preferences` > `Keyboard` > `Input Sources` Tab
@@ -126,7 +132,7 @@
 1. add and select `Other` > `Unicode Hex Input`
 1. In top menu, on right, change input source to `U+`
 1. TODO: this doesn't help anymore
-    
+
 
 # Other Resources
 
