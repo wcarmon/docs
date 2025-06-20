@@ -96,12 +96,13 @@
 
 
 ## Function Keys
-- Toggle off
+- Toggle **on**
+    - This avoids conflicts with vscode and cursor
+    - So you'll use `fn + F11`, and `fn + F12` for audio controls
 
 
 ## Modifier Keys
 - (no changes)
-
 
 
 # Remapping MacOS keys
