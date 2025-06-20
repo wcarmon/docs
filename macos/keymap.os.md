@@ -123,6 +123,7 @@
 1. Disable Dictionary
     1. Settings > Trackpad > Trackpad Gestures > Point & Click
         1. Look up & data detectors: Off
+        1. Conflicts with dragging rows in Google Sheets
 
 
 # Disable greek letters for option key
