@@ -7,9 +7,10 @@
 |[Go to Symbol](https://code.visualstudio.com/docs/editing/editingevolved#_open-symbol-by-name)|`CTRL + T`|
 |[Go to Symbol in file](https://code.visualstudio.com/docs/editing/editingevolved#_go-to-symbol)|`CTRL + SHIFT + O`|
 |Go to previous edit|`CTRL + Shift + Backspace`|
-|Go back (cursor position)|`ALT + CTRL + -`|
-|Go forward (cursor position)|`ALT + CTRL + =`|
-|Go to next warning|`F8`|
+|Back (cursor position)|`ALT + CTRL + -`|
+|Forward (cursor position)|`ALT + CTRL + =`|
+|Next warning|`F8`|
+|Next diff|`ALT + F5`|
 |Focus on Next tab|`CTRL + Tab`|
 |Focus on 1st editor|`ALT + 1`|
 |Focus on 2nd editor|`ALT + 2`|
@@ -53,3 +54,9 @@
 |Action|Shortcut|
 |---:|:---|
 |Jump to nearest parent Crate|`CTRL + SHIFT + U`|
+
+
+# Show/Hide
+|Action|Shortcut|
+|---:|:---|
+|Show/Hide right panel|`CTRL + J`|

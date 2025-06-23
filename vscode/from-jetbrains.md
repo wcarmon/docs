@@ -72,3 +72,4 @@
 |---|---|
 |Action|Command|
 |Plugin|Extension|
+|Local History|Timeline|
