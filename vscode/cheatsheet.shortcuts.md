@@ -44,7 +44,7 @@
 |[Rename](https://code.visualstudio.com/docs/editing/editingevolved#_rename-symbol)|`F2`|
 |Move line|`ALT + ↑`, `ALT + ↓`|
 |Format|`CTRL + SHIFT + I`|
-|Move editor to next Broup|`ALT + S`|
+|Move editor to next Group|`ALT + S`|
 |Show fn params|`CTRL + SHIFT + Space`|
 |Toggle case|todo|
 
