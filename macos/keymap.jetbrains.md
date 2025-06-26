@@ -55,6 +55,16 @@
 1. ~~Order: `shift meta alt <letters-numbers>`~~ Order doesn't matter
 1. Case doesn't matter
 
+
+# Mapping Keyboards to JetBrains keymap xml file
+|`<keyboard-shortcut>` literal|Native Apple keyboard|USB windows keyboard|
+|---|---|---|
+|`alt`|`⌥` (option)|`Alt` key|
+|`ctrl`|`⌃` (control)|`Ctrl` key|
+|`meta`|`⌘` (command)|[super/windows key](https://en.wikipedia.org/wiki/Windows_key)|
+|`shift`|`⇧` (shift)|`Shift` key|
+
+
 # My most common shortcuts
 
 1. These work out-of-the-box on native keyboard when using [XWin](https://plugins.jetbrains.com/plugin/13094-xwin-keymap) based keymap
