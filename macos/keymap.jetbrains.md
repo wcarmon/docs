@@ -34,6 +34,16 @@
 1. Settings/Preferences > Keymaps
 1. Select your keymap
 
+
+# Mapping Keyboards to JetBrains keymap xml file
+|`<keyboard-shortcut>` literal|Native Apple keyboard|USB windows keyboard|
+|---|---|---|
+|`alt`|`⌥` (option)|`Alt` key|
+|`ctrl`|`⌃` (control)|`Ctrl` key|
+|`shift`|`⇧` (shift)|`Shift` key|
+|`meta`|`⌘` (command)|[super/windows key](https://en.wikipedia.org/wiki/Windows_key)|
+
+
 # Alignment with Linux/win
 
 1. Try copying [my keymap xml file](./wc_win_keyboard_on_macos_keymap_1.xml) into the dir above
@@ -54,15 +64,6 @@
     1. `"shift"` in `<keyboard-shortcut>` means `SHIFT` key
 1. ~~Order: `shift meta alt <letters-numbers>`~~ Order doesn't matter
 1. Case doesn't matter
-
-
-# Mapping Keyboards to JetBrains keymap xml file
-|`<keyboard-shortcut>` literal|Native Apple keyboard|USB windows keyboard|
-|---|---|---|
-|`alt`|`⌥` (option)|`Alt` key|
-|`ctrl`|`⌃` (control)|`Ctrl` key|
-|`meta`|`⌘` (command)|[super/windows key](https://en.wikipedia.org/wiki/Windows_key)|
-|`shift`|`⇧` (shift)|`Shift` key|
 
 
 # My most common shortcuts
