@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<keymap version="1" name="win_keyboard_macos_5" parent="Default for XWin">
+<keymap version="1" name="win_keyboard_macos_5b" parent="Default for XWin">
     <action id="$Copy">
         <keyboard-shortcut first-keystroke="control c"/>
         <keyboard-shortcut first-keystroke="meta c"/>
