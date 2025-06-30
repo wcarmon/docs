@@ -181,7 +181,7 @@
 |--------------------|----------------------|
 | `ALT + CTRL + L`   | Code > Reformat Code |
 | `ALT + SHIFT + L`  | Edit > Sort lines    |
-| `CTRL + SHIFT + A` | go to action         |
+| `CTRL + SHIFT + A` | Go to action         |
 
 ## Single modifier key
 
