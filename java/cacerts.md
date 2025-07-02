@@ -1,6 +1,6 @@
 # Overview
 
-1. How to add a [ca-certificate](TODO) for a JVM SDK installation
+1. How to add a [ca-certificate](https://en.wikipedia.org/wiki/Certificate_authority) for a JVM SDK installation
 
 
 - TODO: loop
@@ -10,7 +10,7 @@
 1. Define some vars (assuming [sdkman](https://sdkman.io/))
 
 ```bash
-# Linux or MacOS
+# Linux
 JAVA_HOME="$HOME/.sdkman/candidates/java/17.0.1-open"
 
 #CA_CERTS_FILE="$JAVA_HOME/lib/security/cacerts"
@@ -46,7 +46,7 @@ $KEYTOOL -import \
 ## Multiple JDKs
 
 ```bash
-MY_CERT=$HOME/my_cert.der
+CERT_PATH="$HOME/my_cert.der"
 find $HOME \
 -type f \
 -name keytool \
@@ -54,9 +54,35 @@ find $HOME \
     -import \
     -alias custom-Root-CA-keystore \
     -cacerts \
-    -file $MY_CERT \
+    -file $CERT_PATH \
     -trustcacerts \;
 ```
+
+## ZScaler
+
+```bash
+CERT_PATH="$HOME/.certs/zscaler_root_ca.pem"
+
+find $HOME \
+-type f \
+-name keytool \
+-exec {} \
+    -import \
+    -alias zscaler-root-1 \
+    -cacerts \
+    -file $CERT_PATH \
+    -trustcacerts \;
+
+#find $HOME \
+#-type f \
+#-name keytool \
+#-exec {} \
+#  -importcert \
+#  -alias zscaler-root-2 \  
+#  -storepass changeit \
+#  -file $CERT_PATH
+```
+
 
 # Other Resources
 
