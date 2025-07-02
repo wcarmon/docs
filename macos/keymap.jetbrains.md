@@ -39,9 +39,17 @@
 |`<keyboard-shortcut>` literal|Native Apple keyboard|USB windows keyboard|
 |---|---|---|
 |`alt`|`⌥` (option)|`Alt` key|
-|`ctrl`|`⌃` (control)|`Ctrl` key|
+|`ctrl` or `control`|`⌃` (control)|`Ctrl` key|
 |`shift`|`⇧` (shift)|`Shift` key|
 |`meta`|`⌘` (command)|[super/windows key](https://en.wikipedia.org/wiki/Windows_key)|
+
+
+## `ctrl` vs `control`
+- TL;DR; use `ctrl`
+- When you save the keymap on Linux or Windows, it saves `"ctrl"`
+- When you save the keymap on macos, it saves `"control"`
+- JetBrains products on MacOS will read both `ctrl` vs `control`
+
 
 
 # Alignment with Linux/win
@@ -173,7 +181,7 @@
 
 ## Key triads
 
-1. `CTRL+ALT+SHIFT+N` (go to symbol)
+1. `CTRL + ALT + SHIFT + N` (go to symbol)
 
 ## Key pairs
 
