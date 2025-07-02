@@ -80,8 +80,8 @@
         <keyboard-shortcut first-keystroke="alt meta i"/>
     </action>
     <action id="Back">
-        <keyboard-shortcut first-keystroke="alt control left"/>
-        <keyboard-shortcut first-keystroke="alt meta left"/>
+        <!-- <keyboard-shortcut first-keystroke="alt control left"/> -->
+        <!-- <keyboard-shortcut first-keystroke="alt meta left"/> -->
         <mouse-shortcut keystroke="button4"/>
     </action>
     <action id="BraceOrQuoteOut">
@@ -269,7 +269,7 @@
         <keyboard-shortcut first-keystroke="shift alt right"/>
     </action>
     <action id="Diff.PrevChange">
-        <keyboard-shortcut first-keystroke="shift alt left"/>
+        <!-- <keyboard-shortcut first-keystroke="shift alt left"/> -->
     </action>
     <action id="Diff.ShowDiff">
         <keyboard-shortcut first-keystroke="control d"/>
@@ -500,8 +500,8 @@
         <keyboard-shortcut first-keystroke="meta left"/>
     </action>
     <action id="EditorPreviousWordWithSelection">
-        <keyboard-shortcut first-keystroke="shift control left"/>
-        <keyboard-shortcut first-keystroke="shift meta left"/>
+        <!-- <keyboard-shortcut first-keystroke="shift control left"/> -->
+        <!-- <keyboard-shortcut first-keystroke="shift meta left"/> -->
     </action>
     <action id="EditorRight">
         <keyboard-shortcut first-keystroke="right"/>
@@ -522,8 +522,10 @@
         <keyboard-shortcut first-keystroke="meta up"/>
     </action>
     <action id="EditorSelectWord">
-        <keyboard-shortcut first-keystroke="ctrl alt right"/>
-        <keyboard-shortcut first-keystroke="meta alt right"/>
+      <keyboard-shortcut first-keystroke="ctrl alt right"/>
+      <keyboard-shortcut first-keystroke="ctrl meta right"/>
+      <keyboard-shortcut first-keystroke="shift alt right"/>
+      <keyboard-shortcut first-keystroke="shift meta right"/>
     </action>
     <action id="EditorSortLines">
         <keyboard-shortcut first-keystroke="shift alt l"/>
@@ -570,7 +572,9 @@
     </action>
     <action id="EditorUnSelectWord">
         <keyboard-shortcut first-keystroke="ctrl alt left"/>
-        <keyboard-shortcut first-keystroke="meta alt left"/>
+        <keyboard-shortcut first-keystroke="ctrl meta left"/>
+        <keyboard-shortcut first-keystroke="shift alt left"/>
+        <keyboard-shortcut first-keystroke="shift meta left"/>
         <!-- <keyboard-shortcut first-keystroke="shift control w"/> -->
         <!-- <keyboard-shortcut first-keystroke="shift meta w"/> -->
     </action>
@@ -1123,7 +1127,7 @@
         <keyboard-shortcut first-keystroke="shift f7"/>
     </action>
     <action id="PreviousEditorTab">
-        <keyboard-shortcut first-keystroke="shift alt left"/>
+        <!-- <keyboard-shortcut first-keystroke="shift alt left"/> -->
     </action>
     <action id="PreviousOccurence">
         <keyboard-shortcut first-keystroke="alt control up"/>
