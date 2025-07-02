@@ -211,13 +211,13 @@
         <keyboard-shortcut first-keystroke="control divide"/>
         <keyboard-shortcut first-keystroke="meta divide"/>
     </action>
-    <action id="Compile">
-        <keyboard-shortcut first-keystroke="shift control f9"/>
-        <keyboard-shortcut first-keystroke="shift meta f9"/>
-    </action>
     <action id="CompareTwoFiles">
         <keyboard-shortcut first-keystroke="control d"/>
         <keyboard-shortcut first-keystroke="meta d"/>
+    </action>
+    <action id="Compile">
+        <keyboard-shortcut first-keystroke="shift control f9"/>
+        <keyboard-shortcut first-keystroke="shift meta f9"/>
     </action>
     <action id="CompileDirty">
         <keyboard-shortcut first-keystroke="control f9"/>
@@ -522,8 +522,8 @@
         <keyboard-shortcut first-keystroke="meta up"/>
     </action>
     <action id="EditorSelectWord">
-      <keyboard-shortcut first-keystroke="ctrl alt right"/>
-      <keyboard-shortcut first-keystroke="ctrl meta right"/>
+      <keyboard-shortcut first-keystroke="control alt right"/>
+      <keyboard-shortcut first-keystroke="control meta right"/>
       <keyboard-shortcut first-keystroke="shift alt right"/>
       <keyboard-shortcut first-keystroke="shift meta right"/>
     </action>
@@ -571,8 +571,8 @@
         <keyboard-shortcut first-keystroke="help"/>
     </action>
     <action id="EditorUnSelectWord">
-        <keyboard-shortcut first-keystroke="ctrl alt left"/>
-        <keyboard-shortcut first-keystroke="ctrl meta left"/>
+        <keyboard-shortcut first-keystroke="control alt left"/>
+        <keyboard-shortcut first-keystroke="control meta left"/>
         <keyboard-shortcut first-keystroke="shift alt left"/>
         <keyboard-shortcut first-keystroke="shift meta left"/>
         <!-- <keyboard-shortcut first-keystroke="shift control w"/> -->
@@ -731,6 +731,7 @@
         <keyboard-shortcut first-keystroke="alt control m"/>
         <keyboard-shortcut first-keystroke="alt meta m"/>
     </action>
+    <action id="FileChooser.GoToRoot" />
     <action id="FileChooser.GotoDesktop">
         <keyboard-shortcut first-keystroke="control d"/>
         <keyboard-shortcut first-keystroke="meta d"/>
@@ -896,8 +897,9 @@
         <keyboard-shortcut first-keystroke="alt meta period"/>
     </action>
     <action id="GotoDeclaration">
-        <keyboard-shortcut first-keystroke="control b"/>
-        <keyboard-shortcut first-keystroke="meta b"/>
+        <keyboard-shortcut first-keystroke="alt back_slash"/>
+        <keyboard-shortcut first-keystroke="ctl back_slash"/>
+        <keyboard-shortcut first-keystroke="meta back_slash"/>
         <mouse-shortcut keystroke="control button1"/>
         <mouse-shortcut keystroke="meta button1"/>
         <mouse-shortcut keystroke="button2"/>

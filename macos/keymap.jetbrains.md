@@ -45,11 +45,10 @@
 
 
 ## `ctrl` vs `control`
-- TL;DR; use `ctrl`
-- When you save the keymap on Linux or Windows, it saves `"ctrl"`
-- When you save the keymap on macos, it saves `"control"`
+- TL;DR; use `control`
 - JetBrains products on MacOS will read both `ctrl` vs `control`
-
+- When you save the keymap on macos, it saves `"control"`
+- When you save the keymap on Linux or Windows, it saves `"ctrl"` (TODO: verify)
 
 
 # Alignment with Linux/win
