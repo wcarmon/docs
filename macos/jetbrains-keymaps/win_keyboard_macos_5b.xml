@@ -522,8 +522,8 @@
         <keyboard-shortcut first-keystroke="meta up"/>
     </action>
     <action id="EditorSelectWord">
-        <keyboard-shortcut first-keystroke="control w"/>
-        <keyboard-shortcut first-keystroke="meta w"/>
+        <keyboard-shortcut first-keystroke="ctrl alt right"/>
+        <keyboard-shortcut first-keystroke="meta alt right"/>
     </action>
     <action id="EditorSortLines">
         <keyboard-shortcut first-keystroke="shift alt l"/>
@@ -569,8 +569,10 @@
         <keyboard-shortcut first-keystroke="help"/>
     </action>
     <action id="EditorUnSelectWord">
-        <keyboard-shortcut first-keystroke="shift control w"/>
-        <keyboard-shortcut first-keystroke="shift meta w"/>
+        <keyboard-shortcut first-keystroke="ctrl alt left"/>
+        <keyboard-shortcut first-keystroke="meta alt left"/>
+        <!-- <keyboard-shortcut first-keystroke="shift control w"/> -->
+        <!-- <keyboard-shortcut first-keystroke="shift meta w"/> -->
     </action>
     <action id="EditorUnindentSelection">
         <keyboard-shortcut first-keystroke="shift tab"/>
