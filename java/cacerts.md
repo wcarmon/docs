@@ -71,8 +71,10 @@ find $HOME \
     -alias zscaler-root-1 \
     -cacerts \
     -file $CERT_PATH \
-    -trustcacerts \;    
+    -trustcacerts \;
 ```
+1. type `yes` if prompted
+
 
 ### Verify
 ```
