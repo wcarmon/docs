@@ -71,16 +71,12 @@ find $HOME \
     -alias zscaler-root-1 \
     -cacerts \
     -file $CERT_PATH \
-    -trustcacerts \;
+    -trustcacerts \;    
+```
 
-#find $HOME \
-#-type f \
-#-name keytool \
-#-exec {} \
-#  -importcert \
-#  -alias zscaler-root-2 \  
-#  -storepass changeit \
-#  -file $CERT_PATH
+### Verify
+```
+keytool -list -v -cacerts | grep -i zscaler
 ```
 
 
