@@ -70,8 +70,11 @@
     1. `"period"` in `<keyboard-shortcut>` means dot/period key
     1. `"right"` in `<keyboard-shortcut>` means Right arrow key
     1. `"shift"` in `<keyboard-shortcut>` means `SHIFT` key
-1. ~~Order: `shift meta alt <letters-numbers>`~~ Order doesn't matter
-1. Case doesn't matter
+1. Order:
+    1. ~~Order: `shift meta alt <letters-numbers>`~~ Order doesn't matter
+    1. when the ide saves, it uses somewhat random order (maybe pressed order when recording)
+1. Case:
+    1. Case doesn't matter
 
 
 # My most common shortcuts
