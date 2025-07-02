@@ -126,8 +126,10 @@
         <keyboard-shortcut first-keystroke="meta space"/>
     </action>
     <action id="CheckinProject">
+        <!-- TODO: replace this 
         <keyboard-shortcut first-keystroke="control k"/>
         <keyboard-shortcut first-keystroke="meta k"/>
+        -->
     </action>
     <action id="ChooseDebugConfiguration">
         <keyboard-shortcut first-keystroke="shift alt f9"/>
@@ -239,6 +241,9 @@
         <keyboard-shortcut first-keystroke="shift meta f10"/>
     </action>
     <action id="ContextHelp"/>
+    <action id="CopyElement">
+        <keyboard-shortcut first-keystroke="f5"/>
+    </action>
     <action id="CopyPaths">
         <keyboard-shortcut first-keystroke="control shift c"/>
         <keyboard-shortcut first-keystroke="meta shift c"/>
@@ -246,9 +251,6 @@
     <action id="CopyReference">
         <keyboard-shortcut first-keystroke="control alt shift c"/>
         <keyboard-shortcut first-keystroke="meta alt shift c"/>
-    </action>
-    <action id="CopyElement">
-        <keyboard-shortcut first-keystroke="f5"/>
     </action>
     <action id="Debug">
         <keyboard-shortcut first-keystroke="shift f9"/>
@@ -1004,7 +1006,7 @@
         <keyboard-shortcut first-keystroke="f12"/>
     </action>
     <action id="MainMenuButton.ShowMenu">
-        <keyboard-shortcut first-keystroke="alt back_slash"/>
+        <!-- <keyboard-shortcut first-keystroke="alt back_slash"/> -->
     </action>
     <action id="MaintenanceAction">
         <keyboard-shortcut first-keystroke="control alt shift slash"/>
@@ -1368,6 +1370,7 @@
     <action id="ShowSettings">
         <keyboard-shortcut first-keystroke="alt control s"/>
         <keyboard-shortcut first-keystroke="alt meta s"/>
+        <keyboard-shortcut first-keystroke="control comma"/>
     </action>
     <action id="ShowSettingsAndFindUsages">
         <keyboard-shortcut first-keystroke="shift control alt f7"/>
@@ -1542,6 +1545,18 @@
         <keyboard-shortcut first-keystroke="control shift delete"/>
         <keyboard-shortcut first-keystroke="meta shift delete"/>
     </action>
+    <action id="UsageFiltering.Imports">
+        <keyboard-shortcut first-keystroke="control i"/>
+        <keyboard-shortcut first-keystroke="meta i"/>
+    </action>
+    <action id="UsageFiltering.ReadAccess">
+        <keyboard-shortcut first-keystroke="control r"/>
+        <keyboard-shortcut first-keystroke="meta r"/>
+    </action>
+    <action id="UsageFiltering.WriteAccess">
+        <keyboard-shortcut first-keystroke="control w"/>
+        <keyboard-shortcut first-keystroke="meta w"/>
+    </action>
     <action id="UsageGrouping.Directory">
         <keyboard-shortcut first-keystroke="alt control p"/>
         <keyboard-shortcut first-keystroke="alt meta p"/>
@@ -1561,18 +1576,6 @@
     <action id="UsageGrouping.Module">
         <keyboard-shortcut first-keystroke="alt control m"/>
         <keyboard-shortcut first-keystroke="alt meta m"/>
-    </action>
-    <action id="UsageFiltering.Imports">
-        <keyboard-shortcut first-keystroke="control i"/>
-        <keyboard-shortcut first-keystroke="meta i"/>
-    </action>
-    <action id="UsageFiltering.ReadAccess">
-        <keyboard-shortcut first-keystroke="control r"/>
-        <keyboard-shortcut first-keystroke="meta r"/>
-    </action>
-    <action id="UsageFiltering.WriteAccess">
-        <keyboard-shortcut first-keystroke="control w"/>
-        <keyboard-shortcut first-keystroke="meta w"/>
     </action>
     <action id="UsageGrouping.UsageType">
         <keyboard-shortcut first-keystroke="alt control t"/>
