@@ -64,11 +64,19 @@
     <keyboard-shortcut first-keystroke="ctrl f12" />
     <keyboard-shortcut first-keystroke="shift ctrl o" />
   </action>
-  <action id="GotoAction">
-    <keyboard-shortcut first-keystroke="ctrl shift p" />
-  </action>
   <action id="Git.Commit.Stage" />
+  <action id="GotoAction">
+    <keyboard-shortcut first-keystroke="shift ctrl p" />
+  </action>  
   <action id="Images.Editor.ToggleGrid" />
+    <action id="MethodDown" />
+  <action id="MethodUp" />
+  <action id="MoveLineDown">
+    <keyboard-shortcut first-keystroke="alt down" />
+  </action>
+  <action id="MoveLineUp">
+    <keyboard-shortcut first-keystroke="alt up" />
+  </action>
   <action id="MoveTabRight">
     <keyboard-shortcut first-keystroke="alt s" />
   </action>
