@@ -4,3 +4,10 @@
 # Usage points
 - $HOME/.config/Google/AndroidStudio2024.3/keymaps/wc-2025.xml
 - $HOME/.config/JetBrains/IntelliJIdea2024.2/keymaps/wc-2025.xml
+
+
+# Restore
+```
+cp $HOME/git-repos/docs/jetbrains/wc-2025.xml $HOME/.config/Google/AndroidStudio2024.3/keymaps/ ;
+cp $HOME/git-repos/docs/jetbrains/wc-2025.xml $HOME/.config/JetBrains/IntelliJIdea2024.2/keymaps/ ;
+```
