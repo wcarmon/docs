@@ -1,0 +1,98 @@
+<keymap version="1" name="wc-2025" parent="$default">
+  <action id="AceAction">
+    <keyboard-shortcut first-keystroke="ctrl semicolon" />
+    <keyboard-shortcut first-keystroke="ctrl quote" />
+  </action>
+  <action id="ActivateDatabaseToolWindow">
+    <keyboard-shortcut first-keystroke="alt d" />
+  </action>
+  <action id="Cargo.RustfmtFile">
+    <keyboard-shortcut first-keystroke="ctrl alt l" />
+  </action>
+  <action id="Cargo.ToggleExternalLinterOnTheFlyAction">
+    <keyboard-shortcut first-keystroke="alt c" />
+  </action>
+  <action id="ChangesView.ToggleCommitUi" />
+  <action id="CheckinProject" />
+  <action id="CollapseAllRegions">
+    <keyboard-shortcut first-keystroke="shift ctrl subtract" />
+    <keyboard-shortcut first-keystroke="shift ctrl minus" />
+    <keyboard-shortcut first-keystroke="shift ctrl 1" />
+    <keyboard-shortcut first-keystroke="ctrl k" second-keystroke="ctrl 0" />
+  </action>
+  <action id="ContextHelp" />
+  <action id="DatabaseView.CopyDdlAction">
+    <keyboard-shortcut first-keystroke="shift ctrl alt g" />
+  </action>
+  <action id="ExpandAllToLevel1">
+    <keyboard-shortcut first-keystroke="shift ctrl multiply" second-keystroke="1" />
+    <keyboard-shortcut first-keystroke="shift ctrl multiply" second-keystroke="numpad1" />
+    <keyboard-shortcut first-keystroke="shift ctrl 2" />
+    <keyboard-shortcut first-keystroke="ctrl k" second-keystroke="ctrl 1" />
+  </action>
+  <action id="ExpandAllToLevel2">
+    <keyboard-shortcut first-keystroke="ctrl k" second-keystroke="ctrl 2" />
+  </action>
+  <action id="ExpandAllToLevel3">
+    <keyboard-shortcut first-keystroke="ctrl k" second-keystroke="ctrl 3" />
+  </action>
+  <action id="ExpandAllToLevel4">
+    <keyboard-shortcut first-keystroke="shift ctrl multiply" second-keystroke="4" />
+    <keyboard-shortcut first-keystroke="shift ctrl multiply" second-keystroke="numpad4" />
+    <keyboard-shortcut first-keystroke="shift ctrl 5" />
+    <keyboard-shortcut first-keystroke="ctrl k" second-keystroke="ctrl 4" />
+  </action>
+  <action id="ExpandAllToLevel5">
+    <keyboard-shortcut first-keystroke="shift ctrl multiply" second-keystroke="5" />
+    <keyboard-shortcut first-keystroke="shift ctrl multiply" second-keystroke="numpad5" />
+    <keyboard-shortcut first-keystroke="shift ctrl 6" />
+    <keyboard-shortcut first-keystroke="ctrl k" second-keystroke="ctrl 5" />
+  </action>
+  <action id="ExternalSystem.ProjectRefreshAction" />
+  <action id="FileStructurePopup">
+    <keyboard-shortcut first-keystroke="ctrl f12" />
+    <keyboard-shortcut first-keystroke="shift ctrl o" />
+  </action>
+  <action id="GotoAction">
+    <keyboard-shortcut first-keystroke="control shift p" />    
+  </action>
+  <action id="Git.Commit.Stage" />
+  <action id="Images.Editor.ToggleGrid" />
+  <action id="MoveTabRight">
+    <keyboard-shortcut first-keystroke="alt s" />
+  </action>
+  <action id="ShelveChanges.UnshelveWithDialog" />
+  <action id="ShowSettings">
+    <keyboard-shortcut first-keystroke="ctrl alt s" />
+    <keyboard-shortcut first-keystroke="ctrl comma" />
+  </action>
+  <action id="ToggleBookmark1" />
+  <action id="ToggleBookmark2" />
+  <action id="ToggleBookmark3" />
+  <action id="ToggleBookmark4" />
+  <action id="ToggleBookmark5" />
+  <action id="ToggleBookmark6" />
+  <action id="Tool_External Tools_run cargo build">
+    <keyboard-shortcut first-keystroke="ctrl printscreen" />
+  </action>
+  <action id="Tool_External Tools_run cargo clippy">
+    <keyboard-shortcut first-keystroke="ctrl pause" />
+  </action>
+  <action id="Tool_External Tools_run cargo test">
+    <keyboard-shortcut first-keystroke="ctrl scroll_lock" />
+  </action>
+  <action id="Tool_External Tools_spotless-apply">
+    <keyboard-shortcut first-keystroke="shift ctrl scroll_lock" />
+  </action>
+  <action id="copilot.cycleNextInlays">
+    <keyboard-shortcut first-keystroke="alt close_bracket" />
+    <keyboard-shortcut first-keystroke="ctrl period" />
+    <keyboard-shortcut first-keystroke="alt period" />
+  </action>
+  <action id="copilot.cyclePrevInlays">
+    <keyboard-shortcut first-keystroke="alt open_bracket" />
+    <keyboard-shortcut first-keystroke="ctrl comma" />
+    <keyboard-shortcut first-keystroke="alt comma" />
+  </action>
+  <action id="org.intellij.plugins.markdown.ui.actions.styling.ToggleCodeSpanAction" />
+</keymap>
