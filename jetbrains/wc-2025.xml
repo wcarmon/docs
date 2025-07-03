@@ -6,6 +6,10 @@
   <action id="ActivateDatabaseToolWindow">
     <keyboard-shortcut first-keystroke="alt d" />
   </action>
+  <action id="ActivateTerminalToolWindow">
+    <keyboard-shortcut first-keystroke="alt f12" />
+    <keyboard-shortcut first-keystroke="ctrl back_quote" />
+  </action>
   <action id="Back">
     <mouse-shortcut keystroke="button4" />
   </action>
@@ -74,7 +78,7 @@
     <mouse-shortcut keystroke="control button1" />
     <keyboard-shortcut first-keystroke="ctrl back_slash" />
   </action>
-  <action id="GotoFile">    
+  <action id="GotoFile">
     <keyboard-shortcut first-keystroke="ctrl p" />
   </action>
   <action id="GotoSymbol">
@@ -94,6 +98,7 @@
     <keyboard-shortcut first-keystroke="alt s" />
   </action>
   <action id="ParameterInfo" />
+  <action id="QuickChangeScheme" />
   <action id="ShelveChanges.UnshelveWithDialog" />
   <action id="ShowSettings">
     <keyboard-shortcut first-keystroke="ctrl alt s" />
