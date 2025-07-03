@@ -60,6 +60,7 @@
     <keyboard-shortcut first-keystroke="ctrl k" second-keystroke="ctrl 5" />
   </action>
   <action id="ExternalSystem.ProjectRefreshAction" />
+  <action id="FileChooser.GoToRoot" />
   <action id="FileStructurePopup">
     <keyboard-shortcut first-keystroke="ctrl f12" />
     <keyboard-shortcut first-keystroke="shift ctrl o" />
@@ -67,9 +68,13 @@
   <action id="Git.Commit.Stage" />
   <action id="GotoAction">
     <keyboard-shortcut first-keystroke="shift ctrl p" />
-  </action>  
+  </action>
+  <action id="GotoDeclaration">
+    <mouse-shortcut keystroke="control button1" />
+    <keyboard-shortcut first-keystroke="ctrl back_slash" />
+  </action>
   <action id="Images.Editor.ToggleGrid" />
-    <action id="MethodDown" />
+  <action id="MethodDown" />
   <action id="MethodUp" />
   <action id="MoveLineDown">
     <keyboard-shortcut first-keystroke="alt down" />
@@ -115,4 +120,7 @@
     <keyboard-shortcut first-keystroke="alt comma" />
   </action>
   <action id="org.intellij.plugins.markdown.ui.actions.styling.ToggleCodeSpanAction" />
+  <action id="sml.SuggestCommitMessageAction" />
+  <action id="sml.studiobot.custom.transform" />
+  <action id="sml.studiobot.generate.code" />
 </keymap>
