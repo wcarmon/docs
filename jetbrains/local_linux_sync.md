@@ -16,9 +16,9 @@ cp $HOME/git-repos/docs/jetbrains/wc-2025.xml $HOME/.config/JetBrains/IntelliJId
 # Vscode
 ```
 # -- Backup
-cp $HOME/.config/Code/User/keybindings.json $HOME/git-repos/docs/vscode/
+cp -v $HOME/.config/Code/User/keybindings.json $HOME/git-repos/docs/vscode/
 
 
 # -- Restore
-cp $HOME/git-repos/docs/vscode/keybindings.json $HOME/.config/Code/User/
+cp -v $HOME/git-repos/docs/vscode/keybindings.json $HOME/.config/Code/User/
 ```
