@@ -6,12 +6,16 @@
   <action id="ActivateDatabaseToolWindow">
     <keyboard-shortcut first-keystroke="alt d" />
   </action>
+  <action id="ActivateProjectToolWindow">
+    <keyboard-shortcut first-keystroke="ctrl b" />
+  </action>
   <action id="ActivateTerminalToolWindow">
     <keyboard-shortcut first-keystroke="alt f12" />
     <keyboard-shortcut first-keystroke="ctrl back_quote" />
   </action>
   <action id="Back">
     <mouse-shortcut keystroke="button4" />
+    <keyboard-shortcut first-keystroke="ctrl alt minus" />
   </action>
   <action id="Cargo.RustfmtFile">
     <keyboard-shortcut first-keystroke="ctrl alt l" />
@@ -29,10 +33,13 @@
     <keyboard-shortcut first-keystroke="shift ctrl 1" />
     <keyboard-shortcut first-keystroke="ctrl k" second-keystroke="ctrl 0" />
   </action>
+  <action id="CollapseRegionRecursively" />
   <action id="ContextHelp" />
   <action id="DatabaseView.CopyDdlAction">
     <keyboard-shortcut first-keystroke="shift ctrl alt g" />
   </action>
+  <action id="Diff.NextChange" />
+  <action id="Diff.PrevChange" />
   <action id="EditorSelectWord">
     <keyboard-shortcut first-keystroke="shift alt right" />
     <keyboard-shortcut first-keystroke="ctrl alt right" />
@@ -65,12 +72,17 @@
     <keyboard-shortcut first-keystroke="shift ctrl 6" />
     <keyboard-shortcut first-keystroke="ctrl k" second-keystroke="ctrl 5" />
   </action>
+  <action id="ExpandRegionRecursively" />
   <action id="ExternalSystem.ProjectRefreshAction" />
   <action id="FileChooser.GoToRoot" />
   <action id="FileChooser.TogglePathBar" />
   <action id="FileStructurePopup">
     <keyboard-shortcut first-keystroke="ctrl f12" />
     <keyboard-shortcut first-keystroke="shift ctrl o" />
+  </action>
+  <action id="Forward">
+    <mouse-shortcut keystroke="button5" />
+    <keyboard-shortcut first-keystroke="ctrl alt equals" />
   </action>
   <action id="Git.Commit.Stage" />
   <action id="GotoAction">
@@ -102,7 +114,9 @@
   <action id="MoveTabRight">
     <keyboard-shortcut first-keystroke="alt s" />
   </action>
+  <action id="NextEditorTab" />
   <action id="ParameterInfo" />
+  <action id="PreviousEditorTab" />
   <action id="QuickChangeScheme" />
   <action id="RenameElement">
     <keyboard-shortcut first-keystroke="shift f6" />
