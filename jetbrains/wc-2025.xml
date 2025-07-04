@@ -23,6 +23,7 @@
   <action id="Cargo.ToggleExternalLinterOnTheFlyAction">
     <keyboard-shortcut first-keystroke="alt c" />
   </action>
+  <action id="ChangesView.ShelveSilently" />
   <action id="ChangesView.ToggleCommitUi" />
   <action id="CheckinProject">
     <keyboard-shortcut first-keystroke="shift ctrl g" />
@@ -104,6 +105,7 @@
   </action>
   <action id="Images.Editor.ToggleGrid" />
   <action id="MethodDown" />
+  <action id="MethodHierarchy" />
   <action id="MethodUp" />
   <action id="MoveLineDown">
     <keyboard-shortcut first-keystroke="alt down" />
@@ -125,6 +127,10 @@
   <action id="Replace">
     <keyboard-shortcut first-keystroke="ctrl r" />
     <keyboard-shortcut first-keystroke="ctrl h" />
+  </action>
+    <action id="ReplaceInPath">
+    <keyboard-shortcut first-keystroke="shift ctrl r" />
+    <keyboard-shortcut first-keystroke="shift ctrl h" />
   </action>
   <action id="ShelveChanges.UnshelveWithDialog" />
   <action id="ShowSettings">
