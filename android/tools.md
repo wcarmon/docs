@@ -35,21 +35,26 @@
 
 
 # In review
+1. Caching: [caffeine](TODO)
+1. Concurrency: [LiveData](TODO)
 1. DI: [Koin](https://insert-koin.io/docs/setup/koin)
 1. Log: [Timber](https://github.com/JakeWharton/timber)
-1. Concurrency: [LiveData](TODO)
 1. Nav: [Cicerone](https://github.com/terrakok/Cicerone)
 1. SQL: [Room](https://developer.android.com/training/data-storage/room)
+1. Test: [awaitility](https://github.com/awaitility/awaitility)
 1. Test: [Mockito for android](TODO)
 1. Test: [MockK](https://mockk.io/ANDROID.html)
+1. Test: [Roboletric](TODO)
 1. Test: [Truth](https://truth.dev/)
 1. Test: [Turbine](https://github.com/cashapp/turbine)
+1. TODO: charts
+1. TODO: compression (apache commons?)
 1. TODO: configuration management
 1. TODO: stats/metrics
+1. TODO: UI: pull to refresh
 
 
 # Rejected tools
-1. ~~[Fabric](https://firebase.google.com/docs/reference/android/io/fabric/sdk/android/fabric/Fabric)~~
 1. Background work: ~~[IntentService](https://developer.android.com/reference/android/app/IntentService)~~
 1. CI: ~~[maven](https://maven.apache.org/)~~
 1. Concurrency: ~~[AsyncTask](https://developer.android.com/reference/android/os/AsyncTask)~~
@@ -60,6 +65,8 @@
 1. Concurrency: ~~[RxJava](https://github.com/ReactiveX/RxJava)~~ (Use flow, StateFlow, SharedFlow)
 1. Concurrency: ~~[RxKotlin](https://github.com/ReactiveX/RxKotlin)~~
 1. Concurrency: ~~[Thread](https://developer.android.com/reference/java/lang/Thread)~~
+1. Crash monitoring: ~~[Fabric](https://firebase.google.com/docs/reference/android/io/fabric/sdk/android/fabric/Fabric)~~
+1. DateTime: ~~[JodaTime](TODO)~~
 1. DI: ~~[Dagger](https://developer.android.com/training/dependency-injection/dagger-android)~~ (replaced by Hilt)
 1. DI: ~~[Hilt](https://developer.android.com/training/dependency-injection/hilt-android)~~
 1. DI: ~~[KodeIn](https://github.com/kosi-libs/Kodein)~~
@@ -78,6 +85,8 @@
 1. Net: ~~[Ion](https://github.com/koush/ion)~~
 1. Net: ~~[KTor client](https://ktor.io/docs/client-engines.html)~~
 1. Net: ~~[Retrofit](https://square.github.io/retrofit/)~~
+1. Net: ~~[RoboSpice](TODO)~~
+1. Net: ~~[Spring for Android - RestTemplate](TODO)~~
 1. Net: ~~[Volley](https://google.github.io/volley/)~~
 1. Permissions: ~~[Dexter](https://github.com/Karumi/Dexter)~~
 1. Serialization: ~~[Gson](https://github.com/google/gson)~~
@@ -92,6 +101,7 @@
 1. Stats: ~~[Crashlytics](https://firebase.google.com/products/crashlytics)~~
 1. Test: ~~[Hamcrest](https://hamcrest.org/JavaHamcrest/)~~ (Dependency-hell, shaded versions, abandonware, redundant matchers, ...)
 1. Test: ~~[PowerMock](https://github.com/powermock/powermock)~~
+1. UI: ~~[anvil](https://github.com/anvil-ui/anvil)~~
 1. UI: ~~[ButterKnife](https://github.com/JakeWharton/butterknife)~~ (use ViewBinding instead)
 1. UI: ~~[DataBinding](https://developer.android.com/topic/libraries/data-binding)~~
 1. UI: ~~[findViewById](https://developer.android.com/reference/android/view/View#findViewById(int))~~
