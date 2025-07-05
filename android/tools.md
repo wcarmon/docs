@@ -60,13 +60,14 @@
 1. Concurrency: ~~[AsyncTask](https://developer.android.com/reference/android/os/AsyncTask)~~
 1. Concurrency: ~~[Handler](https://developer.android.com/reference/android/os/Handler)~~
 1. Concurrency: ~~[HandlerThread](https://developer.android.com/reference/android/os/HandlerThread)~~
+1. Concurrency: ~~[LiveData](https://developer.android.com/topic/libraries/architecture/livedata)~~ (Use `StateFlow` instead)
 1. Concurrency: ~~[Otto](https://square.github.io/otto/)~~
 1. Concurrency: ~~[RxAndroid](https://github.com/ReactiveX/RxAndroid)~~
 1. Concurrency: ~~[RxJava](https://github.com/ReactiveX/RxJava)~~ (Use flow, StateFlow, SharedFlow)
 1. Concurrency: ~~[RxKotlin](https://github.com/ReactiveX/RxKotlin)~~
 1. Concurrency: ~~[Thread](https://developer.android.com/reference/java/lang/Thread)~~
 1. Crash monitoring: ~~[Fabric](https://firebase.google.com/docs/reference/android/io/fabric/sdk/android/fabric/Fabric)~~
-1. DateTime: ~~[JodaTime](TODO)~~
+1. DateTime: ~~[JodaTime](https://www.joda.org/joda-time/)~~
 1. DI: ~~[Dagger](https://developer.android.com/training/dependency-injection/dagger-android)~~ (replaced by Hilt)
 1. DI: ~~[Hilt](https://developer.android.com/training/dependency-injection/hilt-android)~~
 1. DI: ~~[KodeIn](https://github.com/kosi-libs/Kodein)~~
@@ -85,14 +86,13 @@
 1. Net: ~~[Ion](https://github.com/koush/ion)~~
 1. Net: ~~[KTor client](https://ktor.io/docs/client-engines.html)~~
 1. Net: ~~[Retrofit](https://square.github.io/retrofit/)~~
-1. Net: ~~[RoboSpice](TODO)~~
+1. Net: ~~[RoboSpice](https://github.com/stephanenicolas/robospice)~~ (abandoned)
 1. Net: ~~[Spring for Android - RestTemplate](TODO)~~
 1. Net: ~~[Volley](https://google.github.io/volley/)~~
 1. Permissions: ~~[Dexter](https://github.com/Karumi/Dexter)~~
 1. Serialization: ~~[Gson](https://github.com/google/gson)~~
 1. Serialization: ~~[Mochi](https://github.com/square/moshi)~~
 1. Serialization: ~~[Protobuf](TODO)~~ (complexity over json)
-1. SQL: ~~[Flowless](TODO)~~
 1. SQL: ~~[GreenDAO](https://github.com/greenrobot/greenDAO)~~
 1. SQL: ~~[objectbox](https://objectbox.io/)~~
 1. SQL: ~~[ORMLite](https://ormlite.com/)~~
@@ -105,6 +105,8 @@
 1. UI: ~~[ButterKnife](https://github.com/JakeWharton/butterknife)~~ (use ViewBinding instead)
 1. UI: ~~[DataBinding](https://developer.android.com/topic/libraries/data-binding)~~
 1. UI: ~~[findViewById](https://developer.android.com/reference/android/view/View#findViewById(int))~~
+1. UI: ~~[GridView](https://developer.android.com/reference/android/widget/GridView)~~ Use `RecyclerView` instead
+1. UI: ~~[ListView](https://developer.android.com/reference/android/widget/ListView)~~ Use `RecyclerView` instead
 1. UI: ~~[Kotlin Android Extensions (Kotlin Synthetics)](https://developer.android.com/topic/libraries/view-binding/migration)~~ (Use ViewBinding instead)
 
 
