@@ -128,7 +128,7 @@
     <keyboard-shortcut first-keystroke="ctrl r" />
     <keyboard-shortcut first-keystroke="ctrl h" />
   </action>
-    <action id="ReplaceInPath">
+  <action id="ReplaceInPath">
     <keyboard-shortcut first-keystroke="shift ctrl r" />
     <keyboard-shortcut first-keystroke="shift ctrl h" />
   </action>
@@ -158,6 +158,9 @@
   <action id="TypeHierarchy" />
   <action id="UpdateRunningApplication" />
   <action id="Vcs.UpdateProject" />
+  <action id="ZoomInIdeAction" />
+  <action id="ZoomOutIdeAction" />
+
   <action id="copilot.cycleNextInlays">
     <keyboard-shortcut first-keystroke="alt close_bracket" />
     <keyboard-shortcut first-keystroke="ctrl period" />

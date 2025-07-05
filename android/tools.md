@@ -63,7 +63,7 @@
 1. Concurrency: ~~[LiveData](https://developer.android.com/topic/libraries/architecture/livedata)~~ (Use `StateFlow` instead)
 1. Concurrency: ~~[Otto](https://square.github.io/otto/)~~
 1. Concurrency: ~~[RxAndroid](https://github.com/ReactiveX/RxAndroid)~~
-1. Concurrency: ~~[RxJava](https://github.com/ReactiveX/RxJava)~~ (Use flow, StateFlow, SharedFlow)
+1. Concurrency: ~~[RxJava](https://github.com/ReactiveX/RxJava)~~ (Use `BehaviorSubject` -> `StateFlow`, `Flowable` -> `SharedFlow`)
 1. Concurrency: ~~[RxKotlin](https://github.com/ReactiveX/RxKotlin)~~
 1. Concurrency: ~~[Thread](https://developer.android.com/reference/java/lang/Thread)~~
 1. Crash monitoring: ~~[Fabric](https://firebase.google.com/docs/reference/android/io/fabric/sdk/android/fabric/Fabric)~~
