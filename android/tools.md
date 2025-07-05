@@ -1,7 +1,7 @@
 # Overview
 1. Pre-approved Tools & Patterns
 1. Rejected tools
-- (as of 2025)
+- (as of June 2025)
 
 
 # Pre-approved Tools
@@ -21,10 +21,10 @@
 1. State Management: [StateFlow](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/-state-flow/)
 1. Static Analysis: [Detekt](https://github.com/detekt/detekt)
 1. Static Analysis: [ktlint](https://github.com/pinterest/ktlint)
-1. Test: [JUnit (TODO: 4 or 5)](TODO)
-1. UI Controls: [RecyclerView](TODO), (and Adapter, ...TODO)
-1. UI State: [ViewModel (TODO: the AndroidX one)](TODO)
-1. UI: [Material Design](TODO)
+1. Test: [JUnit](TODO) (TODO: 4 or 5)
+1. UI Controls: [RecyclerView](https://developer.android.com/develop/ui/views/layout/recyclerview), (and [Adapter](https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView.Adapter), etc)
+1. UI State: [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel)
+1. UI: [Material Design](https://developer.android.com/develop/ui/views/theming/look-and-feel)
 1. UI: [ViewBinding](https://developer.android.com/topic/libraries/view-binding)
 
 
@@ -35,11 +35,11 @@
 
 
 # In review
-1. DI: [Koin](TODO)
+1. DI: [Koin](https://insert-koin.io/docs/setup/koin)
 1. Log: [Timber](https://github.com/JakeWharton/timber)
+1. Concurrency: [LiveData](TODO)
 1. Nav: [Cicerone](https://github.com/terrakok/Cicerone)
-1. SQL: [Room](TODO)
-1. Test: [Hamcrest](TODO)
+1. SQL: [Room](https://developer.android.com/training/data-storage/room)
 1. Test: [Mockito for android](TODO)
 1. Test: [MockK](https://mockk.io/ANDROID.html)
 1. Test: [Truth](https://truth.dev/)
@@ -48,10 +48,8 @@
 1. TODO: stats/metrics
 
 
-
 # Rejected tools
 1. ~~[Fabric](https://firebase.google.com/docs/reference/android/io/fabric/sdk/android/fabric/Fabric)~~
-1. ~~[Ion](TODO)~~
 1. Background work: ~~[IntentService](https://developer.android.com/reference/android/app/IntentService)~~
 1. CI: ~~[maven](https://maven.apache.org/)~~
 1. Concurrency: ~~[AsyncTask](https://developer.android.com/reference/android/os/AsyncTask)~~
@@ -77,6 +75,7 @@
 1. Net: ~~[AsyncHttpClient](https://github.com/android-async-http/android-async-http)~~
 1. Net: ~~[Fuel](https://github.com/kittinunf/fuel)~~
 1. Net: ~~[HttpURLConnection ](https://developer.android.com/reference/java/net/HttpURLConnection)~~
+1. Net: ~~[Ion](https://github.com/koush/ion)~~
 1. Net: ~~[KTor client](https://ktor.io/docs/client-engines.html)~~
 1. Net: ~~[Retrofit](https://square.github.io/retrofit/)~~
 1. Net: ~~[Volley](https://google.github.io/volley/)~~
@@ -91,6 +90,7 @@
 1. SQL: ~~[Realm](https://github.com/realm/realm-java)~~
 1. SQL: ~~[SQLiteOpenHelper](https://developer.android.com/reference/android/database/sqlite/SQLiteOpenHelper)~~
 1. Stats: ~~[Crashlytics](https://firebase.google.com/products/crashlytics)~~
+1. Test: ~~[Hamcrest](https://hamcrest.org/JavaHamcrest/)~~ (Dependency-hell, shaded versions, abandonware, redundant matchers, ...)
 1. Test: ~~[PowerMock](https://github.com/powermock/powermock)~~
 1. UI: ~~[ButterKnife](https://github.com/JakeWharton/butterknife)~~ (use ViewBinding instead)
 1. UI: ~~[DataBinding](https://developer.android.com/topic/libraries/data-binding)~~
