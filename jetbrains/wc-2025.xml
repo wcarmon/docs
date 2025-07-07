@@ -1,7 +1,9 @@
 <keymap version="1" name="wc-2025" parent="$default">
   <action id="AceAction">
     <keyboard-shortcut first-keystroke="ctrl semicolon" />
+    <keyboard-shortcut first-keystroke="meta semicolon" />
     <keyboard-shortcut first-keystroke="ctrl quote" />
+    <keyboard-shortcut first-keystroke="meta quote" />
   </action>
   <action id="ActivateDatabaseToolWindow">
     <keyboard-shortcut first-keystroke="alt d" />
@@ -12,10 +14,12 @@
   <action id="ActivateTerminalToolWindow">
     <keyboard-shortcut first-keystroke="alt f12" />
     <keyboard-shortcut first-keystroke="ctrl back_quote" />
+    <keyboard-shortcut first-keystroke="meta back_quote" />
   </action>
   <action id="Back">
     <mouse-shortcut keystroke="button4" />
     <keyboard-shortcut first-keystroke="ctrl alt minus" />
+    <keyboard-shortcut first-keystroke="meta alt minus" />
   </action>
   <action id="Cargo.RustfmtFile">
     <keyboard-shortcut first-keystroke="ctrl alt l" />
@@ -30,9 +34,11 @@
   </action>
   <action id="CollapseAllRegions">
     <keyboard-shortcut first-keystroke="shift ctrl subtract" />
+    <keyboard-shortcut first-keystroke="shift meta subtract" />
     <keyboard-shortcut first-keystroke="shift ctrl minus" />
     <keyboard-shortcut first-keystroke="shift ctrl 1" />
     <keyboard-shortcut first-keystroke="ctrl k" second-keystroke="ctrl 0" />
+    <keyboard-shortcut first-keystroke="meta k" second-keystroke="meta 0" />
   </action>
   <action id="CollapseRegionRecursively" />
   <action id="ContextHelp" />
@@ -88,10 +94,15 @@
   <action id="Git.Commit.Stage" />
   <action id="GotoAction">
     <keyboard-shortcut first-keystroke="shift ctrl p" />
+    <keyboard-shortcut first-keystroke="shift meta p" />
   </action>
   <action id="GotoDeclaration">
     <mouse-shortcut keystroke="control button1" />
     <keyboard-shortcut first-keystroke="ctrl back_slash" />
+    <keyboard-shortcut first-keystroke="meta back_slash" />
+    <mouse-shortcut keystroke="ctrl button1" />
+    <mouse-shortcut keystroke="meta button1" />
+    <mouse-shortcut keystroke="button2" />
   </action>
   <action id="GotoFile">
     <keyboard-shortcut first-keystroke="ctrl p" />
@@ -100,13 +111,19 @@
     <keyboard-shortcut first-keystroke="f8" />
   </action>
   <action id="GotoSymbol">
-    <keyboard-shortcut first-keystroke="shift ctrl alt n" />
     <keyboard-shortcut first-keystroke="ctrl t" />
+    <keyboard-shortcut first-keystroke="meta t" />
+    <keyboard-shortcut first-keystroke="shift ctrl alt n" />
+    <keyboard-shortcut first-keystroke="shift meta alt n" />
   </action>
   <action id="Images.Editor.ToggleGrid" />
-  <action id="MethodDown" />
+  <action id="MethodDown">
+    <!-- TODO: choose something non-conflicting here -->
+  </action>
   <action id="MethodHierarchy" />
-  <action id="MethodUp" />
+  <action id="MethodUp">
+    <!-- TODO: choose something non-conflicting here -->
+  </action>
   <action id="MoveLineDown">
     <keyboard-shortcut first-keystroke="alt down" />
   </action>
@@ -117,25 +134,32 @@
     <keyboard-shortcut first-keystroke="alt s" />
   </action>
   <action id="NextEditorTab" />
-  <action id="ParameterInfo" />
+  <action id="ParameterInfo">
+    <!-- TODO: choose something non-conflicting here -->
+  </action>
   <action id="PreviousEditorTab" />
   <action id="QuickChangeScheme" />
   <action id="RenameElement">
-    <keyboard-shortcut first-keystroke="shift f6" />
     <keyboard-shortcut first-keystroke="f2" />
+    <keyboard-shortcut first-keystroke="shift f6" />
   </action>
   <action id="Replace">
-    <keyboard-shortcut first-keystroke="ctrl r" />
     <keyboard-shortcut first-keystroke="ctrl h" />
+    <keyboard-shortcut first-keystroke="ctrl r" />
+    <keyboard-shortcut first-keystroke="meta h" />
+    <keyboard-shortcut first-keystroke="meta r" />
   </action>
   <action id="ReplaceInPath">
-    <keyboard-shortcut first-keystroke="shift ctrl r" />
     <keyboard-shortcut first-keystroke="shift ctrl h" />
+    <keyboard-shortcut first-keystroke="shift ctrl r" />
+    <keyboard-shortcut first-keystroke="shift meta h" />
+    <keyboard-shortcut first-keystroke="shift meta r" />
   </action>
   <action id="ShelveChanges.UnshelveWithDialog" />
   <action id="ShowSettings">
     <keyboard-shortcut first-keystroke="ctrl alt s" />
     <keyboard-shortcut first-keystroke="ctrl comma" />
+    <keyboard-shortcut first-keystroke="meta alt s" />
   </action>
   <action id="ToggleBookmark1" />
   <action id="ToggleBookmark2" />
@@ -143,6 +167,9 @@
   <action id="ToggleBookmark4" />
   <action id="ToggleBookmark5" />
   <action id="ToggleBookmark6" />
+  <action id="ToggleBookmark7" />
+  <action id="ToggleBookmark8" />
+  <action id="ToggleBookmark9" />
   <action id="Tool_External Tools_run cargo build">
     <keyboard-shortcut first-keystroke="ctrl printscreen" />
   </action>
