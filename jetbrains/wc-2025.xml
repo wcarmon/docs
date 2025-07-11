@@ -135,7 +135,8 @@
   </action>
   <action id="NextEditorTab" />
   <action id="ParameterInfo">
-    <!-- TODO: choose something non-conflicting here -->
+    <keyboard-shortcut first-keystroke="shift ctrl quote" />
+    <keyboard-shortcut first-keystroke="shift meta quote" />
   </action>
   <action id="PreviousEditorTab" />
   <action id="QuickChangeScheme" />

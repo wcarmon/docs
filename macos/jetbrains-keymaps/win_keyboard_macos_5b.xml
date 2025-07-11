@@ -1100,7 +1100,8 @@
         <keyboard-shortcut first-keystroke="meta o" />
     </action>
     <action id="ParameterInfo">
-        <!-- TODO: choose something non-conflicting here -->
+        <keyboard-shortcut first-keystroke="shift ctrl quote" />
+        <keyboard-shortcut first-keystroke="shift meta quote" />
     </action>
     <action id="PasteMultiple">
         <keyboard-shortcut first-keystroke="ctrl shift v" />
