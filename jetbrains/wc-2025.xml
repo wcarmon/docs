@@ -52,8 +52,10 @@
     <keyboard-shortcut first-keystroke="ctrl alt right" />
   </action>
   <action id="EditorUnSelectWord">
-    <keyboard-shortcut first-keystroke="shift alt left" />
     <keyboard-shortcut first-keystroke="ctrl alt left" />
+    <keyboard-shortcut first-keystroke="ctrl meta left" />
+    <keyboard-shortcut first-keystroke="shift alt left" />
+    <keyboard-shortcut first-keystroke="shift meta left" />
   </action>
   <action id="ExpandAllToLevel1">
     <keyboard-shortcut first-keystroke="shift ctrl multiply" second-keystroke="1" />
