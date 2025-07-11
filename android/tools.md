@@ -40,7 +40,6 @@
 1. DI: [Koin](https://insert-koin.io/docs/setup/koin)
 1. Log: [Timber](https://github.com/JakeWharton/timber)
 1. Nav: [Cicerone](https://github.com/terrakok/Cicerone)
-1. SQL: [Room](https://developer.android.com/training/data-storage/room)
 1. Test: [awaitility](https://github.com/awaitility/awaitility)
 1. Test: [Mockito for android](TODO)
 1. Test: [MockK](https://mockk.io/ANDROID.html)
@@ -93,6 +92,7 @@
 1. Serialization: ~~[Gson](https://github.com/google/gson)~~
 1. Serialization: ~~[Mochi](https://github.com/square/moshi)~~
 1. Serialization: ~~[Protobuf](TODO)~~ (complexity over json)
+1. SQL: ~~[Room](https://developer.android.com/training/data-storage/room)~~ too "frameworky", hard to test, hard to optimize (compare to SQLDelight)
 1. SQL: ~~[GreenDAO](https://github.com/greenrobot/greenDAO)~~
 1. SQL: ~~[objectbox](https://objectbox.io/)~~
 1. SQL: ~~[ORMLite](https://ormlite.com/)~~
