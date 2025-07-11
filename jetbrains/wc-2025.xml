@@ -88,24 +88,28 @@
     <keyboard-shortcut first-keystroke="shift ctrl o" />
   </action>
   <action id="Forward">
-    <mouse-shortcut keystroke="button5" />
+    <keyboard-shortcut first-keystroke="alt ctrl right" />
+    <keyboard-shortcut first-keystroke="alt meta right" />
     <keyboard-shortcut first-keystroke="ctrl alt equals" />
+    <mouse-shortcut keystroke="button5" />
   </action>
   <action id="Git.Commit.Stage" />
   <action id="GotoAction">
+    <keyboard-shortcut first-keystroke="shift ctrl a" />
     <keyboard-shortcut first-keystroke="shift ctrl p" />
+    <keyboard-shortcut first-keystroke="shift meta a" />
     <keyboard-shortcut first-keystroke="shift meta p" />
   </action>
   <action id="GotoDeclaration">
-    <mouse-shortcut keystroke="control button1" />
     <keyboard-shortcut first-keystroke="ctrl back_slash" />
-    <keyboard-shortcut first-keystroke="meta back_slash" />
+    <keyboard-shortcut first-keystroke="meta back_slash" />    
+    <mouse-shortcut keystroke="button2" />
     <mouse-shortcut keystroke="ctrl button1" />
     <mouse-shortcut keystroke="meta button1" />
-    <mouse-shortcut keystroke="button2" />
   </action>
   <action id="GotoFile">
     <keyboard-shortcut first-keystroke="ctrl p" />
+    <keyboard-shortcut first-keystroke="meta p" />
   </action>
   <action id="GotoNextError">
     <keyboard-shortcut first-keystroke="f8" />
@@ -117,6 +121,7 @@
     <keyboard-shortcut first-keystroke="shift meta alt n" />
   </action>
   <action id="Images.Editor.ToggleGrid" />
+  <action id="MaximizeToolWindow" />
   <action id="MethodDown">
     <!-- TODO: choose something non-conflicting here -->
   </action>

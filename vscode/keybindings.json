@@ -244,5 +244,15 @@
     {
         "key": "ctrl+w",
         "command": "-workbench.action.closeActiveEditor"
+    },
+    {
+        "key": "ctrl+shift+'",
+        "command": "editor.action.triggerParameterHints",
+        "when": "editorHasSignatureHelpProvider && editorTextFocus"
+    },
+    {
+        "key": "ctrl+shift+space",
+        "command": "-editor.action.triggerParameterHints",
+        "when": "editorHasSignatureHelpProvider && editorTextFocus"
     }
 ]
