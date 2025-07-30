@@ -31,9 +31,9 @@ readonly PROJ_ROOT="$PARENT_DIR"
 # ---------------------------------------------
 cd "$PROJ_ROOT" >/dev/null 2>&1
 
-# NOTE: --loglevel <silent|error|warn|log|debug>
+# NOTE: --log-level <silent|error|warn|log|debug>
 $NPX prettier \
-  --loglevel log \
+  --log-level log \
   --write "src/**/*.{ts,tsx,js,jsx,json}"
 
 # ---------------------------------------------
