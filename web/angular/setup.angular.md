@@ -104,6 +104,16 @@ pnpm i --save-dev prettier
 
 1. Change the [`prefix`](https://angular.io/guide/workspace-config#project-configuration-options) to match your app
     - or just leave as "app"
+1. Package Manager
+```json
+{
+  ...
+  "cli": {
+    "packageManager": "pnpm"
+  }
+}
+```
+
 
 
 # tsconfig
