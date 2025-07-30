@@ -34,7 +34,7 @@ cd /path/to/web/projects
 # replace the line below
 APP_NAME=some-app
 
-ng new $APP_NAME
+ng new $APP_NAME --package-manager=pnpm
 # follow the prompts:   eg. enable routing, use less, ...
 
 ng add @angular/material
