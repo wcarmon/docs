@@ -5,7 +5,7 @@
 
 
 # TL;DR;
-1. Download [./jetbrains-keymaps/win_keyboard_macos_5.xml](./jetbrains-keymaps/win_keyboard_macos_5.xml)
+1. Download [./jetbrains-keymaps/win_keyboard_macos_5b.xml](./jetbrains-keymaps/win_keyboard_macos_5b.xml)
     1. Keymap **5** works without any other remapping from other tools
 1. Copy `*.xml` into ...
     1. **Mac**: `$HOME/Library/Application Support/JetBrains/IntelliJIdea<version>/keymaps/`
