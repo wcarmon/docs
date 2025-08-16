@@ -124,9 +124,7 @@ pnpm i --save-dev karma-junit-reporter
 ],
 ```
 
-1. Change the [`prefix`](https://angular.io/guide/workspace-config#project-configuration-options) to match your app
-    - or just leave as "app"
-1. Package Manager
+1. Set Package Manager
 ```json
 {
   ...
@@ -135,10 +133,13 @@ pnpm i --save-dev karma-junit-reporter
   }
 }
 ```
+1. (optional) Change the [`prefix`](https://angular.io/guide/workspace-config#project-configuration-options) to match your app
+    - or just leave as "app"
+
 
 # src/app/app.html
 - Gut this placeholder file :-)
-- you only need the `<router-outlet />`
+- You only need the `<router-outlet />`
 
 
 # tsconfig
