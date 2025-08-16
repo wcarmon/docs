@@ -56,6 +56,7 @@ pnpm start
 # Services
 
 ```bash
+mkdir app/model
 mkdir app/services
 cd app/services
 
@@ -152,6 +153,7 @@ pnpm i --save-dev karma-junit-reporter
 
 1. `tsconfig.json`: Global
     - Add any extra ES features to [`compilerOptions.lib`](https://www.typescriptlang.org/tsconfig#individual-library-components)
+        - "DOM",
         - "ES2018.promise",
         - "ES2022",
         - "ES2023.collection",
