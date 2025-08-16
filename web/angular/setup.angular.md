@@ -2,9 +2,11 @@
 
 1. How to setup [Angular](https://angular.io/) and [Angular CLI](https://angular.dev/tools/cli)
 
+
 # NodeJS
 
 - See [setup doc](../setup.node.md)
+
 
 # Install pnpm
 - https://pnpm.io/installation
@@ -29,14 +31,14 @@ sudo sysctl -p --system
 # New Angular app
 
 ```bash
-cd /path/to/web/projects
-
 # replace the line below
 APP_NAME=some-app
 
-ng new $APP_NAME --package-manager=pnpm
-# follow the prompts:   eg. enable routing, use less, ...
 
+cd /path/to/web/projects
+ng new $APP_NAME --package-manager=pnpm --routing=true --ssr=false --style=less --zoneless=false
+
+cd $APP_NAME
 ng add @angular/material
 ```
 
@@ -46,25 +48,46 @@ ng add @angular/material
 cd $APP_NAME
 # ng serve --open
 pnpm start
+
+# Navigate to http://localhost:4200
+```
+
+
+# Services
+
+```bash
+mkdir app/services
+cd app/services
+
+ng generate service AuthService
+ng generate service NetService
+ng generate service StateService
 ```
 
 
 # package.json
 
-```
-pnpm i --save @sherifmagdy/animejs
+```bash
+# Essentials
 pnpm i --save auto-bind
-pnpm i --save dayjs
 pnpm i --save lodash-es
 pnpm i --save normalize.css
 pnpm i --save rxjs
+pnpm i --save-dev eslint
+pnpm i --save-dev prettier
+
+
+# Other nice things
+pnpm i --save @sherifmagdy/animejs
+pnpm i --save dayjs
 pnpm i --save toastify-js
 pnpm i --save uuid
 # pnpm i --save notyf
 
 pnpm i --save-dev chai
+pnpm i --save-dev mocha
+
 pnpm i --save-dev chance
-pnpm i --save-dev eslint
 
 pnpm i --save-dev jasmine
 pnpm i --save-dev jasmine-spec-reporter
@@ -77,17 +100,16 @@ pnpm i --save-dev karma-jasmine
 pnpm i --save-dev karma-jasmine-html-reporter
 pnpm i --save-dev karma-junit-reporter
 
-pnpm i --save-dev mocha
-pnpm i --save-dev prettier
-
 # pnpm i --save-dev chalk
 # pnpm i --save-dev colors
 # pnpm i --save-dev mkdirp
 ```
 
 1. in package.json, replace `^` with `~`
+1. `pnpm up` or `pnpm up --latest --recursive`
 
 
+--------
 # [angular.json](https://angular.io/guide/workspace-config) (Angular workspace config)
 
 1. GOTCHA: The format/structure changes between versions
@@ -114,6 +136,9 @@ pnpm i --save-dev prettier
 }
 ```
 
+# src/app/app.html
+- Gut this placeholder file :-)
+- you only need the `<router-outlet />`
 
 
 # tsconfig
