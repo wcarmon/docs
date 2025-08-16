@@ -152,26 +152,28 @@ pnpm i --save-dev karma-junit-reporter
 
 1. `tsconfig.json`: Global
     - Add any extra ES features to [`compilerOptions.lib`](https://www.typescriptlang.org/tsconfig#individual-library-components)
-        - "ES2018.promise"
-        - "ES2023.collection"
-        - 'ES2022'
-    - Add `"noImplicitAny": true,`
+        - "ES2018.promise",
+        - "ES2022",
+        - "ES2023.collection",
+    - Add `"compilerOptions"."noImplicitAny": true,`
     - Add typeRoots
         ```json
         "typeRoots": [
           "./node_modules/@types"
         ]
         ```            
-1. `tsconfig.app.json`: App specific overrides on `tsconfig.json` (eg. when you have multiple apps)
-1. `tsconfig.spec.json`: For Tests
+1. `tsconfig.app.json`: contains App specific overrides on `tsconfig.json` 
+  1. Useful when you have multiple apps
+1. `tsconfig.spec.json`: for Tests
     - If you have extra test files, add test files here:
     ```json
       "files": [
         "src/my_extra_test.ts",
       ],
     ```
-1. `tsconfig.eslint.json`: For static analysis
+1. `tsconfig.eslint.json`: for static analysis
     - reference in `.eslintrc.json`
+
 
 # Karma
 
@@ -182,6 +184,7 @@ pnpm i --save-dev karma-junit-reporter
     - https://www.jetbrains.com/help/webstorm/running-unit-tests-on-karma.html
     - Sometimes you have to add a breakpoint to force karma plugin to rebuild & deploy tests
     - GOTCHA: compilation errors sometimes appear as test success (no tests found)
+
 
 # Gotchas
 
