@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # ---------------------------------------------
-# -- Push images to device via adb
+# -- Pull an sqlite database from device via adb
 # --
 # -- Assumptions
 # -- 1. adb installed
