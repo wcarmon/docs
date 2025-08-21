@@ -16,7 +16,6 @@
 1. Select & use keymap
 
 
-
 ## Load your custom keymap
 
 1. Open Goland/IDEA/Pycharm
