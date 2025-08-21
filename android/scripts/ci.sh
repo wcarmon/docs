@@ -5,6 +5,8 @@
 # --
 # -- Assumptions
 # -- 1. gradle installed
+# -- 2. Wrapper setup (once)
+# --    $ command gradle wrapper --gradle-version 9.0 --distribution-type all
 # ---------------------------------------------
 
 #set -x # uncomment to debug script
@@ -34,4 +36,3 @@ cd $PARENT_DIR > /dev/null 2>&1
 
 # ./scripts/generate-grpc.sh
 ./gradlew clean build assembleDebug assembleRelease test -q
- 

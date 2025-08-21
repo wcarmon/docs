@@ -1,0 +1,16 @@
+# Put into $HOME/.config/autostart/guake.desktop
+
+[Desktop Entry]
+Categories=GNOME;GTK;System;Utility;TerminalEmulator;
+Comment=Start Guake at login
+Exec=/usr/bin/guake --hide
+Hidden=false
+Icon=guake
+Name=Guake Terminal
+NoDisplay=false
+StartupNotify=true
+TryExec=/usr/bin/guake
+Type=Application
+X-Desktop-File-Install-Version=0.22
+X-GNOME-Autostart-Delay=3
+X-GNOME-Autostart-enabled=true
