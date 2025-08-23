@@ -34,6 +34,8 @@ readonly PARENT_DIR=$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")
 readonly ANDROID_PACKAGE_AND_APP_USER="com.foo.bar"
 
 readonly LOCAL_DEST_FILE="$HOME/tmp/my.sqlite.db"
+
+# -- Relative to app root dir
 readonly RELATIVE_DB_PATH="databases/quux.db"
 
 readonly TEMP_FILE_ON_DEVICE="/sdcard/quux.sqlite.db"
