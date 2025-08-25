@@ -1102,6 +1102,8 @@
     <action id="ParameterInfo">
         <keyboard-shortcut first-keystroke="shift ctrl quote" />
         <keyboard-shortcut first-keystroke="shift meta quote" />
+        <keyboard-shortcut first-keystroke="shift ctrl back_slash" />
+        <keyboard-shortcut first-keystroke="shift meta back_slash" />
     </action>
     <action id="PasteMultiple">
         <keyboard-shortcut first-keystroke="ctrl shift v" />

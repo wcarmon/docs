@@ -1,3 +1,10 @@
+<!--
+Copy to $HOME/.config/Google/AndroidStudio<version>/keymaps/
+Copy to $HOME/.config/JetBrains/CLion<version>/keymaps/
+Copy to $HOME/.config/JetBrains/GoLand<version>/keymaps/
+Copy to $HOME/.config/JetBrains/IntelliJIdea<version>/keymaps/
+Copy to $HOME/.config/JetBrains/WebStorm<version>/keymaps/
+-->
 <keymap version="1" name="wc-2025" parent="$default">
   <action id="AceAction">
     <keyboard-shortcut first-keystroke="ctrl semicolon" />
@@ -104,7 +111,7 @@
   </action>
   <action id="GotoDeclaration">
     <keyboard-shortcut first-keystroke="ctrl back_slash" />
-    <keyboard-shortcut first-keystroke="meta back_slash" />    
+    <keyboard-shortcut first-keystroke="meta back_slash" />
     <mouse-shortcut keystroke="button2" />
     <mouse-shortcut keystroke="ctrl button1" />
     <mouse-shortcut keystroke="meta button1" />
@@ -144,6 +151,8 @@
   <action id="ParameterInfo">
     <keyboard-shortcut first-keystroke="shift ctrl quote" />
     <keyboard-shortcut first-keystroke="shift meta quote" />
+    <keyboard-shortcut first-keystroke="shift ctrl back_slash" />
+    <keyboard-shortcut first-keystroke="shift meta back_slash" />
   </action>
   <action id="PreviousEditorTab" />
   <action id="QuickChangeScheme" />
