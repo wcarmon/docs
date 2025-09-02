@@ -12,6 +12,18 @@
 1. Digital Signatures avoid the need for trust (think Key-Pairs)
 
 
+# Blockchain Trilemma
+1. Choose 2 (Getting 2 is easy, 3 is hard)
+    1. Security:
+        - More nodes == more secure
+        - short-term: protection against validation attacks
+        - long-term: Immutability (more than 51% of the network or currency supply or similar)
+    1. Scalability:
+        - Speed/throughput/TPS
+    1. Decentralization:
+        - no single point-of-failure        
+
+
 # Setup
 
 ## Bitcoin

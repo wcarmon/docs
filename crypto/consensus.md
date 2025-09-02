@@ -10,9 +10,10 @@
 
 # Proof-of-Work (PoW)
 1. Used by Bitcoin
-1. Incentives: TODO
+1. Mining Incentives: transaction fees
 1. On Conflict: Trust the "branch" that has the most computational work
 1. Hard to verify a block, but easy to confirm it's correct
+1. Mining relies on brute force computation (dedicated hardware)
 1. Luck is part of it (which can be good or bad)
 1. `Con`: Favors those with the enough infra (large mining pools, expensive)
 1. `Con`: Difficulty increases with number of Miners/Verifiers
@@ -33,7 +34,7 @@
 1. Mining Incentives: transaction fees
 1. Only one validator/verifier/miner selected to build the block
     - think lottery
-    - mostly random selection
+    - mostly random selection, bias toward higher staked miners
 1. Rewards those who put up their coins/tokens as collateral (Staking, think Escrow)
     1. Staking = lock up your tokens, hoping to get more of the crypto currency
         - think bank account interest
