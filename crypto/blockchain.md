@@ -1,5 +1,5 @@
 # Overview
-1. TODO
+1. Key points around blockchains
 
 
 # Ledger
@@ -22,9 +22,10 @@
         - Speed/throughput/TPS
     1. Decentralization:
         - no single point-of-failure        
+1. Legacy/centralized infrastructure (Tradfi) only does Security + Scalability
 
 
-# Setup
+# How they work
 
 ## Bitcoin
 1. People contribute first
@@ -41,6 +42,10 @@
 # Access
 1. Bitcoin: Anyone can add to the ledger (Permission-less, no central authority)
 1. TODO
+
+
+# Layers
+1. See [blockchain.layers.md](./blockchain.layers.md) doc
 
 
 # TODO: Unorganized
