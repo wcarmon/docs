@@ -28,12 +28,15 @@
 1. Need 51% of the network to take over
 
 
-
 # Proof-of-Stake (PoS)
 1. Used by Ethereum
+1. Mining Incentives: transaction fees
+1. Only one validator/verifier/miner selected to build the block
+    - think lottery
+    - mostly random selection
 1. Rewards those who put up their coins/tokens as collateral (Staking, think Escrow)
-1. Incentives: transaction fees
-1. Only one verifier/miner selected to build the block (lottery, mostly random selection)
+    1. Staking = lock up your tokens, hoping to get more of the crypto currency
+        - think bank account interest
 1. `Con`: **Must own/purchase enough native currency first (expensive)**
 1. `Con`: Favors wealthy verifiers/miners ("rich get richer")
 1. `Con`: Less proven than PoW
