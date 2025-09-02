@@ -17,11 +17,14 @@
 
 
 # Virtual Machine (EVM)
-1. TODO
+1. Executes smart contracts
+1. No central "server"
+1. Code executes on TODO nodes
+1. Code execution requires gas
 
 
 # Smart Contracts
-1. TODO
+1. See [smart-contracts.md](./smart-contracts.md) doc
 
 
 # Decentralized Apps (DApps)

@@ -19,10 +19,11 @@
 1. Ledger (blockchain) enforces that no one over-drafts
 1. Knowing your balance requires looking at the full history of transactions
     1. Think [Kafka](../kafka/readme.md)
+1. See [bitcoin.md](./bitcoin.md) doc
 
 
 ## Ethereum
-1. TODO
+1. See [ethereum.md](./ethereum.md) doc
 
 
 # Access
@@ -31,6 +32,9 @@
 
 
 # TODO: Unorganized
+1. Alternative payment rails to the existing financial system
+1. Allows bypassing the swift network
+1. Makes sanctions difficult to impose
 
 
 # Other resources
