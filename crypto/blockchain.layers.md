@@ -17,13 +17,16 @@
 
 ## Popular Layer-1s
 
-### Solana (2020)
+### Solana (SOL)
 1. Focus: Speed
 1. Concensus: Hybrid algorithm: POH + POS
 1. Can process smart-contracts in parallel
+1. Debate/Criticism:
+    1. Outages
+    1. Is it really decentralized? 
 
 
-### Avalanche
+### Avalanche (AVAX)
 1. TODO
 
 
