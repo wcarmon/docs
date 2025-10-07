@@ -84,7 +84,8 @@ psql -h localhost \
 # -- psql inside container
 docker exec -it \
 postgres_for_foobar \
-psql -U postgres \
+psql \
+-U postgres \
 -d postgres \
 -c "\dt"
 
