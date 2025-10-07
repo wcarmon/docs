@@ -87,6 +87,6 @@ postgres_for_foobar \
 psql \
 -U postgres \
 -d postgres \
--c "\dt"
+-c "\l"
 
 EXAMPLE
