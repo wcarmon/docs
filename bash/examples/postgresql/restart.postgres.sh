@@ -72,8 +72,20 @@ docker logs $CONTAINER_NAME
 # --------------------------------------------
 # -- Connect
 # --------------------------------------------
-#psql -h localhost \
-#-p $DB_PORT \
-#-U postgres \
-#-d postgres \
-#-c "DESCRIBE product"
+: <<'EXAMPLE'
+# -- psql outside container
+psql -h localhost \
+-p $DB_PORT \
+-U postgres \
+-d postgres \
+-c "DESCRIBE food"
+
+
+# -- psql inside container
+docker exec -it \
+postgres_for_foobar \
+psql -U postgres \
+-d postgres \
+-c "\dt"
+
+EXAMPLE
