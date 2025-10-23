@@ -84,8 +84,8 @@ long long unix_ts = system_clock::now().time_since_epoch().count();
 ```
 
 # TODO: unorganized
-- std::chrono::clock_cast
-- std::chrono::duration_cast
+- `std::chrono::clock_cast`
+- `std::chrono::duration_cast`
 
 
 # Other resources
