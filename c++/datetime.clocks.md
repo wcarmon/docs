@@ -3,8 +3,8 @@
 
 
 # TL;DR:
-- Just use [`gps_clock`](https://en.cppreference.com/w/cpp/chrono/gps_clock.html) and [`system_clock`](https://en.cppreference.com/w/cpp/chrono/system_clock.html) (logs, unix timestamps)
-    - for local benchmarks, [`steady_clock`](https://en.cppreference.com/w/cpp/chrono/steady_clock.html) is also fine
+- Just use [`system_clock`](https://en.cppreference.com/w/cpp/chrono/system_clock.html) (logs, unix timestamps) and
+[`steady_clock`](https://en.cppreference.com/w/cpp/chrono/steady_clock.html) for local benchmarks.
 
 
 # Precision Time Protocol (PTP) with Hardware Timestamping
@@ -25,14 +25,12 @@
 
 
 # [`std::chrono::gps_clock`](https://en.cppreference.com/w/cpp/chrono/gps_clock.html)
-- Useful for HFT
+- Not as useful for HFT because GPS receivers have unpredictable overhead
 - Monotonic, Continuous, Never jumps
 - high-precision time (nanoseconds)
-- Better than `steady_clock` for HFT
+- Better than `steady_clock` if time must be globally verifiable
 - no leap seconds
 - epoch in 1980
-- Rust equivalent: TODO
-- Java equivalent: TODO
 
 
 # [`std::chrono::tai_clock`](https://en.cppreference.com/w/cpp/chrono/tai_clock.html)
@@ -40,11 +38,9 @@
 - Useful for HFT
 - Monotonic, Continuous, Never jumps
 - high-precision time
-- Better than `steady_clock` for HFT
+- Better than `steady_clock` if time must be globally verifiable
 - no leap seconds
 - epoch in 1958
-- Rust equivalent: TODO
-- Java equivalent: TODO
 
 
 # [`std::chrono::steady_clock`](https://en.cppreference.com/w/cpp/chrono/steady_clock.html)
