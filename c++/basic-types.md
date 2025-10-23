@@ -3,7 +3,8 @@
 
 
 # TL;DR
-1. TODO
+1. In general, prefer [`<cstdint>`](TODO)
+1. Use `std::intN_t` ... only for I/O, wire formats, hashing, persistence, ABI boundaries
 
 
 |C++|Rust|Java|
@@ -12,12 +13,12 @@
 |TODO|TODO|char|
 |`signed char`|`i8`|`byte`|
 |`short` or `int16_t`|`i16`|`short`|
-|`int`|`i32`|`int`|
-|`long long` or `long long int`|`i64`|`long`|
-|`unsigned char`|`u8`|N/A|
+|`int` or `std::int32_t`|`i32`|`int`|
+|`long long` or `std::int64_t`|`i64`|`long`|
+|`unsigned char` or `std::uint8_t`|`u8`|N/A|
 |`unsigned short`|`u16`|N/A|
 |`unsigned int`|`u32`|N/A|
-|`unsigned long long`|`u64`|N/A|
+|`unsigned long long` or `std::uint64_t`|`u64`|N/A|
 |`std::size_t`|`usize`|N/A|
 |`std::ptrdiff_t`|`isize`|N/A|
 |`float`|`f32`|`float`|
