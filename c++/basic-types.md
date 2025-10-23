@@ -1,5 +1,9 @@
 # Overview
-1. Basic types
+1. Basic types in C++23+
+
+
+# TL;DR
+1. TODO
 
 
 |C++|Rust|Java|
@@ -7,7 +11,7 @@
 |`bool`|`bool`|`boolean`|
 |TODO|TODO|char|
 |`signed char`|`i8`|`byte`|
-|`short`|`i16`|`short`|
+|`short` or `int16_t`|`i16`|`short`|
 |`int`|`i32`|`int`|
 |`long long` or `long long int`|`i64`|`long`|
 |`unsigned char`|`u8`|N/A|
@@ -22,8 +26,10 @@
 |TODO|TODO|`BigDecimal`|
 
 
-# TODO: is there a header for modern
-# TODO: should I use the aliases in <cstdint>
+# TODO: unorganized
+- is there a header for modern
+- should I use the aliases in <cstdint>
+- google style guide
 
 
 # Other resources
