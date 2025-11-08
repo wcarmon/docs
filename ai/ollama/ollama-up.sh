@@ -7,6 +7,7 @@
 # --
 # -- Assumptions:
 # -- 1. Docker installed: https://docs.docker.com/get-docker/
+# -- 2. sudo chown -Rv "$(id -u)":"$(id -g)" "$OLLAMA_DATA_DIR"
 # ---------------------------------------------
 #set -x # uncomment to debug script
 set -e # exit on first error
@@ -51,10 +52,12 @@ readonly OLLAMA_NUM_PARALLEL=1
 mkdir -p "$OLLAMA_DATA_DIR"
 
 docker run -d --name "$CONTAINER_NAME" \
-  -p 127.0.0.1:11434:11434 \
-  -v "$OLLAMA_DATA_DIR":/root/.ollama \
+  --user "$(id -u):$(id -g)" \
+  -e HOME=/home/ollama \
   -e OLLAMA_NUM_GPU=0 \
   -e OLLAMA_NUM_PARALLEL="$OLLAMA_NUM_PARALLEL" \
+  -p 127.0.0.1:11434:11434 \
+  -v "$OLLAMA_DATA_DIR":/home/ollama/.ollama \
   --cap-drop ALL \
   --cpu-shares "${OLLAMA_CPU_SHARES:-2048}" \
   --cpus="20" \
