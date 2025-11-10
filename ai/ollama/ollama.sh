@@ -8,6 +8,7 @@
 # -- Assumptions:
 # -- 1. Docker installed: https://docs.docker.com/get-docker/
 # -- 2. sudo chown -Rv "$(id -u)":"$(id -g)" "$OLLAMA_DATA_DIR"
+# -- 3. jq installed
 # ---------------------------------------------
 
 #set -x # uncomment to debug script
@@ -77,7 +78,8 @@ docker run -d --name "$CONTAINER_NAME" \
   "$IMAGE"
 
 
-# TODO: get some models
+# TODO: # create a 16k-context variant for large diffs:
+# See https://aider.chat/docs/llms/ollama.html#setting-the-context-window-size
 
 
 # ---------------------------------------------
@@ -88,4 +90,11 @@ echo "|-- Ollama API: http://127.0.0.1:11434"
 echo "|-- Ollama container: $CONTAINER_NAME"
 echo "|-- Ollama data: $OLLAMA_DATA_DIR"
 echo "|-- Logs:  docker logs $CONTAINER_NAME"
-echo "|-- Models:  docker exec -it $CONTAINER_NAME ollama list"
+
+echo
+echo "|-- List Models:  docker exec -it $CONTAINER_NAME ollama list"
+echo "|-- List Models:  curl -s http://127.0.0.1:11434/api/tags | jq"
+echo "|-- List Aider compatible Models:  curl -s http://127.0.0.1:11434/v1/models | jq"
+echo
+echo "|-- Get a model:    docker exec -it $CONTAINER_NAME ollama pull qwen2.5-coder:7b"
+echo "|-- Get a model:    docker exec -it $CONTAINER_NAME ollama pull qwen2.5-coder:14b"
