@@ -58,7 +58,7 @@ readonly OPENAI_API_BASE="http://127.0.0.1:11434/v1"
 readonly OPENAI_API_KEY="ollama"
 
 # --subtree-only: ignore the repo outside of the directory you start in
-readonly AIDER_ARGS="--no-gitignore --subtree-only"
+readonly AIDER_ARGS="--no-gitignore --subtree-only --edit-format whole"
 
 
 # ---------------------------------------------

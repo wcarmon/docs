@@ -120,3 +120,7 @@ echo "  docker exec -it $CONTAINER_NAME ollama pull qwen2.5-coder:7b"
 echo "  docker exec -it $CONTAINER_NAME ollama pull qwen3-coder:30b"
 echo "  docker exec -it $CONTAINER_NAME ollama pull starcoder2:15b"
 echo "  docker exec -it $CONTAINER_NAME ollama pull starcoder2:7b"
+
+echo
+echo "|-- Warm-up a model:"
+echo "  docker exec -it $CONTAINER_NAME ollama run deepseek-coder:6.7b"
