@@ -8,6 +8,7 @@
 # -- Assumptions:
 # -- 1. Docker installed: https://docs.docker.com/get-docker/
 # -- 2. git configured ($HOME/.gitconfig already setup)
+# -- 3. ollama container running
 # ---------------------------------------------
 
 #set -x # uncomment to debug script
@@ -59,17 +60,15 @@ readonly OPENAI_API_KEY="ollama"
 # ---------------------------------------------
 # -- Derived
 # ---------------------------------------------
+readonly WORKDIR=$(pwd)
+
 readonly CONTAINER_NAME="wc-aider-$(basename "$WORKDIR")-$(date +%H%M%S)"
 
 
 # ---------------------------------------------
 # -- Validate
 # ---------------------------------------------
-WORKDIR=$(pwd)
 [ -d "$WORKDIR" ] || { echo "|-- Not a directory: $WORKDIR" >&2; exit 2; }
-
-echo
-echo "|-- Working directory: $WORKDIR"
 
 
 # ---------------------------------------------
@@ -82,6 +81,9 @@ echo "|-- Working directory: $WORKDIR"
 # ---------------------------------------------
 # -- Run
 # ---------------------------------------------
+echo
+echo "|-- Working directory: $WORKDIR"
+
 # -- Persist tiny per-user prefs/history for aider (optional)
 mkdir -p "$AIDER_HOME_HOST"
 
@@ -107,14 +109,17 @@ docker run -it --rm \
   -w /workspace \
   $IMAGE \
   --model "$AIDER_MODEL" \
-  ${AIDER_ARGS:-}
+  $AIDER_ARGS
 
 
 # ---------------------------------------------
 # -- Report
 # ---------------------------------------------
+readonly OLLAMA_CONTAINER_NAME="wc-ollama-0"
+
 echo
 echo "|-- Aider container: $CONTAINER_NAME"
 echo "|-- Logs:  docker logs $CONTAINER_NAME"
+
 echo
-echo "|-- models:  docker exec -it wc-ollama-0 ollama list"
+echo "|-- models:  docker exec -it $OLLAMA_CONTAINER_NAME ollama list"
