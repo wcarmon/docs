@@ -29,8 +29,20 @@ set -u # fail on unset var
 # ---------------------------------------------
 # -- Config
 # ---------------------------------------------
-# TODO: revisit this
-readonly AIDER_MODEL="${AIDER_MODEL:-ollama/qwen2.5-coder-16k}"  # switch to :7b for speed
+#readonly AIDER_MODEL="codegemma:7b"
+#readonly AIDER_MODEL="codellama:34b"
+#readonly AIDER_MODEL="codellama:70b"
+#readonly AIDER_MODEL="codestral:22b"
+#readonly AIDER_MODEL="deepseek-coder-v2:16b"
+#readonly AIDER_MODEL="deepseek-coder-v2:236b"
+#readonly AIDER_MODEL="deepseek-coder:33b"
+#readonly AIDER_MODEL="deepseek-coder:6.7b"
+readonly AIDER_MODEL="qwen2.5-coder:14b"
+#readonly AIDER_MODEL="qwen2.5-coder:32b"
+#readonly AIDER_MODEL="qwen2.5-coder:7b"
+#readonly AIDER_MODEL="qwen3-coder:30b"
+#readonly AIDER_MODEL="starcoder2:15b"
+#readonly AIDER_MODEL="starcoder2:7b"
 
 readonly AIDER_ARGS="--no-gitignore"
 readonly AIDER_CPUS="4"
