@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# TODO: fix from here down
+
 # ---------------------------------------------
 # -- TODO
 # --
@@ -77,3 +79,56 @@ docker rm $CONTAINER_NAME || true
 #echo "|-- Ollama container: $CONTAINER_NAME"
 #echo "|-- Ollama data: $OLLAMA_DATA_DIR"
 #echo "|-- Logs:  docker logs $CONTAINER_NAME"
+
+
+
+# Use:
+#   opencode-ollama.sh                -> launch TUI in $PWD
+#   opencode-ollama.sh "your prompt"  -> non-interactive 'run' in $PWD
+#
+# Requires opencode installed, e.g.:
+#   curl -fsSL https://opencode.ai/install | bash
+# Docs: https://opencode.ai/docs/  (install, CLI, providers)
+# (stored creds live at ~/.local/share/opencode/auth.json)
+
+#WORKDIR="${WORKDIR:-$PWD}"
+#[ -d "$WORKDIR" ] || { echo "Not a directory: $WORKDIR" >&2; exit 2; }
+#
+## Ensure OpenCode is installed
+#if ! command -v opencode >/dev/null 2>&1; then
+#  echo "OpenCode not found. Install with:  curl -fsSL https://opencode.ai/install | bash" >&2
+#  exit 127
+#fi
+#
+## Ensure project config advertises local Ollama as OpenAI-compatible provider
+#CFG="$WORKDIR/opencode.json"
+#if [ ! -f "$CFG" ]; then
+#  cat > "$CFG" <<'JSON'
+#{
+#  "$schema": "https://opencode.ai/config.json",
+#  "provider": {
+#    "ollama": {
+#      "npm": "@ai-sdk/openai-compatible",
+#      "name": "Ollama (local)",
+#      "options": { "baseURL": "http://127.0.0.1:11434/v1" },
+#      "models": {
+#        "qwen2.5-coder-16k": { "name": "Qwen2.5 Coder 16k (local)" }
+#      }
+#    }
+#  }
+#}
+#JSON
+#fi
+#
+## Default model mapping for this project (provider/model form)
+#MODEL_ID="${MODEL_ID:-ollama/qwen2.5-coder-16k}"
+#
+#cd "$WORKDIR"
+#
+#if [ "$#" -eq 0 ]; then
+#  # TUI (interactive)
+#  exec opencode
+#else
+#  # Non-interactive CLI
+#  exec opencode run -m "$MODEL_ID" "$@"
+#fi

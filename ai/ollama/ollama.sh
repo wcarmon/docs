@@ -77,6 +77,9 @@ docker run -d --name "$CONTAINER_NAME" \
   "$IMAGE"
 
 
+# TODO: get some models
+
+
 # ---------------------------------------------
 # -- Report
 # ---------------------------------------------
@@ -85,3 +88,4 @@ echo "|-- Ollama API: http://127.0.0.1:11434"
 echo "|-- Ollama container: $CONTAINER_NAME"
 echo "|-- Ollama data: $OLLAMA_DATA_DIR"
 echo "|-- Logs:  docker logs $CONTAINER_NAME"
+echo "|-- Models:  docker exec -it $CONTAINER_NAME ollama list"
