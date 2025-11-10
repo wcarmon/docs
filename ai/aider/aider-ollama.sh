@@ -37,8 +37,8 @@ set -u # fail on unset var
 #readonly AIDER_MODEL="deepseek-coder-v2:16b"
 #readonly AIDER_MODEL="deepseek-coder-v2:236b"
 #readonly AIDER_MODEL="deepseek-coder:33b"
-#readonly AIDER_MODEL="deepseek-coder:6.7b"
-readonly AIDER_MODEL="qwen2.5-coder:14b"
+readonly AIDER_MODEL="deepseek-coder:6.7b"
+#readonly AIDER_MODEL="qwen2.5-coder:14b"
 #readonly AIDER_MODEL="qwen2.5-coder:32b"
 #readonly AIDER_MODEL="qwen2.5-coder:7b"
 #readonly AIDER_MODEL="qwen3-coder:30b"
@@ -66,10 +66,14 @@ readonly WORKDIR=$(pwd)
 
 readonly CONTAINER_NAME="wc-aider-$(basename "$WORKDIR")-$(date +%H%M%S)"
 
-# TODO: when this fails it should print a helpful message
-readonly GIT_DIR_HOST="$(git rev-parse --absolute-git-dir)"
+if ! GIT_DIR_HOST="$(git rev-parse --absolute-git-dir 2>/dev/null)"; then
+  echo
+  echo "|-- Refusing to run aider in $(pwd)"
+  echo "|-- Error: must be run inside a Git repository." >&2
+  exit 5
+fi
 
-
+# -- .aiderignore file
 find_aiderignore_up() { d="$PWD"; while [ "$d" != "/" ]; do f="$d/.aiderignore"; [ -f "$f" ] && echo "$f" && return 0; d=$(dirname "$d"); done; return 1; }; find_aiderignore_up
 readonly AIDER_IGNORE_FILE="$(find_aiderignore_up)"
 
@@ -101,19 +105,21 @@ mkdir -p "$AIDER_HOME_HOST"
 
 docker run -it --rm \
   --name "$CONTAINER_NAME" \
-  --user "$(id -u)":"$(id -g)" \
-  --network host \
   --cap-drop ALL \
   --cpus "$AIDER_CPUS" \
   --memory "$AIDER_MEM" \
+  --network host \
   --pids-limit 512 \
   --security-opt no-new-privileges:true \
   --tmpfs /tmp:exec,nosuid,nodev,mode=1777 \
+  --user "$(id -u)":"$(id -g)" \
+  -e GIT_DIR=/gitdir -e GIT_WORK_TREE=/workspace \
   -e HOME=/home/user \
   -e OLLAMA_API_BASE="$OLLAMA_API_BASE" \
   -e OPENAI_API_BASE="$OPENAI_API_BASE" \
   -e OPENAI_API_KEY="$OPENAI_API_KEY" \
   -v "$AIDER_HOME_HOST":/home/user \
+  -v "$GIT_DIR_HOST":/gitdir \
   -v "$HOME/.gitconfig":/etc/gitconfig:ro \
   -v "$HOME/.gitconfig":/home/user/.gitconfig:ro \
   -v "$WORKDIR":/workspace \
