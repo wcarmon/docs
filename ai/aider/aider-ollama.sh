@@ -31,13 +31,13 @@ set -u # fail on unset var
 # -- Config
 # ---------------------------------------------
 #readonly AIDER_MODEL="ollama/codegemma:7b"
-#readonly AIDER_MODEL="ollama/codellama:34b"
+readonly AIDER_MODEL="ollama/codellama:34b"
 #readonly AIDER_MODEL="ollama/codellama:70b"
 #readonly AIDER_MODEL="ollama/codestral:22b"
 #readonly AIDER_MODEL="ollama/deepseek-coder-v2:16b"
 #readonly AIDER_MODEL="ollama/deepseek-coder-v2:236b"
 #readonly AIDER_MODEL="ollama/deepseek-coder:33b"
-readonly AIDER_MODEL="ollama/deepseek-coder:6.7b"
+#readonly AIDER_MODEL="ollama/deepseek-coder:6.7b"
 #readonly AIDER_MODEL="ollama/qwen2.5-coder:14b"
 #readonly AIDER_MODEL="ollama/qwen2.5-coder:32b"
 #readonly AIDER_MODEL="ollama/qwen2.5-coder:7b"
