@@ -30,27 +30,29 @@ set -u # fail on unset var
 # ---------------------------------------------
 # -- Config
 # ---------------------------------------------
-#readonly AIDER_MODEL="codegemma:7b"
-#readonly AIDER_MODEL="codellama:34b"
-#readonly AIDER_MODEL="codellama:70b"
-#readonly AIDER_MODEL="codestral:22b"
-#readonly AIDER_MODEL="deepseek-coder-v2:16b"
-#readonly AIDER_MODEL="deepseek-coder-v2:236b"
-#readonly AIDER_MODEL="deepseek-coder:33b"
-readonly AIDER_MODEL="deepseek-coder:6.7b"
-#readonly AIDER_MODEL="qwen2.5-coder:14b"
-#readonly AIDER_MODEL="qwen2.5-coder:32b"
-#readonly AIDER_MODEL="qwen2.5-coder:7b"
-#readonly AIDER_MODEL="qwen3-coder:30b"
-#readonly AIDER_MODEL="starcoder2:15b"
-#readonly AIDER_MODEL="starcoder2:7b"
+#readonly AIDER_MODEL="ollama/codegemma:7b"
+#readonly AIDER_MODEL="ollama/codellama:34b"
+#readonly AIDER_MODEL="ollama/codellama:70b"
+#readonly AIDER_MODEL="ollama/codestral:22b"
+#readonly AIDER_MODEL="ollama/deepseek-coder-v2:16b"
+#readonly AIDER_MODEL="ollama/deepseek-coder-v2:236b"
+#readonly AIDER_MODEL="ollama/deepseek-coder:33b"
+readonly AIDER_MODEL="ollama/deepseek-coder:6.7b"
+#readonly AIDER_MODEL="ollama/qwen2.5-coder:14b"
+#readonly AIDER_MODEL="ollama/qwen2.5-coder:32b"
+#readonly AIDER_MODEL="ollama/qwen2.5-coder:7b"
+#readonly AIDER_MODEL="ollama/qwen3-coder:30b"
+#readonly AIDER_MODEL="ollama/starcoder2:15b"
+#readonly AIDER_MODEL="ollama/starcoder2:7b"
 
 readonly AIDER_CPUS="4"
 readonly AIDER_HOME_HOST="$HOME/.aider"
 readonly AIDER_MEM="3g"
 readonly IMAGE="paulgauthier/aider:latest"
 readonly OLLAMA_API_BASE="http://127.0.0.1:11434"
+readonly OLLAMA_CONTAINER_NAME="wc-ollama-0"
 readonly OPENAI_API_BASE="http://127.0.0.1:11434/v1"
+
 
 # dummy value; Ollama ignores it
 readonly OPENAI_API_KEY="ollama"
@@ -70,7 +72,7 @@ if ! GIT_DIR_HOST="$(git rev-parse --absolute-git-dir 2>/dev/null)"; then
   echo
   echo "|-- Refusing to run aider in $(pwd)"
   echo "|-- Error: must be run inside a Git repository." >&2
-  exit 5
+  exit 3
 fi
 
 # -- .aiderignore file
@@ -81,7 +83,29 @@ readonly AIDER_IGNORE_FILE="$(find_aiderignore_up)"
 # ---------------------------------------------
 # -- Validate
 # ---------------------------------------------
-[ -d "$WORKDIR" ] || { echo "|-- Not a directory: $WORKDIR" >&2; exit 2; }
+[ -d "$WORKDIR" ] || { echo "|-- Not a directory: $WORKDIR" >&2; exit 4; }
+
+
+echo "|-- Checking for Ollama @ $OLLAMA_API_BASE ..."
+if ! curl -sS "$OLLAMA_API_BASE/api/version" >/dev/null; then
+  echo "|-- ERROR: Cannot reach Ollama at $OLLAMA_API_BASE"
+  echo "|-- Is your container running and bound to 127.0.0.1:11434?"
+  exit 6
+fi
+
+HAVE_MODEL=$(
+  curl -s "$OLLAMA_API_BASE/api/tags" \
+  | grep -oE '"name":"[^"]+"' \
+  | cut -d'"' -f4 \
+  | grep -Fx -- "${AIDER_MODEL#ollama/}" || true
+)
+
+if [[ -z "$HAVE_MODEL" ]]; then
+  echo "|-- ERROR: Model is not installed in Ollama: '${MODEL_ID#ollama/}'"
+  echo "|-- Fix:   docker exec -it $OLLAMA_CONTAINER_NAME ollama pull ${MODEL_ID#ollama/}"
+  echo "|-- Or pick one that exists"
+  exit 7
+fi
 
 
 # ---------------------------------------------
@@ -123,18 +147,17 @@ docker run -it --rm \
   -v "$HOME/.gitconfig":/etc/gitconfig:ro \
   -v "$HOME/.gitconfig":/home/user/.gitconfig:ro \
   -v "$WORKDIR":/workspace \
-  -v "$WORKDIR/.git":/workspace/.git \
   -w /workspace \
   $IMAGE \
   --model "$AIDER_MODEL" \
   $AIDER_ARGS
 
 
+#-v "$WORKDIR/.git":/workspace/.git \
+
 # ---------------------------------------------
 # -- Report
 # ---------------------------------------------
-readonly OLLAMA_CONTAINER_NAME="wc-ollama-0"
-
 echo
 echo "|-- Aider container: $CONTAINER_NAME"
 echo "|-- Logs:  docker logs $CONTAINER_NAME"
