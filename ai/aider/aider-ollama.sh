@@ -45,7 +45,6 @@ readonly AIDER_MODEL="qwen2.5-coder:14b"
 #readonly AIDER_MODEL="starcoder2:15b"
 #readonly AIDER_MODEL="starcoder2:7b"
 
-readonly AIDER_ARGS="--no-gitignore"
 readonly AIDER_CPUS="4"
 readonly AIDER_HOME_HOST="$HOME/.aider"
 readonly AIDER_MEM="3g"
@@ -56,6 +55,9 @@ readonly OPENAI_API_BASE="http://127.0.0.1:11434/v1"
 # dummy value; Ollama ignores it
 readonly OPENAI_API_KEY="ollama"
 
+# --subtree-only: ignore the repo outside of the directory you start in
+readonly AIDER_ARGS="--no-gitignore --subtree-only"
+
 
 # ---------------------------------------------
 # -- Derived
@@ -63,6 +65,13 @@ readonly OPENAI_API_KEY="ollama"
 readonly WORKDIR=$(pwd)
 
 readonly CONTAINER_NAME="wc-aider-$(basename "$WORKDIR")-$(date +%H%M%S)"
+
+# TODO: when this fails it should print a helpful message
+readonly GIT_DIR_HOST="$(git rev-parse --absolute-git-dir)"
+
+
+find_aiderignore_up() { d="$PWD"; while [ "$d" != "/" ]; do f="$d/.aiderignore"; [ -f "$f" ] && echo "$f" && return 0; d=$(dirname "$d"); done; return 1; }; find_aiderignore_up
+readonly AIDER_IGNORE_FILE="$(find_aiderignore_up)"
 
 
 # ---------------------------------------------
@@ -82,7 +91,10 @@ readonly CONTAINER_NAME="wc-aider-$(basename "$WORKDIR")-$(date +%H%M%S)"
 # -- Run
 # ---------------------------------------------
 echo
-echo "|-- Working directory: $WORKDIR"
+echo "|-- Aider model:  $AIDER_MODEL"
+echo "|-- Working dir:  $WORKDIR"
+echo "|-- Git dir:      $GIT_DIR_HOST"
+echo "|-- .aiderignore: $AIDER_IGNORE_FILE"
 
 # -- Persist tiny per-user prefs/history for aider (optional)
 mkdir -p "$AIDER_HOME_HOST"
