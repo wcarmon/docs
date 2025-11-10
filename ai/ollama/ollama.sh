@@ -92,9 +92,34 @@ echo "|-- Ollama data: $OLLAMA_DATA_DIR"
 echo "|-- Logs:  docker logs $CONTAINER_NAME"
 
 echo
-echo "|-- List Models:  docker exec -it $CONTAINER_NAME ollama list"
-echo "|-- List Models:  curl -s http://127.0.0.1:11434/api/tags | jq"
-echo "|-- List Aider compatible Models:  curl -s http://127.0.0.1:11434/v1/models | jq"
+echo "|-- List available models:  https://ollama.com/library"
+echo "  https://ollama.com/library"
+echo "  https://huggingface.co/models (noisy)"
+
 echo
-echo "|-- Get a model:    docker exec -it $CONTAINER_NAME ollama pull qwen2.5-coder:7b"
-echo "|-- Get a model:    docker exec -it $CONTAINER_NAME ollama pull qwen2.5-coder:14b"
+echo "|-- List installed models:"
+echo "  docker exec -it $CONTAINER_NAME ollama list"
+echo "  curl -s http://127.0.0.1:11434/api/tags | jq"
+
+echo
+echo "|-- List Aider compatible Models:  curl -s http://127.0.0.1:11434/v1/models | jq"
+
+echo
+echo "|-- Get a model:"
+echo "  docker exec -it $CONTAINER_NAME ollama pull codegemma:7b"
+echo "  docker exec -it $CONTAINER_NAME ollama pull codellama:34b"
+echo "  docker exec -it $CONTAINER_NAME ollama pull codellama:70b"
+echo "  docker exec -it $CONTAINER_NAME ollama pull codestral:22b"
+echo "  docker exec -it $CONTAINER_NAME ollama pull deepseek-coder-v2:16b"
+echo "  docker exec -it $CONTAINER_NAME ollama pull deepseek-coder-v2:236b"
+echo "  docker exec -it $CONTAINER_NAME ollama pull deepseek-coder:33b"
+echo "  docker exec -it $CONTAINER_NAME ollama pull deepseek-coder:6.7b"
+echo "  docker exec -it $CONTAINER_NAME ollama pull deepseek-r1:14b"
+echo "  docker exec -it $CONTAINER_NAME ollama pull deepseek-r1:70b"
+echo "  docker exec -it $CONTAINER_NAME ollama pull qwen2.5-coder:14b"
+echo "  docker exec -it $CONTAINER_NAME ollama pull qwen2.5-coder:32b"
+echo "  docker exec -it $CONTAINER_NAME ollama pull qwen3-coder:30b"
+echo "  docker exec -it $CONTAINER_NAME ollama pull starcoder2:15b"
+echo "  docker exec -it $CONTAINER_NAME ollama pull starcoder2:7b"
+#echo "  docker exec -it $CONTAINER_NAME ollama pull qwen2.5-coder:7b"
+
