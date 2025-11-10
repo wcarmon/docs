@@ -86,13 +86,13 @@ docker run -d --name "$CONTAINER_NAME" \
 # -- Report
 # ---------------------------------------------
 echo
-echo "|-- Ollama API: http://127.0.0.1:11434"
+echo "|-- Ollama API:       http://127.0.0.1:11434"
 echo "|-- Ollama container: $CONTAINER_NAME"
-echo "|-- Ollama data: $OLLAMA_DATA_DIR"
-echo "|-- Logs:  docker logs $CONTAINER_NAME"
+echo "|-- Ollama data:      $OLLAMA_DATA_DIR"
+echo "|-- Logs:             docker logs $CONTAINER_NAME"
 
 echo
-echo "|-- List available models:  https://ollama.com/library"
+echo "|-- List available models:"
 echo "  https://ollama.com/library"
 echo "  https://huggingface.co/models (noisy)"
 
@@ -100,12 +100,10 @@ echo
 echo "|-- List installed models:"
 echo "  docker exec -it $CONTAINER_NAME ollama list"
 echo "  curl -s http://127.0.0.1:11434/api/tags | jq"
+echo "  curl -s http://127.0.0.1:11434/v1/models | jq"
 
 echo
-echo "|-- List Aider compatible Models:  curl -s http://127.0.0.1:11434/v1/models | jq"
-
-echo
-echo "|-- Get a model:"
+echo "|-- Pull a model:"
 echo "  docker exec -it $CONTAINER_NAME ollama pull codegemma:7b"
 echo "  docker exec -it $CONTAINER_NAME ollama pull codellama:34b"
 echo "  docker exec -it $CONTAINER_NAME ollama pull codellama:70b"
