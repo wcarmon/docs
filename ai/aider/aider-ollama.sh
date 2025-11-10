@@ -57,8 +57,8 @@ readonly OPENAI_API_BASE="http://127.0.0.1:11434/v1"
 # dummy value; Ollama ignores it
 readonly OPENAI_API_KEY="ollama"
 
-# --subtree-only: ignore the repo outside of the directory you start in
-readonly AIDER_ARGS="--no-gitignore --subtree-only --edit-format whole"
+# Gotcha: --subtree-only doesn't work well with the double bind of workspace
+readonly AIDER_ARGS="--no-gitignore --edit-format whole"
 
 
 # ---------------------------------------------
@@ -101,8 +101,8 @@ HAVE_MODEL=$(
 )
 
 if [[ -z "$HAVE_MODEL" ]]; then
-  echo "|-- ERROR: Model is not installed in Ollama: '${MODEL_ID#ollama/}'"
-  echo "|-- Fix:   docker exec -it $OLLAMA_CONTAINER_NAME ollama pull ${MODEL_ID#ollama/}"
+  echo "|-- ERROR: Model is not installed in Ollama: '${AIDER_MODEL#ollama/}'"
+  echo "|-- Fix:   docker exec -it $OLLAMA_CONTAINER_NAME ollama pull ${AIDER_MODEL#ollama/}"
   echo "|-- Or pick one that exists"
   exit 7
 fi
@@ -146,6 +146,7 @@ docker run -it --rm \
   -v "$GIT_DIR_HOST":/gitdir \
   -v "$HOME/.gitconfig":/etc/gitconfig:ro \
   -v "$HOME/.gitconfig":/home/user/.gitconfig:ro \
+  -v "$WORKDIR":"$WORKDIR" \
   -v "$WORKDIR":/workspace \
   -w /workspace \
   $IMAGE \
