@@ -910,7 +910,7 @@
         <keyboard-shortcut first-keystroke="meta g" />
     </action>
     <action id="GotoNextError">
-        <keyboard-shortcut first-keystroke="f8" />
+        <keyboard-shortcut first-keystroke="f2" />
     </action>
     <action id="GotoPreviousError">
         <keyboard-shortcut first-keystroke="shift f2" />
@@ -1185,7 +1185,6 @@
         <keyboard-shortcut first-keystroke="meta f5" />
     </action>
     <action id="RenameElement">
-        <keyboard-shortcut first-keystroke="f2" />
         <keyboard-shortcut first-keystroke="shift f6" />
     </action>
     <action id="Replace">

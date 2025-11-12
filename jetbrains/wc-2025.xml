@@ -3,7 +3,23 @@ Copy to $HOME/.config/Google/AndroidStudio<version>/keymaps/
 Copy to $HOME/.config/JetBrains/CLion<version>/keymaps/
 Copy to $HOME/.config/JetBrains/GoLand<version>/keymaps/
 Copy to $HOME/.config/JetBrains/IntelliJIdea<version>/keymaps/
+Copy to $HOME/.config/JetBrains/RustRover<version>/keymaps/
 Copy to $HOME/.config/JetBrains/WebStorm<version>/keymaps/
+
+
+# For example ...
+KEYMAP_XML_FILE="$HOME/git-repos/docs/jetbrains/wc-2025.xml"
+cp -v $KEYMAP_XML_FILE $HOME/.config/Google/AndroidStudio2025.1.2/keymaps/
+cp -v $KEYMAP_XML_FILE $HOME/.config/Google/AndroidStudio2025.1.3/keymaps/
+cp -v $KEYMAP_XML_FILE $HOME/.config/Google/AndroidStudio2025.1.4/keymaps/
+cp -v $KEYMAP_XML_FILE $HOME/.config/Google/AndroidStudio2025.2.1/keymaps/
+cp -v $KEYMAP_XML_FILE $HOME/.config/JetBrains/CLion2024.1/keymaps/
+cp -v $KEYMAP_XML_FILE $HOME/.config/JetBrains/CLion2025.2/keymaps/
+cp -v $KEYMAP_XML_FILE $HOME/.config/JetBrains/GoLand2024.1/keymaps/
+cp -v $KEYMAP_XML_FILE $HOME/.config/JetBrains/IntelliJIdea2024.1/keymaps/
+cp -v $KEYMAP_XML_FILE $HOME/.config/JetBrains/IntelliJIdea2025.2/keymaps/
+cp -v $KEYMAP_XML_FILE $HOME/.config/JetBrains/RustRover2025.2/keymaps/
+cp -v $KEYMAP_XML_FILE $HOME/.config/JetBrains/WebStorm2024.1/keymaps/
 -->
 <keymap version="1" name="wc-2025" parent="$default">
   <action id="AceAction">
@@ -124,7 +140,7 @@ Copy to $HOME/.config/JetBrains/WebStorm<version>/keymaps/
     <keyboard-shortcut first-keystroke="meta p" />
   </action>
   <action id="GotoNextError">
-    <keyboard-shortcut first-keystroke="f8" />
+    <keyboard-shortcut first-keystroke="f2" />
   </action>
   <action id="GotoSymbol">
     <keyboard-shortcut first-keystroke="ctrl t" />
@@ -160,7 +176,6 @@ Copy to $HOME/.config/JetBrains/WebStorm<version>/keymaps/
   <action id="PreviousEditorTab" />
   <action id="QuickChangeScheme" />
   <action id="RenameElement">
-    <keyboard-shortcut first-keystroke="f2" />
     <keyboard-shortcut first-keystroke="shift f6" />
   </action>
   <action id="Replace">
