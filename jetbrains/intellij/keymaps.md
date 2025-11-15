@@ -5,6 +5,7 @@
 
 # JetBrains Keymap files
 1. [User keymap files](https://www.jetbrains.com/help/idea/configuring-keyboard-and-mouse-shortcuts.html#custom_keymap_location)
+1. [JetBrains default keymap](https://github.com/JetBrains/intellij-community/blob/master/platform/platform-resources/src/keymaps/%24default.xml)
 
 ## Linux
 1. `$HOME/.config/JetBrains/<product><version>/keymaps`

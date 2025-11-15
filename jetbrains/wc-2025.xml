@@ -1,4 +1,6 @@
 <!--
+# Default keymap: https://github.com/JetBrains/intellij-community/blob/master/platform/platform-resources/src/keymaps/%24default.xml
+
 Copy to $HOME/.config/Google/AndroidStudio<version>/keymaps/
 Copy to $HOME/.config/JetBrains/CLion<version>/keymaps/
 Copy to $HOME/.config/JetBrains/GoLand<version>/keymaps/
