@@ -9,17 +9,17 @@
 ## Setup, Init, Upgrade
 ```bash
 gradle init
-gradle wrapper --gradle-version 8.11
+gradle wrapper --gradle-version 9.2
 gradle wrapper
 
 
 # -- Upgrade thru gradle on $PATH
-gradle wrapper --gradle-version=8.11 --distribution-type=bin -q
-gradle wrapper --gradle-version=8.11 --distribution-type=all --no-validate-url -q
+gradle wrapper --gradle-version=9.2 --distribution-type=bin -q
+gradle wrapper --gradle-version=9.2 --distribution-type=all --no-validate-url -q
 
 # -- Upgrade thru existing wrapper
-./gradlew wrapper --gradle-version=8.5 --distribution-type=all -q
-./gradlew wrapper --gradle-version=8.11 --distribution-type=bin -q
+./gradlew wrapper --gradle-version=9.2 --distribution-type=all -q
+./gradlew wrapper --gradle-version=9.2 --distribution-type=bin -q
 ```
 
 ## Verify setup
