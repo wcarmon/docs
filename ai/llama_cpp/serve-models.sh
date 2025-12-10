@@ -27,7 +27,9 @@ set -u # fail on unset var
 # ---------------------------------------------
 # -- Config
 # ---------------------------------------------
-readonly CONTEXT_SIZE=32768
+readonly SMALL_CONTEXT_SIZE=17000
+
+readonly BIG_CONTEXT_SIZE=32768
 #readonly CONTEXT_SIZE=40000
 
 
@@ -61,21 +63,21 @@ llama-server \
    -m $HOME/llm/qwen2.5-coder-7b-instruct-q4_k_m.gguf \
    --port 7701 \
    --host 127.0.0.1 \
-   --ctx-size $CONTEXT_SIZE &
+   --ctx-size $SMALL_CONTEXT_SIZE &
 
 #llama-server \
 #  -hf Qwen/Qwen2.5-Coder-14B-Instruct-GGUF \
 #  -m $HOME/llm/qwen2.5-coder-14b-instruct-q4_k_m.gguf \
 #  --port 7702 \
 #  --host 127.0.0.1 \
-#  --ctx-size $CONTEXT_SIZE &
+#  --ctx-size $BIG_CONTEXT_SIZE &
 
 # llama-server \
 #   -hf Qwen/Qwen2.5-Coder-32B-Instruct-GGUF \
 #   -m $HOME/llm/qwen2.5-coder-32b-instruct-q4_k_m.gguf \
 #   --port 7703 \
 #   --host 127.0.0.1 \
-#   --ctx-size $CONTEXT_SIZE &
+#   --ctx-size $BIG_CONTEXT_SIZE &
 
 
 # ---------------------------------------------
@@ -86,7 +88,7 @@ llama-server \
 #  -m $HOME/llm/DeepSeek-Coder-V2-Lite-Instruct-Q4_K_M.gguf \
 #  --port 7801 \
 #  --host 127.0.0.1 \
-#  --ctx-size $CONTEXT_SIZE &
+#  --ctx-size $BIG_CONTEXT_SIZE &
 
 
 # ---------------------------------------------
@@ -97,7 +99,7 @@ llama-server \
 #   -m $HOME/llm/starcoder2-15b-instruct-v0.1-Q6_K.gguf \
 #   --port 7901 \
 #   --host 127.0.0.1 \
-#   --ctx-size $CONTEXT_SIZE &
+#   --ctx-size $SMALL_CONTEXT_SIZE &
 
 
 # ---------------------------------------------
