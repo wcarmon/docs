@@ -16,7 +16,7 @@
       ]
     },
     "llama-qwen-14b": {
-      "name": "llama.cpp – Qwen2.5 Coder 14B (local)",
+      "name": "Local: llama.cpp – Qwen2.5 Coder 14B",
       "type": "openai-compat",
       "base_url": "http://127.0.0.1:7702/v1/",
       "api_key": "llama",
@@ -30,7 +30,7 @@
       ]
     },
     "llama-deepseek-v2-lite": {
-      "name": "llama.cpp – DeepSeek Coder V2 Lite (local)",
+      "name": "Local: llama.cpp – DeepSeek Coder V2 Lite",
       "type": "openai-compat",
       "base_url": "http://127.0.0.1:7801/v1/",
       "api_key": "llama",
@@ -44,7 +44,7 @@
       ]
     },
     "llama-starcoder2-15b": {
-      "name": "llama.cpp – StarCoder2 15B Instruct (local)",
+      "name": "Local: llama.cpp – StarCoder2 15B Instruct",
       "type": "openai-compat",
       "base_url": "http://127.0.0.1:7901/v1/",
       "api_key": "llama",
