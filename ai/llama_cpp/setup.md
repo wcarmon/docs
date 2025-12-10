@@ -28,6 +28,8 @@ llama-server --version
 
 # Models
 
+## Best non-GPU coding options in 2025 Q4 
+
 - [Qwen](https://huggingface.co/Qwen)    
     1. `https://huggingface.co/Qwen/Qwen2.5-Coder-14B-Instruct-GGUF`          (default to this)
     2. `https://huggingface.co/Qwen/Qwen2.5-Coder-7B-Instruct-GGUF`           (only if 14b too slow)
@@ -40,62 +42,67 @@ llama-server --version
     1. `https://huggingface.co/bigcode/starcoder2-15b`                        (old school, no nonsense)
 
 
-```sh
-llama-server -hf Qwen/Qwen2.5-Coder-7B-Instruct-GGUF -m qwen2.5-coder-7b-instruct-q4_k_m.gguf --port 8081
+## Auto Download, Serve/Run on different ports
 
-mkdir -pv $HOME/llm-models/qwen
-mkdir -pv $HOME/llm-models/deepseek
-mkdir -pv $HOME/llm-models/starcoder
+```sh
+export HF_HOME="$HOME/.cache/huggingface"
+export HF_HUB_ENABLE_HF_TRANSFER=1
 
 # -- Qwen
-cd $HOME/llm-models/qwen
-wget -O qwen2.5-coder-7b-instruct-q4_k_m.gguf \
-  "https://huggingface.co/Qwen/Qwen2.5-Coder-7B-Instruct-GGUF/resolve/main/qwen2.5-coder-7b-instruct-q4_k_m.gguf?download=1"
 
-wget -O qwen2.5-coder-14b-instruct-q4_k_m.gguf \
-  "https://huggingface.co/Triangle104/Qwen2.5-Coder-14B-Instruct-Q4_K_M-GGUF/resolve/main/Qwen2.5-Coder-14B-Instruct-Q4_K_M.gguf?download=1"
+llama-server \
+  -hf Qwen/Qwen2.5-Coder-7B-Instruct-GGUF \
+  -m qwen2.5-coder-7b-instruct-q4_k_m.gguf \
+  --port 7701 \
+  --host 127.0.0.1
 
-wget -O qwen2.5-coder-32b-instruct-q4_k_m.gguf \
-  "https://huggingface.co/bartowski/Qwen2.5-Coder-32B-Instruct-GGUF/resolve/main/Qwen2.5-Coder-32B-Instruct-Q4_K_M.gguf?download=1"
+llama-server \
+  -hf Qwen/Qwen2.5-Coder-14B-Instruct-GGUF \
+  -m qwen2.5-coder-14b-instruct-q4_k_m.gguf \
+  --port 7702 \
+  --host 127.0.0.1
+
+llama-server \
+  -hf Qwen/Qwen2.5-Coder-32B-Instruct-GGUF \
+  -m qwen2.5-coder-32b-instruct-q4_k_m.gguf \
+  --port 7703 \
+  --host 127.0.0.1
 
 
 # -- DeepSeek
-cd $HOME/llm-models/deepseek
 
-wget -O deepseek-coder-v2-lite-instruct-q4_k_m.gguf \
-  "https://huggingface.co/bartowski/DeepSeek-Coder-V2-Lite-Instruct-GGUF/resolve/main/DeepSeek-Coder-V2-Lite-Instruct-Q4_K_M.gguf?download=1"
+llama-server \
+  -hf bartowski/DeepSeek-Coder-V2-Lite-Instruct-GGUF \
+  -m DeepSeek-Coder-V2-Lite-Instruct-Q4_K_M.gguf \
+  --port 7801 \
+  --host 127.0.0.1
 
-TODO: `https://huggingface.co/deepseek-ai/deepseek-coder-33b-instruct`
-TODO: `https://huggingface.co/deepseek-ai/deepseek-coder-7b-instruct-v1.5`
+llama-server \
+  -hf bartowski/Deepseek-coder-7b-instruct-v1.5 \
+  -m DeepSeek-Coder-7b-Instruct-v1.5-q4_k_m.gguf \
+  --port 7802 \
+  --host 127.0.0.1
+
+llama-server \
+  -hf bartowski/deepseek-coder-33b-instruct-GGUF \
+  -m deepseek-coder-33b-instruct-q4_k_m.gguf \
+  --port 7803 \
+  --host 127.0.0.1
 
 
-# -- StarCoder2
-cd $HOME/llm-models/starcoder
-
-
-TODO: just the one
-
+# -- StarCoder
+TODO: fix this failing command
+llama-server \
+  -hf bartowski/starcoder2-15b-instruct-GGUF \
+  -m starcoder2-15b-instruct-Q5_K_M.gguf \
+  --port 7901 \
+  --host 127.0.0.1
 ```
 
-# Run/Serve Multiple models (different ports)
+
+## Verify 
 
 ```sh
-llama-server \
-  -m ~/models/qwen/qwen2.5-coder-7b-instruct-q4_k_m.gguf \
-  --port 7071 \
-  --host 127.0.0.1
-
-llama-server \
-  -m ~/models/qwen/qwen2.5-coder-14b-instruct-q4_k_m.gguf \
-  --port 7072 \
-  --host 127.0.0.1
-
-llama-server \
-  -m ~/models/deepseek/deepseek-coder-v2-lite-instruct-q4_k_m.gguf \
-  --port 7073 \
-  --host 127.0.0.1
-
-# TODO: what others?
 
 # TODO: verify in browser /v1/chat
 ```
