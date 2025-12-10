@@ -26,35 +26,14 @@ llama-server --version
 
 # Models
 
-- https://huggingface.co/Qwen
-    - https://huggingface.co/Qwen/Qwen2.5-Coder-1.5B-Instruct
-    - https://huggingface.co/Qwen/Qwen2.5-Coder-14B-Instruct
-    - https://huggingface.co/Qwen/Qwen2.5-Coder-14B-Instruct-AWQ
-    - https://huggingface.co/Qwen/Qwen2.5-Coder-14B-Instruct-GGUF
-    - https://huggingface.co/Qwen/Qwen2.5-Coder-14B-Instruct-GPTQ-Int8
-    - https://huggingface.co/Qwen/Qwen2.5-Coder-32B-Instruct
-    - https://huggingface.co/Qwen/Qwen2.5-Coder-32B-Instruct-GGUF
-    - https://huggingface.co/Qwen/Qwen3-Coder-30B-A3B-Instruct-FP8
-    - https://huggingface.co/Qwen/Qwen2.5-Coder-32B-Instruct-GGUF
-    - https://huggingface.co/Qwen/Qwen2.5-Coder-7B-Instruct-GGUF
-    - https://huggingface.co/Qwen/Qwen2.5-Coder-7B-Instruct-GGUF
-    - https://huggingface.co/Qwen/Qwen3-Coder-30B-A3B-Instruct
-    - https://huggingface.co/Qwen/Qwen3-Coder-30B-A3B-Instruct
-    - https://huggingface.co/Qwen/Qwen3-Coder-30B-A3B-Instruct
-    - https://huggingface.co/Qwen/Qwen3-Coder-480B-A35B-Instruct
-    - https://huggingface.co/Qwen/Qwen3-Coder-480B-A35B-Instruct-FP8
-- https://huggingface.co/deepseek-ai
-    - https://huggingface.co/deepseek-ai/deepseek-coder-1.3b-instruct
-    - https://huggingface.co/deepseek-ai/deepseek-coder-33b-base
-    - https://huggingface.co/deepseek-ai/deepseek-coder-33b-instruct
-    - https://huggingface.co/deepseek-ai/deepseek-coder-6.7b-base
-    - https://huggingface.co/deepseek-ai/deepseek-coder-7b-base-v1.5
-    - https://huggingface.co/deepseek-ai/deepseek-coder-7b-instruct-v1.5
-    - https://huggingface.co/deepseek-ai/DeepSeek-Coder-V2-Base
-    - https://huggingface.co/deepseek-ai/DeepSeek-Coder-V2-Instruct
-    - https://huggingface.co/deepseek-ai/DeepSeek-Coder-V2-Instruct-0724
-    - https://huggingface.co/deepseek-ai/DeepSeek-Coder-V2-Lite-Base
-    - https://huggingface.co/deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct
+- [Qwen](https://huggingface.co/Qwen)    
+    1. `https://huggingface.co/Qwen/Qwen2.5-Coder-14B-Instruct-GGUF`          (default to this)
+    2. `https://huggingface.co/Qwen/Qwen2.5-Coder-7B-Instruct-GGUF`           (only if 14b too slow)
+    3. `https://huggingface.co/Qwen/Qwen2.5-Coder-32B-Instruct-GGUF`          (might be too slow)
+- [deepseek-ai](https://huggingface.co/deepseek-ai)
+    1. `https://huggingface.co/deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct`
+    2. `https://huggingface.co/deepseek-ai/deepseek-coder-33b-instruct`       (might be too slow)
+    3. `https://huggingface.co/deepseek-ai/deepseek-coder-7b-instruct-v1.5`   (only if others too slow)
 
 
 ```sh
