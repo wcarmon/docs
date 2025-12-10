@@ -10,7 +10,7 @@
   "provider": {
     "llama-qwen-7b": {
       "npm": "@ai-sdk/openai-compatible",
-      "name": "local: llama.cpp – Qwen2.5 Coder 7B",
+      "name": "Local: llama.cpp – Qwen2.5 Coder 7B",
       "options": {
         "baseURL": "http://127.0.0.1:7701/v1"
       },
@@ -22,7 +22,7 @@
     },
     "llama-qwen-14b": {
       "npm": "@ai-sdk/openai-compatible",
-      "name": "local: llama.cpp – Qwen2.5 Coder 14B",
+      "name": "Local: llama.cpp – Qwen2.5 Coder 14B",
       "options": {
         "baseURL": "http://127.0.0.1:7702/v1"
       },
@@ -34,7 +34,7 @@
     },
     "llama-qwen-32b": {
       "npm": "@ai-sdk/openai-compatible",
-      "name": "local: llama.cpp – Qwen2.5 Coder 32B",
+      "name": "Local: llama.cpp – Qwen2.5 Coder 32B",
       "options": {
         "baseURL": "http://127.0.0.1:7703/v1"
       },
@@ -46,7 +46,7 @@
     },
     "llama-deepseek-v2-lite": {
       "npm": "@ai-sdk/openai-compatible",
-      "name": "local: llama.cpp – DeepSeek Coder V2 Lite",
+      "name": "Local: llama.cpp – DeepSeek Coder V2 Lite",
       "options": {
         "baseURL": "http://127.0.0.1:7801/v1"
       },
@@ -58,7 +58,7 @@
     },
     "llama-starcoder2-15b": {
       "npm": "@ai-sdk/openai-compatible",
-      "name": "local: llama.cpp – StarCoder2 15B Instruct",
+      "name": "Local: llama.cpp – StarCoder2 15B Instruct",
       "options": {
         "baseURL": "http://127.0.0.1:7901/v1"
       },
