@@ -28,7 +28,8 @@ set -u # fail on unset var
 # ---------------------------------------------
 # -- Config
 # ---------------------------------------------
-readonly CONTEXT_SIZE=10240
+readonly CONTEXT_SIZE=32768
+#readonly CONTEXT_SIZE=40000
 
 
 # ---------------------------------------------
