@@ -49,6 +49,9 @@ export HF_HOME="$HOME/.cache/huggingface"
 export HF_HUB_ENABLE_HF_TRANSFER=1
 
 
+mkdir $HOME/llm
+
+
 # -- ==============
 # -- Qwen
 # -- ==============
@@ -84,9 +87,18 @@ llama-server \
 # -- https://huggingface.co/bartowski/DeepSeek-Coder-V2-Lite-Instruct-GGUF
 llama-server \
   -hf bartowski/DeepSeek-Coder-V2-Lite-Instruct-GGUF \
-  -m DeepSeek-Coder-V2-Lite-Instruct-Q4_K_M.gguf \
+  -m $HOME/llm/DeepSeek-Coder-V2-Lite-Instruct-Q4_K_M.gguf \
   --port 7801 \
-  --host 127.0.0.1
+  --host 127.0.0.1 &
+
+# TODO: add to opencode.json & crush.json
+#llama-server \
+#  --hf-repo TheBloke/deepseek-coder-33B-instruct-GGUF \
+#  --hf-file deepseek-coder-33b-instruct.Q4_K_M.gguf \
+#  -m $HOME/llm/deepseek-coder-33b-instruct.Q4_K_M.gguf \
+#  --host 127.0.0.1 \
+#  --port 7803 \
+#  -c 2048
 
 
 # -- ==============

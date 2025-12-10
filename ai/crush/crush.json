@@ -1,0 +1,53 @@
+{
+  "$schema": "https://charm.land/crush.json",
+  "providers": {
+    "llama-qwen-14b": {
+      "name": "llama.cpp – Qwen2.5 Coder 14B (local)",
+      "type": "openai-compat",
+      "base_url": "http://127.0.0.1:7702/v1/",
+      "api_key": "llama",
+      "models": [
+        {
+          "id": "qwen2.5-coder-14b-instruct-q4_k_m",
+          "name": "Qwen2.5 Coder 14B Instruct (Q4_K_M)",
+          "context_window": 8192,
+          "default_max_tokens": 2048
+        }
+      ]
+    },
+    "llama-deepseek-v2-lite": {
+      "name": "llama.cpp – DeepSeek Coder V2 Lite (local)",
+      "type": "openai-compat",
+      "base_url": "http://127.0.0.1:7801/v1/",
+      "api_key": "llama",
+      "models": [
+        {
+          "id": "deepseek-coder-v2-lite-instruct-q4_k_m",
+          "name": "DeepSeek Coder V2 Lite Instruct (Q4_K_M)",
+          "context_window": 8192,
+          "default_max_tokens": 2048
+        }
+      ]
+    },
+    "llama-starcoder2-15b": {
+      "name": "llama.cpp – StarCoder2 15B Instruct (local)",
+      "type": "openai-compat",
+      "base_url": "http://127.0.0.1:7901/v1/",
+      "api_key": "llama",
+      "models": [
+        {
+          "id": "starcoder2-15b-instruct-v0.1-q6_k",
+          "name": "StarCoder2 15B Instruct (Q6_K)",
+          "context_window": 8192,
+          "default_max_tokens": 2048
+        }
+      ]
+    }
+  },
+  "tools": {
+    "ls": {
+      "max_depth": 10,
+      "max_items": 1000
+    }
+  }
+}

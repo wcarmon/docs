@@ -36,7 +36,7 @@ opencode --version
 
 
 ```sh
-TODO: /models
+# Use /models
 ```
 
 
