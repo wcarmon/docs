@@ -43,11 +43,18 @@ set -u # fail on unset var
 # ---------------------------------------------
 # -- Run
 # ---------------------------------------------
-killall -v llama-server || true
-
-mkdir "$HOME/llm"
+killall -u "$USER" -v llama-server || true
 
 
+mkdir -p "$HOME/llm"
+
+echo
+echo "|-- Starting models (this takes time)"
+
+
+# ---------------------------------------------
+# -- Run Qwen models
+# ---------------------------------------------
 # llama-server \
 #   -hf Qwen/Qwen2.5-Coder-7B-Instruct-GGUF \
 #   -m $HOME/llm/qwen2.5-coder-7b-instruct-q4_k_m.gguf \
@@ -70,7 +77,9 @@ llama-server \
 #   --ctx-size 4096 &
 
 
-# ------------------------------------------
+# ---------------------------------------------
+# -- Run DeepSeek models
+# ---------------------------------------------
 llama-server \
   -hf bartowski/DeepSeek-Coder-V2-Lite-Instruct-GGUF \
   -m $HOME/llm/DeepSeek-Coder-V2-Lite-Instruct-Q4_K_M.gguf \
@@ -79,7 +88,9 @@ llama-server \
   --ctx-size 4096 &
 
 
-# ------------------------------------------
+# ---------------------------------------------
+# -- Run StarCoder models
+# ---------------------------------------------
 # llama-server \
 #   -hf bartowski/starcoder2-15b-instruct-v0.1-GGUF \
 #   -m $HOME/llm/starcoder2-15b-instruct-v0.1-Q6_K.gguf \
@@ -94,8 +105,8 @@ llama-server \
 
 echo
 echo "|-- Available local models:"
-ls -lh $HOME/llm/*.gguf
-find $HOME/.cache/llama.cpp -name "*.gguf"
+ls -lh "$HOME/llm/*.gguf"
+find "$HOME/.cache/llama.cpp" -name "*.gguf"
 
 echo
 echo "|-- For Qwen models, navigate to:"
