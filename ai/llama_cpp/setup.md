@@ -56,25 +56,25 @@ export HF_HUB_ENABLE_HF_TRANSFER=1
 # -- https://huggingface.co/Qwen/Qwen2.5-Coder-7B-Instruct-GGUF
 llama-server \
   -hf Qwen/Qwen2.5-Coder-7B-Instruct-GGUF \
-  -m qwen2.5-coder-7b-instruct-q4_k_m.gguf \
+  -m $HOME/llm/qwen2.5-coder-7b-instruct-q4_k_m.gguf \
   --port 7701 \
-  --host 127.0.0.1
+  --host 127.0.0.1 &
 
 
 # -- https://huggingface.co/Qwen/Qwen2.5-Coder-14B-Instruct-GGUF
 llama-server \
   -hf Qwen/Qwen2.5-Coder-14B-Instruct-GGUF \
-  -m qwen2.5-coder-14b-instruct-q4_k_m.gguf \
+  -m $HOME/llm/qwen2.5-coder-14b-instruct-q4_k_m.gguf \
   --port 7702 \
-  --host 127.0.0.1
+  --host 127.0.0.1 &
 
 
 # -- https://huggingface.co/Qwen/Qwen2.5-Coder-32B-Instruct-GGUF
 llama-server \
   -hf Qwen/Qwen2.5-Coder-32B-Instruct-GGUF \
-  -m qwen2.5-coder-32b-instruct-q4_k_m.gguf \
+  -m $HOME/llm/qwen2.5-coder-32b-instruct-q4_k_m.gguf \
   --port 7703 \
-  --host 127.0.0.1
+  --host 127.0.0.1 &
 
 
 # -- ==============
@@ -96,19 +96,27 @@ llama-server \
 # -- https://huggingface.co/bartowski/starcoder2-15b-instruct-v0.1-GGUF
 llama-server \
   -hf bartowski/starcoder2-15b-instruct-v0.1-GGUF \
-  -m starcoder2-15b-instruct-v0.1-Q6_K.gguf \
+  -m $HOME/llm/starcoder2-15b-instruct-v0.1-Q6_K.gguf \
   --port 7901 \
-  --host 127.0.0.1
+  --host 127.0.0.1 &
 ```
 
 
 ## Verify
- 
-- http://localhost:7701/v1/chat
-- http://localhost:7702/v1/chat
-- http://localhost:7703/v1/chat
-- http://localhost:7801/v1/chat
-- http://localhost:7901/v1/chat
+
+```sh
+ls -lh $HOME/llm/*.gguf
+find $HOME/.cache/llama.cpp -name "*.gguf" 
+```
+
+- http://localhost:7701
+- http://localhost:7702
+- http://localhost:7703
+
+- http://localhost:7801
+- http://localhost:7803
+
+- http://localhost:7901
 
 
 # Other resources

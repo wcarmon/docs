@@ -6,5 +6,67 @@
     "edit": "allow",
     "external_directory": "ask",
     "webfetch": "ask"
+  },
+  "provider": {
+    "llama-qwen-7b": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "llama.cpp – Qwen2.5 Coder 7B (local)",
+      "options": {
+        "baseURL": "http://127.0.0.1:7701/v1"
+      },
+      "models": {
+        "qwen2.5-coder-7b-instruct-q4_k_m": {
+          "name": "Qwen2.5 Coder 7B Instruct (Q4_K_M)"
+        }
+      }
+    },
+    "llama-qwen-14b": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "llama.cpp – Qwen2.5 Coder 14B (local)",
+      "options": {
+        "baseURL": "http://127.0.0.1:7702/v1"
+      },
+      "models": {
+        "qwen2.5-coder-14b-instruct-q4_k_m": {
+          "name": "Qwen2.5 Coder 14B Instruct (Q4_K_M)"
+        }
+      }
+    },
+    "llama-qwen-32b": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "llama.cpp – Qwen2.5 Coder 32B (local)",
+      "options": {
+        "baseURL": "http://127.0.0.1:7703/v1"
+      },
+      "models": {
+        "qwen2.5-coder-32b-instruct-q4_k_m": {
+          "name": "Qwen2.5 Coder 32B Instruct (Q4_K_M)"
+        }
+      }
+    },
+    "llama-deepseek-v2-lite": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "llama.cpp – DeepSeek Coder V2 Lite (local)",
+      "options": {
+        "baseURL": "http://127.0.0.1:7801/v1"
+      },
+      "models": {
+        "deepseek-coder-v2-lite-instruct-q4_k_m": {
+          "name": "DeepSeek Coder V2 Lite Instruct (Q4_K_M)"
+        }
+      }
+    },
+    "llama-starcoder2-15b": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "llama.cpp – StarCoder2 15B Instruct (local)",
+      "options": {
+        "baseURL": "http://127.0.0.1:7901/v1"
+      },
+      "models": {
+        "starcoder2-15b-instruct-v0.1-Q6_K": {
+          "name": "StarCoder2 15B Instruct v0.1 (Q6_K)"
+        }
+      }
+    }
   }
 }
