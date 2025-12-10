@@ -11,7 +11,7 @@
           "id": "qwen2.5-coder-14b-instruct-q4_k_m",
           "name": "Qwen2.5 Coder 14B Instruct (Q4_K_M)",
           "context_window": 10240,
-          "default_max_tokens": 2048
+          "default_max_tokens": 512
         }
       ]
     },
@@ -25,7 +25,7 @@
           "id": "deepseek-coder-v2-lite-instruct-q4_k_m",
           "name": "DeepSeek Coder V2 Lite Instruct (Q4_K_M)",
           "context_window": 10240,
-          "default_max_tokens": 2048
+          "default_max_tokens": 512
         }
       ]
     },
@@ -39,7 +39,7 @@
           "id": "starcoder2-15b-instruct-v0.1-q6_k",
           "name": "StarCoder2 15B Instruct (Q6_K)",
           "context_window": 10240,
-          "default_max_tokens": 2048
+          "default_max_tokens": 512
         }
       ]
     }
