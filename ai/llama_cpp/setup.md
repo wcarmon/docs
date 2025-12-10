@@ -48,7 +48,10 @@ llama-server --version
 export HF_HOME="$HOME/.cache/huggingface"
 export HF_HUB_ENABLE_HF_TRANSFER=1
 
+
+# -- ==============
 # -- Qwen
+# -- ==============
 
 # -- https://huggingface.co/Qwen/Qwen2.5-Coder-7B-Instruct-GGUF
 llama-server \
@@ -59,7 +62,6 @@ llama-server \
 
 
 # -- https://huggingface.co/Qwen/Qwen2.5-Coder-14B-Instruct-GGUF
-# TODO: waiting for download
 llama-server \
   -hf Qwen/Qwen2.5-Coder-14B-Instruct-GGUF \
   -m qwen2.5-coder-14b-instruct-q4_k_m.gguf \
@@ -68,7 +70,7 @@ llama-server \
 
 
 # -- https://huggingface.co/Qwen/Qwen2.5-Coder-32B-Instruct-GGUF
-# TODO: waiting for download
+# TODO: waiting for download to complete
 llama-server \
   -hf Qwen/Qwen2.5-Coder-32B-Instruct-GGUF \
   -m qwen2.5-coder-32b-instruct-q4_k_m.gguf \
@@ -76,7 +78,9 @@ llama-server \
   --host 127.0.0.1
 
 
+# -- ==============
 # -- DeepSeek
+# -- ==============
 
 # -- https://huggingface.co/bartowski/DeepSeek-Coder-V2-Lite-Instruct-GGUF
 llama-server \
@@ -85,24 +89,13 @@ llama-server \
   --port 7801 \
   --host 127.0.0.1
 
-# TODO: cannot find on hugging face
-# llama-server \
-#   -hf bartowski/Deepseek-coder-7b-instruct-v1.5 \
-#   -m DeepSeek-Coder-7b-Instruct-v1.5-Q4_K_M.gguf \
-#   --port 7802 \
-#   --host 127.0.0.1
 
-# TODO: cannot find link
-llama-server \
-  -hf bartowski/deepseek-coder-33b-instruct-GGUF \
-  -m DeepSeek-coder-33b-instruct-Q4_K_M.gguf \
-  --port 7803 \
-  --host 127.0.0.1
-
-
+# -- ==============
 # -- StarCoder
-# TODO: Downloading, I'm waiting
+# -- ==============
+
 # -- https://huggingface.co/bartowski/starcoder2-15b-instruct-v0.1-GGUF
+# TODO: waiting for download to complete
 llama-server \
   -hf bartowski/starcoder2-15b-instruct-v0.1-GGUF \
   -m starcoder2-15b-instruct-v0.1-Q6_K.gguf \
