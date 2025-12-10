@@ -70,7 +70,6 @@ llama-server \
 
 
 # -- https://huggingface.co/Qwen/Qwen2.5-Coder-32B-Instruct-GGUF
-# TODO: waiting for download to complete
 llama-server \
   -hf Qwen/Qwen2.5-Coder-32B-Instruct-GGUF \
   -m qwen2.5-coder-32b-instruct-q4_k_m.gguf \
@@ -95,7 +94,6 @@ llama-server \
 # -- ==============
 
 # -- https://huggingface.co/bartowski/starcoder2-15b-instruct-v0.1-GGUF
-# TODO: waiting for download to complete
 llama-server \
   -hf bartowski/starcoder2-15b-instruct-v0.1-GGUF \
   -m starcoder2-15b-instruct-v0.1-Q6_K.gguf \
@@ -104,13 +102,13 @@ llama-server \
 ```
 
 
-## Verify 
-
-```sh
-
-# TODO: verify in browser /v1/chat
-```
-
+## Verify
+ 
+- http://localhost:7701/v1/chat
+- http://localhost:7702/v1/chat
+- http://localhost:7703/v1/chat
+- http://localhost:7801/v1/chat
+- http://localhost:7901/v1/chat
 
 
 # Other resources
