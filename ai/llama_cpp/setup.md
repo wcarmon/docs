@@ -78,18 +78,19 @@ llama-server \
 
 # -- DeepSeek
 
+# -- https://huggingface.co/bartowski/DeepSeek-Coder-V2-Lite-Instruct-GGUF
 llama-server \
   -hf bartowski/DeepSeek-Coder-V2-Lite-Instruct-GGUF \
   -m DeepSeek-Coder-V2-Lite-Instruct-Q4_K_M.gguf \
   --port 7801 \
   --host 127.0.0.1
 
-# TODO: bad url or model name
-llama-server \
-  -hf bartowski/Deepseek-coder-7b-instruct-v1.5 \
-  -m DeepSeek-Coder-7b-Instruct-v1.5-Q4_K_M.gguf \
-  --port 7802 \
-  --host 127.0.0.1
+# TODO: cannot find on hugging face
+# llama-server \
+#   -hf bartowski/Deepseek-coder-7b-instruct-v1.5 \
+#   -m DeepSeek-Coder-7b-Instruct-v1.5-Q4_K_M.gguf \
+#   --port 7802 \
+#   --host 127.0.0.1
 
 # TODO: cannot find link
 llama-server \
@@ -101,8 +102,7 @@ llama-server \
 
 # -- StarCoder
 # TODO: Downloading, I'm waiting
-# https://huggingface.co/bartowski/starcoder2-15b-instruct-v0.1-GGUF
-# https://huggingface.co/bigcode/starcoder2-15b-instruct-v0.1
+# -- https://huggingface.co/bartowski/starcoder2-15b-instruct-v0.1-GGUF
 llama-server \
   -hf bartowski/starcoder2-15b-instruct-v0.1-GGUF \
   -m starcoder2-15b-instruct-v0.1-Q6_K.gguf \
