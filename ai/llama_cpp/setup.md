@@ -50,18 +50,25 @@ export HF_HUB_ENABLE_HF_TRANSFER=1
 
 # -- Qwen
 
+# -- https://huggingface.co/Qwen/Qwen2.5-Coder-7B-Instruct-GGUF
 llama-server \
   -hf Qwen/Qwen2.5-Coder-7B-Instruct-GGUF \
   -m qwen2.5-coder-7b-instruct-q4_k_m.gguf \
   --port 7701 \
   --host 127.0.0.1
 
+
+# -- https://huggingface.co/Qwen/Qwen2.5-Coder-14B-Instruct-GGUF
+# TODO: waiting for download
 llama-server \
   -hf Qwen/Qwen2.5-Coder-14B-Instruct-GGUF \
   -m qwen2.5-coder-14b-instruct-q4_k_m.gguf \
   --port 7702 \
   --host 127.0.0.1
 
+
+# -- https://huggingface.co/Qwen/Qwen2.5-Coder-32B-Instruct-GGUF
+# TODO: waiting for download
 llama-server \
   -hf Qwen/Qwen2.5-Coder-32B-Instruct-GGUF \
   -m qwen2.5-coder-32b-instruct-q4_k_m.gguf \
@@ -77,24 +84,28 @@ llama-server \
   --port 7801 \
   --host 127.0.0.1
 
+# TODO: bad url or model name
 llama-server \
   -hf bartowski/Deepseek-coder-7b-instruct-v1.5 \
-  -m DeepSeek-Coder-7b-Instruct-v1.5-q4_k_m.gguf \
+  -m DeepSeek-Coder-7b-Instruct-v1.5-Q4_K_M.gguf \
   --port 7802 \
   --host 127.0.0.1
 
+# TODO: cannot find link
 llama-server \
   -hf bartowski/deepseek-coder-33b-instruct-GGUF \
-  -m deepseek-coder-33b-instruct-q4_k_m.gguf \
+  -m DeepSeek-coder-33b-instruct-Q4_K_M.gguf \
   --port 7803 \
   --host 127.0.0.1
 
 
 # -- StarCoder
-TODO: fix this failing command
+# TODO: Downloading, I'm waiting
+# https://huggingface.co/bartowski/starcoder2-15b-instruct-v0.1-GGUF
+# https://huggingface.co/bigcode/starcoder2-15b-instruct-v0.1
 llama-server \
-  -hf bartowski/starcoder2-15b-instruct-GGUF \
-  -m starcoder2-15b-instruct-Q5_K_M.gguf \
+  -hf bartowski/starcoder2-15b-instruct-v0.1-GGUF \
+  -m starcoder2-15b-instruct-v0.1-Q6_K.gguf \
   --port 7901 \
   --host 127.0.0.1
 ```
