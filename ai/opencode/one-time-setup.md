@@ -5,21 +5,10 @@
 # Setup config
  
 ```
-mkdir -p ~/.config/opencode
-
-cat > ~/.config/opencode/opencode.json << 'EOF'
-{
-  "$schema": "https://opencode.ai/config.json",
-  "permission": {
-    "edit": "allow",              // can edit files by default
-    "external_directory": "ask",  // touching files outside CWD tree
-    "bash": "ask",                // ask before running shell commands
-    "webfetch": "ask",            // ask before going to the internet
-    "doom_loop": "ask"            // ask if it wants to loop a lot
-  }
-}
-EOF
+mkdir -p ~/.config/opencode 
 ```
+- Copy from ./opencode.json into $HOME/.config/opencode/opencode.json
+
 
 # Setup pnpm
 
