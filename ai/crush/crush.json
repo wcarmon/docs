@@ -1,6 +1,20 @@
 {
   "$schema": "https://charm.land/crush.json",
   "providers": {
+    "llama-qwen-7b": {
+      "name": "Local: llama.cpp – Qwen2.5 Coder 7B",
+      "type": "openai-compat",
+      "base_url": "http://127.0.0.1:7701/v1/",
+      "api_key": "llama",
+      "models": [
+        {
+          "id": "qwen2.5-coder-7b-instruct-q4_k_m",
+          "name": "Qwen2.5 Coder 7B Instruct (Q4_K_M)",
+          "context_window": 32768,
+          "default_max_tokens": 512
+        }
+      ]
+    },
     "llama-qwen-14b": {
       "name": "llama.cpp – Qwen2.5 Coder 14B (local)",
       "type": "openai-compat",
