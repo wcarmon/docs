@@ -41,6 +41,15 @@ opencode --version
 ```
 
 
+# Connect to llama.cpp
+
+- Copy [`opencode.json`](./opencode.json) to `$HOME/.config/opencode/opencode.json`
+
+
+```sh
+TODO: /models
+```
+
 
 # Other resources
 1. TODO
