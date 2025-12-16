@@ -21,7 +21,8 @@
     1. auth_mode = "apiKey" has limits based on your billing
         `codex --config preferred_auth_method="apikey"`
     1. `codex login status`
-    
+    1. TODO: goal extend the weekly limit
+ 
     
 ## Codex: Setup
 
