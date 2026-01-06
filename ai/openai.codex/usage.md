@@ -13,7 +13,7 @@
 --------
 # [Codex](https://developers.openai.com/codex/quickstart)
 
-1. Codex is included in ChatGPT Plus
+1. Codex is included in [ChatGPT Plus](TODO)
 1. Codex has a CLI, and IDE plugin, a GitHub Action
 1. Use API Key to extend usage limits
     1. auth_mode = "ChatGPT" has a limit based on your ChatGPT plan

@@ -7,6 +7,9 @@
 1. [CamelCase](https://plugins.jetbrains.com/plugin/7160-camelcase)
 1. [InnerBuilder](https://plugins.jetbrains.com/plugin/7354-innerbuilder)
 1. [Json Sorter](https://plugins.jetbrains.com/plugin/11104-json-sorter)
+1. [ktfmt](https://plugins.jetbrains.com/plugin/14912-ktfmt) - Carmi Grushko
+    1. Enable manually
+    1. Code style: `Kotlinlang`
 1. [Lines Sorter](https://plugins.jetbrains.com/plugin/5919-lines-sorter)
 1. [Shifter](https://plugins.jetbrains.com/plugin/6149-shifter)
 1. [String Manipulation](https://plugins.jetbrains.com/plugin/2162-string-manipulation)
