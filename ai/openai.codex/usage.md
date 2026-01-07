@@ -16,16 +16,34 @@
 
 1. Codex is included in [ChatGPT Plus](https://openai.com/index/chatgpt-plus/)
 1. Codex has a CLI, and IDE plugin, a GitHub Action
-1. Use API Key to extend usage limits
-    1. auth_mode = "ChatGPT" has a limit based on your ChatGPT plan
-        `codex --config preferred_auth_method="chatgpt"`
-    1. auth_mode = "apiKey" has limits based on your billing
-        `codex --config preferred_auth_method="apikey"`
-    1. `codex login status`
-    1. TODO: goal extend the weekly limit
- 
-    
-## Codex: Setup
+
+## Auth modes
+
+- Current mode:
+```sh
+codex login status
+```
+
+### Use API Key Auth
+```sh
+codex logout
+codex --config preferred_auth_method="apikey"
+```
+1. limits based on your billing
+
+
+### Use ChatGPT Auth
+
+```sh
+codex logout
+codex --config preferred_auth_method="chatgpt"
+```
+1. limits based on your ChatGPT plan
+
+
+
+--------
+## Codex: One time Setup
 
 1. Install/Update: `pnpm install -g @openai/codex`
 1. `$HOME/.zshrc`
