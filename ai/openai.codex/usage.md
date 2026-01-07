@@ -5,10 +5,10 @@
 
 # OpenAI Links
 
-1. [API Keys](https://platform.openai.com/settings/organization/api-keys)
 1. [API Billing](https://platform.openai.com/settings/organization/billing/overview)
-1. [API Usage limits](https://platform.openai.com/settings/organization/limits)
 1. [API Usage stats](https://platform.openai.com/settings/organization/usage)
+1. [API Usage limits](https://platform.openai.com/settings/organization/limits)
+1. [API Keys](https://platform.openai.com/settings/organization/api-keys)
 
 
 --------

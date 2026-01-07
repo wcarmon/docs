@@ -5,8 +5,12 @@
 
 # Anthropic/Claude Links
 
+1. [Billing](https://platform.claude.com/settings/billing)
+    1. [Another way](https://console.anthropic.com/settings/billing)
+1. [API Keys](https://platform.claude.com/settings/keys)
+1. [API Usage stats](https://platform.claude.com/usage)
+    1. Select "All Workspaces" in the upper left
 1. [API/Platform Dashboard](https://platform.claude.com/dashboard)
-1. [Billing](https://console.anthropic.com/settings/billing)
 
 
 # Setup
