@@ -37,6 +37,8 @@ codex --config preferred_auth_method="apikey"
 ```sh
 codex logout
 codex --config preferred_auth_method="chatgpt"
+
+# Login with creds and OTP
 ```
 1. limits based on your ChatGPT plan
 
