@@ -40,7 +40,7 @@ lms chat
 vi $HOME/.config/opencode/opencode.json
 ```
 
-- Add to bottom:
+- Add to bottom of `opencode.json`:
 ```json
 {
   ...
@@ -51,6 +51,7 @@ vi $HOME/.config/opencode/opencode.json
 }
 ```
 - full schema: https://opencode.ai/config.json
+- See also: https://github.com/anomalyco/opencode/issues/11144
 
 
 # Other resources
