@@ -13,16 +13,6 @@
 1. [API/Platform Dashboard](https://platform.claude.com/dashboard)
 
 
-# Setup
-
-- https://code.claude.com/docs/en/setup
-
-## Verify
-
-- `claude --version`
-- `claude doctor`
-
-
 # Usage
 
 - `/cost`
