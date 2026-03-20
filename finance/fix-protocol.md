@@ -1,3 +1,16 @@
+# Big ideas
+
+- Derive all order state from ExecutionReport (not requests)
+    - counterparty owns state (not you)
+- Idempotency is mandatory
+- Session layer failures dominate real systems (Most production issues are session-level, not application-level”)
+    - resend, disconnect, sequence numbers
+- Recovery = replay + reconciliation (not restart and continue)
+- Mental model: event sourcing
+    - unreliable delivery
+    - no global ordering guarantee
+
+
 # Core Flow
 
 # Message Structure
