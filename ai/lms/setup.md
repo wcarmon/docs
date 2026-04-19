@@ -75,5 +75,20 @@ vi $HOME/.config/opencode/opencode.json
 - See also: https://github.com/anomalyco/opencode/issues/11144
 
 
+# Chat
+- command line
+
+```
+lms chat
+```
+
+# Server
+- hosts models for other tools
+
+```sh
+lms server start
+```
+
+
 # Other resources
 1. TODO

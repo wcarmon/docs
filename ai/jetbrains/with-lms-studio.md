@@ -10,4 +10,5 @@ lms server start
 
 File | Settings | Tools | AI Assistant | Models & API keys
 
-`localhost:1234`
+Provider:   `LM Studio`
+Url:        `http://localhost:1234`
