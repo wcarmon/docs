@@ -140,12 +140,8 @@ EOF
 # ---------------------------------------------
 # -- Derived
 # ---------------------------------------------
-# TODO: derive git root based on nearest .git directory
-# TODO: print derived repo root
-
-# TODO: derive the output dir for review md files (similar to the input file structure)
-
-# TODO:
+readonly MODEL_TAIL="${MODEL##*/}"
+readonly MODEL_SIMPLE="$(printf '%s' "$MODEL_TAIL" | tr '[:upper:]' '[:lower:]' | sed -E 's/[^a-z0-9._-]+/-/g')"
 
 readonly GIT_DIR="$(git -C "$(dirname "$ABS_CODE_FILE")" rev-parse --show-toplevel)" || {
   echo "Error: not inside a git repository: $ABS_CODE_FILE" >&2
@@ -160,6 +156,16 @@ readonly RELATIVE_CODE_PATH="$(realpath --relative-to="$GIT_DIR" "$ABS_CODE_FILE
 readonly ABS_REVIEWS_DIR="$GIT_DIR/reviews"
 readonly RELATIVE_OUTPUT_DIR="$(dirname -- "$RELATIVE_CODE_PATH")"
 readonly ABS_OUTPUT_DIR="$(realpath -m -- "$ABS_REVIEWS_DIR/$RELATIVE_OUTPUT_DIR")"
+
+
+# -- output file
+readonly SIMPLE_CODE_FILE_NAME="$(basename -- "$RELATIVE_CODE_PATH")"
+readonly CODE_FILE_NAME_WITHOUT_EXTENSION="${SIMPLE_CODE_FILE_NAME%%.*}"
+
+readonly OUTPUT_FILE_NAME="$CODE_FILE_NAME_WITHOUT_EXTENSION.$MODEL_SIMPLE.review.md"
+
+readonly ABS_OUTPUT_FILE="$ABS_OUTPUT_DIR/$OUTPUT_FILE_NAME"
+readonly RELATIVE_OUTPUT_FILE="$RELATIVE_OUTPUT_DIR/$OUTPUT_FILE_NAME"
 
 
 # ---------------------------------------------
