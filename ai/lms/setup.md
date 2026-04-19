@@ -22,13 +22,12 @@ lms
 ```bash
 lms daemon up
 
-# Relatively Small coding models
+# -- Relatively Small coding models
 lms get deepseek/deepseek-r1-0528-qwen3-8b
 lms get deepseek/deepseek-r1-distill-llama-8b
 lms get deepseek/deepseek-r1-distill-qwen-7b
 lms get google/gemma-3-1b
 lms get google/gemma-3-4b
-lms get google/gemma-4-e2b
 lms get google/gemma-4-e2b
 lms get google/gemma-4-e4b
 lms get mistralai/ministral-3-3b

@@ -83,11 +83,6 @@ readonly ABS_CODE_FILE="$(realpath "$CODE_FILE_ARG")"
 # ---------------------------------------------
 # -- Helpers
 # ---------------------------------------------
-sanitize_model_name() {
-  # Turn "lm_studio/qwen2.5-coder:14b" into "lm_studio_qwen2.5-coder_14b"
-  printf '%s' "$1" | sed 's#[/: ]#_#g'
-}
-
 
 make_prompt_file() {
   local src="$1"
@@ -168,16 +163,19 @@ readonly ABS_OUTPUT_FILE="$ABS_OUTPUT_DIR/$OUTPUT_FILE_NAME"
 readonly RELATIVE_OUTPUT_FILE="$RELATIVE_OUTPUT_DIR/$OUTPUT_FILE_NAME"
 
 
+# TODO: fix this part
+readonly AIDER_PROMPT=TODO
+
+
 # ---------------------------------------------
 # -- Preflight
 # ---------------------------------------------
 echo
-echo "|--             GIT_DIR: [$GIT_DIR]"
-echo "|--       ABS_CODE_FILE: [$ABS_CODE_FILE]"
-#echo "|--  RELATIVE_CODE_PATH: [$RELATIVE_CODE_PATH]"
-#echo "|--     ABS_REVIEWS_DIR: [$ABS_REVIEWS_DIR]"
-#echo "|-- RELATIVE_OUTPUT_DIR: [$RELATIVE_OUTPUT_DIR]"
-echo "|--      ABS_OUTPUT_DIR: [$ABS_OUTPUT_DIR]"
+echo "|--        GIT_DIR: [$GIT_DIR]"
+echo "|--  ABS_CODE_FILE: [$ABS_CODE_FILE]"
+echo "|-- ABS_OUTPUT_DIR: [$ABS_OUTPUT_DIR]"
+
+mkdir -p "$ABS_OUTPUT_DIR"
 
 
 # ---------------------------------------------
@@ -186,17 +184,30 @@ echo "|--      ABS_OUTPUT_DIR: [$ABS_OUTPUT_DIR]"
 
 cd "$GIT_DIR" >/dev/null 2>&1
 
-mkdir -p "$ABS_OUTPUT_DIR"
-
 echo
 echo "|-- Working dir: [$(pwd)]"
 echo "|-- Reviewing [$ABS_CODE_FILE] ..."
 
-#
-#aider --model="$MODEL" \
-#--analytics-disable \
-#--read TODO \
-#--message TODO \
+
+# -- Run aider
+# - --map-tokens 0:       no repo map, tighter scope
+# - --message-file:       safer than trying to shell-escape a big prompt
+# - --no-git / --no-auto-commits: no repo changes
+# - --no-pretty / --no-stream: easier to capture clean markdown
+# - --read:               give the source file as read-only
+# - --yes:                skip confirmations in scripts
+aider --model="$MODEL" \
+--analytics-disable \
+--map-tokens 0 \
+--message-file "$AIDER_PROMPT" \
+--model "$MODEL" \
+--no-auto-commits \
+--no-git \
+--no-pretty \
+--no-stream \
+--read "$RELATIVE_CODE_PATH" \
+--yes \
+>"$RELATIVE_OUTPUT_FILE" 2>&1
 
 
 # ---------------------------------------------
