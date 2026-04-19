@@ -33,19 +33,51 @@ set -u # fail on unset var
 # -- Config
 # ---------------------------------------------
 
+# -- models: lms ls
+#readonly MODEL="lm_studio/deepseek/deepseek-r1-0528-qwen3-8b"
+#readonly MODEL="lm_studio/deepseek/deepseek-r1-distill-llama-8b"
+#readonly MODEL="lm_studio/deepseek/deepseek-r1-distill-qwen-7b"
+#readonly MODEL="lm_studio/google/gemma-3-1b"
+#readonly MODEL="lm_studio/google/gemma-3-4b"
+#readonly MODEL="lm_studio/google/gemma-4-e2b"
+#readonly MODEL="lm_studio/google/gemma-4-e4b"
+readonly MODEL="lm_studio/mistralai/ministral-3-3b"
+#readonly MODEL="lm_studio/mistralai/ministral-3-3b-reasoning"
+#readonly MODEL="lm_studio/mistralai/ministral-3-8b"
+#readonly MODEL="lm_studio/mistralai/ministral-3-8b-reasoning"
+#readonly MODEL="lm_studio/qwen/qwen2.5-coder-14b"
+#readonly MODEL="lm_studio/qwen/qwen3-4b"
+#readonly MODEL="lm_studio/qwen/qwen3-4b-2507"
+#readonly MODEL="lm_studio/qwen/qwen3-4b-thinking-2507"
+#readonly MODEL="lm_studio/qwen/qwen3-8b"
+#readonly MODEL="lm_studio/qwen/qwen3-coder-next"
+#readonly MODEL="lm_studio/qwen/qwen3.5-2b"
+#readonly MODEL="lm_studio/qwen/qwen3.5-4b"
+#readonly MODEL="lm_studio/qwen/qwen3.5-9b"
+
+
 export LM_STUDIO_API_KEY=dummy-api-key
 export LM_STUDIO_API_BASE=http://localhost:1234/v1
-
-
-# -- models:
-# lms ls
-readonly MODEL="lm_studio/TODO"
 
 
 # ---------------------------------------------
 # -- Validate
 # ---------------------------------------------
-# TODO: require one param for the file
+# require exactly 1 argument
+if [[ $# -ne 1 ]]; then
+  echo "Usage: $0 <src-file-path>" >&2
+  exit 3
+fi
+
+CODE_FILE="$1"
+
+if [[ ! -f "$CODE_FILE" ]]; then
+  echo
+  echo "Error: file does not exist or is not a regular file: [CODE_FILE]" >&2
+  exit 4
+fi
+
+CODE_FILE="$(realpath "$CODE_FILE")"
 
 
 # ---------------------------------------------
@@ -119,10 +151,16 @@ EOF
 # -- Run
 # ---------------------------------------------
 
-aider --model="$MODEL" \
---analytics-disable \
---read TODO \
---message TODO \
+# TODO: cd into nearest git root
+
+echo
+echo "Reviewing file: [$RELATIVE_CODE_PATH]"
+
+#
+#aider --model="$MODEL" \
+#--analytics-disable \
+#--read TODO \
+#--message TODO \
 
 
 # ---------------------------------------------
