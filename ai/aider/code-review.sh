@@ -152,6 +152,27 @@ readonly GIT_DIR="$(git -C "$(dirname "$ABS_CODE_FILE")" rev-parse --show-toplev
   exit 7
 }
 
+readonly RELATIVE_CODE_PATH="$(realpath --relative-to="$GIT_DIR" "$ABS_CODE_FILE")" || {
+  echo "Error: failed to relativize path" >&2
+  exit 8
+}
+
+readonly ABS_REVIEWS_DIR="$GIT_DIR/reviews"
+readonly RELATIVE_OUTPUT_DIR="$(dirname -- "$RELATIVE_CODE_PATH")"
+readonly ABS_OUTPUT_DIR="$(realpath -m -- "$ABS_REVIEWS_DIR/$RELATIVE_OUTPUT_DIR")"
+
+
+# ---------------------------------------------
+# -- Preflight
+# ---------------------------------------------
+echo
+echo "|--             GIT_DIR: [$GIT_DIR]"
+echo "|--       ABS_CODE_FILE: [$ABS_CODE_FILE]"
+#echo "|--  RELATIVE_CODE_PATH: [$RELATIVE_CODE_PATH]"
+#echo "|--     ABS_REVIEWS_DIR: [$ABS_REVIEWS_DIR]"
+#echo "|-- RELATIVE_OUTPUT_DIR: [$RELATIVE_OUTPUT_DIR]"
+echo "|--      ABS_OUTPUT_DIR: [$ABS_OUTPUT_DIR]"
+
 
 # ---------------------------------------------
 # -- Run
