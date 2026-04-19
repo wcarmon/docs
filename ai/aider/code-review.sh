@@ -69,15 +69,15 @@ if [[ $# -ne 1 ]]; then
   exit 3
 fi
 
-CODE_FILE="$1"
+readonly CODE_FILE_ARG="$1"
 
-if [[ ! -f "$CODE_FILE" ]]; then
+if [[ ! -f "$CODE_FILE_ARG" ]]; then
   echo
-  echo "Error: file does not exist or is not a regular file: [CODE_FILE]" >&2
+  echo "Error: file does not exist or is not a regular file: [$CODE_FILE_ARG]" >&2
   exit 4
 fi
 
-CODE_FILE="$(realpath "$CODE_FILE")"
+readonly ABS_CODE_FILE="$(realpath "$CODE_FILE_ARG")"
 
 
 # ---------------------------------------------
@@ -147,14 +147,23 @@ EOF
 
 # TODO:
 
+readonly GIT_DIR="$(git -C "$(dirname "$ABS_CODE_FILE")" rev-parse --show-toplevel)" || {
+  echo "Error: not inside a git repository: $ABS_CODE_FILE" >&2
+  exit 7
+}
+
+
 # ---------------------------------------------
 # -- Run
 # ---------------------------------------------
 
-# TODO: cd into nearest git root
+cd "$GIT_DIR" >/dev/null 2>&1
+
+mkdir -p "$ABS_OUTPUT_DIR"
 
 echo
-echo "Reviewing file: [$RELATIVE_CODE_PATH]"
+echo "|-- Working dir: [$(pwd)]"
+echo "|-- Reviewing [$ABS_CODE_FILE] ..."
 
 #
 #aider --model="$MODEL" \
