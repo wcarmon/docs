@@ -132,6 +132,9 @@ readonly ABS_OUTPUT_FILE="$ABS_OUTPUT_DIR/$OUTPUT_FILE_NAME"
 
 readonly ERR_OUTPUT="$ABS_OUTPUT_FILE.err"
 
+readonly TMP_REVIEW_FILE="$(mktemp)"
+trap 'rm -f "$TMP_PROMPT_FILE" "$TMP_REVIEW_FILE"' EXIT
+
 
 # ---------------------------------------------
 # -- Derived: prompt
@@ -241,7 +244,7 @@ mkdir -p "$ABS_OUTPUT_DIR"
 
 
 # ---------------------------------------------
-# -- Run
+# -- Run Review
 # ---------------------------------------------
 
 cd "$GIT_DIR" >/dev/null 2>&1
@@ -285,7 +288,7 @@ if ! aider \
   --no-watch-files \
   --read "$RELATIVE_CODE_PATH" \
   --yes \
-  > "$ABS_OUTPUT_FILE" 2> "$ABS_OUTPUT_FILE.err"; then
+  > "$TMP_REVIEW_FILE" 2> "$ABS_OUTPUT_FILE.err"; then
 
   echo
   echo "|-- Aider failed for $ABS_CODE_FILE" >&2
@@ -293,34 +296,48 @@ if ! aider \
   exit 13
 fi
 
+
+# ---------------------------------------------
+# -- Validate output
+# ---------------------------------------------
+
+# Validate AI output
+if ! grep -q '^# Summary' "$TMP_REVIEW_FILE"; then
+  echo "|-- ERROR: model returned useless review output for $ABS_CODE_FILE" >&2
+  echo "|-- See raw output in [$TMP_REVIEW_FILE]" >&2
+  exit 14
+fi
+
+# -- Promote AI output from tmp to output file
+if awk '/^# Summary/ {p=1} p' "$TMP_REVIEW_FILE" > "$ABS_OUTPUT_FILE"; then
+  if ! grep -q '^# Summary' "$ABS_OUTPUT_FILE"; then
+    echo "|-- ERROR: missing # Summary in output" >&2
+    exit 14
+  fi
+else
+  echo "|-- ERROR: failed to process output: [$TMP_REVIEW_FILE] " >&2
+  exit 15
+fi
+
+
+
+# TODO: consider these aider flags
 # TODO: set --thinking-tokens 1500
 # TODO: set --reasoning-effort
-
 # TODO: [--add-gitignore-files | --no-add-gitignore-files]
 # TODO: [--aiderignore AIDERIGNORE] [--subtree-only]
-# TODO: [--assistant-output-color ASSISTANT_OUTPUT_COLOR]
 # TODO: [--auto-accept-architect | --no-auto-accept-architect]
 # TODO: [--cache-prompts | --no-cache-prompts]
 # TODO: [--chat-history-file CHAT_HISTORY_FILE]
-# TODO: [--check-model-accepts-settings | --no-check-model-accepts-settings]
-# TODO: [--fancy-input | --no-fancy-input] [--multiline | --no-multiline]
-# TODO: [--file FILE] [--read FILE] [--vim]
 # TODO: [--input-history-file INPUT_HISTORY_FILE]
-# TODO: [--light-mode] [--pretty | --no-pretty] [--stream | --no-stream]
 # TODO: [--llm-history-file LLM_HISTORY_FILE] [--dark-mode]
 # TODO: [--map-refresh {auto,always,files,manual}]
 # TODO: [--max-chat-history-tokens MAX_CHAT_HISTORY_TOKENS]
 # TODO: [--restore-chat-history | --no-restore-chat-history]
-# TODO: [--suggest-shell-commands | --no-suggest-shell-commands]
-# TODO: [--tool-error-color TOOL_ERROR_COLOR]
-# TODO: [--tool-output-color TOOL_OUTPUT_COLOR]
-# TODO: [--tool-warning-color TOOL_WARNING_COLOR]
-# TODO: [--user-input-color USER_INPUT_COLOR]
 # TODO: [--weak-model WEAK_MODEL] [--editor-model EDITOR_MODEL]
 
 
 # ---------------------------------------------
 # -- Report
 # ---------------------------------------------
-echo
 echo "|-- See review at [$ABS_OUTPUT_FILE]"
