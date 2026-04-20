@@ -10,7 +10,6 @@
 # -- Assumptions:
 # -- 1. aider installed (v0.86 or newer)
 # -- 2. lm-studio installed
-# -- 3. jq installed
 # ---------------------------------------------
 
 #set -x # uncomment to debug script
@@ -301,24 +300,31 @@ fi
 # -- Validate output
 # ---------------------------------------------
 
-# Validate AI output
+# -- Reject if missing Summary header
 if ! grep -q '^# Summary' "$TMP_REVIEW_FILE"; then
   echo "|-- ERROR: model returned useless review output for $ABS_CODE_FILE" >&2
   echo "|-- See raw output in [$TMP_REVIEW_FILE]" >&2
   exit 14
 fi
 
+
+# -- Reject if too small
+if (( $(stat -c%s "$TMP_REVIEW_FILE") < 400 )); then
+  echo "|-- ERROR: review output too small (<400 bytes) for $ABS_CODE_FILE" >&2
+  echo "|-- See raw output in [$TMP_REVIEW_FILE]" >&2
+  exit 16
+fi
+
 # -- Promote AI output from tmp to output file
 if awk '/^# Summary/ {p=1} p' "$TMP_REVIEW_FILE" > "$ABS_OUTPUT_FILE"; then
   if ! grep -q '^# Summary' "$ABS_OUTPUT_FILE"; then
     echo "|-- ERROR: missing # Summary in output" >&2
-    exit 14
+    exit 18
   fi
 else
   echo "|-- ERROR: failed to process output: [$TMP_REVIEW_FILE] " >&2
-  exit 15
+  exit 20
 fi
-
 
 
 # TODO: consider these aider flags
