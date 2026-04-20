@@ -34,26 +34,26 @@ set -u # fail on unset var
 # ---------------------------------------------
 
 # -- models: lms ls
-#readonly MODEL="lm_studio/deepseek/deepseek-r1-0528-qwen3-8b"
-#readonly MODEL="lm_studio/deepseek/deepseek-r1-distill-llama-8b"
-#readonly MODEL="lm_studio/deepseek/deepseek-r1-distill-qwen-7b"
-#readonly MODEL="lm_studio/google/gemma-3-1b"
-#readonly MODEL="lm_studio/google/gemma-3-4b"
-#readonly MODEL="lm_studio/google/gemma-4-e2b"
-#readonly MODEL="lm_studio/google/gemma-4-e4b"
-readonly MODEL="lm_studio/mistralai/ministral-3-3b"
-#readonly MODEL="lm_studio/mistralai/ministral-3-3b-reasoning"
-#readonly MODEL="lm_studio/mistralai/ministral-3-8b"
-#readonly MODEL="lm_studio/mistralai/ministral-3-8b-reasoning"
-#readonly MODEL="lm_studio/qwen/qwen2.5-coder-14b"
-#readonly MODEL="lm_studio/qwen/qwen3-4b"
-#readonly MODEL="lm_studio/qwen/qwen3-4b-2507"
-#readonly MODEL="lm_studio/qwen/qwen3-4b-thinking-2507"
-#readonly MODEL="lm_studio/qwen/qwen3-8b"
-#readonly MODEL="lm_studio/qwen/qwen3-coder-next"
-#readonly MODEL="lm_studio/qwen/qwen3.5-2b"
-#readonly MODEL="lm_studio/qwen/qwen3.5-4b"
-#readonly MODEL="lm_studio/qwen/qwen3.5-9b"
+#readonly LMS_MODEL="lm_studio/deepseek/deepseek-r1-0528-qwen3-8b"
+#readonly LMS_MODEL="lm_studio/deepseek/deepseek-r1-distill-llama-8b"
+#readonly LMS_MODEL="lm_studio/deepseek/deepseek-r1-distill-qwen-7b"
+readonly LMS_MODEL="lm_studio/google/gemma-3-1b"
+#readonly LMS_MODEL="lm_studio/google/gemma-3-4b"
+#readonly LMS_MODEL="lm_studio/google/gemma-4-e2b"
+#readonly LMS_MODEL="lm_studio/google/gemma-4-e4b"
+#readonly LMS_MODEL="lm_studio/mistralai/ministral-3-3b"
+#readonly LMS_MODEL="lm_studio/mistralai/ministral-3-3b-reasoning"
+#readonly LMS_MODEL="lm_studio/mistralai/ministral-3-8b"
+#readonly LMS_MODEL="lm_studio/mistralai/ministral-3-8b-reasoning"
+#readonly LMS_MODEL="lm_studio/qwen/qwen2.5-coder-14b"
+#readonly LMS_MODEL="lm_studio/qwen/qwen3-4b"
+#readonly LMS_MODEL="lm_studio/qwen/qwen3-4b-2507"
+#readonly LMS_MODEL="lm_studio/qwen/qwen3-4b-thinking-2507"
+#readonly LMS_MODEL="lm_studio/qwen/qwen3-8b"
+#readonly LMS_MODEL="lm_studio/qwen/qwen3-coder-next"
+#readonly LMS_MODEL="lm_studio/qwen/qwen3.5-2b"
+#readonly LMS_MODEL="lm_studio/qwen/qwen3.5-4b"
+#readonly LMS_MODEL="lm_studio/qwen/qwen3.5-9b"
 
 export LM_STUDIO_API_KEY=dummy-api-key
 export LM_STUDIO_API_BASE=http://localhost:1234/v1
@@ -90,8 +90,10 @@ fi
 # ---------------------------------------------
 # -- Derived: Model
 # ---------------------------------------------
-readonly MODEL_TAIL="${MODEL##*/}"
+readonly MODEL_TAIL="${LMS_MODEL##*/}"
 readonly MODEL_SIMPLE="$(printf '%s' "$MODEL_TAIL" | tr '[:upper:]' '[:lower:]' | sed -E 's/[^a-z0-9._-]+/-/g')"
+
+readonly MODEL_WITHOUT_PREFIX="${LMS_MODEL#lm_studio/}"
 
 
 # ---------------------------------------------
@@ -147,31 +149,53 @@ Rules:
 7. Output valid markdown only.
 8. If unsure, explicitly say "insufficient context" instead of guessing.
 9. Do not repeat the entire code or large excerpts.
+10. Every finding must include a line number or line range using the format [Lstart] or [Lstart-Lend]. If unknown, say "unknown".
 
 Output sections in this exact order:
 # Summary
 A 1-3 sentence overview.
 
 # Definite bugs
-Bullet list. Use "None." if empty.
+Bullet list. Each bullet MUST start with a line reference like:
+- [L12] description
+- [L20-L28] description
+Use "None." if empty.
 
 # Likely bugs or edge cases
-Bullet list. Use "None." if empty.
+Bullet list. Each bullet MUST start with a line reference like:
+- [L12] description
+- [L20-L28] description
+Use "None." if empty.
 
 # Concurrency or state risks
-Bullet list. Use "None." if empty.
+Bullet list. Each bullet MUST start with a line reference like:
+- [L12] description
+- [L20-L28] description
+Use "None." if empty.
 
 # Security risks
-Bullet list. Use "None." if empty.
+Bullet list. Each bullet MUST start with a line reference like:
+- [L12] description
+- [L20-L28] description
+Use "None." if empty.
 
 # API, naming, or maintainability issues
-Bullet list. Use "None." if empty.
+Bullet list. Each bullet MUST start with a line reference like:
+- [L12] description
+- [L20-L28] description
+Use "None." if empty.
 
 # Unnecessary complexity
-Bullet list. Use "None." if empty.
+Bullet list. Each bullet MUST start with a line reference like:
+- [L12] description
+- [L20-L28] description
+Use "None." if empty.
 
 # Missing tests
-Bullet list of specific test cases. Use "None." if empty.
+Bullet list. Each bullet MUST start with a line reference like:
+- [L12] description
+- [L20-L28] description
+Use "None." if empty.
 
 # Minimal patch ideas
 Bullet list of the smallest worthwhile code changes. No full rewrite. Use "None." if empty.
@@ -182,9 +206,9 @@ Reason: one sentence.
 EOF
 readonly AIDER_PROMPT="$TMP_PROMPT_FILE"
 
-# TODO: maturity idioms
-# TODO: performance considerations
-# TODO: error handling considerations
+# TODO: maturity idioms?
+# TODO: performance considerations?
+# TODO: error handling considerations?
 
 
 # ---------------------------------------------
@@ -211,8 +235,10 @@ echo "|-- Reviewing [$ABS_CODE_FILE] ..."
 if [[ -f "$ABS_OUTPUT_FILE" ]]; then
   # They are version controlled so it's fine
   echo
-  echo "WARN: overwriting existing review: $ABS_OUTPUT_FILE"
+  echo "|-- WARN: overwriting existing review: $ABS_OUTPUT_FILE"
 fi
+
+lms load "$MODEL_WITHOUT_PREFIX"
 
 # -- Run aider
 # - --map-tokens 0:       no repo map, tighter scope
@@ -226,7 +252,7 @@ if ! aider \
   --analytics-disable \
   --map-tokens 0 \
   --message-file "$AIDER_PROMPT" \
-  --model "$MODEL" \
+  --model "$LMS_MODEL" \
   --no-analytics \
   --no-auto-commits \
   --no-git \
@@ -242,6 +268,8 @@ if ! aider \
   echo "|-- See error output at [$ERR_OUTPUT]"
   exit 13
 fi
+
+# TODO: don't open firefox with aider warnings page
 
 # TODO: set --thinking-tokens 1500
 # TODO: set --reasoning-effort
