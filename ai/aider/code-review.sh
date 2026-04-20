@@ -265,37 +265,38 @@ fi
 
 # TODO: skip files with "QUALITY: Mature" in the first 5 lines
 
+time (
+  # -- Run aider
+  # -- See https://aider.chat/docs/config/options.html
+  if ! aider \
+    --analytics-disable \
+    --check-model-accepts-settings \
+    --map-tokens 0 \
+    --message-file "$AIDER_PROMPT" \
+    --model "$LMS_MODEL" \
+    --no-analytics \
+    --no-auto-commits \
+    --no-auto-lint \
+    --no-browser \
+    --no-detect-urls \
+    --no-dirty-commits \
+    --no-git \
+    --no-gitignore \
+    --no-pretty \
+    --no-show-model-warnings \
+    --no-stream \
+    --no-verify-ssl \
+    --no-watch-files \
+    --read "$RELATIVE_CODE_PATH" \
+    --yes \
+    > "$TMP_REVIEW_FILE" 2> "$ABS_OUTPUT_FILE.err"; then
 
-# -- Run aider
-# -- See https://aider.chat/docs/config/options.html
-if ! aider \
-  --analytics-disable \
-  --check-model-accepts-settings \
-  --map-tokens 0 \
-  --message-file "$AIDER_PROMPT" \
-  --model "$LMS_MODEL" \
-  --no-analytics \
-  --no-auto-commits \
-  --no-auto-lint \
-  --no-browser \
-  --no-detect-urls \
-  --no-dirty-commits \
-  --no-git \
-  --no-gitignore \
-  --no-pretty \
-  --no-show-model-warnings \
-  --no-stream \
-  --no-verify-ssl \
-  --no-watch-files \
-  --read "$RELATIVE_CODE_PATH" \
-  --yes \
-  > "$TMP_REVIEW_FILE" 2> "$ABS_OUTPUT_FILE.err"; then
-
-  echo
-  echo "|-- Aider failed for $ABS_CODE_FILE" >&2
-  echo "|-- See error output at [$ERR_OUTPUT]"
-  exit 13
-fi
+    echo
+    echo "|-- Aider failed for $ABS_CODE_FILE" >&2
+    echo "|-- See error output at [$ERR_OUTPUT]"
+    exit 13
+  fi
+)
 
 
 # ---------------------------------------------
