@@ -245,11 +245,17 @@ echo
 echo "|--       GIT_DIR: [$GIT_DIR]"
 echo "|-- Reviewing [$ABS_CODE_FILE] ..."
 
-# if [[ -f "$ABS_OUTPUT_FILE" ]]; then
-#   # -- These are version controlled so it's fine
-#   echo
-#   echo "|-- WARN: overwriting existing review: $ABS_OUTPUT_FILE"
-# fi
+if [[ -f "$ABS_OUTPUT_FILE" ]]; then
+  if [[ "$ABS_CODE_FILE" -nt "$ABS_OUTPUT_FILE" ]]; then
+    echo
+    echo "|-- WARN: overwriting existing review since source updated"
+
+  else
+    echo
+    echo "|-- Skipping review since review file already exists at [$ABS_OUTPUT_FILE]"
+    exit 0
+  fi
+fi
 
 
 # -- Run aider
