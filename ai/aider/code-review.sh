@@ -315,8 +315,8 @@ fi
 
 
 # -- Reject if too small
-if (( $(stat -c%s "$TMP_REVIEW_FILE") < 500 )); then
-  echo "|-- ERROR: review output too small (<500 bytes) for $ABS_CODE_FILE" >&2
+if (( $(stat -c%s "$TMP_REVIEW_FILE") < 700 )); then
+  echo "|-- ERROR: review output too small (<700 bytes) for $ABS_CODE_FILE" >&2
   echo "|-- See raw output in [$TMP_REVIEW_FILE]" >&2
   exit 16
 fi
