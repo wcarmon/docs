@@ -263,6 +263,8 @@ if [[ -f "$ABS_OUTPUT_FILE" ]]; then
   fi
 fi
 
+# TODO: skip files with "QUALITY: Mature" in the first 5 lines
+
 
 # -- Run aider
 # -- See https://aider.chat/docs/config/options.html
@@ -309,8 +311,8 @@ fi
 
 
 # -- Reject if too small
-if (( $(stat -c%s "$TMP_REVIEW_FILE") < 400 )); then
-  echo "|-- ERROR: review output too small (<400 bytes) for $ABS_CODE_FILE" >&2
+if (( $(stat -c%s "$TMP_REVIEW_FILE") < 500 )); then
+  echo "|-- ERROR: review output too small (<500 bytes) for $ABS_CODE_FILE" >&2
   echo "|-- See raw output in [$TMP_REVIEW_FILE]" >&2
   exit 16
 fi
