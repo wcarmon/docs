@@ -35,6 +35,7 @@ set -u # fail on unset var
 export LM_STUDIO_API_KEY="dummy-api-key"
 export LM_STUDIO_API_BASE="http://localhost:1234/v1"
 
+# TODO: choose a good default
 # -- models: lms ls
 #readonly DEFAULT_LMS_MODEL="lm_studio/deepseek/deepseek-r1-0528-qwen3-8b"
 #readonly DEFAULT_LMS_MODEL="lm_studio/deepseek/deepseek-r1-distill-llama-8b"
@@ -249,11 +250,9 @@ echo "|-- Reviewing [$ABS_CODE_FILE] ..."
 
 if [[ -f "$ABS_OUTPUT_FILE" ]]; then
   if [[ "$ABS_CODE_FILE" -nt "$ABS_OUTPUT_FILE" ]]; then
-    echo
     echo "|-- WARN: overwriting existing review since source updated"
 
   else
-    echo
     echo "|-- Skipping review since review file already exists at [$ABS_OUTPUT_FILE]"
     exit 0
   fi
