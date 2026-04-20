@@ -223,15 +223,17 @@ mkdir -p "$ABS_OUTPUT_DIR"
 # ---------------------------------------------
 # -- Load model
 # ---------------------------------------------
-if lms ps --json | jq -e ".[] | select(.id == \"$MODEL_WITHOUT_PREFIX\")" >/dev/null; then
-  echo
-  echo "|-- model already loaded: [$MODEL_WITHOUT_PREFIX]"
-
-else
-  echo
-  echo "|-- loading model: [$MODEL_WITHOUT_PREFIX] ..."
-  lms load "$MODEL_WITHOUT_PREFIX" --yes
-fi
+# GOTCHA Better to do outside here to avoid loading multiple instances
+# TODO: this doesn't work unless you unload first
+# if lms ps --json | jq -e ".[] | select(.id == \"$MODEL_WITHOUT_PREFIX\")" >/dev/null; then
+#   echo
+#   echo "|-- model already loaded: [$MODEL_WITHOUT_PREFIX]"
+#
+# else
+#   echo
+#   echo "|-- loading model: [$MODEL_WITHOUT_PREFIX] ..."
+#   lms load "$MODEL_WITHOUT_PREFIX"
+# fi
 
 
 
