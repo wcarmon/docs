@@ -155,8 +155,11 @@ Rules:
 6. Do not suggest broad rewrites.
 7. Output valid markdown only.
 8. If unsure, explicitly say "insufficient context" instead of guessing.
-9. Do not repeat the entire code or large excerpts.
+9. Do not repeat nor return the entire code or large excerpts.
 10. Every finding must include a line number or line range using the format [Lstart] or [Lstart-Lend]. If unknown, say "unknown".
+11. Do NOT include the entire input file in the response.
+12. Do NOT response with code blocks longer than 5 lines.
+
 
 Output sections in this exact order:
 # Summary
