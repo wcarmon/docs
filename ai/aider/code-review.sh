@@ -35,32 +35,27 @@ set -u # fail on unset var
 export LM_STUDIO_API_KEY="dummy-api-key"
 export LM_STUDIO_API_BASE="http://localhost:1234/v1"
 
-# TODO: choose a good default
 # -- models: lms ls
-#readonly DEFAULT_LMS_MODEL="lm_studio/deepseek/deepseek-r1-0528-qwen3-8b"
-#readonly DEFAULT_LMS_MODEL="lm_studio/deepseek/deepseek-r1-distill-llama-8b"
-#readonly DEFAULT_LMS_MODEL="lm_studio/deepseek/deepseek-r1-distill-qwen-7b"
-readonly DEFAULT_LMS_MODEL="lm_studio/google/gemma-3-1b"
-#readonly DEFAULT_LMS_MODEL="lm_studio/google/gemma-3-4b"
-#readonly DEFAULT_LMS_MODEL="lm_studio/google/gemma-4-e2b"
-#readonly DEFAULT_LMS_MODEL="lm_studio/google/gemma-4-e4b"
-#readonly DEFAULT_LMS_MODEL="lm_studio/mistralai/ministral-3-3b"
-#readonly DEFAULT_LMS_MODEL="lm_studio/mistralai/ministral-3-3b-reasoning"
-#readonly DEFAULT_LMS_MODEL="lm_studio/mistralai/ministral-3-8b"
-#readonly DEFAULT_LMS_MODEL="lm_studio/mistralai/ministral-3-8b-reasoning"
-#readonly DEFAULT_LMS_MODEL="lm_studio/qwen/qwen2.5-coder-14b"
-#readonly DEFAULT_LMS_MODEL="lm_studio/qwen/qwen3-4b"
-#readonly DEFAULT_LMS_MODEL="lm_studio/qwen/qwen3-4b-2507"
-#readonly DEFAULT_LMS_MODEL="lm_studio/qwen/qwen3-4b-thinking-2507"
-#readonly DEFAULT_LMS_MODEL="lm_studio/qwen/qwen3-8b"
-#readonly DEFAULT_LMS_MODEL="lm_studio/qwen/qwen3-coder-next"
-#readonly DEFAULT_LMS_MODEL="lm_studio/qwen/qwen3.5-2b"
-#readonly DEFAULT_LMS_MODEL="lm_studio/qwen/qwen3.5-4b"
-#readonly DEFAULT_LMS_MODEL="lm_studio/qwen/qwen3.5-9b"
-
-readonly LMS_MODEL="${LMS_MODEL:-$DEFAULT_LMS_MODEL}"
-
-
+#readonly LMS_MODEL="lm_studio/deepseek/deepseek-r1-0528-qwen3-8b"
+#readonly LMS_MODEL="lm_studio/deepseek/deepseek-r1-distill-llama-8b"
+#readonly LMS_MODEL="lm_studio/deepseek/deepseek-r1-distill-qwen-7b"
+#readonly LMS_MODEL="lm_studio/google/gemma-3-1b"
+#readonly LMS_MODEL="lm_studio/google/gemma-3-4b"
+#readonly LMS_MODEL="lm_studio/google/gemma-4-e2b"
+#readonly LMS_MODEL="lm_studio/google/gemma-4-e4b"
+#readonly LMS_MODEL="lm_studio/mistralai/ministral-3-3b"
+#readonly LMS_MODEL="lm_studio/mistralai/ministral-3-3b-reasoning"
+#readonly LMS_MODEL="lm_studio/mistralai/ministral-3-8b"
+#readonly LMS_MODEL="lm_studio/mistralai/ministral-3-8b-reasoning"
+#readonly LMS_MODEL="lm_studio/qwen/qwen2.5-coder-14b"
+#readonly LMS_MODEL="lm_studio/qwen/qwen3-4b"
+#readonly LMS_MODEL="lm_studio/qwen/qwen3-4b-2507"
+#readonly LMS_MODEL="lm_studio/qwen/qwen3-4b-thinking-2507"
+#readonly LMS_MODEL="lm_studio/qwen/qwen3-8b"
+#readonly LMS_MODEL="lm_studio/qwen/qwen3-coder-next"
+#readonly LMS_MODEL="lm_studio/qwen/qwen3.5-2b"
+#readonly LMS_MODEL="lm_studio/qwen/qwen3.5-4b"
+#readonly LMS_MODEL="lm_studio/qwen/qwen3.5-9b"
 
 
 # ---------------------------------------------
@@ -83,11 +78,17 @@ fi
 readonly ABS_CODE_FILE="$(realpath "$CODE_FILE_ARG")"
 
 
+if [[ -z "${LMS_MODEL:-}" ]]; then
+  echo "Error: LMS_MODEL env var is required, run 'lms ls'" >&2
+  exit 5
+fi
+
+
 if ! curl -s "$LM_STUDIO_API_BASE/models" >/dev/null; then
   echo
   echo "Error: LM Studio not reachable at $LM_STUDIO_API_BASE" >&2
   echo "|-- Run: lms server start"
-  exit 5
+  exit 6
 fi
 
 
@@ -247,6 +248,7 @@ cd "$GIT_DIR" >/dev/null 2>&1
 
 echo
 echo "|--       GIT_DIR: [$GIT_DIR]"
+echo "|--     LMS_MODEL: [$LMS_MODEL]"
 echo "|-- Reviewing [$ABS_CODE_FILE] ..."
 
 if [[ -f "$ABS_OUTPUT_FILE" ]]; then
