@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-# TODO: convert this to rust
-
 # ---------------------------------------------
 # -- Runs an aider to review each file
 # --
@@ -10,7 +8,8 @@
 # --
 # -- Assumptions:
 # -- 1. aider installed (v0.86 or newer)
-# -- 1. lm-studio installed
+# -- 2. lm-studio installed
+# -- 3. jq installed
 # ---------------------------------------------
 
 #set -x # uncomment to debug script
@@ -123,7 +122,7 @@ readonly CODE_FILE_NAME_WITHOUT_EXTENSION="${SIMPLE_CODE_FILE_NAME%%.*}"
 readonly OUTPUT_FILE_NAME="$CODE_FILE_NAME_WITHOUT_EXTENSION.$MODEL_SIMPLE.review.md"
 
 readonly ABS_OUTPUT_FILE="$ABS_OUTPUT_DIR/$OUTPUT_FILE_NAME"
-readonly RELATIVE_OUTPUT_FILE="$RELATIVE_OUTPUT_DIR/$OUTPUT_FILE_NAME"
+#readonly RELATIVE_OUTPUT_FILE="$RELATIVE_OUTPUT_DIR/$OUTPUT_FILE_NAME"
 
 readonly ERR_OUTPUT="$ABS_OUTPUT_FILE.err"
 
@@ -214,12 +213,23 @@ readonly AIDER_PROMPT="$TMP_PROMPT_FILE"
 # ---------------------------------------------
 # -- Preflight
 # ---------------------------------------------
-echo
-echo "|--        GIT_DIR: [$GIT_DIR]"
-echo "|--  ABS_CODE_FILE: [$ABS_CODE_FILE]"
-echo "|-- ABS_OUTPUT_DIR: [$ABS_OUTPUT_DIR]"
-
 mkdir -p "$ABS_OUTPUT_DIR"
+
+
+
+# ---------------------------------------------
+# -- Load model
+# ---------------------------------------------
+if lms ps --json | jq -e ".[] | select(.id == \"$MODEL_WITHOUT_PREFIX\")" >/dev/null; then
+  echo
+  echo "|-- model already loaded: [$MODEL_WITHOUT_PREFIX]"
+
+else
+  echo
+  echo "|-- loading model: [$MODEL_WITHOUT_PREFIX] ..."
+  lms load "$MODEL_WITHOUT_PREFIX" --yes
+fi
+
 
 
 # ---------------------------------------------
@@ -229,36 +239,37 @@ mkdir -p "$ABS_OUTPUT_DIR"
 cd "$GIT_DIR" >/dev/null 2>&1
 
 echo
-echo "|-- Working dir: [$(pwd)]"
+echo "|--       GIT_DIR: [$GIT_DIR]"
 echo "|-- Reviewing [$ABS_CODE_FILE] ..."
 
 if [[ -f "$ABS_OUTPUT_FILE" ]]; then
-  # They are version controlled so it's fine
+  # These are version controlled so it's fine
   echo
   echo "|-- WARN: overwriting existing review: $ABS_OUTPUT_FILE"
 fi
 
-lms load "$MODEL_WITHOUT_PREFIX"
 
 # -- Run aider
-# - --map-tokens 0:       no repo map, tighter scope
-# - --message-file:       safer than trying to shell-escape a big prompt
-# - --no-git / --no-auto-commits: no repo changes
-# - --no-pretty / --no-stream: easier to capture clean markdown
-# - --read:               give the source file as read-only
-# - --yes:                skip confirmations in scripts
+# -- See https://aider.chat/docs/config/options.html
 if ! aider \
-  --add-gitignore-files \
   --analytics-disable \
+  --check-model-accepts-settings \
   --map-tokens 0 \
   --message-file "$AIDER_PROMPT" \
   --model "$LMS_MODEL" \
   --no-analytics \
   --no-auto-commits \
+  --no-auto-lint \
+  --no-browser \
+  --no-detect-urls \
+  --no-dirty-commits \
   --no-git \
+  --no-gitignore \
   --no-pretty \
+  --no-show-model-warnings \
   --no-stream \
   --no-verify-ssl \
+  --no-watch-files \
   --read "$RELATIVE_CODE_PATH" \
   --yes \
   > "$ABS_OUTPUT_FILE" 2> "$ABS_OUTPUT_FILE.err"; then
@@ -278,36 +289,17 @@ fi
 # TODO: [--aiderignore AIDERIGNORE] [--subtree-only]
 # TODO: [--assistant-output-color ASSISTANT_OUTPUT_COLOR]
 # TODO: [--auto-accept-architect | --no-auto-accept-architect]
-# TODO: [--auto-commits | --no-auto-commits]
-# TODO: [--cache-keepalive-pings CACHE_KEEPALIVE_PINGS]
 # TODO: [--cache-prompts | --no-cache-prompts]
 # TODO: [--chat-history-file CHAT_HISTORY_FILE]
 # TODO: [--check-model-accepts-settings | --no-check-model-accepts-settings]
-# TODO: [--code-theme CODE_THEME] [--show-diffs] [--git | --no-git]
-# TODO: [--commit-language COMMIT_LANGUAGE] [--yes-always] [-v]
-# TODO: [--detect-urls | --no-detect-urls] [--editor EDITOR]
-# TODO: [--dirty-commits | --no-dirty-commits]
-# TODO: [--edit-format EDIT_FORMAT] [--architect]
-# TODO: [--editor-edit-format EDITOR_EDIT_FORMAT]
 # TODO: [--fancy-input | --no-fancy-input] [--multiline | --no-multiline]
 # TODO: [--file FILE] [--read FILE] [--vim]
-# TODO: [--gitignore | --no-gitignore]
 # TODO: [--input-history-file INPUT_HISTORY_FILE]
-# TODO: [--just-check-update] [--check-update | --no-check-update]
 # TODO: [--light-mode] [--pretty | --no-pretty] [--stream | --no-stream]
-# TODO: [--lint] [--lint-cmd LINT_CMD] [--auto-lint | --no-auto-lint]
 # TODO: [--llm-history-file LLM_HISTORY_FILE] [--dark-mode]
-# TODO: [--load LOAD_FILE] [--encoding ENCODING]
-# TODO: [--map-multiplier-no-files MAP_MULTIPLIER_NO_FILES]
 # TODO: [--map-refresh {auto,always,files,manual}]
 # TODO: [--max-chat-history-tokens MAX_CHAT_HISTORY_TOKENS]
-# TODO: [--message COMMAND] [--message-file MESSAGE_FILE]
 # TODO: [--restore-chat-history | --no-restore-chat-history]
-# TODO: [--shell-completions SHELL] [--opus] [--sonnet] [--haiku] [--4]
-# TODO: [--show-model-warnings | --no-show-model-warnings]
-# TODO: [--show-prompts] [--voice-format VOICE_FORMAT]
-# TODO: [--show-release-notes | --no-show-release-notes]
-# TODO: [--skip-sanity-check-repo] [--watch-files | --no-watch-files]
 # TODO: [--suggest-shell-commands | --no-suggest-shell-commands]
 # TODO: [--tool-error-color TOOL_ERROR_COLOR]
 # TODO: [--tool-output-color TOOL_OUTPUT_COLOR]
