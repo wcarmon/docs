@@ -10,6 +10,7 @@
 # -- Assumptions:
 # -- 1. aider installed (v0.86 or newer)
 # -- 2. lm-studio installed
+# -- 3. lms server start
 # ---------------------------------------------
 
 #set -x # uncomment to debug script
@@ -147,7 +148,7 @@ Review exactly one source file.
 Filename: $RELATIVE_CODE_PATH
 
 Rules:
-1. Do not edit any files.
+1. Do not edit/change any files.
 2. Base your comments only on the provided file unless you explicitly say a point is uncertain due to missing context.
 3. Be concrete and technical.
 4. Prefer false negatives over hallucinations.
@@ -200,6 +201,13 @@ Bullet list. Each bullet MUST start with a line reference like:
 - [L12] description
 - [L20-L28] description
 Use "None." if empty.
+
+# Error hiding/Silent failure
+Bullet list. Each bullet MUST start with a line reference like:
+- [L12] description
+- [L20-L28] description
+Use "None." if empty.
+
 
 # Missing tests
 Bullet list. Each bullet MUST start with a line reference like:
@@ -268,12 +276,16 @@ fi
 
 # TODO: skip files with "QUALITY: Mature" in the first 5 lines
 
+# --no-git  <-- ai suggested I remove
+# --dry-run <-- keeps stdout, but prevents writing files in some cases
+
 time (
   # -- Run aider
   # -- See https://aider.chat/docs/config/options.html
   if ! aider \
     --analytics-disable \
     --check-model-accepts-settings \
+    --dry-run \
     --map-tokens 0 \
     --message-file "$AIDER_PROMPT" \
     --model "$LMS_MODEL" \
@@ -283,7 +295,6 @@ time (
     --no-browser \
     --no-detect-urls \
     --no-dirty-commits \
-    --no-git \
     --no-gitignore \
     --no-pretty \
     --no-show-model-warnings \
