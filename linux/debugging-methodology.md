@@ -1,6 +1,6 @@
 # Overview
-1. TODO
 
+1. Time bounded "slow program" methodology
 
 
 # USE Methodology
@@ -39,4 +39,5 @@
 
 
 # Other resources
+
 1. Systems Performance by Brendan Gregg
