@@ -289,6 +289,7 @@ fi
 time (
   # -- Run aider
   # -- See https://aider.chat/docs/config/options.html
+  # TODO: timeout command, but it makes CTRL+C fail
   if ! aider \
     --analytics-disable \
     --check-model-accepts-settings \
@@ -310,7 +311,7 @@ time (
     --no-watch-files \
     --read "$RELATIVE_CODE_PATH" \
     --yes \
-    > "$TMP_REVIEW_FILE" 2> "$ABS_OUTPUT_FILE.err"; then
+  > "$TMP_REVIEW_FILE" 2> "$ABS_OUTPUT_FILE.err"; then
 
     echo
     echo "|-- Aider failed for $ABS_CODE_FILE" >&2
