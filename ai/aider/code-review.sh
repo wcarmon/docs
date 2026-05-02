@@ -35,6 +35,13 @@ set -u # fail on unset var
 export LM_STUDIO_API_KEY="dummy-api-key"
 export LM_STUDIO_API_BASE="http://localhost:1234/v1"
 
+# See https://man7.org/linux/man-pages/man1/timeout.1.html
+# a floating point number with an optional suffix:
+# 's' for seconds (the default), 'm' for minutes, 'h' for hours or 'd' for days.
+# A duration of 0 disables the associated timeout.
+readonly AIDER_TIMEOUT="${AIDER_TIMEOUT:-5m}"
+
+
 # -- models: lms ls
 #readonly LMS_MODEL="lm_studio/deepseek/deepseek-r1-0528-qwen3-8b"
 #readonly LMS_MODEL="lm_studio/deepseek/deepseek-r1-distill-llama-8b"
