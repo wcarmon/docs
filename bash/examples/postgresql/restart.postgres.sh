@@ -26,7 +26,7 @@ readonly DB_NAME="postgres"
 readonly DB_PASS="postgres"
 readonly DB_PORT=5432
 readonly DB_USER="postgres"
-readonly POSTGRES_IMAGE="postgres:16.1-alpine"
+readonly POSTGRES_IMAGE="postgres:18.4-alpine"
 
 readonly SQL_FOR_CREATE_TABLES="$HOME/tmp/foobar/postgres_create_table.sql"
 readonly SQL_FOR_FOREIGN_KEYS="$HOME/tmp/foobar/foreign_keys.sql"
@@ -52,7 +52,7 @@ docker run \
   -e POSTGRES_DB="$DB_NAME" \
   -e POSTGRES_PASSWORD="$DB_PASS" \
   -e POSTGRES_USER="$DB_USER" \
-  -p $DB_PORT:5432 \
+  -p $HOST_PORT:5432 \
   -v "$SQL_FOR_CREATE_TABLES":/docker-entrypoint-initdb.d/000.setup.sql:ro \
   -v "$SQL_FOR_FOREIGN_KEYS":/docker-entrypoint-initdb.d/010.fk.sql:ro \
   $POSTGRES_IMAGE
@@ -75,7 +75,7 @@ docker logs $CONTAINER_NAME
 : <<'EXAMPLE'
 # -- psql outside container
 psql -h localhost \
--p $DB_PORT \
+-p $HOST_PORT \
 -U postgres \
 -d postgres \
 -c "DESCRIBE food"
