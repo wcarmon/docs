@@ -24,7 +24,7 @@ set -u # fail on unset var
 readonly CONTAINER_NAME="postgres_for_foobar"
 readonly DB_NAME="postgres"
 readonly DB_PASS="postgres"
-readonly DB_PORT=5432
+readonly HOST_PORT=5432
 readonly DB_USER="postgres"
 readonly POSTGRES_IMAGE="postgres:18.4-alpine"
 
